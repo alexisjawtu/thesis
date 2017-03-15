@@ -1,3 +1,4 @@
+\chapter{Preliminaries}
 \section{Preliminares} % (fold)
 \label{sec:preliminares}
 \subsection{Definiciones, notaciones} % (fold)
@@ -168,43 +169,7 @@ $C^\infty(\bar{K})^3$ es un subespacio denso de $\wpcurl{K}$ con la norma~(\ref{
 \end{lema}
 % subsection defEdgeElement (end)
 
-\subsection{Definition of the $H(\text{div})$-conforming element on prisms. 
-Generalization of the Raviart-Thomas Finite Element} % (fold)
-\label{sub:definition_of_the_h_div_element}
-
-Notaci\'on:{\color{red} Controlar si est\'a bien usada la notaci\'on de prod. tensorial cuando
-es un vector de dos coords. por un escalar, y Controlar si es el mismo $h(x,y,z)$ en las coords. 1 y 2 (el 
-que es un homog\'eneo en $x,y$ por uno en $z$.)}
-\begin{IEEEeqnarray*}{rCl}
-	D_k & = & P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y) \textbf{x},\\
-	\textbf{x} & = & (x,y).
-\end{IEEEeqnarray*}
-\begin{defi}\label{defi_h_div_conforme} Definimos aqu\'{\i} un elemento 
-$H(\text{div})$--conforme. 
-\begin{enumerate}
-	\item $\hat{K}$ es el prisma de referencia.
-	\item El espacio $P_{\hat{K}}$ de polinomios es
-		\begin{IEEEeqnarray*}{rCl}
-		 	P_{\hat{K}} & = & \{ \boldsymbol{v} = (v_1,v_2,v_3):\,(v_1,v_2)\in D_k\otimes P_{k-1}(z),\\ 
-						& 	& v_3\in P_{k-1}(x,y)\otimes P_k(z) \}.
-		 \end{IEEEeqnarray*} 
-	\item Los grados de libertad son:
-\begin{IEEEeqnarray}{lll}
-	\label{momentos1hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-		& q \in P_{k-1}(x,y)\textrm{,} & \textrm{ para las dos caras horizontales; } \\
-	\label{momentos2hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-		& q \in Q_{k-1, k-1, k-1}\textrm{,} & \textrm{ para las tres caras verticales; } \\
-	\label{momentos3hdiv} \int\limits_{\hat{K}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
-		& \IEEEeqnarraymulticol{2}{c}{q_1\textrm{, } q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z);}\\
-	\label{momentos4hdiv} \int\limits_{\hat{K}} v_3q_3\,d\textbf{x} 
-		& \IEEEeqnarraymulticol{2}{c}{ q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
-\end{IEEEeqnarray}
-\end{enumerate}
-\end{defi}
----------------------------------------------------------
-\input{./bases/hdiv}\\
----------------------------------------------------------
-\begin{lema} $\dim(P_{\hat{K}}) = k^2\,(k+2) + \frac{k\,(k+1)^2}{2}$
+\begin{lema} From the Hdiv space on prisms ---> $\dim(P_{\hat{K}}) = k^2\,(k+2) + \frac{k\,(k+1)^2}{2}$
 \end{lema}
 \begin{proof}
 	From the definition of the discrete space, and the notation involved, it follows that for each
