@@ -1,0 +1,70 @@
+\usepackage[utf8x]{inputenc}
+%\usepackage{babel-spanish}
+%\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{helvet}
+%\usepackage{palatino}
+%\usepackage{charter}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage[retainorgcmds]{IEEEtrantools}
+
+\usetikzlibrary{calc,shapes.geometric}
+
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{syntonly}
+%\syntaxonly
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\w{\textbf{w}}
+\def\v{\textbf{v}}
+\def\n{\textbf{n}}
+\def\diam{\text{diam}}
+
+\newcommand{\hmtn}[2]{\textrm{H}^#1(\textrm{T})^#2}
+\newcommand{\RTk}{\textrm{RT}_k}
+\newcommand{\RTksomb}{\widehat{\textrm{RT}_k}}
+\newcommand{\xSombrero}[1]{\widehat{\textbf{#1}}}
+\newcommand{\raviart}[1]{\mathcal{RT}_k(#1)}
+\newcommand{\Vh}{\mathbb{V}_h}
+\newcommand{\Qh}{\mathbb{Q}_h}
+\newcommand{\Th}{\mathcal{T}_h}
+\newcommand{\supp}[1]{\textrm{supp}(#1)}
+\newcommand{\p}[2]{\mathcal{P}_{#1}(x,y) \otimes \mathcal{P}_{#2}(z)}
+\newcommand{\wpcurl}[1]{W^p(\emph{\textbf{curl}}, #1)}
+\newcommand{\diag}[3]{
+	\left(
+	\begin{array}{ccc}
+		#1 	& 0 	& 0\\
+		0	& #2 	& 0\\
+		0	& 0		& #3
+	\end{array}
+	\right)}
+\newcommand{\dvg}{\text{div}\,}
+\newcommand{\lf}[1]{\lambda_{f_{#1}}}
+\newcommand{\lhatf}[1]{\lambda_{\hat{f}_{#1}}}
+
+\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{theorem}{theorem}[section]
+\newtheorem{corolario}{Colorario}[section]
+\newtheorem{lema}{Lema}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{obs}{Observaci\'on}[section]
+\newtheorem{defi}{Definici\'on}[section]
+\newtheorem{problema}{Problema}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{ejemplo}{Ejemplo}[section]
+
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\Abs}{\left|}{\right|}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\Norm}{\left\|}{\right\|} %TODO este delimitador tiene un inconveniente
+
+\DeclareMathOperator{\img}{Im}
+\DeclareMathOperator{\Div}{\textrm{div}}
