@@ -1,4 +1,20 @@
 \chapter{vems--fems--intro}
+--$E\in\mathcal T_h$\\ 
+--local space
+\begin{eqnarray*}
+V_h(E)&=&\Big\{\bv\in H(\mbox{div},E)\cap H(\textbf{curl},E)\,:\,\\
+&&\qquad \bv\cdot\bn|_f\in \mathcal P_0(f) \,\,\mbox{for all face $f$ of }E, \\
+&& \qquad\mbox{div\,}\bv\in \mathcal P_0(E) \mbox{ and } 
+\mbox{{\bf curl}\,}\bv = 0 \Big\}.
+\end{eqnarray*}
+$-->$ global space
+\begin{eqnarray*}
+V_h&=&\left\{\bv\in H(\dv,\Omega): \bv|_E\in V_h(E), \mbox{for all element }
+E\in\mathcal T_h\right\}
+\end{eqnarray*}
+
+
+--------------------------------------------------------------------------------
 \subsection{Definition of the $H(\text{div})$-conforming element on prisms. 
 Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_prisms}
