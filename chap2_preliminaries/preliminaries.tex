@@ -1,40 +1,30 @@
 \chapter{Preliminaries}
-\section{Preliminares} % (fold)
-\label{sec:preliminares}
-\subsection{Definiciones, notaciones} % (fold)
-\label{sub:definiciones_notaciones}
-\begin{center}
-\begin{tikzpicture}
-	\draw[->] (0, 0, 0) -- node[above right=5pt] {$e_1$} (0, 0, 3.4);	
-	\draw[->] (0, 0, 0) -- node[left=20pt] {$e_2$} (3.2, 0, 0);
-	\draw[->] (0, 0, 0) -- node[below=25pt] {$e_3$} (0, 3.2, 0);
-	\draw (0, 0, 2) -- node[left=1pt] {$e_9$}  (2, 0, 0);
-	\draw (0, 2, 2) -- node[left=1pt] {$e_8$}  (2, 2, 0);
-	\draw (2, 0, 0) -- node[left=1pt] {$e_7$}  (2, 2, 0);
-	\draw (0, 0, 2) -- node[left=1pt] {$e_6$}  (0, 2, 2);
-	\draw (0, 2, 2) -- node[left=1pt] {$e_4$}  (0,2,0);
-	\draw (0, 2, 0) -- node[left=1pt] {$e_5$}  (2,2,0);
-\end{tikzpicture}
-\end{center}
-Un elemento finito se define como la siguiente terna $(K, P_K, A) $:
+\section{Preliminaries} % (fold)
+\label{sec:preliminaries}
+\subsection{Definitions, notations} % (fold)
+\label{sub:definitions_notations}
+A Finite Element in $\mathbb{R}^n$ is defined by the following triple $(K, P_K, \Sigma) $:
 
 \vspace{5pt}
 \noindent
-$K$ es un dominio que en nuestro caso ser\'a un prisma;
-
-\vspace{5pt}
+$K$ is an open non empty domain of $\mathbb{R}^n$ with Lipschitz--continuous 
+boundary.\\[5pt]
 \noindent
-$P_K$ es un espacio de polinomios en $K$ de dimensi\'on finita $N$;
-
-\vspace{5pt}
+$P_K$ is a finite--dimensional space of real--valued functions defined over $K$.\\[5pt]
 \noindent
-$A$ es un conjunto de $N$ grados de libertad, o momentos, que son funcionales lineales actuando en $P_K$.
+$\Sigma$ is a finite set of linearly independent linear functionals acting 
+on a functional space containing $P_K$. The elements of $\Sigma$ are often
+referred to as  \emph{degrees of freedom} or \emph{moments} of the Finite
+Element.
+
 % subsection definiciones_notaciones (end)
 \subsection{Definici\'on del \emph{edge element} en prismas} % (fold)
 \label{sub:defEdgeElement}
-\begin{defi} Introducimos la siguiente notación para ciertos espacios de polinomios que serán usados
-a su vez para definir el espacio de N\'ed\'elec. $R_k(\hat{T})$ es el espacio de polinomios definidos en 
-el triángulo $\hat{T}$ dado por
+\referencePrismTikz
+Now we introduce two polynomial spaces which will be used to construct 
+the edge elements on the reference prism.
+\begin{defi} $R_k(\hat{T})$ is the space of polynomials defined over the
+triangle $\hat{T}$ given by
 \begin{IEEEeqnarray}{rCl}
 	R_k(\hat{T}) & := & P_{k-1}(\hat{T})^2 \oplus S_k(\hat{T})\\
 	k&\geqslant&1
