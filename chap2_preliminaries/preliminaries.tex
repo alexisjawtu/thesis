@@ -17,24 +17,40 @@ on a functional space containing $P_K$. The elements of $\Sigma$ are often
 referred to as  \emph{degrees of freedom} or \emph{moments} of the Finite
 Element.
 
+\subsubsection{Polynomials} % (fold)
+\label{ssub:polynomials}
+The finite elements involved in this Thesis are built with piecewise
+polynomial functions or rational functions (that is, quotients of polynomials).
+For that reason we state some handy notations here.
+\begin{defi}
+	\begin{IEEEeqnarray*}{rCl}
+		P_k & = & \{\,\mbox{polynomials of degree less than or equal to k}\,\}\\[5pt]
+		\tilde{P}_k & = & \{\,\mbox{homogeneous polynomials of degree k}\,\}
+	\end{IEEEeqnarray*}
+In the case of ...
+\end{defi}
+
+% subsubsection polynomials (end)
+
 % subsection definiciones_notaciones (end)
+\referencePrismTikz
 \subsection{Definici\'on del \emph{edge element} en prismas} % (fold)
 \label{sub:defEdgeElement}
-\referencePrismTikz
 Now we introduce two polynomial spaces which will be used to construct 
-the edge elements on the reference prism.
+the edge elements on the reference prism (Figure~\ref{reference_prism}).
 \begin{defi} $R_k(\hat{T})$ is the space of polynomials defined over the
 triangle $\hat{T}$ given by
 \begin{IEEEeqnarray}{rCl}
 	R_k(\hat{T}) & := & P_{k-1}(\hat{T})^2 \oplus S_k(\hat{T})\\
 	k&\geqslant&1
 \end{IEEEeqnarray}
-donde
+where
 \begin{IEEEeqnarray}{rCl}
 	\label{defSk}
 	S_k(\hat{T}) 		& := & \{ \emph{\textbf{p}}\in \tilde{P}_k^2 \,:\;\emph{\textbf{p}}\cdot\emph{\textbf{x}} = 0\}\\
-	\emph{\textbf{x}}	& = & (x_1, x_2). 
+	\emph{\textbf{x}}	& = & (x_1, x_2)
 \end{IEEEeqnarray}
+and $\tilde{P}_k^2$ is 
 \end{defi}
 \noindent C\'alculo de $\dim\left(R_k(\hat{T}) \otimes P_k(\hat{I})\right)$.
 \begin{IEEEeqnarray*}{rCl}
