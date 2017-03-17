@@ -1,6 +1,30 @@
 \begin{chapter}[vems--fems]{vems--fems--intro}
-It is our intention to propose a VEM scheme in polyhedral meshes 
-consisting of tetrahedra, triangular prisms and pyramids.
+It is our intention to propose a Virtual Elements Method (VEM) scheme
+as a generalization of $H(\text{div})$--conforming Finite Elements
+in meshes consisting of polyhedra of arbitrary kind.
+We deal with tetrahedra, triangular prisms and pyramids and, in the presence of
+the latter, our VEM scheme is put in the framework of non-polynomial Finite Elements.\\[5pt]
+Let be given an open domain $\Omega\subseteq\mathbb{R}^3$ with Lipschitz--continuous boundary
+consisting of planar faces and define $V:=H(\mbox{div},\Omega)$ and $Q:=L^2(\Omega)$.
+Let us consider the following continuous problem.\\[5pt]
+With 
+\begin{IEEEeqnarray*}{rClCrCl}
+	a(\bv,\bw) & = & \forma{v}{w} &\quad\mbox{and}\quad& b(\bv,q) & = & \formb{v}{q}
+\end{IEEEeqnarray*}
+find $\bu\in V$ and $p\in Q$ such that for every $\bv\in V$ and every $q\in Q$
+\begin{equation}\label{mixedContinuous}
+  \makebox[0pt]{
+    \begin{minipage}{\linewidth}
+  	  \begin{IEEEeqnarray*}{rCl}
+  		a(\bu,\bv) + b(\bv,p) & = & 0\\[5pt]
+  				   - b(\bu,q) & = & (f,q) 
+  	  \end{IEEEeqnarray*}
+    \end{minipage}}
+  \tag{MC}
+\end{equation}
+
+------------------------ continue here
+
 --$E\in\mathcal T_h$\\ 
 --local space
 \begin{eqnarray*}

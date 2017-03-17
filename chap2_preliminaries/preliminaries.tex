@@ -16,23 +16,44 @@ $\Sigma$ is a finite set of linearly independent linear functionals acting
 on a functional space containing $P_K$. The elements of $\Sigma$ are often
 referred to as  \emph{degrees of freedom} or \emph{moments} of the Finite
 Element.
+% subsection definiciones_notaciones (end)
 
-\subsubsection{Polynomials} % (fold)
-\label{ssub:polynomials}
+\subsection{Polynomials} % (fold)
+\label{sub:polynomials}
 The finite elements involved in this Thesis are built with piecewise
 polynomial functions or rational functions (that is, quotients of polynomials).
 For that reason we state some handy notations here.
 \begin{defi}
-	\begin{IEEEeqnarray*}{rCl}
-		P_k & = & \{\,\mbox{polynomials of degree less than or equal to k}\,\}\\[5pt]
-		\tilde{P}_k & = & \{\,\mbox{homogeneous polynomials of degree k}\,\}
-	\end{IEEEeqnarray*}
-In the case of ...
+\begin{IEEEeqnarray*}{rCl}
+	P_k & = & \{\,\mbox{polynomials of degree less than or equal to k}\,\}\\[5pt]
+	\tilde{P}_k & = & \{\,\mbox{homogeneous polynomials of degree k}\,\}
+\end{IEEEeqnarray*}
+In the case of a line segment \emph{e} or a subdomain \emph{f} of a plane (typically
+an edge or a face of a polyhedron) we will write
+\begin{IEEEeqnarray*}{rCl}
+	P_k (e) & = & \{\,\mbox{polynomials of maximum degree k in arc length on e}\,\}\\[5pt]
+	P_k (f) & = & \{\,\mbox{polynomials of maximum degree k in $\xi_1$,$\xi_2$ on f}\,\}
+\end{IEEEeqnarray*}
+where we have used an orthogonal coordinate system $(\xi_1,\xi_2)$ in the plane
+containing $f$.\\[5pt]
+Moreover, we will make the identifications
+\begin{IEEEeqnarray*}{rClCrCl}
+	P_k(e) & = & \{p|_e\,:\,p\in P_k\} &\quad\mbox{ and }\quad&P_k(f)
+	& = & \{p|_f\,:\,p\in P_k\}.
+\end{IEEEeqnarray*}
 \end{defi}
+% subsection polynomials (end)
+\subsection{Functional Spaces. Trace Spaces.} % (fold)
+\label{sub:functional_spaces_trace_spaces}
+\begin{defi}
+\begin{IEEEeqnarray*}{rCl}
+	W^p(\emph{\textbf{curl}}, K) &=& \{ \emph{\textbf{u}}\in W^{1,p}(K)^3\,:\,\emph{\textbf{curl}}\,\emph{\textbf{u}}\in W^{1,1}(K)^3\}\\
+	\label{normaWpcurl}\yesnumber \|\emph{\textbf{u}}\|_{_{W^p(\emph{\textbf{curl}}, K)}} &=& 
+	\|\emph{\textbf{u}}\|_{_{W^{1,p}(K)}} + \| \emph{\textbf{curl}}\,\emph{\textbf{u}} \|_{_{W^{1,1}(K)}}. 
+\end{IEEEeqnarray*}
+\end{defi}
+% subsection functional_spaces_trace_spaces (end)
 
-% subsubsection polynomials (end)
-
-% subsection definiciones_notaciones (end)
 \referencePrismTikz
 \subsection{Definici\'on del \emph{edge element} en prismas} % (fold)
 \label{sub:defEdgeElement}
@@ -40,19 +61,17 @@ Now we introduce two polynomial spaces which will be used to construct
 the edge elements on the reference prism (Figure~\ref{reference_prism}).
 \begin{defi} $R_k(\hat{T})$ is the space of polynomials defined over the
 triangle $\hat{T}$ given by
-\begin{IEEEeqnarray}{rCl}
-	R_k(\hat{T}) & := & P_{k-1}(\hat{T})^2 \oplus S_k(\hat{T})\\
-	k&\geqslant&1
+\begin{IEEEeqnarray}{rClCrCl}
+	R_k(\hat{T}) & := & P_{k-1}(\hat{T})^2 \oplus S_k(\hat{T}) &\quad&  k&\geqslant&1
 \end{IEEEeqnarray}
 where
-\begin{IEEEeqnarray}{rCl}
+\begin{IEEEeqnarray}{rClCrCl}
 	\label{defSk}
-	S_k(\hat{T}) 		& := & \{ \emph{\textbf{p}}\in \tilde{P}_k^2 \,:\;\emph{\textbf{p}}\cdot\emph{\textbf{x}} = 0\}\\
-	\emph{\textbf{x}}	& = & (x_1, x_2)
+	S_k(\hat{T}) 		& := & \{ \emph{\textbf{p}}\in \tilde{P}_k^2 \,:\;\emph{\textbf{p}}\cdot\emph{\textbf{x}} = 0\}$\quad$\emph{\textbf{x}}	& = & (x_1, x_2).
 \end{IEEEeqnarray}
-and $\tilde{P}_k^2$ is 
 \end{defi}
-\noindent C\'alculo de $\dim\left(R_k(\hat{T}) \otimes P_k(\hat{I})\right)$.
+\noindent In order to establish unisolvence we need to calculate
+$\dim\left(R_k(\hat{T}) \otimes P_k(\hat{I})\right)$.
 \begin{IEEEeqnarray*}{rCl}
 	\dim\left(R_k(\hat{T}) \otimes P_k(\hat{I})\right) 
 	& = & \dim\left(R_k(\hat{T})\right)	\dim\left(P_k(\hat{I})\right) \\
@@ -156,14 +175,7 @@ si\-guien\-te:
 \end{IEEEeqnarray*}
 
 \end{ejemplo}
-Vamos a usar el siguiente espacio de Sobolev. 
-\begin{defi}
-\begin{IEEEeqnarray*}{rCl}
-	W^p(\emph{\textbf{curl}}, K) &=& \{ \emph{\textbf{u}}\in W^{1,p}(K)^3\,:\,\emph{\textbf{curl}}\,\emph{\textbf{u}}\in W^{1,1}(K)^3\}\\
-	\label{normaWpcurl}\yesnumber \|\emph{\textbf{u}}\|_{_{W^p(\emph{\textbf{curl}}, K)}} &=& 
-	\|\emph{\textbf{u}}\|_{_{W^{1,p}(K)}} + \| \emph{\textbf{curl}}\,\emph{\textbf{u}} \|_{_{W^{1,1}(K)}}. 
-\end{IEEEeqnarray*}
-\end{defi}
+
 Por la presencia de los momentos~(\ref{momentos1hcurl}) no se puede definir el interpolador para un campo arbitrario
 en $H(\textbf{curl}, K)$, así que por eso to\-ma\-mos co\-mo hi\-pó\-te\-sis que sea $p>2$ (ver~\cite{monk}, página 134,
 ~\cite{adams}, Theorem 5.4).\\\\
