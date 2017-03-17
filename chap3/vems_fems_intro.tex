@@ -41,7 +41,7 @@ The condition in the definitions of these spaces suffice to construct an interpo
 operator, which is a key object both in Finite Elements as in Virtual Elements.
 Let us take the degrees of freedom
 \begin{IEEEeqnarray}{rCl}\label{dofs}
-\int\limits_f \bv\cdot\bn\,d\gamma & \qquad\mbox{ for all face $f$ of } & \Th.
+  \int\limits_f \bv\cdot\bn\,d\gamma & \qquad\mbox{ for all face $f$ of } & \Th.
 \end{IEEEeqnarray}
 With \emph{faces of $\Th$} we mean the family of all faces forming the boundary
 consistently in the case of neighbour elements.
@@ -85,6 +85,21 @@ imply $\dv\bv=0$ by Green Theorem. Then, the potential $\phi$ satisfies
 \end{IEEEeqnarray*}
 {\color{red} which means it is a constant}, and it follows $\bv=0$.
 \end{proof}
+With this Lemma already {\color{red}proven} we are able to consider
+an $H(\text{div})$--like local interpolation operator well defined.
+\begin{corollary}
+  For every $\bv\in H^1(E)^3$ there exists a $V_h(E)$--interpolant $\bv_I$
+  defined as the unique element in $V_h(E)$ such that for every face $f$ of $E$
+    \begin{IEEEeqnarray*}{rCl}
+      \int\limits_f \bv_I\cdot\bn\,d\gamma & = & \int\limits_f \bv\cdot\bn\,d\gamma       
+    \end{IEEEeqnarray*}
+\end{corollary}
+--------------------HERE
+
+
+
+
+
 \subsection{Definition of the $H(\text{div})$-conforming element on prisms. 
 Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_prisms}
