@@ -29,7 +29,7 @@ For $E\in\Th$ the local space will be
 V_h(E)&=&\Big\{\bv\in H(\mbox{div},E)\cap H(\textbf{curl},E)\,:\,\\
 &&\qquad \bv\cdot\bn|_f\in \mathcal P_0(f) \,\,\mbox{for all face $f$ of }E, \\
 && \qquad\dv\bv\in \mathcal P_0(E) \mbox{ and } 
-\mbox{{\bf curl}\,}\bv = 0 \Big\}
+\curl\bv = 0 \Big\}
 \end{eqnarray*}
 and the  global space $V_h$ will consist of functions defined piecewise with the former
 local spaces:
@@ -45,41 +45,46 @@ Let us take the degrees of freedom
 \end{IEEEeqnarray}
 With \emph{faces of $\Th$} we mean the family of all faces forming the boundary
 consistently in the case of neighbour elements.
-\begin{lemma} Given a polyhedron $E\in\Th$, the degrees of freedom~(\ref{dofs}) corresponding to the faces of $E$ determine univocally a function in $V_h(E)$.
+\begin{lemma} Given a polyhedron $E\in\Th$, the degrees of freedom~(\ref{dofs}) corresponding to the faces of $E$ are unisolvent in $V_h(E)$.
 \end{lemma}
-\begin{proof}
-Let $g$ be the function on $\partial P$, constant on each face $f$
-of $P$, such that
+\begin{proof} \emph{Existence.} Let $n_{f,E}$ the number of faces of $E$ and
+take real numbers $\{\alpha_i\}_{i=1}^{n_{f,E}}$. Let $g$ the  piecewise constant
+function on $\partial E$ satisfying, for all $i$, %face $f$ of $E$
 \[
-\int_fg=\int_f\bv\cdot\bn, \qquad f \mbox{ face of }P,
+  \int\limits_{f_i} g = \alpha_i
 \]
-and let $d\in\mathcal P_0(P)$ such that
+and let $d$ be the constant function in $E$ such that
 \[
-\int_Pd = \int_{\partial P}\bv\cdot\bn.
+ \int\limits_E d\,d\textbf{x} = \sum \alpha_i.
 \]
-Then we consider the problem
-\[
-\Delta \phi=d \quad \mbox{in }P, \qquad \frac{\partial
-\phi}{\partial \bn} = g\quad\mbox{on }\partial P.
-\]
-We define $\bu=\nabla \phi$. Then $\mbox{div\,}\bu=d\in \mathcal
-P_0$, $\mbox{rot\,}\bu=0$ and $\bu\cdot\bn=g\in \mathcal P_0(f)$
-for all $f\in\partial P$. So $\bu\in V_h(P)$.
-
-On the other hand, suppose that $\bv\in V_h(P)$ has vanishing
-degrees of freedom. Since $\mbox{rot\,}\bv=0$ it follows that
-$\bv=\nabla\phi$. Now, since $\mbox{div\,}\bv\in\mathcal P_0(P)$
-\[
-0=\int_{\partial P}\bv\cdot n=\int_P\mbox{div\,}\bv
-\]
-implies $\mbox{div\,}\bv=0$. So, $\phi$ satisfies
-\[
-\Delta \phi=0,\quad\mbox{in }\Omega, \qquad \frac{\partial
-\phi}{\partial \bn}=0,\quad \mbox{on }\partial P
-\]
-and then $\phi$ is constant. So $\bv=0$.
+Then we consider the auxiliary problem of seeking a solution of
+\begin{IEEEeqnarray}{rClrCl}
+  \label{aux_prob}
+  \Delta \phi & = & d \quad \mbox{in $E$,} \qquad & 
+  \frac{\partial \phi}{\partial \bn}& = &g \quad \mbox{on }\partial E.
+\end{IEEEeqnarray}
+{\color{red}By definition we obtain the compatibility condition}
+\begin{IEEEeqnarray*}{rCl}
+  \int\limits_E d\,d\textbf{x}& = & \int\limits_{\partial E} g\,d\gamma    
+\end{IEEEeqnarray*}
+so the solution $\phi$ to the problem~(\ref{aux_prob}) exists. Now
+we take $\bu:=\nabla \phi$ and  it holds immediately $\dv\bu$ is constant in $E$,
+$\bu\cdot\bn$ is constant on each face of $\partial E$ and $\curl\bu = 0$. So
+$\bu$ lies in $V_h(E)$ and also for all $1\leqslant i\leqslant n_{f,E}$ $\int_{f_i} \bu\cdot\bn\,d\gamma = \alpha_i$.\\[4pt]
+\emph{Uniqueness.} Suppose that $\bv\in V_h(E)$ has vanishing
+degrees of freedom. Condition $\curl\bv=0$ implies
+$\bv=\nabla\phi$ for certain $\phi$. Now, since $\dv\bv$ is constant on $E$, the
+relations 
+\begin{IEEEeqnarray*}{rCl}
+   0 & = & \int\limits_{\partial P}\bv\cdot\bn\,d\gamma 
+\end{IEEEeqnarray*} %& = & \int\limits_P\dv\bv\,d\textbf{x}
+imply $\dv\bv=0$ by Green Theorem. Then, the potential $\phi$ satisfies
+\begin{IEEEeqnarray*}{rClrCl}
+  \Delta \phi & = & 0 \quad \mbox{in $E$,} \qquad & 
+  \frac{\partial \phi}{\partial \bn}& = &0 \quad \mbox{on }\partial E
+\end{IEEEeqnarray*}
+{\color{red} which means it is a constant}, and it follows $\bv=0$.
 \end{proof}
-
 \subsection{Definition of the $H(\text{div})$-conforming element on prisms. 
 Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_prisms}
