@@ -181,14 +181,14 @@ en $H(\textbf{curl}, K)$, así que por eso to\-ma\-mos co\-mo hi\-pó\-te\-sis q
 ~\cite{adams}, Theorem 5.4).\\\\
 En~\cite{nedelec2} se prueba que este elemento es $H(\textbf{curl})$--conforme y unisolvente. {\color{BrickRed}>Está
 bien usar esta conformidad, siendo que restringimos a Wp?}\\[5pt]
-El siguiente lema será usado para demostrar el teorema de estabilidad en el elemento de referencia con un argumento de densidad. Para su demostración referimos a~\cite{adams}.
-\begin{lema}\label{lemaDensidad}
+El siguiente lemma será usado para demostrar el teorema de estabilidad en el elemento de referencia con un argumento de densidad. Para su demostración referimos a~\cite{adams}.
+\begin{lemma}\label{lemaDensidad}
 $C^\infty(\bar{K})^3$ es un subespacio denso de $\wpcurl{K}$ con la norma~(\ref{normaWpcurl}).
-\end{lema}
+\end{lemma}
 % subsection defEdgeElement (end)
 
-\begin{lema} From the Hdiv space on prisms ---> $\dim(P_{\hat{K}}) = k^2\,(k+2) + \frac{k\,(k+1)^2}{2}$
-\end{lema}
+\begin{lemma} From the Hdiv space on prisms ---> $\dim(P_{\hat{K}}) = k^2\,(k+2) + \frac{k\,(k+1)^2}{2}$
+\end{lemma}
 \begin{proof}
 	From the definition of the discrete space, and the notation involved, it follows that for each
 	$\textbf{p} = (p_1, p_2, p_3) \in  P_{\hat{K}}$ there are unique $q_1, q_2 \in 
@@ -206,14 +206,14 @@ $C^\infty(\bar{K})^3$ es un subespacio denso de $\wpcurl{K}$ con la norma~(\ref{
 \end{proof}
 \noindent Now a key result that establishes a relation between the interpolation operators. It will used as an important step in the proof of the stability of the
 edge element on a prism.
-\begin{lema}\label{lema_pi_star_rot_u} Si $\pi$ es el operador de interpolaci\'on determinado por el elemento en
+\begin{lemma}\label{lema_pi_star_rot_u} Si $\pi$ es el operador de interpolaci\'on determinado por el elemento en
 la Definici\'on~(\ref{edgeelement}) y $\pi^*$ es el operador de interpolaci\'on determinado por el elemento en la
 Definici\'on~(\ref{defi_h_div_conforme}), entonces, para toda $\emph{\textbf{u}}$ tal que 
 "existan las dos composiciones"
 \begin{IEEEeqnarray}{rCl}
 	\emph{\textbf{curl}}\,\pi \emph{\textbf{u}} &=& \pi^*\emph{\textbf{curl}}\,\emph{\textbf{u}}.
 \end{IEEEeqnarray}
-\end{lema}
+\end{lemma}
 \begin{proof}
 Vamos a usar la siguiente versión superficial del Teorema de Stokes. Sea dado un dominio Lipschitz acotado 
 $S\subseteq\mathbb{R}^2$ con tangente unitaria $\boldsymbol{\tau}$ al borde $\partial S$. Para 

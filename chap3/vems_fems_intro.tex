@@ -17,36 +17,69 @@ find $\bu\in V$ and $p\in Q$ such that for every $\bv\in V$ and every $q\in Q$
     \begin{minipage}{\linewidth}
   	  \begin{IEEEeqnarray*}{rCl}
   		a(\bu,\bv) + b(\bv,p) & = & 0\\[5pt]
-  				   - b(\bu,q) & = & (f,q) 
+  				   - b(\bu,q) & = & (f,q).
   	  \end{IEEEeqnarray*}
     \end{minipage}}
   \tag{MC}
 \end{equation}
-
------------------------- continue here
-
---$E\in\mathcal T_h$\\ 
---local space
+We start with a polihedral triangulation $\Th$ of $\Omega$ to define the 
+virtual spaces $V_h$ and $Q_h$ as discretizations of $V$ and $Q$ respectively.\\[5pt]
+For $E\in\Th$ the local space will be
 \begin{eqnarray*}
 V_h(E)&=&\Big\{\bv\in H(\mbox{div},E)\cap H(\textbf{curl},E)\,:\,\\
 &&\qquad \bv\cdot\bn|_f\in \mathcal P_0(f) \,\,\mbox{for all face $f$ of }E, \\
-&& \qquad\mbox{div\,}\bv\in \mathcal P_0(E) \mbox{ and } 
-\mbox{{\bf curl}\,}\bv = 0 \Big\}.
+&& \qquad\dv\bv\in \mathcal P_0(E) \mbox{ and } 
+\mbox{{\bf curl}\,}\bv = 0 \Big\}
 \end{eqnarray*}
-$-->$ global space
-\begin{eqnarray*}
-V_h&=&\Big\{\bv\in H(\dv,\Omega): \bv|_E\in V_h(E), \mbox{for all element }
-E\in\mathcal T_h\Big\}
-\end{eqnarray*}
-degrees of freedom
-\begin{IEEEeqnarray*}{rCl}	
-\int\limits_f \bv\cdot\bn\,d\gamma & \qquad\mbox{ for all face $f$ of } & \mathcal T_h.
+and the  global space $V_h$ will consist of functions defined piecewise with the former
+local spaces:
+\begin{IEEEeqnarray*}{ccrCl}
+V_h&=&V_h(\Th)&:=&\Big\{\bv\in H(\dv,\Omega): \bv|_E\in V_h(E), \mbox{for all element }
+E\in\Th\Big\}
 \end{IEEEeqnarray*}
+The condition in the definitions of these spaces suffice to construct an interpolation
+operator, which is a key object both in Finite Elements as in Virtual Elements.
+Let us take the degrees of freedom
+\begin{IEEEeqnarray}{rCl}\label{dofs}
+\int\limits_f \bv\cdot\bn\,d\gamma & \qquad\mbox{ for all face $f$ of } & \Th.
+\end{IEEEeqnarray}
+With \emph{faces of $\Th$} we mean the family of all faces forming the boundary
+consistently in the case of neighbour elements.
+\begin{lemma} Given a polyhedron $E\in\Th$, the degrees of freedom~(\ref{dofs}) corresponding to the faces of $E$ determine univocally a function in $V_h(E)$.
+\end{lemma}
+\begin{proof}
+Let $g$ be the function on $\partial P$, constant on each face $f$
+of $P$, such that
+\[
+\int_fg=\int_f\bv\cdot\bn, \qquad f \mbox{ face of }P,
+\]
+and let $d\in\mathcal P_0(P)$ such that
+\[
+\int_Pd = \int_{\partial P}\bv\cdot\bn.
+\]
+Then we consider the problem
+\[
+\Delta \phi=d \quad \mbox{in }P, \qquad \frac{\partial
+\phi}{\partial \bn} = g\quad\mbox{on }\partial P.
+\]
+We define $\bu=\nabla \phi$. Then $\mbox{div\,}\bu=d\in \mathcal
+P_0$, $\mbox{rot\,}\bu=0$ and $\bu\cdot\bn=g\in \mathcal P_0(f)$
+for all $f\in\partial P$. So $\bu\in V_h(P)$.
 
-TODO: pdf Highlighting tool for debian??
+On the other hand, suppose that $\bv\in V_h(P)$ has vanishing
+degrees of freedom. Since $\mbox{rot\,}\bv=0$ it follows that
+$\bv=\nabla\phi$. Now, since $\mbox{div\,}\bv\in\mathcal P_0(P)$
+\[
+0=\int_{\partial P}\bv\cdot n=\int_P\mbox{div\,}\bv
+\]
+implies $\mbox{div\,}\bv=0$. So, $\phi$ satisfies
+\[
+\Delta \phi=0,\quad\mbox{in }\Omega, \qquad \frac{\partial
+\phi}{\partial \bn}=0,\quad \mbox{on }\partial P
+\]
+and then $\phi$ is constant. So $\bv=0$.
+\end{proof}
 
-
---------------------------------------------------------------------------------
 \subsection{Definition of the $H(\text{div})$-conforming element on prisms. 
 Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_prisms}
