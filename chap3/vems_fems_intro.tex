@@ -24,12 +24,11 @@ find $\bu\in V$ and $p\in Q$ such that for every $\bv\in V$ and every $q\in Q$
 \end{equation}
 We start with a polihedral triangulation $\Th$ of $\Omega$ to define the 
 virtual spaces $V_h$ and $Q_h$ as discretizations of $V$ and $Q$ respectively.\\[5pt]
-For $E\in\Th$ the local space will be
+For $E\in\Th$ the local space of vector fields will be
 \begin{eqnarray*}
-V_h(E)&=&\Big\{\bv\in H(\mbox{div},E)\cap H(\textbf{curl},E)\,:\,\\
-&&\qquad \bv\cdot\bn|_f\in \mathcal P_0(f) \,\,\mbox{for all face $f$ of }E, \\
-&& \qquad\dv\bv\in \mathcal P_0(E) \mbox{ and } 
-\curl\bv = 0 \Big\}
+  V_h(E)&=&\Big\{\bv\in H(\mbox{div},E)\cap H(\textbf{curl},E)\,:\,\\
+  &&\qquad \bv\cdot\bn|_f\in \mathcal P_0(f) \,\,\mbox{for all face $f$ of }E, \\
+  && \qquad\dv\bv\in \mathcal P_0(E) \mbox{ and } \curl\bv = 0 \Big\}
 \end{eqnarray*}
 and the  global space $V_h$ will consist of functions defined piecewise with the former
 local spaces:
@@ -37,6 +36,12 @@ local spaces:
 V_h&=&V_h(\Th)&:=&\Big\{\bv\in H(\dv,\Omega): \bv|_E\in V_h(E), \mbox{for all element }
 E\in\Th\Big\}
 \end{IEEEeqnarray*}
+The scalar discrete space we will consider is
+\begin{IEEEeqnarray}{rCl}
+  Q_h & = & \mathcal{P}_0(\Th)
+\end{IEEEeqnarray}
+meaning the functions that constant on each element of $\Th$.
+
 The condition in the definitions of these spaces suffice to construct an interpolation
 operator, which is a key object both in Finite Elements as in Virtual Elements.
 Let us take the degrees of freedom
@@ -94,57 +99,28 @@ an $H(\text{div})$--like local interpolation operator well defined.
       \int\limits_f \bv_I\cdot\bn\,d\gamma & = & \int\limits_f \bv\cdot\bn\,d\gamma       
     \end{IEEEeqnarray*}
 \end{corollary}
---------------------HERE
-
-
-
-
-
-\subsection{Definition of the $H(\text{div})$-conforming element on prisms. 
-Generalization of the Raviart-Thomas Finite Element} % (fold)
-\label{sub:definition_of_the_h_div_element_on_prisms}
-
-Notaci\'on:{\color{red} Controlar si est\'a bien usada la notaci\'on de prod. tensorial cuando
-es un vector de dos coords. por un escalar, y Controlar si es el mismo $h(x,y,z)$ en las coords. 1 y 2 (el 
-que es un homog\'eneo en $x,y$ por uno en $z$.)}
+\begin{lemma} Consider the projection $P_0$ onto the constants on $E$. It holds
 \begin{IEEEeqnarray*}{rCl}
-	D_k & = & P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y) \textbf{x},\\
-	\textbf{x} & = & (x,y).
+  \dv\bv_I & = & P_0\,\dv\bv.
 \end{IEEEeqnarray*}
-\begin{defi}\label{defi_h_div_conforme} Definimos aqu\'{\i} un elemento 
-$H(\text{div})$--conforme. 
-\begin{enumerate}
-	\item $\hat{K}$ es el prisma de referencia.
-	\item El espacio $P_{\hat{K}}$ de polinomios es
-		\begin{IEEEeqnarray*}{rCl}
-		 	P_{\hat{K}} & = & \{ \boldsymbol{v} = (v_1,v_2,v_3):\,(v_1,v_2)\in D_k\otimes P_{k-1}(z),\\ 
-						& 	& v_3\in P_{k-1}(x,y)\otimes P_k(z) \}.
-		 \end{IEEEeqnarray*} 
-	\item Los grados de libertad son:
-\begin{IEEEeqnarray}{lll}
-	\label{momentos1hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-		& q \in P_{k-1}(x,y)\textrm{,} & \textrm{ para las dos caras horizontales; } \\
-	\label{momentos2hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-		& q \in Q_{k-1, k-1, k-1}\textrm{,} & \textrm{ para las tres caras verticales; } \\
-	\label{momentos3hdiv} \int\limits_{\hat{K}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
-		& \IEEEeqnarraymulticol{2}{c}{q_1\textrm{, } q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z);}\\
-	\label{momentos4hdiv} \int\limits_{\hat{K}} v_3q_3\,d\textbf{x} 
-		& \IEEEeqnarraymulticol{2}{c}{ q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
-\end{IEEEeqnarray}
-\end{enumerate}
-\end{defi}
+\end{lemma}
+By an inspection of the Finite Elements defined in Chapter~\ref{chap_prelim}
+we obtain immediately the following
+\begin{remark} If $E$ is a tetrahedron or a prism, then $V_h(E) = RT_0(E)$
+(cfr.~(\ref{sub:definition_of_the_h_div_element_on_prisms})
+and~(\ref{sub:definition_of_the_h_div_element_on_tetrahedra}) both
+in the lower case).
+\end{remark}
+
+
+
+
+
+
+
+
 ---------------------------------------------------------
 \input{./chap3/hdiv_basis_low_order}\\
 ---------------------------------------------------------
 
-\subsection{Definition of the $H(\text{div})$-conforming element on tetrahedra. 
-Generalization of the Raviart-Thomas Finite Element} % (fold)
-\label{sub:definition_of_the_h_div_element_on_tetrahedra}
-
-{\color{red} TODO: completar esto }
-\begin{IEEEeqnarray*}{rCl}
-	P_{\hat{K}} & = & P_k^3(\hat{K}) + P_{k-1}(\hat{K})\,\textbf{x}. \\[5pt]
-\end{IEEEeqnarray*}
-
-% subsection definition_of_the_h_div_conforming_element_on_tetrahedra_generalization_of_the_raviart_thomas_finite_element (end)
 \end{chapter}
