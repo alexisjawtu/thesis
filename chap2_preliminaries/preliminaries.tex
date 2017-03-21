@@ -39,8 +39,8 @@ where we have used an orthogonal coordinate system $(\xi_1,\xi_2)$ in the plane
 containing $f$.\\[5pt]
 Moreover, we will make the identifications
 \begin{IEEEeqnarray*}{rClCrCl}
-	P_k(e) & = & \{p|_e\,:\,p\in P_k\} &\quad\mbox{ and }\quad&P_k(f)
-	& = & \{p|_f\,:\,p\in P_k\}.
+	P_k(e)  & = & \{p|_e\,:\,p\in P_k\} &\quad\mbox{ and }\quad&P_k(f)
+			& = & \{p|_f\,:\,p\in P_k\}.
 \end{IEEEeqnarray*}
 \end{defi}
 % subsection polynomials (end)
@@ -55,6 +55,36 @@ Moreover, we will make the identifications
 	\| \emph{\curl}\emph{\textbf{u}} \|_{_{W^{1,1}(K)}}. 
 \end{IEEEeqnarray*}
 \end{defi}
+\begin{lemma} Let two disjoint Lipschitz domains $\Omega_1$ and $\Omega_2$
+be given  in $\mathbb{R}^n$, such that $\overline{\Omega_1}\cap\overline{\Omega_2}$ is an
+$(n-1)$--dimensional surface $f$ of positive measure. Take
+$\Omega = \Omega_1\cup \Omega_2\cup f$. Let $\bu_1 \in H(\text{div},\Omega_1)$ 
+and $\bu_2 \in H(\text{div},\Omega_2)$. Consider 
+\begin{IEEEeqnarray*}{rCl}
+	\bu & = &
+	  \begin{cases}
+	  	\bu_1, &\text{ on }\Omega_1\\
+	  	\bu_2, &\text{ on }\Omega_2	  	
+	  \end{cases}.
+\end{IEEEeqnarray*}
+Then $\bu$ is in $H(\text{div},\Omega)$ if and only if
+the normal traces of $\boldsymbol{u}_1$ and $\boldsymbol{u}_2$ coincide on $f$.
+\end{lemma}
+\begin{proof}
+	{\color{red} TODO}
+\end{proof}
+\begin{defi} \ldots We say that the Finite Element $(K, P_K, \Sigma)$ is
+$H(\text{div})$--conformig if the field defined as
+\begin{IEEEeqnarray*}{rCl}
+	\bw & = &
+	  \begin{cases}
+	  	\pi_1(\bu|_{\Omega_1}), &\text{ on }\Omega_1\\
+	  	\pi_2(\bu|_{\Omega_2}), &\text{ on }\Omega_2	  	
+	  \end{cases}
+\end{IEEEeqnarray*}
+results in $H(\text{div},\Omega_1\cup\Omega_2)$.
+\end{defi}
+
 % subsection functional_spaces_trace_spaces (end)
 
 \referencePrismTikz
@@ -190,7 +220,8 @@ bien usar esta conformidad, siendo que restringimos a Wp?}
 \subsection{Definition of the $H(\text{div})$-conforming element on prisms. 
 Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_prisms}
-
+With the notation introduced in~(\ref{sub:polynomials}) we consider
+the polynomial space
 Notaci\'on:{\color{red} Controlar si est\'a bien usada la notaci\'on de prod. tensorial cuando
 es un vector de dos coords. por un escalar, y Controlar si es el mismo $h(x,y,z)$ en las coords. 1 y 2 (el 
 que es un homog\'eneo en $x,y$ por uno en $z$.)}
@@ -198,28 +229,46 @@ que es un homog\'eneo en $x,y$ por uno en $z$.)}
 	D_k & = & P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y) \textbf{x},\\
 	\textbf{x} & = & (x,y).
 \end{IEEEeqnarray*}
-\begin{defi}\label{defi_h_div_conforme} Definimos aqu\'{\i} un elemento 
-$H(\text{div})$--conforme. 
-\begin{enumerate}
-	\item $\hat{K}$ es el prisma de referencia.
-	\item El espacio $P_{\hat{K}}$ de polinomios es
+\begin{defi}\label{defi_h_div_conforme} The RT element
+\begin{itemize}
+	\item $\hat{E}$ is the reference prism (Figure~(\ref{reference_prism})).
+	\item El espacio $P_{\hat{E}}$ de polinomios es
 		\begin{IEEEeqnarray*}{rCl}
 		 	P_{\hat{K}} & = & \{ \boldsymbol{v} = (v_1,v_2,v_3):\,(v_1,v_2)\in D_k\otimes P_{k-1}(z),\\ 
 						& 	& v_3\in P_{k-1}(x,y)\otimes P_k(z) \}.
 		 \end{IEEEeqnarray*} 
-	\item Los grados de libertad son:
-\begin{IEEEeqnarray}{lll}
+	\item The degrees of freedom are of two types, surface and volumen integrals:
+\begin{IEEEeqnarray}{lcl}
 	\label{momentos1hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-		& q \in P_{k-1}(x,y)\textrm{,} & \textrm{ para las dos caras horizontales; } \\
+		&& \mbox{for } q \in P_{k-1}(x,y)\mbox{,}\\
+	\nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
 	\label{momentos2hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-		& q \in Q_{k-1, k-1, k-1}\textrm{,} & \textrm{ para las tres caras verticales; } \\
+		&& \mbox{for } q \in Q_{k-1, k-1, k-1}\mbox{,}\\
+	\nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{y}=0\}$
+	 or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
 	\label{momentos3hdiv} \int\limits_{\hat{K}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
-		& \IEEEeqnarraymulticol{2}{c}{q_1\textrm{, } q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z);}\\
+		&\quad& {q_1\mbox{, } q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z);}\\
 	\label{momentos4hdiv} \int\limits_{\hat{K}} v_3q_3\,d\textbf{x} 
-		& \IEEEeqnarraymulticol{2}{c}{ q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
+		&\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
 \end{IEEEeqnarray}
-\end{enumerate}
+\end{itemize}
+\begin{IEEEeqnarray}{lcl}
+	\label{momentos1hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
+		&& \mbox{for } q \in P_{k-1}(x,y)\mbox{,}\\
+	\nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
+	\label{momentos2hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
+		&& \mbox{for } q \in Q_{k-1, k-1, k-1}\mbox{,}\\
+	\nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{y}=0\}$
+	 or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
+	\label{momentos3hdiv} \int\limits_{\hat{K}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
+		&\quad& {q_1\mbox{, } q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z);}\\
+	\label{momentos4hdiv} \int\limits_{\hat{K}} v_3q_3\,d\textbf{x} 
+		&\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
+\end{IEEEeqnarray}
 \end{defi}
+\noindent---------------------------------------------------------
+\input{./chap3/hdiv_basis_low_order}\\
+---------------------------------------------------------
 \subsection{Definition of the $H(\text{div})$-conforming element on tetrahedra. 
 Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_tetrahedra}
