@@ -175,43 +175,43 @@ y finalmente
 \end{IEEEeqnarray*}
 ($\dim\left(P_K\right) = 3\frac{k(k+1)(k+2)}{2}$).
 \begin{defi}
-\label{edgeelement} Dado un natural $k$, los \emph{edge elements}
-de grado $k$ en el prisma de referencia se definen por lo
-si\-guien\-te:
+\label{edgeelement} Given a natural $k$, the \emph{edge elements}
+of degree $k$ are defined by the following:
 \begin{enumerate}
-	\item $\hat{K}$ es el prisma $\hat{T} \times \hat{I}$ donde $\hat{T} = 
-	\{ 0 < x + y < 1 \}$ e $\hat{I} = \{ 0<z<1 \} $.
-	\item El espacio de polinomios  $P_{\hat{K}}$ es
+	\item $\hat{K}$ is the reference prism $\hat{T} \times \hat{I}$ where $\hat{T} = 
+	\{ 0 < x + y < 1 \}$ and $\hat{I} = \{ 0<z<1 \} $.
+	\item The polynomial space $P_{\hat{K}}$ is
 		\begin{IEEEeqnarray*}{rCl}
 		 	P_{\hat{K}} & = & R_k(\hat{T}) \otimes P_k(\hat{I}) \times 
 			P_k(\hat{T}) \otimes P_{k-1}(\hat{I}).
 		 \end{IEEEeqnarray*} 
-	\item Los grados de libertad son:
+	\item The degrees of freedom are:
 \begin{IEEEeqnarray}{ll}
 	\label{momentos1hcurl} \int\limits_{a} \textbf{u} \cdot \boldsymbol{\tau} \,q\, ds  
 		& q\in P_{k-1}\textrm{,} \\
-	\IEEEeqnarraymulticol{2}{l}{\nonumber\textrm{ para cada arista $a$ con tangente unitaria } \boldsymbol{\tau} \textrm{;}}\\[8pt]
+	\IEEEeqnarraymulticol{2}{l}{\nonumber\textrm{ for each edge $a$ with unit tangent } \boldsymbol{\tau} \textrm{;}}\\[8pt]
 	\label{momentos2hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \boldsymbol{q}\,
 	d\gamma\textrm{, } &\boldsymbol{q} = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
-	\IEEEeqnarraymulticol{2}{l}{\nonumber\textrm{ para cada cara horizontal f con normal } \boldsymbol{\nu} = (0,0,\pm1) \textrm{;}}\\[8pt]
+	\IEEEeqnarraymulticol{2}{l}{\nonumber\textrm{ for each horizontal face $f$ with normal } \boldsymbol{\nu} = (0,0,\pm1) \textrm{;}}\\[8pt]
  	\label{momentos3hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \boldsymbol{q}\,
  	d\gamma\textrm{, } &\boldsymbol{q} = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
  	Q_{k-1,k-2}\textrm{, } \\
- 	\IEEEeqnarraymulticol{2}{l}{\nonumber\textrm{ para la cara } f \subseteq \{ x=0 \} \textrm{ con normal }\boldsymbol{\nu} = (-1,0,0) \textrm{;}}\\[8pt]
+ 	\IEEEeqnarraymulticol{2}{l}{\nonumber\textrm{ for the face } f \subseteq \{ x=0 \} \textrm{ with normal }\boldsymbol{\nu} = (-1,0,0) \textrm{;}}\\[8pt]
  	\label{momentos4hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \boldsymbol{q}\,
  	d\gamma\textrm{, } & \boldsymbol{q} = (q_3,0,q_1) \in Q_{k-2,k-1} \times \{ 0 \} \times
  	Q_{k-1,k-2},\\
- 	\IEEEeqnarraymulticol{2}{l}{\nonumber\textrm{ para la cara }f \subseteq \{ y=0 \} \textrm{ con normal }\boldsymbol{n} = (0,-1,0) \textrm{;}}\\[8pt]
+ 	\IEEEeqnarraymulticol{2}{l}{\nonumber\textrm{ for the face } f \subseteq \{ y=0 \} \textrm{ with normal }\boldsymbol{n} = (0,-1,0) \textrm{;}}\\[8pt]
 	\label{momentos5hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \boldsymbol{q}\,
 	d\gamma\textrm{, } & \boldsymbol{q} = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times
 	Q_{k-1,k-2}\textrm{, }\\
-	\IEEEeqnarraymulticol{2}{l}{\nonumber\textrm{ para la cara }f \subseteq \{x+y=1\} \textrm{ con normal }\boldsymbol{n} = (1,1,0) \textrm{;}}\\[8pt]
+	\IEEEeqnarraymulticol{2}{l}{\nonumber\textrm{ for the face }f \subseteq \{x+y=1\} \textrm{ with normal }\boldsymbol{n} = (1,1,0) \textrm{;}}\\[8pt]
  	\label{momentos6hcurl} \int\limits_{K} \textbf{u} \cdot \boldsymbol{q} \, d\textbf{x}\textrm{, }&\\
  	\IEEEeqnarraymulticol{2}{l}{\nonumber q_1, q_2 \in P_{k-2}(x,y) \otimes 
  		P_{k-2}(z)\textrm{, }q_3 \in P_{k-3}(x,y) \otimes P_{k-1}(z).}
 \end{IEEEeqnarray}
 \end{enumerate}
 \end{defi}
+An illustrative example.
 \begin{ejemplo}[edge elements of degree 1]
 \begin{IEEEeqnarray*}{rCl}
 \hat{\textbf{u}}\,(\hat{x},\hat{y},\hat{z}) &=& 
@@ -262,7 +262,7 @@ que es un homog\'eneo en $x,y$ por uno en $z$.)}
 		&& \mbox{for } q \in P_{k-1}(x,y)\mbox{,}\\
 	\nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
 	\label{momentos2hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-		&& \mbox{for } q \in Q_{k-1, k-1, k-1}\mbox{,}\\
+		&& \mbox{for } q \in Q_{k-1, k-1}\mbox{,}\\
 	\nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{y}=0\}$
 	 or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
 	\label{momentos3hdiv} \int\limits_{\hat{K}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
@@ -271,6 +271,8 @@ que es un homog\'eneo en $x,y$ por uno en $z$.)}
 		&\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
 \end{IEEEeqnarray}
 \end{itemize}
+{\color{red}TODO: tal vez en los dofs (\ref{momentos2hdiv}) haya que separar los espacios test como hice
+en pyramids}
 
 %% original version of dofs
 %\begin{IEEEeqnarray}{lcl}
