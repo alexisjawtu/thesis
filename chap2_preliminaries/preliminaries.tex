@@ -84,8 +84,14 @@ $H(\text{div})$--conformig if the field defined as
 \end{IEEEeqnarray*}
 results in $H(\text{div},\Omega_1\cup\Omega_2)$.
 \end{defi}
-
 % subsection functional_spaces_trace_spaces (end)
+\subsection{Transformations} % (fold)
+\label{sub:transformations}
+\begin{equation}\label{push-forward}
+	{\color{red} \ldots \mbox{push-forward} \ldots}
+\end{equation}
+% subsection transformations (end)
+
 
 \referencePrismTikz
 \subsection{Definici\'on del \emph{edge element} en prismas} % (fold)
@@ -252,20 +258,31 @@ que es un homog\'eneo en $x,y$ por uno en $z$.)}
 		&\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
 \end{IEEEeqnarray}
 \end{itemize}
-\begin{IEEEeqnarray}{lcl}
-	\label{momentos1hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-		&& \mbox{for } q \in P_{k-1}(x,y)\mbox{,}\\
-	\nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
-	\label{momentos2hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-		&& \mbox{for } q \in Q_{k-1, k-1, k-1}\mbox{,}\\
-	\nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{y}=0\}$
-	 or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
-	\label{momentos3hdiv} \int\limits_{\hat{K}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
-		&\quad& {q_1\mbox{, } q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z);}\\
-	\label{momentos4hdiv} \int\limits_{\hat{K}} v_3q_3\,d\textbf{x} 
-		&\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
-\end{IEEEeqnarray}
+
+%% original version of dofs
+%\begin{IEEEeqnarray}{lcl}
+%	\label{momentos1hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
+%		&& \mbox{for } q \in P_{k-1}(x,y)\mbox{,}\\
+%	\nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
+%	\label{momentos2hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
+%		&& \mbox{for } q \in Q_{k-1, k-1, k-1}\mbox{,}\\
+%	\nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{y}=0\}$
+%	 or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
+%	\label{momentos3hdiv} \int\limits_{\hat{K}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
+%		&\quad& {q_1\mbox{, } q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z);}\\
+%	\label{momentos4hdiv} \int\limits_{\hat{K}} v_3q_3\,d\textbf{x} 
+%		&\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
+%\end{IEEEeqnarray}
+
 \end{defi}
+We want this same setting to build Finite Elements on arbitrary contiguous prisms
+belonging to a fixed mesh, all of which being an affine image of the reference prism.
+In order to do so we transform the set $\hat{E}$, the discrete local space and the 
+degrees of freedom exactly as we are told by the push-forward
+transformations~(\ref{push-forward}). 
+
+
+
 \noindent---------------------------------------------------------
 \input{./chap3/hdiv_basis_low_order}\\
 ---------------------------------------------------------
