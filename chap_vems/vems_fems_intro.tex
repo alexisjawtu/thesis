@@ -4,7 +4,8 @@ as a generalization of $H(\text{div})$--conforming Finite Elements
 in meshes consisting of polyhedra of arbitrary kind.
 We deal with tetrahedra, triangular prisms and pyramids and, in the presence of
 the latter, our VEM scheme is put in the framework of non-polynomial Finite Elements.\\[5pt]
-Let be given an open domain $\Omega\subseteq\mathbb{R}^3$ with Lipschitz--continuous boundary
+Let be given an open \emph{non--convex} domain $\Omega\subseteq\mathbb{R}^3$ with
+Lipschitz--continuous boundary
 consisting of planar faces and define $V:=H(\mbox{div},\Omega)$ and $Q:=L^2(\Omega)$.
 Let us consider the following continuous problem.\\[5pt]
 With 
@@ -111,7 +112,22 @@ we obtain immediately the following
 and~(\ref{sub:definition_of_the_h_div_element_on_tetrahedra}) both
 in the lower case).
 \end{remark}
-
+\noindent{\color{blue}\#\#\#\#\#\#\# desde ac\'a est\'a sin controlar} 
+\begin{theorem}
+The solutions $\bu$ and $p$ of problem ~(\ref{mixedContinuous}) satisfy
+\[
+p\in H^1(\Omega)
+\] 
+and for each $\ell$
+\[
+\bu=\bu_r + \bu_s
+\]
+with $\bu_r\in H^1(\Omega)$ and
+\[
+\bu_s\cdot \xi_i\in V^{1,2}_{\beta,\delta}(\Lambda_\ell), \quad i=1,2, \qquad \bu_s\cdot\xi_3\in V^{1,2}_{\beta,0}(\Lambda_\ell)
+\]
+where $\xi_i$, $i=1,2,3$, are the directions of three concurrent edges of $\Lambda_\ell$ with $\xi_3$ being the direction of the singular edge if it exists in $\Omega_\ell$, and $\beta,\delta\ge0$ satisfying $\beta>\frac12-\lambda_v^{(\ell)}$ and $\delta>1-\lambda_e^{(\ell)}$, $v$ and $e$ being the singular vertex and edge, respectively, {\color{red}mas lindo}if they exist.
+\end{theorem} 
 
 
 

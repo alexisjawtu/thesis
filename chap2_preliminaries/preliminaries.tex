@@ -8,7 +8,7 @@ A Finite Element in $\mathbb{R}^n$ is defined by the following triple $(K, P_K, 
 
 \vspace{5pt}
 \noindent
-$K$ is an open non empty domain of $\mathbb{R}^n$ with Lipschitz--continuous 
+$E$ is an open non empty domain of $\mathbb{R}^n$ with Lipschitz--continuous 
 boundary.\\[5pt]
 \noindent
 $P_K$ is a finite--dimensional space of real--valued functions defined over $K$.\\[5pt]
@@ -55,6 +55,9 @@ If $\mathcal{P}$ and $\mathcal{Q}$ are two polynomial spaces
 \begin{IEEEeqnarray}{rCl}
 	\mathcal{P}\otimes \mathcal{Q} & = &\{p\otimes q\,|\,p\in\mathcal{P}, q\in\mathcal{Q}\}.
 \end{IEEEeqnarray}
+\begin{remark}\label{tensor_prod_dim} an observation that we will use several times is that,
+from the definition, $\dim \mathcal{P}\otimes \mathcal{Q} = \dim \mathcal{P} \dim \mathcal{Q}$.
+\end{remark}
 % subsubsection tensor_product (end)
 % subsection polynomials (end)
 \subsection{Functional Spaces. Trace Spaces.} % (fold)
@@ -67,6 +70,24 @@ If $\mathcal{P}$ and $\mathcal{Q}$ are two polynomial spaces
 	\|\emph{\textbf{u}}\|_{_{W^{1,p}(K)}} +
 	\| \emph{\curl}\emph{\textbf{u}} \|_{_{W^{1,1}(K)}}. 
 \end{IEEEeqnarray*}
+\end{defi}
+To talk  about the regularity of a solution in a \emph{non--convex} domain
+we will make use of the following weighted Sobolev space.
+\begin{defi} Suppose $\Omega$ non--convex, $\Lambda \subseteq \Omega$ such that 
+$\Lambda closure$ contains one singular vertex $\bv$ and one singular edge $\be$. Given two
+positive parameters $\beta$ and $\delta$, the symbol $V_{\beta,\delta}^{1,2}(\Lambda)$
+denotes the space
+\begin{IEEEeqnarray}{rCl}\label{weighted_sobolev}
+	V_{\beta,\delta}^{1,2}(\Lambda) & = &
+	  \left\{v\in \mathcal D'(\Lambda):
+	    R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}D^\alpha v\in L^2(\Lambda),
+	    \alpha\in \mathbb N^3, |\alpha|\leqslant 1
+	  \right\}
+\end{IEEEeqnarray}
+where $R({\bf x})$ is the distance of ${\bf x}$ to {\color{red} the vertices ?? } of $\Lambda$,
+$r({\bf x})$ is the distance from ${\bf x}$ to {\color{red} the edges ??} of $\Lambda$ and
+finally $\theta({\bf x})$ is the angular distance
+$\theta({\bf x})=\frac{r({\bf x})}{R({\bf x})}$.
 \end{defi}
 \begin{lemma} Let two disjoint Lipschitz domains $\Omega_1$ and $\Omega_2$
 be given  in $\mathbb{R}^n$, such that $\overline{\Omega_1}\cap\overline{\Omega_2}$ is an
@@ -245,6 +266,7 @@ Notaci\'on:{\color{red} Controlar si est\'a bien usada la notaci\'on de prod. te
 es un vector de dos coords. por un escalar, y Controlar si es el mismo $h(x,y,z)$ en las coords. 1 y 2 (el 
 que es un homog\'eneo en $x,y$ por uno en $z$.)}
 \begin{IEEEeqnarray*}{rCl}
+	\yesnumber\label{dk}
 	D_k & = & P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y) \textbf{x},\\
 	\textbf{x} & = & (x,y).
 \end{IEEEeqnarray*}
@@ -314,7 +336,7 @@ Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_tetrahedra}
 {\color{red} TODO: completar esto }
 \begin{IEEEeqnarray*}{rCl}
-	P_{\hat{K}} & = & P_k^3(\hat{K}) + P_{k-1}(\hat{K})\,\textbf{x}. \\[5pt]
+	P_{\hat{K}} & = & P_k^3(\hat{K}) + P_{k-1}(\hat{K})\,\textbf{x}.
 \end{IEEEeqnarray*}
 % subsection definition_of_the_h_div_element_on_tetrahedra
 El siguiente lemma será usado para demostrar el teorema de estabilidad en el
@@ -325,23 +347,18 @@ $C^\infty(\bar{K})^3$ es un subespacio denso de $\wpcurl{K}$ con la
 norma~(\ref{normaWpcurl}).
 \end{lemma}
 % subsection defEdgeElement (end)
-
-\begin{lemma} From the Hdiv space on prisms ---> $\dim(P_{\hat{K}}) = k^2\,(k+2) + \frac{k\,(k+1)^2}{2}$
-\end{lemma}
+\begin{proposition} On the Finite Element~(\ref{defi_h_div_conforme}). 
+$\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
+which is, at the same time, equal to the number of its independent degrees of freedom.
+\end{proposition}
 \begin{proof}
-	From the definition of the discrete space, and the notation involved, it follows that for each
-	$\textbf{p} = (p_1, p_2, p_3) \in  P_{\hat{K}}$ there are unique $q_1, q_2 \in 
-	\mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$, $q_3 \in \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k}(z)$, and
-	$h \in \tilde{\mathcal{P}}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$ such that
+	From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
 	\begin{IEEEeqnarray*}{rCl}
-									p_1(x, y, z) & = & q_1(x, y, z) + x\,h(x, y, z)\\
-		\label{exprPrt} \yesnumber 	p_2(x, y, z) & = & q_2(x, y, z) + y\,h(x, y, z)\\
-									p_3(x, y, z) & = & q_3(x, y, z)
-	\end{IEEEeqnarray*} 
-	so the number of coefficients defining \textbf{p} is
-	\begin{IEEEeqnarray*}{rCl}
-		2\,\frac{k\,(k+1)}{2}\,k + k^2 + \frac{k\,(k+1)}{2}\,(k+1) & &.
+		\dim (P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y)) \otimes P_{k-1}(z) + \dim P_{k-1}(x,y)\otimes P_k(z) & = &\\[5pt]
+		\IEEEeqnarraymulticol{3}{r}{=\,(k(k+1)+k)k+\dfrac{k(k+1)}{2}(k+1)} 
 	\end{IEEEeqnarray*}
+	and the same quantity is obtained by summing up the dimensions of all the
+	\emph{test} spaces on the right of~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
 \end{proof}
 \noindent Now a key result that establishes a relation between the interpolation operators. It will used as an important step in the proof of the stability of the
 edge element on a prism.
