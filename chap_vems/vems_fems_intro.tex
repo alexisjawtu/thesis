@@ -128,12 +128,19 @@ with $\bu_r\in H^1(\Omega)$ and
 \]
 where $\xi_i$, $i=1,2,3$, are the directions of three concurrent edges of $\Lambda_\ell$ with $\xi_3$ being the direction of the singular edge if it exists in $\Omega_\ell$, and $\beta,\delta\ge0$ satisfying $\beta>\frac12-\lambda_v^{(\ell)}$ and $\delta>1-\lambda_e^{(\ell)}$, $v$ and $e$ being the singular vertex and edge, respectively, {\color{red}mas lindo}if they exist.
 \end{theorem} 
-
-
-
-
-
-
-
-
+\paragraph{decomposition} % (fold)
+\label{par:decomposition_}
+\[
+  a(\bv,\bw)=\sum_{E\in\mathcal T_h}a^E(\bv,\bw), \qquad
+  b(\bv,q)=\sum_{E\in\mathcal T_h}b^E(\bv,q).
+\]
+% paragraph decomposition (end)
+The evaluation of the form $b(\cdot,\cdot)$ in $(\bv,q)\in V_h\times Q_h$ can
+be computed using the degrees of freedom~(\ref{dofs}) applied to $\bv$. For if $q\in Q_h$, then
+\[
+  b(\bv,q)=\int_\Omega q\,\dv\bv = \sum_{E\in\mathcal T_h}
+  \int_Eq\,\dv\bv = \sum_{E\in\mathcal T_h}\int_{\partial E}q \bv\cdot\bn.
+\]
+The common bilinear form no sirve. In order to stabilize the oper. we add
+a term "el pi en Rn con las coordenadas" 
 \end{chapter}
