@@ -47,18 +47,21 @@ Moreover, we will make the identifications
 			& = & \{p|_f\,:\,p\in P_k\}.
 \end{IEEEeqnarray*}
 \end{defi}
-\subsubsection{tensor product} % (fold)
-\label{ssub:tensor_product}
+\noindent The tensor product of polynomials. % (fold)
+\begin{defi} \label{tensor_product} Given two polynomials 
 \begin{IEEEeqnarray*}{rClcrCl}
 	p(x)&=&\sum a_ix^i&\qquad&q(y)&=&\sum b_jy^j
 \end{IEEEeqnarray*}
+the tensor product of $p$ and $q$ is the following
+polynomial of \emph{separate variables}
 \begin{IEEEeqnarray}{rCl}
-	p\otimes q (x,y)&=&\sum_{i,j}a_ib_jx^iy^j
+	p\otimes q (x,y)&=&\sum_{i,j}a_ib_jx^iy^j.
 \end{IEEEeqnarray}
 If $\mathcal{P}$ and $\mathcal{Q}$ are two polynomial spaces
 \begin{IEEEeqnarray}{rCl}
 	\mathcal{P}\otimes \mathcal{Q} & = &\{p\otimes q\,|\,p\in\mathcal{P}, q\in\mathcal{Q}\}.
 \end{IEEEeqnarray}
+\end{defi}
 \begin{remark}\label{tensor_prod_dim} an observation that we will use several times is that,
 from the definition, $\dim \mathcal{P}\otimes \mathcal{Q} = \dim \mathcal{P} \dim \mathcal{Q}$.
 \end{remark}
@@ -68,11 +71,11 @@ from the definition, $\dim \mathcal{P}\otimes \mathcal{Q} = \dim \mathcal{P} \di
 \label{sub:functional_spaces_trace_spaces}
 \begin{defi}
 \begin{IEEEeqnarray*}{rCl}
-	W^p(\emph{\textbf{curl}}, K) &=& \{ \emph{\textbf{u}}\in W^{1,p}(K)^3\,:\,\emph{
-	\curl}\emph{\textbf{u}}\in W^{1,1}(K)^3\}\\
-	\label{normaWpcurl}\yesnumber \|\emph{\textbf{u}}\|_{_{W^p(\emph{\textbf{curl}}, K)}} &=& 
-	\|\emph{\textbf{u}}\|_{_{W^{1,p}(K)}} +
-	\| \emph{\curl}\emph{\textbf{u}} \|_{_{W^{1,1}(K)}}. 
+	W^p(\emph{\textbf{curl}}, E) &=& \{ \emph{\textbf{u}}\in W^{1,p}(E)^3\,:\,\emph{
+	\curl}\emph{\textbf{u}}\in W^{1,1}(E)^3\}\\
+	\label{normaWpcurl}\yesnumber \|\emph{\textbf{u}}\|_{_{W^p(\emph{\textbf{curl}}, E)}} &=& 
+	\|\emph{\textbf{u}}\|_{_{W^{1,p}(E)}} +
+	\| \emph{\curl}\emph{\textbf{u}} \|_{_{W^{1,1}(E)}}. 
 \end{IEEEeqnarray*}
 \end{defi}
 To talk  about the regularity of a solution in a \emph{non--convex} domain
@@ -85,11 +88,13 @@ denotes the space
 	V_{\beta,\delta}^{1,2}(\Lambda) & = &
 	  \left\{v\in \mathcal D'(\Lambda):
 	    R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}D^\alpha v\in L^2(\Lambda),
-	    \alpha\in \mathbb N^3, |\alpha|\leqslant 1
+	    \alpha\in \mathbb N_0^3, |\alpha|\leqslant 1
 	  \right\}
 \end{IEEEeqnarray}
-where $R({\bf x})$ is the distance of ${\bf x}$ to {\color{red} the vertices ?? } of $\Lambda$,
-$r({\bf x})$ is the distance from ${\bf x}$ to {\color{red} the edges ??} of $\Lambda$ and
+where $R({\bf x})$ is the distance of ${\bf x}$ to the vertices
+of $\Lambda$,
+$r({\bf x})$ is the distance from ${\bf x}$ to the edges
+of $\Lambda$ and
 finally $\theta({\bf x})$ is the angular distance
 $\theta({\bf x})=\frac{r({\bf x})}{R({\bf x})}$.
 \end{defi}
@@ -111,8 +116,21 @@ the normal traces of $\boldsymbol{u}_1$ and $\boldsymbol{u}_2$ coincide on $f$.
 \begin{proof}
 	{\color{red} TODO}
 \end{proof}
-\begin{defi} \ldots We say that the Finite Element $(K, P_K, \Sigma)$ is
-$H(\text{div})$--conformig if the field defined as
+% subsection functional_spaces_trace_spaces (end)
+\subsection{Transformations} % (fold)
+\label{sub:transformations}
+\begin{equation}\label{push-forward}
+	{\color{red} \ldots \mbox{push-forward} \ldots}
+\end{equation}
+% subsection transformations (end)
+\referencePrismTikz
+\begin{defi} We say that the unisolvent Finite Element $(E, P_E, \Sigma)$ is
+$H(\text{div})$--conforming if every time we take two
+\emph{push-forward} elements $(E_1, P_{E_1}, \Sigma_1)$
+and $(E_2, P_{E_2}, \Sigma_2)$ according
+to~(\ref{sub:transformations}), and denote $\pi_1$, $\pi_2$
+the interpolation operators determined by the degrees
+of freedom $\Sigma_1$ and $\Sigma_2$, the field defined as
 \begin{IEEEeqnarray*}{rCl}
 	\bw & = &
 	  \begin{cases}
@@ -122,14 +140,5 @@ $H(\text{div})$--conformig if the field defined as
 \end{IEEEeqnarray*}
 results in $H(\text{div},\Omega_1\cup\Omega_2)$.
 \end{defi}
-% subsection functional_spaces_trace_spaces (end)
-\subsection{Transformations} % (fold)
-\label{sub:transformations}
-\begin{equation}\label{push-forward}
-	{\color{red} \ldots \mbox{push-forward} \ldots}
-\end{equation}
-% subsection transformations (end)
-\referencePrismTikz
-
 % section preliminares (end)
 	
