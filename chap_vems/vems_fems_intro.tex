@@ -95,7 +95,7 @@ imply $\dv\bv=0$ by Green Theorem. Then, the potential $\phi$ satisfies
 \end{proof}
 With this Lemma already {\color{red}proven} we are able to consider
 an $H(\text{div})$--like local interpolation operator well defined.
-\begin{corollary}
+\begin{corollary} \label{interpolant}
   For every $\bv\in H^1(E)^3$ there exists a $V_h(E)$--interpolant $\bv_I$
   defined as the unique element in $V_h(E)$ such that for every face $f$ of $E$
     \begin{IEEEeqnarray*}{rCl}
@@ -262,23 +262,33 @@ that
 \begin{proof} Start considering the infinite dimensional version
 of the statement. There is, in fact, a constant $\beta^*$ such that
 for each every $q\in L^2(\Omega)$ there exists 
-$\bw^*\in [H^1_0]^3$ with $\dv\bw^*=q$ such that
+$\bw^*\in H^1_0(\Omega)^3$ with $\dv\bw^*=q$ such that
+\begin{IEEEeqnarray}{rCl} \label{bound_w}
+  \beta^*\|\bw^*\|_{H^1} & \leqslant & \|q\|_{L^2(\Omega)}.
+\end{IEEEeqnarray}
+Now, take $\bw_h^*=\bw^*_I$ the $V_h$-interpolant of $\bw^*$, as was
+already defined in Corollary~(\ref{interpolant}). As a consequence of~(\ref{vem_equal_fem})
+and because we are considering the exact same degrees of freedom, this
+interpolation operator coincides, in the lowest order case, with the
+$H(\dv)$--conforming operators~(\ref{sub:definition_of_the_h_div_element_on_prisms})
+on prisms and~(\ref{sub:definition_of_the_h_div_element_on_tetrahedra}) on tetrahedra,
+respectively.
+In {\color{blue}\#\#\#\#\#\#\#\# poner qu'e lugar es} we obtained
+the stability estimates~({\color{blue}\#\#\#\#\#\#\#\# referencia estimate.})
+and~({\color{blue}\#\#\#\#\#\#\#\# ref estimate.}) for the finite elements, which
+we repeat here for clarity. If $E is a prism or a tetrahedron$, then
+
+
+{\color{blue}\#\#\#\#\#\#\#\# stability fems}
+
+
+Using this and the estimate {\color{blue}\#\#\#\#\#\#\#\# (????)}
+for virtual elements on pyramids and~(\ref{bound_w}) we get
 \[
-  \beta^*\|\bw^*\|_{H^1}\leqslant \|q\|_{L^2(\Omega)}.
+  \|\bw_I^*\|_{L^2(\Omega)}\leqslant
+  (1+C\textit{h})\|\bw^*\|_{H^1(\Omega)}\leqslant\frac{1+Ch}{\beta^*}\|q\|_{L^2(\Omega)},
 \]
-
-{\color{blue} HERE }
-
-Now, take $\bw_h^*=\bw^*_I$ the $V_h$-interpolant of $\bw^*$. Then
-we see that
-\[
-\|\bw_I^*\|_{L^2}\le
-(1+Ch)\|\bw^*\|_{H^1}\le\frac{1+Ch}{\beta^*}\|q\|_{L^2},
-\]
-where we used stability estimates for $RT_0$ in the case of
-prismatic and tetrahedral (possibly anisotropic) elements and the
-stability estimate for VEM on pyramids.
-
+{\color{blue}\#\#\#\#\#\#\#\# HERE.}
 On the other hand, since $q\in Q_h$,
 \[
 \dv\bw_I^*=P_0\dv\bw^*=P_0q=q.
