@@ -1,4 +1,4 @@
-\begin{chapter}[vems--fems]{vems--fems}
+\begin{chapter}[vems]{vems--fems}
 It is our intention to propose a Virtual Elements Method (VEM) scheme
 as a generalization of $H(\text{div})$--conforming Finite Elements
 in meshes consisting of polyhedra of arbitrary kind.
@@ -217,10 +217,17 @@ as always,
     \quad\mbox{ for } \bv \mbox{ and } \bw \in V_h.
 \]
 \noindent The discrete problem: To find $\bu_h\in V_h$ and $p_h\in Q_h$ such that
-\begin{eqnarray*}\label{Ph}
-a_h(\bu_h,\bv) + b(\bv,p_h) & = & 0 \qquad \forall \bv\in V_h\\ \nonumber
--b(\bu_h,q) & = & (f,q)\qquad \forall q\in Q_h.
-\end{eqnarray*}
+$\forall \bv\in V_h \qquad \forall q\in Q_h $
+\begin{equation}\label{mixedDiscrete}
+  \makebox[0pt]{
+    \begin{minipage}{\linewidth}
+      \begin{IEEEeqnarray*}{rCl}
+        a_h(\bu_h,\bv) + b(\bv,p_h) & = & 0 \\[5pt]
+                        -b(\bu_h,q) & = & (f,q)
+      \end{IEEEeqnarray*}
+    \end{minipage}}
+  \tag{MD}
+\end{equation}
 \paragraph{discrete $\inf--\sup$ condition.} % (fold)
 \label{par:discrete_inf_sup}\noindent{\color{blue}\#\#\#\#\#\#\# desde aca esta controlado} 
 \begin{lemma} For all $E\in\Th$, all $\hat\bu\in\hat V(E)$ and all $\bv\in V_h(E)$
@@ -315,7 +322,7 @@ There exists $\beta > 0$ such that for all $q^*\in Q_h$
 \end{theorem}
 \begin{proof} By Lemma~(\ref{lemma_inf_sup_bh}) for $q^*\in Q_h$
 there exists $\bw_h^*\in V_h$ such that $\dv\bw_h^*=q^*$ and
-$\beta^*\|\bw_h^*\|_{L^2}\le\|q^*\|_{L^2}$ (the constant $\beta^*$
+$\beta^*\|\bw_h^*\|_{L^2(\Omega)}\leqslant\|q^*\|_{Q_h}$ (the constant $\beta^*$
 is independent of $q^*$). Then
 \begin{IEEEeqnarray*}{rcCcl}
   \|\bw_h^*\|_{V_h}^2 \, & \, = \, & \, \|\bw_h^*\|_{L^2(\Omega)}^2 + \|q^*\|_{Q_h}^2 
@@ -330,8 +337,9 @@ and
 \frac1{\sqrt{\dfrac1{(\beta^*)^2}+1}}\,\|q^*\|_{Q_h}.
 \end{IEEEeqnarray*}
 \end{proof}
-\begin{corollary} 
-  
-\end{corollary}
+\begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution.  
+\noindent{\color{blue}\#\#\#\#\#\#\# este va ac'a o al fondo 
+en el capitulo del error?} 
+\end{theorem}
 % paragraph discrete_inf_sup (end)
 \end{chapter}
