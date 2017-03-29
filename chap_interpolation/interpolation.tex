@@ -1,0 +1,137 @@
+\chapter{Interpolation}
+\section{Stability of the generalized Raviart-Thomas element in $\hat{E}$} % (fold)
+\label{stability_of_rt_element_in_hat_k}
+\begin{lemma}\label{lemmaRT3zero}
+    If $\hat{u}_3 = 0$ then $(\hat{\boldsymbol{r}}_k\hat{\textbf{\emph{u}}})_3 = 0$
+\end{lemma}
+\begin{proof}
+\noindent{\color{blue}\#\#\#\#\#\#\# de aqui a la sgte marca, chequear si las expresiones
+~(\ref{exprPrt}) son correctas 
+    From the definition of the discrete space, and the notation involved, it follows that for each
+    $\textbf{p} = (p_1, p_2, p_3) \in  P_{\hat{K}}$ there are unique $q_1, q_2 \in 
+    \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$, $q_3 \in \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k}(z)$, and
+    $h \in \tilde{\mathcal{P}}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$ such that
+    \begin{IEEEeqnarray*}{rCl}
+                                    p_1(x, y, z) & = & q_1(x, y, z) + x\,h(x, y, z)\\
+        \label{exprPrt} \yesnumber  p_2(x, y, z) & = & q_2(x, y, z) + y\,h(x, y, z)\\
+                                    p_3(x, y, z) & = & q_3(x, y, z)
+    \end{IEEEeqnarray*} 
+}
+\noindent{\color{blue}\#\#\#\#\#\#\# }\\[5pt] 
+Take $\hat{\textbf{u}}$ with $\hat{u}_3 = 0$. Take $f$ to be either the face of $\tilde{K}$ with $z = 0$ or 
+    the one with $z = 1$. If $q\in\mathcal{P}_{k-1}(x,y)$, then
+    \begin{IEEEeqnarray*}{rCl}
+        \int\limits_{f}(\hat{\boldsymbol{r}}_k\hat{\textbf{u}})_3\,q\,d\gamma = 0.
+    \end{IEEEeqnarray*}
+    But $(\hat{\boldsymbol{r}}_k\hat{\textbf{u}})_3|_{f}$ belongs to
+    $\mathcal{P}_{k-1}(x,y)$ (by expression~(\ref{exprPrt})), so there is a polinomial
+    $\psi\in\mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k-2}(z)$ such that
+    \begin{IEEEeqnarray*}{rCl}
+        (\hat{\boldsymbol{r}}_k\hat{\textbf{u}})_3&=&z(z-1)\,\psi,
+    \end{IEEEeqnarray*}
+    and the lemma follows by the degrees of freedom~(\ref{momentos4hdiv}). 
+\end{proof}
+\begin{lemma}
+    If $u_1 = u_2 = 0$, then $(\hat{\boldsymbol{r}}_k\hat{\textbf{\emph{u}}})_1
+    = (\hat{\boldsymbol{r}}_k\hat{\textbf{\emph{u}}})_2 = 0$.
+\end{lemma}
+\begin{proof}
+    We use again the expression~(\ref{exprPrt}) for $\hat{\boldsymbol{r}}_k\hat{\textbf{u}} =
+    (p_1, p_2, p_3) \in  P_{\hat{K}}$. First take $q\in\p{k-1}{k-1}$ and use Green. By the surface degrees of freedom~\ref{momentos2hdiv}
+    and the volume degrees of freedom~\ref{momentos3hdiv}
+    \begin{IEEEeqnarray*}{rClCr}
+        \int\limits_{\hat{K}} \text{div}(p_1, p_2, 0)^t\,q\,d\textbf{x}&=&
+        - \int\limits_{\hat{K}} (p_1, p_2, 0)^t\cdot\nabla q\,d\textbf{x}
+        + \int\limits_{\partial\hat{K}} (p_1, p_2, 0)^t\cdot\boldsymbol{\nu}\,q\,d\gamma
+        & = & 0.
+    \end{IEEEeqnarray*}
+    And since $\text{div}(p_1, p_2, 0)^t$ belongs to $\p{k-1}{k-1}$, we just proved it vanishes on all $\hat{K}$.
+    In a similar way as done in Lemma~(\ref{lemma_PIu2_k_in_N}), we get to prove $h \equiv 0$ in expression~(\ref{exprPrt}).
+    So far we have
+    \begin{IEEEeqnarray*}{rCl}
+        p_1, p_2 & \in & \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z).
+    \end{IEEEeqnarray*}
+    Now the moments on the faces normal to $(-1, 0, 0)$ and $(0, -1, 0)$ vanish, so there are $\phi$ and $\psi$ in 
+    $\p{k-2}{k-1}$ such that 
+    \begin{IEEEeqnarray*}{rCl}
+        p_1 & = & x\,\phi\\
+        p_2 & = & y\,\psi.
+    \end{IEEEeqnarray*}
+    But finally, by the degrees of freedom~(\ref{momentos3hdiv}), $p_1$ and $p_2$ vanish entirely on $\hat{K}$. 
+\end{proof}
+\begin{lemma} {\color{red} Controlar.}\\
+    Set $\hat{\textbf{u}} = (0, u_2(x,z), 0)$. Then $\boldsymbol{r}_k \hat{\textbf{u}} = (0, q(x,z), 0)$.\\
+    Set $\hat{\textbf{u}} = (u_1(y,z), 0, 0)$. Then $\boldsymbol{r}_k \hat{\textbf{u}} = (q(y,z), 0, 0)$.
+\end{lemma}
+\begin{proof}
+    By Lemma~(\ref{lemmaRT3zero}) we get $(\boldsymbol{r}_k\textbf{u})_3 = 0$. Also $\dvg\hat{\textbf{u}} = 0$, and the commutative
+    diagram property gives $\dvg((\boldsymbol{r}_k\textbf{u})_1, (\boldsymbol{r}_k\textbf{u})_2, 0) = 0$. This, together with~(\ref{momentos2hdiv})
+    and~(\ref{momentos3hdiv}) implies, as we have seen, that $p_1 = 0$. So far
+    \begin{IEEEeqnarray*}{rCl}
+        \boldsymbol{r}_k \hat{\textbf{u}} & = & (0, p_2, 0)
+    \end{IEEEeqnarray*}
+    for $p_2\in\p{k-1}{k-1}$. The nullity of the divergence implies that $p_2$ doesn't depend on $y$, as we wanted.
+\end{proof}
+\begin{theorem}
+Let $\hat{\emph{\textbf{u}}} \in W^{1,1}(\hat{K})$. If $\hat{\pi}$ is the  
+interpolation operator determined by the element of Definition~(\ref{defi_h_div_conforme}), then
+\begin{IEEEeqnarray}{rCl}
+\label{teoremaDiv_1} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_1}_{L^{\infty}(\hat{K})} & 
+    \lesssim & \|\hat{u}_1\|_{W^{1,1}(\hat{K})} + 
+    \|\emph{div}(\hat{u}_1, \hat{u}_2, 0)\|_{L^{1}(\hat{K})} \\ 
+\label{teoremaDiv_2} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_2}_{L^{\infty}(\hat{K})} & 
+    \lesssim & \|\hat{u}_2\|_{W^{1,1}(\hat{K})} + 
+    \|\emph{div}(\hat{u}_1, \hat{u}_2, 0)\|_{L^{1}(\hat{K})} \\ 
+\label{teoremaDiv_3} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_3}_{L^{\infty}(\hat{K})} & 
+    \lesssim & \|\hat{u}_3\|_{W^{1,1}(\hat{K})}.
+\end{IEEEeqnarray}
+\end{theorem}
+\begin{proof}
+Given $\hat{\textbf{u}} \in W^{1,1}(\hat{K})$ let
+$\hat{\textbf{v}} = (u_1, u_2 - u_2(x,0,z), 0)$. Then $(\pi \textbf{v})_1 = (\pi \textbf{u})_1$.
+\\[5pt]
+The DOF's.\\[5pt]
+Some of them vanish or depend exclusively on $u_1$. The others:
+Let $f$ be the face contained in $\{x+y = 1\}$. Take $q\in\mathcal{Q}_{k-1,k-1,k-1}$.
+\begin{IEEEeqnarray*}{rCl}
+    \int\limits_{f} \pi\textbf{v}\cdot\boldsymbol{\nu}\,q\,d\gamma &=&
+    \int\limits_{f} (v_1 + v_2)\,q\,d\gamma.
+\end{IEEEeqnarray*}
+Observe that the restriction of $q$ to $f$ belongs to $\mathcal{P}_{k-1}(x)\otimes
+\mathcal{P}_{k-1}(z)$. Now
+\begin{IEEEeqnarray*}{rCl}
+    \int\limits_{\hat{K}} \text{div} (u_1,u_2,0) \,q\,d\textbf{x} &=&
+    \int\limits_{\hat{K}} \text{div}\,\textbf{v} \,q\,d\textbf{x}\\
+    & = & -\int\limits_{\hat{K}} (u_1, v_2, 0)^t\cdot\nabla q\,d{\textbf{x}} + 
+            \int\limits_{\partial_{\hat{K}}} (u_1, v_2, 0)^t\cdot\boldsymbol{\nu}\,q\,d\gamma\\
+    & = & -\int\limits_{\hat{K}} u_1\partial_xq \,d{\textbf{x}} - \int\limits_{f_1}u_1\,q\,d\gamma
+        + \int\limits_{f} (v_1 + v_2)\,q\,d\gamma,
+\end{IEEEeqnarray*}
+where $f_1$ is the face contained in the plane $x = 0$. So we have
+\begin{IEEEeqnarray*}{rCl}
+    \int\limits_{f} (v_1 + v_2)\,q\,d\gamma & = & \int\limits_{\hat{K}} \text{div} (u_1,u_2,0)
+    \,q\,d\textbf{x} + \int\limits_{\hat{K}} u_1\partial_xq \,d{\textbf{x}} +
+    \int\limits_{f_1}u_1\,q\,d\gamma.
+\end{IEEEeqnarray*}
+For the volume degrees of freedom~(\ref{momentos3hdiv}) take $q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z)$. Since
+\begin{IEEEeqnarray*}{rCl}
+    v_2(x,y,z) & = &\int\limits_0^{y} \partial_y u_2(x,t,z) \,dt,
+\end{IEEEeqnarray*}
+we may do
+\begin{IEEEeqnarray*}{rCl}
+    \int\limits_{\hat{K}} v_2\,q_2  & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}
+    \int\limits_0^{y}
+        \partial_y u_2(x,t,z) \,dt \,q_2 (x,y,z)\,dy\,dx\,dz\\
+                                    & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\int\limits_0^{y}
+                                            \partial_y u_2(x,t,z) \,q_2 (x,y,z)\,dt\,dy\,dx\,dz\\
+                                    & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\int\limits_t^{1-x}
+                                            \partial_y u_2(x,t,z) \,q_2 (x,y,z)\,dy\,dt\,dx\,dz\\
+                                    & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y u_2(x,t,z)
+                                            \int\limits_t^{1-x}\,q_2 (x,y,z)\,dy\,dt\,dx\,dz\\
+                                    & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y u_2(x,t,z)\,\phi (x,t,z)\,dt\,dx\,dz\\
+& = &\int\limits_{\hat{K}} (\partial_xu_1 + \partial_y u_2)\,\phi\,d{\textbf{x}}
+    - \int\limits_{\hat{K}} \partial_xu_1\,\phi\,d{\textbf{x}}
+\end{IEEEeqnarray*}
+(for some $\phi \in \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$), as we wanted. 
+\end{proof}
+% section stability_of_rt_element_in_hat_k (end)
