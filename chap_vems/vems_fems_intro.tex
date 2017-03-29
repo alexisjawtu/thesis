@@ -41,7 +41,10 @@ The scalar discrete space we will consider is
 \begin{IEEEeqnarray}{rCl}
   Q_h & = & \mathcal{P}_0(\Th)
 \end{IEEEeqnarray}
-meaning the functions that constant on each element of $\Th$.
+meaning the functions that are constant on each element of $\Th$. As expected,
+with $V_h$ we consider the $H(\dv,\Omega)$ norm, 
+$\|\bv\|^2_{V_h} = \|\bv\|^2_{L^2(\Omega)} + \|\dv\bv\|^2_{L^2(\Omega)}$ for all
+$\bv \in V_h$, and with $Q_h$ we consider the $L^2(\Omega)$ norm.
 
 The condition in the definitions of these spaces suffice to construct an interpolation
 operator, which is a key object both in Finite Elements as in Virtual Elements.
@@ -102,7 +105,7 @@ an $H(\text{div})$--like local interpolation operator well defined.
       \int\limits_f \bv_I\cdot\bn\,d\gamma & = & \int\limits_f \bv\cdot\bn\,d\gamma       
     \end{IEEEeqnarray*}
 \end{corollary}
-\begin{lemma} Consider the projection $P_0$ onto the constants on $E$. It holds
+\begin{lemma} \label{p0_projection} Consider the projection $P_0$ onto the constants on $E$. It holds
 \begin{IEEEeqnarray*}{rCl}
   \dv\bv_I & = & P_0\,\dv\bv.
 \end{IEEEeqnarray*}
@@ -143,6 +146,7 @@ so in the case of the form $b_h(\bv,q)$ we put simply
   b_h(\bv,q) = b(\bv,q) =
   \sum_{E\in\mathcal T_h}b^E(\bv,q)\mbox{,}
 \]
+where $b^E(\bv,q) = \int_Eq\,\dv\bv\,d\textbf{x}$.
 For the bilinear form $a(,)$, we can decompose it as
 \[
   a(\bv,\bw)=\sum_{E\in\mathcal T_h}a^E(\bv,\bw)
@@ -212,8 +216,13 @@ as always,
   a_h(\bv,\bw) = \sum_{E\in \mathcal T_h} a_h^E(\bv|_E,\bw|_E),
     \quad\mbox{ for } \bv \mbox{ and } \bw \in V_h.
 \]
+\noindent The discrete problem: To find $\bu_h\in V_h$ and $p_h\in Q_h$ such that
+\begin{eqnarray*}\label{Ph}
+a_h(\bu_h,\bv) + b(\bv,p_h) & = & 0 \qquad \forall \bv\in V_h\\ \nonumber
+-b(\bu_h,q) & = & (f,q)\qquad \forall q\in Q_h.
+\end{eqnarray*}
 \paragraph{discrete $\inf--\sup$ condition.} % (fold)
-\label{par:discrete_inf_sup}
+\label{par:discrete_inf_sup}\noindent{\color{blue}\#\#\#\#\#\#\# desde aca esta controlado} 
 \begin{lemma} For all $E\in\Th$, all $\hat\bu\in\hat V(E)$ and all $\bv\in V_h(E)$
 \begin{IEEEeqnarray}{rCcCl} 
 a_h^E(\hat\bu,\bv) & = & a^E(\hat\bu,\bv)       & &\label{L1}\\
@@ -252,21 +261,23 @@ then the previuos Lemma implies the following corollary.
   $a_h$ is coercitive over $\mathcal K_k$ and the coercivity constant is independent
   of $h$.  
 \end{corollary}
-\begin{lemma} There exists a constant $\beta^*>0$ depending only on $\Omega$
+\begin{lemma} \label{lemma_inf_sup_bh} There exists a constant
+$\beta^*>0$ depending only on $\Omega$
 such that for all $q^*\in Q_h$ there exists $\bw_h^*\in V_h$ such
 that
 \[
-\dv\bw_h^*=q^*, \qquad \beta^*\|\bw_h^*\|_{L^2(\Omega)}\leqslant\|q^*\|_{L^2(\Omega)}
+\dv\bw_h^*=q^*, \qquad \beta^*\|\bw_h^*\|_{Q}\leqslant\|q^*\|_{Q}
 \]
 \end{lemma}
 \begin{proof} Start considering the infinite dimensional version
 of the statement. There is, in fact, a constant $\beta^*$ such that
-for each every $q\in L^2(\Omega)$ there exists 
-$\bw^*\in H^1_0(\Omega)^3$ with $\dv\bw^*=q$ such that
+for each every $q^*\in Q_h \subseteq Q$ there exists 
+$\bw^*\in H^1_0(\Omega)^3$ with $\dv\bw^*=q*$ such that
 \begin{IEEEeqnarray}{rCl} \label{bound_w}
-  \beta^*\|\bw^*\|_{H^1} & \leqslant & \|q\|_{L^2(\Omega)}.
+  \beta^*\|\bw^*\|_{H^1(\Omega)} & \leqslant &
+  \|q^*\|_{Q}.
 \end{IEEEeqnarray}
-Now, take $\bw_h^*=\bw^*_I$ the $V_h$-interpolant of $\bw^*$, as was
+Now, for each $q^*\in Q_h$ take $\bw_h^*:=\bw^*_I$, the $V_h$-interpolant of $\bw^*$, as was
 already defined in Corollary~(\ref{interpolant}). As a consequence of~(\ref{vem_equal_fem})
 and because we are considering the exact same degrees of freedom, this
 interpolation operator coincides, in the lowest order case, with the
@@ -276,24 +287,51 @@ respectively.
 In {\color{blue}\#\#\#\#\#\#\#\# poner qu'e lugar es} we obtained
 the stability estimates~({\color{blue}\#\#\#\#\#\#\#\# referencia estimate.})
 and~({\color{blue}\#\#\#\#\#\#\#\# ref estimate.}) for the finite elements, which
-we repeat here for clarity. If $E is a prism or a tetrahedron$, then
+we repeat here for clarity. If $E$ is a prism or a tetrahedron, then
 
 
 {\color{blue}\#\#\#\#\#\#\#\# stability fems}
 
 
+
 Using this and the estimate {\color{blue}\#\#\#\#\#\#\#\# (????)}
 for virtual elements on pyramids and~(\ref{bound_w}) we get
 \[
-  \|\bw_I^*\|_{L^2(\Omega)}\leqslant
-  (1+C\textit{h})\|\bw^*\|_{H^1(\Omega)}\leqslant\frac{1+Ch}{\beta^*}\|q\|_{L^2(\Omega)},
+  \|\bw_I^*\|_{Q}\leqslant
+  (1+C\textit{h})\|\bw^*\|_{H^1(\Omega)}
+  \leqslant\frac{1+Ch}{\beta^*}\|q\|_{Q}.
 \]
-{\color{blue}\#\#\#\#\#\#\#\# HERE.}
-On the other hand, since $q\in Q_h$,
+Besides, since $q\in Q_h$, by~(\ref{p0_projection}) we have
 \[
-\dv\bw_I^*=P_0\dv\bw^*=P_0q=q.
+  \dv\bw_I^*=P_0\,\dv\bw^*=P_0\,q^*=q^*.
 \]
 \end{proof}
-
+Now, we can prove the discrete inf-sup condition. 
+\begin{theorem}[Discrete $\inf-\sup$ condition for $b_h$] \label{inf_sup_b_h}
+There exists $\beta > 0$ such that for all $q^*\in Q_h$ 
+\begin{IEEEeqnarray*}{rCl}
+  \sup_{0\ne\bv\in V_h} \frac{b_h(\bv,q^*)}{\|\bv\|_{V_h}} &\geqslant& \beta\|q^*\|_{Q_h}.
+\end{IEEEeqnarray*}
+\end{theorem}
+\begin{proof} By Lemma~(\ref{lemma_inf_sup_bh}) for $q^*\in Q_h$
+there exists $\bw_h^*\in V_h$ such that $\dv\bw_h^*=q^*$ and
+$\beta^*\|\bw_h^*\|_{L^2}\le\|q^*\|_{L^2}$ (the constant $\beta^*$
+is independent of $q^*$). Then
+\begin{IEEEeqnarray*}{rcCcl}
+  \|\bw_h^*\|_{V_h}^2 \, & \, = \, & \, \|\bw_h^*\|_{L^2(\Omega)}^2 + \|q^*\|_{Q_h}^2 
+    \, & \,\leqslant\, & \, \left(\frac1{(\beta^*)^2}+1\right) \|q^*\|_{Q_h}^2
+\end{IEEEeqnarray*}
+and
+\begin{IEEEeqnarray*}{rcCcl}
+\sup_{0\ne\bv\in V_h} \frac{b_h(\bv,q^*)}{\|\bv\|_{V_h}}
+      \,&\,\geqslant\,&\,
+\frac{b_h(\bw_h^*,q^*)}{\|\bw_h^*\|_{V_h}}
+      \,&\,\geqslant\,&\,
+\frac1{\sqrt{\dfrac1{(\beta^*)^2}+1}}\,\|q^*\|_{Q_h}.
+\end{IEEEeqnarray*}
+\end{proof}
+\begin{corollary} 
+  
+\end{corollary}
 % paragraph discrete_inf_sup (end)
 \end{chapter}
