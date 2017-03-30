@@ -151,15 +151,16 @@ For the bilinear form $a(,)$, we can decompose it as
 \[
   a(\bv,\bw)=\sum_{E\in\mathcal T_h}a^E(\bv,\bw)
 \]
-but this is not sufficient \noindent{\color{blue}\#\#\#\#\#\#\# por que?}. The following construction
-is done in order to stabilize the oper. 
+but this is not \noindent{\color{blue}\#\#\#\#\#\#\# computable from the 
+degres of freedom}. {\color{blue} The following construction
+is done in order to stabilize the oper. NO: dos cosas: el termino que esta
+compuesto con pi es para que sea calculable con dofs, el de S(,) es para estabilizar}
 \[
 \hat V(E) = \left\{\hat \bv\in V_h(E): \hat \bv = \nabla \hat q_2,
 \mbox{ for some } \hat q_2\in \mathcal P_2(E)\right\} = V_h(E)\cap\nabla\mathcal{P}_2(E).
 \]
-By an inspection of the Finite Elements defined in Chapter~\ref{chap_prelim}
-we obtain immediately the following
-\begin{remark}\label{vem_equal_fem} If $E$ is a tetrahedron or a prism, then $V_h(E) = \hat V(E) = RT_0(E)$
+\begin{remark}\label{vem_equal_fem} By an inspection of the Finite Elements defined in Chapter~\ref{chap_prelim}
+If $E$ is a tetrahedron or a prism, then $V_h(E) = \hat V(E) = RT_0(E)$
 (cfr.~(\ref{sub:definition_of_the_h_div_element_on_prisms})
 and~(\ref{sub:definition_of_the_h_div_element_on_tetrahedra}) both
 in the lower case).
@@ -338,8 +339,7 @@ and
 \end{IEEEeqnarray*}
 \end{proof}
 \begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution.  
-\noindent{\color{blue}\#\#\#\#\#\#\# este va ac'a o al fondo 
-en el capitulo del error?} 
+\noindent{\color{blue}\#\#\#\#\#\#\# poner cita al Boffi-B-F con paginas y todo creo qu 7} 
 \end{theorem}
 % paragraph discrete_inf_sup (end)
 \end{chapter}
