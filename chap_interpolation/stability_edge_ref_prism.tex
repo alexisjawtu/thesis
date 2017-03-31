@@ -1,0 +1,384 @@
+\section{Stability of the Edge Element in $\hat{K}$}
+\tikz \fill [orange] circle (2pt);
+\begin{lemma}\label{lema_PIu3_k_cualquiera}$(\pi\emph{\textbf{u}})_3$ depende s\'olo de 
+$u_3$.
+\end{lemma}
+\begin{proof} Por definici\'on $(\pi\textbf{u})_3 =: v$ pertenece a $P_k(\hat{T})\otimes P_{k-1}(\hat{I})$, que tiene dimensi\'on 
+$\frac{k(k+1)(k+2)}{2}$. Por otro lado, los grados de
+libertad en los que no des\-a\-pa\-re\-ce $(\pi\textbf{u})_3$ son \'unicamente:
+para cada arista $e_j$, $j = 3, 6, 7$,
+\begin{IEEEeqnarray}{lClc}
+	\label{aristas} \int\limits_{e_j} (\pi\textbf{u})_3 q \, ds 
+	& = & \int\limits_{e_j} \textbf{u}_3 q \, ds, &\quad q\in P_{k-1}(e_j).
+\end{IEEEeqnarray}
+Para cada cara vertical $f=f_1$, $f_2$, $f_4$,
+\begin{IEEEeqnarray}{lClc}
+	\label{caras} \int\limits_{f} (\pi\textbf{u})_3 q \, 
+	d\gamma & = & \int\limits_{f} \textbf{u}_3 q \, d\gamma, 
+	&\quad q\in Q_{k-2,k-1}(f_{ijkl}).
+\end{IEEEeqnarray}
+En $\hat{K}$
+\begin{IEEEeqnarray}{lClc}
+	\label{enK} \int\limits_{\hat{K}} (\pi\textbf{u})_3 
+	q \, d\textbf{x} & = & \int\limits_{\hat{K}} \textbf{u}_3 q \, d\textbf{x}, 
+	&\quad q\in P_{k-3}(f_z) \otimes P_{k-1}(e_{xy}).
+\end{IEEEeqnarray}
+El n\'umero de grados de libertad es $3k$ en aristas m\'as $3k(k-1)$ en caras, m\'as $\frac{k(k-1)(k-2)}{2} $ en volumen, que es igual 
+a $\frac{k(k+1)(k+2)}{2}$ (la cantidad correcta). 
+Ahora supongamos que estos grados de libertad se anulan todos y veamos que de esta suposici\'on
+se deduce que $(\pi\textbf{u})_3 = 0$, es decir que las ecuaciones li\-nea\-les mencionadas determinan un\'ivocamente a un elemento
+$(\pi\textbf{u})_3$ pertenenciente a 
+$P_k(\hat{T}) \otimes P_{k-1}(\hat{I})$. 
+
+Empezamos por ver que $(\pi\textbf{u})_3$ se anula en ciertos subconjuntos de 
+$\partial \hat{K} $. La restricci\'on de $(\pi\textbf{u})_3$ a $e_j, (j=3,6,7)$
+es un elemento de $P_{k-1}(e_j)$. Entonces si usamos los degrees of freedom~(\ref{aristas}) obtenemos
+\begin{IEEEeqnarray}{rCl}
+	\label{restriccAristas}\int\limits_{e_j} [(\pi\textbf{u})_3]^2\, ds & = & 0,
+\end{IEEEeqnarray}
+es decir que $(\pi\textbf{u})_3$ es id\'enticamente cero en esas aristas. Con esto la restricci\'on $(\pi\textbf{u})_3|_{f_2}$ 
+que pertenece a $P_k(x)\otimes P_{k-1}(z)$ se factoriza como 
+\begin{IEEEeqnarray*}{rCl}
+	v(x,0,z) 	& = 	& x\,(x-1)\,w_0(x,z),\\
+	w_0 		& \in 	& P_{k-2}(x)\otimes P_{k-1}(z),
+\end{IEEEeqnarray*}
+pero este \'ultimo es precisamente el espacio de los degrees of freedom~(\ref{caras}) con los 
+cuales llegamos a
+\begin{IEEEeqnarray}{lClc}
+	\int\limits_{f_2} x(x-1)[w_0(x,z)]^2\,d\gamma & = & 0.
+\end{IEEEeqnarray}
+Entonces en $f_2$ es $w_0 \equiv 0$ y $(\pi\textbf{u})_3|_{f_2} \equiv 0$. Por simetr\'ia, el argumento para probar que
+$(\pi\textbf{u})_3|_{f_1} \equiv 0$ es exactamente igual.
+
+Si volvemos a usar las igualdades~(\ref{restriccAristas}) obtenemos que la restricc\'on de $(\pi\textbf{u})_3$ a
+$f_{4} = \{ (x,y,z) \;:\; 0\leqslant x\leqslant 1,\, y = 1 - x, \, 0\leqslant z\leqslant 1 \}$ se anula si $x=1-y=0$ o bien si $x=1-y=1$;
+\begin{IEEEeqnarray}{rCl}
+	v(x,1-x,z) 	& = 	& x\,(1-x)\,w_1(x,z)\\
+	w_1 		& \in 	& P_{k-2}(x)\otimes P_{k-1}(z).
+\end{IEEEeqnarray}
+Si aplicamos los degrees of freedom~(\ref{caras}) llegamos 
+a que en ${f_4}$ es $w_1$ id\'enticamente cero y as\'i tambi\'en $(\pi\textbf{u})_3$.\\
+Recapitulando, 
+\begin{IEEEeqnarray*}{rCl}
+	(\pi\textbf{u})_3|_{f_j} & \equiv & 0\quad\text{ para } j = 1,2,4.
+\end{IEEEeqnarray*}
+Entonces en todo $\hat{K} $ tenemos la factorizaci\'on 
+\begin{IEEEeqnarray*}{rCl}
+	(\pi\textbf{u})_3(x,y,z) 	& = 	& x\,y\,(1-x-y)\,w_3(x,y,z),\\
+						w_3		& \in 	& P_{k-3}(x)\otimes P_{k-1}(z).
+\end{IEEEeqnarray*}
+Simplemente aplicando los degrees of freedom~(\ref{enK}) nos queda que $w_3 \equiv 0$, y finalmente
+$(\pi \textbf{u})_3 \equiv 0$.
+%	debe anularse en todo $\hat{K}^{\textrm{o}}$, y por continuidad tambi\'en en 
+%$\partial\hat{K}$. Si volvemos a la expresi\'on~(\ref{piu3}) nos queda que
+\end{proof}
+\begin{lemma}\label{lemma_PIu2_k_in_N}
+\begin{IEEEeqnarray*}{rCl}
+\label{piu2_k_in_N}
+	\yesnumber\pi(0, u_2(y,z), 0) & = 	& (0, \xi_2(y,z) ,0)\textrm{,}\\
+\label{piu1_k_in_N}	
+	\yesnumber\pi(u_1(x,z), 0, 0) & = 	& (\xi_1(x,z), 0 ,0)\textrm{,}\\
+	\xi_1 				& \in 	& P_{k-1}(x) \otimes P_k(z)\textrm{,}\\
+	\xi_2 				& \in 	& P_{k-1}(y) \otimes P_k(z).
+\end{IEEEeqnarray*}
+\end{lemma}
+\begin{proof} Demostramos s\'olo la primera igualdad, porque la otra es
+an\'aloga. Lo que hay que ver es que, en la expresi\'on encontrada en
+~(\ref{sub:elemento_P_k}), es $h \equiv 0$, $\xi_1 \equiv 0$ y que $\xi_2$ 
+no depende de $x$. Gracias al lema~\ref{lema_PIu3_k_cualquiera} ya sabemos
+que $\xi_3 \equiv 0$.
+As\'{\i} que veamos primero $h \equiv 0$.
+Observaci\'on: si $f$ es $f_3$ o $f_4$, entonces
+\begin{IEEEeqnarray}{rCl}
+	(\textbf{curl}\,\pi\textbf{u})_3 |_{_{f}} & \in & P_{k-1}(x,y).	
+\end{IEEEeqnarray}
+Por el Lema~\ref{lema_pi_star_rot_u}, si usamos los degrees of freedom~(\ref{momentos1hdiv})
+obtenemos, para todo $q \in P_{k-1}(x,y)$,
+\begin{IEEEeqnarray}{rCl}
+	\int\limits_{f} (\textbf{curl}\,\pi\textbf{u})_3\,q \,d\gamma & = & 
+		\int\limits_{f} \textrm{rot}(\textbf{u})_3\,q \,d\gamma\\
+		& = & 0.	
+\end{IEEEeqnarray}
+Si tomamos $q = (\textbf{curl}\,\pi\textbf{u})_3 |_{_{f}}$ tenemos
+$(\textbf{curl}\,\pi\textbf{u})_3 |_{_{f}} \equiv 0$, o, de otra manera,
+$z\,(z-1)$ divide a $(\textbf{curl}\,\pi\textbf{u})_3$. Escribamos
+\begin{IEEEeqnarray*}{rCl}
+	(\textbf{curl}\,\pi\textbf{u})_3 & = 	& z\, (z-1)\, \psi\\[6pt]
+	\psi						& \in 	& P_{k-1}(x,y) \otimes P_{k-2}(z).
+\end{IEEEeqnarray*}
+A continuaci\'on usamos los degrees of freedom~(\ref{momentos4hdiv}) en la misma 
+definici\'on de antes. Para todo $q\in P_{k-1}(x,y) \otimes P_{k-2}(z)$
+\begin{IEEEeqnarray*}{rCl}
+	\int\limits_{\hat{K}} z\,(z-1)\,\psi \, q\,d\textbf{x} & = & 0,
+\end{IEEEeqnarray*}
+as\'{\i} que tomando $q = \psi$ probamos que $\psi \equiv 0$ en $\hat{K}$,
+es decir que
+\begin{IEEEeqnarray}{rCl}
+	\label{rot_3_es_0} (\textbf{curl}\,\pi\textbf{u})_3 &\equiv& 0.
+\end{IEEEeqnarray}
+Ahora veamos c\'omo es $(\textbf{curl}\,\pi\textbf{u})_3$ en t\'erminos
+de la expresi\'on encontrada en~\ref{sub:elemento_P_k}.
+\begin{IEEEeqnarray*}{rCl}
+	(\textbf{curl}\,\pi\textbf{u})_3 & = & 
+	\partial_x\,\pi(\textbf{u})_2 -	\partial_y\,\pi(\textbf{u})_1\\
+	\label{expre_h} \yesnumber & = & -(2\,h + y\,\partial_y\,h + 
+				x\,\partial_x\,h) +	\partial_x\,\xi_2 - \partial_y\,\xi_1,
+\end{IEEEeqnarray*}
+en donde, observando los grados de cada t\'ermino,
+\begin{IEEEeqnarray*}{rCl}
+	2\,h + y\,\partial_y\,h + x\,\partial_x\,h & \in & \tilde{P}_{k-1}(x,y)
+\otimes P_k(z)\textrm{ y }\\
+\partial_x\,\xi_2 - \partial_y\,\xi_1 & \in & P_{k-2}(x,y) \otimes P_k(z).
+\end{IEEEeqnarray*}
+De esto necesariamente sigue que 
+$g := 2\,h + y\,\partial_y\,h + x\,\partial_x\,h = 0$. Ahora exploramos los 
+t\'erminos de $g$. Pongamos
+\[
+	h(x,y,z) = \sum\limits_{i+j=k-1, l\leqslant k} \alpha_{_{i,j,l}} x^i y^j z^l.
+\]
+Entonces, para todo $(x,y,z)$ en $\hat{K}$
+\begin{IEEEeqnarray*}{rCl}
+	g(x,y,z) & = & \sum\limits_{i+j=k-1, l\leqslant k} 
+(2\alpha_{_{i,j,l}} + j \alpha_{_{i,j,l}} + i \alpha_{_{i,j,l}}) x^i y^j z^l\\
+	& = &(k+1)\,h(x,y,z)\\
+  \yesnumber\label{h_is_zero}	& = & 0,
+\end{IEEEeqnarray*}
+o sea, $h \equiv 0$.
+Hasta ac\'a tenemos probado que $\pi(0, u_2(y,z), 0) = 
+(\xi_1(x,y,z), \xi_2(x,y,z), 0)$. Let's see that $\xi_1$ vanishes identically. Empecemos con 
+los degrees of freedom sobre las aristas. Si $e$ es $e_1$ o $e_4$ entonces
+\[
+	\xi_1|_{e} \in P_{k-1}(x)
+\]
+y adem\'as, para todo $q\in P_{k-1}(x)$
+\[
+	\int\limits_{e} \xi_1|_{e}\,q\,ds = 0\textrm{,}
+\]
+con lo que llegamos a que $z\,(z-1)$ divide tambi\'en a $\xi_1|_{f_2}$. Pongamos
+\begin{IEEEeqnarray}{rCl}
+	\xi_1|_{f_2}(x,z) &=&z\,(z-1)\phi(x,z)\\[6pt]
+	\phi &\in& P_{k-1}(x)\otimes P_{k-2}(z).
+\end{IEEEeqnarray}
+A continuaci\'on, si usamos los degrees of freedom en $f_2$, tenemos, para todo 
+$q\in P_{k-1}(x)\otimes P_{k-2}(z)$,
+\begin{IEEEeqnarray}{rCl}
+	\int\limits_{f_2} z\,(z-1)\phi\,q\,d\gamma &=&0.
+\end{IEEEeqnarray}
+Tomando $q=\phi$ sigue que $\xi_1|_{f_2}\equiv 0$, con lo cual, para $(x,y,z)
+\in \hat{K}$
+\begin{IEEEeqnarray}{rCl}
+	\xi_1(x,y,z) & = & y\,\rho(x,y,z)\\[6pt]
+	\rho &\in&P_{k-2}(x,y)\otimes P_k(z).	
+\end{IEEEeqnarray}
+Ahora miramos los degrees of freedom en $f = f_3, f_4$. Vale que $\xi_1|_{f}$ pertenece 
+a $P_{k-2}(x,y)$, y que para todo $q\in P_{k-2}(x,y)$
+\[
+	\int\limits_{f} \xi_1\,q\,d\gamma = 0\textrm{,}
+\]
+de donde, por tomar $q = \xi_1|_{f}$, sigue que $\xi_1|_{f} \equiv 0$. Con todo
+esto tenemos que $z\,(z-1)$ divide a $\xi_1$, as\'{\i} que
+\begin{IEEEeqnarray*}{rCl}
+	\xi_1(x,y,x) &=&y\,z\,(z-1)\,\theta(x,y,z)\\[6pt]
+	\theta &\in& P_{k-2}(x,y)\otimes P_{k-2}(z).
+\end{IEEEeqnarray*}
+Resta mirar los degrees of freedom de volumen aplicados a $\pi(\textbf{u})$. Para 
+todo $q \in  P_{k-2}(x,y)\otimes P_{k-2}(z)$ debe ser
+\begin{IEEEeqnarray*}{rCl}
+\int\limits_{\hat{K}} y\,z\,(z-1)\,\theta(x,y,z)\,q\,d\textbf{x} &=&0
+\textrm{,} 
+\end{IEEEeqnarray*}
+de donde, al tomar $q = \theta$, sigue inmediatamente que, en todo $\hat{K}$,
+\begin{IEEEeqnarray}{rCl}
+\label{xi1_es_0}\xi_1 & \equiv & 0.
+\end{IEEEeqnarray}
+Hasta ahora probamos que  
+\[
+	\pi(0, u_2(y,z), 0)  = 	 (0, \xi_2(x,y,z) ,0).
+\]
+Pero si recordamos lo que probamos en~(\ref{rot_3_es_0}) y lo combinamos con
+~(\ref{xi1_es_0}), inmediatamente llegamos a 
+\begin{IEEEeqnarray*}{rCCCl}
+	\partial_x \pi(\textbf{u})_2 &=& \partial_x \xi_2 &\equiv& 0\textrm{,}
+\end{IEEEeqnarray*}
+que implica que $\xi_2$ no depende de $x$, y que $\pi(0, u_2(y,z), 0)$ tiene 
+la forma que quer\'{\i}amos.
+\end{proof}
+\begin{lemma}\label{pi00u3} Si $\pi$ es el interpolador determinado por el elemento de la
+\emph{Definici\'on}~(\ref{edgeelement}), entonces
+\begin{IEEEeqnarray}{rCl}
+	\pi(0,0, u_3)& = & (0,0,\xi_3)\textrm{,}\\
+	\nonumber		\xi_3 & \in & \p{k}{k-1}.
+\end{IEEEeqnarray}
+\end{lemma}
+\begin{proof} La demostraci\'on ser\'a muy parecida a la del Lema~(\ref{lemma_PIu2_k_in_N}). Recordemos
+la expresi\'on que encontramos en la Subsecci\'on~\ref{sub:elemento_P_k}; tenemos
+\begin{IEEEeqnarray}{rCl}
+	\label{expre_pi00u3} \pi(0,0,u_3) &=& (\xi_1 + y\,h,\xi_2 - x\,h, \xi_3).	
+\end{IEEEeqnarray}
+Empezamos por ver que $h$ se anula. Sea $f$ cualquiera de las dos caras horizontales del 
+prisma de referencia. Usamos la expresi\'on~(\ref{expre_h}) para 
+$(\textbf{curl}\,\pi\textbf{u})_3 \in \p{k-1}{k}$. Gracias al
+Lema~\ref{lema_pi_star_rot_u} y a las igualdades~(\ref{momentos1hdiv}) vale
+\begin{IEEEeqnarray}{rCl}
+	(\textbf{curl}\,\pi\textbf{u})_3 |_{f}&\equiv&0.
+\end{IEEEeqnarray}
+Entonces los polinomios $z$ y $z-1$ dividen a $(\textbf{curl}\,\pi\textbf{u})_3=
+z\,(z-1)\,\psi$, ($\psi\in P_{k-1}(x,y)\otimes P_{k-2}(z)$). Ahora vamos a los
+degrees of freedom~(\ref{momentos4hdiv}) para obtener finalmente que $\psi$ es id\'enticamente cero. Es decir
+que, en todo $\hat{K}$, $(\textbf{curl}\,\pi\textbf{u})_3 \equiv 0$ y, siguiendo
+el argumento en la demostraci\'on del Lema~\ref{lemma_PIu2_k_in_N} probamos que $h$ es id\'enticamente
+cero. As\'{\i} que podemos reescribir la expresi\'on~(\ref{expre_pi00u3}) y poner
+\begin{IEEEeqnarray}{rCl}
+	\label{expre_pi00u3_} \pi(0,0,u_3) &=& (\xi_1,\xi_2, \xi_3)\\
+	\nonumber\xi_1, \xi_2&\in& \p{k-1}{k}.
+\end{IEEEeqnarray}
+Resta ver que $\xi_1$ y $\xi_2$ se anulan. Con la misma idea, si consideramos
+las caras $f_1$ con normal $\boldsymbol{\nu}=(-1,0,0) $ y $f_2$ con normal 
+$\boldsymbol{\nu}=(0,-1,0)$, entonces las igualdades~(\ref{momentos1hcurl}) 
+para las aristas $e_1, e_4$ junto con las igualdades~(\ref{momentos4hcurl}) por un lado,
+y las igualdades~(\ref{momentos1hcurl}) para las aristas $e_2, e_5$ y~(\ref{momentos3hcurl})
+por el otro, implican, respectivamente, que $y$ divide a $\xi_1$ y $x$ divide a $\xi_2$. Si 
+continuamos con los degrees of freedom sobre las dos caras horizontales~(\ref{momentos2hcurl})
+obtenemos tambi\'en que $z\,(z-1)$ los divide a ambos. Finalmente, si aplicamos las
+igualdades~(\ref{momentos6hcurl}) probamos que $\xi_1 = \xi_2 \equiv 0$ en todo $\hat{K}$.
+En conclusi\'on, $\pi(0,0, u_3)$ tiene la forma deseada.
+\end{proof}
+\begin{theorem}
+Dados $p > 2$, $\hat{\emph{\textbf{u}}} \in \wpcurl{\hat{K}}$, si $\hat{\pi}$ es 
+el operador de interpolaci\'on determinado por el elemento de la Definici\'on~(\ref{edgeelement}),
+entonces
+\begin{IEEEeqnarray}{rCl}
+\label{teorema_1} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_1}_{L^{\infty}(\hat{K})} & 
+	\lesssim & \|\hat{u}_1\|_{W^{1,p}(\hat{K})} + 
+	\|\emph{\textbf{curl}}(\hat{\emph{\textbf{u}}})_3\|_{{\color{red} W^{1,1}(\hat{K})}} \\	
+\label{teorema_2} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_2}_{L^{\infty}(\hat{K})} & 
+	\lesssim & \|\hat{u}_2\|_{W^{1,p}(\hat{K})} + 
+	\|\emph{\textbf{curl}}(\hat{\emph{\textbf{u}}})_3\|_{{\color{red} W^{1,1}(\hat{K})}} \\	
+\label{teorema_3} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_3}_{L^{\infty}(\hat{K})} & 
+	\lesssim & \|\hat{u}_3\|_{W^{1,p}}(\hat{K}).
+\end{IEEEeqnarray}
+\end{theorem}
+\begin{proof}
+Tomamos un campo suave $\hat{\textbf{u}}$ definido en $\hat{K}$ y, por el Lema~(\ref{lemaDensidad}),
+la demostración concluirá con un argumento de densidad.\\[5pt]
+La tercera desigualdad sigue del lema~(\ref{lema_PIu3_k_cualquiera}) que demuestra la un\'{\i}voca
+determinaci\'on de $\hat{\pi}(\hat{\textbf{u}})_3$ por parte de $\hat{u}_3$. Las dos primeras se 
+demuestran de forma parecida; probamos~(\ref{teorema_1}). La idea es tomar una funci\'on otra,
+$\hat{\textbf{w}}$, tal que su interpolada tenga igual primera coordenada que la de 
+$\hat{\textbf{u}}$,
+pero que tenga degrees of freedom m\'as c\'omodos de acotar en t\'erminos exclusivamente de 
+$\hat{u}_1$ y $\textbf{curl}(\hat{\textbf{u}})_3$.
+Definimos, dada $\hat{\textbf{u}} \in W^{1,p}(\hat{K})^3$,
+\begin{IEEEeqnarray*}{rCl}
+	\hat{\textbf{w}} & = & (\hat{u}_1, \hat{u}_2 - \hat{u}_2(0,y,z), 0).
+\end{IEEEeqnarray*}
+Como dec\'{\i}amos, observemos primero que gracias a los lemas~(\ref{lemma_PIu2_k_in_N}) 
+y~(\ref{pi00u3}) es
+\begin{IEEEeqnarray*}{rCl}
+	\hat{\pi}(\hat{\textbf{w}})_1 & = & (\hat{\pi}\hat{\textbf{u}})_1 - 
+	\hat{\pi}(0, \hat{u}_2(0,y,z), 0)_1 -
+	\hat{\pi}(0, 0, \hat{u}_3)_1\\
+						& = & (\hat{\pi}\hat{\textbf{u}})_1.
+\end{IEEEeqnarray*}
+Ahora exploremos uno por uno los degrees of freedom que definen a $\pi(\hat{\textbf{w}})$. Los \'unicos
+degrees of freedom sobre aristas que no se anulan o que no dependen expl\'{\i}citamente s\'olo de $\textrm{u}_1$
+son
+\begin{IEEEeqnarray*}{rCl}
+	\int\limits_{e_8} \hat{\textbf{w}} \cdot \boldsymbol{\tau}\,\phi\,ds & = &
+	\tfrac{1}{\sqrt{2}} \int\limits_{e_8} (w_1 - w_2)\,\phi\,ds\\
+	\int\limits_{e_9} \hat{\textbf{w}} \cdot \boldsymbol{\tau}\,\phi\,ds & = &
+	\tfrac{1}{\sqrt{2}} \int\limits_{e_9} (w_1 - w_2)\,\phi\,ds
+\end{IEEEeqnarray*}
+para $q\in \mathcal{P}_{k-1}$. Para el momento sobre $e_8$ hacemos partes en la cara $f_4
+\subseteq \{ z=1 \}$. Tomemos un polinomio $\phi \in \mathcal{P}_{k-1}$ sobre $e_8$, que puede
+verse como $\phi(y)$, dado que en $e_8$ es $x = 1 - y$.
+\begin{IEEEeqnarray*}{rCl}
+	\int\limits_{f_4} \textbf{curl}(\hat{\textbf{u}})_3\,\phi\,d\gamma & = &
+	\int\limits_{f_4} \textbf{curl}(\hat{\textbf{w}})_3\,\phi\,d\gamma\\
+	& = & -\int\limits_{f_4} \left(w_2\,\partial_x\phi - w_1\,\partial_y\phi\right)\,d\gamma
+		+ \int\limits_{\partial f_4} \left(w_2\,\nu_x - w_1\,\nu_y\right)\,\phi\,ds\\
+	& = &  \int\limits_{f_4} w_1\,\partial_y\phi\,d\gamma
+		+ \int\limits_{e_8} \left(w_2 - w_1\right)\,\phi\,ds + 
+			\int\limits_{e_4} w_1\,\phi\,ds.
+\end{IEEEeqnarray*}
+Es decir
+\begin{IEEEeqnarray}{rCl}\label{momentosWaristas}
+	\tfrac{1}{\sqrt{2}} \int\limits_{e_8} (w_1 - w_2)\,\phi\,ds & = &
+		 \tfrac{1}{\sqrt{2}} \int\limits_{e_4} u_1\,\phi\,ds - 
+		 \tfrac{1}{\sqrt{2}} \int\limits_{f_4} \textbf{curl}(\hat{\textbf{u}})_3\,\phi\,d\gamma
+		 + \int\limits_{f_3} u_1\,\partial_y\phi\,d\gamma.
+\end{IEEEeqnarray}
+De igual manera hacemos partes en $f_3 \subseteq \{ z=0 \}$ para obtener
+\begin{IEEEeqnarray}{rCl}\label{momentosWaristas2}
+	\tfrac{1}{\sqrt{2}} \int\limits_{e_9} (w_1 - w_2)\,\phi\,ds & = &
+		 \tfrac{1}{\sqrt{2}} \int\limits_{e_1} u_1\,\phi\,ds - 
+		 \tfrac{1}{\sqrt{2}} \int\limits_{f_3} \textbf{curl}(\hat{\textbf{u}})_3\,\phi\,d\gamma
+		 + \int\limits_{f_3} u_1\,\partial_y\phi\,d\gamma.
+\end{IEEEeqnarray}
+Ahora miramos los degrees of freedom sobre las caras. Tambi\'en aqu\'{\i} hacemos notar que s\'olo hace falta
+trabajar con los degrees of freedom sobre las dos caras horizontales $f_3$ y $f_4$ y sobre la cara $f_5$.
+Tomemos $\phi_1$, $\phi_2 \in \mathcal{P}_{k-2}(x,y)$, $\boldsymbol{\phi} = (\phi_1, \phi_2, 0)$.
+\begin{IEEEeqnarray}{rCl}
+ 	\label{cotaf3}\int\limits_{f_3} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \boldsymbol{\phi}\,d\gamma
+ 		& = & \int\limits_{f_3} u_1\,\phi_2\,d\gamma + \int\limits_{f_3} w_2\,\phi_1\,d\gamma.
+\end{IEEEeqnarray}
+Ahora sea un polinomio $\varphi_1 \in \mathcal{P}_{k-1}(x,y) $ tal que 
+\begin{IEEEeqnarray*}{rCl}
+	\partial_x \varphi_1 & = & \phi_1\textrm{,}\\
+	\varphi_1 |_{e_9} 	 & \equiv & 0\textrm{;}
+\end{IEEEeqnarray*}
+tomemos por ejemplo $\varphi_1 = -\int_{x}^{1-y} \phi_1(t,y)\,dt$. Entonces
+\begin{IEEEeqnarray*}{rCl}
+	\int\limits_{f_3} \textbf{curl}(\hat{\textbf{u}})_3\,\varphi_1\,d\gamma & = & -\int\limits_{f_3} \left(w_2\,\phi_1 - w_1\,\partial_y\varphi_1\right)\,d\gamma
+		+ \int\limits_{e_1} w_1\,\nu_y\,\varphi_1\,ds,
+\end{IEEEeqnarray*}
+y de esto con junto con~(\ref{cotaf3}) sigue que
+\begin{IEEEeqnarray}{rCl}\label{momentosWcaras}
+ 	\nonumber\int\limits_{f_3} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \boldsymbol{\phi}\,d\gamma
+ 		& = & \int\limits_{f_3} u_1\,\phi_2\,d\gamma - \int\limits_{f_3} \textbf{curl}(\hat{\textbf{u}})_3\,\varphi_1\,d\gamma\\
+ 		& 	& + \int\limits_{f_3} u_1\,\partial_y\varphi_1\,d\gamma	+ \int\limits_{e_1} u_1\,\nu_y\,\varphi_1\,ds.
+\end{IEEEeqnarray}
+Si repetimos lo anterior para el momento en $f_4$, obtenemos 
+\begin{IEEEeqnarray}{rCl}\label{momentosWcaras2}
+ 	\nonumber\int\limits_{f_4} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \boldsymbol{\phi}\,d\gamma
+ 		& = & \int\limits_{f_4} u_1\,\phi_2\,d\gamma - \int\limits_{f_4} \textbf{curl}(\hat{\textbf{u}})_3\,\varphi_1\,d\gamma\\
+ 		& 	& + \int\limits_{f_4} u_1\,\partial_y\varphi_1\,d\gamma	+ \int\limits_{e_4} u_1\,\nu_y\,\varphi_1\,ds\textrm{,}
+\end{IEEEeqnarray}
+y con la misma técnica para $f_5$, si dado $\textbf{q} = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times Q_{k-1,k-2}$ 
+tomamos $\varphi_1(x,z)=-\int\limits_{x}^{1} q_1(t,z)\,dt$, entonces obtenemos
+\begin{IEEEeqnarray}{rCl}\label{momentosWcaras3}
+ 	\nonumber\int\limits_{f_4} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \textbf{q}\,d\gamma
+ 		& = & \int\limits_{f_5} u_1\,q_1\,d\gamma + \int\limits_{f_5} \textbf{curl}(\hat{\textbf{u}})_3\,\varphi_1\,d\gamma\\
+ 		& 	& - \int\limits_{f_5} u_1\,\partial_y\varphi_1\,d\gamma	+ \int\limits_{e_4} u_1\,\varphi_1\,ds.
+\end{IEEEeqnarray}
+Finalmente, estudiamos los degrees of freedom de volumen. Tomemos
+$\boldsymbol{\phi} = (\phi_1, \phi_2, \phi_3) \in (P_{k-2}(x,y) \otimes P_{k-2}(z))^{\color{red}2}
+\times P_{k-3}(x,y) \otimes
+P_{k-1}(z)$ (cfr.~(\ref{momentos6hcurl})) y sea $\varphi_2 = - \int\limits_{x}^{1-y} \phi_2(t,y,z)\,dt$, para el cual vale 
+$\partial_x\varphi_2 = \phi_2 $ y $\varphi_2|_{f_5} \equiv 0$. Entonces, por partes,
+\begin{IEEEeqnarray}{rCl}\label{momentosWvolumen}
+ 	\nonumber\int\limits_{\hat{K}} \hat{\textbf{w}} \cdot \boldsymbol{\phi}\,d\textbf{x}
+ 		& = & \int\limits_{\hat{K}} u_1\,\phi_1\,d\textbf{x} -\int\limits_{\hat{K}} \textbf{curl}(\hat{\textbf{u}})_3\,
+ 		\varphi_2,d\textbf{x}\\
+ 		& 	& + \int\limits_{\hat{K}} u_1\,\partial_y\varphi_2\,d\textbf{x}	+ 
+ 		\int\limits_{f_2} u_1\,\varphi_2\,d\gamma.
+\end{IEEEeqnarray} %,~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3})
+Ahora recolectamos lo que dicen las igualdades~(\ref{momentosWaristas}),~(\ref{momentosWaristas2}),
+y~(\ref{momentosWcaras})--(\ref{momentosWvolumen}), para hacer simplemente
+%\begin{IEEEeqnarray*}{rCl}
+%	\|\hat{\pi}(\hat{\textbf{w}})\|_{L^\infty(\hat{K})} & = 
+%	 & 
+%	 & \leqslant & C \left(\|\hat{u}_1\|_{W^{1,p}(\hat{K})} +
+%		\|{\textbf{curl}}({\hat{\textbf{u}}})_3\|_{W^{1,1}(\hat{K})}\right)
+%\end{IEEEeqnarray*}
+\begin{IEEEeqnarray*}{rCl}
+	\|(\hat{\pi}\hat{\textbf{u}})_1\|_{L^\infty(\hat{K})} & = 
+	&\|(\hat{\pi}\hat{\textbf{w}})_1\|_{L^\infty(\hat{K})}\\
+	& \leqslant & C \left\|\sum F_{i}(\hat{\textbf{w}}, \textbf{q}_i)\,\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{K})}\\
+	& \leqslant & C \sum \left|F_{i}(\hat{\textbf{w}}, \textbf{q}_i)\right|\,
+		\left\|\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{K})}\\
+	& \leqslant & C \left(\|\hat{u}_1\|_{W^{1,p}(\hat{K})} +
+		\|{\textbf{curl}}({\hat{\textbf{u}}})_3\|_{{\color{red} W^{1,1}(\hat{K})}}\right),
+\end{IEEEeqnarray*}
+que es la desigualdad a la que quer\'iamos llegar. \tikz \fill[orange] circle (2pt);
+\end{proof}

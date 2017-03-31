@@ -180,7 +180,7 @@ que es un homog\'eneo en $x,y$ por uno en $z$.)}
         && \mbox{for } q \in P_{k-1}(x,y)\mbox{,}\\
     \nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
     \label{momentos2hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-        && \mbox{for } q \in Q_{k-1, k-1}\mbox{,}\\
+        && \mbox{for } q \in {\color{red} tal vez poner Pk-1(f) y despues aclarar Q_{k-1, k-1}}\mbox{,}\\
     \nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{y}=0\}$
      or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
     \label{momentos3hdiv} \int\limits_{\hat{K}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
@@ -262,6 +262,8 @@ edge element on a prism.
 la Definici\'on~(\ref{edgeelement}) y $\pi^*$ es el operador de interpolaci\'on determinado por el elemento en la
 Definici\'on~(\ref{defi_h_div_conforme}), entonces, para toda $\emph{\textbf{u}}$ tal que 
 "existan las dos composiciones"
+{\color{red} poner tambien la conmut de rk con el proy ortog y poner los nombres
+igual que en el diagrama }
 \begin{IEEEeqnarray}{rCl}
     \emph{\textbf{curl}}\,\pi \emph{\textbf{u}} &=& \pi^*\emph{\textbf{curl}}\,\emph{\textbf{u}}.
 \end{IEEEeqnarray}
@@ -283,29 +285,79 @@ $\textbf{u} \in \mathcal{C}^1(\bar{S})^2 $ y $\phi \in \mathcal{C}^1(\bar{S})$ t
               \& \node      {};
               \& \node (n1) {};
               \& \node (n2) {};
-              \& \node {$\text{H}(\Div, \Omega)$}; \\
-             \node (n3) {}; \&\&\&\&\& \node (n5)   {}; \\
-             \node (n4) {}; \&\&\&\&\& \node (n6)   {}; \\  
-             \node (v)  {$V$}; \&\node(fromV){};\&\&\&\node(toW){};\& \node (w) {$W$}; \\
-             \node (n7) {}; \&\&\&\&\& \node (n8)   {}; \\ 
-             \node      {}; \&\&\&\&\& \node        {}; \\ 
-             \node      {}; \&\&\&\&\& \node        {}; \\ 
-             \node (n11)    {}; \&\&\&\&\& \node (n12) {}; \\ 
+              \& \node {$\text{H}(\Div, \Omega)$}; 
+              \& \node (r1c7) {};
+              \& \node {};
+              \& \node {};
+              \& \node (r1c10) {};
+              \& \node {$L^2(\Omega)$};\\
+             \node (n3) {}; \&\&\&\&\& \node (n5)   {};
+              \& \node (r2c7) {};
+              \& \node {};
+              \& \node {};
+              \& \node {};
+              \& \node (r2c11) {};\\
+             \node (n4) {}; \&\&\&\&\& \node (n6)   {};
+              \& \node (r3c7) {};
+              \& \node {};
+              \& \node {};
+              \& \node {};
+              \& \node (r3c11) {};\\
+             \node (v)  {$V$}; \&\node(fromV){};\&\&\&\node(toW){};\& \node (w) {$W$};
+              \& \node (r4c7) {};
+              \& \node {};
+              \& \node {};
+              \& \node (r4c10) {};
+              \& \node {$Q$};\\
+             \node (n7) {}; \&\&\&\&\& \node (n8)   {};
+              \& \node {};
+              \& \node {};
+              \& \node {};
+              \& \node {};
+              \& \node (r5c11) {};\\
+             \node      {}; \&\&\&\&\& \node        {}; 
+              \& \node {};
+              \& \node {};
+              \& \node {};
+              \& \node {};
+              \& \node {};\\
+             \node      {}; \&\&\&\&\& \node        {}; 
+              \& \node {};
+              \& \node {};
+              \& \node {};
+              \& \node {};
+              \& \node {};\\
+             \node (n11)    {}; \&\&\&\&\& \node (n12) {};
+              \& \node {};
+              \& \node {};
+              \& \node {};
+              \& \node {};
+              \& \node (r8c11) {};\\
              \node {$V_{\textit{h}} $};                                 
               \& \node (n13) {};
               \& \node       {};
               \& \node (n14) {};
               \& \node (n15) {};
-              \& \node (n16) {}; 
-             \node {$W_{\textit{h}} $}; \\
+              \& \node {$W_{\textit{h}} $}; 
+              \& \node (r9c7) {};
+              \& \node {};
+              \& \node {};
+              \& \node (r9c10) {};
+              \& \node {$Q_h$};\\
              };
             \draw[->] (n0) to node[above] {$\textbf{curl}$} (n2); 
             \draw[->] (fromV) to node[above] {$\textbf{curl}$} (toW); 
             \draw[white] (n3) to node {{\color{black}$\cup$}} (n4);
             \draw[white] (n5) to node {{\color{black}$\cup$}} (n6);
             \draw[->] (n7) to node[left] {$\pi_k$} (n11); 
-            \draw[->] (n8) to node[right] {$\boldsymbol{r}_k$} (n12); 
-            \draw[->] (n13) to node[below] {$\textbf{curl}$} (n15); 
+            \draw[->] (n8) to node[left] {$\boldsymbol{r}_k$} (n12); 
+            \draw[->] (n13) to node[above] {$\textbf{curl}$} (n15); 
+            \draw[->] (r1c7) to node[above] {$\text{div}$} (r1c10);
+            \draw[->] (r4c7) to node[above] {$\text{div}$} (r4c10);
+            \draw[->] (r9c7) to node[above] {$\text{div}$} (r9c10);
+            %\draw[white] (r2c7) to node {{\color{black}$\cup$}} (r3c7);
+            \draw[white] (r2c11) to node {{\color{black}$\cup$}} (r3c11);
+            \draw[->] (r5c11) to node[left] {$\pi^{\perp}$} (r8c11);
         \end{tikzpicture}
     \end{center}
 

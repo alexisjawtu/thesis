@@ -1,10 +1,13 @@
 \chapter{Interpolation}
+\input{./chap_interpolation/stability_edge_ref_prism}
 \section{Stability of the generalized Raviart-Thomas element in $\hat{E}$} % (fold)
 \label{stability_of_rt_element_in_hat_k}
 We are writing the following three Lemmas which state some special
 behavior of the interpolation operator, mostly related to the preservation of
 null components of the fields, and whose proofs consist in a smart use of the
-degrees of freedom and the very definition of the operator.
+degrees of freedom and the very definition of the operator. The author and his
+advisor think these Lemmas, although just with technical purpose, exhibit
+nice properties of the interpolators. 
 \begin{lemma}\label{lemmaRT3zero} If $\hat\bu\in P_{\hat E}$ is such that $\hat{u}_3 = 0$,
 then $(\hat{\boldsymbol{r}}_k\hat{\bu})_3 = 0$.
 \end{lemma}
@@ -36,47 +39,70 @@ there is a polinomial $\hat\psi\in\mathcal{P}_{k-1}(\hat f)\otimes\mathcal{P}_{k
 \noindent{\color{blue}\#\#\#\#\#\#\# la sgte oracion hay que aclararla con la cuenta?} 
 and the Lemma will follow once we apply the degrees of freedom~(\ref{momentos4hdiv}). 
 \end{proof}
-\begin{lemma} If $\hat\bu\in P_{\hat E}$ is such that $\hat{u}_1 = 0$ and $\hat{u}_2 = 0$, then $(\hat{\boldsymbol{r}}_k\hat{\bu})_1
+\begin{lemma} If $\hat\bu\in P_{\hat E}$ is such that $\hat{u}_1 = 0$
+and $\hat{u}_2 = 0$, then $(\hat{\boldsymbol{r}}_k\hat{\bu})_1
   = 0$ and $(\hat{\boldsymbol{r}}_k\hat{\textbf{\emph{u}}})_2 = 0$.
 \end{lemma}
 \begin{proof} We use again the expression~(\ref{exprPrt}) for $\hat{\boldsymbol{r}}_k\hat{\bu} =
   (\hat{p}_1, \hat{p}_2, \hat{p}_3) \in  P_{\hat{E}}$. Take an arbitrary
-  $\hat{q}\in\mathcal{P}_{k-1}(\hat f_1)\otimes\mathcal P_{k-1}(\hat z)$ and use
-  Green's Theorem. By the surface degrees of freedom~\ref{momentos2hdiv}
-  and the volume degrees of freedom~\ref{momentos3hdiv} we have
-  \begin{IEEEeqnarray*}{rClCr}
+  $\hat{q}\in\mathcal{P}_{k-1}(\hat f_1)\otimes\mathcal P_{k-1}(\hat z)$, the trick
+  will be to apply Green's Theorem to the field
+  $(\hat{p}_1, \hat{p}_2, 0)^t$
+  . By the surface degrees of freedom~(\ref{momentos2hdiv})
+  and the volume degrees of freedom~(\ref{momentos3hdiv}) we have
+  \begin{IEEEeqnarray*}{rCl}
     \int\limits_{\hat{E}} \text{div}(\hat{p}_1, \hat{p}_2, 0)^t\,\hat{q}\,d\hat{\textbf{x}}&=&
-    - \int\limits_{\hat{E}} (\hat{p}_1, \hat{p}_2, 0)^t\cdot\nabla \hat{q}\,d\hat{\textbf{x}}
-    + \int\limits_{\partial\hat{E}} (\hat{p}_1, \hat{p}_2, 0)^t\cdot\boldsymbol{\hat\nu}\,\hat{q}\,d\gamma
-    & = & 0.
+    \int\limits_{\partial\hat{E}} (\hat{p}_1, \hat{p}_2, 0)^t\cdot\boldsymbol{\hat\nu}\,\hat{q}\,d\gamma
+    - \int\limits_{\hat{E}} (\hat{p}_1, \hat{p}_2, 0)^t\cdot\nabla \hat{q}\,d\hat{\textbf{x}}\\[5pt]
+    & = &
+    \int\limits_{{\color{red}\hat{f}}x+y=1} (\hat{u}_1 + \hat{u}_2) \hat{q}_{|_{{\color{red}\hat f x+y} = 1}}\,d\gamma
+    - \int\limits_{{\color{red}\hat{f}}x=0} \hat{u}_1 \hat{q}_{|_{{\color{red}\hat f x=0}}}\,d\gamma\\[5pt]
+    &&\,- \int\limits_{{\color{red}\hat{f}}y=0} \hat{u}_2 \hat{q}_{|_{{\color{red}\hat f y=0}}}\,d\gamma
+    - \int\limits_{\hat{E}} \hat{u}_1\partial_{\hat x}\hat{q} 
+      + \hat{u}_2 \partial_{\hat y}\hat{q}\,d\hat{\textbf{x}}\,=\,0.
   \end{IEEEeqnarray*}
-  And since $\text{div}(\hat{p}_1, \hat{p}_2, 0)^t$ also belongs to $\pp{k-1}{k-1}$, we just proved it vanishes on all $\hat{E}$.
-  \noindent{\color{blue}\#\#\#\#\#\#\# HERE!} 
-    In a similar way as done in Lemma~(\ref{lemma_PIu2_k_in_N}), we get to prove $h \equiv 0$ in expression~(\ref{exprPrt}).
-    So far we have
-    \begin{IEEEeqnarray*}{rCl}
-        p_1, p_2 & \in & \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z).
-    \end{IEEEeqnarray*}
-    Now the moments on the faces normal to $(-1, 0, 0)$ and $(0, -1, 0)$ vanish, so there are $\phi$ and $\psi$ in 
-    $\p{k-2}{k-1}$ such that 
-    \begin{IEEEeqnarray*}{rCl}
-        p_1 & = & x\,\phi\\
-        p_2 & = & y\,\psi.
-    \end{IEEEeqnarray*}
-    But finally, by the degrees of freedom~(\ref{momentos3hdiv}), $p_1$ and $p_2$ vanish entirely on $\hat{E}$. 
+  And since $\text{div}(\hat{p}_1, \hat{p}_2, 0)^t$ also belongs to
+  $\pp{k-1}{k-1}$, we just proved it vanishes on all $\hat{E}$.\\[3pt]
+  In a similar way as done in Lemma~(\ref{lemma_PIu2_k_in_N}), eq.~(\ref{h_is_zero}),
+  we get to prove $h \equiv 0$ in expression~(\ref{exprPrt}). It means we may
+  assume
+  \begin{IEEEeqnarray*}{rCl}
+    \hat{p}_1, \hat{p}_2 & \in & \mathcal{P}_{k-1}(\hat{f}_1)\otimes\mathcal{P}_{k-1}(\hat{z}).
+  \end{IEEEeqnarray*}
+  Now it is convenient to use again the degrees of freedom on the faces normal to $(-1, 0, 0)$ and $(0, -1, 0)$.
+  The conditions
+  \begin{IEEEeqnarray*}{rCl}
+      \int\limits_{\hat f_1} \hat{p}_1\hat q\,d\hat\gamma & = & 0\qquad\mbox{for all }\hat{q}\in\mathcal{P}_{k-1}(\hat f_1)
+  \end{IEEEeqnarray*}
+  \begin{IEEEeqnarray*}{rCl}
+      \int\limits_{\hat f_2} \hat{p}_2\hat q\,d\hat\gamma & = & 0\qquad\mbox{for all }\hat{q}\in\mathcal{P}_{k-1}(\hat f_2)
+  \end{IEEEeqnarray*}
+  imply that $\hat{x}_i$ divides $\hat{p}_i$ for both $i=1,2$. In other words, 
+  there are $\phi$ and $\psi$ in $\pp{k-2}{k-1}$ such that
+  \begin{IEEEeqnarray*}{rCl}
+    \hat{p}_1 & = & \hat{x}\,\phi\\
+    \hat{p}_2 & = & \hat{y}\,\psi.
+  \end{IEEEeqnarray*}
+  But finally, if we evaluate the degrees of freedom~(\ref{momentos3hdiv}),
+  $\hat{p}_1 = (\hat{\boldsymbol{r}}_k\hat{\bu})_1$ and 
+  $\hat{p}_2 = (\hat{\boldsymbol{r}}_k\hat{\bu})_2$ can be no other that constantly null over all $\hat{E}$. 
 \end{proof}
 \begin{lemma} {\color{red} Controlar.}\\
     Set $\hat{\textbf{u}} = (0, u_2(x,z), 0)$. Then $\boldsymbol{r}_k \hat{\textbf{u}} = (0, q(x,z), 0)$.\\
     Set $\hat{\textbf{u}} = (u_1(y,z), 0, 0)$. Then $\boldsymbol{r}_k \hat{\textbf{u}} = (q(y,z), 0, 0)$.
 \end{lemma}
 \begin{proof}
-    By Lemma~(\ref{lemmaRT3zero}) we get $(\boldsymbol{r}_k\textbf{u})_3 = 0$. Also $\dvg\hat{\textbf{u}} = 0$, and the commutative
-    diagram property gives $\dvg((\boldsymbol{r}_k\textbf{u})_1, (\boldsymbol{r}_k\textbf{u})_2, 0) = 0$. This, together with~(\ref{momentos2hdiv})
-    and~(\ref{momentos3hdiv}) implies, as we have seen, that $p_1 = 0$. So far
-    \begin{IEEEeqnarray*}{rCl}
-        \boldsymbol{r}_k \hat{\textbf{u}} & = & (0, p_2, 0)
-    \end{IEEEeqnarray*}
-    for $p_2\in\p{k-1}{k-1}$. The nullity of the divergence implies that $p_2$ doesn't depend on $y$, as we wanted.
+{\color{red} HERE !!!}
+  By Lemma~(\ref{lemmaRT3zero}) we get $(\boldsymbol{r}_k\boldsymbol{u})_3 = 0$.
+  Also $\dvg\hat{\textbf{u}} = 0$, and the commutative
+  diagram property~(\ref{lema_pi_star_rot_u}) gives
+  $\dvg((\boldsymbol{r}_k\textbf{u})_1, (\boldsymbol{r}_k\textbf{u})_2, 0) = 0$.
+  This, together with~(\ref{momentos2hdiv})
+  and~(\ref{momentos3hdiv}) implies, as we have seen, that $p_1 = 0$. So far
+  \begin{IEEEeqnarray*}{rCl}
+    \boldsymbol{r}_k \hat{\textbf{u}} & = & (0, p_2, 0)
+  \end{IEEEeqnarray*}
+  for $p_2\in\p{k-1}{k-1}$. The nullity of the divergence implies that $p_2$ doesn't depend on $y$, as we wanted.
 \end{proof}
 \begin{theorem}
 Let $\hat{\emph{\textbf{u}}} \in W^{1,1}(\hat{E})$. If $\hat{\pi}$ is the  
