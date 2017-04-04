@@ -39,9 +39,9 @@ there is a polinomial $\hat\psi\in\mathcal{P}_{k-1}(\hat f)\otimes\mathcal{P}_{k
 \noindent{\color{blue}\#\#\#\#\#\#\# la sgte oracion hay que aclararla con la cuenta?} 
 and the Lemma will follow once we apply the degrees of freedom~(\ref{momentos4hdiv}). 
 \end{proof}
-\begin{lemma} If $\hat\bu\in P_{\hat E}$ is such that $\hat{u}_1 = 0$
-and $\hat{u}_2 = 0$, then $(\hat{\boldsymbol{r}}_k\hat{\bu})_1
-  = 0$ and $(\hat{\boldsymbol{r}}_k\hat{\textbf{\emph{u}}})_2 = 0$.
+\begin{lemma}\label{lemma_u1_u2} If $\hat\bu\in P_{\hat E}$ is such that $\hat{u}_1 = 0$
+and $\hat{u}_2 = 0$, then $(\hat{\boldsymbol{r}}_k\hat{\bu})_1 = 0$
+and $(\hat{\boldsymbol{r}}_k\hat{\textbf{\emph{u}}})_2 = 0$.
 \end{lemma}
 \begin{proof} We use again the expression~(\ref{exprPrt}) for $\hat{\boldsymbol{r}}_k\hat{\bu} =
   (\hat{p}_1, \hat{p}_2, \hat{p}_3) \in  P_{\hat{E}}$. Take an arbitrary
@@ -85,25 +85,34 @@ and $\hat{u}_2 = 0$, then $(\hat{\boldsymbol{r}}_k\hat{\bu})_1
   \end{IEEEeqnarray*}
   But finally, if we evaluate the degrees of freedom~(\ref{momentos3hdiv}),
   $\hat{p}_1 = (\hat{\boldsymbol{r}}_k\hat{\bu})_1$ and 
-  $\hat{p}_2 = (\hat{\boldsymbol{r}}_k\hat{\bu})_2$ can be no other that constantly null over all $\hat{E}$. 
+  $\hat{p}_2 = (\hat{\boldsymbol{r}}_k\hat{\bu})_2$ can be no other that
+  constantly null over all $\hat{E}$. 
 \end{proof}
-\begin{lemma} {\color{red} Controlar.}\\
-    Set $\hat{\textbf{u}} = (0, u_2(x,z), 0)$. Then $\boldsymbol{r}_k \hat{\textbf{u}} = (0, q(x,z), 0)$.\\
-    Set $\hat{\textbf{u}} = (u_1(y,z), 0, 0)$. Then $\boldsymbol{r}_k \hat{\textbf{u}} = (q(y,z), 0, 0)$.
+\begin{lemma} Let $\hat{\bu}$ be in $P_{\hat E}$.\\[5pt]
+If $\hat{\bu}(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat x_1,\hat x_3), 0)$,
+then 
+$\hat{\boldsymbol{r}}_k \hat{\textbf{u}}(\hat x_1,\hat x_2,\hat x_3) =
+(0, \hat{r}_2(\hat x_1, \hat x_3), 0)$ for certain $\hat r_2\in (P_{\hat E})_2$.\\[3pt]
+If $\hat{\bu}(\hat x_1,\hat x_2,\hat x_3) = (u_1(\hat x_2,\hat x_3), 0, 0)$,
+then $\boldsymbol{r}_k \hat{\bu}(\hat x_1,\hat x_2,\hat x_3) =
+(\hat{r}_1(\hat x_2,\hat x_3), 0, 0)$ for certain $\hat r_1\in (P_{\hat E})_1$.
 \end{lemma}
-\begin{proof}
-{\color{red} HERE !!!}
-  By Lemma~(\ref{lemmaRT3zero}) we get $(\boldsymbol{r}_k\boldsymbol{u})_3 = 0$.
-  Also $\dvg\hat{\textbf{u}} = 0$, and the commutative
-  diagram property~(\ref{lema_pi_star_rot_u}) gives
-  $\dvg((\boldsymbol{r}_k\textbf{u})_1, (\boldsymbol{r}_k\textbf{u})_2, 0) = 0$.
-  This, together with~(\ref{momentos2hdiv})
-  and~(\ref{momentos3hdiv}) implies, as we have seen, that $p_1 = 0$. So far
-  \begin{IEEEeqnarray*}{rCl}
-    \boldsymbol{r}_k \hat{\textbf{u}} & = & (0, p_2, 0)
-  \end{IEEEeqnarray*}
-  for $p_2\in\p{k-1}{k-1}$. The nullity of the divergence implies that $p_2$ doesn't depend on $y$, as we wanted.
+\begin{proof} Let us prove the first one of the two claims. The second one 
+  has an entirely analogous proof. By Lemma~(\ref{lemmaRT3zero}) we get
+  $(\hat{\boldsymbol{r}}_k\hat{\boldsymbol{u}})_3 = 0$.
+  The nullity of $\dv\hat{\bu}$ and the commutative
+  diagram property~(\ref{lema_pi_star_rot_u}) give us %$\dv((\hat{\boldsymbol{r}}_k\hat{\bu})_1,(\hat{\boldsymbol{r}}_k\hat{\textbf{u}})_2, 0) = 0$.
+  $\dv\hat{\boldsymbol{r}}_k\hat{\bu} = 0$.
+  This last fact, together with the result of the evaluation of the 
+  degrees of freedom~(\ref{momentos2hdiv})
+  on the face $\hat f_1 \subseteq \{x_1=0\}$
+  and~(\ref{momentos3hdiv}) over $\hat E$, implies, as we have seen in
+  Lemma~(\ref{lemma_u1_u2}), that $(\hat{\boldsymbol{r}}_k\hat{\boldsymbol{u}})_1 = 0$.
+  And if look again at 
+  $\dv\hat{\boldsymbol{r}}_k\hat{\bu} = {\partial\hat{\boldsymbol{r}}_k\hat{\bu}}/{\partial\hat x_2} = 0$
+  we have that $(\hat{\boldsymbol{r}}_k\hat{\boldsymbol{u}})_2$ does not depend on $\hat x_2$.
 \end{proof}
+{\color{blue}\#\#\#\#\#\#\#\# HERE !!!.}
 \begin{theorem}
 Let $\hat{\emph{\textbf{u}}} \in W^{1,1}(\hat{E})$. If $\hat{\pi}$ is the  
 interpolation operator determined by the element of Definition~(\ref{defi_h_div_conforme}), then
