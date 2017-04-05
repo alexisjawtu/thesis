@@ -8,8 +8,11 @@ null components of the fields, and whose proofs consist in a smart use of the
 degrees of freedom and the very definition of the operator. The author and his
 advisor think these Lemmas, although just with technical purpose, exhibit
 nice properties of the interpolators. 
-\begin{lemma}\label{lemmaRT3zero} If $\hat\bu\in P_{\hat E}$ is such that $\hat{u}_3 = 0$,
-then $(\hat{\boldsymbol{r}}_k\hat{\bu})_3 = 0$.
+\begin{lemma}\label{lemmaRT3zero}
+Let $\hat\bu\in$ {\color{red}dominio.} Then 
+$(\hat{\boldsymbol{r}}_k\hat{\bu})_3$.
+is linearly and univocally 
+determined by $\hat{u}_3$.
 \end{lemma}
 \begin{proof}
 \noindent{\color{blue}\#\#\#\#\#\#\# de aqui a la sgte marca, chequear si las expresiones
@@ -170,14 +173,14 @@ we may do
 \begin{IEEEeqnarray*}{rCl}
     \int\limits_{\hat{E}} v_2\,q_2  & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}
     \int\limits_0^{y}
-        \partial_y u_2(x,t,z) \,dt \,q_2 (x,y,z)\,dy\,dx\,dz\\
-                                    & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\int\limits_0^{y}
-                                            \partial_y u_2(x,t,z) \,q_2 (x,y,z)\,dt\,dy\,dx\,dz\\
-                                    & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\int\limits_t^{1-x}
-                                            \partial_y u_2(x,t,z) \,q_2 (x,y,z)\,dy\,dt\,dx\,dz\\
-                                    & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y u_2(x,t,z)
-                                            \int\limits_t^{1-x}\,q_2 (x,y,z)\,dy\,dt\,dx\,dz\\
-                                    & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y u_2(x,t,z)\,\phi (x,t,z)\,dt\,dx\,dz\\
+      \partial_y u_2(x,t,z) \,dt \,q_2 (x,y,z)\,dy\,dx\,dz\\
+        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\int\limits_0^{y}
+                \partial_y u_2(x,t,z) \,q_2 (x,y,z)\,dt\,dy\,dx\,dz\\
+        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\int\limits_t^{1-x}
+                \partial_y u_2(x,t,z) \,q_2 (x,y,z)\,dy\,dt\,dx\,dz\\
+        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y u_2(x,t,z)
+                \int\limits_t^{1-x}\,q_2 (x,y,z)\,dy\,dt\,dx\,dz\\
+        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y u_2(x,t,z)\,\phi (x,t,z)\,dt\,dx\,dz\\
 & = &\int\limits_{\hat{E}} (\partial_xu_1 + \partial_y u_2)\,\phi\,d{\textbf{x}}
     - \int\limits_{\hat{E}} \partial_xu_1\,\phi\,d{\textbf{x}}
 \end{IEEEeqnarray*}

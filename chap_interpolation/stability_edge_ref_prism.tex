@@ -1,9 +1,7 @@
 \section{Stability of the Edge Element in $\hat{K}$}
-\tikz \fill [orange] circle (2pt); {\color{red} CONTINUE HERE !!! }
-\tikz \fill [orange] circle (2pt);
-\begin{lemma}\label{lema_PIu3_k_cualquiera}
-If $\hat\bu\in P_{\hat E}$ is such that $\hat{u}_3 = 0$,
-then $(\hat{\boldsymbol{w}}_k\hat{\bu})_3 = 0$.
+\begin{lemma}\label{lema_PIu3_k_cualquiera} Let $\hat\bu\in$ {\color{red}dominio.} Then 
+$(\hat{\boldsymbol{w}}_k\hat{\bu})_3$ is linearly and univocally 
+determined by $\hat{u}_3$.
 \end{lemma}
 \begin{proof} Por definici\'on $(\pi\textbf{u})_3 =: v$ pertenece a $P_k(\hat{T})\otimes P_{k-1}(\hat{I})$, que tiene dimensi\'on 
 $\frac{k(k+1)(k+2)}{2}$. Por otro lado, los grados de
@@ -264,35 +262,29 @@ entonces
 The proof will rely on the three previous Lemmas, 
 the triangular inequality applied on each component of 
 expression~(\ref{edge_interp_explicit}) and traces inequalities.
-Tomamos un campo suave $\hat{\textbf{u}}$ definido en $\hat{K}$ y, por el Lema~(\ref{lemaDensidad}),
-la demostración concluirá con un argumento de densidad.\\[5pt]
 
+First we will take a smooth field $\hat{\bu}$ defined on $\hat{E}$
+and, by Lemma~(\ref{lemaDensidad}), we will conclude the Theorem 
+with a density argumentation.\\[5pt]
 
-La tercera desigualdad sigue del lema~(\ref{lema_PIu3_k_cualquiera}) que demuestra la un\'{\i}voca
-determinaci\'on de $\hat{\pi}(\hat{\textbf{u}})_3$ por parte de $\hat{u}_3$.
-
-One thing to note is that, of course, inequality~(\ref{teorema_3}) implies conversely 
-the statement of Lemma~(\ref{lema_PIu3_k_cualquiera}). We wrote this in the present order
-because we wanted all the previuos Lemmas~(\ref{lema_PIu3_k_cualquiera})--(\ref{pi00u3})
-before Theorem~(\ref{thm_stab_edge}).
 
 Las dos primeras se 
 demuestran de forma parecida; probamos~(\ref{teorema_1}). La idea es tomar una funci\'on otra,
 $\hat{\textbf{w}}$, tal que su interpolada tenga igual primera coordenada que la de 
-$\hat{\textbf{u}}$,
+$\hat{\bu}$,
 pero que tenga degrees of freedom m\'as c\'omodos de acotar en t\'erminos exclusivamente de 
-$\hat{u}_1$ y $\textbf{curl}(\hat{\textbf{u}})_3$.
-Definimos, dada $\hat{\textbf{u}} \in W^{1,p}(\hat{K})^3$,
+$\hat{u}_1$ y $\textbf{curl}(\hat{\bu})_3$.
+Definimos, dada $\hat{\bu} \in W^{1,p}(\hat{K})^3$,
 \begin{IEEEeqnarray*}{rCl}
 	\hat{\textbf{w}} & = & (\hat{u}_1, \hat{u}_2 - \hat{u}_2(0,y,z), 0).
 \end{IEEEeqnarray*}
 Como dec\'{\i}amos, observemos primero que gracias a los lemas~(\ref{lemma_PIu2_k_in_N}) 
 y~(\ref{pi00u3}) es
 \begin{IEEEeqnarray*}{rCl}
-	\hat{\pi}(\hat{\textbf{w}})_1 & = & (\hat{\pi}\hat{\textbf{u}})_1 - 
+	\hat{\pi}(\hat{\textbf{w}})_1 & = & (\hat{\pi}\hat{\bu})_1 - 
 	\hat{\pi}(0, \hat{u}_2(0,y,z), 0)_1 -
 	\hat{\pi}(0, 0, \hat{u}_3)_1\\
-						& = & (\hat{\pi}\hat{\textbf{u}})_1.
+						& = & (\hat{\pi}\hat{\bu})_1.
 \end{IEEEeqnarray*}
 Ahora exploremos uno por uno los degrees of freedom que definen a $\pi(\hat{\textbf{w}})$. Los \'unicos
 degrees of freedom sobre aristas que no se anulan o que no dependen expl\'{\i}citamente s\'olo de $\textrm{u}_1$
@@ -307,7 +299,7 @@ para $q\in \mathcal{P}_{k-1}$. Para el momento sobre $e_8$ hacemos partes en la 
 \subseteq \{ z=1 \}$. Tomemos un polinomio $\phi \in \mathcal{P}_{k-1}$ sobre $e_8$, que puede
 verse como $\phi(y)$, dado que en $e_8$ es $x = 1 - y$.
 \begin{IEEEeqnarray*}{rCl}
-	\int\limits_{f_4} \textbf{curl}(\hat{\textbf{u}})_3\,\phi\,d\gamma & = &
+	\int\limits_{f_4} \textbf{curl}(\hat{\bu})_3\,\phi\,d\gamma & = &
 	\int\limits_{f_4} \textbf{curl}(\hat{\textbf{w}})_3\,\phi\,d\gamma\\
 	& = & -\int\limits_{f_4} \left(w_2\,\partial_x\phi - w_1\,\partial_y\phi\right)\,d\gamma
 		+ \int\limits_{\partial f_4} \left(w_2\,\nu_x - w_1\,\nu_y\right)\,\phi\,ds\\
@@ -319,14 +311,14 @@ Es decir
 \begin{IEEEeqnarray}{rCl}\label{momentosWaristas}
 	\tfrac{1}{\sqrt{2}} \int\limits_{e_8} (w_1 - w_2)\,\phi\,ds & = &
 		 \tfrac{1}{\sqrt{2}} \int\limits_{e_4} u_1\,\phi\,ds - 
-		 \tfrac{1}{\sqrt{2}} \int\limits_{f_4} \textbf{curl}(\hat{\textbf{u}})_3\,\phi\,d\gamma
+		 \tfrac{1}{\sqrt{2}} \int\limits_{f_4} \textbf{curl}(\hat{\bu})_3\,\phi\,d\gamma
 		 + \int\limits_{f_3} u_1\,\partial_y\phi\,d\gamma.
 \end{IEEEeqnarray}
 De igual manera hacemos partes en $f_3 \subseteq \{ z=0 \}$ para obtener
 \begin{IEEEeqnarray}{rCl}\label{momentosWaristas2}
 	\tfrac{1}{\sqrt{2}} \int\limits_{e_9} (w_1 - w_2)\,\phi\,ds & = &
 		 \tfrac{1}{\sqrt{2}} \int\limits_{e_1} u_1\,\phi\,ds - 
-		 \tfrac{1}{\sqrt{2}} \int\limits_{f_3} \textbf{curl}(\hat{\textbf{u}})_3\,\phi\,d\gamma
+		 \tfrac{1}{\sqrt{2}} \int\limits_{f_3} \textbf{curl}(\hat{\bu})_3\,\phi\,d\gamma
 		 + \int\limits_{f_3} u_1\,\partial_y\phi\,d\gamma.
 \end{IEEEeqnarray}
 Ahora miramos los degrees of freedom sobre las caras. Tambi\'en aqu\'{\i} hacemos notar que s\'olo hace falta
@@ -343,26 +335,26 @@ Ahora sea un polinomio $\varphi_1 \in \mathcal{P}_{k-1}(x,y) $ tal que
 \end{IEEEeqnarray*}
 tomemos por ejemplo $\varphi_1 = -\int_{x}^{1-y} \phi_1(t,y)\,dt$. Entonces
 \begin{IEEEeqnarray*}{rCl}
-	\int\limits_{f_3} \textbf{curl}(\hat{\textbf{u}})_3\,\varphi_1\,d\gamma & = & -\int\limits_{f_3} \left(w_2\,\phi_1 - w_1\,\partial_y\varphi_1\right)\,d\gamma
+	\int\limits_{f_3} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\gamma & = & -\int\limits_{f_3} \left(w_2\,\phi_1 - w_1\,\partial_y\varphi_1\right)\,d\gamma
 		+ \int\limits_{e_1} w_1\,\nu_y\,\varphi_1\,ds,
 \end{IEEEeqnarray*}
 y de esto con junto con~(\ref{cotaf3}) sigue que
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras}
  	\nonumber\int\limits_{f_3} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \boldsymbol{\phi}\,d\gamma
- 		& = & \int\limits_{f_3} u_1\,\phi_2\,d\gamma - \int\limits_{f_3} \textbf{curl}(\hat{\textbf{u}})_3\,\varphi_1\,d\gamma\\
+ 		& = & \int\limits_{f_3} u_1\,\phi_2\,d\gamma - \int\limits_{f_3} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\gamma\\
  		& 	& + \int\limits_{f_3} u_1\,\partial_y\varphi_1\,d\gamma	+ \int\limits_{e_1} u_1\,\nu_y\,\varphi_1\,ds.
 \end{IEEEeqnarray}
 Si repetimos lo anterior para el momento en $f_4$, obtenemos 
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras2}
  	\nonumber\int\limits_{f_4} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \boldsymbol{\phi}\,d\gamma
- 		& = & \int\limits_{f_4} u_1\,\phi_2\,d\gamma - \int\limits_{f_4} \textbf{curl}(\hat{\textbf{u}})_3\,\varphi_1\,d\gamma\\
+ 		& = & \int\limits_{f_4} u_1\,\phi_2\,d\gamma - \int\limits_{f_4} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\gamma\\
  		& 	& + \int\limits_{f_4} u_1\,\partial_y\varphi_1\,d\gamma	+ \int\limits_{e_4} u_1\,\nu_y\,\varphi_1\,ds\textrm{,}
 \end{IEEEeqnarray}
 y con la misma técnica para $f_5$, si dado $\textbf{q} = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times Q_{k-1,k-2}$ 
 tomamos $\varphi_1(x,z)=-\int\limits_{x}^{1} q_1(t,z)\,dt$, entonces obtenemos
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras3}
  	\nonumber\int\limits_{f_4} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \textbf{q}\,d\gamma
- 		& = & \int\limits_{f_5} u_1\,q_1\,d\gamma + \int\limits_{f_5} \textbf{curl}(\hat{\textbf{u}})_3\,\varphi_1\,d\gamma\\
+ 		& = & \int\limits_{f_5} u_1\,q_1\,d\gamma + \int\limits_{f_5} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\gamma\\
  		& 	& - \int\limits_{f_5} u_1\,\partial_y\varphi_1\,d\gamma	+ \int\limits_{e_4} u_1\,\varphi_1\,ds.
 \end{IEEEeqnarray}
 Finalmente, estudiamos los degrees of freedom de volumen. Tomemos
@@ -372,7 +364,7 @@ P_{k-1}(z)$ (cfr.~(\ref{momentos6hcurl})) y sea $\varphi_2 = - \int\limits_{x}^{
 $\partial_x\varphi_2 = \phi_2 $ y $\varphi_2|_{f_5} \equiv 0$. Entonces, por partes,
 \begin{IEEEeqnarray}{rCl}\label{momentosWvolumen}
  	\nonumber\int\limits_{\hat{K}} \hat{\textbf{w}} \cdot \boldsymbol{\phi}\,d\textbf{x}
- 		& = & \int\limits_{\hat{K}} u_1\,\phi_1\,d\textbf{x} -\int\limits_{\hat{K}} \textbf{curl}(\hat{\textbf{u}})_3\,
+ 		& = & \int\limits_{\hat{K}} u_1\,\phi_1\,d\textbf{x} -\int\limits_{\hat{K}} \textbf{curl}(\hat{\bu})_3\,
  		\varphi_2,d\textbf{x}\\
  		& 	& + \int\limits_{\hat{K}} u_1\,\partial_y\varphi_2\,d\textbf{x}	+ 
  		\int\limits_{f_2} u_1\,\varphi_2\,d\gamma.
@@ -383,16 +375,74 @@ y~(\ref{momentosWcaras})--(\ref{momentosWvolumen}), para hacer simplemente
 %	\|\hat{\pi}(\hat{\textbf{w}})\|_{L^\infty(\hat{K})} & = 
 %	 & 
 %	 & \leqslant & C \left(\|\hat{u}_1\|_{W^{1,p}(\hat{K})} +
-%		\|{\textbf{curl}}({\hat{\textbf{u}}})_3\|_{W^{1,1}(\hat{K})}\right)
+%		\|{\textbf{curl}}({\hat{\bu}})_3\|_{W^{1,1}(\hat{K})}\right)
 %\end{IEEEeqnarray*}
 \begin{IEEEeqnarray*}{rCl}
-	\|(\hat{\pi}\hat{\textbf{u}})_1\|_{L^\infty(\hat{K})} & = 
+	\|(\hat{\pi}\hat{\bu})_1\|_{L^\infty(\hat{K})} & = 
 	&\|(\hat{\pi}\hat{\textbf{w}})_1\|_{L^\infty(\hat{K})}\\
 	& \leqslant & C \left\|\sum F_{i}(\hat{\textbf{w}}, \textbf{q}_i)\,\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{K})}\\
 	& \leqslant & C \sum \left|F_{i}(\hat{\textbf{w}}, \textbf{q}_i)\right|\,
 		\left\|\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{K})}\\
 	& \leqslant & C \left(\|\hat{u}_1\|_{W^{1,p}(\hat{K})} +
-		\|{\textbf{curl}}({\hat{\textbf{u}}})_3\|_{{\color{red} W^{1,1}(\hat{K})}}\right),
+		\|{\textbf{curl}}({\hat{\bu}})_3\|_{{\color{red} W^{1,1}(\hat{K})}}\right),
 \end{IEEEeqnarray*}
 que es la desigualdad a la que quer\'iamos llegar. \tikz \fill[orange] circle (2pt);
+
+For inequality~(\ref{teorema_3}) 
+
+Definimos, dada $\hat{\bu} \in W^{1,p}(\hat{K})^3$,
+\begin{IEEEeqnarray*}{rCl}
+	\hat{\bv} & = & (0,0, \hat{u}_3). \mbox{{\color{red} CONTINUE HERE}}
+\end{IEEEeqnarray*}
+Como dec\'{\i}amos, observemos primero que gracias a los lemas~(\ref{lemma_PIu2_k_in_N}) 
+y~(\ref{pi00u3}) es
+\begin{IEEEeqnarray*}{rCl}
+	\hat{\pi}(\hat{\textbf{w}})_1 & = & (\hat{\pi}\hat{\bu})_1 - 
+	\hat{\pi}(0, \hat{u}_2(0,y,z), 0)_1 -
+	\hat{\pi}(0, 0, \hat{u}_3)_1\\
+						& = & (\hat{\pi}\hat{\bu})_1.
+\end{IEEEeqnarray*}
+
+
+
+\begin{IEEEeqnarray*}{rCl}
+  (\hat{\boldsymbol{w}}_k\hat{\bu})_3 
+    & = & \sum_{e,p} \varphi_{e,p}(\hat{\bu})\,(\hat{\bv}_{e,p})_3 +
+          \sum_{f,q} \varphi_{f,q}(\hat{\bu})\,(\hat{\bv}_{f,q})_3 +
+          \sum_{r}   \varphi_{r}  (\hat{\bu})\,(\hat{\bv}_{r})_3
+\end{IEEEeqnarray*}
+but at the beggining of the proof of Lemma~(\ref{lema_PIu3_k_cualquiera})
+
+
+
+
+
+if we look at expressions~(\ref{aristas}),~(\ref{caras}) and~(\ref{enK})
+we have 
+
+\begin{IEEEeqnarray}{lClc}
+	|\int\limits_{e_j} (\pi\textbf{u})_3 q\,ds|
+	& \leqslant & \int\limits_{e_j} |\textbf{u}_3 q| \, ds, &\quad q\in P_{k-1}(e_j).
+\end{IEEEeqnarray}
+\begin{IEEEeqnarray}{lClc}
+	|\int\limits_{f} (\pi\textbf{u})_3 q\,d\gamma|
+	& \leqslant & \int\limits_{f} |\textbf{u}_3 q|\,d\gamma, 
+	&\quad q\in Q_{k-2,k-1}(f_{ijkl}).
+\end{IEEEeqnarray}
+\begin{IEEEeqnarray}{lClc}
+	|\int\limits_{\hat{K}} (\pi\textbf{u})_3 q\,d\textbf{x}|
+	& \leqslant & \int\limits_{\hat{K}} |\textbf{u}_3 q|\,d\textbf{x}, 
+	&\quad q\in P_{k-3}(f_z) \otimes P_{k-1}(e_{xy}).
+\end{IEEEeqnarray}	
+
+
+
+La tercera desigualdad sigue del lema~(\ref{lema_PIu3_k_cualquiera}) que demuestra la un\'{\i}voca
+determinaci\'on de $\hat{\pi}(\hat{\bu})_3$ por parte de $\hat{u}_3$.
+
+One thing to note is that, of course, inequality~(\ref{teorema_3}) implies conversely 
+the statement of Lemma~(\ref{lema_PIu3_k_cualquiera}). We wrote this in the present order
+because we wanted all the previuos Lemmas~(\ref{lema_PIu3_k_cualquiera})--(\ref{pi00u3})
+before Theorem~(\ref{thm_stab_edge}).
+
 \end{proof}

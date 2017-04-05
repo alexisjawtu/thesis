@@ -190,7 +190,7 @@ que es un homog\'eneo en $x,y$ por uno en $z$.)}
     \item The degrees of freedom are of two types, surface and volumen integrals:
 \begin{IEEEeqnarray}{lcl}
     \label{momentos1hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-        && \mbox{for } q \in P_{k-1}(x,y)\mbox{,}\\
+        && \mbox{for } q \in P_{k-1}(x,y):=\mathcal{P}_f\mbox{,}\\
     \nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
     \label{momentos2hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
         && \mbox{for } q \in {\color{red} tal vez poner Pk-1(f) y despues aclarar Q_{k-1, k-1}}\mbox{,}\\
@@ -223,7 +223,12 @@ en pyramids}
 can be written
 {\color{blue}\#\#\#\#\#\#\#\# definir notación para los grados de libertad;
 tal vez notación para los espacios test de cada grado de lib para después usarla
-en la suma.}
+en la suma.}\\[5pt]
+we take a basis...
+\begin{IEEEeqnarray*}{rCl}
+  \int\limits_{\hat f}(\boldsymbol{v}_{f,\hat{p}}\cdot\boldsymbol{\nu})\hat{q}\,d\gamma  & = & \delta_{\hat{p},\hat{q}}
+  \,\,etc\,\,etc
+\end{IEEEeqnarray*}
 \begin{IEEEeqnarray}{rCl}\label{face_interp_explicit}  
   \hat{\boldsymbol{r}}_k\hat{\bu} & = & \sum_{f,q} \varphi_{f,q}(\hat{\bu})\,\hat{\bv}_{f,q} +
                                         \sum_{r}   \varphi_{r}  (\hat{\bu})\,\hat{\bv}_{r}
