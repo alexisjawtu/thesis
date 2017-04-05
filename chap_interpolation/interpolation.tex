@@ -113,11 +113,7 @@ then $\boldsymbol{r}_k \hat{\bu}(\hat x_1,\hat x_2,\hat x_3) =
   we have that $(\hat{\boldsymbol{r}}_k\hat{\boldsymbol{u}})_2$ does not depend on $\hat x_2$.
 \end{proof}
 \noindent It is time to state and prove the Theorem that was the purpose of this section.
-In it we show that the interpolation determined by the Finite Element~(\ref{defi_h_div_conforme})
-is anisotropically stable, in the sense that the image of a field $\hat\bu$ under
-the linear operator depends not only continously on $\hat\bu$, but also with a
-\emph{componentwise} bound, with perhaps and additional divergence term.
-\begin{theorem}
+\begin{theorem}\label{thm_stab_div}
 If $\hat{\boldsymbol{r}}_k$ is the  
 interpolation operator determined by the Finite Element of degree $k$ in
 definition~(\ref{defi_h_div_conforme}), then
@@ -134,6 +130,8 @@ for all $\hat{\bu} \in W^{1,1}(\hat{E})$
 \end{IEEEeqnarray}
 \end{theorem}
 \begin{proof} 
+According to expression~(\ref{face_interp_explicit}) \dots
+
 {\color{blue}\#\#\#\#\#\#\#\# HERE. Tal vez me convenga ocuparme primero
 del teorema correspondiente para H(curl) porque hay muchas cosas
 que ac'a ser'an 'como dijimos en el caso H(curl) ... etc ...'}
@@ -185,4 +183,10 @@ we may do
 \end{IEEEeqnarray*}
 (for some $\phi \in \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$), as we wanted. 
 \end{proof}
+Theorems~(\ref{thm_stab_edge}) and~(\ref{thm_stab_div}) show that the interpolations
+determined by the Finite Elements~(\ref{edgeelement}) and~(\ref{defi_h_div_conforme})
+are anisotropically stable, in the sense that the image of a field $\hat\bu$ under
+the linear operator depends not only continously on $\hat\bu$, but also with a
+\emph{componentwise} bound, with perhaps and additional curl or divergence term, respectively.
+
 % section stability_of_rt_element_in_hat_k (end)

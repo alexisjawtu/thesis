@@ -1,8 +1,9 @@
 \section{Stability of the Edge Element in $\hat{K}$}
 \tikz \fill [orange] circle (2pt); {\color{red} CONTINUE HERE !!! }
 \tikz \fill [orange] circle (2pt);
-\begin{lemma}\label{lema_PIu3_k_cualquiera}$(\pi\emph{\textbf{u}})_3$ depende s\'olo de 
-$u_3$.
+\begin{lemma}\label{lema_PIu3_k_cualquiera}
+If $\hat\bu\in P_{\hat E}$ is such that $\hat{u}_3 = 0$,
+then $(\hat{\boldsymbol{w}}_k\hat{\bu})_3 = 0$.
 \end{lemma}
 \begin{proof} Por definici\'on $(\pi\textbf{u})_3 =: v$ pertenece a $P_k(\hat{T})\otimes P_{k-1}(\hat{I})$, que tiene dimensi\'on 
 $\frac{k(k+1)(k+2)}{2}$. Por otro lado, los grados de
@@ -244,7 +245,7 @@ obtenemos tambi\'en que $z\,(z-1)$ los divide a ambos. Finalmente, si aplicamos 
 igualdades~(\ref{momentos6hcurl}) probamos que $\xi_1 = \xi_2 \equiv 0$ en todo $\hat{K}$.
 En conclusi\'on, $\pi(0,0, u_3)$ tiene la forma deseada.
 \end{proof}
-\begin{theorem}
+\begin{theorem}\label{thm_stab_edge}
 Dados $p > 2$, $\hat{\emph{\textbf{u}}} \in \wpcurl{\hat{K}}$, si $\hat{\pi}$ es 
 el operador de interpolaci\'on determinado por el elemento de la Definici\'on~(\ref{edgeelement}),
 entonces
@@ -260,10 +261,22 @@ entonces
 \end{IEEEeqnarray}
 \end{theorem}
 \begin{proof}
+The proof will rely on the three previous Lemmas, 
+the triangular inequality applied on each component of 
+expression~(\ref{edge_interp_explicit}) and traces inequalities.
 Tomamos un campo suave $\hat{\textbf{u}}$ definido en $\hat{K}$ y, por el Lema~(\ref{lemaDensidad}),
 la demostración concluirá con un argumento de densidad.\\[5pt]
+
+
 La tercera desigualdad sigue del lema~(\ref{lema_PIu3_k_cualquiera}) que demuestra la un\'{\i}voca
-determinaci\'on de $\hat{\pi}(\hat{\textbf{u}})_3$ por parte de $\hat{u}_3$. Las dos primeras se 
+determinaci\'on de $\hat{\pi}(\hat{\textbf{u}})_3$ por parte de $\hat{u}_3$.
+
+One thing to note is that, of course, inequality~(\ref{teorema_3}) implies conversely 
+the statement of Lemma~(\ref{lema_PIu3_k_cualquiera}). We wrote this in the present order
+because we wanted all the previuos Lemmas~(\ref{lema_PIu3_k_cualquiera})--(\ref{pi00u3})
+before Theorem~(\ref{thm_stab_edge}).
+
+Las dos primeras se 
 demuestran de forma parecida; probamos~(\ref{teorema_1}). La idea es tomar una funci\'on otra,
 $\hat{\textbf{w}}$, tal que su interpolada tenga igual primera coordenada que la de 
 $\hat{\textbf{u}}$,
