@@ -22,16 +22,16 @@
 %\syntaxonly
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\def\be{{\bf e}}
+\def\bq{\boldsymbol{q}}
+\def\bv{\boldsymbol{v}}
+\def\bw{\boldsymbol{w}}
+\def\bu{\boldsymbol{u}}
+\def\bn{{\bf n}}
 \def\diam{\text{diam}}
-
-\newcommand\be{{\bf e}}
-%\newcommand\bv{{\bf v}}
-\newcommand\bv{{\boldsymbol{v}}}
-\newcommand\bw{{\boldsymbol{w}}}
-\newcommand\bu{{\boldsymbol{u}}}
-\newcommand\bn{{\bf n}}
-\newcommand\dv{\mbox{div\,}}
-\newcommand\curl{\textbf{curl\,}}
+\def\dv{\mbox{div\,}}
+\def\curl{\textbf{curl\,}}
+\def\wku{\hat{\boldsymbol{w}}_k\hat{\bu}}
 \newcommand{\forma}[2]{\int\limits_\Omega {\bf #1}\cdot{\bf #2}\,d\boldsymbol{x}}
 \newcommand{\formb}[2]{\int\limits_\Omega #2\,\dv {\bf #1}\,d\boldsymbol{x}}
 \newcommand{\hmtn}[2]{\textrm{H}^#1(\textrm{T})^#2}
@@ -45,6 +45,9 @@
 \newcommand{\supp}[1]{\textrm{supp}(#1)}
 \newcommand{\p}[2]{\mathcal{P}_{#1}(x,y) \otimes \mathcal{P}_{#2}(z)}
 \newcommand{\pp}[2]{\mathcal{P}_{#1}(\hat f_1)\otimes\mathcal P_{#2}(\hat z)}
+
+
+
 
 \newcommand{\wpcurl}[1]{W^p(\emph{\textbf{curl}}, #1)}
 \newcommand{\diag}[3]{

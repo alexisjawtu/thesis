@@ -1,33 +1,51 @@
 \section{Stability of the Edge Element in $\hat{K}$}
-In the next three Lemmas, $\hat\bu$ will belong to
-
+In the next three Lemmas $\hat\bu$ is an element
+in $H({\bf curl},\hat{E})$ and we will assume there are 
+a positive $\delta$ and a $p>2$ such that 
+$\hat\bu$ belongs to $H^{1/2+\delta}(\hat{E})^3$ and
+${\bf curl}\,\bu$ belongs to $L^p(\hat{E})^3$.
 \begin{lemma}\label{lema_PIu3_k_cualquiera} 
-$(\hat{\boldsymbol{w}}_k\hat{\bu})_3$ is linearly and univocally 
+$(\wku)_3$ is linearly and univocally 
 determined by $\hat{u}_3$.
 \end{lemma}
-\begin{proof} Por definici\'on $(\pi\textbf{u})_3 =: v$ pertenece a $P_k(\hat{T})\otimes P_{k-1}(\hat{I})$, que tiene dimensi\'on 
-$\frac{k(k+1)(k+2)}{2}$. Por otro lado, los grados de
-libertad en los que no des\-a\-pa\-re\-ce $(\pi\textbf{u})_3$ son \'unicamente:
+\begin{proof} If we pay attention to the directions of the unit
+tangents and normals to the edges and faces, respectively, of $\hat E$,
+we realize that
+the degrees of freedom which involve $\wku_3$ give rise onnlyto the 
+following linear equations
+\begin{IEEEeqnarray}{rCrc}
+\varphi_{e_i,p}\,(\wku) & = & \varphi_{e_i,p}\,(\hat{\bu}) &\quad\mbox{for $i$ = 3, 6, 7 and }p\in\mathcal{}  \\
+\varphi_{f_j,\boldsymbol{q}}\,(\wku) & = & \varphi_{f_j,\boldsymbol{q}}\,(\hat{\bu})
+  &\quad\mbox{for $j$ = 1, 2, 4 and }\boldsymbol{q}\in\mathcal{}  \\
+\varphi_{\boldsymbol{r}}\,(\wku) & = & \varphi_{\boldsymbol{r}}\,(\hat{\bu})
+  &\quad\mbox{for }\boldsymbol{r}\in\mathcal{}.
+\end{IEEEeqnarray}
+These are 
+$3k$+$3k(k-1)$+$k(k-1)(k-2)/2 = k(k+1)(k+2)/2$ equations,
+just the dimension of $P_k(\hat{T})\otimes P_{k-1}(\hat{I})$, 
+which is the space $(\wku)_3$ belongs to by definition.
+%$\frac{k(k+1)(k+2)}{2}$. 
+%libertad en los que no des\-a\-pa\-re\-ce $(\pi\textbf{u})_3$ son \'unicamente:
+Now set all those equations to zero and see that the unique solution is $(\wku)_3 = 0$.
+A little more explicitly, we have:
+\noindent{\color{blue}\#\#\#\#\#\#\# } 
 para cada arista $e_j$, $j = 3, 6, 7$,
 \begin{IEEEeqnarray}{lClc}
-	\label{aristas} \int\limits_{e_j} (\pi\textbf{u})_3 q \, ds 
-	& = & \int\limits_{e_j} \textbf{u}_3 q \, ds, &\quad q\in P_{k-1}(e_j).
+  \label{aristas} \int\limits_{e_j} (\pi\textbf{u})_3 q \, ds 
+  & = & 0 &\quad q\in P_{k-1}(e_j).
 \end{IEEEeqnarray}
 Para cada cara vertical $f=f_1$, $f_2$, $f_4$,
 \begin{IEEEeqnarray}{lClc}
 	\label{caras} \int\limits_{f} (\pi\textbf{u})_3 q \, 
-	d\gamma & = & \int\limits_{f} \textbf{u}_3 q \, d\gamma, 
-	&\quad q\in Q_{k-2,k-1}(f_{ijkl}).
+	d\gamma & = & 0 &\quad q\in Q_{k-2,k-1}(f_{ijkl}).
 \end{IEEEeqnarray}
 En $\hat{K}$
 \begin{IEEEeqnarray}{lClc}
 	\label{enK} \int\limits_{\hat{K}} (\pi\textbf{u})_3 
-	q \, d\textbf{x} & = & \int\limits_{\hat{K}} \textbf{u}_3 q \, d\textbf{x}, 
-	&\quad q\in P_{k-3}(f_z) \otimes P_{k-1}(e_{xy}).
+	q \, d\textbf{x} & = & 0 &\quad q\in P_{k-3}(f_z) \otimes P_{k-1}(e_{xy}).
 \end{IEEEeqnarray}
-El n\'umero de grados de libertad es $3k$ en aristas m\'as $3k(k-1)$ en caras, m\'as $\frac{k(k-1)(k-2)}{2} $ en volumen, que es igual 
-a $\frac{k(k+1)(k+2)}{2}$ (la cantidad correcta). 
-Ahora supongamos que estos grados de libertad se anulan todos y veamos que de esta suposici\'on
+\noindent{\color{blue}\#\#\#\#\#\#\# }
+ of freedom que estos grados de libertad se anulan todos y veamos que de esta suposici\'on
 se deduce que $(\pi\textbf{u})_3 = 0$, es decir que las ecuaciones li\-nea\-les mencionadas determinan un\'ivocamente a un elemento
 $(\pi\textbf{u})_3$ pertenenciente a 
 $P_k(\hat{T}) \otimes P_{k-1}(\hat{I})$. 

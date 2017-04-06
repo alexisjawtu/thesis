@@ -83,22 +83,22 @@ of degree $k$ are defined by the following:
     \label{momentos1hcurl} \int\limits_{a} \textbf{u} \cdot \boldsymbol{\tau} \,q\, ds  
         & q\in P_{k-1}\mbox{,} \\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each edge $a$ with unit tangent } \boldsymbol{\tau} \mbox{;}}\\[8pt]
-    \label{momentos2hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \boldsymbol{q}\,
-    d\gamma\mbox{, } &\boldsymbol{q} = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
+    \label{momentos2hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+    d\gamma\mbox{, } &\bq = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each horizontal face $f$ with normal } \boldsymbol{\nu} = (0,0,\pm1) \mbox{;}}\\[8pt]
-    \label{momentos3hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \boldsymbol{q}\,
-    d\gamma\mbox{, } &\boldsymbol{q} = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
+    \label{momentos3hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+    d\gamma\mbox{, } &\bq = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
     Q_{k-1,k-2}\mbox{, } \\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ x=0 \} \mbox{ with normal }\boldsymbol{\nu} = (-1,0,0) \mbox{;}}\\[8pt]
-    \label{momentos4hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \boldsymbol{q}\,
-    d\gamma\mbox{, } & \boldsymbol{q} = (q_3,0,q_1) \in Q_{k-2,k-1} \times \{ 0 \} \times
+    \label{momentos4hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
+    d\gamma\mbox{, } & \bq = (q_3,0,q_1) \in Q_{k-2,k-1} \times \{ 0 \} \times
     Q_{k-1,k-2},\\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ y=0 \} \mbox{ with normal }\boldsymbol{n} = (0,-1,0) \mbox{;}}\\[8pt]
-    \label{momentos5hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \boldsymbol{q}\,
-    d\gamma\mbox{, } & \boldsymbol{q} = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times
+    \label{momentos5hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
+    d\gamma\mbox{, } & \bq = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times
     Q_{k-1,k-2}\mbox{, }\\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face }f \subseteq \{x+y=1\} \mbox{ with normal }\boldsymbol{n} = (1,1,0) \mbox{;}}\\[8pt]
-    \label{momentos6hcurl} \int\limits_{K} \textbf{u} \cdot \boldsymbol{q} \, d\textbf{x}\mbox{, }&\\
+    \label{momentos6hcurl} \int\limits_{K} \textbf{u} \cdot \bq \, d\textbf{x}\mbox{, }&\\
     \IEEEeqnarraymulticol{2}{l}{\nonumber q_1, q_2 \in P_{k-2}(x,y) \otimes 
         P_{k-2}(z)\mbox{, }q_3 \in P_{k-3}(x,y) \otimes P_{k-1}(z).}
 \end{IEEEeqnarray}
@@ -110,19 +110,19 @@ In order to clarify how to compute the degrees of
 freedom~(\ref{momentos2hcurl})--(\ref{momentos5hcurl}) for an implementation
 we write their test spaces more explicitly here.
 \begin{IEEEeqnarray}{ll}
-    (\ref{momentos2hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \boldsymbol{q}\,
-    d\gamma\mbox{, } &\boldsymbol{q} = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
+    (\ref{momentos2hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+    d\gamma\mbox{, } &\bq = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each horizontal face $f$ with normal } \boldsymbol{\nu} = (0,0,\pm1) \mbox{;}}\\[8pt]
-    (\ref{momentos3hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \boldsymbol{q}\,
-    d\gamma\mbox{, } &\boldsymbol{q} = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
+    (\ref{momentos3hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+    d\gamma\mbox{, } &\bq = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
     Q_{k-1,k-2}\mbox{, } \\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ x=0 \} \mbox{ with normal }\boldsymbol{\nu} = (-1,0,0) \mbox{;}}\\[8pt]
-    (\ref{momentos4hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \boldsymbol{q}\,
-    d\gamma\mbox{, } & \boldsymbol{q} = (q_3,0,q_1) \in Q_{k-2,k-1} \times \{ 0 \} \times
+    (\ref{momentos4hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
+    d\gamma\mbox{, } & \bq = (q_3,0,q_1) \in Q_{k-2,k-1} \times \{ 0 \} \times
     Q_{k-1,k-2},\\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ y=0 \} \mbox{ with normal }\boldsymbol{n} = (0,-1,0) \mbox{;}}\\[8pt]
-    (\ref{momentos5hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \boldsymbol{q}\,
-    d\gamma\mbox{, } & \boldsymbol{q} = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times
+    (\ref{momentos5hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
+    d\gamma\mbox{, } & \bq = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times
     Q_{k-1,k-2}\mbox{, }\\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face }f \subseteq \{x+y=1\} \mbox{ with normal }\boldsymbol{n} = (1,1,0) \mbox{;}}
 \end{IEEEeqnarray}
@@ -153,15 +153,23 @@ que sea $p>2$ (ver~\cite{monk}, página 134,
 En~\cite{nedelec2} se prueba que este elemento es
 $H(\textbf{curl})$--conforme y unisolvente. {\color{BrickRed}>Está
 bien usar esta conformidad, siendo que restringimos a Wp?}
+\begin{defi} 
+  \begin{IEEEeqnarray}{lClc}
+    \varphi_{\be,p}\,(\hat{\bu} - \wku) & = & 0 &\quad\mbox{for $\be$ and }p\in\mathcal{}  \\
+    \varphi_{f,\bq}\,(\hat{\bu} - \wku) & = & 0 &\quad\mbox{for $f$ and }\bq\in\mathcal{}  \\
+    \varphi_{\boldsymbol{r}}\,(\hat{\bu} - \wku) & = & 0 &\quad\mbox{for }\boldsymbol{r}\in\mathcal{}.
+  \end{IEEEeqnarray}
+\end{defi}
 \begin{remark} {\color{red} primero hacer unisolvencia!} The interpolation operator
 can be written
 {\color{blue}\#\#\#\#\#\#\#\# definir notación para los grados de libertad;
 tal vez notación para los espacios test de cada grado de lib para después usarla
 en la suma.}
 \begin{IEEEeqnarray}{rCl}\label{edge_interp_explicit}  
-  \hat{\boldsymbol{w}}_k\hat{\bu} & = & \sum_{e,p} \varphi_{e,p}(\hat{\bu})\,\hat{\bv}_{e,p} +
-                                        \sum_{f,q} \varphi_{f,q}(\hat{\bu})\,\hat{\bv}_{f,q} +
-                                        \sum_{r}   \varphi_{r}  (\hat{\bu})\,\hat{\bv}_{r}
+  \hat{\boldsymbol{w}}_k\hat{\bu} & = & 
+  \sum_{\be,p} \varphi_{\be,p}(\hat{\bu})\,\hat{\bv}_{\be,p} +
+  \sum_{f,\bq} \varphi_{f,\bq}(\hat{\bu})\,\hat{\bv}_{f,\bq} +
+  \sum_{\boldsymbol{r}}   \varphi_{\boldsymbol{r}}  (\hat{\bu})\,\hat{\bv}_{\boldsymbol{r}}
 \end{IEEEeqnarray}
 \end{remark}
 
@@ -219,6 +227,12 @@ en pyramids}
 %       &\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
 %\end{IEEEeqnarray}
 \end{defi}
+\begin{defi} 
+  \begin{IEEEeqnarray}{lClc}
+    \varphi_{f,\bq}\,(\hat{\bu} - \wku)          & = & 0 &\quad\mbox{for $f$ and }\bq\in\mathcal{}  \\
+    \varphi_{\boldsymbol{r}}\,(\hat{\bu} - \wku) & = & 0 &\quad\mbox{for }\boldsymbol{r}\in\mathcal{}.
+  \end{IEEEeqnarray}
+\end{defi}
 \begin{remark} {\color{red} primero hacer unisolvencia!} The interpolation operator
 can be written
 {\color{blue}\#\#\#\#\#\#\#\# definir notación para los grados de libertad;
@@ -230,7 +244,7 @@ we take a basis...
   \,\,etc\,\,etc
 \end{IEEEeqnarray*}
 \begin{IEEEeqnarray}{rCl}\label{face_interp_explicit}  
-  \hat{\boldsymbol{r}}_k\hat{\bu} & = & \sum_{f,q} \varphi_{f,q}(\hat{\bu})\,\hat{\bv}_{f,q} +
+  \hat{\boldsymbol{r}}_k\hat{\bu} & = & \sum_{f,\bq} \varphi_{f,\bq}(\hat{\bu})\,\hat{\bv}_{f,\bq} +
                                         \sum_{r}   \varphi_{r}  (\hat{\bu})\,\hat{\bv}_{r}
 \end{IEEEeqnarray}
 \end{remark}
