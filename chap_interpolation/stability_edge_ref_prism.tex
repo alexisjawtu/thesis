@@ -25,31 +25,25 @@ $3k$+$3k(k-1)$+$k(k-1)(k-2)/2 = k(k+1)(k+2)/2$ equations,
 just the dimension of $P_k(\hat{T})\otimes P_{k-1}(\hat{I})$, 
 which is the space $(\wku)_3$ belongs to by definition.
 %$\frac{k(k+1)(k+2)}{2}$. 
-%libertad en los que no des\-a\-pa\-re\-ce $(\pi\textbf{u})_3$ son \'unicamente:
+%libertad en los que no des\-a\-pa\-re\-ce $(\wku)_3$ son \'unicamente:
 Now set all those equations to zero and see that the unique solution is $(\wku)_3 = 0$.
 A little more explicitly, we have:
 \noindent{\color{blue}\#\#\#\#\#\#\# poner
 	algo que haga quedar finitas ecs de caras, como una base, etc...}
-\begin{IEEEeqnarray}{lClc}
-  \label{aristas} \int\limits_{\be_i} (\wku)_3 q \, ds 
-  & = & 0 &\quad \mbox{for $i$ = 3, 6, 7 and } q\in \mathcal{B}_{\hat\be_i}\\[5pt]
-	\label{caras} \int\limits_{f_j} (\wku)_3 q \, 
-	d\gamma & = & 0 &\quad \mbox{for $j$ = 1,2,4 and } q\in Q_{k-2,k-1}(f_{ijkl}).\\[5pt]
-	\label{enK} \int\limits_{\hat{E}} (\wku)_3 
-	q_3 \, d\textbf{x} & = & 0 &\quad \mbox{for }\bq\in \mathcal{B}_{\hat E}.
+\begin{IEEEeqnarray}{lCll}
+  \label{aristas} \int\limits_{\be_i} (\wku)_3\,q \, ds 
+  & = & 0 &\qquad \mbox{for $i$ = 3, 6, 7 and } q\in \mathcal{B}_{\hat\be_i}\\[5pt]
+  \label{caras} \int\limits_{f_j} (\wku)_3\,q \, d\gamma
+  & = & 0 &\qquad \mbox{for $j$ = 1, 2, 4 and } q\in Q_{k-2,k-1}(\hat f_j)\\[5pt]
+  \label{enK} \int\limits_{\hat{E}} (\wku)_3\,q_3 \, d\textbf{x} 
+  & = & 0 &\qquad \mbox{for }\bq\in \mathcal{B}_{\hat E}
 \end{IEEEeqnarray}
- of freedom que estos grados de libertad se anulan todos y veamos que de esta suposici\'on
-se deduce que $(\pi\textbf{u})_3 = 0$, es decir que las ecuaciones li\-nea\-les mencionadas determinan un\'ivocamente a un elemento
-$(\pi\textbf{u})_3$ pertenenciente a 
-$P_k(\hat{T}) \otimes P_{k-1}(\hat{I})$. 
-
-Empezamos por ver que $(\pi\textbf{u})_3$ se anula en ciertos subconjuntos de 
-$\partial \hat{K} $. La restricci\'on de $(\pi\textbf{u})_3$ a $e_j, (j=3,6,7)$
-es un elemento de $P_{k-1}(e_j)$. Entonces si usamos los degrees of freedom~(\ref{aristas}) obtenemos
-\begin{IEEEeqnarray}{rCl}
-	\label{restriccAristas}\int\limits_{e_j} [(\pi\textbf{u})_3]^2\, ds & = & 0,
-\end{IEEEeqnarray}
-es decir que $(\pi\textbf{u})_3$ es id\'enticamente cero en esas aristas. Con esto la restricci\'on $(\pi\textbf{u})_3|_{f_2}$ 
+\noindent{\color{blue}\#\#\#\#\#\#\# continue HERE !!} 
+Empezamos por ver que $(\wku)_3$ se anula en ciertos subconjuntos de 
+$\partial \hat{E} $. 
+The restriction of $(\wku)_3$ to $\be_j$, ($j$ = 3, 6, 7) is itself 
+an element in $\mathcal P_{\be_j}$, so equations~(\ref{aristas}) say $(\wku)_3$
+is identically null on those edges. Con esto la restricci\'on $(\wku)_3|_{f_2}$ 
 que pertenece a $P_k(x)\otimes P_{k-1}(z)$ se factoriza como 
 \begin{IEEEeqnarray*}{rCl}
 	v(x,0,z) 	& = 	& x\,(x-1)\,w_0(x,z),\\
@@ -60,24 +54,24 @@ cuales llegamos a
 \begin{IEEEeqnarray}{lClc}
 	\int\limits_{f_2} x(x-1)[w_0(x,z)]^2\,d\gamma & = & 0.
 \end{IEEEeqnarray}
-Entonces en $f_2$ es $w_0 \equiv 0$ y $(\pi\textbf{u})_3|_{f_2} \equiv 0$. Por simetr\'ia, el argumento para probar que
-$(\pi\textbf{u})_3|_{f_1} \equiv 0$ es exactamente igual.
+Entonces en $f_2$ es $w_0 \equiv 0$ y $(\wku)_3|_{f_2} \equiv 0$. Por simetr\'ia, el argumento para probar que
+$(\wku)_3|_{f_1} \equiv 0$ es exactamente igual.
 
-Si volvemos a usar las igualdades~(\ref{restriccAristas}) obtenemos que la restricc\'on de $(\pi\textbf{u})_3$ a
+Si volvemos a usar las igualdades~(\ref{restriccAristas}) obtenemos que la restricc\'on de $(\wku)_3$ a
 $f_{4} = \{ (x,y,z) \;:\; 0\leqslant x\leqslant 1,\, y = 1 - x, \, 0\leqslant z\leqslant 1 \}$ se anula si $x=1-y=0$ o bien si $x=1-y=1$;
 \begin{IEEEeqnarray}{rCl}
 	v(x,1-x,z) 	& = 	& x\,(1-x)\,w_1(x,z)\\
 	w_1 		& \in 	& P_{k-2}(x)\otimes P_{k-1}(z).
 \end{IEEEeqnarray}
 Si aplicamos los degrees of freedom~(\ref{caras}) llegamos 
-a que en ${f_4}$ es $w_1$ id\'enticamente cero y as\'i tambi\'en $(\pi\textbf{u})_3$.\\
+a que en ${f_4}$ es $w_1$ id\'enticamente cero y as\'i tambi\'en $(\wku)_3$.\\
 Recapitulando, 
 \begin{IEEEeqnarray*}{rCl}
-	(\pi\textbf{u})_3|_{f_j} & \equiv & 0\quad\text{ para } j = 1,2,4.
+	(\wku)_3|_{f_j} & \equiv & 0\quad\text{ para } j = 1,2,4.
 \end{IEEEeqnarray*}
 Entonces en todo $\hat{K} $ tenemos la factorizaci\'on 
 \begin{IEEEeqnarray*}{rCl}
-	(\pi\textbf{u})_3(x,y,z) 	& = 	& x\,y\,(1-x-y)\,w_3(x,y,z),\\
+	(\wku)_3(x,y,z) 	& = 	& x\,y\,(1-x-y)\,w_3(x,y,z),\\
 						w_3		& \in 	& P_{k-3}(x)\otimes P_{k-1}(z).
 \end{IEEEeqnarray*}
 Simplemente aplicando los degrees of freedom~(\ref{enK}) nos queda que $w_3 \equiv 0$, y finalmente
