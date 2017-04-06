@@ -1,5 +1,7 @@
 \section{Stability of the Edge Element in $\hat{K}$}
-\begin{lemma}\label{lema_PIu3_k_cualquiera} Let $\hat\bu\in$ {\color{red}dominio.} Then 
+In the next three Lemmas, $\hat\bu$ will belong to
+
+\begin{lemma}\label{lema_PIu3_k_cualquiera} 
 $(\hat{\boldsymbol{w}}_k\hat{\bu})_3$ is linearly and univocally 
 determined by $\hat{u}_3$.
 \end{lemma}
@@ -248,14 +250,14 @@ Dados $p > 2$, $\hat{\emph{\textbf{u}}} \in \wpcurl{\hat{K}}$, si $\hat{\pi}$ es
 el operador de interpolaci\'on determinado por el elemento de la Definici\'on~(\ref{edgeelement}),
 entonces
 \begin{IEEEeqnarray}{rCl}
-\label{teorema_1} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_1}_{L^{\infty}(\hat{K})} & 
-	\lesssim & \|\hat{u}_1\|_{W^{1,p}(\hat{K})} + 
-	\|\emph{\textbf{curl}}(\hat{\emph{\textbf{u}}})_3\|_{{\color{red} W^{1,1}(\hat{K})}} \\	
-\label{teorema_2} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_2}_{L^{\infty}(\hat{K})} & 
-	\lesssim & \|\hat{u}_2\|_{W^{1,p}(\hat{K})} + 
-	\|\emph{\textbf{curl}}(\hat{\emph{\textbf{u}}})_3\|_{{\color{red} W^{1,1}(\hat{K})}} \\	
-\label{teorema_3} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_3}_{L^{\infty}(\hat{K})} & 
-	\lesssim & \|\hat{u}_3\|_{W^{1,p}}(\hat{K}).
+\label{teorema_1} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_1}_{L^{\infty}(\hat{E})} & 
+	\lesssim & \|\hat{u}_1\|_{W^{1,p}(\hat{E})} + 
+	\|\emph{\textbf{curl}}(\hat{\emph{\textbf{u}}})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
+\label{teorema_2} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_2}_{L^{\infty}(\hat{E})} & 
+	\lesssim & \|\hat{u}_2\|_{W^{1,p}(\hat{E})} + 
+	\|\emph{\textbf{curl}}(\hat{\emph{\textbf{u}}})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
+\label{teorema_3} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_3}_{L^{\infty}(\hat{E})} & 
+	\lesssim & \|\hat{u}_3\|_{W^{1,p}(\hat{E})}.
 \end{IEEEeqnarray}
 \end{theorem}
 \begin{proof}
@@ -386,17 +388,11 @@ y~(\ref{momentosWcaras})--(\ref{momentosWvolumen}), para hacer simplemente
 	& \leqslant & C \left(\|\hat{u}_1\|_{W^{1,p}(\hat{K})} +
 		\|{\textbf{curl}}({\hat{\bu}})_3\|_{{\color{red} W^{1,1}(\hat{K})}}\right),
 \end{IEEEeqnarray*}
-que es la desigualdad a la que quer\'iamos llegar. \tikz \fill[orange] circle (2pt);
-
+que es la desigualdad a la que quer\'iamos llegar.\\[5pt]
 \noindent For inequality~(\ref{teorema_3}) given $\hat{\bu} \in W^{1,p}(\hat{K})^3$, define
-\begin{IEEEeqnarray*}{rCl}
-	\hat{\bv} & = & (0,0, \hat{u}_3).
-\end{IEEEeqnarray*}
-Thanks to Lemma~(\ref{lema_PIu3_k_cualquiera}) we have
-\begin{IEEEeqnarray*}{rCcCl}
-  \hat{\bw}_k(\hat{\bv})_3 & = & 
-	(\hat{\bw}_k\hat{\bu})_3 - (\hat{\bw}_k(\hat{u}_1, \hat{u}_2, 0))_3 & = & (\hat{\bw}_k\hat{\bu})_3.
-\end{IEEEeqnarray*}
+$\hat{\bv}  =  (0,0, \hat{u}_3).$
+Thanks to Lemma~(\ref{lema_PIu3_k_cualquiera}) we have 
+$\hat{\bw}_k(\hat{\bv})_3 = (\hat{\bw}_k\hat{\bu})_3 - (\hat{\bw}_k(\hat{u}_1, \hat{u}_2, 0))_3 = (\hat{\bw}_k\hat{\bu})_3.$
 Apply now expression~(\ref{edge_interp_explicit}) to $\bv$ writing the degrees of
 freedom more explicitly. Taking another look at 
 the unit tangent vector of the edges and unit normal vectors to the faces we have to
@@ -408,11 +404,17 @@ consider only a few not null terms ({\color{red}recall the numbering of the edge
   \sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
   \int\limits_{\hat E} \hat{u}_3 r_3\,d\textbf{x}\,(\hat{\bv}_{\boldsymbol{r}})_3.
 \end{IEEEeqnarray*}
-And now apply the triangular inequality and
-
-One thing to note is that, of course, inequality~(\ref{teorema_3}) implies conversely 
-the statement of Lemma~(\ref{lema_PIu3_k_cualquiera}). We wrote this in the present order
-because we wanted all the previuos Lemmas~(\ref{lema_PIu3_k_cualquiera})--(\ref{pi00u3})
-before Theorem~(\ref{thm_stab_edge}).
-
+And now apply the triangular inequality and the proof
+of Lemma $5.38$ in the page $134$ of Monk~\cite{monk}
+and Theorem $3.9$ (\emph{Trace Theorem})
+in page $43$ of
+the same book, to get \noindent{\color{blue}\#\#\#\#\#\#\# revisar los exponentes hoelder y todo...
+porque en monk pone $H^{1/2+\delta}$} 
+\begin{IEEEeqnarray*}{rCl}
+  \norm{(\hat{\boldsymbol{w}}_k\hat{\bu})_3}_{L^{\infty}(\hat{E})} =
+  \norm{(\hat{\boldsymbol{w}}_k\hat{\bv})_3}_{L^{\infty}(\hat{E})} & 
+  \leqslant & c\,\|\hat{u}_3\|_{W^{1,p}(\hat{E})}
+\end{IEEEeqnarray*}
+where the quantity $c$ depends, clearly, on the choice of the bases $\mathcal{B}_{\hat e_j},
+\mathcal{B}_{\hat f_i}, \mathcal{B}_{\hat E}$.
 \end{proof}
