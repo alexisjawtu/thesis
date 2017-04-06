@@ -388,57 +388,27 @@ y~(\ref{momentosWcaras})--(\ref{momentosWvolumen}), para hacer simplemente
 \end{IEEEeqnarray*}
 que es la desigualdad a la que quer\'iamos llegar. \tikz \fill[orange] circle (2pt);
 
-For inequality~(\ref{teorema_3}) 
-
-Definimos, dada $\hat{\bu} \in W^{1,p}(\hat{K})^3$,
+\noindent For inequality~(\ref{teorema_3}) given $\hat{\bu} \in W^{1,p}(\hat{K})^3$, define
 \begin{IEEEeqnarray*}{rCl}
-	\hat{\bv} & = & (0,0, \hat{u}_3). \mbox{{\color{red} CONTINUE HERE}}
+	\hat{\bv} & = & (0,0, \hat{u}_3).
 \end{IEEEeqnarray*}
-Como dec\'{\i}amos, observemos primero que gracias a los lemas~(\ref{lemma_PIu2_k_in_N}) 
-y~(\ref{pi00u3}) es
+Thanks to Lemma~(\ref{lema_PIu3_k_cualquiera}) we have
+\begin{IEEEeqnarray*}{rCcCl}
+  \hat{\bw}_k(\hat{\bv})_3 & = & 
+	(\hat{\bw}_k\hat{\bu})_3 - (\hat{\bw}_k(\hat{u}_1, \hat{u}_2, 0))_3 & = & (\hat{\bw}_k\hat{\bu})_3.
+\end{IEEEeqnarray*}
+Apply now expression~(\ref{edge_interp_explicit}) to $\bv$ writing the degrees of
+freedom more explicitly. Taking another look at 
+the unit tangent vector of the edges and unit normal vectors to the faces we have to
+consider only a few not null terms ({\color{red}recall the numbering of the edges and faces}).
 \begin{IEEEeqnarray*}{rCl}
-	\hat{\pi}(\hat{\textbf{w}})_1 & = & (\hat{\pi}\hat{\bu})_1 - 
-	\hat{\pi}(0, \hat{u}_2(0,y,z), 0)_1 -
-	\hat{\pi}(0, 0, \hat{u}_3)_1\\
-						& = & (\hat{\pi}\hat{\bu})_1.
+  (\hat{\boldsymbol{w}}_k\hat{\bv})_3 & = &
+  \sum_{j=3,6,7\,p\,\in\,{\color{red}\mathcal{B}_{\hat e_j}}} \int\limits_{\hat e_j} \hat{u}_3 p\,ds         \,(\hat{\bv}_{e_j,p})_3 +
+  \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}} \int\limits_{\hat f_i} \hat{u}_3 q\,d\gamma    \,(\hat{\bv}_{f_i,q})_3 +
+  \sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
+  \int\limits_{\hat E} \hat{u}_3 r_3\,d\textbf{x}\,(\hat{\bv}_{\boldsymbol{r}})_3.
 \end{IEEEeqnarray*}
-
-
-
-\begin{IEEEeqnarray*}{rCl}
-  (\hat{\boldsymbol{w}}_k\hat{\bu})_3 
-    & = & \sum_{e,p} \varphi_{e,p}(\hat{\bu})\,(\hat{\bv}_{e,p})_3 +
-          \sum_{f,q} \varphi_{f,q}(\hat{\bu})\,(\hat{\bv}_{f,q})_3 +
-          \sum_{r}   \varphi_{r}  (\hat{\bu})\,(\hat{\bv}_{r})_3
-\end{IEEEeqnarray*}
-but at the beggining of the proof of Lemma~(\ref{lema_PIu3_k_cualquiera})
-
-
-
-
-
-if we look at expressions~(\ref{aristas}),~(\ref{caras}) and~(\ref{enK})
-we have 
-
-\begin{IEEEeqnarray}{lClc}
-	|\int\limits_{e_j} (\pi\textbf{u})_3 q\,ds|
-	& \leqslant & \int\limits_{e_j} |\textbf{u}_3 q| \, ds, &\quad q\in P_{k-1}(e_j).
-\end{IEEEeqnarray}
-\begin{IEEEeqnarray}{lClc}
-	|\int\limits_{f} (\pi\textbf{u})_3 q\,d\gamma|
-	& \leqslant & \int\limits_{f} |\textbf{u}_3 q|\,d\gamma, 
-	&\quad q\in Q_{k-2,k-1}(f_{ijkl}).
-\end{IEEEeqnarray}
-\begin{IEEEeqnarray}{lClc}
-	|\int\limits_{\hat{K}} (\pi\textbf{u})_3 q\,d\textbf{x}|
-	& \leqslant & \int\limits_{\hat{K}} |\textbf{u}_3 q|\,d\textbf{x}, 
-	&\quad q\in P_{k-3}(f_z) \otimes P_{k-1}(e_{xy}).
-\end{IEEEeqnarray}	
-
-
-
-La tercera desigualdad sigue del lema~(\ref{lema_PIu3_k_cualquiera}) que demuestra la un\'{\i}voca
-determinaci\'on de $\hat{\pi}(\hat{\bu})_3$ por parte de $\hat{u}_3$.
+And now apply the triangular inequality and
 
 One thing to note is that, of course, inequality~(\ref{teorema_3}) implies conversely 
 the statement of Lemma~(\ref{lema_PIu3_k_cualquiera}). We wrote this in the present order
