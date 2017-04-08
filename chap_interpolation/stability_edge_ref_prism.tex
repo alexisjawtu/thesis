@@ -11,7 +11,7 @@ determined by $\hat{u}_3$.
 \begin{proof} If we pay attention to the directions of the unit
 tangents and normals to the edges and faces, respectively, of $\hat E$,
 we realize that
-the degrees of freedom which involve $\wku_3$ give rise onnlyto the 
+the degrees of freedom which involve $(\wku)_3$ give rise only to the 
 following linear equations
 \begin{IEEEeqnarray}{rCrc}
 \varphi_{e_i,p}\,(\wku) & = & \varphi_{e_i,p}\,(\hat{\bu}) &\quad\mbox{for $i$ = 3, 6, 7 and }p\in\mathcal{}  \\
@@ -33,51 +33,49 @@ A little more explicitly, we have:
 \begin{IEEEeqnarray}{lCll}
   \label{aristas} \int\limits_{\be_i} (\wku)_3\,q \, ds 
   & = & 0 &\qquad \mbox{for $i$ = 3, 6, 7 and } q\in \mathcal{B}_{\hat\be_i}\\[5pt]
-  \label{caras} \int\limits_{f_j} (\wku)_3\,q \, d\gamma
-  & = & 0 &\qquad \mbox{for $j$ = 1, 2, 4 and } q\in Q_{k-2,k-1}(\hat f_j)\\[5pt]
+  \label{caras} \int\limits_{\hat f_j} (\wku)_3\,q \, d\gamma
+  & = & 0 &\qquad \mbox{for $j$ = 1, 2, 5 and } \hat q\in Q_{k-2,k-1}(\hat f_j)\\[5pt]
   \label{enK} \int\limits_{\hat{E}} (\wku)_3\,q_3 \, d\textbf{x} 
-  & = & 0 &\qquad \mbox{for }\bq\in \mathcal{B}_{\hat E}
+  & = & 0 &\qquad \mbox{for }\bq\in \mathcal{B}_{\hat E}.
 \end{IEEEeqnarray}
-\noindent{\color{blue}\#\#\#\#\#\#\# continue HERE !!} 
-Empezamos por ver que $(\wku)_3$ se anula en ciertos subconjuntos de 
-$\partial \hat{E} $. 
-The restriction of $(\wku)_3$ to $\be_j$, ($j$ = 3, 6, 7) is itself 
-an element in $\mathcal P_{\be_j}$, so equations~(\ref{aristas}) say $(\wku)_3$
-is identically null on those edges. Con esto la restricci\'on $(\wku)_3|_{f_2}$ 
-que pertenece a $P_k(x)\otimes P_{k-1}(z)$ se factoriza como 
-\begin{IEEEeqnarray*}{rCl}
-	v(x,0,z) 	& = 	& x\,(x-1)\,w_0(x,z),\\
-	w_0 		& \in 	& P_{k-2}(x)\otimes P_{k-1}(z),
-\end{IEEEeqnarray*}
-pero este \'ultimo es precisamente el espacio de los degrees of freedom~(\ref{caras}) con los 
-cuales llegamos a
+Start considering the face $\hat f_2$.
+The restriction of $(\wku)_3$ to $\be_3$
+is itself 
+an element in $\mathcal P_{\be_3}$, 
+and the same holds for $\be_6$,  
+so equations~(\ref{aristas}), for $i = 3, 6$, say that $(\wku)_3$
+is identically null on those edges by which
+the restriccion 
+$(\wku)_3|_{f_2}$, which is an element of $P_k(\hat x_1)\otimes P_{k-1}(\hat x_3)$
+may be se factorized
+as
+$(\wku)_3|_{f_2}(\hat x_1,0,\hat x_3) = \hat x_1\,(1-\hat x_1)\,w_0(\hat x_1,\hat x_3)$,
+with $w_0$ equal to some polynomial in $P_{k-2}(\hat x) \otimes P_{k-1}(\hat z)$.
+Now choose $\hat q = w_0$ in the degrees of freedom~(\ref{caras}) for the face $\hat f_2$ and it holds
 \begin{IEEEeqnarray}{lClc}
-	\int\limits_{f_2} x(x-1)[w_0(x,z)]^2\,d\gamma & = & 0.
+	\int\limits_{f_2} \hat{x}_1(1-\hat{x}_1)w_0(\hat{x}_1,\hat{x}_3)^2\,d\gamma & = & 0.
 \end{IEEEeqnarray}
-Entonces en $f_2$ es $w_0 \equiv 0$ y $(\wku)_3|_{f_2} \equiv 0$. Por simetr\'ia, el argumento para probar que
-$(\wku)_3|_{f_1} \equiv 0$ es exactamente igual.
-
-Si volvemos a usar las igualdades~(\ref{restriccAristas}) obtenemos que la restricc\'on de $(\wku)_3$ a
-$f_{4} = \{ (x,y,z) \;:\; 0\leqslant x\leqslant 1,\, y = 1 - x, \, 0\leqslant z\leqslant 1 \}$ se anula si $x=1-y=0$ o bien si $x=1-y=1$;
-\begin{IEEEeqnarray}{rCl}
-	v(x,1-x,z) 	& = 	& x\,(1-x)\,w_1(x,z)\\
-	w_1 		& \in 	& P_{k-2}(x)\otimes P_{k-1}(z).
-\end{IEEEeqnarray}
-Si aplicamos los degrees of freedom~(\ref{caras}) llegamos 
-a que en ${f_4}$ es $w_1$ id\'enticamente cero y as\'i tambi\'en $(\wku)_3$.\\
-Recapitulando, 
+But $\hat{x}_1\,(1-\hat{x}_1)$ is almost everywhere positive over the closure
+of $\hat f_2$, so 
+$(\wku)_3|_{\hat f_2}$ vanishes identically.
+By a completely symmetric observation we can prove 
+$(\wku)_3|_{\hat f_1} \equiv 0$.\\
+One more time, if we use~(\ref{aristas}) for $i =$ 6, 7,
+$\hat x_1\,(1-\hat x_1)$ divides the restriction $(\wku)_3|_{\hat f_5}$, so that
+there is a 
+$w_1 \in P_{k-2}(\hat x_1)\otimes P_{k-1}(\hat x_3)$ for which 
+$(\wku)_3|_{\hat f_5}(\hat x_1, \hat x_2, \hat x_3) = \hat{x}_1\,\displaystyle{(1-\hat{x}_1)}\,w_1(\hat{x}_1,\hat{x}_3)$.
+Now equallity~(\ref{caras}) for $j = 5$ implies
+$(\wku)_3|_{f_5} \equiv 0$.\\
+\noindent Next, since $(\wku)_3$ vanishes when restricted $\hat f_1$, $\hat f_2$ and $\hat f_5$
+we get to factorize it on $\hat E$ as 
 \begin{IEEEeqnarray*}{rCl}
-	(\wku)_3|_{f_j} & \equiv & 0\quad\text{ para } j = 1,2,4.
+	(\wku)_3(\hat x_1, \hat x_2, \hat x_3) 	& = 	& \hat{x}_1\,\hat{x}_2\,(1-\hat{x}_1-\hat{x}_2)\,w_3(\hat{x}_1,\hat{x}_2,\hat{x}_3),\\
+									w_3		& \in 	& P_{k-3}(\hat x_1)\otimes P_{k-1}(\hat x_3).
 \end{IEEEeqnarray*}
-Entonces en todo $\hat{K} $ tenemos la factorizaci\'on 
-\begin{IEEEeqnarray*}{rCl}
-	(\wku)_3(x,y,z) 	& = 	& x\,y\,(1-x-y)\,w_3(x,y,z),\\
-						w_3		& \in 	& P_{k-3}(x)\otimes P_{k-1}(z).
-\end{IEEEeqnarray*}
-Simplemente aplicando los degrees of freedom~(\ref{enK}) nos queda que $w_3 \equiv 0$, y finalmente
-$(\pi \textbf{u})_3 \equiv 0$.
-%	debe anularse en todo $\hat{K}^{\textrm{o}}$, y por continuidad tambi\'en en 
-%$\partial\hat{K}$. Si volvemos a la expresi\'on~(\ref{piu3}) nos queda que
+And now we evaluate the degrees of freedom~(\ref{enK}) choosing
+$q_3 \equiv w_3$ and conclude immediately
+$(\wku)_3 \equiv 0$ on $\hat E$. 
 \end{proof}
 \begin{lemma}\label{lemma_PIu2_k_in_N}
 \begin{IEEEeqnarray*}{rCl}
