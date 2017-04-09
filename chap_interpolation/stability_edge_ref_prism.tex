@@ -4,6 +4,8 @@ in $H({\bf curl},\hat{E})$ and we will assume there are
 a positive $\delta$ and a $p>2$ such that 
 $\hat\bu$ belongs to $H^{1/2+\delta}(\hat{E})^3$ and
 ${\bf curl}\,\bu$ belongs to $L^p(\hat{E})^3$.
+$\hat\bw_k$ will be the $k$--th order edge interpolation operator on the reference
+Prism.
 \begin{lemma}\label{lema_PIu3_k_cualquiera} 
 $(\wku)_3$ is linearly and univocally 
 determined by $\hat{u}_3$.
@@ -78,25 +80,38 @@ $q_3 \equiv w_3$ and conclude immediately
 $(\wku)_3 \equiv 0$ on $\hat E$. 
 \end{proof}
 \begin{lemma}\label{lemma_PIu2_k_in_N}
-\begin{IEEEeqnarray*}{rCl}
-\label{piu2_k_in_N}
-	\yesnumber\pi(0, u_2(y,z), 0) & = 	& (0, \xi_2(y,z) ,0)\textrm{,}\\
-\label{piu1_k_in_N}	
-	\yesnumber\pi(u_1(x,z), 0, 0) & = 	& (\xi_1(x,z), 0 ,0)\textrm{,}\\
-	\xi_1 				& \in 	& P_{k-1}(x) \otimes P_k(z)\textrm{,}\\
-	\xi_2 				& \in 	& P_{k-1}(y) \otimes P_k(z).
-\end{IEEEeqnarray*}
+\begin{itemize}
+	\item []
+	\item [(a)]\label{piu2_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat y,\hat z), 0)^t$,
+	then $\hat\bw_k\hat\bu  = (0, \hat\xi_2(y,z) ,0)$, for some 
+	$\hat\xi_2 \in P_{k-1}(y) \otimes P_k(z)$.
+	\item [(b)]\label{piu1_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (\hat u_1(\hat x,\hat z), 0, 0)^t$
+	then $\hat\bw_k\hat\bu  = (\hat\xi_1(x,z), 0 ,0)$, for some
+$	\hat\xi_1\in P_{k-1}(x) \otimes P_k(z)$.
+\end{itemize}
 \end{lemma}
-\begin{proof} Demostramos s\'olo la primera igualdad, porque la otra es
-an\'aloga. Lo que hay que ver es que, en la expresi\'on encontrada en
-~(\ref{sub:elemento_P_k}), es $h \equiv 0$, $\xi_1 \equiv 0$ y que $\xi_2$ 
-no depende de $x$. Gracias al lema~\ref{lema_PIu3_k_cualquiera} ya sabemos
-que $\xi_3 \equiv 0$.
-As\'{\i} que veamos primero $h \equiv 0$.
-Observaci\'on: si $f$ es $f_3$ o $f_4$, entonces
-\begin{IEEEeqnarray}{rCl}
-	(\textbf{curl}\,\pi\textbf{u})_3 |_{_{f}} & \in & P_{k-1}(x,y).	
-\end{IEEEeqnarray}
+\begin{proof} We will prove the first inequality, as the second follows
+with the same ideas. In Subsection~(\ref{sub:defEdgeElement}) we found 
+expression~(\ref{elemento_P_k}) which states
+\begin{IEEEeqnarray*}{rCcCl}
+  \wku\xyz  & = & (p_1\xyz, p_2\xyz, p_3\xyz)^t\\[4pt]
+  			& = & \begin{pmatrix}
+  					\xi_1\xyz + \hat{x}_2\,h\xyz\\
+  					\xi_2\xyz - \hat{x}_1\,h\xyz \\
+  					\xi_3\xyz
+  				  \end{pmatrix}
+\end{IEEEeqnarray*}
+for
+$\xi_1$ and $\xi_2$ in $P_{k-1}(\hat{f}_3) \otimes P_k(\hat{z})$,
+$\xi_3$ in $P_{k}(\hat{f}_3) \otimes P_{k-1}(\hat{z})$,
+and $h$ in $\tilde{P}_{k-1}(\hat{f}_3) \otimes P_k(\hat{x}_3)$.
+Thanks to Lemma~\ref{lema_PIu3_k_cualquiera} we already know that $\xi_3 \equiv 0$,
+so we are going to show
+that $h \equiv 0$, $\xi_1 \equiv 0$ and that $\xi_2$ does not depend 
+on $\hat{x}_1$. First, if $\hat{f}$ is either $\hat{f}_3$ o $\hat{f}_4$, then
+with a direct calculation we see that $({\bf curl}\,\wku)_3 |_{\hat f}$ belongs to
+$P_{k-1}(\hat{f})$. \noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE, ver la 
+anotacion en lapiz en el impreso; ahi recorde por que vale lo que sigue:} 
 Por el Lema~\ref{lema_pi_star_rot_u}, si usamos los degrees of freedom~(\ref{momentos1hdiv})
 obtenemos, para todo $q \in P_{k-1}(x,y)$,
 \begin{IEEEeqnarray}{rCl}

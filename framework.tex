@@ -13,7 +13,11 @@
 \usepackage{tikz}
 \usepackage[retainorgcmds]{IEEEtrantools}
 \usepackage{subfig}
+
 \usetikzlibrary{calc,shapes.geometric}
+
+% numbering before the word Theorem
+\swapnumbers
 
 %\numberwithin{equation}{section}
 
@@ -22,6 +26,7 @@
 %\syntaxonly
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\def\xyz{(\hat x_1, \hat x_2, \hat x_3)}
 \def\be{{\bf e}}
 \def\bq{\boldsymbol{q}}
 \def\bv{\boldsymbol{v}}
@@ -63,14 +68,14 @@
 \newcommand{\lhatf}[1]{\lambda_{\hat{f}_{#1}}}
 
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{corollary}{Corollary}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{obs}{Observaci\'on}[section]
-\newtheorem{defi}{Definition}[section]
-\newtheorem{problema}{Problema}[section]
-\newtheorem{remark}{Remark}[section]
-\newtheorem{ejemplo}{Ejemplo}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{obs}[theorem]{Observaci\'on}
+\newtheorem{defi}[theorem]{Definition}
+\newtheorem{problema}[theorem]{Problema}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{ejemplo}[theorem]{Ejemplo}
 
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\Abs}{\left|}{\right|}
