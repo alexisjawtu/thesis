@@ -253,10 +253,10 @@ en pyramids}
 %       &\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
 %\end{IEEEeqnarray}
 \end{defi}
-\begin{defi} 
+\begin{defi}\label{defi_face_element} 
   \begin{IEEEeqnarray}{lClc}
-    \varphi_{f,\bq}\,(\hat{\bu} - \wku)          & = & 0 &\quad\mbox{for $f$ and }\bq\in\mathcal{}  \\
-    \varphi_{\boldsymbol{r}}\,(\hat{\bu} - \wku) & = & 0 &\quad\mbox{for }\boldsymbol{r}\in\mathcal{}.
+    \rho_{f,\bq}\,(\hat{\bu} - \rku)          & = & 0 &\quad\mbox{for $f$ and }\bq\in\mathcal{}  \\
+    \rho_{\boldsymbol{r}}\,(\hat{\bu} - \rku) & = & 0 &\quad\mbox{for }\boldsymbol{r}\in\mathcal{}.
   \end{IEEEeqnarray}
 \end{defi}
 \begin{remark} {\color{red} primero hacer unisolvencia!} The interpolation operator
@@ -331,7 +331,9 @@ Definici\'on~(\ref{defi_h_div_conforme}), entonces, para toda $\emph{\textbf{u}}
 {\color{red} poner tambien la conmut de rk con el proy ortog y poner los nombres
 igual que en el diagrama }
 \begin{IEEEeqnarray}{rCl}
-    \emph{\textbf{curl}}\,\pi \emph{\textbf{u}} &=& \pi^*\emph{\textbf{curl}}\,\emph{\textbf{u}}.
+\label{curl_commutativity}
+  \emph{\textbf{curl}}\,\pi \emph{\textbf{u}}
+  &=& \pi^*\emph{\textbf{curl}}\,\emph{\textbf{u}}.
 \end{IEEEeqnarray}
 \end{lemma}
 \begin{proof}

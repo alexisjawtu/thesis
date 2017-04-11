@@ -97,7 +97,7 @@ expression~(\ref{elemento_P_k}) which states
   \wku\xyz  & = & (p_1\xyz, p_2\xyz, p_3\xyz)^t\\[4pt]
   			& = & \begin{pmatrix}
   					\xi_1\xyz + \hat{x}_2\,h\xyz\\
-  					\xi_2\xyz - \hat{x}_1\,h\xyz \\
+\yesnumber\label{expr_wku}\xi_2\xyz - \hat{x}_1\,h\xyz \\
   					\xi_3\xyz
   				  \end{pmatrix}
 \end{IEEEeqnarray*}
@@ -110,37 +110,35 @@ so we are going to show
 that $h \equiv 0$, $\xi_1 \equiv 0$ and that $\xi_2$ does not depend 
 on $\hat{x}_1$. First, if $\hat{f}$ is either $\hat{f}_3$ o $\hat{f}_4$, then
 with a direct calculation we see that $({\bf curl}\,\wku)_3 |_{\hat f}$ belongs to
-$P_{k-1}(\hat{f})$. \noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE, ver la 
-anotacion en lapiz en el impreso; ahi recorde por que vale lo que sigue:} 
-Por el Lema~\ref{lema_pi_star_rot_u}, si usamos los degrees of freedom~(\ref{momentos1hdiv})
-obtenemos, para todo $q \in P_{k-1}(x,y)$,
-\begin{IEEEeqnarray}{rCl}
-	\int\limits_{f} (\textbf{curl}\,\pi\textbf{u})_3\,q \,d\gamma & = & 
-		\int\limits_{f} \textrm{rot}(\textbf{u})_3\,q \,d\gamma\\
-		& = & 0.	
+$P_{k-1}(\hat{f})$. By the commutative diagram property expressed
+in~(\ref{curl_commutativity}), the degrees of freedom~(\ref{momentos1hdiv})
+and the very definition of the interpolation operator $\boldsymbol{r}_k$
+in~(\ref{defi_face_element}) it holds that, if $\hat{f}$ is 
+either $\hat{f}_3$ or $\hat{f}_4$, then for every $q \in P_{k-1}(\hat{f})$,
+\begin{IEEEeqnarray}{rCCCl}
+  \rho_{\hat{f},q}\,({\bf curl\,}\wku)
+  & = & \rho_{\hat{f},q} (\boldsymbol{r}_k\,{\bf curl\,}\boldsymbol{u}) &&\\[5pt]
+  & = & \int\limits_{f} ({\bf curl\,}\bu)_3\,q \,d\gamma & = & 0.	
 \end{IEEEeqnarray}
-Si tomamos $q = (\textbf{curl}\,\pi\textbf{u})_3 |_{_{f}}$ tenemos
-$(\textbf{curl}\,\pi\textbf{u})_3 |_{_{f}} \equiv 0$, o, de otra manera,
-$z\,(z-1)$ divide a $(\textbf{curl}\,\pi\textbf{u})_3$. Escribamos
+As is now expected, the choice $q = ({\bf curl}\,\wku)_3 |_{\hat{f}}$
+yields $({\bf curl}\,\wku)_3 |_{\hat{f}} \equiv 0$
+so we may write again $({\bf curl}\,\wku)_3 = z\,(z-1)\,\psi$ for
+a $\psi\in P_{k-1}(\hat{f}) \otimes P_{k-2}(\hat{z})$.
+We choose now $q$ equal to this $\psi$ in the degrees of
+reedom~(\ref{momentos4hdiv}). We have
 \begin{IEEEeqnarray*}{rCl}
-	(\textbf{curl}\,\pi\textbf{u})_3 & = 	& z\, (z-1)\, \psi\\[6pt]
-	\psi						& \in 	& P_{k-1}(x,y) \otimes P_{k-2}(z).
+	\int\limits_{\hat{E}} \hat{z}\,(\hat{z}-1)\,\psi^2\,d\hat{\bf x} & = & 0,
 \end{IEEEeqnarray*}
-A continuaci\'on usamos los degrees of freedom~(\ref{momentos4hdiv}) en la misma 
-definici\'on de antes. Para todo $q\in P_{k-1}(x,y) \otimes P_{k-2}(z)$
-\begin{IEEEeqnarray*}{rCl}
-	\int\limits_{\hat{K}} z\,(z-1)\,\psi \, q\,d\textbf{x} & = & 0,
-\end{IEEEeqnarray*}
-as\'{\i} que tomando $q = \psi$ probamos que $\psi \equiv 0$ en $\hat{K}$,
-es decir que
+and it follows 
 \begin{IEEEeqnarray}{rCl}
-	\label{rot_3_es_0} (\textbf{curl}\,\pi\textbf{u})_3 &\equiv& 0.
+	\label{rot_3_es_0} ({\bf curl}\,\wku)_3 &\equiv& 0.
 \end{IEEEeqnarray}
-Ahora veamos c\'omo es $(\textbf{curl}\,\pi\textbf{u})_3$ en t\'erminos
-de la expresi\'on encontrada en~\ref{sub:elemento_P_k}.
+Now if we explore $({\bf curl}\,\wku)_3$ taking derivatives in  
+expression~(\ref{expr_wku}) we get 
+{\color{blue}\#\#\#\#\#\#\#\# CONTINUE HERE.}
 \begin{IEEEeqnarray*}{rCl}
-	(\textbf{curl}\,\pi\textbf{u})_3 & = & 
-	\partial_x\,\pi(\textbf{u})_2 -	\partial_y\,\pi(\textbf{u})_1\\
+	(\textbf{curl}\,\pi\bu)_3 & = & 
+	\partial_x\,\pi(\bu)_2 -	\partial_y\,\pi(\bu)_1\\
 	\label{expre_h} \yesnumber & = & -(2\,h + y\,\partial_y\,h + 
 				x\,\partial_x\,h) +	\partial_x\,\xi_2 - \partial_y\,\xi_1,
 \end{IEEEeqnarray*}
@@ -201,7 +199,7 @@ esto tenemos que $z\,(z-1)$ divide a $\xi_1$, as\'{\i} que
 	\xi_1(x,y,x) &=&y\,z\,(z-1)\,\theta(x,y,z)\\[6pt]
 	\theta &\in& P_{k-2}(x,y)\otimes P_{k-2}(z).
 \end{IEEEeqnarray*}
-Resta mirar los degrees of freedom de volumen aplicados a $\pi(\textbf{u})$. Para 
+Resta mirar los degrees of freedom de volumen aplicados a $\pi(\bu)$. Para 
 todo $q \in  P_{k-2}(x,y)\otimes P_{k-2}(z)$ debe ser
 \begin{IEEEeqnarray*}{rCl}
 \int\limits_{\hat{K}} y\,z\,(z-1)\,\theta(x,y,z)\,q\,d\textbf{x} &=&0
@@ -218,7 +216,7 @@ Hasta ahora probamos que
 Pero si recordamos lo que probamos en~(\ref{rot_3_es_0}) y lo combinamos con
 ~(\ref{xi1_es_0}), inmediatamente llegamos a 
 \begin{IEEEeqnarray*}{rCCCl}
-	\partial_x \pi(\textbf{u})_2 &=& \partial_x \xi_2 &\equiv& 0\textrm{,}
+	\partial_x \pi(\bu)_2 &=& \partial_x \xi_2 &\equiv& 0\textrm{,}
 \end{IEEEeqnarray*}
 que implica que $\xi_2$ no depende de $x$, y que $\pi(0, u_2(y,z), 0)$ tiene 
 la forma que quer\'{\i}amos.
@@ -237,15 +235,15 @@ la expresi\'on que encontramos en la Subsecci\'on~\ref{sub:elemento_P_k}; tenemo
 \end{IEEEeqnarray}
 Empezamos por ver que $h$ se anula. Sea $f$ cualquiera de las dos caras horizontales del 
 prisma de referencia. Usamos la expresi\'on~(\ref{expre_h}) para 
-$(\textbf{curl}\,\pi\textbf{u})_3 \in \p{k-1}{k}$. Gracias al
+$(\textbf{curl}\,\pi\bu)_3 \in \p{k-1}{k}$. Gracias al
 Lema~\ref{lema_pi_star_rot_u} y a las igualdades~(\ref{momentos1hdiv}) vale
 \begin{IEEEeqnarray}{rCl}
-	(\textbf{curl}\,\pi\textbf{u})_3 |_{f}&\equiv&0.
+	(\textbf{curl}\,\pi\bu)_3 |_{f}&\equiv&0.
 \end{IEEEeqnarray}
-Entonces los polinomios $z$ y $z-1$ dividen a $(\textbf{curl}\,\pi\textbf{u})_3=
+Entonces los polinomios $z$ y $z-1$ dividen a $(\textbf{curl}\,\pi\bu)_3=
 z\,(z-1)\,\psi$, ($\psi\in P_{k-1}(x,y)\otimes P_{k-2}(z)$). Ahora vamos a los
 degrees of freedom~(\ref{momentos4hdiv}) para obtener finalmente que $\psi$ es id\'enticamente cero. Es decir
-que, en todo $\hat{K}$, $(\textbf{curl}\,\pi\textbf{u})_3 \equiv 0$ y, siguiendo
+que, en todo $\hat{K}$, $(\textbf{curl}\,\pi\bu)_3 \equiv 0$ y, siguiendo
 el argumento en la demostraci\'on del Lema~\ref{lemma_PIu2_k_in_N} probamos que $h$ es id\'enticamente
 cero. As\'{\i} que podemos reescribir la expresi\'on~(\ref{expre_pi00u3}) y poner
 \begin{IEEEeqnarray}{rCl}
@@ -264,17 +262,17 @@ igualdades~(\ref{momentos6hcurl}) probamos que $\xi_1 = \xi_2 \equiv 0$ en todo 
 En conclusi\'on, $\pi(0,0, u_3)$ tiene la forma deseada.
 \end{proof}
 \begin{theorem}\label{thm_stab_edge}
-Dados $p > 2$, $\hat{\emph{\textbf{u}}} \in \wpcurl{\hat{K}}$, si $\hat{\pi}$ es 
+Dados $p > 2$, $\hat{\bu} \in \wpcurl{\hat{K}}$, si $\hat{\pi}$ es 
 el operador de interpolaci\'on determinado por el elemento de la Definici\'on~(\ref{edgeelement}),
 entonces
 \begin{IEEEeqnarray}{rCl}
-\label{teorema_1} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_1}_{L^{\infty}(\hat{E})} & 
+\label{teorema_1} \norm{\hat{\pi}(\hat{\bu})_1}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_1\|_{W^{1,p}(\hat{E})} + 
-	\|\emph{\textbf{curl}}(\hat{\emph{\textbf{u}}})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
-\label{teorema_2} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_2}_{L^{\infty}(\hat{E})} & 
+	\|\emph{\textbf{curl}}(\hat{\bu})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
+\label{teorema_2} \norm{\hat{\pi}(\hat{\bu})_2}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_2\|_{W^{1,p}(\hat{E})} + 
-	\|\emph{\textbf{curl}}(\hat{\emph{\textbf{u}}})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
-\label{teorema_3} \norm{\hat{\pi}(\hat{\emph{\textbf{u}}})_3}_{L^{\infty}(\hat{E})} & 
+	\|\emph{\textbf{curl}}(\hat{\bu})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
+\label{teorema_3} \norm{\hat{\pi}(\hat{\bu})_3}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_3\|_{W^{1,p}(\hat{E})}.
 \end{IEEEeqnarray}
 \end{theorem}
