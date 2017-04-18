@@ -135,65 +135,66 @@ and it follows
 \end{IEEEeqnarray}
 Now if we explore $({\bf curl}\,\wku)_3$ taking derivatives in  
 expression~(\ref{expr_wku}) we get 
-{\color{blue}\#\#\#\#\#\#\#\# CONTINUE HERE.}
 \begin{IEEEeqnarray*}{rCl}
-	(\textbf{curl}\,\pi\bu)_3 & = & 
-	\partial_x\,\pi(\bu)_2 -	\partial_y\,\pi(\bu)_1\\
-	\label{expre_h} \yesnumber & = & -(2\,h + y\,\partial_y\,h + 
-				x\,\partial_x\,h) +	\partial_x\,\xi_2 - \partial_y\,\xi_1,
+  (\textbf{curl}\,\wku)_3 & = & 
+  \dfrac{\partial}{\partial \hat x_1}(\wku)_2 - \dfrac{\partial}{\partial \hat x_2}(\wku)_1\\[5pt]
+  \label{expre_h} \yesnumber & = & -(2\,h + \hat{x}_2\,\dfrac{\partial h}{\partial \hat{x}_2} + 
+	\hat{x}_1\,\dfrac{\partial h}{\partial \hat{x}_1}) + 
+	\dfrac{\partial\hat\xi_2}{\partial \hat{x}_1} - \dfrac{\partial\hat\xi_1}{\partial \hat{x}_2}.
 \end{IEEEeqnarray*}
-en donde, observando los grados de cada t\'ermino,
+Following the degrees in each terms, it holds
 \begin{IEEEeqnarray*}{rCl}
-	2\,h + y\,\partial_y\,h + x\,\partial_x\,h & \in & \tilde{P}_{k-1}(x,y)
-\otimes P_k(z)\textrm{ y }\\
-\partial_x\,\xi_2 - \partial_y\,\xi_1 & \in & P_{k-2}(x,y) \otimes P_k(z).
+  g\,:=\,2\,h + \hat{x}_2\,\dfrac{\partial h}{\partial \hat{x}_2} + 
+  \hat{x}_1\,\dfrac{\partial h}{\partial \hat{x}_1}
+  & \mbox{ belongs to } & \tilde{P}_{k-1}(\hat{f}_3) \otimes P_k(\hat x_3)\\[4pt]
+  \dfrac{\partial\hat\xi_2}{\partial \hat{x}_1} -
+  \dfrac{\partial\hat\xi_1}{\partial \hat{x}_2}
+  & \mbox{ belongs to } & P_{k-2}(\hat{f}_3) \otimes P_k(\hat x_3)\mbox{,}
 \end{IEEEeqnarray*}
-De esto necesariamente sigue que 
-$g := 2\,h + y\,\partial_y\,h + x\,\partial_x\,h = 0$. Ahora exploramos los 
-t\'erminos de $g$. Pongamos
+but from this it follows necessarily that $g \equiv 0$. Now, how do the terms
+of $g$ look like? Let us put
 \[
-	h(x,y,z) = \sum\limits_{i+j=k-1, l\leqslant k} \alpha_{_{i,j,l}} x^i y^j z^l.
+	h\xyz = \sum_{\stackrel{i+j\,=\,k-1}{l\,\leqslant\,k}} \alpha_{_{i,j,l}}\,\hat{x}_1^i \hat{x}_2^j \hat{x}_3^l.
 \]
-Entonces, para todo $(x,y,z)$ en $\hat{K}$
 \begin{IEEEeqnarray*}{rCl}
-	g(x,y,z) & = & \sum\limits_{i+j=k-1, l\leqslant k} 
-(2\alpha_{_{i,j,l}} + j \alpha_{_{i,j,l}} + i \alpha_{_{i,j,l}}) x^i y^j z^l\\
-	& = &(k+1)\,h(x,y,z)\\
-  \yesnumber\label{h_is_zero}	& = & 0,
+  g\xyz & = & \sum_{\stackrel{i+j\,=\,k-1}{l\,\leqslant\,k}} 
+  (2\alpha_{_{i,j,l}} + j\,\alpha_{_{i,j,l}} + i\,\alpha_{_{i,j,l}}) \hat{x}_1^i \hat{x}_2^j \hat{x}_3^l\\
+  \yesnumber\label{h_is_zero} & = &(k+1)\,h\xyz\,=\,0,
 \end{IEEEeqnarray*}
-o sea, $h \equiv 0$.
-Hasta ac\'a tenemos probado que $\pi(0, u_2(y,z), 0) = 
-(\xi_1(x,y,z), \xi_2(x,y,z), 0)$. Let's see that $\xi_1$ vanishes identically. Empecemos con 
-los degrees of freedom sobre las aristas. Si $e$ es $e_1$ o $e_4$ entonces
+so $h \equiv 0$ too and, for now, $\wku\xyz = 
+(\xi_1\xyz, \xi_2\xyz, 0)^t$. The second--to--last task is to see that $\hat\xi_1$ vanishes identically.
+We turn back to de edge degrees of freedom.
+Set $\be$ equal to $\be_1$ or $\be_4$. Then the restriccion
+$\hat\xi_1|_{\be}$ belongs to $P_{k-1}(\be)$, so letting $\hat q = \hat\xi_1|_{\be}$ in
+~(\ref{momentos1hcurl}) we obtain
+\begin{IEEEeqnarray*}{rCCCCCl}
+	0 &=& \varphi_{\be,\,\hat\xi_1}\,(\hat\bu) &=&
+	\varphi_{\be,\,\hat\xi_1}\,(\wku) &=& \int\limits_{\be} (\hat\xi_1)^2\,ds\textrm{,}
+\end{IEEEeqnarray*}
+so, for some $\hat{p} \in P_{k-1}(\hat x_1)\otimes P_{k-2}(\hat x_3)$ we have
 \[
-	\xi_1|_{e} \in P_{k-1}(x)
+  \hat\xi_1|_{\hat f_2}(\hat x_1,\hat x_3) = \hat{x}_3\,(\hat{x}_3-1)\,\hat{p}(\hat x_1,\hat x_3).
 \]
-y adem\'as, para todo $q\in P_{k-1}(x)$
-\[
-	\int\limits_{e} \xi_1|_{e}\,q\,ds = 0\textrm{,}
-\]
-con lo que llegamos a que $z\,(z-1)$ divide tambi\'en a $\xi_1|_{f_2}$. Pongamos
-\begin{IEEEeqnarray}{rCl}
-	\xi_1|_{f_2}(x,z) &=&z\,(z-1)\phi(x,z)\\[6pt]
-	\phi &\in& P_{k-1}(x)\otimes P_{k-2}(z).
+Next choose $\hat{f} = \hat{f}_2$ and $\boldsymbol{q}=(0,0,\hat{p})'$ in~(\ref{momentos4hcurl}).
+\begin{IEEEeqnarray}{rCCCCCl} 
+  0 & = & \varphi_{\hat f,\boldsymbol{q}}\,(\bu) 
+    & = & \varphi_{\hat f,\boldsymbol{q}}\,(\wku) 
+    & = & \int\limits_{\hat f} \hat{x}_3\,(\hat{x}_3-1)\hat{p}^2\,d\gamma.
 \end{IEEEeqnarray}
-A continuaci\'on, si usamos los degrees of freedom en $f_2$, tenemos, para todo 
-$q\in P_{k-1}(x)\otimes P_{k-2}(z)$,
-\begin{IEEEeqnarray}{rCl}
-	\int\limits_{f_2} z\,(z-1)\phi\,q\,d\gamma &=&0.
-\end{IEEEeqnarray}
-Tomando $q=\phi$ sigue que $\xi_1|_{f_2}\equiv 0$, con lo cual, para $(x,y,z)
-\in \hat{K}$
-\begin{IEEEeqnarray}{rCl}
-	\xi_1(x,y,z) & = & y\,\rho(x,y,z)\\[6pt]
-	\rho &\in&P_{k-2}(x,y)\otimes P_k(z).	
-\end{IEEEeqnarray}
-Ahora miramos los degrees of freedom en $f = f_3, f_4$. Vale que $\xi_1|_{f}$ pertenece 
-a $P_{k-2}(x,y)$, y que para todo $q\in P_{k-2}(x,y)$
-\[
-	\int\limits_{f} \xi_1\,q\,d\gamma = 0\textrm{,}
-\]
-de donde, por tomar $q = \xi_1|_{f}$, sigue que $\xi_1|_{f} \equiv 0$. Con todo
+It follows that $\hat\xi_1|_{\hat f_2}\equiv 0$, by which we know it exists
+certain $\hat\rho \in P_{k-2}(\hat{f}_3)\otimes P_k(\hat{x}_3)$ satisfying
+$\hat\xi_1\xyz = \hat{x}_2\,\hat\rho\xyz$.
+Now we switch to the faces $\hat{f} = \hat{f}_3$ or $\hat{f}_4$. 
+Take $\hat{\boldsymbol{q}} = (\hat\rho|_{\hat f},0,0)'$ in~(\ref{momentos2hcurl})
+\begin{IEEEeqnarray*}{rCCCCCl}
+  0 & = & \varphi_{\hat f,\boldsymbol{q}}\,(\bu) 
+    & = & \varphi_{\hat f,\boldsymbol{q}}\,(\wku) 
+    & = & {\color{blue}\#\#\#\#\#\#\#\# CONTINUE HERE.}
+\end{IEEEeqnarray*}
+%    \int\limits_{\hat f} \hat{x}_3\,(\hat{x}_3-1)\hat{p}^2\,d\gamma.
+%	\int\limits_{\hat f} (\hat\xi_1)^2\,d\gamma\textrm{,}
+sigue que $\rho!! \xi_1|_{f} \equiv 0$. Con todo
+
 esto tenemos que $z\,(z-1)$ divide a $\xi_1$, as\'{\i} que
 \begin{IEEEeqnarray*}{rCl}
 	\xi_1(x,y,x) &=&y\,z\,(z-1)\,\theta(x,y,z)\\[6pt]
