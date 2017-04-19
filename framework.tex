@@ -13,7 +13,6 @@
 \usepackage{tikz}
 \usepackage[retainorgcmds]{IEEEtrantools}
 \usepackage{subfig}
-\usepackage{pdfsync}
 
 \usetikzlibrary{calc,shapes.geometric}
 
@@ -28,17 +27,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\xyz{(\hat x_1, \hat x_2, \hat x_3)}
-\def\be{{\bf e}}
+\def\be{\boldsymbol{e}}
+\def\bx{\boldsymbol{x}}
 \def\bq{\boldsymbol{q}}
 \def\bv{\boldsymbol{v}}
 \def\bw{\boldsymbol{w}}
 \def\bu{\boldsymbol{u}}
-\def\bn{{\bf n}}
+\def\br{\boldsymbol{r}}
+\def\bn{\boldsymbol{n}}
 \def\diam{\text{diam}}
 \def\dv{\mbox{div\,}}
 \def\curl{\textbf{curl\,}}
 \def\wku{\hat{\boldsymbol{w}}_k\hat{\bu}}
 \def\rku{\hat{\boldsymbol{r}}_k\hat{\bu}}
+
 \newcommand{\forma}[2]{\int\limits_\Omega {\bf #1}\cdot{\bf #2}\,d\boldsymbol{x}}
 \newcommand{\formb}[2]{\int\limits_\Omega #2\,\dv {\bf #1}\,d\boldsymbol{x}}
 \newcommand{\hmtn}[2]{\textrm{H}^#1(\textrm{T})^#2}
@@ -52,10 +54,6 @@
 \newcommand{\supp}[1]{\textrm{supp}(#1)}
 \newcommand{\p}[2]{\mathcal{P}_{#1}(x,y) \otimes \mathcal{P}_{#2}(z)}
 \newcommand{\pp}[2]{\mathcal{P}_{#1}(\hat f_1)\otimes\mathcal P_{#2}(\hat z)}
-
-
-
-
 \newcommand{\wpcurl}[1]{W^p(\emph{\textbf{curl}}, #1)}
 \newcommand{\diag}[3]{
 	\left(

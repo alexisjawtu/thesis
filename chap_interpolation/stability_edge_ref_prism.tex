@@ -83,10 +83,10 @@ $(\wku)_3 \equiv 0$ on $\hat E$.
 \begin{itemize}
 	\item []
 	\item [(a)]\label{piu2_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat y,\hat z), 0)^t$,
-	then $\hat\bw_k\hat\bu  = (0, \hat\xi_2(y,z) ,0)$, for some 
+	then $\wku  = (0, \hat\xi_2(y,z) ,0)$, for some 
 	$\hat\xi_2 \in P_{k-1}(y) \otimes P_k(z)$.
 	\item [(b)]\label{piu1_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (\hat u_1(\hat x,\hat z), 0, 0)^t$
-	then $\hat\bw_k\hat\bu  = (\hat\xi_1(x,z), 0 ,0)$, for some
+	then $\wku  = (\hat\xi_1(x,z), 0 ,0)$, for some
 $	\hat\xi_1\in P_{k-1}(x) \otimes P_k(z)$.
 \end{itemize}
 \end{lemma}
@@ -115,11 +115,11 @@ in~(\ref{curl_commutativity}), the degrees of freedom~(\ref{momentos1hdiv})
 and the very definition of the interpolation operator $\boldsymbol{r}_k$
 in~(\ref{defi_face_element}) it holds that, if $\hat{f}$ is 
 either $\hat{f}_3$ or $\hat{f}_4$, then for every $q \in P_{k-1}(\hat{f})$,
-\begin{IEEEeqnarray}{rCCCl}
+\begin{IEEEeqnarray*}{rCCCl}
   \rho_{\hat{f},q}\,({\bf curl\,}\wku)
   & = & \rho_{\hat{f},q} (\boldsymbol{r}_k\,{\bf curl\,}\boldsymbol{u}) &&\\[5pt]
   & = & \int\limits_{f} ({\bf curl\,}\bu)_3\,q \,d\gamma & = & 0.	
-\end{IEEEeqnarray}
+\end{IEEEeqnarray*}
 As is for time being expected, the choice $q = ({\bf curl}\,\wku)_3 |_{\hat{f}}$
 yields $({\bf curl}\,\wku)_3 |_{\hat{f}} \equiv 0$
 so we may write again $({\bf curl}\,\wku)_3 = z\,(z-1)\,\psi$ for
@@ -176,51 +176,38 @@ so, for some $\hat{p} \in P_{k-1}(\hat x_1)\otimes P_{k-2}(\hat x_3)$ we have
   \hat\xi_1|_{\hat f_2}(\hat x_1,\hat x_3) = \hat{x}_3\,(\hat{x}_3-1)\,\hat{p}(\hat x_1,\hat x_3).
 \]
 Next choose $\hat{f} = \hat{f}_2$ and $\boldsymbol{q}=(0,0,\hat{p})'$ in~(\ref{momentos4hcurl}).
-\begin{IEEEeqnarray}{rCCCCCl} 
-  0 & = & \varphi_{\hat f,\boldsymbol{q}}\,(\bu) 
-    & = & \varphi_{\hat f,\boldsymbol{q}}\,(\wku) 
-    & = & \int\limits_{\hat f} \hat{x}_3\,(\hat{x}_3-1)\hat{p}^2\,d\gamma.
-\end{IEEEeqnarray}
+\begin{IEEEeqnarray*}{rCCCCCl} 
+  0 & = & \varphi_{\hat{f}_2,\boldsymbol{q}}\,(\hat\bu) 
+    & = & \varphi_{\hat{f}_2,\boldsymbol{q}}\,(\wku) 
+    & = & \int\limits_{\hat{f}_2} \hat{x}_3\,(\hat{x}_3-1)\hat{p}^2\,d\gamma.
+\end{IEEEeqnarray*}
 It follows that $\hat\xi_1|_{\hat f_2}\equiv 0$, by which we know it exists
-certain $\hat\rho \in P_{k-2}(\hat{f}_3)\otimes P_k(\hat{x}_3)$ satisfying
+certain \noindent{\color{blue}\#\#\#\#\#\#\# otra letra para ro} $\hat\rho \in P_{k-2}(\hat{f}_3)\otimes P_k(\hat{x}_3)$ satisfying
 $\hat\xi_1\xyz = \hat{x}_2\,\hat\rho\xyz$.
 Now we switch to the faces $\hat{f} = \hat{f}_3$ or $\hat{f}_4$. 
 Take $\hat{\boldsymbol{q}} = (\hat\rho|_{\hat f},0,0)'$ in~(\ref{momentos2hcurl})
 \begin{IEEEeqnarray*}{rCCCCCl}
-  0 & = & \varphi_{\hat f,\boldsymbol{q}}\,(\bu) 
-    & = & \varphi_{\hat f,\boldsymbol{q}}\,(\wku) 
-    & = & {\color{blue}\#\#\#\#\#\#\#\# CONTINUE HERE.}
+  0 & = & \varphi_{\hat f,\hat{\boldsymbol{q}}}\,(\hat\bu) 
+    & = & \varphi_{\hat f,\hat{\boldsymbol{q}}}\,(\wku) 
+    & = & \int\limits_{\hat f} \hat{x}_2\hat\rho^2\,d\gamma\textrm{,}
 \end{IEEEeqnarray*}
-%    \int\limits_{\hat f} \hat{x}_3\,(\hat{x}_3-1)\hat{p}^2\,d\gamma.
-%	\int\limits_{\hat f} (\hat\xi_1)^2\,d\gamma\textrm{,}
-sigue que $\rho!! \xi_1|_{f} \equiv 0$. Con todo
-
-esto tenemos que $z\,(z-1)$ divide a $\xi_1$, as\'{\i} que
+and it follows that
+$\hat{x}_3\,(\hat{x}_3-1)$ divides $\hat\rho$. So putting this together
+with the previous factorization, there is some
+$r \in P_{k-2}(\hat{f}_3)\otimes P_{k-2}(\hat{x}_3)$ which satisfies.
 \begin{IEEEeqnarray*}{rCl}
-	\xi_1(x,y,x) &=&y\,z\,(z-1)\,\theta(x,y,z)\\[6pt]
-	\theta &\in& P_{k-2}(x,y)\otimes P_{k-2}(z).
+    \hat\xi_1\xyz &=& \hat{x}_2\,\hat{x}_3\,(\hat{x}_3-1)\,r\xyz.
 \end{IEEEeqnarray*}
-Resta mirar los degrees of freedom de volumen aplicados a $\pi(\bu)$. Para 
-todo $q \in  P_{k-2}(x,y)\otimes P_{k-2}(z)$ debe ser
-\begin{IEEEeqnarray*}{rCl}
-\int\limits_{\hat{K}} y\,z\,(z-1)\,\theta(x,y,z)\,q\,d\textbf{x} &=&0
-\textrm{,} 
+It remains to use the volume degrees of freedom. One more time, 
+we could choose $\br = (r,0,0)'$ in~(\ref{momentos6hcurl})
+to get
+\begin{IEEEeqnarray*}{rCCCCCl}
+  0 & = & \varphi_{\br}\,(\hat{\bu}) & = & \varphi_{\br}\,(\wku)
+    & = & \int\limits_{\hat{E}} \hat{x}_2\,\hat{x}_3\,(\hat{x}_3-1)\,r\xyz^2\,d\bx\textrm{,} 
 \end{IEEEeqnarray*}
-de donde, al tomar $q = \theta$, sigue inmediatamente que, en todo $\hat{K}$,
-\begin{IEEEeqnarray}{rCl}
-\label{xi1_es_0}\xi_1 & \equiv & 0.
-\end{IEEEeqnarray}
-Hasta ahora probamos que  
-\[
-	\pi(0, u_2(y,z), 0)  = 	 (0, \xi_2(x,y,z) ,0).
-\]
-Pero si recordamos lo que probamos en~(\ref{rot_3_es_0}) y lo combinamos con
-~(\ref{xi1_es_0}), inmediatamente llegamos a 
-\begin{IEEEeqnarray*}{rCCCl}
-	\partial_x \pi(\bu)_2 &=& \partial_x \xi_2 &\equiv& 0\textrm{,}
-\end{IEEEeqnarray*}
-que implica que $\xi_2$ no depende de $x$, y que $\pi(0, u_2(y,z), 0)$ tiene 
-la forma que quer\'{\i}amos.
+which yields, over all $\hat{E}$, $\hat\xi_1  \equiv  0$. Finally, if we
+combine this last property with~(\ref{rot_3_es_0}) we prove $\hat{\xi}_2$ does
+not depend on $\hat{x}_2$.
 \end{proof}
 \begin{lemma}\label{pi00u3} Si $\pi$ es el interpolador determinado por el elemento de la
 \emph{Definici\'on}~(\ref{edgeelement}), entonces

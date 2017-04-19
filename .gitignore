@@ -1,5 +1,6 @@
 *.aux
 *.log
 *.pdf
+*.pdfsync
 *.png
 *.toc
