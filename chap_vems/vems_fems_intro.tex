@@ -53,7 +53,7 @@ Let us take the degrees of freedom
   \int\limits_f \bv\cdot\bn\,d\gamma & \qquad\mbox{ for all face $f$ of } & \Th.
 \end{IEEEeqnarray}
 With \emph{faces of $\Th$} we mean the family of all faces forming the boundary
-consistently in the case of neighbour elements.
+of the elements, consistently taken in the case of neighbour elements.
 \begin{lemma}\label{unisolvence} Given a polyhedron $E\in\Th$, the degrees
   of freedom~(\ref{dofs}) corresponding to the faces of $E$ are unisolvent
   in $V_h(E)$.
@@ -96,7 +96,7 @@ imply $\dv\bv=0$ by Green Theorem. Then, the potential $\phi$ satisfies
 \end{IEEEeqnarray*}
 {\color{red} which means it is a constant}, and it follows $\bv=0$.
 \end{proof}
-With this Lemma already {\color{red}proven} we are able to consider
+With this Lemma already {\color{red}demonstrated} we are able to consider
 an $H(\text{div})$--like local interpolation operator well defined.
 \begin{corollary} \label{interpolant}
   For every $\bv\in H^1(E)^3$ there exists a $V_h(E)$--interpolant $\bv_I$
@@ -222,14 +222,14 @@ $\forall \bv\in V_h \qquad \forall q\in Q_h $
 \begin{equation}\label{mixedDiscrete}
   \makebox[0pt]{
     \begin{minipage}{\linewidth}
-      \begin{IEEEeqnarray*}{rCl}
-        a_h(\bu_h,\bv) + b(\bv,p_h) & = & 0 \\[5pt]
-                        -b(\bu_h,q) & = & (f,q)
+      \begin{IEEEeqnarray*}{rCCCl}
+        a_h(\bu_h,\bv) & + & b(\bv,p_h) & = & 0 \\[5pt]
+                       & - & b(\bu_h,q) & = & (f,q)
       \end{IEEEeqnarray*}
     \end{minipage}}
   \tag{MD}
 \end{equation}
-\paragraph{discrete $\inf--\sup$ condition.} % (fold)
+\paragraph{discrete $\inf-\sup$$\inf-\sup$ condition.} % (fold)
 \label{par:discrete_inf_sup}\noindent{\color{blue}\#\#\#\#\#\#\# desde aca esta controlado} 
 \begin{lemma} For all $E\in\Th$, all $\hat\bu\in\hat V(E)$ and all $\bv\in V_h(E)$
 \begin{IEEEeqnarray}{rCcCl} 
@@ -261,12 +261,12 @@ In a similar manner, it holds
 \end{proof}
 \noindent If we consider the following kernel
 \begin{IEEEeqnarray*}{rCl}
-  \mathcal K_k & = & \{\bv_h\in V_h: b(\bv_h,q)=0\,\,\forall q\in Q_h\} \\[4pt]
+  \mathcal K_h & = & \{\bv_h\in V_h: b(\bv_h,q)=0\,\,\forall q\in Q_h\} \\[4pt]
                & = & \{\bv_h\in V_h: \dv\bv_h=0\}
 \end{IEEEeqnarray*}
 then the previuos Lemma implies the following corollary.
 \begin{corollary}
-  $a_h$ is coercitive over $\mathcal K_k$ and the coercivity constant is independent
+  $a_h$ is coercitive over $\mathcal K_h$ and the coercivity constant is independent
   of $h$.  
 \end{corollary}
 \begin{lemma} \label{lemma_inf_sup_bh} There exists a constant
