@@ -217,29 +217,29 @@ $\hat\xi_3 \in \mathcal{P}_k(\hat{f}_3)\otimes
 \mathcal{P}_{k-1}(\hat{x}_3)$.
 \end{lemma}
 \begin{proof} We will work again with
-expression~(\ref{expr_wku}).
-%Empezamos por ver que $h$ se anula.
-Let $\hat{f}$ be any of the horizontal faces $\hat{f}_3$ or
-$\hat{f}_4$ in
-{\color{red}TABLE}~(\ref{edgeFacesNotationTable}) .
-
-Usamos la expresi\'on~(\ref{expre_h}) para 
-$(\textbf{curl}\,\pi\bu)_3 \in \p{k-1}{k}$. Gracias al
-Lema~\ref{lema_pi_star_rot_u} y a las igualdades~(\ref{momentos1hdiv}) vale
+expression~(\ref{expr_wku}) but we will write with less
+details than in the previous two Lemmas. By expression~(\ref{expre_h}) for $(\textbf{curl}\,\wku)_3$
+and Lemma~\ref{lema_pi_star_rot_u},
+if we apply degrees of freedom~(\ref{momentos1hdiv})
+to $(\textbf{curl}\,\hat\bu)$ we obtain that
+$(\textbf{curl}\,\wku)_3$ vanishes on any of the horizontal faces $\hat{f}_3$ or $\hat{f}_4$ in
+{\color{red}TABLE}~(\ref{edgeFacesNotationTable}).
+In other words, $(\textbf{curl}\,\wku)_3
+= \hat{x}_3\,(\hat{x}_3-1)\,\psi$, 
+($\hat\psi\in P_{k-1}(\hat{f}_3)\otimes P_{k-2}(\hat{x}_3)$)
+\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE} 
+and if we set $ ... = \hat\psi$ in~(\ref{momentos4hdiv})
+finalmente que $\hat\psi$ es id\'enticamente cero, and
+so is $(\textbf{curl}\,\pi\bu)_3$. From this point, if
+we copy the argument in the proof of
+Lemma~\ref{lemma_PIu2_k_in_N} we arrive at
+$h\equiv 0$, so we may rewrite~(\ref{expre_pi00u3}) as
 \begin{IEEEeqnarray}{rCl}
-	(\textbf{curl}\,\pi\bu)_3 |_{f}&\equiv&0.
+  \label{expre_pi00u3_} \wku &=&
+  (\hat\xi_1,\hat\xi_2,\hat\xi_3).
 \end{IEEEeqnarray}
-Entonces los polinomios $z$ y $z-1$ dividen a $(\textbf{curl}\,\pi\bu)_3=
-z\,(z-1)\,\psi$, ($\psi\in P_{k-1}(x,y)\otimes P_{k-2}(z)$). Ahora vamos a los
-degrees of freedom~(\ref{momentos4hdiv}) para obtener finalmente que $\psi$ es id\'enticamente cero. Es decir
-que, en todo $\hat{K}$, $(\textbf{curl}\,\pi\bu)_3 \equiv 0$ y, siguiendo
-el argumento en la demostraci\'on del Lema~\ref{lemma_PIu2_k_in_N} probamos que $h$ es id\'enticamente
-cero. As\'{\i} que podemos reescribir la expresi\'on~(\ref{expre_pi00u3}) y poner
-\begin{IEEEeqnarray}{rCl}
-	\label{expre_pi00u3_} \pi(0,0,u_3) &=& (\xi_1,\xi_2, \xi_3)\\
-	\nonumber\xi_1, \xi_2&\in& \p{k-1}{k}.
-\end{IEEEeqnarray}
-Resta ver que $\xi_1$ y $\xi_2$ se anulan. Con la misma idea, si consideramos
+Resta ver que $\xi_1$ y $\xi_2$ se anulan. Con la misma
+idea, si consideramos
 las caras $f_1$ con normal $\boldsymbol{\nu}=(-1,0,0) $ y $f_2$ con normal 
 $\boldsymbol{\nu}=(0,-1,0)$, entonces las igualdades~(\ref{momentos1hcurl}) 
 para las aristas $e_1, e_4$ junto con las igualdades~(\ref{momentos4hcurl}) por un lado,
