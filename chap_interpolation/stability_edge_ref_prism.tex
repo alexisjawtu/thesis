@@ -94,13 +94,13 @@ $(\wku)_3 \equiv 0$ on $\hat E$.
 \begin{proof} We will prove the first inequality, as the second follows
 with the same ideas. In Subsection~(\ref{sub:defEdgeElement}) we found 
 expression~(\ref{elemento_P_k}) which states
-\begin{IEEEeqnarray*}{rCcCl}
+\begin{IEEEeqnarray*}{rCl}
   \wku\xyz  & = & (p_1\xyz, p_2\xyz, p_3\xyz)^t\\[4pt]
-  			& = & \begin{pmatrix}
-  					\xi_1\xyz + \hat{x}_2\,h\xyz\\
-\yesnumber\label{expr_wku}\xi_2\xyz - \hat{x}_1\,h\xyz \\
-  					\xi_3\xyz
-  				  \end{pmatrix}
+  			    & = & \begin{pmatrix}
+  					        \xi_1\xyz + \hat{x}_2\,h\xyz\\
+                    \yesnumber\label{expr_wku}\xi_2\xyz - \hat{x}_1\,h\xyz \\
+  					        \xi_3\xyz
+  				        \end{pmatrix}
 \end{IEEEeqnarray*}
 for
 $\xi_1$ and $\xi_2$ in $P_{k-1}(\hat{f}_3) \otimes P_k(\hat{z})$,
@@ -227,16 +227,27 @@ $(\textbf{curl}\,\wku)_3$ vanishes on any of the horizontal faces $\hat{f}_3$ or
 In other words, $(\textbf{curl}\,\wku)_3
 = \hat{x}_3\,(\hat{x}_3-1)\,\psi$, 
 ($\hat\psi\in P_{k-1}(\hat{f}_3)\otimes P_{k-2}(\hat{x}_3)$)
-\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE} 
-and if we set $ ... = \hat\psi$ in~(\ref{momentos4hdiv})
-finalmente que $\hat\psi$ es id\'enticamente cero, and
-so is $(\textbf{curl}\,\pi\bu)_3$. From this point, if
+and if we set $ \hat{\boldsymbol{r}} = (0,0,\hat\psi)'$ in the
+$H(\mbox{div})$ degrees of freedom~(\ref{momentos4hdiv})
+we have
+{\color{blue}\#\#\#\#\#\#\#\# acomodo esto?.}
+\begin{IEEEeqnarray*}{rCCCCCCCl}
+0 & = & \int\limits_{\hat{E}} (\curl\hat{\bu})_3\,\hat{\psi}
+  & = & \rho_{\boldsymbol{r}} (\curl\hat{\bu})
+  & = & \rho_{\boldsymbol{r}} (\hat{\boldsymbol{r}}_k\curl\hat{\bu})
+  & = & \rho_{\boldsymbol{r}} (\curl\wku)\\[4pt]
+  &&&&&&& = & \int\limits_{\hat{E}} \hat{x}_3(1-\hat{x}_3)\hat{\psi}^2\,d\boldsymbol{x}
+\end{IEEEeqnarray*}
+yielding that $\hat\psi$ is identically zero, and also
+$(\textbf{curl}\,\wku)_3$.
+
+From this point, if
 we copy the argument in the proof of
-Lemma~\ref{lemma_PIu2_k_in_N} we arrive at
-$h\equiv 0$, so we may rewrite~(\ref{expre_pi00u3}) as
+Lemma~\ref{lemma_PIu2_k_in_N} starting with equation~(\ref{expre_h}) we arrive at
+$h\equiv 0$, so we may rewrite~(\ref{expr_wku}) as
 \begin{IEEEeqnarray}{rCl}
   \label{expre_pi00u3_} \wku &=&
-  (\hat\xi_1,\hat\xi_2,\hat\xi_3).
+  (\hat\xi_1,\hat\xi_2,\hat\xi_3)^t.
 \end{IEEEeqnarray}
 Resta ver que $\xi_1$ y $\xi_2$ se anulan. Con la misma
 idea, si consideramos
