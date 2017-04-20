@@ -5,7 +5,8 @@ a positive $\delta$ and a $p>2$ such that
 $\hat\bu$ belongs to $H^{1/2+\delta}(\hat{E})^3$ and
 ${\bf curl}\,\bu$ belongs to $L^p(\hat{E})^3$.
 $\hat\bw_k$ will be the $k$--th order edge interpolation operator on the reference
-Prism.
+Prism determined by the element of
+\emph{Definition}~(\ref{edgeelement}).
 \begin{lemma}\label{lema_PIu3_k_cualquiera} 
 $(\wku)_3$ is linearly and univocally 
 determined by $\hat{u}_3$.
@@ -83,11 +84,11 @@ $(\wku)_3 \equiv 0$ on $\hat E$.
 \begin{itemize}
 	\item []
 	\item [(a)]\label{piu2_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat y,\hat z), 0)^t$,
-	then $\wku  = (0, \hat\xi_2(y,z) ,0)$, for some 
-	$\hat\xi_2 \in P_{k-1}(y) \otimes P_k(z)$.
+	then $\wku\xyz = (0, \hat\xi_2(y,z) ,0)^t$ for some 
+	$\hat\xi_2 \in P_{k-1}(\hat{x}_2) \otimes P_k(\hat{x}_3)$.
 	\item [(b)]\label{piu1_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (\hat u_1(\hat x,\hat z), 0, 0)^t$
-	then $\wku  = (\hat\xi_1(x,z), 0 ,0)$, for some
-$	\hat\xi_1\in P_{k-1}(x) \otimes P_k(z)$.
+	then $\wku\xyz = (\hat\xi_1(x,z), 0 ,0)^t$ for some
+    $\hat\xi_1\in P_{k-1}(\hat{x}_1) \otimes P_k(\hat{x}_3)$.
 \end{itemize}
 \end{lemma}
 \begin{proof} We will prove the first inequality, as the second follows
@@ -209,20 +210,20 @@ which yields, over all $\hat{E}$, $\hat\xi_1  \equiv  0$. Finally, if we
 combine this last property with~(\ref{rot_3_es_0}) we prove that $\hat{\xi}_2$
 does not depend on $\hat{x}_2$.
 \end{proof}
-\begin{lemma}\label{pi00u3} Si $\pi$ es el interpolador determinado por el elemento de la
-\emph{Definici\'on}~(\ref{edgeelement}), entonces
-\begin{IEEEeqnarray}{rCl}
-	\pi(0,0, u_3)& = & (0,0,\xi_3)\textrm{,}\\
-	\nonumber		\xi_3 & \in & \p{k}{k-1}.
-\end{IEEEeqnarray}
+\begin{lemma}\label{pi00u3} 
+If $\hat{\bu}\xyz=(0,0, \hat{u}_3\xyz)^t$, then
+$\wku\xyz = (0,0,\hat\xi_3\xyz)^t$ for some
+$\hat\xi_3 \in \mathcal{P}_k(\hat{f}_3)\otimes
+\mathcal{P}_{k-1}(\hat{x}_3)$.
 \end{lemma}
-\begin{proof} La demostraci\'on ser\'a muy parecida a la del Lema~(\ref{lemma_PIu2_k_in_N}). Recordemos
-la expresi\'on que encontramos en la Subsecci\'on~\ref{sub:elemento_P_k}; tenemos
-\begin{IEEEeqnarray}{rCl}
-	\label{expre_pi00u3} \pi(0,0,u_3) &=& (\xi_1 + y\,h,\xi_2 - x\,h, \xi_3).	
-\end{IEEEeqnarray}
-Empezamos por ver que $h$ se anula. Sea $f$ cualquiera de las dos caras horizontales del 
-prisma de referencia. Usamos la expresi\'on~(\ref{expre_h}) para 
+\begin{proof} We will work again with
+expression~(\ref{expr_wku}).
+%Empezamos por ver que $h$ se anula.
+Let $\hat{f}$ be any of the horizontal faces $\hat{f}_3$ or
+$\hat{f}_4$ in
+{\color{red}TABLE}~(\ref{edgeFacesNotationTable}) .
+
+Usamos la expresi\'on~(\ref{expre_h}) para 
 $(\textbf{curl}\,\pi\bu)_3 \in \p{k-1}{k}$. Gracias al
 Lema~\ref{lema_pi_star_rot_u} y a las igualdades~(\ref{momentos1hdiv}) vale
 \begin{IEEEeqnarray}{rCl}
