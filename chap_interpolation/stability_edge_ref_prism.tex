@@ -126,11 +126,15 @@ yields $({\bf curl}\,\wku)_3 |_{\hat{f}} \equiv 0$
 so we may write again $({\bf curl}\,\wku)_3 = z\,(z-1)\,\psi$ for
 a $\psi\in P_{k-1}(\hat{f}) \otimes P_{k-2}(\hat{z})$.
 We choose now $q$ equal to this $\psi$ in the degrees of
-reedom~(\ref{momentos4hdiv}). We have
-\begin{IEEEeqnarray*}{rCl}
-	\int\limits_{\hat{E}} \hat{z}\,(\hat{z}-1)\,\psi^2\,d\hat{\bf x} & = & 0,
+reedom~(\ref{momentos4hdiv}). Again, by the commutative diagram property
+and the definition of $br_k$, we have 
+\begin{IEEEeqnarray*}{rCCCl}
+	\int\limits_{\hat{E}} \hat{x}_3\,(\hat{x}_3-1)\,\hat\psi^2\,d\hat{\boldsymbol{x}}
+  & = &\int\limits_{\hat{E}} (\curl\wku)_3\,\hat\psi\,d\hat{\boldsymbol{x}}&&\\
+  & = &\int\limits_{\hat{E}} (\br_k\curl\hat{\bu})_3\,\hat{\psi}\,d\hat{\boldsymbol{x}}&&\\
+  & = &\int\limits_{\hat{E}} (\curl\hat{\bu})_3\,\hat{\psi}\,d\hat{\boldsymbol{x}} & = & 0\\
 \end{IEEEeqnarray*}
-and it follows 
+and it follows that
 \begin{IEEEeqnarray}{rCl}
 	\label{rot_3_es_0} ({\bf curl}\,\wku)_3 &\equiv& 0.
 \end{IEEEeqnarray}
