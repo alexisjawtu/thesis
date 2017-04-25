@@ -4,7 +4,8 @@ in $H({\bf curl},\hat{E})$ and we will assume there are
 a positive $\delta$ and a $p>2$ such that 
 $\hat\bu$ belongs to $H^{1/2+\delta}(\hat{E})^3$ and
 ${\bf curl}\,\bu$ belongs to $L^p(\hat{E})^3$.
-$\hat\bw_k$ will be the $k$--th order edge interpolation operator on the reference
+$\hat\bw_k$ will be, for the whole section, the $k$--th order edge 
+interpolation operator on the reference
 Prism determined by the element of
 \emph{Definition}~(\ref{edgeelement}).
 \begin{lemma}\label{lema_PIu3_k_cualquiera} 
@@ -254,37 +255,51 @@ $h\equiv 0$, so we may rewrite~(\ref{expr_wku}) as
   \label{expre_pi00u3_} \wku &=&
   (\hat\xi_1,\hat\xi_2,\hat\xi_3)^t.
 \end{IEEEeqnarray}
-To see that $\hat{\xi}_1\equiv\hat{\xi}_2\equiv 0$,
-
-%se anulan. Con la misma
-%idea, si consideramos
-%las caras $f_1$ con normal $\boldsymbol{\nu}=(-1,0,0) $ y $f_2$ con normal 
-%$\boldsymbol{\nu}=(0,-1,0)$,
-
-
-entonces las igualdades~(\ref{momentos1hcurl}) 
-para las aristas $e_1, e_4$ junto con las igualdades~(\ref{momentos4hcurl}) por un lado,
-y las igualdades~(\ref{momentos1hcurl}) para las aristas $e_2, e_5$ y~(\ref{momentos3hcurl})
-por el otro, implican, respectivamente, que $y$ divide a $\xi_1$ y $x$ divide a $\xi_2$. Si 
-continuamos con los degrees of freedom sobre las dos caras horizontales~(\ref{momentos2hcurl})
-obtenemos tambi\'en que $z\,(z-1)$ los divide a ambos. Finalmente, si aplicamos las
-igualdades~(\ref{momentos6hcurl}) probamos que $\xi_1 = \xi_2 \equiv 0$ en todo $\hat{K}$.
-En conclusi\'on, $\pi(0,0, u_3)$ tiene la forma deseada.
+We claim that $\hat{\xi}_1\equiv\hat{\xi}_2\equiv0$.
+To see this, first observe that the evaluation of the degrees of freedom
+for the edges $\be_1$ and $\be_2$ yields
+$\hat\xi_1|_{\be_1} \equiv \hat\xi_2|_{\be_2} \equiv 0$,
+hence, evaluating the degree of freedom~(\ref{momentos2hcurl})
+tangent to the face $\hat{f}_3$ two times we have
+$\hat\xi_1|_{\hat{f}_3}  \equiv  \hat\xi_2|_{\hat{f}_3}  \equiv  0$.
+In equal manner, if we pick $\be_4$ and $\be_5$, and then the 
+degree of freedom tangent to $\hat{f}_4$ we obtain
+$\hat\xi_1|_{\hat{f}_3} \equiv \hat\xi_2|_{\hat{f}_3} \equiv  0$.
+So we proved there are polynomials $p_1$ and $p_2$ in
+$P_{k-1}(\hat{f}_3)\otimes P_{k-2}(\hat{x}_3)$ which allow us to write
+\begin{IEEEeqnarray*}{rCl}
+  \hat\xi_1\xyz & = & \hat{x}_3(1-\hat{x}_3)p_1\xyz\\
+  \hat\xi_2\xyz & = & \hat{x}_3(1-\hat{x}_3)p_2\xyz.
+\end{IEEEeqnarray*}
+Take $\hat\bq = (0,0, \hat{q}_2|_{\hat{f}_2})^t$ and 
+evaluate the degree of freedom~(\ref{momentos3hcurl}). We have
+\begin{IEEEeqnarray*}{rCCCCCl}
+  0 & = & \varphi_{\hat{f}_1,\hat{\bq}}\,(\hat\bu) 
+    & = & \varphi_{\hat{f}_1,\hat{\bq}}\,(\wku) 
+    & = & \int\limits_{\hat{f}_1} \hat{x}_3(1-\hat{x}_3)\hat{q}_2^2\,d\gamma.
+\end{IEEEeqnarray*}
+Hence, there is some $\hat{r}_2\in P_{k-2}(\hat{f_3})\otimes P_{k-2}(\hat{x}_3)$
+such that $\hat\xi_2 = \hat{x}_1\hat{x}_3(1-\hat{x}_3)\hat{r}_2$.
+Now choose $\br = (0,\hat{r}_2,0)^t$ and use degree of freedom~(\ref{momentos6hcurl})
+to obtain $\int_{\hat{E}}\hat{x}_1\hat{x}_3(1-\hat{x}_3)\hat{r}^2\,d\bx=0.$ Since 
+$\hat{x}_1\hat{x}_3(1-\hat{x}_3)\hat{r}^2$ is almost everywhere greater than zero, this implies
+$\hat{\xi}_2 = 0$.
+With the simmetric procedure starting with face $f_2$ we get to prove
+$\hat{\xi}_1 = 0$.
 \end{proof}
 \begin{theorem}\label{thm_stab_edge}
-Dados $p > 2$, $\hat{\bu} \in \wpcurl{\hat{K}}$, si $\hat{\pi}$ es 
-el operador de interpolaci\'on determinado por el elemento de la Definici\'on~(\ref{edgeelement}),
-entonces
+Given $p > 2$, $\hat{\bu} \in \wpcurl{\hat{E}}$,
 \begin{IEEEeqnarray}{rCl}
-\label{teorema_1} \norm{\hat{\pi}(\hat{\bu})_1}_{L^{\infty}(\hat{E})} & 
+\label{teorema_1} \norm{(\wku)_1}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_1\|_{W^{1,p}(\hat{E})} + 
 	\|\emph{\textbf{curl}}(\hat{\bu})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
-\label{teorema_2} \norm{\hat{\pi}(\hat{\bu})_2}_{L^{\infty}(\hat{E})} & 
+\label{teorema_2} \norm{(\wku)_2}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_2\|_{W^{1,p}(\hat{E})} + 
 	\|\emph{\textbf{curl}}(\hat{\bu})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
-\label{teorema_3} \norm{\hat{\pi}(\hat{\bu})_3}_{L^{\infty}(\hat{E})} & 
+\label{teorema_3} \norm{(\wku)_3}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_3\|_{W^{1,p}(\hat{E})}.
 \end{IEEEeqnarray}
+where the constants in the inequalities depend olny on $\hat{E}$.
 \end{theorem}
 \begin{proof}
 The proof will rely on the three previous Lemmas, 
