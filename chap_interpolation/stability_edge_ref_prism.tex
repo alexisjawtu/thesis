@@ -310,43 +310,46 @@ First we will take a smooth field $\hat{\bu}$ defined on $\hat{E}$
 and, by Lemma~(\ref{lemaDensidad}), we will conclude the Theorem 
 with a density argumentation.\\[5pt]
 
+To prove~(\ref{teorema_1}) the idea will be to take another function
+$\hat{\bw}$ such that its interpolate has the same first component
+as the one of $\hat\bu$ and such that its degrees of freedom are
+more easily bounded in terms of $\hat{u}_1$ and $\curl(\hat{\bu})_3$.
 
-Las dos primeras se 
-demuestran de forma parecida; probamos~(\ref{teorema_1}). La idea es tomar una funci\'on otra,
-$\hat{\textbf{w}}$, tal que su interpolada tenga igual primera coordenada que la de 
-$\hat{\bu}$,
-pero que tenga degrees of freedom m\'as c\'omodos de acotar en t\'erminos exclusivamente de 
-$\hat{u}_1$ y $\textbf{curl}(\hat{\bu})_3$.
-Definimos, dada $\hat{\bu} \in W^{1,p}(\hat{K})^3$,
+Let us define, for a given $\hat{\bu} \in C^\infty(\bar{\hat{E}})^3$,
+$\hat{\bv}\,:\,\hat{E}\longmapsto\mathbb{R}^3$ with
+\[
+  \hat{\bv}\xyz = (\hat{u}_1\xyz, \hat{u}_2\xyz - \hat{u}_2(0,\hat{x}_2,\hat{x}_3), 0).
+\]
+Thanks to the Lemmas~(\ref{lemma_PIu2_k_in_N}) and~(\ref{pi00u3}) it holds
 \begin{IEEEeqnarray*}{rCl}
-	\hat{\textbf{w}} & = & (\hat{u}_1, \hat{u}_2 - \hat{u}_2(0,y,z), 0).
+	(\hat{\bw}_k\hat{\bv})_1 & = & (\wku)_1 - 
+	\hat{\bw}_k(0, \hat{u}_2(0,\hat{x}_2,\hat{x}_3), 0)_1 -
+	\hat{\bw}_k(0, 0, \hat{u}_3)_1\\
+						& = & (\wku)_1.
 \end{IEEEeqnarray*}
-Como dec\'{\i}amos, observemos primero que gracias a los lemas~(\ref{lemma_PIu2_k_in_N}) 
-y~(\ref{pi00u3}) es
+Now let us explore one by one the degrees of freedom that define
+$\hat{\bw}_k\hat{\bv}$. The only edge degrees
+that do not vanish directly or depend explicitly just on 
+$\hat{u}_1$ are
 \begin{IEEEeqnarray*}{rCl}
-	\hat{\pi}(\hat{\textbf{w}})_1 & = & (\hat{\pi}\hat{\bu})_1 - 
-	\hat{\pi}(0, \hat{u}_2(0,y,z), 0)_1 -
-	\hat{\pi}(0, 0, \hat{u}_3)_1\\
-						& = & (\hat{\pi}\hat{\bu})_1.
+	\int\limits_{\hat{\be}_8} \hat{\bv} \cdot \boldsymbol{\tau}\,q\,ds & = &
+	\tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_8} (\hat{v}_1 - \hat{v}_2)\,q\,ds\\
+	\int\limits_{\hat{\be}_9} \hat{\bv} \cdot \boldsymbol{\tau}\,q\,ds & = &
+	\tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_9} (\hat{v}_1 - \hat{v}_2)\,q\,ds
 \end{IEEEeqnarray*}
-Ahora exploremos uno por uno los degrees of freedom que definen a $\pi(\hat{\textbf{w}})$. Los \'unicos
-degrees of freedom sobre aristas que no se anulan o que no dependen expl\'{\i}citamente s\'olo de $\textrm{u}_1$
-son
+for $q$ in $\mathcal{P}_{k-1}(\hat{\be}_8)$ or $\mathcal{P}_{k-1}(\hat{\be}_9)$ 
+respectively. 
+Pick a polynomial $q \in P_{k-1}(\hat{\be}_8)$. Since on
+$\hat{\be}_8$ it is $\hat{x}_1 = 1 - \hat{x}_2$, we evaluate
+$p(\hat{x}_2)$, with $0\leqslant\hat{x}_2 \leqslant 1$. Integration
+by partes over the face $\hat{f}_4$ yields
+\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE} 
 \begin{IEEEeqnarray*}{rCl}
-	\int\limits_{e_8} \hat{\textbf{w}} \cdot \boldsymbol{\tau}\,\phi\,ds & = &
-	\tfrac{1}{\sqrt{2}} \int\limits_{e_8} (w_1 - w_2)\,\phi\,ds\\
-	\int\limits_{e_9} \hat{\textbf{w}} \cdot \boldsymbol{\tau}\,\phi\,ds & = &
-	\tfrac{1}{\sqrt{2}} \int\limits_{e_9} (w_1 - w_2)\,\phi\,ds
-\end{IEEEeqnarray*}
-para $q\in \mathcal{P}_{k-1}$. Para el momento sobre $e_8$ hacemos partes en la cara $f_4
-\subseteq \{ z=1 \}$. Tomemos un polinomio $\phi \in \mathcal{P}_{k-1}$ sobre $e_8$, que puede
-verse como $\phi(y)$, dado que en $e_8$ es $x = 1 - y$.
-\begin{IEEEeqnarray*}{rCl}
-	\int\limits_{f_4} \textbf{curl}(\hat{\bu})_3\,\phi\,d\gamma & = &
-	\int\limits_{f_4} \textbf{curl}(\hat{\textbf{w}})_3\,\phi\,d\gamma\\
-	& = & -\int\limits_{f_4} \left(w_2\,\partial_x\phi - w_1\,\partial_y\phi\right)\,d\gamma
-		+ \int\limits_{\partial f_4} \left(w_2\,\nu_x - w_1\,\nu_y\right)\,\phi\,ds\\
-	& = &  \int\limits_{f_4} w_1\,\partial_y\phi\,d\gamma
+	\int\limits_{\hat{f}_4} (\curl\hat{\bu})_3\,\phi\,d\gamma & = &
+	\int\limits_{\hat{f}_4} \textbf{curl}(\hat{\textbf{w}})_3\,\phi\,d\gamma\\
+	& = & -\int\limits_{\hat{f}_4} \left(w_2\,\partial_x\phi - w_1\,\partial_y\phi\right)\,d\gamma
+		+ \int\limits_{\partial \hat{f}_4} \left(w_2\,\nu_x - w_1\,\nu_y\right)\,\phi\,ds\\
+	& = &  \int\limits_{\hat{f}_4} w_1\,\partial_y\phi\,d\gamma
 		+ \int\limits_{e_8} \left(w_2 - w_1\right)\,\phi\,ds + 
 			\int\limits_{e_4} w_1\,\phi\,ds.
 \end{IEEEeqnarray*}
