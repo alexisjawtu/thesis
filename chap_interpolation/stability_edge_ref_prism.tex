@@ -342,34 +342,38 @@ respectively.
 Pick a polynomial $q \in P_{k-1}(\hat{\be}_8)$. Since on
 $\hat{\be}_8$ it is $\hat{x}_1 = 1 - \hat{x}_2$, we evaluate
 $p(\hat{x}_2)$, with $0\leqslant\hat{x}_2 \leqslant 1$. Integration
-by partes over the face $\hat{f}_4$ yields
-\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE} 
+by parts over the face $\hat{f}_4$ yields
 \begin{IEEEeqnarray*}{rCl}
-	\int\limits_{\hat{f}_4} (\curl\hat{\bu})_3\,\phi\,d\gamma & = &
-	\int\limits_{\hat{f}_4} \textbf{curl}(\hat{\textbf{w}})_3\,\phi\,d\gamma\\
-	& = & -\int\limits_{\hat{f}_4} \left(w_2\,\partial_x\phi - w_1\,\partial_y\phi\right)\,d\gamma
-		+ \int\limits_{\partial \hat{f}_4} \left(w_2\,\nu_x - w_1\,\nu_y\right)\,\phi\,ds\\
-	& = &  \int\limits_{\hat{f}_4} w_1\,\partial_y\phi\,d\gamma
-		+ \int\limits_{e_8} \left(w_2 - w_1\right)\,\phi\,ds + 
-			\int\limits_{e_4} w_1\,\phi\,ds.
+	\int\limits_{\hat{f}_4} (\curl\hat{\bu})_3\,q\,d\gamma & = &
+	\int\limits_{\hat{f}_4} (\curl\hat{\bv})_3\,q\,d\gamma\\
+	& = & -\int\limits_{\hat{f}_4} \left(\hat{v}_2\,\partial_{\hat{x}_1}q - \hat{v}_1\,
+  \partial_{\hat{x}_2}q\right)\,d\hat{\gamma}
+		+ \int\limits_{\partial \hat{f}_4} \left(\hat{v}_2\,\hat{\nu}_1 
+    - \hat{v}_1\,\hat{\nu}_2\right)\,q\,ds\\
+	& = & \int\limits_{\hat{f}_4} \hat{v}_1\,\partial_{\hat{x}_2}q\,d\gamma
+		+ \int\limits_{\hat{\be}_8} \left(\hat{v}_2 - \hat{v}_1\right)\,q\,ds + 
+			\int\limits_{\hat{\be}_4} \hat{v}_1\,q\,ds\mbox{,}
 \end{IEEEeqnarray*}
-Es decir
-\begin{IEEEeqnarray}{rCl}\label{momentosWaristas}
-	\tfrac{1}{\sqrt{2}} \int\limits_{e_8} (w_1 - w_2)\,\phi\,ds & = &
-		 \tfrac{1}{\sqrt{2}} \int\limits_{e_4} u_1\,\phi\,ds - 
-		 \tfrac{1}{\sqrt{2}} \int\limits_{f_4} \textbf{curl}(\hat{\bu})_3\,\phi\,d\gamma
-		 + \int\limits_{f_3} u_1\,\partial_y\phi\,d\gamma.
-\end{IEEEeqnarray}
-De igual manera hacemos partes en $f_3 \subseteq \{ z=0 \}$ para obtener
-\begin{IEEEeqnarray}{rCl}\label{momentosWaristas2}
-	\tfrac{1}{\sqrt{2}} \int\limits_{e_9} (w_1 - w_2)\,\phi\,ds & = &
-		 \tfrac{1}{\sqrt{2}} \int\limits_{e_1} u_1\,\phi\,ds - 
-		 \tfrac{1}{\sqrt{2}} \int\limits_{f_3} \textbf{curl}(\hat{\bu})_3\,\phi\,d\gamma
-		 + \int\limits_{f_3} u_1\,\partial_y\phi\,d\gamma.
-\end{IEEEeqnarray}
-Ahora miramos los degrees of freedom sobre las caras. Tambi\'en aqu\'{\i} hacemos notar que s\'olo hace falta
-trabajar con los degrees of freedom sobre las dos caras horizontales $f_3$ y $f_4$ y sobre la cara $f_5$.
-Tomemos $\phi_1$, $\phi_2 \in \mathcal{P}_{k-2}(x,y)$, $\boldsymbol{\phi} = (\phi_1, \phi_2, 0)$.
+hence
+\begin{IEEEeqnarray*}{rCl}
+	\tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_8} (\hat{v}_1 - \hat{v}_2)\,q\,ds & = &\\
+	\yesnumber\label{momentosWaristas}
+    \tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_4} \hat{u}_1\,q\,ds & - & 
+	  \tfrac{1}{\sqrt{2}} \int\limits_{\hat{f}_4} (\curl\hat{\bu})_3\,q\,d\gamma
+	  + \int\limits_{\hat{f}_3} \hat{u}_1\,\partial_{\hat{x}_2}q\,d\gamma.
+\end{IEEEeqnarray*}
+In a similar manner if we integrate over $\hat{f}_3 \subseteq \{ \hat{x}_3 = 0 \}$
+we get
+\begin{IEEEeqnarray*}{rCl}
+	\tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_9} (\hat{v}_1 - \hat{v}_2)\,\phi\,ds & = &\\
+	\yesnumber\label{momentosWaristas2}
+  	 \tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_1} u_1\,q\,ds & - &
+		 \tfrac{1}{\sqrt{2}} \int\limits_{\hat{f}_3} (\curl\hat{\bu})_3\,q\,d\hat{\gamma}
+		 + \int\limits_{\hat{f}_3} \hat{u}_1\,\partial_{\hat{x}_2}q\,d\hat{\gamma}.
+\end{IEEEeqnarray*}
+If we evaluate now the face degrees of freedom, we only have to bound
+those corresponding to $\hat{f}_3$, $\hat{f}_4$ and $\hat{f}_5$.
+Take $q_1$, $q_2 \in P_{k-2}(\hat{f}_3)$, $\bq = (\phi_1, \phi_2, 0)$.
 \begin{IEEEeqnarray}{rCl}
  	\label{cotaf3}\int\limits_{f_3} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \boldsymbol{\phi}\,d\gamma
  		& = & \int\limits_{f_3} u_1\,\phi_2\,d\gamma + \int\limits_{f_3} w_2\,\phi_1\,d\gamma.
