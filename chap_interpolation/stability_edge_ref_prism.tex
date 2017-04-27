@@ -325,8 +325,9 @@ Thanks to the Lemmas~(\ref{lemma_PIu2_k_in_N}) and~(\ref{pi00u3}) it holds
 	(\hat{\bw}_k\hat{\bv})_1 & = & (\wku)_1 - 
 	\hat{\bw}_k(0, \hat{u}_2(0,\hat{x}_2,\hat{x}_3), 0)_1 -
 	\hat{\bw}_k(0, 0, \hat{u}_3)_1\\
-						& = & (\wku)_1.
+						& = & (\wku)_1\mbox{,}
 \end{IEEEeqnarray*}
+and we also have $(\curl\hat{\bu})_3 = (\curl\hat{\bv})_3$.
 Now let us explore one by one the degrees of freedom that define
 $\hat{\bw}_k\hat{\bv}$. The only edge degrees
 that do not vanish directly or depend explicitly just on 
@@ -344,8 +345,7 @@ $\hat{\be}_8$ it is $\hat{x}_1 = 1 - \hat{x}_2$, we evaluate
 $p(\hat{x}_2)$, with $0\leqslant\hat{x}_2 \leqslant 1$. Integration
 by parts over the face $\hat{f}_4$ yields
 \begin{IEEEeqnarray*}{rCl}
-	\int\limits_{\hat{f}_4} (\curl\hat{\bu})_3\,q\,d\gamma & = &
-	\int\limits_{\hat{f}_4} (\curl\hat{\bv})_3\,q\,d\gamma\\
+  \int\limits_{\hat{f}_4} (\curl\hat{\bv})_3\,q\,d\gamma
 	& = & -\int\limits_{\hat{f}_4} \left(\hat{v}_2\,\partial_{\hat{x}_1}q - \hat{v}_1\,
   \partial_{\hat{x}_2}q\right)\,d\hat{\gamma}
 		+ \int\limits_{\partial \hat{f}_4} \left(\hat{v}_2\,\hat{\nu}_1 
@@ -373,51 +373,53 @@ we get
 \end{IEEEeqnarray*}
 If we evaluate now the face degrees of freedom, we only have to bound
 those corresponding to $\hat{f}_3$, $\hat{f}_4$ and $\hat{f}_5$.
-Take $q_1$, $q_2 \in P_{k-2}(\hat{f}_3)$, $\bq = (\phi_1, \phi_2, 0)$.
+Take $\hat{q}_1$, $\hat{q}_2 \in P_{k-2}(\hat{f}_3)$ and consider $\hat{\bq} = (\hat{q}_1, \hat{q}_2, 0)$.
 \begin{IEEEeqnarray}{rCl}
- 	\label{cotaf3}\int\limits_{f_3} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \boldsymbol{\phi}\,d\gamma
- 		& = & \int\limits_{f_3} u_1\,\phi_2\,d\gamma + \int\limits_{f_3} w_2\,\phi_1\,d\gamma.
+ 	\label{cotaf3}\int\limits_{\hat{f}_3} \hat{\bv} \times \boldsymbol{\nu} \cdot \bq\,d\hat{\gamma}
+ 		& = & \int\limits_{\hat{f}_3} u_1\,q_2\,d\hat{\gamma} -
+    \int\limits_{f_3} \hat{v}_2\,q_1\,d\hat{\gamma}.
 \end{IEEEeqnarray}
-Ahora sea un polinomio $\varphi_1 \in \mathcal{P}_{k-1}(x,y) $ tal que 
+Now we need a polynomial $\varphi_1 \in P_{k-1}(\hat{f}_3) $ such that 
+$\partial_{\hat{x}_1} \varphi_1 = \hat{q}_1$ and
+$\varphi_1 |_{\hat{\be}_9} = 0$; take for instance
+$\varphi_1 = -\int_{x}^{1-y} \phi_1(t,y)\,dt$. Then
 \begin{IEEEeqnarray*}{rCl}
-	\partial_x \varphi_1 & = & \phi_1\textrm{,}\\
-	\varphi_1 |_{e_9} 	 & \equiv & 0\textrm{;}
+	\int\limits_{\hat{f}_3} (\curl\hat{\bv})_3\,\varphi_1\,d\hat{\gamma} & = & -\int\limits_{\hat{f}_3} \left(\hat{v}_2\,\phi_1 - \hat{v}_1\,\partial_{\hat{x}_2}\varphi_1\right)\,d\hat{\gamma}
+		- \int\limits_{\hat{\be}_1} \hat{v}_1\,\nu_y\,\varphi_1\,ds,
 \end{IEEEeqnarray*}
-tomemos por ejemplo $\varphi_1 = -\int_{x}^{1-y} \phi_1(t,y)\,dt$. Entonces
-\begin{IEEEeqnarray*}{rCl}
-	\int\limits_{f_3} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\gamma & = & -\int\limits_{f_3} \left(w_2\,\phi_1 - w_1\,\partial_y\varphi_1\right)\,d\gamma
-		+ \int\limits_{e_1} w_1\,\nu_y\,\varphi_1\,ds,
-\end{IEEEeqnarray*}
-y de esto con junto con~(\ref{cotaf3}) sigue que
+which, together with~(\ref{cotaf3}) implies
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras}
- 	\nonumber\int\limits_{f_3} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \boldsymbol{\phi}\,d\gamma
- 		& = & \int\limits_{f_3} u_1\,\phi_2\,d\gamma - \int\limits_{f_3} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\gamma\\
- 		& 	& + \int\limits_{f_3} u_1\,\partial_y\varphi_1\,d\gamma	+ \int\limits_{e_1} u_1\,\nu_y\,\varphi_1\,ds.
+ 	\nonumber\int\limits_{\hat{f}_3} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \bq\,d\hat{\gamma}
+ 		& = & \int\limits_{\hat{f}_3} \hat{u}_1\,\phi_2\,d\hat{\gamma} +
+    \int\limits_{\hat{f}_3} (\curl\hat{\bu})_3\,\varphi_1\,d\hat{\gamma}\\
+ 		& 	& - \int\limits_{\hat{f}_3} u_1\,\partial_{\hat{x}_2}\varphi_1\,d\hat{\gamma}	+
+    \int\limits_{\hat{\be}_1} \hat{u}_1\,\nu_2\,\varphi_1\,ds.
 \end{IEEEeqnarray}
+\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE} 
 Si repetimos lo anterior para el momento en $f_4$, obtenemos 
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras2}
- 	\nonumber\int\limits_{f_4} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \boldsymbol{\phi}\,d\gamma
- 		& = & \int\limits_{f_4} u_1\,\phi_2\,d\gamma - \int\limits_{f_4} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\gamma\\
- 		& 	& + \int\limits_{f_4} u_1\,\partial_y\varphi_1\,d\gamma	+ \int\limits_{e_4} u_1\,\nu_y\,\varphi_1\,ds\textrm{,}
+ 	\nonumber\int\limits_{\hat{f}_4} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \boldsymbol{\phi}\,d\hat{\gamma}
+ 		& = & \int\limits_{\hat{f}_4} u_1\,\phi_2\,d\hat{\gamma} - \int\limits_{\hat{f}_4} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\hat{\gamma}\\
+ 		& 	& + \int\limits_{\hat{f}_4} u_1\,\partial_y\varphi_1\,d\hat{\gamma}	+ \int\limits_{\hat{\be}_4} u_1\,\nu_y\,\varphi_1\,ds\textrm{,}
 \end{IEEEeqnarray}
 y con la misma técnica para $f_5$, si dado $\textbf{q} = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times Q_{k-1,k-2}$ 
 tomamos $\varphi_1(x,z)=-\int\limits_{x}^{1} q_1(t,z)\,dt$, entonces obtenemos
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras3}
- 	\nonumber\int\limits_{f_4} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \textbf{q}\,d\gamma
- 		& = & \int\limits_{f_5} u_1\,q_1\,d\gamma + \int\limits_{f_5} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\gamma\\
- 		& 	& - \int\limits_{f_5} u_1\,\partial_y\varphi_1\,d\gamma	+ \int\limits_{e_4} u_1\,\varphi_1\,ds.
+ 	\nonumber\int\limits_{\hat{f}_4} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \textbf{q}\,d\gamma
+ 		& = & \int\limits_{\hat{f}_5} u_1\,q_1\,d\gamma + \int\limits_{\hat{f}_5} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\gamma\\
+ 		& 	& - \int\limits_{\hat{f}_5} u_1\,\partial_y\varphi_1\,d\gamma	+ \int\limits_{\hat{\be}_4} u_1\,\varphi_1\,ds.
 \end{IEEEeqnarray}
 Finalmente, estudiamos los degrees of freedom de volumen. Tomemos
 $\boldsymbol{\phi} = (\phi_1, \phi_2, \phi_3) \in (P_{k-2}(x,y) \otimes P_{k-2}(z))^{\color{red}2}
 \times P_{k-3}(x,y) \otimes
 P_{k-1}(z)$ (cfr.~(\ref{momentos6hcurl})) y sea $\varphi_2 = - \int\limits_{x}^{1-y} \phi_2(t,y,z)\,dt$, para el cual vale 
-$\partial_x\varphi_2 = \phi_2 $ y $\varphi_2|_{f_5} \equiv 0$. Entonces, por partes,
+$\partial_x\varphi_2 = \phi_2 $ y $\varphi_2|_{\hat{f}_5} \equiv 0$. Entonces, por partes,
 \begin{IEEEeqnarray}{rCl}\label{momentosWvolumen}
  	\nonumber\int\limits_{\hat{K}} \hat{\textbf{w}} \cdot \boldsymbol{\phi}\,d\textbf{x}
  		& = & \int\limits_{\hat{K}} u_1\,\phi_1\,d\textbf{x} -\int\limits_{\hat{K}} \textbf{curl}(\hat{\bu})_3\,
  		\varphi_2,d\textbf{x}\\
  		& 	& + \int\limits_{\hat{K}} u_1\,\partial_y\varphi_2\,d\textbf{x}	+ 
- 		\int\limits_{f_2} u_1\,\varphi_2\,d\gamma.
+ 		\int\limits_{\hat{f}_2} u_1\,\varphi_2\,d\gamma.
 \end{IEEEeqnarray} %,~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3})
 Ahora recolectamos lo que dicen las igualdades~(\ref{momentosWaristas}),~(\ref{momentosWaristas2}),
 y~(\ref{momentosWcaras})--(\ref{momentosWvolumen}), para hacer simplemente
@@ -448,7 +450,7 @@ consider only a few not null terms ({\color{red}recall the numbering of the edge
 \begin{IEEEeqnarray*}{rCl}
   (\hat{\boldsymbol{w}}_k\hat{\bv})_3 & = &
   \sum_{j=3,6,7\,p\,\in\,{\color{red}\mathcal{B}_{\hat e_j}}} \int\limits_{\hat e_j} \hat{u}_3 p\,ds         \,(\hat{\bv}_{e_j,p})_3 +
-  \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}} \int\limits_{\hat f_i} \hat{u}_3 q\,d\gamma    \,(\hat{\bv}_{f_i,q})_3 +
+  \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}} \int\limits_{\hat f_i} \hat{u}_3 q\,d\gamma    \,(\hat{\bv}_{\hat{f}_i,q})_3 +
   \sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
   \int\limits_{\hat E} \hat{u}_3 r_3\,d\textbf{x}\,(\hat{\bv}_{\boldsymbol{r}})_3.
 \end{IEEEeqnarray*}
