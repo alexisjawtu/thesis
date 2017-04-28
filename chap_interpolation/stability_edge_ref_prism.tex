@@ -389,37 +389,45 @@ $\varphi_1 = -\int_{x}^{1-y} \phi_1(t,y)\,dt$. Then
 \end{IEEEeqnarray*}
 which, together with~(\ref{cotaf3}) implies
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras}
- 	\nonumber\int\limits_{\hat{f}_3} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \bq\,d\hat{\gamma}
+ 	\nonumber\int\limits_{\hat{f}_3} \hat{\bv} \times \boldsymbol{\nu} \cdot \bq\,d\hat{\gamma}
  		& = & \int\limits_{\hat{f}_3} \hat{u}_1\,\phi_2\,d\hat{\gamma} +
     \int\limits_{\hat{f}_3} (\curl\hat{\bu})_3\,\varphi_1\,d\hat{\gamma}\\
  		& 	& - \int\limits_{\hat{f}_3} u_1\,\partial_{\hat{x}_2}\varphi_1\,d\hat{\gamma}	+
     \int\limits_{\hat{\be}_1} \hat{u}_1\,\nu_2\,\varphi_1\,ds.
 \end{IEEEeqnarray}
-\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE} 
-Si repetimos lo anterior para el momento en $f_4$, obtenemos 
+If we repeat the procedure for the degree of freedom on $\hat{f}_4$, then
+we get
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras2}
- 	\nonumber\int\limits_{\hat{f}_4} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \boldsymbol{\phi}\,d\hat{\gamma}
- 		& = & \int\limits_{\hat{f}_4} u_1\,\phi_2\,d\hat{\gamma} - \int\limits_{\hat{f}_4} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\hat{\gamma}\\
- 		& 	& + \int\limits_{\hat{f}_4} u_1\,\partial_y\varphi_1\,d\hat{\gamma}	+ \int\limits_{\hat{\be}_4} u_1\,\nu_y\,\varphi_1\,ds\textrm{,}
+ 	\nonumber\int\limits_{\hat{f}_4} \hat{\bv} \times \boldsymbol{\nu} \cdot \boldsymbol{q}\,d\hat{\gamma}
+ 		& = & - \int\limits_{\hat{f}_4} \hat{u}_1\,\hat{q}_2\,d\hat{\gamma} -
+    \int\limits_{\hat{f}_4} (\curl\hat{\bu})_3\,\varphi_1\,d\hat{\gamma}\\
+ 		& 	& + \int\limits_{\hat{f}_4} \hat{u}_1\,\partial_{\hat{x}_2}\varphi_1\,d\hat{\gamma}	+
+    \int\limits_{\hat{\be}_4} \hat{u}_1\,\hat{\nu}_2\,\varphi_1\,d\hat{s}.
 \end{IEEEeqnarray}
-y con la misma técnica para $f_5$, si dado $\textbf{q} = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times Q_{k-1,k-2}$ 
-tomamos $\varphi_1(x,z)=-\int\limits_{x}^{1} q_1(t,z)\,dt$, entonces obtenemos
+With the same technique for~(\ref{momentos5hcurl}) on $\hat{f}_5$, if  given
+$\bq = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times Q_{k-1,k-2}$ we 
+define $\varphi_1(\hat{x}_1,\hat{x}_3) = -\int_{x}^{1} q_1(t,\hat{x}_3)\,dt$, 
+we prove
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras3}
- 	\nonumber\int\limits_{\hat{f}_4} \hat{\textbf{w}} \times \boldsymbol{\nu} \cdot \textbf{q}\,d\gamma
- 		& = & \int\limits_{\hat{f}_5} u_1\,q_1\,d\gamma + \int\limits_{\hat{f}_5} \textbf{curl}(\hat{\bu})_3\,\varphi_1\,d\gamma\\
- 		& 	& - \int\limits_{\hat{f}_5} u_1\,\partial_y\varphi_1\,d\gamma	+ \int\limits_{\hat{\be}_4} u_1\,\varphi_1\,ds.
+ 	\nonumber\int\limits_{\hat{f}_4} \hat{\bv} \times \boldsymbol{\nu} \cdot \hat{\bq}\,d\hat{\gamma}
+ 		& = & \int\limits_{\hat{f}_5} \hat{u}_1\,\hat{q}_1\,d\hat{\gamma} +
+    \int\limits_{\hat{f}_5} (\curl\hat{\bu})_3\,\varphi_1\,d\hat{\gamma}\\
+ 		& 	& - \int\limits_{\hat{f}_5} \hat{u}_1\,\partial_{\hat{x}_2}\varphi_1\,d\hat{\gamma}	+
+    \int\limits_{\hat{\be}_4} \hat{u}_1\,\varphi_1\,d\hat{s}.
 \end{IEEEeqnarray}
-Finalmente, estudiamos los degrees of freedom de volumen. Tomemos
+\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE
+controlar signos en ~(\ref{momentosWcaras2}) y~(\ref{momentosWcaras3})} 
+At last, we study the volume degrees of freedom. Tomemos
 $\boldsymbol{\phi} = (\phi_1, \phi_2, \phi_3) \in (P_{k-2}(x,y) \otimes P_{k-2}(z))^{\color{red}2}
 \times P_{k-3}(x,y) \otimes
-P_{k-1}(z)$ (cfr.~(\ref{momentos6hcurl})) y sea $\varphi_2 = - \int\limits_{x}^{1-y} \phi_2(t,y,z)\,dt$, para el cual vale 
+P_{k-1}(z)$ (cfr.~(\ref{momentos6hcurl})) y sea $\varphi_2 = - \int_{x}^{1-y} \phi_2(t,y,z)\,dt$, para el cual vale 
 $\partial_x\varphi_2 = \phi_2 $ y $\varphi_2|_{\hat{f}_5} \equiv 0$. Entonces, por partes,
 \begin{IEEEeqnarray}{rCl}\label{momentosWvolumen}
  	\nonumber\int\limits_{\hat{K}} \hat{\textbf{w}} \cdot \boldsymbol{\phi}\,d\textbf{x}
  		& = & \int\limits_{\hat{K}} u_1\,\phi_1\,d\textbf{x} -\int\limits_{\hat{K}} \textbf{curl}(\hat{\bu})_3\,
  		\varphi_2,d\textbf{x}\\
  		& 	& + \int\limits_{\hat{K}} u_1\,\partial_y\varphi_2\,d\textbf{x}	+ 
- 		\int\limits_{\hat{f}_2} u_1\,\varphi_2\,d\gamma.
+ 		\int\limits_{\hat{f}_2} u_1\,\varphi_2\,d\hat{\gamma}.
 \end{IEEEeqnarray} %,~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3})
 Ahora recolectamos lo que dicen las igualdades~(\ref{momentosWaristas}),~(\ref{momentosWaristas2}),
 y~(\ref{momentosWcaras})--(\ref{momentosWvolumen}), para hacer simplemente
