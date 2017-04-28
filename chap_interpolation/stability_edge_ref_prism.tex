@@ -292,10 +292,10 @@ Given $p > 2$, $\hat{\bu} \in \wpcurl{\hat{E}}$,
 \begin{IEEEeqnarray}{rCl}
 \label{teorema_1} \norm{(\wku)_1}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_1\|_{W^{1,p}(\hat{E})} + 
-	\|\emph{\textbf{curl}}(\hat{\bu})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
+	\|(\curl\hat{\bu})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
 \label{teorema_2} \norm{(\wku)_2}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_2\|_{W^{1,p}(\hat{E})} + 
-	\|\emph{\textbf{curl}}(\hat{\bu})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
+	\|(\curl\hat{\bu})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
 \label{teorema_3} \norm{(\wku)_3}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_3\|_{W^{1,p}(\hat{E})}.
 \end{IEEEeqnarray}
@@ -305,11 +305,9 @@ where the constants in the inequalities depend olny on $\hat{E}$.
 The proof will rely on the three previous Lemmas, 
 the triangular inequality applied on each component of 
 expression~(\ref{edge_interp_explicit}) and traces inequalities.
-
 First we will take a smooth field $\hat{\bu}$ defined on $\hat{E}$
 and, by Lemma~(\ref{lemaDensidad}), we will conclude the Theorem 
-with a density argumentation.\\[5pt]
-
+with a density argumentation.\\[4pt]
 To prove~(\ref{teorema_1}) the idea will be to take another function
 $\hat{\bw}$ such that its interpolate has the same first component
 as the one of $\hat\bu$ and such that its degrees of freedom are
@@ -379,44 +377,46 @@ Take $\hat{q}_1$, $\hat{q}_2 \in P_{k-2}(\hat{f}_3)$ and consider $\hat{\bq} = (
  		& = & \int\limits_{\hat{f}_3} u_1\,q_2\,d\hat{\gamma} -
     \int\limits_{f_3} \hat{v}_2\,q_1\,d\hat{\gamma}.
 \end{IEEEeqnarray}
-Now we need a polynomial $\varphi_1 \in P_{k-1}(\hat{f}_3) $ such that 
-$\partial_{\hat{x}_1} \varphi_1 = \hat{q}_1$ and
-$\varphi_1 |_{\hat{\be}_9} = 0$; take for instance
-$\varphi_1 = -\int_{x}^{1-y} \phi_1(t,y)\,dt$. Then
+Observe that $\hat{v}_2$ vanishes over the face $\hat{f}_1\subseteq\{\hat{x}_1=0\}$.
+Now we need a polynomial $\varphi \in P_{k-1}(\hat{f}_3) $ such that 
+$\partial_{\hat{x}_1} \varphi = \hat{q}_1$ and
+$\varphi |_{\hat{\be}_9} = 0$; take for instance
+$\varphi(\hat{x}_1,\hat{x}_2) = -\int_{\hat{x}_1}^{1-\hat{2}_2} \phi_1(t,\hat{x}_2)\,dt$. Then
 \begin{IEEEeqnarray*}{rCl}
-	\int\limits_{\hat{f}_3} (\curl\hat{\bv})_3\,\varphi_1\,d\hat{\gamma} & = & -\int\limits_{\hat{f}_3} \left(\hat{v}_2\,\phi_1 - \hat{v}_1\,\partial_{\hat{x}_2}\varphi_1\right)\,d\hat{\gamma}
-		- \int\limits_{\hat{\be}_1} \hat{v}_1\,\nu_y\,\varphi_1\,ds,
+	\int\limits_{\hat{f}_3} (\curl\hat{\bv})_3\,\varphi\,d\hat{\gamma} & = & -\int\limits_{\hat{f}_3} \left(\hat{v}_2\,\phi_1 - \hat{v}_1\,\partial_{\hat{x}_2}\varphi\right)\,d\hat{\gamma}
+		- \int\limits_{\hat{\be}_1} \hat{v}_1\,\nu_y\,\varphi\,ds,
 \end{IEEEeqnarray*}
 which, together with~(\ref{cotaf3}) implies
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras}
  	\nonumber\int\limits_{\hat{f}_3} \hat{\bv} \times \boldsymbol{\nu} \cdot \bq\,d\hat{\gamma}
  		& = & \int\limits_{\hat{f}_3} \hat{u}_1\,\phi_2\,d\hat{\gamma} +
-    \int\limits_{\hat{f}_3} (\curl\hat{\bu})_3\,\varphi_1\,d\hat{\gamma}\\
- 		& 	& - \int\limits_{\hat{f}_3} u_1\,\partial_{\hat{x}_2}\varphi_1\,d\hat{\gamma}	+
-    \int\limits_{\hat{\be}_1} \hat{u}_1\,\nu_2\,\varphi_1\,ds.
+    \int\limits_{\hat{f}_3} (\curl\hat{\bu})_3\,\varphi\,d\hat{\gamma}\\
+ 		& 	& - \int\limits_{\hat{f}_3} u_1\,\partial_{\hat{x}_2}\varphi\,d\hat{\gamma}	+
+    \int\limits_{\hat{\be}_1} \hat{u}_1\,\nu_2\,\varphi\,ds.
 \end{IEEEeqnarray}
-If we repeat the procedure for the degree of freedom on $\hat{f}_4$, then
-we get
+If we repeated the procedure for the degree of freedom on $\hat{f}_4$, for a given 
+$\bp = (p_1,p_2,0) \in P_{k-2}(\hat{f})^2\times \{0\}$ we would set 
+$\psi (\hat{x}_1,\hat{x}_2) = \int_{1-\hat{x}_2}^{\hat{x}_1} p_1 (t,\hat{x}_2)\,dt$
+and had
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras2}
- 	\nonumber\int\limits_{\hat{f}_4} \hat{\bv} \times \boldsymbol{\nu} \cdot \boldsymbol{q}\,d\hat{\gamma}
- 		& = & - \int\limits_{\hat{f}_4} \hat{u}_1\,\hat{q}_2\,d\hat{\gamma} -
-    \int\limits_{\hat{f}_4} (\curl\hat{\bu})_3\,\varphi_1\,d\hat{\gamma}\\
- 		& 	& + \int\limits_{\hat{f}_4} \hat{u}_1\,\partial_{\hat{x}_2}\varphi_1\,d\hat{\gamma}	+
-    \int\limits_{\hat{\be}_4} \hat{u}_1\,\hat{\nu}_2\,\varphi_1\,d\hat{s}.
+ 	\nonumber\int\limits_{\hat{f}_4} \hat{\bv} \times \boldsymbol{\nu} \cdot \bp\,d\hat{\gamma}
+ 		& = & - \int\limits_{\hat{f}_4} \hat{u}_1\,\hat{p}_2\,d\hat{\gamma} -
+    \int\limits_{\hat{f}_4} (\curl\hat{\bu})_3\,\psi\,d\hat{\gamma}\\
+ 		& 	& + \int\limits_{\hat{f}_4} \hat{u}_1\,\partial_{\hat{x}_2}\psi\,d\hat{\gamma}	-
+    \int\limits_{\hat{\be}_4} \hat{u}_1\,\hat{\nu}_2\,\psi\,d\hat{s}.
 \end{IEEEeqnarray}
+\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE hacer bien partes}
 With the same technique for~(\ref{momentos5hcurl}) on $\hat{f}_5$, if  given
 $\bq = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times Q_{k-1,k-2}$ we 
-define $\varphi_1(\hat{x}_1,\hat{x}_3) = -\int_{x}^{1} q_1(t,\hat{x}_3)\,dt$, 
+define $\eta(\hat{x}_1,\hat{x}_3) = -\int_{x}^{1} q_1(t,\hat{x}_3)\,dt$, 
 we prove
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras3}
- 	\nonumber\int\limits_{\hat{f}_4} \hat{\bv} \times \boldsymbol{\nu} \cdot \hat{\bq}\,d\hat{\gamma}
- 		& = & \int\limits_{\hat{f}_5} \hat{u}_1\,\hat{q}_1\,d\hat{\gamma} +
-    \int\limits_{\hat{f}_5} (\curl\hat{\bu})_3\,\varphi_1\,d\hat{\gamma}\\
- 		& 	& - \int\limits_{\hat{f}_5} \hat{u}_1\,\partial_{\hat{x}_2}\varphi_1\,d\hat{\gamma}	+
-    \int\limits_{\hat{\be}_4} \hat{u}_1\,\varphi_1\,d\hat{s}.
+  \nonumber\int\limits_{\hat{f}_5} \hat{\bv} \times \boldsymbol{\nu} \cdot \hat{\bq}\,d\hat{\gamma}
+    & = & \int\limits_{\hat{f}_5} \hat{u}_1\,\hat{q}_1\,d\hat{\gamma} +
+    \int\limits_{\hat{f}_5} (\curl\hat{\bu})_3\,\eta\,d\hat{\gamma}\\
+    &   & - \int\limits_{\hat{f}_5} \hat{u}_1\,\partial_{\hat{x}_2}\eta\,d\hat{\gamma}  +
+    \int\limits_{\hat{\be}_4} \hat{u}_1\,\eta\,d\hat{s}.
 \end{IEEEeqnarray}
-\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE
-controlar signos en ~(\ref{momentosWcaras2}) y~(\ref{momentosWcaras3})} 
 At last, we study the volume degrees of freedom. Tomemos
 $\boldsymbol{\phi} = (\phi_1, \phi_2, \phi_3) \in (P_{k-2}(x,y) \otimes P_{k-2}(z))^{\color{red}2}
 \times P_{k-3}(x,y) \otimes
