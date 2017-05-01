@@ -419,18 +419,25 @@ Now, if $\hat{q}$ is the extension of $\hat{q}_1$ to the whole prism, then
   (\hat{t},\hat{x}_2,\hat{x}_3)\hat{q}(\hat{t}, \hat{x}_2,\hat{x}_3)\,d\hat{t}d\hat{x}_2d\hat{x}_3\\[5pt]
   \yesnumber\label{momentosWcaras3_}
   &=&\sqrt{2}\int\limits_{\hat{E}} (\curl\bv)_3\hat{q}\,d\hat{\bx} + 
-  \sqrt{2}\int\limits_{\hat{E}} \tfrac{\partial\hat{v}_1}{\partial{\hat{x}_2}}\,d\hat{\bx}.
+  \sqrt{2}\int\limits_{\hat{E}} \tfrac{\partial\hat{v}_1}{\partial{\hat{x}_2}}\hat{q}\,d\hat{\bx}.
 \end{IEEEeqnarray*}
-\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE} 
-Joining~(\ref{momentosWcaras3}) and~(\ref{momentosWcaras3_}) we get ... 
-
-
-
-At last, we study the volume degrees of freedom. Tomemos
-$\boldsymbol{\phi} = (\phi_1, \phi_2, \phi_3) \in (P_{k-2}(x,y) \otimes P_{k-2}(z))^{\color{red}2}
-\times P_{k-3}(x,y) \otimes
-P_{k-1}(z)$ (cfr.~(\ref{momentos6hcurl})) y sea $\varphi_2 = - \int_{x}^{1-y} \phi_2(t,y,z)\,dt$, para el cual vale 
-$\partial_x\varphi_2 = \phi_2 $ y $\varphi_2|_{\hat{f}_5} \equiv 0$. Entonces, por partes,
+Joining~(\ref{momentosWcaras3}) and~(\ref{momentosWcaras3_}) and using the
+expression for $\hat{\bv}$ we get 
+\begin{IEEEeqnarray}{rCl}\label{momentosWcaras3}
+  \varphi_{\hat{f}_5,\,\hat{\bq}}(\hat{\bv})
+  & = & \int\limits_{\hat{f}_5} \hat{u}_1\,\hat{q}_1\,d\hat{\gamma}
+  -\sqrt{2}\int\limits_{\hat{E}} \tfrac{\partial\hat{u}_1}{\partial{\hat{x}_2}}\hat{q}\,d\hat{\bx}
+  -\sqrt{2}\int\limits_{\hat{E}} (\curl\bu)_3\hat{q}\,d\hat{\bx}. 
+\end{IEEEeqnarray}
+At last, we study the volume degrees of freedom. Pick
+$\br = (r_1, r_2, r_3) \in (P_{k-2}(\hat{f}_3) \otimes P_{k-2}(\hat{x}_3))^{2}
+\times P_{k-3}(\hat{f}_3) \otimes
+P_{k-1}(\hat{x}_3)$ (cfr.~(\ref{momentos6hcurl})) 
+and let $\varphi_2$ be defined in such a way that
+$\varphi_2 = \int_{1-\hat{x}_2}^{\hat{x}_1} 
+\hat{r}_2(\hat{t},\hat{x}_2,\hat{x}_3)\,d\hat{t}$, para el cual
+vale 
+$\partial_x\varphi_2 = \hat{r}_2 $ y $\varphi_2|_{\hat{f}_5} \equiv 0$. Entonces, por partes,
 \begin{IEEEeqnarray}{rCl}\label{momentosWvolumen}
  	\nonumber\int\limits_{\hat{K}} \hat{\textbf{w}} \cdot \boldsymbol{\phi}\,d\textbf{x}
  		& = & \int\limits_{\hat{K}} u_1\,\phi_1\,d\textbf{x} -\int\limits_{\hat{K}} \textbf{curl}(\hat{\bu})_3\,
