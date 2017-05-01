@@ -69,7 +69,7 @@ $\hat x_1\,(1-\hat x_1)$ divides the restriction $(\wku)_3|_{\hat f_5}$, so that
 there is a 
 $w_1 \in P_{k-2}(\hat x_1)\otimes P_{k-1}(\hat x_3)$ for which 
 $(\wku)_3|_{\hat f_5}(\hat x_1, \hat x_2, \hat x_3) = \hat{x}_1\,\displaystyle{(1-\hat{x}_1)}\,w_1(\hat{x}_1,\hat{x}_3)$.
-Now equallity~(\ref{caras}) for $j = 5$ implies
+Now equality~(\ref{caras}) for $j = 5$ implies
 $(\wku)_3|_{f_5} \equiv 0$.\\
 \noindent Next, since $(\wku)_3$ vanishes when restricted $\hat f_1$, $\hat f_2$ and $\hat f_5$
 we get to factorize it on $\hat E$ as 
@@ -354,9 +354,10 @@ by parts over the face $\hat{f}_4$ yields
 \end{IEEEeqnarray*}
 hence
 \begin{IEEEeqnarray*}{rCl}
-	\tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_8} (\hat{v}_1 - \hat{v}_2)\,q\,ds & = &\\
+	\varphi_{\hat{\be}_8,\,q}(\hat\bv) & = &
+  \dfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_8} (\hat{v}_1 - \hat{v}_2)\,q\,ds\\
 	\yesnumber\label{momentosWaristas}
-    \tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_4} \hat{u}_1\,q\,ds & - & 
+    & = &\tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_4} \hat{u}_1\,q\,ds - 
 	  \tfrac{1}{\sqrt{2}} \int\limits_{\hat{f}_4} (\curl\hat{\bu})_3\,q\,d\gamma
 	  + \int\limits_{\hat{f}_3} \hat{u}_1\,\partial_{\hat{x}_2}q\,d\gamma.
 \end{IEEEeqnarray*}
@@ -434,36 +435,40 @@ $\br = (r_1, r_2, r_3) \in (P_{k-2}(\hat{f}_3) \otimes P_{k-2}(\hat{x}_3))^{2}
 \times P_{k-3}(\hat{f}_3) \otimes
 P_{k-1}(\hat{x}_3)$ (cfr.~(\ref{momentos6hcurl})) 
 and let $\varphi_2$ be defined in such a way that
-$\varphi_2 = \int_{1-\hat{x}_2}^{\hat{x}_1} 
-\hat{r}_2(\hat{t},\hat{x}_2,\hat{x}_3)\,d\hat{t}$, para el cual
-vale 
-$\partial_x\varphi_2 = \hat{r}_2 $ y $\varphi_2|_{\hat{f}_5} \equiv 0$. Entonces, por partes,
+$\varphi_2\xyz = \int_{1-\hat{x}_2}^{\hat{x}_1} 
+\hat{r}_2(\hat{t},\hat{x}_2,\hat{x}_3)\,d\hat{t}$.
+%, para el cual
+%vale 
+%$\partial_x\varphi_2 = \hat{r}_2 $
+%y $\varphi_2|_{\hat{f}_5} \equiv 0$.
+Green's Theorem and the fact that $\varphi_2|_{\hat{f}_5} \equiv 0$
+give 
 \begin{IEEEeqnarray}{rCl}\label{momentosWvolumen}
- 	\nonumber\int\limits_{\hat{K}} \hat{\textbf{w}} \cdot \boldsymbol{\phi}\,d\textbf{x}
- 		& = & \int\limits_{\hat{K}} u_1\,\phi_1\,d\textbf{x} -\int\limits_{\hat{K}} \textbf{curl}(\hat{\bu})_3\,
- 		\varphi_2,d\textbf{x}\\
- 		& 	& + \int\limits_{\hat{K}} u_1\,\partial_y\varphi_2\,d\textbf{x}	+ 
- 		\int\limits_{\hat{f}_2} u_1\,\varphi_2\,d\hat{\gamma}.
-\end{IEEEeqnarray} %,~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3})
-Ahora recolectamos lo que dicen las igualdades~(\ref{momentosWaristas}),~(\ref{momentosWaristas2}),
-y~(\ref{momentosWcaras})--(\ref{momentosWvolumen}), para hacer simplemente
-%\begin{IEEEeqnarray*}{rCl}
-%	\|\hat{\pi}(\hat{\textbf{w}})\|_{L^\infty(\hat{K})} & = 
-%	 & 
-%	 & \leqslant & C \left(\|\hat{u}_1\|_{W^{1,p}(\hat{K})} +
-%		\|{\textbf{curl}}({\hat{\bu}})_3\|_{W^{1,1}(\hat{K})}\right)
-%\end{IEEEeqnarray*}
+ 	\int\limits_{\hat{E}} \hat{\bv} \cdot \br\,d\bx
+ 	& = & \int\limits_{\hat{E}} \hat{u}_1\,\hat{r}_1\,d\bx 
+  - \int\limits_{\hat{E}} (\curl\hat{\bu})_3\,
+ 	\varphi_2\,d\bx
+  - \int\limits_{\hat{E}}
+  \dfrac{\partial\hat{u}_1}{\partial\hat{x}_2}\,
+  \varphi_2\,d\bx.
+\end{IEEEeqnarray}
+%,~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3})
+Now we collect what has been said in
+equalities~(\ref{momentosWaristas}),~(\ref{momentosWaristas2}),~(\ref{momentosWcaras}),~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3}) and~(\ref{momentosWvolumen}) to do simply
 \begin{IEEEeqnarray*}{rCl}
-	\|(\hat{\pi}\hat{\bu})_1\|_{L^\infty(\hat{K})} & = 
-	&\|(\hat{\pi}\hat{\textbf{w}})_1\|_{L^\infty(\hat{K})}\\
-	& \leqslant & C \left\|\sum F_{i}(\hat{\textbf{w}}, \textbf{q}_i)\,\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{K})}\\
+	\|(\wku)_1\|_{L^\infty(\hat{E})} & = & \|(\hat{\bw}_k\hat{\bv})_1\|_{L^\infty(\hat{E})}
+  &\lesssim&\\
+  \sum_{\be,p} \varphi_{\be,p}(\hat{\bu})\,\hat{\bv}_{\be,p} +
+  \sum_{f,\bq} \varphi_{f,\bq}(\hat{\bu})\,\hat{\bv}_{f,\bq} +
+  \sum_{\boldsymbol{r}}   \varphi_{\boldsymbol{r}}  (\hat{\bu})\,\hat{\bv}_{\boldsymbol{r}}
+	\left\|\sum F_{i}(\hat{\textbf{w}}, \textbf{q}_i)\,\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{E})}\\
 	& \leqslant & C \sum \left|F_{i}(\hat{\textbf{w}}, \textbf{q}_i)\right|\,
-		\left\|\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{K})}\\
-	& \leqslant & C \left(\|\hat{u}_1\|_{W^{1,p}(\hat{K})} +
-		\|{\textbf{curl}}({\hat{\bu}})_3\|_{{\color{red} W^{1,1}(\hat{K})}}\right),
+		\left\|\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{E})}\\
+	& \leqslant & C \left(\|\hat{u}_1\|_{W^{1,p}(\hat{E})} +
+		\|{\textbf{curl}}({\hat{\bu}})_3\|_{{\color{red} W^{1,1}(\hat{E})}}\right),
 \end{IEEEeqnarray*}
 que es la desigualdad a la que quer\'iamos llegar.\\[5pt]
-\noindent For inequality~(\ref{teorema_3}) given $\hat{\bu} \in W^{1,p}(\hat{K})^3$, define
+\noindent For inequality~(\ref{teorema_3}) given $\hat{\bu} \in W^{1,p}(\hat{E})^3$, define
 $\hat{\bv}  =  (0,0, \hat{u}_3).$
 Thanks to Lemma~(\ref{lema_PIu3_k_cualquiera}) we have 
 $\hat{\bw}_k(\hat{\bv})_3 = (\hat{\bw}_k\hat{\bu})_3 - (\hat{\bw}_k(\hat{u}_1, \hat{u}_2, 0))_3 = (\hat{\bw}_k\hat{\bu})_3.$
