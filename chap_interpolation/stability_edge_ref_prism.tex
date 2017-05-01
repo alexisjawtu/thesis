@@ -455,19 +455,23 @@ give
 %,~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3})
 Now we collect what has been said in
 equalities~(\ref{momentosWaristas}),~(\ref{momentosWaristas2}),~(\ref{momentosWcaras}),~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3}) and~(\ref{momentosWvolumen}) to do simply
-\begin{IEEEeqnarray*}{rCl}
+\begin{IEEEeqnarray*}{rCCCl}
 	\|(\wku)_1\|_{L^\infty(\hat{E})} & = & \|(\hat{\bw}_k\hat{\bv})_1\|_{L^\infty(\hat{E})}
   &\lesssim&\\
-  \sum_{\be,p} \varphi_{\be,p}(\hat{\bu})\,\hat{\bv}_{\be,p} +
-  \sum_{f,\bq} \varphi_{f,\bq}(\hat{\bu})\,\hat{\bv}_{f,\bq} +
-  \sum_{\boldsymbol{r}}   \varphi_{\boldsymbol{r}}  (\hat{\bu})\,\hat{\bv}_{\boldsymbol{r}}
-	\left\|\sum F_{i}(\hat{\textbf{w}}, \textbf{q}_i)\,\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{E})}\\
-	& \leqslant & C \sum \left|F_{i}(\hat{\textbf{w}}, \textbf{q}_i)\right|\,
-		\left\|\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{E})}\\
-	& \leqslant & C \left(\|\hat{u}_1\|_{W^{1,p}(\hat{E})} +
-		\|{\textbf{curl}}({\hat{\bu}})_3\|_{{\color{red} W^{1,1}(\hat{E})}}\right),
+  \IEEEeqnarraymulticol{5}{C}{
+  \sum_{\be,p} |\varphi_{\be,p}(\hat{\bu})|\,\|(\hat{\bv}_{\be,p})_1\|_{L^\infty(\hat{E})} +
+  \sum_{f,\bq} |\varphi_{f,\bq}(\hat{\bu})|\,\|(\hat{\bv}_{f,\bq})_1\|_{L^\infty(\hat{E})} +
+  \sum_{\boldsymbol{r}} |\varphi_{\boldsymbol{r}}(\hat{\bu})|\,
+  \|(\hat{\bv}_{\boldsymbol{r}})_1\|_{L^\infty(\hat{E})}
+  }
+  \\
+  %\left\|\sum F_{i}(\hat{\textbf{w}}, \textbf{q}_i)\,\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{E})}\\
+	%& \leqslant & C \sum \left|F_{i}(\hat{\textbf{w}}, \textbf{q}_i)\right|\,
+%		\left\|\hat{\textbf{v}}_i\right\|_{L^\infty(\hat{E})}\\
+	& \lesssim & \|\hat{u}_1\|_{W^{1,p}(\hat{E})} & + &
+		\|(\curl\hat{\bu})_3\|_{W^{1,1}(\hat{E})}
 \end{IEEEeqnarray*}
-que es la desigualdad a la que quer\'iamos llegar.\\[5pt]
+which is the bound we wanted to prove.\\[5pt]
 \noindent For inequality~(\ref{teorema_3}) given $\hat{\bu} \in W^{1,p}(\hat{E})^3$, define
 $\hat{\bv}  =  (0,0, \hat{u}_3).$
 Thanks to Lemma~(\ref{lema_PIu3_k_cualquiera}) we have 
@@ -475,12 +479,19 @@ $\hat{\bw}_k(\hat{\bv})_3 = (\hat{\bw}_k\hat{\bu})_3 - (\hat{\bw}_k(\hat{u}_1, \
 Apply now expression~(\ref{edge_interp_explicit}) to $\bv$ writing the degrees of
 freedom more explicitly. Taking another look at 
 the unit tangent vector of the edges and unit normal vectors to the faces we have to
-consider only a few not null terms ({\color{red}recall the numbering of the edges and faces}).
+consider only a few not null terms (recall the numbering of the edges and faces
+from table~(\ref{edgeFacesNotationTable})).
+
+\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE: acomodar la frase para la 
+demostr. de esta desigualdad. Buscar un buen lugar para poner la menci'on a monk 
+porque se usa en las tres cotas.} 
 \begin{IEEEeqnarray*}{rCl}
   (\hat{\boldsymbol{w}}_k\hat{\bv})_3 & = &
-  \sum_{j=3,6,7\,p\,\in\,{\color{red}\mathcal{B}_{\hat e_j}}} \int\limits_{\hat e_j} \hat{u}_3 p\,ds         \,(\hat{\bv}_{e_j,p})_3 +
-  \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}} \int\limits_{\hat f_i} \hat{u}_3 q\,d\gamma    \,(\hat{\bv}_{\hat{f}_i,q})_3 +
-  \sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
+  \sum_{j=3,6,7\,p\,\in\,{\color{red}\mathcal{B}_{\hat e_j}}}
+  \int\limits_{\hat e_j} \hat{u}_3 p\,ds \,(\hat{\bv}_{e_j,p})_3 +
+  \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
+  \int\limits_{\hat f_i} \hat{u}_3 q\,d\gamma \,(\hat{\bv}_{\hat{f}_i,q})_3\\
+  &&\,+\sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
   \int\limits_{\hat E} \hat{u}_3 r_3\,d\textbf{x}\,(\hat{\bv}_{\boldsymbol{r}})_3.
 \end{IEEEeqnarray*}
 And now apply the triangular inequality and the proof
