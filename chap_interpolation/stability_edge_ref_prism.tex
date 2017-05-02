@@ -304,7 +304,16 @@ where the constants in the inequalities depend olny on $\hat{E}$.
 \begin{proof}
 The proof will rely on the three previous Lemmas, 
 the triangular inequality applied on each component of 
-expression~(\ref{edge_interp_explicit}) and traces inequalities.
+expression~(\ref{edge_interp_explicit}) and traces inequalities or,
+more precisely, the proof
+of Lemma $5.38$ in the page $134$ of Monk~\cite{monk}
+and Theorem $3.9$ (\emph{Trace Theorem})
+in page $43$ of
+the same book.
+
+\noindent{\color{blue}\#\#\#\#\#\#\# revisar los exponentes hoelder y todo...
+porque en monk pone $H^{1/2+\delta}$} 
+
 First we will take a smooth field $\hat{\bu}$ defined on $\hat{E}$
 and, by Lemma~(\ref{lemaDensidad}), we will conclude the Theorem 
 with a density argumentation.\\[4pt]
@@ -481,10 +490,6 @@ freedom more explicitly. Taking another look at
 the unit tangent vector of the edges and unit normal vectors to the faces we have to
 consider only a few not null terms (recall the numbering of the edges and faces
 from table~(\ref{edgeFacesNotationTable})).
-
-\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE: acomodar la frase para la 
-demostr. de esta desigualdad. Buscar un buen lugar para poner la menci'on a monk 
-porque se usa en las tres cotas.} 
 \begin{IEEEeqnarray*}{rCl}
   (\hat{\boldsymbol{w}}_k\hat{\bv})_3 & = &
   \sum_{j=3,6,7\,p\,\in\,{\color{red}\mathcal{B}_{\hat e_j}}}
@@ -494,17 +499,12 @@ porque se usa en las tres cotas.}
   &&\,+\sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
   \int\limits_{\hat E} \hat{u}_3 r_3\,d\textbf{x}\,(\hat{\bv}_{\boldsymbol{r}})_3.
 \end{IEEEeqnarray*}
-And now apply the triangular inequality and the proof
-of Lemma $5.38$ in the page $134$ of Monk~\cite{monk}
-and Theorem $3.9$ (\emph{Trace Theorem})
-in page $43$ of
-the same book, to get \noindent{\color{blue}\#\#\#\#\#\#\# revisar los exponentes hoelder y todo...
-porque en monk pone $H^{1/2+\delta}$} 
+This implies
 \begin{IEEEeqnarray*}{rCl}
   \norm{(\hat{\boldsymbol{w}}_k\hat{\bu})_3}_{L^{\infty}(\hat{E})} =
   \norm{(\hat{\boldsymbol{w}}_k\hat{\bv})_3}_{L^{\infty}(\hat{E})} & 
-  \leqslant & c\,\|\hat{u}_3\|_{W^{1,p}(\hat{E})}
+  \leqslant & c\,\|\hat{u}_3\|_{W^{1,p}(\hat{E})}.\\[5pt]
 \end{IEEEeqnarray*}
-where the quantity $c$ depends, clearly, on the choice of the bases $\mathcal{B}_{\hat e_j},
+The constants in the three inequalities of this Theorem depend, clearly, on the choice of the bases $\mathcal{B}_{\hat e_j},
 \mathcal{B}_{\hat f_i}, \mathcal{B}_{\hat E}$.
 \end{proof}
