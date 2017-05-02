@@ -36,52 +36,75 @@
 \end{IEEEeqnarray*}
 \input{./chap_interpolation/stability_edge_ref_prism}
 \section{Stability of the generalized Raviart-Thomas element in $\hat{E}$} % (fold)
+The exposition in this section will be there $H(\mbox{div})$--conforming analogue
+of the exposition in the previous section.\\
+\noindent In the next three Lemmas $\hat\bu$ is an element
+in $H(\mbox{div},\hat{E})$ and we will assume there is
+a positive $\delta$ such that $\hat\bu$ belongs to $H^{1/2+\delta}(\hat{E})^3$.
+$\hat\br_k$ will be, for the whole section, the $k$--th order face 
+interpolation operator on the reference
+Prism determined by the element of
+\emph{Definition}~(\ref{defi_h_div_conforme}).
 \label{stability_of_rt_element_in_hat_k}
-We are writing the following three Lemmas which state some special
-behavior of the interpolation operator, mostly related to the preservation of
-null components of the fields, and whose proofs consist in a smart use of the
-degrees of freedom and the very definition of the operator. The author and his
-advisor think these Lemmas, although just with technical purpose, exhibit
-nice properties of the interpolators. 
 \begin{lemma}\label{lemmaRT3zero}
-Let $\hat\bu\in$ {\color{red}dominio.} Then 
-$(\hat{\boldsymbol{r}}_k\hat{\bu})_3$.
-is linearly and univocally 
-determined by $\hat{u}_3$.
+$(\rku)_3$ is linearly and univocally determined by $\hat{u}_3$.
 \end{lemma}
+%\noindent{\color{blue}\#\#\#\#\#\#\# de aqui a la sgte marca, chequear si las expresiones
+%~(\ref{exprPrt}) son correctas 
+%  From the definition of the discrete space, and the notation involved, it follows that for each
+%  $\textbf{p} = (p_1, p_2, p_3) \in  P_{\hat{E}}$ there are unique $q_1, q_2 \in 
+%    \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$, $q_3 \in \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k}(z)$, and
+%    $h \in \tilde{\mathcal{P}}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$ such that
+%    \begin{IEEEeqnarray*}{rCl}
+%                                    p_1(x, y, z) & = & q_1(x, y, z) + x\,h(x, y, z)\\
+%        \label{exprPrt} \yesnumber  p_2(x, y, z) & = & q_2(x, y, z) + y\,h(x, y, z)\\
+%                                    p_3(x, y, z) & = & q_3(x, y, z)
+%    \end{IEEEeqnarray*} 
+%}
+%\noindent{\color{blue}\#\#\#\#\#\#\# }\\[5pt]
 \begin{proof}
-\noindent{\color{blue}\#\#\#\#\#\#\# de aqui a la sgte marca, chequear si las expresiones
-~(\ref{exprPrt}) son correctas 
-  From the definition of the discrete space, and the notation involved, it follows that for each
-  $\textbf{p} = (p_1, p_2, p_3) \in  P_{\hat{E}}$ there are unique $q_1, q_2 \in 
-    \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$, $q_3 \in \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k}(z)$, and
-    $h \in \tilde{\mathcal{P}}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$ such that
-    \begin{IEEEeqnarray*}{rCl}
-                                    p_1(x, y, z) & = & q_1(x, y, z) + x\,h(x, y, z)\\
-        \label{exprPrt} \yesnumber  p_2(x, y, z) & = & q_2(x, y, z) + y\,h(x, y, z)\\
-                                    p_3(x, y, z) & = & q_3(x, y, z)
-    \end{IEEEeqnarray*} 
-}
-\noindent{\color{blue}\#\#\#\#\#\#\# }\\[5pt]
-Take $\hat{\bu}$ with $\hat{u}_3 = 0$. Take $\hat f$ to be either the face of $\hat E$ with $\hat{z} = 0$ or 
-the one with $\hat{z} = 1$. If $\hat{q}\in\mathcal{P}_{k-1}(\hat f)$, then
+By the unisolvence of the Finite Element~(\ref{defi_h_div_conforme})
+$(\rku)_3$ is determined by the following linear equations.
+\begin{IEEEeqnarray}{rCrl}
+\label{rku_3_1}
+\rho_{f_j,q}\,(\rku) & = & \rho_{f_j,q}\,(\hat{\bu})
+  &\quad\mbox{for $j$ = 3, 4 and }q\in\mathcal{P}_{\hat{f}} \\
+\label{rku_3_2}
+\rho_{\br}\,(\rku) & = & \rho_{\br}\,(\hat{\bu})
+  &\quad\mbox{for }\br\in\mathcal{P}_{\hat{E}}\mbox{ with }r_1 = r_2 = 0.
+\end{IEEEeqnarray}
+We have $\nicefrac{k(k+1)^2}{2}$ equations, which is the 
+number of independent coefficients in $(\rku)_3$.
+Now set $u_3 = 0$, which makes the right hand side of all the equations in~(\ref{rku_3_1})
+and~(\ref{rku_3_2}) equal to zero.
+Take $\hat f$ to be either $\hat{f}_3$ or $\hat{f}_4$. Put $q = (\rku)_3|_{\hat{f}}$ in~(\ref{rku_3_1}).
+It yields
 \begin{IEEEeqnarray*}{rCl}
-  \int\limits_{\hat{f}}(\hat{\boldsymbol{r}}_k\hat{\bu})_3\,\hat q\,d\gamma = 0.
+  \int\limits_{\hat{E}} ((\rku)_3)^2\,d\bx & = & 0
 \end{IEEEeqnarray*}
-But $(\hat{\boldsymbol{r}}_k\hat{\bu})_3|_{\hat f}$ belongs to
-$\mathcal{P}_{k-1}(\hat f)$ (by expression~(\ref{exprPrt})), so
-there is a polinomial $\hat\psi\in\mathcal{P}_{k-1}(\hat f)\otimes\mathcal{P}_{k-2}(\hat{z})$ such that
-\begin{IEEEeqnarray*}{rCl}
-  (\hat{\boldsymbol{r}}_k\hat{\bu})_3&=&\hat{z}(\hat{z}-1)\,\hat\psi,
-\end{IEEEeqnarray*}
-\noindent{\color{blue}\#\#\#\#\#\#\# la sgte oracion hay que aclararla con la cuenta?} 
-and the Lemma will follow once we apply the degrees of freedom~(\ref{momentos4hdiv}). 
+so there is a polinomial $\hat{q}_3\in(\mathcal{P}_{\hat{E}})_3$ such that
+$(\rku)_3 \xyz = \hat{x}_3(\hat{x}_3-1)\,\hat{q}_3\xyz$
+and the Lemma will follow once we apply the degrees of freedom~(\ref{rku_3_2})
+with $\br$ set equal to $(0,0,\hat{q}_3)^t$. 
 \end{proof}
+{\color{blue}\#\#\#\#\#\#\#\# CONTINUE HERE.}
 \begin{lemma}\label{lemma_u1_u2} If $\hat\bu\in P_{\hat E}$ is such that $\hat{u}_1 = 0$
-and $\hat{u}_2 = 0$, then $(\hat{\boldsymbol{r}}_k\hat{\bu})_1 = 0$
-and $(\hat{\boldsymbol{r}}_k\hat{\textbf{\emph{u}}})_2 = 0$.
+and $\hat{u}_2 = 0$, then $(\hat{\br}_k\hat{\bu})_1 = 0$
+and $(\hat{\br}_k\hat{\textbf{\emph{u}}})_2 = 0$.
+
+\begin{itemize}
+  \item []
+  \item [(a)]\label{piu2_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat y,\hat z), 0)^t$,
+  then $\wku\xyz = (0, \hat\xi_2(y,z) ,0)^t$ for some 
+  $\hat\xi_2 \in P_{k-1}(\hat{x}_2) \otimes P_k(\hat{x}_3)$.
+  \item [(b)]\label{piu1_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (\hat u_1(\hat x,\hat z), 0, 0)^t$
+  then $\wku\xyz = (\hat\xi_1(x,z), 0 ,0)^t$ for some
+    $\hat\xi_1\in P_{k-1}(\hat{x}_1) \otimes P_k(\hat{x}_3)$.
+\end{itemize}
+
+
 \end{lemma}
-\begin{proof} We use again the expression~(\ref{exprPrt}) for $\hat{\boldsymbol{r}}_k\hat{\bu} =
+\begin{proof} We use again the expression~(\ref{exprPrt}) for $\hat{\br}_k\hat{\bu} =
   (\hat{p}_1, \hat{p}_2, \hat{p}_3) \in  P_{\hat{E}}$. Take an arbitrary
   $\hat{q}\in\mathcal{P}_{k-1}(\hat f_1)\otimes\mathcal P_{k-1}(\hat z)$, the trick
   will be to apply Green's Theorem to the field
@@ -122,48 +145,48 @@ and $(\hat{\boldsymbol{r}}_k\hat{\textbf{\emph{u}}})_2 = 0$.
     \hat{p}_2 & = & \hat{y}\,\psi.
   \end{IEEEeqnarray*}
   But finally, if we evaluate the degrees of freedom~(\ref{momentos3hdiv}),
-  $\hat{p}_1 = (\hat{\boldsymbol{r}}_k\hat{\bu})_1$ and 
-  $\hat{p}_2 = (\hat{\boldsymbol{r}}_k\hat{\bu})_2$ can be no other that
+  $\hat{p}_1 = (\hat{\br}_k\hat{\bu})_1$ and 
+  $\hat{p}_2 = (\hat{\br}_k\hat{\bu})_2$ can be no other that
   constantly null over all $\hat{E}$. 
 \end{proof}
 \begin{lemma} Let $\hat{\bu}$ be in $P_{\hat E}$.\\[5pt]
 If $\hat{\bu}(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat x_1,\hat x_3), 0)$,
 then 
-$\hat{\boldsymbol{r}}_k \hat{\bu}(\hat x_1,\hat x_2,\hat x_3) =
+$\hat{\br}_k \hat{\bu}(\hat x_1,\hat x_2,\hat x_3) =
 (0, \hat{r}_2(\hat x_1, \hat x_3), 0)$ for certain $\hat r_2\in (P_{\hat E})_2$.\\[3pt]
 If $\hat{\bu}(\hat x_1,\hat x_2,\hat x_3) = (u_1(\hat x_2,\hat x_3), 0, 0)$,
-then $\boldsymbol{r}_k \hat{\bu}(\hat x_1,\hat x_2,\hat x_3) =
+then $\br_k \hat{\bu}(\hat x_1,\hat x_2,\hat x_3) =
 (\hat{r}_1(\hat x_2,\hat x_3), 0, 0)$ for certain $\hat r_1\in (P_{\hat E})_1$.
 \end{lemma}
 \begin{proof} Let us prove the first one of the two claims. The second one 
   has an entirely analogous proof. By Lemma~(\ref{lemmaRT3zero}) we get
-  $(\hat{\boldsymbol{r}}_k\hat{\boldsymbol{u}})_3 = 0$.
+  $(\hat{\br}_k\hat{\boldsymbol{u}})_3 = 0$.
   The nullity of $\dv\hat{\bu}$ and the commutative
-  diagram property~(\ref{lema_pi_star_rot_u}) give us %$\dv((\hat{\boldsymbol{r}}_k\hat{\bu})_1,(\hat{\boldsymbol{r}}_k\hat{\bu})_2, 0) = 0$.
-  $\dv\hat{\boldsymbol{r}}_k\hat{\bu} = 0$.
+  diagram property~(\ref{lema_pi_star_rot_u}) give us %$\dv((\hat{\br}_k\hat{\bu})_1,(\hat{\br}_k\hat{\bu})_2, 0) = 0$.
+  $\dv\hat{\br}_k\hat{\bu} = 0$.
   This last fact, together with the result of the evaluation of the 
   degrees of freedom~(\ref{momentos2hdiv})
   on the face $\hat f_1 \subseteq \{x_1=0\}$
   and~(\ref{momentos3hdiv}) over $\hat E$, implies, as we have seen in
-  Lemma~(\ref{lemma_u1_u2}), that $(\hat{\boldsymbol{r}}_k\hat{\boldsymbol{u}})_1 = 0$.
+  Lemma~(\ref{lemma_u1_u2}), that $(\hat{\br}_k\hat{\boldsymbol{u}})_1 = 0$.
   And if look again at 
-  $\dv\hat{\boldsymbol{r}}_k\hat{\bu} = {\partial\hat{\boldsymbol{r}}_k\hat{\bu}}/{\partial\hat x_2} = 0$
-  we have that $(\hat{\boldsymbol{r}}_k\hat{\boldsymbol{u}})_2$ does not depend on $\hat x_2$.
+  $\dv\hat{\br}_k\hat{\bu} = {\partial\hat{\br}_k\hat{\bu}}/{\partial\hat x_2} = 0$
+  we have that $(\hat{\br}_k\hat{\boldsymbol{u}})_2$ does not depend on $\hat x_2$.
 \end{proof}
 \noindent It is time to state and prove the Theorem that was the purpose of this section.
 \begin{theorem}\label{thm_stab_div}
-If $\hat{\boldsymbol{r}}_k$ is the  
+If $\hat{\br}_k$ is the  
 interpolation operator determined by the Finite Element of degree $k$ in
 definition~(\ref{defi_h_div_conforme}), then
 for all $\hat{\bu} \in W^{1,1}(\hat{E})$
 \begin{IEEEeqnarray}{rCl}
-\label{teoremaDiv_1} \norm{(\hat{\boldsymbol{r}}_k\hat{\bu})_1}_{L^{\infty}(\hat{E})} & 
+\label{teoremaDiv_1} \norm{(\hat{\br}_k\hat{\bu})_1}_{L^{\infty}(\hat{E})} & 
     \lesssim & \|\hat{u}_1\|_{W^{1,1}(\hat{E})} + 
     \|\emph{div}(\hat{u}_1, \hat{u}_2, 0)\|_{L^{1}(\hat{E})} \\ 
-\label{teoremaDiv_2} \norm{(\hat{\boldsymbol{r}}_k\hat{\bu})_2}_{L^{\infty}(\hat{E})} & 
+\label{teoremaDiv_2} \norm{(\hat{\br}_k\hat{\bu})_2}_{L^{\infty}(\hat{E})} & 
     \lesssim & \|\hat{u}_2\|_{W^{1,1}(\hat{E})} + 
     \|\emph{div}(\hat{u}_1, \hat{u}_2, 0)\|_{L^{1}(\hat{E})} \\ 
-\label{teoremaDiv_3} \norm{(\hat{\boldsymbol{r}}_k\hat{\bu})_3}_{L^{\infty}(\hat{E})} & 
+\label{teoremaDiv_3} \norm{(\hat{\br}_k\hat{\bu})_3}_{L^{\infty}(\hat{E})} & 
     \lesssim & \|\hat{u}_3\|_{W^{1,1}(\hat{E})}.
 \end{IEEEeqnarray}
 \end{theorem}
