@@ -81,7 +81,7 @@ P_{k-1}(\hat{f}_3)\otimes P_k(\hat{x}_3)$.
 \end{lemma}
 \begin{proof}
 In a completely analogous way as was done in Section~(\ref{sub:defEdgeElement})
-we can derive the following expressions for a 
+we can derive the following expressions for 
 $\rku = (\hat{p}_1, \hat{p}_2, \hat{p}_3)^t \in  P_{\hat{E}}$: 
 \begin{IEEEeqnarray*}{rCl}
   \hat{p}_1\xyz & = & \hat{q}_1\xyz + \hat{x}_1\,\hat{h}\xyz\\
@@ -95,49 +95,48 @@ $\hat{q}_3 \in \mathcal{P}_{k-1}(\hat{f}_3)\otimes\mathcal{P}_{k}(\hat{x}_3)$,
 and
 $\hat{h} \in \tilde{\mathcal{P}}_{k-1}(\hat{f}_3)\otimes\mathcal{P}_{k-1}(\hat{x}_3)$.
 Take an arbitrary $\hat{q}\in\mathcal{P}_{k-1}(\hat f_1)\otimes\mathcal P_{k-1}(\hat z)$.
-Continuing with the technique developed for Section
-the trick
-  will be to apply Green's Theorem to the field
-  $(\hat{p}_1, \hat{p}_2, 0)^t$
-  . By the surface degrees of freedom~(\ref{momentos2hdiv})
-  and the volume degrees of freedom~(\ref{momentos3hdiv}) we have
-  \begin{IEEEeqnarray*}{rCl}
-    \int\limits_{\hat{E}} \text{div}(\hat{p}_1, \hat{p}_2, 0)^t\,\hat{q}\,d\hat{\textbf{x}}&=&
-    \int\limits_{\partial\hat{E}} (\hat{p}_1, \hat{p}_2, 0)^t\cdot\boldsymbol{\hat\nu}\,\hat{q}\,d\gamma
-    - \int\limits_{\hat{E}} (\hat{p}_1, \hat{p}_2, 0)^t\cdot\nabla \hat{q}\,d\hat{\textbf{x}}\\[5pt]
+Continuing with the technique developed for Section~(\ref{stab_edge_prism}), 
+the trick will be to apply Green's Theorem to the field
+$(\hat{p}_1, \hat{p}_2, 0)^t$ and the scalar $\hat{q}$. By the surface degrees of
+freedom~(\ref{momentos2hdiv}) and the volume degrees of freedom~(\ref{momentos3hdiv}) we have
+  \begin{IEEEeqnarray*}{rClCl}
+    \int\limits_{\hat{E}} \mbox{div}(\hat{p}_1, \hat{p}_2, 0)^t\,\hat{q}\,d\hat{\bx}&=&
+    \int\limits_{\partial\hat{E}} (\hat{p}_1, \hat{p}_2, 0)^t\cdot\boldsymbol{\hat\nu}\,\hat{q}\,d\hat{\gamma}
+    - \int\limits_{\hat{E}} (\hat{p}_1, \hat{p}_2, 0)^t\cdot\nabla \hat{q}\,d\hat{\bx}&&\\[5pt]
     & = &
-    \int\limits_{{\color{red}\hat{f}}x+y=1} (\hat{u}_1 + \hat{u}_2) \hat{q}_{|_{{\color{red}\hat f x+y} = 1}}\,d\gamma
-    - \int\limits_{{\color{red}\hat{f}}x=0} \hat{u}_1 \hat{q}_{|_{{\color{red}\hat f x=0}}}\,d\gamma\\[5pt]
-    &&\,- \int\limits_{{\color{red}\hat{f}}y=0} \hat{u}_2 \hat{q}_{|_{{\color{red}\hat f y=0}}}\,d\gamma
-    - \int\limits_{\hat{E}} \hat{u}_1\partial_{\hat x}\hat{q} 
-      + \hat{u}_2 \partial_{\hat y}\hat{q}\,d\hat{\textbf{x}}\,=\,0.
+    \int\limits_{\hat{f}_5} (\hat{u}_1 + \hat{u}_2)
+    \hat{q}_{|_{\hat{f}_5 = 1}}\,d\hat{\gamma}
+    - \int\limits_{\hat{f}_1} \hat{u}_1 \hat{q}_{|_{\hat{f}_1}}\,d\hat{\gamma}&&\\[5pt]
+    &&\,- \int\limits_{\hat{f}_2} \hat{u}_2 \hat{q}_{|_{\hat{f}_2}}\,d\hat{\gamma}
+    - \int\limits_{\hat{E}} \hat{u}_1
+    \frac{\partial\hat{q}}{\partial{\hat{x}_1}} 
+      + \hat{u}_2\frac{\partial\hat{q}}{\partial{\hat{x}_2}}\,d\hat{\bx} & = & 0.
   \end{IEEEeqnarray*}
   And since $\text{div}(\hat{p}_1, \hat{p}_2, 0)^t$ also belongs to
-  $\pp{k-1}{k-1}$, we just proved it vanishes on all $\hat{E}$.\\[3pt]
+  $\pp{k-1}{k-1}$, we just established it vanishes on all $\hat{E}$.\\[3pt]
   In a similar way as done in Lemma~(\ref{lemma_PIu2_k_in_N}), eq.~(\ref{h_is_zero}),
-  we get to prove $h \equiv 0$ in expression~(\ref{exprPrt}). It means we may
-  assume
-  \begin{IEEEeqnarray*}{rCl}
-    \hat{p}_1, \hat{p}_2 & \in & \mathcal{P}_{k-1}(\hat{f}_1)\otimes\mathcal{P}_{k-1}(\hat{z}).
-  \end{IEEEeqnarray*}
-  Now it is convenient to use again the degrees of freedom on the faces normal to $(-1, 0, 0)$ and $(0, -1, 0)$.
+  we get to prove $\hat{h} \equiv 0$ in expression~(\ref{exprPrt}). It means we may
+  assume that $\hat{p}_1$ and $\hat{p}_2$ belong to 
+  $\mathcal{P}_{k-1}(\hat{f}_3)\otimes\mathcal{P}_{k-1}(\hat{x}_3)$.
+  Now it is convenient to use again the degrees of freedom on the
+  faces normal to $(-1, 0, 0)^t$ and $(0, -1, 0)^t$.
   The conditions
-  \begin{IEEEeqnarray*}{rCl}
-      \int\limits_{\hat f_1} \hat{p}_1\hat q\,d\hat\gamma & = & 0\qquad\mbox{for all }\hat{q}\in\mathcal{P}_{k-1}(\hat f_1)
+  \begin{IEEEeqnarray*}{rCCCl}
+    \rho_{\hat f_1\,\hat q}(\rku) & = & \int\limits_{\hat f_1} \hat{p}_1\hat q\,d\hat\gamma
+    & = & 0\qquad\mbox{for all }\hat{q}\in\mathcal{P}_{k-1}(\hat f_1)\\
+    \rho_{\hat f_2\,\hat q}(\rku) & = & \int\limits_{\hat f_2} \hat{p}_2\hat q\,d\hat\gamma
+    & = & 0\qquad\mbox{for all }\hat{q}\in\mathcal{P}_{k-1}(\hat f_2)
   \end{IEEEeqnarray*}
-  \begin{IEEEeqnarray*}{rCl}
-      \int\limits_{\hat f_2} \hat{p}_2\hat q\,d\hat\gamma & = & 0\qquad\mbox{for all }\hat{q}\in\mathcal{P}_{k-1}(\hat f_2)
-  \end{IEEEeqnarray*}
-  imply that $\hat{x}_i$ divides $\hat{p}_i$ for both $i=1,2$. In other words, 
-  there are $\phi$ and $\psi$ in $\pp{k-2}{k-1}$ such that
-  \begin{IEEEeqnarray*}{rCl}
-    \hat{p}_1 & = & \hat{x}\,\phi\\
-    \hat{p}_2 & = & \hat{y}\,\psi.
-  \end{IEEEeqnarray*}
-  But finally, if we evaluate the degrees of freedom~(\ref{momentos3hdiv}),
-  $\hat{p}_1 = (\hat{\br}_k\hat{\bu})_1$ and 
-  $\hat{p}_2 = (\hat{\br}_k\hat{\bu})_2$ can be no other that
-  constantly null over all $\hat{E}$. 
+  ensure that $\hat{x}_i$ divides $\hat{p}_i$ for both $i=1,2$.
+%  In other words, there are $\phi$ and $\psi$ in $\pp{k-2}{k-1}$ such that
+%  \begin{IEEEeqnarray*}{rCl}
+%    \hat{p}_1 & = & \hat{x}\,\phi\\
+%    \hat{p}_2 & = & \hat{y}\,\psi.
+%  \end{IEEEeqnarray*}
+But finally, if we evaluate the degrees of freedom~(\ref{momentos3hdiv}),
+we see that  $\hat{p}_1 = (\hat{\br}_k\hat{\bu})_1$ and 
+$\hat{p}_2 = (\hat{\br}_k\hat{\bu})_2$ can be no other that
+constantly null over all $\hat{E}$. 
 \end{proof}
 \begin{lemma} Let $\hat{\bu}$ be in $P_{\hat E}$.\\[5pt]
 
@@ -215,7 +214,7 @@ Let $f$ be the face contained in $\{x+y = 1\}$. Take $q\in\mathcal{Q}_{k-1,k-1,k
 Observe that the restriction of $q$ to $f$ belongs to $\mathcal{P}_{k-1}(x)\otimes
 \mathcal{P}_{k-1}(z)$. Now
 \begin{IEEEeqnarray*}{rCl}
-    \int\limits_{\hat{E}} \text{div} (u_1,u_2,0) \,q\,d\textbf{x} &=&
+    \int\limits_{\hat{E}} \text{div} (u_1,u_2,0) \,q\,d\bx &=&
     \int\limits_{\hat{E}} \text{div}\,\textbf{v} \,q\,d\textbf{x}\\
     & = & -\int\limits_{\hat{E}} (u_1, v_2, 0)^t\cdot\nabla q\,d{\textbf{x}} + 
             \int\limits_{\partial_{\hat{E}}} (u_1, v_2, 0)^t\cdot\boldsymbol{\nu}\,q\,d\gamma\\
