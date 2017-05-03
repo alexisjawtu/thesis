@@ -49,19 +49,6 @@ Prism determined by the element of
 \begin{lemma}\label{lemmaRT3zero}
 $(\rku)_3$ is linearly and univocally determined by $\hat{u}_3$.
 \end{lemma}
-%\noindent{\color{blue}\#\#\#\#\#\#\# de aqui a la sgte marca, chequear si las expresiones
-%~(\ref{exprPrt}) son correctas 
-%  From the definition of the discrete space, and the notation involved, it follows that for each
-%  $\textbf{p} = (p_1, p_2, p_3) \in  P_{\hat{E}}$ there are unique $q_1, q_2 \in 
-%    \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$, $q_3 \in \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k}(z)$, and
-%    $h \in \tilde{\mathcal{P}}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$ such that
-%    \begin{IEEEeqnarray*}{rCl}
-%                                    p_1(x, y, z) & = & q_1(x, y, z) + x\,h(x, y, z)\\
-%        \label{exprPrt} \yesnumber  p_2(x, y, z) & = & q_2(x, y, z) + y\,h(x, y, z)\\
-%                                    p_3(x, y, z) & = & q_3(x, y, z)
-%    \end{IEEEeqnarray*} 
-%}
-%\noindent{\color{blue}\#\#\#\#\#\#\# }\\[5pt]
 \begin{proof}
 By the unisolvence of the Finite Element~(\ref{defi_h_div_conforme})
 $(\rku)_3$ is determined by the following linear equations.
@@ -88,25 +75,28 @@ and the Lemma will follow once we apply the degrees of freedom~(\ref{rku_3_2})
 with $\br$ set equal to $(0,0,\hat{q}_3)^t$. 
 \end{proof}
 {\color{blue}\#\#\#\#\#\#\#\# CONTINUE HERE.}
-\begin{lemma}\label{lemma_u1_u2} If $\hat\bu\in P_{\hat E}$ is such that $\hat{u}_1 = 0$
-and $\hat{u}_2 = 0$, then $(\hat{\br}_k\hat{\bu})_1 = 0$
-and $(\hat{\br}_k\hat{\textbf{\emph{u}}})_2 = 0$.
-
-\begin{itemize}
-  \item []
-  \item [(a)]\label{piu2_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat y,\hat z), 0)^t$,
-  then $\wku\xyz = (0, \hat\xi_2(y,z) ,0)^t$ for some 
-  $\hat\xi_2 \in P_{k-1}(\hat{x}_2) \otimes P_k(\hat{x}_3)$.
-  \item [(b)]\label{piu1_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (\hat u_1(\hat x,\hat z), 0, 0)^t$
-  then $\wku\xyz = (\hat\xi_1(x,z), 0 ,0)^t$ for some
-    $\hat\xi_1\in P_{k-1}(\hat{x}_1) \otimes P_k(\hat{x}_3)$.
-\end{itemize}
-
-
+\begin{lemma}\label{lemma_u1_u2} If $\hat\bu\xyz = (0,0, \hat{u}_3\xyz)^t$,
+then $\rku\xyz = (0,0,\hat{\xi}_3\xyz)$ for some $\hat{\xi}_3\in
+P_{k-1}(\hat{f}_3)\otimes P_k(\hat{x}_3)$.
 \end{lemma}
-\begin{proof} We use again the expression~(\ref{exprPrt}) for $\hat{\br}_k\hat{\bu} =
-  (\hat{p}_1, \hat{p}_2, \hat{p}_3) \in  P_{\hat{E}}$. Take an arbitrary
-  $\hat{q}\in\mathcal{P}_{k-1}(\hat f_1)\otimes\mathcal P_{k-1}(\hat z)$, the trick
+\begin{proof}
+In a completely analogous way as was done in Section~(\ref{sub:defEdgeElement})
+we can derive the following expressions for a 
+$\rku = (\hat{p}_1, \hat{p}_2, \hat{p}_3)^t \in  P_{\hat{E}}$: 
+\begin{IEEEeqnarray*}{rCl}
+  \hat{p}_1\xyz & = & \hat{q}_1\xyz + \hat{x}_1\,\hat{h}\xyz\\
+  \label{exprPrt}\yesnumber
+  \hat{p}_2\xyz & = & \hat{q}_2\xyz + \hat{x}_2\,\hat{h}\xyz\\
+  \hat{p}_3\xyz & = & \hat{q}_3\xyz
+\end{IEEEeqnarray*}
+for unique $\hat{q}_1, \hat{q}_2 \in \mathcal{P}_{k-1}(\hat{f}_3)
+\otimes\mathcal{P}_{k-1}(\hat{x}_3)$,
+$\hat{q}_3 \in \mathcal{P}_{k-1}(\hat{f}_3)\otimes\mathcal{P}_{k}(\hat{x}_3)$,
+and
+$\hat{h} \in \tilde{\mathcal{P}}_{k-1}(\hat{f}_3)\otimes\mathcal{P}_{k-1}(\hat{x}_3)$.
+Take an arbitrary $\hat{q}\in\mathcal{P}_{k-1}(\hat f_1)\otimes\mathcal P_{k-1}(\hat z)$.
+Continuing with the technique developed for Section
+the trick
   will be to apply Green's Theorem to the field
   $(\hat{p}_1, \hat{p}_2, 0)^t$
   . By the surface degrees of freedom~(\ref{momentos2hdiv})
@@ -150,6 +140,21 @@ and $(\hat{\br}_k\hat{\textbf{\emph{u}}})_2 = 0$.
   constantly null over all $\hat{E}$. 
 \end{proof}
 \begin{lemma} Let $\hat{\bu}$ be in $P_{\hat E}$.\\[5pt]
+
+
+\begin{itemize}
+  \item []
+  \item [(a)]\label{piu2_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat y,\hat z), 0)^t$,
+  then $\wku\xyz = (0, \hat\xi_2(y,z) ,0)^t$ for some 
+  $\hat\xi_2 \in P_{k-1}(\hat{x}_2) \otimes P_k(\hat{x}_3)$.
+  \item [(b)]\label{piu1_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (\hat u_1(\hat x,\hat z), 0, 0)^t$
+  then $\wku\xyz = (\hat\xi_1(x,z), 0 ,0)^t$ for some
+    $\hat\xi_1\in P_{k-1}(\hat{x}_1) \otimes P_k(\hat{x}_3)$.
+\end{itemize}
+
+
+
+
 If $\hat{\bu}(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat x_1,\hat x_3), 0)$,
 then 
 $\hat{\br}_k \hat{\bu}(\hat x_1,\hat x_2,\hat x_3) =
