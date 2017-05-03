@@ -67,7 +67,7 @@ and~(\ref{rku_3_2}) equal to zero.
 Take $\hat f$ to be either $\hat{f}_3$ or $\hat{f}_4$. Put $q = (\rku)_3|_{\hat{f}}$ in~(\ref{rku_3_1}).
 It yields
 \begin{IEEEeqnarray*}{rCl}
-  \int\limits_{\hat{E}} ((\rku)_3)^2\,d\bx & = & 0
+  \int\limits_{\hat{E}} ((\rku)_3)^2\,d\hat{\bx} & = & 0
 \end{IEEEeqnarray*}
 so there is a polinomial $\hat{q}_3\in(\mathcal{P}_{\hat{E}})_3$ such that
 $(\rku)_3 \xyz = \hat{x}_3(\hat{x}_3-1)\,\hat{q}_3\xyz$
@@ -112,7 +112,7 @@ freedom~(\ref{momentos2hdiv}) and the volume degrees of freedom~(\ref{momentos3h
     \frac{\partial\hat{q}}{\partial{\hat{x}_1}} 
       + \hat{u}_2\frac{\partial\hat{q}}{\partial{\hat{x}_2}}\,d\hat{\bx} & = & 0.
   \end{IEEEeqnarray*}
-  And since $\text{div}(\hat{p}_1, \hat{p}_2, 0)^t$ also belongs to
+  And since $\mbox{div}(\hat{p}_1, \hat{p}_2, 0)^t$ also belongs to
   $\pp{k-1}{k-1}$, we just established it vanishes on all $\hat{E}$.\\[3pt]
   In a similar way as done in Lemma~(\ref{lemma_PIu2_k_in_N}), eq.~(\ref{h_is_zero}),
   we get to prove $\hat{h} \equiv 0$ in expression~(\ref{exprPrt}). It means we may
@@ -138,29 +138,18 @@ we see that  $\hat{p}_1 = (\hat{\br}_k\hat{\bu})_1$ and
 $\hat{p}_2 = (\hat{\br}_k\hat{\bu})_2$ can be no other that
 constantly null over all $\hat{E}$. 
 \end{proof}
-\begin{lemma} Let $\hat{\bu}$ be in $P_{\hat E}$.\\[5pt]
-
-
+\begin{lemma}
 \begin{itemize}
   \item []
-  \item [(a)]\label{piu2_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat y,\hat z), 0)^t$,
-  then $\wku\xyz = (0, \hat\xi_2(y,z) ,0)^t$ for some 
+  \item [(a)]\label{piu2_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) =
+  (0, \hat{u}_2(\hat x_1,\hat x_3), 0)^t$,
+  then $\rku\xyz = (0, \hat\xi_2(\hat x_1, \hat x_3) ,0)^t$ for some 
   $\hat\xi_2 \in P_{k-1}(\hat{x}_2) \otimes P_k(\hat{x}_3)$.
-  \item [(b)]\label{piu1_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (\hat u_1(\hat x,\hat z), 0, 0)^t$
-  then $\wku\xyz = (\hat\xi_1(x,z), 0 ,0)^t$ for some
+  \item [(b)]\label{piu1_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = 
+  (\hat{u}_1(\hat x_2,\hat x_3), 0, 0)^t$
+  then $\rku\xyz = (\hat\xi_1(\hat x_2,\hat x_3), 0 ,0)^t$ for some
     $\hat\xi_1\in P_{k-1}(\hat{x}_1) \otimes P_k(\hat{x}_3)$.
 \end{itemize}
-
-
-
-
-If $\hat{\bu}(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat x_1,\hat x_3), 0)$,
-then 
-$\hat{\br}_k \hat{\bu}(\hat x_1,\hat x_2,\hat x_3) =
-(0, \hat{r}_2(\hat x_1, \hat x_3), 0)$ for certain $\hat r_2\in (P_{\hat E})_2$.\\[3pt]
-If $\hat{\bu}(\hat x_1,\hat x_2,\hat x_3) = (u_1(\hat x_2,\hat x_3), 0, 0)$,
-then $\br_k \hat{\bu}(\hat x_1,\hat x_2,\hat x_3) =
-(\hat{r}_1(\hat x_2,\hat x_3), 0, 0)$ for certain $\hat r_1\in (P_{\hat E})_1$.
 \end{lemma}
 \begin{proof} Let us prove the first one of the two claims. The second one 
   has an entirely analogous proof. By Lemma~(\ref{lemmaRT3zero}) we get
@@ -178,11 +167,7 @@ then $\br_k \hat{\bu}(\hat x_1,\hat x_2,\hat x_3) =
   we have that $(\hat{\br}_k\hat{\boldsymbol{u}})_2$ does not depend on $\hat x_2$.
 \end{proof}
 \noindent It is time to state and prove the Theorem that was the purpose of this section.
-\begin{theorem}\label{thm_stab_div}
-If $\hat{\br}_k$ is the  
-interpolation operator determined by the Finite Element of degree $k$ in
-definition~(\ref{defi_h_div_conforme}), then
-for all $\hat{\bu} \in W^{1,1}(\hat{E})$
+\begin{theorem}\label{thm_stab_div} Given $\hat{\bu} \in W^{1,1}(\hat{E})$
 \begin{IEEEeqnarray}{rCl}
 \label{teoremaDiv_1} \norm{(\hat{\br}_k\hat{\bu})_1}_{L^{\infty}(\hat{E})} & 
     \lesssim & \|\hat{u}_1\|_{W^{1,1}(\hat{E})} + 
@@ -191,62 +176,66 @@ for all $\hat{\bu} \in W^{1,1}(\hat{E})$
     \lesssim & \|\hat{u}_2\|_{W^{1,1}(\hat{E})} + 
     \|\emph{div}(\hat{u}_1, \hat{u}_2, 0)\|_{L^{1}(\hat{E})} \\ 
 \label{teoremaDiv_3} \norm{(\hat{\br}_k\hat{\bu})_3}_{L^{\infty}(\hat{E})} & 
-    \lesssim & \|\hat{u}_3\|_{W^{1,1}(\hat{E})}.
+    \lesssim & \|\hat{u}_3\|_{W^{1,1}(\hat{E})}
 \end{IEEEeqnarray}
+where the constants in the inequalities depend olny on $\hat{E}$.
 \end{theorem}
-\begin{proof} 
 According to expression~(\ref{face_interp_explicit}) \dots
-
-{\color{blue}\#\#\#\#\#\#\#\# HERE. Tal vez me convenga ocuparme primero
-del teorema correspondiente para H(curl) porque hay muchas cosas
-que ac'a ser'an 'como dijimos en el caso H(curl) ... etc ...'}
-The proof is based on the last three Lemmas.
+\begin{proof} The proof is based on the last three Lemmas. Let
+us prove the first inequality.
 Given $\hat{\bu} \in W^{1,1}(\hat{E})$ let
-$\hat{\bv} = (u_1, u_2 - u_2(x,0,z), 0)$. Then $(\pi \textbf{v})_1 = (\pi \textbf{u})_1$.
-\\[5pt]
-The DOF's.\\[5pt]
-Some of them vanish or depend exclusively on $u_1$. The others:
-Let $f$ be the face contained in $\{x+y = 1\}$. Take $q\in\mathcal{Q}_{k-1,k-1,k-1}$.
+$\hat{\bv} = (\hat{u}_1, \hat{u}_2 - \hat{u}_2(\hat{x}_1,0,\hat{x}_3), 0)$.
+Then $(\hat{\br}_k\bv)_1 = (\rku)_1$.
+By evaluating the degrees of freedom to $\hat{\bv}$ we observe
+that some of them vanish or depend exclusively on $\hat{u}_1$ in the way
+we need them to depend on $\hat{u}_1$. As for the others,
+\noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE} 
+let first $\hat{f} = \hat{f}_5$. Pick $q\in Q_{k-1,k-1,k-1}$.
 \begin{IEEEeqnarray*}{rCl}
-    \int\limits_{f} \pi\textbf{v}\cdot\boldsymbol{\nu}\,q\,d\gamma &=&
-    \int\limits_{f} (v_1 + v_2)\,q\,d\gamma.
+    \int\limits_{\hat{f}} \hat{\br}_k\hat{\bv}\cdot\boldsymbol{\nu}\,\hat{q}\,d\hat{\gamma} &=&
+    \int\limits_{\hat{f}} (\hat{v}_1 + \hat{v}_2)\,\hat{q}\,d\hat{\gamma}.
 \end{IEEEeqnarray*}
-Observe that the restriction of $q$ to $f$ belongs to $\mathcal{P}_{k-1}(x)\otimes
-\mathcal{P}_{k-1}(z)$. Now
+Observe that the restriction of $\hat{q}$ to $\hat{f}$ belongs to
+$P_{k-1}(\hat{x}_1)\otimes P_{k-1}(\hat{x}_3)$. Now
 \begin{IEEEeqnarray*}{rCl}
-    \int\limits_{\hat{E}} \text{div} (u_1,u_2,0) \,q\,d\bx &=&
-    \int\limits_{\hat{E}} \text{div}\,\textbf{v} \,q\,d\textbf{x}\\
-    & = & -\int\limits_{\hat{E}} (u_1, v_2, 0)^t\cdot\nabla q\,d{\textbf{x}} + 
-            \int\limits_{\partial_{\hat{E}}} (u_1, v_2, 0)^t\cdot\boldsymbol{\nu}\,q\,d\gamma\\
-    & = & -\int\limits_{\hat{E}} u_1\partial_xq \,d{\textbf{x}} - \int\limits_{f_1}u_1\,q\,d\gamma
-        + \int\limits_{f} (v_1 + v_2)\,q\,d\gamma,
+  \int\limits_{\hat{E}} \mbox{div} (\hat{u}_1,\hat{u}_2,0)^t\,\hat{q}\,d\hat{\bx}
+  & = &  \int\limits_{\hat{E}} \mbox{div}\,\hat{\bv} \,\hat{q}\,d\hat{\bx}\\
+  & = & -\int\limits_{\hat{E}} (\hat{u}_1, \hat{v}_2, 0)^t\cdot\nabla \hat{q}\,d\hat{\bx} + 
+         \int\limits_{\partial_{\hat{E}}} (\hat{u}_1, \hat{v}_2, 0)^t\cdot\hat{\boldsymbol{\nu}}\,
+         \hat{q}\,d\hat{\gamma}\\
+  & = & -\int\limits_{\hat{E}} \hat{u}_1 \frac{\partial\hat{q}}{\partial\hat{x}_1}\,d\hat{\bx}
+        -\int\limits_{\hat{f}_1}\hat{u}_1\,\hat{q}\,d\hat{\gamma}
+        +\int\limits_{\hat{f}} (\hat{v}_1 + \hat{v}_2)\,\hat{q}\,d\hat{\gamma},
 \end{IEEEeqnarray*}
-where $f_1$ is the face contained in the plane $x = 0$. So we have
+Rearranging,
 \begin{IEEEeqnarray*}{rCl}
-    \int\limits_{f} (v_1 + v_2)\,q\,d\gamma & = & \int\limits_{\hat{E}} \text{div} (u_1,u_2,0)
-    \,q\,d\textbf{x} + \int\limits_{\hat{E}} u_1\partial_xq \,d{\textbf{x}} +
-    \int\limits_{f_1}u_1\,q\,d\gamma.
+    \int\limits_{\hat{f}} (\hat{v}_1 + \hat{v}_2)\,q\,d\hat{\gamma} & = & \int\limits_{\hat{E}} \mbox{div} (\hat{u}_1,\hat{u}_2,0)
+    \,q\,d\textbf{x} + \int\limits_{\hat{E}} \hat{u}_1\partial_xq \,d\hat{\bx} +
+    \int\limits_{f_1}\hat{u}_1\,q\,d\hat{\gamma}.
 \end{IEEEeqnarray*}
-For the volume degrees of freedom~(\ref{momentos3hdiv}) take $q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z)$. Since
+For the volume degrees of freedom~(\ref{momentos3hdiv}) take $q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(\hat{x}_3)$. Since
 \begin{IEEEeqnarray*}{rCl}
-    v_2(x,y,z) & = &\int\limits_0^{y} \partial_y u_2(x,t,z) \,dt,
+    \hat{v}_2(x,y,z) & = &\int\limits_0^{y} \partial_y \hat{u}_2(x,t,z) \,dt,
 \end{IEEEeqnarray*}
 we may do
 \begin{IEEEeqnarray*}{rCl}
-    \int\limits_{\hat{E}} v_2\,q_2  & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}
+    \int\limits_{\hat{E}} \hat{v}_2\,q_2  & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}
     \int\limits_0^{y}
-      \partial_y u_2(x,t,z) \,dt \,q_2 (x,y,z)\,dy\,dx\,dz\\
+      \partial_y \hat{u}_2(x,t,z) \,dt \,q_2 (x,y,z)\,dy\,dx\,dz\\
         & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\int\limits_0^{y}
-                \partial_y u_2(x,t,z) \,q_2 (x,y,z)\,dt\,dy\,dx\,dz\\
+                \partial_y \hat{u}_2(x,t,z) \,q_2 (x,y,z)\,dt\,dy\,dx\,dz\\
         & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\int\limits_t^{1-x}
-                \partial_y u_2(x,t,z) \,q_2 (x,y,z)\,dy\,dt\,dx\,dz\\
-        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y u_2(x,t,z)
+                \partial_y \hat{u}_2(x,t,z) \,q_2 (x,y,z)\,dy\,dt\,dx\,dz\\
+        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y \hat{u}_2(x,t,z)
                 \int\limits_t^{1-x}\,q_2 (x,y,z)\,dy\,dt\,dx\,dz\\
-        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y u_2(x,t,z)\,\phi (x,t,z)\,dt\,dx\,dz\\
-& = &\int\limits_{\hat{E}} (\partial_xu_1 + \partial_y u_2)\,\phi\,d{\textbf{x}}
-    - \int\limits_{\hat{E}} \partial_xu_1\,\phi\,d{\textbf{x}}
+        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y \hat{u}_2(x,t,z)\,\phi (x,t,z)\,dt\,dx\,dz\\
+& = &\int\limits_{\hat{E}} (\partial_x\hat{u}_1 + \partial_y \hat{u}_2)\,\phi\,d\hat{\bx}
+    - \int\limits_{\hat{E}} \partial_x\hat{u}_1\,\phi\,d\hat{\bx}\\
+& = &\int\limits_{\hat{E}} \mbox{div} (\hat{u}_1,\hat{u}_2,0)^t\,\hat{\phi}\,d\hat{\bx}
+    - \int\limits_{\hat{E}} \partial_x\hat{u}_1\,\hat{\phi}\,d\hat{\bx}
 \end{IEEEeqnarray*}
-(for some $\phi \in \mathcal{P}_{k-1}(x,y)\otimes\mathcal{P}_{k-1}(z)$), as we wanted. 
+(for some $\hat{\phi} \in \mathcal{P}_{k-1}(\hat{f}_3)\otimes\mathcal{P}_{k-1}(\hat{x}_3)$),
+as we needed. 
 \end{proof}
 Theorems~(\ref{thm_stab_edge}) and~(\ref{thm_stab_div}) show that the interpolations
 determined by the Finite Elements~(\ref{edgeelement}) and~(\ref{defi_h_div_conforme})
