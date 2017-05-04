@@ -37,8 +37,9 @@
   \hat f_5 & \subseteq &  \{\hat x_1+\hat x_2 = 1\}  & \qquad & \hat \be_5& = & \{(0,\hat x_2,1)^t\,:\,0\leqslant\hat x_2\leqslant 1\}  &     &           &           &
 \end{IEEEeqnarray*}
 \input{./chap_interpolation/stability_edge_ref_prism}
-\subsection{Stability of the generalized Raviart-Thomas element in $\hat{E}$} % (fold)
-The exposition in this section will be there $H(\mbox{div})$--conforming analogue
+\input{./chap_interpolation/stability_edge_tilde_prism}
+\subsection{Stability of divergence--conforming Finite Elements on Prisms} % (fold)
+The exposition in this section will be the $H(\mbox{div})$--conforming analogue
 of the exposition in the previous section.\\
 \noindent In the next three Lemmas $\hat\bu$ is an element
 in $H(\mbox{div},\hat{E})$ and we will assume there is
@@ -233,17 +234,51 @@ $\hat{v}_2\xyz = \int_0^{\hat{x}_2}
     - \int\limits_{\hat{E}}\frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,\hat{\phi}\,d\hat{\bx}
 \end{IEEEeqnarray*}
 (for some $\hat{\phi} \in  P_{k-1}(\hat{f}_3)\otimes P_{k-1}(\hat{x}_3)$),
-which is what we needed. 
+which is what we needed. The inequality~(\ref{teoremaDiv_2}) is proved in the same way.
+For inequality~(\ref{teoremaDiv_3})
 
-\noindent{\color{blue}\#\#\#\#\#\#\# continue HERE} 
+{\color{green}
 
+
+\begin{IEEEeqnarray*}{rCl}
+  (\rku)_3 & = & (\hat{\br}_k(0,0,\hat{u}_3)^t)_3\\
+  & = & \sum_{j=3,6,7\,p\,\in\,{\color{red}\mathcal{B}_{\hat e_j}}}
+  \int\limits_{\hat e_j} \hat{u}_3 p\,ds \,(\hat{\bv}_{e_j,p})_3 +
+  \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
+  \int\limits_{\hat f_i} \hat{u}_3 q\,d\gamma \,(\hat{\bv}_{\hat{f}_i,q})_3\\
+  &&\,+\sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
+  \int\limits_{\hat E} \hat{u}_3 r_3\,d\textbf{x}\,(\hat{\bv}_{\boldsymbol{r}})_3.
+\end{IEEEeqnarray*}
+Then
+\begin{IEEEeqnarray*}{rCl}
+  \|(\rku)_3\|_L & \leqslant & c(\hat{E}) \left\{
+   \sum_{j=3,6,7\,p\,\in\,{\color{red}\mathcal{B}_{\hat e_j}}}
+  \int\limits_{\hat e_j} |\hat{u}_3|\,ds +
+  \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
+  \int\limits_{\hat f_i} |\hat{u}_3|\,d\gamma
+  \right.\\ 
+  &&\left.\,+\sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
+  \int\limits_{\hat E} |\hat{u}_3|\,d\textbf{x}
+  \right\}\\
+  &\leqslant& c(\hat{E}) \noindent{\color{blue}\#\#\#\#\#\#\# \mbox{continue here and 
+  then in stab-edge-tilde-prims.tex}}  
+\end{IEEEeqnarray*}
+
+
+}
 \end{proof}
 Theorems~(\ref{thm_stab_edge}) and~(\ref{thm_stab_div}) show that the interpolations
 determined by the Finite Elements~(\ref{edgeelement}) and~(\ref{defi_h_div_conforme})
 are anisotropically stable, in the sense that the image of a field $\hat\bu$ under
 the linear operator depends not only continously on $\hat\bu$, but also with a
 \emph{componentwise} bound, with perhaps and additional curl or divergence term, respectively.
-% subsection stability_of_rt_element_in_hat_k (end)
+
+
+
+
+
+
+% subsection stability_of_div_elements_in_hat_prisms (end)
 
 % section prismatic_finite_elements (end)
 

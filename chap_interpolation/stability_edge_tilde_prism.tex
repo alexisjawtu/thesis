@@ -1,0 +1,124 @@
+{\bf Estabilidad en }$\tilde{K}$.
+Dados tres números positivos $h_1$, $h_2$ y  $h_3$ definimos
+\begin{IEEEeqnarray*}{rCl}
+    \tilde{K}   &   =   &   \tilde{T} \times \tilde{I}\\
+    \tilde{T}   &   =   &   \{ 0 < \frac{x}{h_1} + \frac{y}{h_2} < 1 \}\\
+    \tilde{I}   &   =   &   \{ 0 < \frac{z}{h_3} < 1 \},
+\end{IEEEeqnarray*}
+y usamos todo lo que estudiamos en la Sección~\ref{sub:transformaciones_entre_prismas} para transformar $\hat{K} $
+en $\tilde{K} $ v\'ia
+\begin{IEEEeqnarray*}{rClCl}
+        \hat{\textbf{x}} & \longmapsto & \tilde{\textbf{x}} & = 
+        & \diag{h_1}{h_2}{h_3} \hat{\textbf{x}}.
+\end{IEEEeqnarray*}
+y para transformar campos, rotores y el interpolador. Por ejemplo, usaremos que 
+\begin{IEEEeqnarray*}{rCl}
+    \hat{\pi}_i & = & h_i\tilde{\pi}_i \\
+    (\textbf{curl}\,\hat{\textbf{u}})_3 & = & h_1h_2(\textbf{curl}\,\tilde{\textbf{u}})_3.
+\end{IEEEeqnarray*}
+Denotamos con $\tilde{\pi}_k$ al interpolador de N\'ed\'elec de orden $k$ en $\tilde{K}$ y con $h$ al diámetro de este 
+elemento. Consideramos un exponente $p$ mayor a $2$. En estas condiciones tenemos el siguiente
+\begin{lemma}\label{estabLinf}Existe $C > 0$, que es independiente de $h_1$, $h_2$ y de $h_3$, tal que para todo $p > 2$ and 
+$\tilde{\emph{\textbf{u}}}\in\wpcurl{\tilde{K}}$
+\begin{IEEEeqnarray*}{rCl}
+    \left\| \tilde{\pi}_k\tilde{\emph{\textbf{u}}} \right\|_{L^\infty(\tilde{K})}
+    & \leqslant     & C \left[ |\tilde{K}|^{-\frac{1}{p}} \left( \left\| \tilde{\emph{\textbf{u}}} 
+    \right\|_{L^p(\tilde{K})} +
+        \sum_{i=1}^3 h_i \left\| \partial_{\tilde{x}_i}\tilde{\emph{\textbf{u}}} 
+        \right\|_{L^p(\tilde{K})} \right)\right.\\
+    &   & \left.\:+\; h\, |\tilde{K}|^{-1} \left( \left\|(\emph{\textbf{curl}}\,\tilde{\emph{\textbf{u}}})_3 
+    \right\|_{L^1(\tilde{K})} + 
+    \sum_{i=1}^3 h_i \left\| \partial_{\tilde{x}_i}(\emph{\textbf{curl}}\,\tilde{\emph{\textbf{u}}})_3 
+    \right\|_{L^1(\tilde{K})}\right)
+    \right].
+\end{IEEEeqnarray*}
+{\color{BrickRed} En las cuentas donde dice $h$ (diametral) en realidad quedaba $h_1 + h_2$, por ejemplo.}
+\end{lemma}
+\begin{proof}
+    Probamos la cota para la primera y tercera componentes; la cota para la segunda es análoga a la de la 
+    primera. De estas seguirá inmediatamente la cota en norma vectorial. Recordamos
+    $|\tilde{K}| = \frac{1}{2}h_1h_2h_3$.\\[5pt]
+    Como consecuencia de~(\ref{teorema_1}), y de aplicar los cambios de variables del caso, tenemos
+    \begin{IEEEeqnarray*}{rCl}
+        \left\| (\tilde{\pi}_k\tilde{{\textbf{u}}})_1 \right\|_{L^\infty(\tilde{K})} & = &
+            \frac{1}{h_1} \left\| (\hat{\pi}_k\hat{{\textbf{u}}})_1 \right\|_{L^\infty(\hat{K})}\\
+            & \leqslant & C \frac{1}{h_1} \left[\|\hat{u}_1\|_{W^{1,p}(\hat{K})} + 
+                \|({\textbf{curl}}\,\hat{{\textbf{u}}})_3\|_{W^{1,1}(\hat{K})}\right] \\
+            & \leqslant & C
+        \left[
+            \frac{1}{|\tilde{K}|^\frac{1}{p}}
+            \left(
+            \|\tilde{u}_1\|_{L^p(\tilde{K})} + \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}\tilde{u}_1\|_{L^p(\tilde{K})}
+            \right)
+        \right.\\
+            & & \:\:+
+        \left.
+            \frac{h_2}{|\tilde{K}|}
+            \left(
+            \|(\textbf{curl}\,\tilde{\textbf{u}})_3\|_{L^1(\tilde{K})} + 
+                \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}(\textbf{curl}\,\tilde{\textbf{u}})_3\|_{L^1(\tilde{K})}
+            \right)
+        \right].
+    \end{IEEEeqnarray*}
+    
+    
+    
+    En lo que respecta a la tercera componente, procediendo de la misma manera, obtenemos
+    \begin{IEEEeqnarray*}{rCl}
+        \left\| (\tilde{\pi}_k\tilde{{\textbf{u}}})_3 \right\|_{L^\infty(\tilde{K})}
+        & \leqslant & \frac{C}{|\tilde{K}|^\frac{1}{p}}
+        \left(
+            \|\tilde{u}_3\|_{L^p(\tilde{K})} + \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}\tilde{u}_3\|_{L^p(\tilde{K})}
+        \right).
+    \end{IEEEeqnarray*}
+\end{proof}
+\noindent De la anterior cota en norma infinito se deduce el siguiente
+\begin{theorem} Existe $C > 0$, que es independiente de $h_1$, $h_2$ y de $h_3$, tal que para todo
+$\tilde{\emph{\textbf{u}}}\in\wpcurl{\tilde{K}}$
+    \begin{IEEEeqnarray*}{rCl}
+        \left\| \tilde{\pi}_k\tilde{\emph{\textbf{u}}} \right\|_{L^p(\tilde{K})}
+        & \leqslant & C \left[ \left\| \tilde{\emph{\textbf{u}}} \right\|_{L^p(\tilde{K})}
+        + \sum_{i=1}^3 h_i \left\| \partial_{\tilde{x}_i}\tilde{\emph{\textbf{u}}} \right\|_{L^p(\tilde{K})}\right.\\
+        & & \left.
+        \:+\;h\left\|(\emph{\textbf{curl}}\,\tilde{\emph{\textbf{u}}})_3 \right\|_{L^p(\tilde{K})}
+        + h\sum_{i=1}^3 h_i
+        \left\| \partial_{\tilde{x}_i}(\emph{\textbf{curl}}\,\tilde{\emph{\textbf{u}}})_3 \right\|_{L^p(\tilde{K})}
+    \right].
+    \end{IEEEeqnarray*}
+\end{theorem}
+\noindent Esta es una desigualdad con anisotropía para el elemento transformado $\tilde{K}$.
+\begin{proof}
+    {
+
+    \color{BrickRed}
+
+    \noindent From Lemma~(\ref{estabLinf}), since $|\tilde{K}|$ is finite measured,
+    the H\"older inequality tells us that, for any real $p \geqslant 1$,
+    \begin{IEEEeqnarray*}{rCl}
+        \|(\textbf{curl}\,\tilde{\textbf{u}})_3\|_{L^1(\tilde{K})} &\leqslant&
+         |\tilde{K}|^{1-\frac{1}{p}}\,\|(\textbf{curl}\,\tilde{\textbf{u}})_3\|_{L^p(\tilde{K})}\\
+        \|\partial_{\tilde{x}_i}(\textbf{curl}\,\tilde{\textbf{u}})_3\|_{L^1(\tilde{K})} &\leqslant&
+         |\tilde{K}|^{1-\frac{1}{p}}\,\|\partial_{\tilde{x}_i}(\textbf{curl}\,\tilde{\textbf{u}})_3\|_{L^p(\tilde{K})}.
+    \end{IEEEeqnarray*}
+    So we get to
+    \begin{IEEEeqnarray*}{rCl}
+    \left\| (\tilde{\pi}_k\tilde{{\textbf{u}}})_1 \right\|_{L^p(\tilde{K})}
+        & \leqslant & |\tilde{K}|^\frac{1}{p}\left\| (\tilde{\pi}_k\tilde{{\textbf{u}}})_1 \right\|_{L^\infty(\tilde{K})}\\
+        & \leqslant & C
+        \left[
+            \|\tilde{u}_1\|_{L^p(\tilde{K})} + \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}\tilde{u}_1\|_{L^p(\tilde{K})}
+        \right.\\
+            & & \:\:+
+        \left.
+            h_2
+            \left(
+            \|(\textbf{curl}\,\tilde{\textbf{u}})_3\|_{L^p(\tilde{K})} + 
+                \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}(\textbf{curl}\,\tilde{\textbf{u}})_3\|_{L^p(\tilde{K})}
+            \right)
+        \right].
+    \end{IEEEeqnarray*}
+    Now combine this with an entirely analogous argument for component $2$ and the estimate for component
+    $3$ already obtained in Lemma~(\ref{estabLinf}).
+
+    }
+\end{proof}
