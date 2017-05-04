@@ -1,4 +1,6 @@
 \chapter{Interpolation}
+\section{Prismatic Finite Elements} % (fold)
+\label{sec:prismatic_finite_elements}
 \begin{table}[h!]
 \centering
 \caption{Notation}
@@ -35,7 +37,7 @@
   \hat f_5 & \subseteq &  \{\hat x_1+\hat x_2 = 1\}  & \qquad & \hat \be_5& = & \{(0,\hat x_2,1)^t\,:\,0\leqslant\hat x_2\leqslant 1\}  &     &           &           &
 \end{IEEEeqnarray*}
 \input{./chap_interpolation/stability_edge_ref_prism}
-\section{Stability of the generalized Raviart-Thomas element in $\hat{E}$} % (fold)
+\subsection{Stability of the generalized Raviart-Thomas element in $\hat{E}$} % (fold)
 The exposition in this section will be there $H(\mbox{div})$--conforming analogue
 of the exposition in the previous section.\\
 \noindent In the next three Lemmas $\hat\bu$ is an element
@@ -74,7 +76,6 @@ $(\rku)_3 \xyz = \hat{x}_3(\hat{x}_3-1)\,\hat{q}_3\xyz$
 and the Lemma will follow once we apply the degrees of freedom~(\ref{rku_3_2})
 with $\br$ set equal to $(0,0,\hat{q}_3)^t$. 
 \end{proof}
-{\color{blue}\#\#\#\#\#\#\#\# CONTINUE HERE.}
 \begin{lemma}\label{lemma_u1_u2} If $\hat\bu\xyz = (0,0, \hat{u}_3\xyz)^t$,
 then $\rku\xyz = (0,0,\hat{\xi}_3\xyz)$ for some $\hat{\xi}_3\in
 P_{k-1}(\hat{f}_3)\otimes P_k(\hat{x}_3)$.
@@ -190,57 +191,72 @@ By evaluating the degrees of freedom to $\hat{\bv}$ we observe
 that some of them vanish or depend exclusively on $\hat{u}_1$ in the way
 we need them to depend on $\hat{u}_1$. As for the others,
 \noindent{\color{blue}\#\#\#\#\#\#\# CONTINUE HERE} 
-let first $\hat{f} = \hat{f}_5$. Pick $q\in Q_{k-1,k-1,k-1}$.
+pick first 
+$\hat{q}_0 \in \mathcal{P}_{\hat{f}_5} = 
+P_{k-1}(\hat{x}_1)\otimes P_{k-1}(\hat{x}_3)$
+and extend it as the same polynomial  
+$\hat{q}$ to $Q_{k-1,k-1,k-1}$.
 \begin{IEEEeqnarray*}{rCl}
-    \int\limits_{\hat{f}} \hat{\br}_k\hat{\bv}\cdot\boldsymbol{\nu}\,\hat{q}\,d\hat{\gamma} &=&
-    \int\limits_{\hat{f}} (\hat{v}_1 + \hat{v}_2)\,\hat{q}\,d\hat{\gamma}.
+  \rho_{\hat{f}_5,\,\hat{q}_0} (\hat{\bv})
+  & = & \int\limits_{\hat{f}_5} \hat{u}_1\,\hat{q}_0\,d\hat{\gamma} + 
+  \sqrt{2}\iint\limits_{[0,1]^2} \hat{q}_0(\hat{x}_1,\hat{x}_3)
+  \int_0^{1-\hat{x}_1}\frac{\partial \hat{v}_2}{\partial\hat{x}_2}
+    (\hat{x}_1,\hat{t},\hat{x}_3)\,d\hat{t}d\hat{x}_1d\hat{x}_3\\[5pt]    
+  & = & \int\limits_{\hat{f}_5} \hat{u}_1\,\hat{q}_0\,d\hat{\gamma} + 
+  \sqrt{2}\int\limits_{\hat{E}} \hat{q}\frac{\partial \hat{v}_2}{\partial\hat{x}_2}\,d\hat{\bx}\\[5pt]    
+  & = & \int\limits_{\hat{f}_5} \hat{u}_1\,\hat{q}_0\,d\hat{\gamma} + 
+  \sqrt{2}\int\limits_{\hat{E}} \hat{q}\,\{\,\mbox{div} (\hat{u}_1,\hat{u}_2,0)^t -
+    \frac{\partial \hat{u}_1}{\partial\hat{x}_1}\,\}\,d\hat{\bx}.
 \end{IEEEeqnarray*}
-Observe that the restriction of $\hat{q}$ to $\hat{f}$ belongs to
-$P_{k-1}(\hat{x}_1)\otimes P_{k-1}(\hat{x}_3)$. Now
+For the volume degrees of freedom~(\ref{momentos3hdiv}) take $\hat{q}_2
+\in P_{k-2}(\hat{f}_3) \otimes P_{k-1}(\hat{x}_3)$. Write 
+$\hat{v}_2\xyz = \int_0^{\hat{x}_2} 
+\nicefrac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)\,d\hat{t}$ and do
 \begin{IEEEeqnarray*}{rCl}
-  \int\limits_{\hat{E}} \mbox{div} (\hat{u}_1,\hat{u}_2,0)^t\,\hat{q}\,d\hat{\bx}
-  & = &  \int\limits_{\hat{E}} \mbox{div}\,\hat{\bv} \,\hat{q}\,d\hat{\bx}\\
-  & = & -\int\limits_{\hat{E}} (\hat{u}_1, \hat{v}_2, 0)^t\cdot\nabla \hat{q}\,d\hat{\bx} + 
-         \int\limits_{\partial_{\hat{E}}} (\hat{u}_1, \hat{v}_2, 0)^t\cdot\hat{\boldsymbol{\nu}}\,
-         \hat{q}\,d\hat{\gamma}\\
-  & = & -\int\limits_{\hat{E}} \hat{u}_1 \frac{\partial\hat{q}}{\partial\hat{x}_1}\,d\hat{\bx}
-        -\int\limits_{\hat{f}_1}\hat{u}_1\,\hat{q}\,d\hat{\gamma}
-        +\int\limits_{\hat{f}} (\hat{v}_1 + \hat{v}_2)\,\hat{q}\,d\hat{\gamma},
-\end{IEEEeqnarray*}
-Rearranging,
-\begin{IEEEeqnarray*}{rCl}
-    \int\limits_{\hat{f}} (\hat{v}_1 + \hat{v}_2)\,q\,d\hat{\gamma} & = & \int\limits_{\hat{E}} \mbox{div} (\hat{u}_1,\hat{u}_2,0)
-    \,q\,d\textbf{x} + \int\limits_{\hat{E}} \hat{u}_1\partial_xq \,d\hat{\bx} +
-    \int\limits_{f_1}\hat{u}_1\,q\,d\hat{\gamma}.
-\end{IEEEeqnarray*}
-For the volume degrees of freedom~(\ref{momentos3hdiv}) take $q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(\hat{x}_3)$. Since
-\begin{IEEEeqnarray*}{rCl}
-    \hat{v}_2(x,y,z) & = &\int\limits_0^{y} \partial_y \hat{u}_2(x,t,z) \,dt,
-\end{IEEEeqnarray*}
-we may do
-\begin{IEEEeqnarray*}{rCl}
-    \int\limits_{\hat{E}} \hat{v}_2\,q_2  & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}
-    \int\limits_0^{y}
-      \partial_y \hat{u}_2(x,t,z) \,dt \,q_2 (x,y,z)\,dy\,dx\,dz\\
-        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\int\limits_0^{y}
-                \partial_y \hat{u}_2(x,t,z) \,q_2 (x,y,z)\,dt\,dy\,dx\,dz\\
-        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\int\limits_t^{1-x}
-                \partial_y \hat{u}_2(x,t,z) \,q_2 (x,y,z)\,dy\,dt\,dx\,dz\\
-        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y \hat{u}_2(x,t,z)
-                \int\limits_t^{1-x}\,q_2 (x,y,z)\,dy\,dt\,dx\,dz\\
-        & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-x}\partial_y \hat{u}_2(x,t,z)\,\phi (x,t,z)\,dt\,dx\,dz\\
-& = &\int\limits_{\hat{E}} (\partial_x\hat{u}_1 + \partial_y \hat{u}_2)\,\phi\,d\hat{\bx}
-    - \int\limits_{\hat{E}} \partial_x\hat{u}_1\,\phi\,d\hat{\bx}\\
+  \int\limits_{\hat{E}} \hat{v}_2\,\hat{q}_2 
+  & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-\hat{x}_1}
+  \int\limits_0^{\hat{x}_2}
+    \frac{\partial \hat{u}_2}{\partial \hat{x}_2} 
+    (\hat{x}_1,\hat{t},\hat{x}_3)\,d\hat{t}\,\hat{q}_2\xyz\,d\hat{x}_2\,d\hat{x}_1\,d\hat{x}_3\\
+  & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-\hat{x}_1}\int\limits_0^{\hat{x}_2}
+        \frac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)
+        \,\hat{q}_2 \xyz\,d\hat{t}\,d\hat{x}_2\,d\hat{x}_1\,d\hat{x}_3\\
+  & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-\hat{x}_1}\int\limits_{\hat{t}}^{1-\hat{x}_1}
+        \frac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)\,\hat{q}_2\xyz\,
+        d\hat{x}_2\,d\hat{t}\,d\hat{x}_1\,d\hat{x}_3\\
+  & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-\hat{x}_1}
+        \frac{\partial \hat{u}_2}{\partial \hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)
+        \int\limits_{\hat{t}}^{1-\hat{x}_1}\,\hat{q}_2\xyz\,d\hat{x}_2\,d\hat{t}\,d\hat{x}_1\,d\hat{x}_3\\
+  & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-\hat{x}_1}
+  \frac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)\,
+       \hat{\phi} (\hat{x}_1,\hat{t},\hat{x}_3)\,d\hat{t}\,d\hat{x}_1\,d\hat{x}_3\\
 & = &\int\limits_{\hat{E}} \mbox{div} (\hat{u}_1,\hat{u}_2,0)^t\,\hat{\phi}\,d\hat{\bx}
-    - \int\limits_{\hat{E}} \partial_x\hat{u}_1\,\hat{\phi}\,d\hat{\bx}
+    - \int\limits_{\hat{E}}\frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,\hat{\phi}\,d\hat{\bx}
 \end{IEEEeqnarray*}
-(for some $\hat{\phi} \in \mathcal{P}_{k-1}(\hat{f}_3)\otimes\mathcal{P}_{k-1}(\hat{x}_3)$),
-as we needed. 
+(for some $\hat{\phi} \in  P_{k-1}(\hat{f}_3)\otimes P_{k-1}(\hat{x}_3)$),
+which is what we needed. 
 \end{proof}
 Theorems~(\ref{thm_stab_edge}) and~(\ref{thm_stab_div}) show that the interpolations
 determined by the Finite Elements~(\ref{edgeelement}) and~(\ref{defi_h_div_conforme})
 are anisotropically stable, in the sense that the image of a field $\hat\bu$ under
 the linear operator depends not only continously on $\hat\bu$, but also with a
 \emph{componentwise} bound, with perhaps and additional curl or divergence term, respectively.
+% subsection stability_of_rt_element_in_hat_k (end)
 
-% section stability_of_rt_element_in_hat_k (end)
+% section prismatic_finite_elements (end)
+
+\section{Pyramidal Finite Elements} % (fold)
+\label{sec:pyramidal_finite_elements}
+\subsection{Edge Elements} % (fold)
+\label{sub:edge_elements}
+
+% subsection edge_elements (end)
+\subsection{Face Elements} % (fold)
+\label{sub:face_elements}
+
+% subsection face_elements (end)
+
+
+
+
+% section pyramidal_finite_elements (end)
