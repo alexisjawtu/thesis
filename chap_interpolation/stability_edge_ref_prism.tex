@@ -25,7 +25,7 @@ we realize that
 the degrees of freedom which involve $(\wku)_3$ give rise only to the 
 following linear equations
 \begin{IEEEeqnarray}{rCrc}
-\varphi_{e_i,p}\,(\wku) & = & \varphi_{e_i,p}\,(\hat{\bu}) &\quad\mbox{for $i$ = 3, 6, 7 and }p\in\mathcal{}  \\
+\varphi_{\hat{\be}_i,p}\,(\wku) & = & \varphi_{\hat{\be}_i,p}\,(\hat{\bu}) &\quad\mbox{for $i$ = 3, 6, 7 and }p\in\mathcal{}  \\
 \varphi_{f_j,\boldsymbol{q}}\,(\wku) & = & \varphi_{f_j,\boldsymbol{q}}\,(\hat{\bu})
   &\quad\mbox{for $j$ = 1, 2, 4 and }\boldsymbol{q}\in\mathcal{}  \\
 \varphi_{\boldsymbol{r}}\,(\wku) & = & \varphi_{\boldsymbol{r}}\,(\hat{\bu})
@@ -299,10 +299,10 @@ Given $p > 2$, $\hat{\bu} \in \wpcurl{\hat{E}}$,
 \begin{IEEEeqnarray}{rCl}
 \label{teorema_1} \norm{(\wku)_1}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_1\|_{W^{1,p}(\hat{E})} + 
-	\|(\curl\hat{\bu})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
+	\|(\curl\hat{\bu})_3\|_{W^{1,1}(\hat{E})} \\	
 \label{teorema_2} \norm{(\wku)_2}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_2\|_{W^{1,p}(\hat{E})} + 
-	\|(\curl\hat{\bu})_3\|_{{\color{red} W^{1,1}(\hat{E})}} \\	
+	\|(\curl\hat{\bu})_3\|_{W^{1,1}(\hat{E})} \\	
 \label{teorema_3} \norm{(\wku)_3}_{L^{\infty}(\hat{E})} & 
 	\lesssim & \|\hat{u}_3\|_{W^{1,p}(\hat{E})}
 \end{IEEEeqnarray}
@@ -317,10 +317,6 @@ of Lemma $5.38$ in the page $134$ of Monk~\cite{monk}
 and Theorem $3.9$ (\emph{Trace Theorem})
 in page $43$ of
 the same book.
-
-\noindent{\color{blue}\#\#\#\#\#\#\# revisar los exponentes hoelder y todo...
-porque en monk pone $H^{1/2+\delta}$} 
-
 First we will take a smooth field $\hat{\bu}$ defined on $\hat{E}$
 and, by Lemma~(\ref{lemaDensidad}), we will conclude the Theorem 
 with a density argumentation.\\[4pt]
@@ -380,9 +376,9 @@ hence
 In a similar manner if we integrate over $\hat{f}_3 \subseteq \{ \hat{x}_3 = 0 \}$
 we get
 \begin{IEEEeqnarray*}{rCl}
-	\tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_9} (\hat{v}_1 - \hat{v}_2)\,\phi\,ds & = &\\
+	\varphi_{\hat{\be}_9,\,\hat{q}}(\hat\bv) & = & \tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_9} (\hat{v}_1 - \hat{v}_2)\,\phi\,ds \\
 	\yesnumber\label{momentosWaristas2}
-  	 \tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_1} u_1\,q\,ds & - &
+  	 &=&\tfrac{1}{\sqrt{2}} \int\limits_{\hat{\be}_1} u_1\,q\,ds -
 		 \tfrac{1}{\sqrt{2}} \int\limits_{\hat{f}_3} (\curl\hat{\bu})_3\,q\,d\hat{\gamma}
 		 + \int\limits_{\hat{f}_3} \hat{u}_1\,\partial_{\hat{x}_2}q\,d\hat{\gamma}.
 \end{IEEEeqnarray*}
@@ -405,10 +401,10 @@ $\varphi(\hat{x}_1,\hat{x}_2) = -\int_{\hat{x}_1}^{1-\hat{2}_2} \phi_1(t,\hat{x}
 \end{IEEEeqnarray*}
 which, together with~(\ref{cotaf3}) implies
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras}
- 	\nonumber\int\limits_{\hat{f}_3} \hat{\bv} \times \boldsymbol{\nu} \cdot \bq\,d\hat{\gamma}
+  \varphi_{\hat{f}_3,\,\hat{\bq}}(\hat{\bv})
  		& = & \int\limits_{\hat{f}_3} \hat{u}_1\,\phi_2\,d\hat{\gamma} +
-    \int\limits_{\hat{f}_3} (\curl\hat{\bu})_3\,\varphi\,d\hat{\gamma}\\
- 		& 	& - \int\limits_{\hat{f}_3} u_1\,\partial_{\hat{x}_2}\varphi\,d\hat{\gamma}	+
+    \int\limits_{\hat{f}_3} (\curl\hat{\bu})_3\,\varphi\,d\hat{\gamma} - 
+    \int\limits_{\hat{f}_3} u_1\,\partial_{\hat{x}_2}\varphi\,d\hat{\gamma}	+
     \int\limits_{\hat{\be}_1} \hat{u}_1\,\nu_2\,\varphi\,ds.
 \end{IEEEeqnarray}
 If we repeated the procedure for the degree of freedom on $\hat{f}_4$, for a given 
@@ -416,10 +412,10 @@ $\bp = (p_1,p_2,0) \in P_{k-2}(\hat{f})^2\times \{0\}$ we would set
 $\psi (\hat{x}_1,\hat{x}_2) = \int_{1-\hat{x}_2}^{\hat{x}_1} p_1 (t,\hat{x}_2)\,dt$
 and had
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras2}
- 	\nonumber\int\limits_{\hat{f}_4} \hat{\bv} \times \boldsymbol{\nu} \cdot \bp\,d\hat{\gamma}
+ 	\varphi_{\hat{f}_4,\,\hat{\bp}}(\hat{\bv})
  		& = & - \int\limits_{\hat{f}_4} \hat{u}_1\,\hat{p}_2\,d\hat{\gamma} -
-    \int\limits_{\hat{f}_4} (\curl\hat{\bu})_3\,\psi\,d\hat{\gamma}\\
- 		& 	& + \int\limits_{\hat{f}_4} \hat{u}_1\,\partial_{\hat{x}_2}\psi\,d\hat{\gamma}	-
+    \int\limits_{\hat{f}_4} (\curl\hat{\bu})_3\,\psi\,d\hat{\gamma}
+    + \int\limits_{\hat{f}_4} \hat{u}_1\,\partial_{\hat{x}_2}\psi\,d\hat{\gamma}	-
     \int\limits_{\hat{\be}_4} \hat{u}_1\,\hat{\nu}_2\,\psi\,d\hat{s}.
 \end{IEEEeqnarray}
 For~(\ref{momentos5hcurl}) on $\hat{f}_5$, given
@@ -469,23 +465,50 @@ give
   \varphi_2\,d\bx.
 \end{IEEEeqnarray}
 %,~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3})
-Now we collect what has been said in
-equalities~(\ref{momentosWaristas}),~(\ref{momentosWaristas2}),~(\ref{momentosWcaras}),~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3}) and~(\ref{momentosWvolumen}) to do simply
+Now we collect what has been said so far.
+%%%%%%%%%%%%%%%%%%%%%%%%% equalities,,~(\ref{momentosWcaras}),~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3}) and~(\ref{momentosWvolumen}).
+For the edge degrees of freedom we use an inequality in page $135$ of~\cite{monk},
+in the proof of Lemma 5.38, which states, for $\bu$ in the present conditions,
+\begin{IEEEeqnarray}{rCl}\label{edgeTrace}
+  \left|\int\limits_{\be} \bu\cdot\boldsymbol{\tau}\,q\,d\sigma\right| 
+  & \leqslant & C(q) \,\{\, \|\curl\bu\|_{L^p(\hat{E})^3}
+    + \|\mbox{Tr}\,\bu\|_{L^p(\partial\hat{E})^3} \}.
+\end{IEEEeqnarray}
+If we put the field $(\hat{u}_1,0,0)^t$ in inequality~(\ref{edgeTrace}) then
+by, H\"older's Inequality and standard traces inequalities, equation~(\ref{momentosWaristas})
+and~(\ref{momentosWaristas2}) yield, for $i=8,9$,
+\begin{IEEEeqnarray*}{rCl}
+  \left|\varphi_{\hat{\be}_i,\,\hat{q}}(\hat\bv)\right| & \leqslant & c(\hat{q})\,
+  \{\,\|\hat{u}_1\|_{W^{1,p}(\hat{E})} + \|\mbox{Tr}\,(\curl{\hat{\bu}})_3\|_{L^1(\partial\hat{E})}
+  +\|\mbox{Tr}\,\hat{u}_1\|_{L^p(\partial\hat{E})}\,\}\\[5pt]
+  \yesnumber\label{traceE8}
+  & \leqslant & c(\hat{q})\,\{\,\|\hat{u}_1\|_{W^{1,p}(\hat{E})} + 
+  \|(\curl\hat{\bu})_3\|_{W^{1,1}(\hat{E})}\,\}.
+\end{IEEEeqnarray*}
+If we repeat the trick for the line integral
+terms in~(\ref{momentosWcaras}) and~(\ref{momentosWcaras2}) we get, for $j=3,4$,
+\begin{IEEEeqnarray}{rCl}\label{traceF3}
+  \left|\varphi_{\hat{f}_j,\,\hat{\bq}}(\hat\bv)\right| & \leqslant &
+  c(\hat{\bq})\,\{\,
+    \|\mbox{Tr}\,\hat{u}_1\|_{L^p(\partial\hat{E})} +
+    \|\mbox{Tr}\,(\curl{\hat{\bu}})_3\|_{L^1(\partial\hat{E})} +
+    |\hat{u}_1|_{W^{1,p}(\hat{E})}\,\}.
+\end{IEEEeqnarray}
+And finally, by estimates~(\ref{momentosWcaras3})--(\ref{traceF3})
+and one more time H\"older's and traces inequalities,
 \begin{IEEEeqnarray*}{rCCCl}
 	\|(\wku)_1\|_{L^\infty(\hat{E})} & = & \|(\hat{\bw}_k\hat{\bv})_1\|_{L^\infty(\hat{E})}
   &\lesssim&\\
   \IEEEeqnarraymulticol{5}{C}{
-  \sum_{\be,p} |\varphi_{\be,p}(\hat{\bu})|\,\|(\hat{\bv}_{\be,p})_1\|_{L^\infty(\hat{E})} +
-  \sum_{f,\bq} |\varphi_{f,\bq}(\hat{\bu})|\,\|(\hat{\bv}_{f,\bq})_1\|_{L^\infty(\hat{E})} +
-  \sum_{\boldsymbol{r}} |\varphi_{\boldsymbol{r}}(\hat{\bu})|\,
-  \|(\hat{\bv}_{\boldsymbol{r}})_1\|_{L^\infty(\hat{E})}
+  \sum_{i=8,9,\,p} |\varphi_{\hat{\be}_i,p}(\hat{\bv})|\,\|(\hat{\bv}_{\hat{\be}_i,p})_1\|_{L^\infty(\hat{E})} +
+  \sum_{j=3,4,\,\bq} |\varphi_{\hat{f}_j,\bq}(\hat{\bv})|\,\|(\hat{\bv}_{f_j,\bq})_1\|_{L^\infty(\hat{E})} +
+  \sum_{\br} |\varphi_{\br}(\hat{\bv})|\,\|(\hat{\bv}_{\br})_1\|_{L^\infty(\hat{E})}
   }\\
 	& \lesssim & \|\hat{u}_1\|_{W^{1,p}(\hat{E})} & + &
 		\|(\curl\hat{\bu})_3\|_{W^{1,1}(\hat{E})}
 \end{IEEEeqnarray*}
-\noindent{\color{green}\#\#\#\#\#\#\# poner un poco mejor la desigualdad triangular y las
-de trazas} 
-which is the bound we wanted to prove.\\[5pt]
+which is the bound we wanted to prove. The same procedure applies for 
+inequality~(\ref{teorema_2}).\\[7pt]
 \noindent For inequality~(\ref{teorema_3}) given $\hat{\bu} \in W^{1,p}(\hat{E})^3$, define
 $\hat{\bv}  =  (0,0, \hat{u}_3).$
 Thanks to Lemma~(\ref{lema_PIu3_k_cualquiera}) we have 
@@ -493,8 +516,7 @@ $\hat{\bw}_k(\hat{\bv})_3 = (\hat{\bw}_k\hat{\bu})_3 - (\hat{\bw}_k(\hat{u}_1, \
 Apply now expression~(\ref{edge_interp_explicit}) to $\bv$ writing the degrees of
 freedom more explicitly. Taking another look at 
 the unit tangent vector of the edges and unit normal vectors to the faces we have to
-consider only a few not null terms (recall the numbering of the edges and faces
-from table~(\ref{edgeFacesNotationTable})).
+consider only a few not null terms.
 \begin{IEEEeqnarray*}{rCl}
   (\hat{\boldsymbol{w}}_k\hat{\bv})_3 & = &
   \sum_{j=3,6,7\,p\,\in\,{\color{red}\mathcal{B}_{\hat e_j}}}
@@ -502,9 +524,10 @@ from table~(\ref{edgeFacesNotationTable})).
   \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
   \int\limits_{\hat f_i} \hat{u}_3 q\,d\gamma \,(\hat{\bv}_{\hat{f}_i,q})_3\\
   &&\,+\sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
-  \int\limits_{\hat E} \hat{u}_3 r_3\,d\textbf{x}\,(\hat{\bv}_{\boldsymbol{r}})_3
+  \int\limits_{\hat E} \hat{u}_3 r_3\,d\textbf{x}\,(\hat{\bv}_{\boldsymbol{r}})_3.
 \end{IEEEeqnarray*}
 This implies
+{\color{blue}\#\#\#\#\#\#\#\# CONTINUE here. Fix this proof a bit.}
 \begin{IEEEeqnarray*}{rCl}
   \norm{(\hat{\boldsymbol{w}}_k\hat{\bu})_3}_{L^{\infty}(\hat{E})} =
   \norm{(\hat{\boldsymbol{w}}_k\hat{\bv})_3}_{L^{\infty}(\hat{E})} & 
