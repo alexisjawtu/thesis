@@ -157,7 +157,7 @@ constantly null over all $\hat{E}$.
   has an entirely analogous proof. By Lemma~(\ref{lemmaRT3zero}) we get
   $(\hat{\br}_k\hat{\boldsymbol{u}})_3 = 0$.
   The nullity of $\dv\hat{\bu}$ and the commutative
-  diagram property~(\ref{lema_pi_star_rot_u}) give us %$\dv((\hat{\br}_k\hat{\bu})_1,(\hat{\br}_k\hat{\bu})_2, 0) = 0$.
+  diagram property~(\ref{lema_pi_star_rot_u}) give us
   $\dv\hat{\br}_k\hat{\bu} = 0$.
   This last fact, together with the result of the evaluation of the 
   degrees of freedom~(\ref{momentos2hdiv})
@@ -182,7 +182,6 @@ constantly null over all $\hat{E}$.
 \end{IEEEeqnarray}
 where the constants in the inequalities depend olny on $\hat{E}$.
 \end{theorem}
-According to expression~(\ref{face_interp_explicit}) \dots
 \begin{proof} The proof is based on the last three Lemmas. Let
 us prove the first inequality.
 Given $\hat{\bu} \in W^{1,1}(\hat{E})$ let
@@ -212,6 +211,7 @@ For the volume degrees of freedom~(\ref{momentos3hdiv}) take $\hat{q}_2
 \in P_{k-2}(\hat{f}_3) \otimes P_{k-1}(\hat{x}_3)$. Write 
 $\hat{v}_2\xyz = \int_0^{\hat{x}_2} 
 \nicefrac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)\,d\hat{t}$ and do
+{\color{brown}\#\#\#\#\#\#\#\# partir este array para pasar de p'agina.}
 \begin{IEEEeqnarray*}{rCl}
   \int\limits_{\hat{E}} \hat{v}_2\,\hat{q}_2 
   & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-\hat{x}_1}
@@ -236,36 +236,26 @@ $\hat{v}_2\xyz = \int_0^{\hat{x}_2}
 (for some $\hat{\phi} \in  P_{k-1}(\hat{f}_3)\otimes P_{k-1}(\hat{x}_3)$),
 which is what we needed. The inequality~(\ref{teoremaDiv_2}) is proved in the same way.
 For inequality~(\ref{teoremaDiv_3})
-
-{\color{green}
-
-
 \begin{IEEEeqnarray*}{rCl}
   (\rku)_3 & = & (\hat{\br}_k(0,0,\hat{u}_3)^t)_3\\
-  & = & \sum_{j=3,6,7\,p\,\in\,{\color{red}\mathcal{B}_{\hat e_j}}}
-  \int\limits_{\hat e_j} \hat{u}_3 p\,ds \,(\hat{\bv}_{e_j,p})_3 +
-  \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
-  \int\limits_{\hat f_i} \hat{u}_3 q\,d\gamma \,(\hat{\bv}_{\hat{f}_i,q})_3\\
-  &&\,+\sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
-  \int\limits_{\hat E} \hat{u}_3 r_3\,d\textbf{x}\,(\hat{\bv}_{\boldsymbol{r}})_3.
+  & = & \sum_{i=3,4\,\hat{\bq}\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
+  \int\limits_{\hat f_i} \hat{u}_3 \hat{q}_3\,d\hat{\gamma} \,(\hat{\bv}_{\hat{f}_i,\hat{\bq}})_3
+    +\sum_{\hat{\br}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
+  \int\limits_{\hat E} \hat{u}_3 \hat{r}_3\,d\hat{\bx}\,(\hat{\bv}_{\hat{\br}})_3.
 \end{IEEEeqnarray*}
-Then
+Then, by standard result for traces in Sobolev spaces,
 \begin{IEEEeqnarray*}{rCl}
-  \|(\rku)_3\|_L & \leqslant & c(\hat{E}) \left\{
-   \sum_{j=3,6,7\,p\,\in\,{\color{red}\mathcal{B}_{\hat e_j}}}
-  \int\limits_{\hat e_j} |\hat{u}_3|\,ds +
-  \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
-  \int\limits_{\hat f_i} |\hat{u}_3|\,d\gamma
-  \right.\\ 
-  &&\left.\,+\sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
-  \int\limits_{\hat E} |\hat{u}_3|\,d\textbf{x}
+  \|(\rku)_3\|_{L^\infty(\hat{E})} 
+  & \leqslant & c(\hat{E}) \left\{
+   \sum_{i=3,4\,\hat{\bq}\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
+     \int\limits_{\hat f_i} |\hat{u}_3|\,d\hat{\gamma}
+   +\sum_{\hat{\br}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
+     \int\limits_{\hat E} |\hat{u}_3|\,d\hat{\bx}
   \right\}\\
-  &\leqslant& c(\hat{E}) \noindent{\color{blue}\#\#\#\#\#\#\# \mbox{continue here and 
-  then in stab-edge-tilde-prims.tex}}  
+  &\leqslant& c(\hat{E}) (\|\hat{u}_3|_{\partial\hat{E}}\|_{L^1(\partial\hat{E})} + 
+    \|\hat{u}_3\|_{L^1(\hat{E})})\\
+  &\leqslant& c(\hat{E}) \|\hat{u}_3\|_{W^{1,1}(\hat{E})}
 \end{IEEEeqnarray*}
-
-
-}
 \end{proof}
 Theorems~(\ref{thm_stab_edge}) and~(\ref{thm_stab_div}) show that the interpolations
 determined by the Finite Elements~(\ref{edgeelement}) and~(\ref{defi_h_div_conforme})
@@ -274,6 +264,8 @@ the linear operator depends not only continously on $\hat\bu$, but also with a
 \emph{componentwise} bound, with perhaps and additional curl or divergence term, respectively.
 
 
+  \noindent{\color{blue}\#\#\#\#\#\#\# \mbox{continue here and 
+  then in stab-edge-tilde-prims.tex}}  
 
 
 
