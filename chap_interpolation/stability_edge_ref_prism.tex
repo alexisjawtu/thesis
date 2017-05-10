@@ -1,12 +1,10 @@
-\subsection{Stability of the Edge Element in $\hat{K}$}
-\label{stab_edge_prism}
 We are writing the following three Lemmas which state some special
 behavior of the interpolation operator, mostly related to the preservation of
 null components of the fields, and whose proofs consist in a smart use of the
 degrees of freedom and the very definition of the operator. The author and his
 advisor think these Lemmas, although just with technical purpose, exhibit
 nice properties of the interpolators.\\
-\noindent In the next three Lemmas $\hat\bu$ is an element
+\noindent In the present subsection $\hat\bu$ is an element
 in $H({\bf curl},\hat{E})$ and we will assume there are 
 a positive $\delta$ and a $p>2$ such that 
 $\hat\bu$ belongs to $H^{1/2+\delta}(\hat{E})^3$ and
@@ -504,8 +502,8 @@ and one more time H\"older's and traces inequalities,
   \sum_{j=3,4,\,\bq} |\varphi_{\hat{f}_j,\bq}(\hat{\bv})|\,\|(\hat{\bv}_{f_j,\bq})_1\|_{L^\infty(\hat{E})} +
   \sum_{\br} |\varphi_{\br}(\hat{\bv})|\,\|(\hat{\bv}_{\br})_1\|_{L^\infty(\hat{E})}
   }\\
-	& \lesssim & \|\hat{u}_1\|_{W^{1,p}(\hat{E})} & + &
-		\|(\curl\hat{\bu})_3\|_{W^{1,1}(\hat{E})}
+	& \leqslant & c(\hat{E})\,\{\,\|\hat{u}_1\|_{W^{1,p}(\hat{E})} & + &
+		\|(\curl\hat{\bu})_3\|_{W^{1,1}(\hat{E})}\,\}
 \end{IEEEeqnarray*}
 which is the bound we wanted to prove. The same procedure applies for 
 inequality~(\ref{teorema_2}).\\[7pt]
@@ -513,26 +511,30 @@ inequality~(\ref{teorema_2}).\\[7pt]
 $\hat{\bv}  =  (0,0, \hat{u}_3).$
 Thanks to Lemma~(\ref{lema_PIu3_k_cualquiera}) we have 
 $\hat{\bw}_k(\hat{\bv})_3 = (\hat{\bw}_k\hat{\bu})_3 - (\hat{\bw}_k(\hat{u}_1, \hat{u}_2, 0))_3 = (\hat{\bw}_k\hat{\bu})_3.$
-Apply now expression~(\ref{edge_interp_explicit}) to $\bv$ writing the degrees of
-freedom more explicitly. Taking another look at 
-the unit tangent vector of the edges and unit normal vectors to the faces we have to
-consider only a few not null terms.
+By expression~(\ref{edge_interp_explicit}), taking another look at 
+the unit tangent vector of the edges and unit normal vectors to the
+faces, we have
 \begin{IEEEeqnarray*}{rCl}
   (\hat{\boldsymbol{w}}_k\hat{\bv})_3 & = &
-  \sum_{j=3,6,7\,p\,\in\,{\color{red}\mathcal{B}_{\hat e_j}}}
-  \int\limits_{\hat e_j} \hat{u}_3 p\,ds \,(\hat{\bv}_{e_j,p})_3 +
+  \sum_{j=3,6,7\,\hat{\bp}\,\in\,\mathcal{B}_{\hat e_j}}
+  \int\limits_{\hat e_j} \hat{u}_3 \hat{p}_3\,ds \,(\hat{\bv}_{\hat{\be}_j,\hat{\bp}})_3 +
   \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
   \int\limits_{\hat f_i} \hat{u}_3 q\,d\gamma \,(\hat{\bv}_{\hat{f}_i,q})_3\\
   &&\,+\sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
   \int\limits_{\hat E} \hat{u}_3 r_3\,d\textbf{x}\,(\hat{\bv}_{\boldsymbol{r}})_3.
 \end{IEEEeqnarray*}
-This implies
-{\color{blue}\#\#\#\#\#\#\#\# CONTINUE here. Fix this proof a bit.}
+This implies, by traces inequalities and~(\ref{edgeTrace}), that
 \begin{IEEEeqnarray*}{rCl}
-  \norm{(\hat{\boldsymbol{w}}_k\hat{\bu})_3}_{L^{\infty}(\hat{E})} =
-  \norm{(\hat{\boldsymbol{w}}_k\hat{\bv})_3}_{L^{\infty}(\hat{E})} & 
-  \leqslant & c\,\|\hat{u}_3\|_{W^{1,p}(\hat{E})}.\\[5pt]
+  \norm{(\hat{\boldsymbol{w}}_k\hat{\bu})_3}_{L^{\infty}(\hat{E})}
+  & \leqslant & c(\hat{E})
+  \sum_{j=3,6,7\,\hat{\bp}\,\in\,\mathcal{B}_{\hat e_j}}
+  \left|\int\limits_{\hat e_j} \hat{u}_3\,\hat{p}_3\,ds\right| +
+  \sum_{i=1,2,4}
+  \int\limits_{\hat f_i} |\hat{u}_3|^p\,d\gamma\\
+  &&\,+ \int\limits_{\hat E} |\hat{u}_3|^p\,d\textbf{x}\\
+  &\leqslant& c(\hat{E}) \|\hat{u}_3\|_{W^{1,p}(\hat{E})}.\\[5pt]
 \end{IEEEeqnarray*}
-The constants in the three inequalities of this Theorem depend, clearly, on the choice of the bases $\mathcal{B}_{\hat e_j},
+The constants in the three inequalities of this Theorem depend,
+clearly, on the choice of the bases $\mathcal{B}_{\hat e_j},
 \mathcal{B}_{\hat f_i}, \mathcal{B}_{\hat E}$.
 \end{proof}

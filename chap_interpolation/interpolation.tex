@@ -36,12 +36,15 @@
   \hat f_4 & \subseteq &  \{\hat x_3 = 1      \} & \qquad & \hat \be_4& = & \{(\hat x_1,0,1)^t\,:\,0\leqslant\hat x_1\leqslant 1\}  &\quad& \hat \be_9& = & \{(\hat x_1,1-\hat x_1,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} \\[4pt]
   \hat f_5 & \subseteq &  \{\hat x_1+\hat x_2 = 1\}  & \qquad & \hat \be_5& = & \{(0,\hat x_2,1)^t\,:\,0\leqslant\hat x_2\leqslant 1\}  &     &           &           &
 \end{IEEEeqnarray*}
+\subsection{Stability of curl--conforming Finite Element on Prisms}
+\label{stab_edge_prism}
 \input{./chap_interpolation/stability_edge_ref_prism}
 \input{./chap_interpolation/stability_edge_tilde_prism}
+% subsection stability_of_div_elements_in_hat_prisms (end)
 \subsection{Stability of divergence--conforming Finite Elements on Prisms} % (fold)
 The exposition in this section will be the $H(\mbox{div})$--conforming analogue
 of the exposition in the previous section.\\
-\noindent In the next three Lemmas $\hat\bu$ is an element
+\noindent In present subsection $\hat\bu$ will be an element
 in $H(\mbox{div},\hat{E})$ and we will assume there is
 a positive $\delta$ such that $\hat\bu$ belongs to $H^{1/2+\delta}(\hat{E})^3$.
 $\hat\br_k$ will be, for the whole section, the $k$--th order face 
@@ -247,10 +250,9 @@ Then, by standard result for traces in Sobolev spaces,
 \begin{IEEEeqnarray*}{rCl}
   \|(\rku)_3\|_{L^\infty(\hat{E})} 
   & \leqslant & c(\hat{E}) \left\{
-   \sum_{i=3,4\,\hat{\bq}\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
+   \sum_{i=3,4}
      \int\limits_{\hat f_i} |\hat{u}_3|\,d\hat{\gamma}
-   +\sum_{\hat{\br}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
-     \int\limits_{\hat E} |\hat{u}_3|\,d\hat{\bx}
+   + \int\limits_{\hat E} |\hat{u}_3|\,d\hat{\bx}
   \right\}\\
   &\leqslant& c(\hat{E}) (\|\hat{u}_3|_{\partial\hat{E}}\|_{L^1(\partial\hat{E})} + 
     \|\hat{u}_3\|_{L^1(\hat{E})})\\
@@ -262,14 +264,6 @@ determined by the Finite Elements~(\ref{edgeelement}) and~(\ref{defi_h_div_confo
 are anisotropically stable, in the sense that the image of a field $\hat\bu$ under
 the linear operator depends not only continously on $\hat\bu$, but also with a
 \emph{componentwise} bound, with perhaps and additional curl or divergence term, respectively.
-
-
-  \noindent{\color{blue}\#\#\#\#\#\#\# \mbox{continue here and 
-  then in stab-edge-tilde-prims.tex}}  
-
-
-
-
 % subsection stability_of_div_elements_in_hat_prisms (end)
 
 % section prismatic_finite_elements (end)
