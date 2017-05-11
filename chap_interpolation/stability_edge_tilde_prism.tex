@@ -50,8 +50,8 @@ Theorem~(\ref{thm_stab_edge}) and the vectorial bound will hold immediately.
 Bounds for $(\wkutilde)_1$ and $(\wkutilde)_3$
 will be established, as the bounding for $(\wkutilde)_2$ is the same as the first one.
 Pulling $\wkutilde$ back to $\hat{E}$ we get by
-~(\ref{piTransformado}) that $(\wkutilde)_1 = 
-\nicefrac{1}{h_1} (\wku)_1$. By~(\ref{teorema_1}) and a suitable, though elementary,
+~(\ref{piTransformado}) that $(\wkutilde)_i = 
+\nicefrac{1}{h_i} (\wku)_i,\,1\leqslant i\leqslant 3$. By~(\ref{teorema_1}) and a suitable, though elementary,
 change of variables dictated by~(\ref{change_var})
 \begin{IEEEeqnarray*}{rCl}
   \left\| (\wkutilde)_1 \right\|_{L^\infty(\tilde{E})} & = &
@@ -75,17 +75,18 @@ change of variables dictated by~(\ref{change_var})
     \right)
   \right].
 \end{IEEEeqnarray*}
-With respect to component number three
+With respect to component number three, from~(\ref{teorema_3})
 \begin{IEEEeqnarray*}{rCl}
   \left\| (\wkutilde)_3 \right\|_{L^\infty(\tilde{E})}
-  & \leqslant & \frac{C}{|\tilde{E}|^\frac{1}{p}}
+  & \leqslant & C|\tilde{E}|^{-\nicefrac{1}{p}}
   \left(
     \|\tilde{u}_3\|_{L^p(\tilde{E})} + \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}\tilde{u}_3\|_{L^p(\tilde{E})}
   \right).
 \end{IEEEeqnarray*}
 \end{proof}
-\noindent De la anterior cota en norma infinito se deduce el siguiente
-\begin{theorem} Existe $C > 0$, que es independiente de $h_1$, $h_2$ y de $h_3$, tal que para todo
+\noindent With the previous bound we deduce the following
+anisotropic stability estimate for the rescaled element $\tilde{E}$.
+\begin{theorem} There is a $c > 0$ independent of $h_i$ such that for all
 $\tilde{\bu}\in\wpcurl{\tilde{E}}$
     \begin{IEEEeqnarray*}{rCl}
         \left\| \wkutilde \right\|_{L^p(\tilde{E})}
@@ -98,7 +99,8 @@ $\tilde{\bu}\in\wpcurl{\tilde{E}}$
     \right].
     \end{IEEEeqnarray*}
 \end{theorem}
-\noindent Esta es una desigualdad con anisotropía para el elemento transformado $\tilde{E}$.
+{\color{blue}\#\#\#\#\#\#\#\# continue here. chequear minimamente la 
+cuentita en color aca.}
 \begin{proof}
     {
 
@@ -115,7 +117,7 @@ $\tilde{\bu}\in\wpcurl{\tilde{E}}$
     So we get to
     \begin{IEEEeqnarray*}{rCl}
     \left\| (\tilde{\bw}_k\tilde{{\textbf{u}}})_1 \right\|_{L^p(\tilde{E})}
-        & \leqslant & |\tilde{E}|^\frac{1}{p}\left\| (\tilde{\bw}_k\tilde{{\textbf{u}}})_1 \right\|_{L^\infty(\tilde{E})}\\
+        & \leqslant & |\tilde{E}|^{\nicefrac{1}{p}}\left\| (\tilde{\bw}_k\tilde{{\textbf{u}}})_1 \right\|_{L^\infty(\tilde{E})}\\
         & \leqslant & C
         \left[
             \|\tilde{u}_1\|_{L^p(\tilde{E})} + \sum_{i=1}^3 h_i \|\frac{\partial\tilde{u}_1}{\partial\tilde{x}_i}\|_{L^p(\tilde{E})}
