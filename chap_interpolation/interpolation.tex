@@ -262,30 +262,28 @@ Theorems~(\ref{thm_stab_edge}) and~(\ref{thm_stab_div}) show that the interpolat
 determined by the Finite Elements~(\ref{edgeelement}) and~(\ref{defi_h_div_conforme})
 are anisotropically stable, in the sense that the image of a field $\hat\bu$ under
 the linear operator depends not only continously on $\hat\bu$, but also with a
-\emph{componentwise} bound, with perhaps and additional curl or divergence term, respectively.
+\emph{componentwise} bound, with perhaps and additional
+curl or divergence term, respectively.\\
 
 \noindent Consider again the element $\tilde{E}$ defined in~(\ref{tilde_prism}).
-
-\subsection{Stability $\tilde{K}$. R-T.} % (fold)
-\label{sub:stability_ktilde_r_t}
 \begin{theorem} \label{thmStabilityKtildeRT}
 There is $C > 0$, independent of $h_1$, $h_2$ and $h_3$, s.t. for all $p \geqslant 1$ and 
-  $\tilde{\mathit{\textbf{u}}}\in W^{1,p}(\tilde{K})$
+  $\tilde{\bu}\in W^{1,p}(\tilde{E})$
   \begin{IEEEeqnarray*}{rCl}
-    \left\| \tilde{\boldsymbol{r}}_k\,\tilde{\mathit{\textbf{u}}}\right\|_{L^p(\tilde{K})}
-    & \leqslant & C \left( \left\| \tilde{\mathit{\textbf{u}}} \right\|_{L^p(\tilde{K})}
-    + \sum_{i=1}^3 h_i \left\| \partial_{\tilde{x}_i}\tilde{\mathit{\textbf{u}}} \right\|_{L^p(\tilde{K})}
-    + h_{\tilde{K}}\left\|\mathit{\Div}(\tilde{u}_1, \tilde{u}_2, 0) \,\right\|_{L^p(\tilde{K})}\right).
+    \left\| \tilde{\br}_k\,\tilde{\bu}\right\|_{L^p(\tilde{E})}
+    & \leqslant & C \left( \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
+    + \sum_{i=1}^3 h_i \left\| \partial_{\tilde{x}_i}\tilde{\bu} \right\|_{L^p(\tilde{E})}
+    + h_{\tilde{E}}\left\|\mathit{\Div}(\tilde{u}_1, \tilde{u}_2, 0) \,\right\|_{L^p(\tilde{E})}\right).
   \end{IEEEeqnarray*}
 \end{theorem}
-\begin{proof} 
+\begin{proof}
+Pick $p\geqslant 1$.
 Piola transform $+$ change of variables $+$ stability inequality~(\ref{teoremaDiv_1}) 
 $+$ H\"older's inequality.
-Take $p\geqslant 1$.
 \begin{IEEEeqnarray*}{rCl}
-  \|(\tilde{\boldsymbol{r}}_k\tilde{\boldsymbol{u}})_1\|_{L^{\infty}(\tilde{K})} & = &
+  \|(\tilde{\br}_k\tilde{\boldsymbol{u}})_1\|_{L^{\infty}(\tilde{E})} & = &
   \frac{1}{h_2h_3}
-  \|(\hat{\boldsymbol{r}}_k\hat{\boldsymbol{u}})_1\|_{L^{\infty}(\hat{K})}\\[7pt]
+  \|(\hat{\br}_k\hat{\boldsymbol{u}})_1\|_{L^{\infty}(\hat{K})}\\[7pt]
   &\leqslant&\frac{1}{h_2h_3}\left(\|\hat{\boldsymbol{u}}_1\|_{W^{1,1}(\hat{K})}
   +\|\dvg(\hat{u}_1,\hat{u}_2,0)\|_{L^{1}(\hat{K})}\right)\\[7pt]
   {\color{red}revisar}&=& 
@@ -295,52 +293,49 @@ Take $p\geqslant 1$.
   +\int\limits_{\hat{K}}|\partial_{\hat{x}_1}\hat{u}_1 + \partial_{\hat{x}_2}\hat{u}_2|
   \,d\hat{\textbf{x}}\right)\\[7pt]
   &=&\frac{1}{\det F}\left(
-  \int\limits_{\tilde{K}}|\tilde{u}_1|\,d\tilde{\textbf{x}}
-  +\sum_{i=1}^3h_i\int\limits_{\tilde{K}}|\partial_{\tilde{x}_i}\tilde{u}_1|\,d\tilde{\textbf{x}}
-  +h_1\int\limits_{\tilde{K}}|\partial_{\tilde{x}_1}\tilde{u}_1 + \partial_{\tilde{x}_2}\tilde{u}_2|
+  \int\limits_{\tilde{E}}|\tilde{u}_1|\,d\tilde{\textbf{x}}
+  +\sum_{i=1}^3h_i\int\limits_{\tilde{E}}|\partial_{\tilde{x}_i}\tilde{u}_1|\,d\tilde{\textbf{x}}
+  +h_1\int\limits_{\tilde{E}}|\partial_{\tilde{x}_1}\tilde{u}_1 + \partial_{\tilde{x}_2}\tilde{u}_2|
   \,d\tilde{\textbf{x}}\right)\\[7pt]
-  &=&\frac{1}{2|\tilde{K}|}\left(
-  \|\tilde{u}_1\|_{L^1(\tilde{K})}
-  +\sum_{i=1}^3h_i\|\partial_{\tilde{x}_i}\tilde{u}_1\|_{L^1(\tilde{K})}
-  +h_1\|\dvg(\tilde{u}_1,\tilde{u}_2,0)\|_{L^1(\tilde{K})}\right)\\[7pt]
-  &\leqslant&\frac{1}{2|\tilde{K}|^{\frac{1}{p}}}\left(
-  \|\tilde{u}_1\|_{L^p(\tilde{K})}
-  +\sum_{i=1}^3h_i\|\partial_{\tilde{x}_i}\tilde{u}_1\|_{L^p(\tilde{K})}
-  +h_1\|\dvg(\tilde{u}_1,\tilde{u}_2,0)\|_{L^p(\tilde{K})}\right)
+  &=&\frac{1}{2|\tilde{E}|}\left(
+  \|\tilde{u}_1\|_{L^1(\tilde{E})}
+  +\sum_{i=1}^3h_i\|\partial_{\tilde{x}_i}\tilde{u}_1\|_{L^1(\tilde{E})}
+  +h_1\|\dvg(\tilde{u}_1,\tilde{u}_2,0)\|_{L^1(\tilde{E})}\right)\\[7pt]
+  &\leqslant&\frac{1}{2|\tilde{E}|^{\frac{1}{p}}}\left(
+  \|\tilde{u}_1\|_{L^p(\tilde{E})}
+  +\sum_{i=1}^3h_i\|\partial_{\tilde{x}_i}\tilde{u}_1\|_{L^p(\tilde{E})}
+  +h_1\|\dvg(\tilde{u}_1,\tilde{u}_2,0)\|_{L^p(\tilde{E})}\right)
 \end{IEEEeqnarray*}
 Now
 \begin{IEEEeqnarray*}{rCl}
-  \|(\tilde{\boldsymbol{r}}_k\tilde{\boldsymbol{u}})_1\|_{L^{p}(\tilde{K})}
+  \|(\tilde{\br}_k\tilde{\boldsymbol{u}})_1\|_{L^{p}(\tilde{E})}
   &\leqslant&
-  |\tilde{K}|^{1/p}\|(\tilde{\boldsymbol{r}}_k\tilde{\boldsymbol{u}})_1\|_{L^{\infty}(\tilde{K})}\\
-  &\lesssim&\|\tilde{u}_1\|_{L^p(\tilde{K})}
-  +\sum_{i=1}^3h_i\|\partial_{\tilde{x}_i}\tilde{u}_1\|_{L^p(\tilde{K})}
-  +h_1\|\dvg(\tilde{u}_1,\tilde{u}_2,0)\|_{L^p(\tilde{K})},
+  |\tilde{E}|^{1/p}\|(\tilde{\br}_k\tilde{\boldsymbol{u}})_1\|_{L^{\infty}(\tilde{E})}\\
+  &\lesssim&\|\tilde{u}_1\|_{L^p(\tilde{E})}
+  +\sum_{i=1}^3h_i\|\partial_{\tilde{x}_i}\tilde{u}_1\|_{L^p(\tilde{E})}
+  +h_1\|\dvg(\tilde{u}_1,\tilde{u}_2,0)\|_{L^p(\tilde{E})},
 \end{IEEEeqnarray*}
 and again, the same holds for component $2$. For component $3$
 stability inequality~(\ref{teoremaDiv_3}) gives us
 \begin{IEEEeqnarray*}{rCl}
-  \|(\tilde{\boldsymbol{r}}_k\tilde{\boldsymbol{u}})_3\|_{L^{\infty}(\tilde{K})} & = &\frac{1}{h_1h_2}
-  \|(\hat{\boldsymbol{r}}_k\hat{\boldsymbol{u}})_3\|_{L^{\infty}(\hat{K})}\\[6pt]
+  \|(\tilde{\br}_k\tilde{\boldsymbol{u}})_3\|_{L^{\infty}(\tilde{E})} & = &\frac{1}{h_1h_2}
+  \|(\hat{\br}_k\hat{\boldsymbol{u}})_3\|_{L^{\infty}(\hat{K})}\\[6pt]
   &\leqslant&\frac{C}{h_1h_2}\,\|\hat{u}_3\|_{W^{1,1}(\hat{K})}\\[6pt]
-  &=&\frac{C}{|\tilde{K}|}\,\left[\|\tilde{u}_3\|_{L^1(\tilde{K})} +
-    \sum_{i=1,2,3} h_i\,\|\partial_{\tilde{x}_i}\tilde{u}_3\|_{L^1(\tilde{K})}\right]\\[6pt]
-  &\leqslant& \frac{C}{|\tilde{K}|^{\frac{1}{p}}}\,\left[\|\tilde{u}_3\|_{L^p(\tilde{K})} +
-    \sum_{i=1,2,3} h_i\,\|\partial_{\tilde{x}_i}\tilde{u}_3\|_{L^p(\tilde{K})}\right],
+  &=&\frac{C}{|\tilde{E}|}\,\left[\|\tilde{u}_3\|_{L^1(\tilde{E})} +
+    \sum_{i=1,2,3} h_i\,\|\partial_{\tilde{x}_i}\tilde{u}_3\|_{L^1(\tilde{E})}\right]\\[6pt]
+  &\leqslant& \frac{C}{|\tilde{E}|^{\frac{1}{p}}}\,\left[\|\tilde{u}_3\|_{L^p(\tilde{E})} +
+    \sum_{i=1,2,3} h_i\,\|\partial_{\tilde{x}_i}\tilde{u}_3\|_{L^p(\tilde{E})}\right],
 \end{IEEEeqnarray*}
 for any real $p \geqslant 1$. So, immediately,
 \begin{IEEEeqnarray*}{rCl}
-  \|(\tilde{\boldsymbol{r}}\tilde{\boldsymbol{u}})_3\|_{L^{p}(\tilde{K})}
+  \|(\tilde{\br}\tilde{\boldsymbol{u}})_3\|_{L^{p}(\tilde{E})}
   &\leqslant& C\,\left(
-  \|\tilde{u}_3\|_{L^p(\tilde{K})} +
-    \sum_{i=1,2,3} h_i\,\|\partial_{\tilde{x}_i}\tilde{u}_3\|_{L^p(\tilde{K})}
+  \|\tilde{u}_3\|_{L^p(\tilde{E})} +
+    \sum_{i=1,2,3} h_i\,\|\partial_{\tilde{x}_i}\tilde{u}_3\|_{L^p(\tilde{E})}
   \right)
 \end{IEEEeqnarray*}
 and the sum of the three estimates yields the theorem.
 \end{proof}
-
-% subsection stability_ktilde_r_t (end)
-
 
 % section prismatic_finite_elements (end)
 
