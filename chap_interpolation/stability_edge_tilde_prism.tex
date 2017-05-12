@@ -66,7 +66,7 @@ change of variables dictated by~(\ref{change_var})
     \right\|_{L^p(\tilde{E})}
     \right)
   \right.\\
-      & & \:\:+
+\yesnumber\label{number1}      & & \:\:+
   \left.
     h_2|\tilde{E}|^{-1}
     \left(
@@ -76,49 +76,43 @@ change of variables dictated by~(\ref{change_var})
   \right].
 \end{IEEEeqnarray*}
 With respect to component number three, from~(\ref{teorema_3})
-\begin{IEEEeqnarray*}{rCl}
+\begin{IEEEeqnarray}{rCl}\label{number2}
   \left\| (\wkutilde)_3 \right\|_{L^\infty(\tilde{E})}
   & \leqslant & C|\tilde{E}|^{-\nicefrac{1}{p}}
   \left(
     \|\tilde{u}_3\|_{L^p(\tilde{E})} + \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}\tilde{u}_3\|_{L^p(\tilde{E})}
   \right).
-\end{IEEEeqnarray*}
+\end{IEEEeqnarray}
 \end{proof}
 \noindent With the previous bound we deduce the following
 anisotropic stability estimate for the rescaled element $\tilde{E}$.
 \begin{theorem} There is a $c > 0$ independent of $h_i$ such that for all
 $\tilde{\bu}\in\wpcurl{\tilde{E}}$
-    \begin{IEEEeqnarray*}{rCl}
-        \left\| \wkutilde \right\|_{L^p(\tilde{E})}
-        & \leqslant & C \left[ \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
-        + \sum_{i=1}^3 h_i \left\| \partial_{\tilde{x}_i}\tilde{\bu} \right\|_{L^p(\tilde{E})}\right.\\
-        & & \left.
-        \:+\;h\left\|(\curl\,\tilde{\bu})_3 \right\|_{L^p(\tilde{E})}
-        + h\sum_{i=1}^3 h_i
-        \left\| \partial_{\tilde{x}_i}(\curl\,\tilde{\bu})_3 \right\|_{L^p(\tilde{E})}
-    \right].
-    \end{IEEEeqnarray*}
+  \begin{IEEEeqnarray*}{rCl}
+    \left\| \wkutilde \right\|_{L^p(\tilde{E})}
+    & \leqslant & C \left[ \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
+    + \sum_{i=1}^3 h_i \left\| \partial_{\tilde{x}_i}\tilde{\bu} \right\|_{L^p(\tilde{E})}\right.\\
+    & & \left.
+    \:+\;(h_1+h_2)\left(\left\|(\curl\,\tilde{\bu})_3 \right\|_{L^p(\tilde{E})}
+     + \sum_{i=1}^3 h_i
+     \left\| \partial_{\tilde{x}_i}(\curl\,\tilde{\bu})_3 \right\|_{L^p(\tilde{E})}\right)
+  \right].
+\end{IEEEeqnarray*}
 \end{theorem}
-{\color{blue}\#\#\#\#\#\#\#\# continue here. chequear minimamente la 
-cuentita en color aca.}
 \begin{proof}
-    {
-
-    \color{BrickRed}
-
     \noindent From Lemma~(\ref{estabLinf}), since $|\tilde{E}|$ is finite measured,
-    the H\"older inequality tells us that, for any real $p \geqslant 1$,
+    the H\"older inequality tells us that, for any real $q \geqslant 1$,
     \begin{IEEEeqnarray*}{rCl}
         \|(\curl\,\tilde{\textbf{u}})_3\|_{L^1(\tilde{E})} &\leqslant&
-         |\tilde{E}|^{1-\frac{1}{p}}\,\|(\curl\,\tilde{\textbf{u}})_3\|_{L^p(\tilde{E})}\\
+         |\tilde{E}|^{1-\frac{1}{q}}\,\|(\curl\,\tilde{\textbf{u}})_3\|_{L^q(\tilde{E})}\\
         \|\partial_{\tilde{x}_i}(\curl\,\tilde{\textbf{u}})_3\|_{L^1(\tilde{E})} &\leqslant&
-         |\tilde{E}|^{1-\frac{1}{p}}\,\|\partial_{\tilde{x}_i}(\curl\,\tilde{\textbf{u}})_3\|_{L^p(\tilde{E})}.
+         |\tilde{E}|^{1-\frac{1}{q}}\,\|\partial_{\tilde{x}_i}(\curl\,\tilde{\textbf{u}})_3\|_{L^q(\tilde{E})}.
     \end{IEEEeqnarray*}
     So we get to
     \begin{IEEEeqnarray*}{rCl}
     \left\| (\tilde{\bw}_k\tilde{{\textbf{u}}})_1 \right\|_{L^p(\tilde{E})}
         & \leqslant & |\tilde{E}|^{\nicefrac{1}{p}}\left\| (\tilde{\bw}_k\tilde{{\textbf{u}}})_1 \right\|_{L^\infty(\tilde{E})}\\
-        & \leqslant & C
+     \mbox{(by~(\ref{number1}))\hspace{.6cm}}   & \leqslant & C
         \left[
             \|\tilde{u}_1\|_{L^p(\tilde{E})} + \sum_{i=1}^3 h_i \|\frac{\partial\tilde{u}_1}{\partial\tilde{x}_i}\|_{L^p(\tilde{E})}
         \right.\\
@@ -131,8 +125,6 @@ cuentita en color aca.}
             \right)
         \right].
     \end{IEEEeqnarray*}
-    Now combine this with an entirely analogous argument for component $2$ and the estimate for component
-    $3$ already obtained in Lemma~(\ref{estabLinf}).
-
-    }
+    Now combine this with an entirely analogous argument for component $2$ and with~(\ref{number2}) and
+    the Theorem follows.
 \end{proof}
