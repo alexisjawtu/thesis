@@ -138,8 +138,8 @@ freedom~(\ref{momentos2hdiv}) and the volume degrees of freedom~(\ref{momentos3h
 %    \hat{p}_2 & = & \hat{y}\,\psi.
 %  \end{IEEEeqnarray*}
 But finally, if we evaluate the degrees of freedom~(\ref{momentos3hdiv}),
-we see that  $\hat{p}_1 = (\hat{\br}_k\hat{\bu})_1$ and 
-$\hat{p}_2 = (\hat{\br}_k\hat{\bu})_2$ can be no other that
+we see that  $\hat{p}_1 = (\rku)_1$ and 
+$\hat{p}_2 = (\rku)_2$ can be no other that
 constantly null over all $\hat{E}$. 
 \end{proof}
 \begin{lemma}
@@ -160,26 +160,26 @@ constantly null over all $\hat{E}$.
   $(\hat{\br}_k\hat{\boldsymbol{u}})_3 = 0$.
   The nullity of $\dv\hat{\bu}$ and the commutative
   diagram property~(\ref{lema_pi_star_rot_u}) give us
-  $\dv\hat{\br}_k\hat{\bu} = 0$.
+  $\dv\rku = 0$.
   This last fact, together with the result of the evaluation of the 
   degrees of freedom~(\ref{momentos2hdiv})
   on the face $\hat f_1 \subseteq \{x_1=0\}$
   and~(\ref{momentos3hdiv}) over $\hat E$, implies, as we have seen in
   Lemma~(\ref{lemma_u1_u2}), that $(\hat{\br}_k\hat{\boldsymbol{u}})_1 = 0$.
   And if look again at 
-  $\dv\hat{\br}_k\hat{\bu} = {\partial\hat{\br}_k\hat{\bu}}/{\partial\hat x_2} = 0$
+  $\dv\rku = {\partial\rku}/{\partial\hat x_2} = 0$
   we have that $(\hat{\br}_k\hat{\boldsymbol{u}})_2$ does not depend on $\hat x_2$.
 \end{proof}
 \noindent It is time to state and prove the Theorem that was the purpose of this section.
 \begin{theorem}\label{thm_stab_div} Given $\hat{\bu} \in W^{1,1}(\hat{E})$
 \begin{IEEEeqnarray}{rCl}
-\label{teoremaDiv_1} \norm{(\hat{\br}_k\hat{\bu})_1}_{L^{\infty}(\hat{E})} & 
+\label{teoremaDiv_1} \norm{(\rku)_1}_{L^{\infty}(\hat{E})} & 
     \lesssim & \|\hat{u}_1\|_{W^{1,1}(\hat{E})} + 
     \|\emph{div}(\hat{u}_1, \hat{u}_2, 0)\|_{L^{1}(\hat{E})} \\ 
-\label{teoremaDiv_2} \norm{(\hat{\br}_k\hat{\bu})_2}_{L^{\infty}(\hat{E})} & 
+\label{teoremaDiv_2} \norm{(\rku)_2}_{L^{\infty}(\hat{E})} & 
     \lesssim & \|\hat{u}_2\|_{W^{1,1}(\hat{E})} + 
     \|\emph{div}(\hat{u}_1, \hat{u}_2, 0)\|_{L^{1}(\hat{E})} \\ 
-\label{teoremaDiv_3} \norm{(\hat{\br}_k\hat{\bu})_3}_{L^{\infty}(\hat{E})} & 
+\label{teoremaDiv_3} \norm{(\rku)_3}_{L^{\infty}(\hat{E})} & 
     \lesssim & \|\hat{u}_3\|_{W^{1,1}(\hat{E})}
 \end{IEEEeqnarray}
 where the constants in the inequalities depend olny on $\hat{E}$.
@@ -277,7 +277,15 @@ There is $C > 0$, independent of $h_1$, $h_2$ and $h_3$, s.t. for all $p \geqsla
   \end{IEEEeqnarray*}
 \end{theorem}
 \begin{proof}
-Pick $p\geqslant 1$.
+Pick $p\geqslant 1$. If we pull 
+$\tilde{\bu}$ back to $\hat{E}$ we get the relation
+\begin{IEEEeqnarray*}{rCl}
+  \hat{\bu}(\hat{\bx}) & = & (det\,DF)DF^{-1}\tilde{\bu}(F\hat{\bx})
+\end{IEEEeqnarray*}
+and by~(\ref{push-forward})
+\begin{IEEEeqnarray*}{rCl}
+  (\det DF)DF^{-1}\rkutilde(F(\hat{\bx})) & = & \rku(\hat{\bx})
+\end{IEEEeqnarray*}
 Piola transform $+$ change of variables $+$ stability inequality~(\ref{teoremaDiv_1}) 
 $+$ H\"older's inequality.
 \begin{IEEEeqnarray*}{rCl}
