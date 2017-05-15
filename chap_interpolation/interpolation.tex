@@ -4,7 +4,7 @@
 \begin{table}[h!]
 \centering
 \caption{Notation}
-\label{edgeFacesNotationTable}
+\label{prismNotationTable}
     \begin{IEEEeqnarraybox}
     [\IEEEeqnarraystrutmode
      \IEEEeqnarraystrutsizeadd{0pt}{0pt}]{v/c/v/c/v/c/v/c/v}
@@ -349,17 +349,83 @@ so, immediately,
   \right)
 \end{IEEEeqnarray*}
 and the sum of the three estimates yields the theorem.
-\noindent{\color{blue}\#\#\#\#\#\#\# continue here} 
 \end{proof}
 % section prismatic_finite_elements (end)
 \section{Pyramidal Finite Elements} % (fold)
 \label{sec:pyramidal_finite_elements}
+
+\begin{table}[h!]
+\centering
+\caption{Notation}
+\label{pyramidNotationTable}
+    \begin{IEEEeqnarraybox}
+    [\IEEEeqnarraystrutmode
+     \IEEEeqnarraystrutsizeadd{0pt}{0pt}]{v/c/v/c/v/c/v/c/v}
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[3pt]\\
+        &\hfill\raisebox{22pt}[0pt][0pt]{}\hfill
+                            & & ***
+                            & & ***
+                            & & *** &\\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[3pt]\\
+        &\hfill\raisebox{30pt}[0pt][0pt]{***}\hfill& &
+            \begin{IEEEeqnarraybox}{c}
+            ***\\***
+            \end{IEEEeqnarraybox}
+        &&&&
+            \begin{IEEEeqnarraybox}{c}
+                ***\\***
+            \end{IEEEeqnarraybox}
+        &\\
+        \IEEEeqnarrayseprow[3pt]\\
+        \IEEEeqnarrayrulerow
+    \end{IEEEeqnarraybox}
+\end{table}
+{\color{blue}\#\#\#\#\#\#\#\# ver G\&H99.}
+\begin{IEEEeqnarray*}{rClCrClCrCl}
+  \hat f_1 & \subseteq &  \{\hat x_2 = 0 \} & \qquad & \hat \be_1& = & \{(\hat x_1,0,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\}  &\quad& \hat \be_6& = & \{(1-\hat x_3,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} \\[4pt]
+  \hat f_2 & \subseteq &  \{\hat x_1 = 0      \} & \qquad & \hat \be_2& = & \{(1,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\}  &\quad& \hat \be_7& = & \{(0,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} \\[4pt]
+  \hat f_3 & \subseteq &  \{\hat x_1 + \hat x_3 = 1      \} & \qquad & \hat \be_3& = & \{(\hat x_1,1,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\}  &\quad& \hat \be_8& = & \{(1-\hat x_3,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} \\[4pt]
+  \hat f_4 & \subseteq &  \{\hat x_1 + \hat x_2 = 1      \} & \qquad & \hat \be_4& = & \{(0,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\}  &\quad&  &  & \\[4pt]
+  \hat f_5 & \subseteq &  \{\hat x_3 = 0\}  & \qquad & \hat \be_5& = & \{(0,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\}  &     &           &           &
+\end{IEEEeqnarray*}
+
 \subsection{Edge Elements} % (fold)
 \label{sub:edge_elements}
 
 % subsection edge_elements (end)
 \subsection{Face Elements} % (fold)
 \label{sub:face_elements}
+
+\paragraph{Stability $\hat{P}$ {\color{red}Estamos usando las shapes
+de~\cite{gh99} p.164, que verifiqu\'e que son las correctas.}}
+\label{par:stability_hat}
+\begin{IEEEeqnarray*}{rCl}
+{\color{blue} \boldsymbol{p>1}}?? & & \\
+  \|(\pi\bu)_1\|_{\scriptscriptstyle{L^\infty}} & \lesssim & 
+    \|u_1\|_{\scriptscriptstyle{L^p}} +
+    \|\Div \bu\|_{\scriptscriptstyle{L^p}} + 
+    \sum_{\scriptscriptstyle{1\leqslant i\leqslant 3}} 
+    \left\|\dfrac{{\scriptstyle\partial} u_1}{{\scriptstyle\partial} x_i}\right\|_{\scriptscriptstyle{L^p}}\\[7pt]
+  & &\,   + \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_1}\right\|_{\scriptscriptstyle{L^p}}
+      + \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_2}
+        \right\|_{\scriptscriptstyle{L^p}} + \left\|\dfrac{{\scriptstyle\partial} u_2}{{\scriptstyle\partial} x_2}
+        \right\|_{\scriptscriptstyle{L^p}}\\[7pt]
+  &\eqsim& \|u_1\|_{\scriptscriptstyle{W^{1,p}}} +
+    \|\Div \bu\|_{\scriptscriptstyle{L^p}} + \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_1}\right\|_{\scriptscriptstyle{L^p}}
+      + \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_2}
+        \right\|_{\scriptscriptstyle{L^p}} + \left\|\dfrac{{\scriptstyle\partial} u_2}{{\scriptstyle\partial} x_2}
+        \right\|_{\scriptscriptstyle{L^p}}.\\[12pt]
+  \|(\pi\bu)_3\|_{\scriptscriptstyle{L^\infty}} & \lesssim & 
+    \|u_3\|_{\scriptscriptstyle{L^p}} +
+    \|\Div \bu\|_{\scriptscriptstyle{L^p}} +
+    \sum_{\scriptscriptstyle 1\leqslant i\leqslant 3}
+      \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_i}
+    \right\|_{\scriptscriptstyle{L^p}}
+\end{IEEEeqnarray*}
+
+
 % subsection face_elements (end)
 
 

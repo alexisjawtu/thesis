@@ -1,7 +1,7 @@
 \chapter{Finite Elements}
 {\color{blue} Ir viendo que algunas cosas de acá van a ir a parar
 a Preliminaries.}
-\section{Edge elements}
+\section{Prismatic Finite Elements}
 \subsection{Definici\'on del \emph{edge element} en prismas} % (fold)
 \label{sub:defEdgeElement}
 Now we introduce two polynomial spaces which will be used to construct 
@@ -288,11 +288,156 @@ under
 \end{IEEEeqnarray*}
 where $B$ is a matrix of rank $3$.
 
-
-
 \noindent---------------------------------------------------------
 \input{./chap_vems/hdiv_basis_low_order}\\
 ---------------------------------------------------------
+\newpage
+\section{Pyramidal Finite Elements}
+The Finite Elements defined here are the ones found in~\cite{gh99}.
+\subsection{Edge} % (fold)
+\label{sub:edge}
+\begin{table}[!h]
+    \centering  
+    \caption{\emph{Shape functions} en $\hat{E}$}
+    \begin{IEEEeqnarraybox*}
+    [\IEEEeqnarraystrutmode
+    \IEEEeqnarraystrutsizeadd{2pt}{25pt}]{x/c/x/c/x/c/x}
+        \IEEEeqnarrayseprow[5pt]\\
+        &\IEEEeqnarraymulticol{5}{c}{
+                \raisebox{-15pt}{}\;\;
+                {%\tiny
+                {\scriptstyle\gamma_1} = 
+                \left(
+                            \begin{array}{c}
+                                {1-z-y} \\[8pt]             
+                                0 \\[8pt]
+                                x-\frac{xy}{1-z}               
+                            \end{array}
+                        \right)}\;\;
+                {%\tiny
+                {\scriptstyle\zeta_2} = 
+                {\color{red} TERMINAR TABLA\left(
+                                            \begin{array}{c}
+                                                x-2+\dfrac{x}{1-z} \\[8pt]
+                                                -\dfrac{yz}{1-z} \\[8pt]                
+                                                z               
+                                            \end{array}
+                                        \right)}}}&\\
+        \IEEEeqnarrayseprow[10pt]\\
+        &
+        {%\tiny
+        {\scriptstyle\zeta_3} = 
+        \left(
+                    \begin{array}{c}
+                        x+\dfrac{x}{1-z} \\[8pt]
+                        -\dfrac{yz}{1-z} \\[8pt]                
+                        z               
+                    \end{array}
+                \right)}&&
+        {%\tiny
+        {\scriptstyle\zeta_4} = 
+        \left(
+                    \begin{array}{c}
+                        -\dfrac{xz}{1-z} \\[8pt]                
+                        y+\dfrac{y}{1-z} \\[8pt]
+                        z               
+                    \end{array}
+                \right)}&&
+        {%\tiny
+        {\scriptstyle\zeta_5} = 
+        \left(
+                    \begin{array}{c}
+                        x \\[8pt]               
+                        y \\[8pt]
+                        z-1                 
+                    \end{array}
+                \right)}&\\
+        \IEEEeqnarrayseprow[10pt]
+    \end{IEEEeqnarraybox*}
+\end{table}
+
+% subsection edge (end)
+
+\subsection{Face} % (fold)
+\label{sub:face}
+\begin{table}[!h]
+    \centering  
+    \caption{\emph{Shape functions} en $\hat{E}$}
+    \label{table_face_func_pyramid}
+    \begin{IEEEeqnarraybox*}
+    [\IEEEeqnarraystrutmode
+    \IEEEeqnarraystrutsizeadd{2pt}{25pt}]{x/c/x/c/x/c/x}
+        \IEEEeqnarrayseprow[5pt]\\
+        &\IEEEeqnarraymulticol{5}{c}{
+                \raisebox{-15pt}{}\;\;
+                {%\tiny
+                {\scriptstyle\boldsymbol{\zeta}_1} = 
+                \left(
+                            \begin{array}{c}
+                                -\frac{xz}{1-z} \\[8pt]             
+                                y-2+\frac{y}{1-z} \\[8pt]
+                                z               
+                            \end{array}
+                        \right)}\;\;
+                {%\tiny
+                {\scriptstyle\boldsymbol{\zeta}_2} = 
+                \left(
+                            \begin{array}{c}
+                                x-2+\dfrac{x}{1-z} \\[8pt]
+                                -\dfrac{yz}{1-z} \\[8pt]                
+                                z               
+                            \end{array}
+                        \right)}}&\\
+        \IEEEeqnarrayseprow[10pt]\\
+        &
+        {%\tiny
+        {\scriptstyle\boldsymbol{\zeta}_3} = 
+        \left(
+                    \begin{array}{c}
+                        x+\dfrac{x}{1-z} \\[8pt]
+                        -\dfrac{yz}{1-z} \\[8pt]                
+                        z               
+                    \end{array}
+                \right)}&&
+        {%\tiny
+        {\scriptstyle\boldsymbol{\zeta}_4} = 
+        \left(
+                    \begin{array}{c}
+                        -\dfrac{xz}{1-z} \\[8pt]                
+                        y+\dfrac{y}{1-z} \\[8pt]
+                        z               
+                    \end{array}
+                \right)}&&
+        {%\tiny
+        {\scriptstyle\boldsymbol{\zeta}_5} = 
+        \left(
+                    \begin{array}{c}
+                        x \\[8pt]               
+                        y \\[8pt]
+                        z-1                 
+                    \end{array}
+                \right)}&\\
+        \IEEEeqnarrayseprow[10pt]
+    \end{IEEEeqnarraybox*}
+\end{table}
+
+\begin{defi}\label{defi_h_div_conforme_pyramid}
+\begin{itemize}
+    \item $\hat{E}$ is the reference Pyramid (Figure~(\ref{reference_pyramid})).
+    \item El espacio $Q_{\hat{E}}$ is $\mbox{span}\{\hat{\boldsymbol{\zeta}}_1,\,\ldots,\,\hat{\boldsymbol{\zeta}}_5\}$ with $\hat{\boldsymbol{\zeta}}_i$
+    as in Table~(\ref{table_face_func_pyramid})
+    \item The degrees of freedom are:
+\begin{IEEEeqnarray}{lcl}
+    \label{dofsdivpyramid} \int\limits_{\hat{f}} \bv\cdot\boldsymbol{\nu}\,d\hat{\gamma}
+        && 
+\end{IEEEeqnarray}
+\end{itemize}
+\end{defi}
+
+
+
+% subsection face (end)
+\section{Tetrahedral Finite Elements}
 \subsection{Definition of the $H(\text{div})$-conforming element on tetrahedra. 
 Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_tetrahedra}
