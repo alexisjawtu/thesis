@@ -398,9 +398,9 @@ and the sum of the three estimates yields the theorem.
 \subsection{Face Elements} % (fold)
 \label{sub:face_elements}
 
-\paragraph{Stability $\hat{P}$ {\color{red}Estamos usando las shapes
-de~\cite{gh99} p.164, que verifiqu\'e que son las correctas.}}
+\paragraph{Stability $\hat{E}$} 
 \label{par:stability_hat}
+\begin{theorem}
 \begin{IEEEeqnarray*}{rCl}
 {\color{blue} \boldsymbol{p>1}}?? & & \\
   \|(\pi\bu)_1\|_{\scriptscriptstyle{L^\infty}} & \lesssim & 
@@ -424,6 +424,15 @@ de~\cite{gh99} p.164, que verifiqu\'e que son las correctas.}}
       \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_i}
     \right\|_{\scriptscriptstyle{L^p}}
 \end{IEEEeqnarray*}
+\end{theorem}
+
+\begin{proof}
+  \[
+    (\rku)_3\xyz = \hat{x}_3\int\limits_{\hat{E}} \mbox{div}\,\hat{\bu}\,d\hat{\bx} 
+     + \iint\limits_{\hat{f}_5} \hat{u}_3\,d\hat{s}
+  \]
+\end{proof}
+
 
 
 % subsection face_elements (end)
