@@ -1,0 +1,31 @@
+\chapter{Approximation}
+\section{regularity} % (fold)
+\label{sec:regularity}
+\begin{defi}
+  If $\Omega$ is a non--convex polihedron $\lambda_e$ is ... and $\lambda_v$ is ---	
+\end{defi}
+\noindent Assuming a decomposition of $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ in tetrahedral macroelements having at most a singular edge and a singular vertex, we have the following regularity result. First we introduce the space $V^{1,2}_{\beta,\delta}(\Lambda)$ for a macroelement $\Lambda$ as
+\[
+V^{1,2}_{\beta,\delta} = \left\{v\in \mathcal D'(\Lambda): R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}D^\alpha v\in L^2(\Lambda), \alpha\in \mathbb N^3, |\alpha|\le1\right\}
+\]
+where $R({\bf x})$ is the distance of ${\bf x}$ to the vertices of $\Lambda$, $r({\bf x})$ is the distance from ${\bf x}$ to the edges of $\Lambda$ and finally $\theta({\bf x})$ is the angular distance $\theta({\bf x})=\frac{r({\bf x})}{R({\bf x})}$.
+\begin{theorem}
+The solutions $\bu$ and $p$ of problem \eqref{P} satisfy
+\[
+p\in H^1(\Omega)
+\] 
+and for each $\ell$
+\[
+\bu=\bu_r + \bu_s
+\]
+with $\bu_r\in H^1(\Omega)$ and
+\[
+\bu_s\cdot \xi_i\in V^{1,2}_{\beta,\delta}(\Lambda_\ell), \quad i=1,2, \qquad \bu_s\cdot\xi_3\in V^{1,2}_{\beta,0}(\Lambda_\ell)
+\]
+where $\xi_i$, $i=1,2,3$, are the directions of three concurrent edges of $\Lambda_\ell$ with $\xi_3$ being the direction of the singular edge if it exists in $\Omega_\ell$, and $\beta,\delta\ge0$ satisfying $\beta>\frac12-\lambda_v^{(\ell)}$ and $\delta>1-\lambda_e^{(\ell)}$, $v$ and $e$ being the singular vertex and edge, respectively, if they exist.
+\end{theorem} 
+
+\begin{remark}\label{sobreBetaYDelta}
+\textcolor{red}{Note that it is always possible in the previous Theorem to take $0<\beta=\delta<1$.} 
+\end{remark}
+% section regularity (end)

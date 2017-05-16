@@ -371,7 +371,7 @@ The Finite Elements defined here are the ones found in~\cite{gh99}.
         &\IEEEeqnarraymulticol{5}{c}{
                 \raisebox{-15pt}{}\;\;
                 {%\tiny
-                {\scriptstyle\boldsymbol{\zeta}_1} = 
+                {\scriptstyle\bz_1} = 
                 \left(
                             \begin{array}{c}
                                 -\frac{xz}{1-z} \\[8pt]             
@@ -380,7 +380,7 @@ The Finite Elements defined here are the ones found in~\cite{gh99}.
                             \end{array}
                         \right)}\;\;
                 {%\tiny
-                {\scriptstyle\boldsymbol{\zeta}_2} = 
+                {\scriptstyle\bz_2} = 
                 \left(
                             \begin{array}{c}
                                 x-2+\dfrac{x}{1-z} \\[8pt]
@@ -391,7 +391,7 @@ The Finite Elements defined here are the ones found in~\cite{gh99}.
         \IEEEeqnarrayseprow[10pt]\\
         &
         {%\tiny
-        {\scriptstyle\boldsymbol{\zeta}_3} = 
+        {\scriptstyle\bz_3} = 
         \left(
                     \begin{array}{c}
                         x+\dfrac{x}{1-z} \\[8pt]
@@ -400,7 +400,7 @@ The Finite Elements defined here are the ones found in~\cite{gh99}.
                     \end{array}
                 \right)}&&
         {%\tiny
-        {\scriptstyle\boldsymbol{\zeta}_4} = 
+        {\scriptstyle\bz_4} = 
         \left(
                     \begin{array}{c}
                         -\dfrac{xz}{1-z} \\[8pt]                
@@ -409,7 +409,7 @@ The Finite Elements defined here are the ones found in~\cite{gh99}.
                     \end{array}
                 \right)}&&
         {%\tiny
-        {\scriptstyle\boldsymbol{\zeta}_5} = 
+        {\scriptstyle\bz_5} = 
         \left(
                     \begin{array}{c}
                         x \\[8pt]               
@@ -420,11 +420,13 @@ The Finite Elements defined here are the ones found in~\cite{gh99}.
         \IEEEeqnarrayseprow[10pt]
     \end{IEEEeqnarraybox*}
 \end{table}
-
+\begin{remark}
+  These rational funtions satisfy $\int_{f_j}\bz_i\cdot\bn = \delta_{ij}$   
+\end{remark}
 \begin{defi}\label{defi_h_div_conforme_pyramid}
 \begin{itemize}
     \item $\hat{E}$ is the reference Pyramid (Figure~(\ref{reference_pyramid})).
-    \item El espacio $Q_{\hat{E}}$ is $\mbox{span}\{\hat{\boldsymbol{\zeta}}_1,\,\ldots,\,\hat{\boldsymbol{\zeta}}_5\}$ with $\hat{\boldsymbol{\zeta}}_i$
+    \item El espacio $Q_{\hat{E}}$ is $\mbox{span}\{\hat{\bz}_1,\,\ldots,\,\hat{\bz}_5\}$ with $\hat{\bz}_i$
     as in Table~(\ref{table_face_func_pyramid})
     \item The degrees of freedom are:
 \begin{IEEEeqnarray}{lcl}
