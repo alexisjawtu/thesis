@@ -5,16 +5,16 @@
 \subsection{Definitions, notations} % (fold)
 \label{sub:definitions_notations}
 \begin{defi}
-A Finite Element in $\mathbb{R}^n$ is defined by the following triple $(K, P_K, \Sigma) $:
+A Finite Element in $\mathbb{R}^n$ is defined by the following triple $(E, P_E, \Sigma) $:
 \vspace{5pt}
 \noindent
 $E$ is an open non empty domain of $\mathbb{R}^n$ with Lipschitz--continuous 
 boundary.\\[5pt]
 \noindent
-$P_K$ is a finite--dimensional space of real--valued functions defined over $K$.\\[5pt]
+$P_E$ is a finite--dimensional space of real--valued functions defined over $E$.\\[5pt]
 \noindent
 $\Sigma$ is a finite set of linearly independent linear functionals acting 
-on a functional space containing $P_K$. The elements of $\Sigma$ are often
+on a functional space containing $P_E$. The elements of $\Sigma$ are often
 referred to as  \emph{degrees of freedom} or \emph{moments} of the Finite
 Element.
 \end{defi}
@@ -26,14 +26,25 @@ or not, $(V)_i$ denotes the space of scalar functions in $i-$th
 coordinate projection
 of $V$, for $1\leqslant i\leqslant n$.
 \end{defi}
-
-\begin{defi} a family of meshes is regular if 
-\end{defi}
-
-\begin{defi} a family of meshes is anisotropic if 
-\end{defi}
-
-\begin{defi} a family of meshes is graded if 
+\begin{defi} 
+Given  a Finite Elements $E$ set
+\begin{IEEEeqnarray*}{rCl}
+  h_E & = & \mbox{ diameter of the element } E.\\
+  \rho_E & = & \mbox{ supremum of the diameters of the spheres inscribed in } E.
+\end{IEEEeqnarray*}
+Consider a family of meshes $\{\mathcal{T}_n\}_{n\in\mathbb{N}}$ such that 
+there is a sequence of elements $E_{n_k}\in\mathcal{T}_{n_k}$ for which
+	$h_{E_{n_k}}$ tends to zero as $k$ tends to infinity.
+\begin{itemize}
+	\item [i)] The family of meshes is isotropic if 
+	there is a positive constant $\sigma$ such that
+	for each $n$ and each $E\in\mathcal{T}_n$ 
+	\[
+		h_E \leqslant \sigma\rho_E.
+	\]
+	\item [ii)] The family of meshes is anisotropic if it is not
+	isotropic.
+\end{itemize}
 \end{defi}
 
 \subsection{Polynomials} % (fold)
@@ -63,7 +74,7 @@ Moreover, we will make the identifications
 \noindent The tensor product of polynomials. % (fold)
 \begin{defi} \label{tensor_product} Given two polynomials 
 \begin{IEEEeqnarray*}{rClcrCl}
-	p(x)&=&\sum a_ix^i&\qquad&q(y)&=&\sum b_jy^j
+	p(x)&=&\sum a_ix^i&\quad\mbox{ and }\quad&q(y)&=&\sum b_jy^j
 \end{IEEEeqnarray*}
 the tensor product of $p$ and $q$ is the following
 polynomial of \emph{separate variables}
@@ -88,11 +99,11 @@ from the definition, $\dim \mathcal{P}\otimes \mathcal{Q} = \dim \mathcal{P} \di
 \label{sub:functional_spaces_trace_spaces}
 \begin{defi}
 \begin{IEEEeqnarray*}{rCl}
-	W^p(\emph{\textbf{curl}}, E) &=& \{ \emph{\textbf{u}}\in W^{1,p}(E)^3\,:\,\emph{
-	\curl}\emph{\textbf{u}}\in W^{1,1}(E)^3\}\\
-	\label{normaWpcurl}\yesnumber \|\emph{\textbf{u}}\|_{_{W^p(\emph{\textbf{curl}}, E)}} &=& 
-	\|\emph{\textbf{u}}\|_{_{W^{1,p}(E)}} +
-	\| \emph{\curl}\emph{\textbf{u}} \|_{_{W^{1,1}(E)}}. 
+	W^p(\curl, E) & = & \{\bu\in W^{1,p}(E)^3\,:\,
+	\curl\bu\in W^{1,1}(E)^3\}\\
+	\label{normaWpcurl}\yesnumber \|\bu\|_{_{W^p(\curl, E)}} & = & 
+	\|\bu\|_{_{W^{1,p}(E)}} +
+	\| \curl\bu \|_{_{W^{1,1}(E)}}. 
 \end{IEEEeqnarray*}
 \end{defi}
 To talk  about the regularity of a solution in a \emph{non--convex} domain
