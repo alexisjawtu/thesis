@@ -296,130 +296,12 @@ where $B$ is a matrix of rank $3$.
 The Finite Elements defined here are the ones found in~\cite{gh99}.
 \subsection{Edge} % (fold)
 \label{sub:edge}
-\begin{table}[!h]
-    \centering  
-    \caption{\emph{Shape functions} en $\hat{E}$}
-    \begin{IEEEeqnarraybox*}
-    [\IEEEeqnarraystrutmode
-    \IEEEeqnarraystrutsizeadd{2pt}{25pt}]{x/c/x/c/x/c/x}
-        \IEEEeqnarrayseprow[5pt]\\
-        &\IEEEeqnarraymulticol{5}{c}{
-                \raisebox{-15pt}{}\;\;
-                {%\tiny
-                {\scriptstyle\gamma_1} = 
-                \left(
-                            \begin{array}{c}
-                                {1-z-y} \\[8pt]             
-                                0 \\[8pt]
-                                x-\frac{xy}{1-z}               
-                            \end{array}
-                        \right)}\;\;
-                {%\tiny
-                {\scriptstyle\zeta_2} = 
-                {\color{red} TERMINAR TABLA\left(
-                                            \begin{array}{c}
-                                                x-2+\dfrac{x}{1-z} \\[8pt]
-                                                -\dfrac{yz}{1-z} \\[8pt]                
-                                                z               
-                                            \end{array}
-                                        \right)}}}&\\
-        \IEEEeqnarrayseprow[10pt]\\
-        &
-        {%\tiny
-        {\scriptstyle\zeta_3} = 
-        \left(
-                    \begin{array}{c}
-                        x+\dfrac{x}{1-z} \\[8pt]
-                        -\dfrac{yz}{1-z} \\[8pt]                
-                        z               
-                    \end{array}
-                \right)}&&
-        {%\tiny
-        {\scriptstyle\zeta_4} = 
-        \left(
-                    \begin{array}{c}
-                        -\dfrac{xz}{1-z} \\[8pt]                
-                        y+\dfrac{y}{1-z} \\[8pt]
-                        z               
-                    \end{array}
-                \right)}&&
-        {%\tiny
-        {\scriptstyle\zeta_5} = 
-        \left(
-                    \begin{array}{c}
-                        x \\[8pt]               
-                        y \\[8pt]
-                        z-1                 
-                    \end{array}
-                \right)}&\\
-        \IEEEeqnarrayseprow[10pt]
-    \end{IEEEeqnarraybox*}
-\end{table}
-
+\input{./figures/shape_table_edge}
 % subsection edge (end)
 
 \subsection{Face} % (fold)
 \label{sub:face}
-\begin{table}[!h]
-    \centering  
-    \caption{\emph{Shape functions} en $\hat{E}$}
-    \label{table_face_func_pyramid}
-    \begin{IEEEeqnarraybox*}
-    [\IEEEeqnarraystrutmode
-    \IEEEeqnarraystrutsizeadd{2pt}{25pt}]{x/c/x/c/x/c/x}
-        \IEEEeqnarrayseprow[5pt]\\
-        &\IEEEeqnarraymulticol{5}{c}{
-                \raisebox{-15pt}{}\;\;
-                {%\tiny
-                {\scriptstyle\bz_1} = 
-                \left(
-                            \begin{array}{c}
-                                -\frac{xz}{1-z} \\[8pt]             
-                                y-2+\frac{y}{1-z} \\[8pt]
-                                z               
-                            \end{array}
-                        \right)}\;\;
-                {%\tiny
-                {\scriptstyle\bz_2} = 
-                \left(
-                            \begin{array}{c}
-                                x-2+\dfrac{x}{1-z} \\[8pt]
-                                -\dfrac{yz}{1-z} \\[8pt]                
-                                z               
-                            \end{array}
-                        \right)}}&\\
-        \IEEEeqnarrayseprow[10pt]\\
-        &
-        {%\tiny
-        {\scriptstyle\bz_3} = 
-        \left(
-                    \begin{array}{c}
-                        x+\dfrac{x}{1-z} \\[8pt]
-                        -\dfrac{yz}{1-z} \\[8pt]                
-                        z               
-                    \end{array}
-                \right)}&&
-        {%\tiny
-        {\scriptstyle\bz_4} = 
-        \left(
-                    \begin{array}{c}
-                        -\dfrac{xz}{1-z} \\[8pt]                
-                        y+\dfrac{y}{1-z} \\[8pt]
-                        z               
-                    \end{array}
-                \right)}&&
-        {%\tiny
-        {\scriptstyle\bz_5} = 
-        \left(
-                    \begin{array}{c}
-                        x \\[8pt]               
-                        y \\[8pt]
-                        z-1                 
-                    \end{array}
-                \right)}&\\
-        \IEEEeqnarrayseprow[10pt]
-    \end{IEEEeqnarraybox*}
-\end{table}
+\input{./figures/shape_table}
 \begin{remark}
   These rational funtions satisfy $\int_{f_j}\bz_i\cdot\bn = \delta_{ij}$   
 \end{remark}
@@ -645,7 +527,11 @@ Then
 \end{proof}
 
 Todas estas igualdades se prueban en~\cite{monk}.\\\\
-Citar de~\cite{monk}. 
+Citar de~\cite{monk}.\\\\
+El sigte lema, hacerlo una vez para edge
+y una vez para face, para un cierto poliedro, y decir que vale 
+la misma cuenta en los otros. Ver (3.79) (3.80) en monk: transf.
+de normales y tangentes.
 \begin{lemma} The edge element interpolators satisfy
 \begin{IEEEeqnarray}{rCl}\label{piTransformado}
     \wku(\hat{\bx}) & = & M^{t} \bw_k\bu(F(\hat{\bx})).
