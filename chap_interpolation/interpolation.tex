@@ -427,7 +427,7 @@ $\hat{E}$ will be the reference pyramid  in figure~(\ref{reference_pyramid}).
 
 \begin{proof}
 We will use the notation of Table~(\ref{shape_edge_table}). The variables 
-in the local coordinate system of $\hat E$ are $x,y$ and $z$.
+in the local coordinate system of $\hat E$ are $x,y$ and $z$.\\[5pt]
 Consider the case $\hat{\bu} = (\hat{u}_1,0,0)'$ and compute it's interpolate. 
 \begin{IEEEeqnarray*}{rCl}
   \rku & = & ({\scriptstyle\iint_{\hat{f}_2} \bu \cdot \hat\bn_2\,d\gamma})\,\bzeta_2 + 
@@ -460,9 +460,9 @@ Then
     & = & -{\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}}\frac{xz}{1-z}.\\[8pt]
   (\rku)_2\xyz & = & -2\alpha_1(\hat\bu) + 
   (\alpha_1(\hat\bu)+\alpha_4(\hat\bu))\,\frac{2y-yz}{1-z}\\[4pt]
-    & = & -2{\iint_{\hat{f}_1} \hat{\bu} \cdot \hat\bn_2\,d\gamma} + 
+    & = & -2{\iint_{\hat{f}_1} \hat{\bu} \cdot \hat\bn_1\,d\gamma} + 
             {\iint_{\partial\hat{E}} \hat{\bu} \cdot \hat\bn\,d\gamma}\frac{2y-yz}{1-z}\\[4pt]
-    & = & -2{\iint_{\hat{f}_1} \hat{\bu} \cdot \hat\bn_2\,d\gamma} + 
+    & = & -2{\iint_{\hat{f}_1} \hat{\bu} \cdot \hat\bn_1\,d\gamma} + 
             {\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}}\frac{2y-yz}{1-z}.\\[8pt]
 \end{IEEEeqnarray*}
 Switch to $\hat{\bu} = (0,0,\hat{u}_3)'$.
@@ -476,30 +476,99 @@ Switch to $\hat{\bu} = (0,0,\hat{u}_3)'$.
 Then
 \begin{IEEEeqnarray*}{rCl}
   (\rku)_1\xyz & = & (\alpha_3(\hat\bu)+\alpha_5(\hat\bu))x
-  + \alpha_3(\hat\bu) \frac{x}{1-z} - \alpha_4\frac{xz}{1-z}
+  + \alpha_3(\hat\bu) \frac{x}{1-z} - \alpha_4\frac{xz}{1-z}.
 \end{IEEEeqnarray*}
-where
+Now observe
 \begin{IEEEeqnarray*}{rCl}
   (\alpha_3(\hat\bu)+\alpha_5(\hat\bu)) & = & 
     {\iint_{\partial\hat{E}} \hat{\bu} \cdot \hat\bn\,d\gamma} - 
       {\iint_{\hat{f}_4} \hat{\bu} \cdot \hat\bn_4\,d\gamma} \\[4pt]
   & = & {\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}} - 
-        \alpha_4(\hat{\bu}).
+        \alpha_4(\hat{\bu})
 \end{IEEEeqnarray*}
-Then
+and
 \begin{IEEEeqnarray*}{rCl}
-  (\rku)_1\xyz & = & {\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}}\,x
-                      + (\alpha_3(\hat\bu)-\alpha_4(\hat\bu))\frac{x}{1-z}.
+  \alpha_3(\hat\bu)-\alpha_4(\hat\bu) & = & 
+  {\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\gamma} - 
+  {\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\gamma} \\[4pt]
+  & = & \int_{0}^{1}\int_{0}^{x} \hat{u}_3(x,y,1-x)\,dydx - 
+        \int_{0}^{1}\int_{0}^{y} \hat{u}_3(x,y,1-y)\,dxdy\mbox{,}
 \end{IEEEeqnarray*}
+so
+\begin{IEEEeqnarray*}{rCl}
+  (\rku)_1\xyz & = & {\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}}\,x +\\[4pt]
+  \IEEEeqnarraymulticol{3}{r}{\qquad(\int_{0}^{1}\int_{0}^{x} \hat{u}_3(x,y,1-x)\,dydx - 
+                          \int_{0}^{1}\int_{0}^{y} \hat{u}_3(x,y,1-y)\,dxdy)
+                        \frac{x}{1-z}.}
+\end{IEEEeqnarray*}
+In a completely similar fashion
+\begin{IEEEeqnarray*}{rCl}
+  (\rku)_2\xyz & = & {\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}}\,y\,+
+  ({\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\gamma} - 
+   {\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\gamma})\frac{y}{1-z}.\\[4pt]
+               & = & {\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}}\,y\,+\\[4pt]
+  \IEEEeqnarraymulticol{3}{r}{\qquad(\int_{0}^{1}\int_{0}^{x} \hat{u}_3(x,y,1-x)\,dydx - 
+                          \int_{0}^{1}\int_{0}^{y} \hat{u}_3(x,y,1-y)\,dxdy)
+                        \frac{y}{1-z}.}
+\end{IEEEeqnarray*}
+We collect every term obtained so far for the first and second components in
+Table~(\ref{terms_table}).
+\begin{table}[!h]
+    \centering  
+    \caption{Terms\\[4pt]$q(s,t) = \frac{2s-st}{1-t},\,r(s,t) = \frac{st}{1-t}$}
+    \label{terms_table}
+    \begin{IEEEeqnarraybox*}
+    [\IEEEeqnarraystrutmode
+    \IEEEeqnarraystrutsizeadd{2pt}{12pt}]{v/c/v/c/v/c/v/}
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+        & & & (\rku)_1 & & (\rku)_2 & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+        & (\hat{u}_1,0,0)' & &
+          \begin{IEEEeqnarraybox*}{l}
+            -2{\iint_{\hat{f}_2} \hat{\bu} \cdot \hat\bn_2\,d\gamma}\\ + 
+            {q(x,z)\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}}
+          \end{IEEEeqnarraybox*}
+        & &
+          -r(y,z){\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}} &\\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+        & (0,\hat{u}_2,0)' & & 
+          -r(x,z){\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}} 
+        & & 
+          \begin{IEEEeqnarraybox*}{l}
+            -2{\iint_{\hat{f}_1} \hat{\bu} \cdot \hat\bn_1\,d\gamma}\\ + 
+            {q(x,z)\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}}
+          \end{IEEEeqnarraybox*}
+        &\\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+        & (0,0,\hat{u}_3)' & & 
+          \begin{IEEEeqnarraybox*}{l}
+            x\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}} \\[5pt] +\, 
+            ({\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\gamma}
+             \\[5pt] 
+             -{\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\gamma})r(x,z)
+          \end{IEEEeqnarraybox*}
+         & & 
+          \begin{IEEEeqnarraybox*}{l}
+            y\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}\\[5pt] +\, 
+              ({\iint_{\hat{f}_4} \bu \cdot \hat\bn_3\,d\gamma}
+             \\[5pt] 
+             -{\iint_{\hat{f}_3} \bu \cdot \hat\bn_4\,d\gamma})r(y,z)
+          \end{IEEEeqnarraybox*}
+        &\\\IEEEeqnarrayrulerow
+    \end{IEEEeqnarraybox*}
+\end{table}
 {\color{blue}\#\#\#\#\#\#\#\# continue here.}
-\\\\\\Collecting every term\\\\
-For any $\hat\bu$
+Lastly, for any $\hat\bu$
 \begin{IEEEeqnarray*}{rCl}
     (\rku)_3\xyz & = &\hat{x}_3\int\limits_{\hat{E}} \mbox{div}\,\hat{\bu}\,d\hat{\bx} 
      + \iint\limits_{\hat{f}_5} \hat{u}_3\,d\hat{s}
 \end{IEEEeqnarray*}
 
 \end{proof}
-
+  
 % subsection face_elements (end)
 % section pyramidal_finite_elements (end)
