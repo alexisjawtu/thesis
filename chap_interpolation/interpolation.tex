@@ -1,40 +1,77 @@
 \chapter{Interpolation}
 \section{Prismatic Finite Elements} % (fold)
 \label{sec:prismatic_finite_elements}
-\begin{table}[h!]
-\centering
-\caption{Notation}
-\label{prismNotationTable}
-    \begin{IEEEeqnarraybox}
-    [\IEEEeqnarraystrutmode
-     \IEEEeqnarraystrutsizeadd{0pt}{0pt}]{v/c/v/c/v/c/v/c/v}
+
+\begin{table}[!h]
+    \centering  
+    \caption{Notation for the faces of $\hat{E}$.}
+    \label{pyramidNotationTableFaces}
+    \begin{IEEEeqnarraybox*}
+      [\IEEEeqnarraystrutmode
+      \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/v/}
         \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[3pt]\\
-        &\hfill\raisebox{22pt}[0pt][0pt]{}\hfill
-                            & & ***
-                            & & ***
-                            & & *** &\\
+        \IEEEeqnarrayseprow[5pt]\\
+          & \hat f_1 & & \subseteq & &  \{\hat x_2 = 0 \}            & \\
         \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[3pt]\\
-        &\hfill\raisebox{30pt}[0pt][0pt]{***}\hfill& &
-            \begin{IEEEeqnarraybox}{c}
-            ***\\***
-            \end{IEEEeqnarraybox}
-        &&&&
-            \begin{IEEEeqnarraybox}{c}
-                ***\\***
-            \end{IEEEeqnarraybox}
-        &\\
-        \IEEEeqnarrayseprow[3pt]\\
+        \IEEEeqnarrayseprow[5pt]\\
+          & \hat f_2 & & \subseteq & &  \{\hat x_1 = 0 \}            & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+          & \hat f_3 & & \subseteq & &  \{\hat x_1 + \hat x_3 = 1 \} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+          & \hat f_4 & & \subseteq & &  \{\hat x_2 + \hat x_3 = 1 \} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+          & \hat f_5 & & \subseteq & &  \{\hat x_3 = 0\}             & \\
         \IEEEeqnarrayrulerow
-    \end{IEEEeqnarraybox}
+    \end{IEEEeqnarraybox*}
 \end{table}
+
+\begin{table}[!h]
+    \centering  
+    \caption{Notation for the edges of $\hat{E}$.}
+    \label{prismNotationTable}
+    \begin{IEEEeqnarraybox*}
+      [\IEEEeqnarraystrutmode
+      \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/x/v/x/c/x/c/x/c/v/}
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   & 
+   \hat \be_1 && = && \{(\hat x_1,0,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && &&
+   \hat \be_5 && = && \{(0,\hat x_2,1)^t\,:\,0\leqslant\hat x_2\leqslant 1\} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   & 
+   \hat \be_2 && = && \{(0,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && &&
+   \hat \be_6 && = && \{(1,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   &
+   \hat \be_3 && = && \{(0,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} && &&
+   \hat \be_7 && = && \{(0,1,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   & 
+\hat \be_4 && = && \{(\hat x_1,0,1)^t\,:\,0\leqslant\hat x_1\leqslant 1\}
+&& && 
+\hat \be_8 && = && \{(\hat x_1,1-\hat x_1,1)^t\,:\,0\leqslant\hat x_1\leqslant 1\} & \\
+        \IEEEeqnarrayrulerow\\
+    &\IEEEeqnarraymulticol{13}{c}{
+      \raisebox{-3pt}[0pt][0pt]{
+        $\hat \be_9 =  \{(\hat x_1,1-\hat x_1,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\}$
+      }
+    }&\\
+      \IEEEeqnarrayrulerow
+    \end{IEEEeqnarraybox*}
+\end{table}
+
 \begin{IEEEeqnarray*}{rClCrClCrCl}
-  \hat f_1 & \subseteq &  \{\hat x_1 = 0      \} & \qquad & \hat \be_1& = & \{(\hat x_1,0,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\}  &\quad& \hat \be_6& = & \{(1,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} \\[4pt]
-  \hat f_2 & \subseteq &  \{\hat x_2 = 0      \} & \qquad & \hat \be_2& = & \{(0,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\}  &\quad& \hat \be_7& = & \{(0,1,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} \\[4pt]
-  \hat f_3 & \subseteq &  \{\hat x_3 = 0      \} & \qquad & \hat \be_3& = & \{(0,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\}  &\quad& \hat \be_8& = & \{(\hat x_1,1-\hat x_1,1)^t\,:\,0\leqslant\hat x_1\leqslant 1\} \\[4pt]
-  \hat f_4 & \subseteq &  \{\hat x_3 = 1      \} & \qquad & \hat \be_4& = & \{(\hat x_1,0,1)^t\,:\,0\leqslant\hat x_1\leqslant 1\}  &\quad& \hat \be_9& = & \{(\hat x_1,1-\hat x_1,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} \\[4pt]
-  \hat f_5 & \subseteq &  \{\hat x_1+\hat x_2 = 1\}  & \qquad & \hat \be_5& = & \{(0,\hat x_2,1)^t\,:\,0\leqslant\hat x_2\leqslant 1\}  &     &           &           &
+  \hat f_1 & \subseteq &  \{\hat x_1 = 0      \}     & \qquad &   &\quad&  \\[4pt]
+  \hat f_2 & \subseteq &  \{\hat x_2 = 0      \}     & \qquad &   &\quad&  \\[4pt]
+  \hat f_3 & \subseteq &  \{\hat x_3 = 0      \}     & \qquad &   &\quad&  \\[4pt]
+  \hat f_4 & \subseteq &  \{\hat x_3 = 1      \}     & \qquad &   &\quad&  \\[4pt]
+  \hat f_5 & \subseteq &  \{\hat x_1+\hat x_2 = 1\}  & \qquad &   &     &           &           &
 \end{IEEEeqnarray*}
 \subsection{Stability of curl--conforming Finite Element on Prisms}
 \label{stab_edge_prism}
@@ -358,7 +395,7 @@ and the sum of the three estimates yields the theorem.
 \begin{table}[!h]
     \centering  
     \caption{Notation for the faces of $\hat{E}$.}
-    \label{pyramidNotationTable}
+    \label{pyramidNotationTableFaces}
     \begin{IEEEeqnarraybox*}
       [\IEEEeqnarraystrutmode
       \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/v/}
@@ -384,7 +421,7 @@ and the sum of the three estimates yields the theorem.
 \begin{table}[!h]
     \centering  
     \caption{Notation for the edges of $\hat{E}$.}
-    \label{pyramidNotationTable}
+    \label{pyramidNotationTableEdges}
     \begin{IEEEeqnarraybox*}
       [\IEEEeqnarraystrutmode
       \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/x/v/x/c/x/c/x/c/v/}
@@ -417,29 +454,24 @@ $\hat{E}$ will be the reference pyramid  in figure~(\ref{reference_pyramid}).
 \label{par:stability_hat}
 \begin{theorem}
 \begin{IEEEeqnarray*}{rCl}
-  \|(\rku)_1\|_{\scriptscriptstyle{L^\infty(\hat{E})}}
-  &\lesssim& \|u_1\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
-    \|\dv \bu\|_{\scriptscriptstyle{L^p}(\hat{E})} + \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_1}\right\|_{\scriptscriptstyle{L^p}(\hat{E})}
-      + \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_2}
-        \right\|_{\scriptscriptstyle{L^p}(\hat{E})} + {\color{red}\mbox{se iria}\left\|\dfrac{{\scriptstyle\partial} u_2}{{\scriptstyle\partial} x_2} 
-                \right\|_{\scriptscriptstyle{L^p}(\hat{E})}}.\\[12pt]
-  \|(\rku)_2\|_{\scriptscriptstyle{L^\infty(\hat{E})}}
-  &\lesssim& \|u_2\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
+  \|(\rku)_1\|_{\scriptscriptstyle{L^p(\hat{E})}}
+  &\lesssim& \|\hat u_1\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
     \|\dv \bu\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
-    \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_1}
-      \right\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
-    \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_2}
-      \right\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
-    {\color{red}\mbox{se iria! sacar tambien de la charla de chile}\left\|\dfrac{{\scriptstyle\partial} u_1}{{\scriptstyle\partial} x_1}
-            \right\|_{\scriptscriptstyle{L^p}(\hat{E})}}.\\[12pt]
-  \|(\rku)_3\|_{\scriptscriptstyle{L^\infty(\hat{E})}} & \lesssim & 
+    \left\|\hat{u}_3\right\|_{\scriptscriptstyle{H^1}(\hat{E})}\\[12pt]
+  \|(\rku)_2\|_{\scriptscriptstyle{L^p(\hat{E})}}
+  &\lesssim& \|\hat u_2\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
+    \|\dv \bu\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
+    \left\|\hat{u}_3\right\|_{\scriptscriptstyle{H^1}(\hat{E})}\\[12pt]
+  \|(\rku)_3\|_{\scriptscriptstyle{L^p(\hat{E})}} & \lesssim & 
     \|u_3\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
     \|\dv \bu\|_{\scriptscriptstyle{L^p}(\hat{E})}.
 \end{IEEEeqnarray*}
 \end{theorem}
 
 \begin{proof}
-We will use the notation of Table~(\ref{shape_edge_table}). The variables 
+We will use the notation of Table~(\ref{shape_edge_table}) for the 
+shape functions and Tables~(\ref{pyramidNotationTableFaces}) and
+~(\ref{pyramidNotationTableEdges}) for the border of the pyramid. The variables 
 in the local coordinate system of $\hat E$ are $x,y$ and $z$.\\[5pt]
 Consider the case $\hat{\bu} = (\hat{u}_1,0,0)'$ and compute it's interpolate. 
 \begin{IEEEeqnarray*}{rCl}
@@ -584,18 +616,66 @@ Lastly, for any $\hat\bu$
                  & = &\hat{x}_3\int\limits_{\hat{E}} \mbox{div}\,\hat{\bu}\,d\hat{\bx} 
      + \iint\limits_{\hat{f}_5} \hat{u}_3\,d\hat{\gamma}
 \end{IEEEeqnarray*}
-Now
-
-By Theorem 3.9 in~\cite{monk}, page 43,
+Now we bound each term 
+\begin{IEEEeqnarray*}{rCl}
+  (\rku)_1 & = & (\br_{\hat{E}}(\hat{u}_1,0,0)')_1 + 
+                 (\br_{\hat{E}}(0,\hat{u}_2,0)')_1 + 
+                 (\br_{\hat{E}}(0,0,\hat{u}_3)')_1\\[5pt]
+  & = & -2\iint_{\hat{f}_2}\hat{u}_1\,d\gamma +
+  \frac{2x}{1-z}\int_{\hat{E}} \frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} -
+  \frac{xz}{1-z}\int_{\hat{E}} \frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} \\[5pt]
+  & & \,- \frac{xz}{1-z}\int_{\hat{E}} \frac{\partial\hat{u}_2}{\partial\hat{x}_2}\,d\hat{\bx}
+  + \left( x + \frac{xz}{1-z}-\frac{xz}{1-z} \right)
+  \int_{\hat{E}} \frac{\partial\hat{u}_3}{\partial\hat{x}_3}\,d\hat{\bx}\\[5pt]
+  &   &\, + \left({\iint_{\hat{f}_3} \hat{u}_3\,d\gamma}
+        - {\iint_{\hat{f}_4} \hat{u}_3\,d\gamma}\right)\frac{xz}{1-z}\\[5pt]
+  & = & -2\iint_{\hat{f}_2}\hat{u}_1\,d\gamma +
+  \frac{2x}{1-z}\int_{\hat{E}}\frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} -
+  \frac{xz}{1-z}\int_{\hat{E}}\dv\hat{\bu}\,d\hat{\bx}\\[5pt]
+  \yesnumber\label{face_integrals}
+  &  & \,+\frac{x}{1-z}\int_{\hat{E}}\frac{\partial\hat{u}_3}{\partial\hat{x}_3}\,d\hat{\bx}
+  + \left({\iint_{\hat{f}_3} \hat{u}_3\,d\gamma}
+        - {\iint_{\hat{f}_4} \hat{u}_3\,d\gamma}\right)\frac{xz}{1-z}
+\end{IEEEeqnarray*}
+For the surface integrals in~(\ref{face_integrals}), by Theorem 3.9 in~\cite{monk}, page 43,
+\begin{IEEEeqnarray*}{rCl}
+  \left|\iint_{\hat{f}_2} \hat{u}_1\,d\gamma\right| 
+  & \leqslant & 2^{-1/4}\,\|\mbox{Tr}_{\hat{f}_2}\hat{u}_1\|_{L^2(\hat{f}_3)} \\[5pt]
+  & \leqslant & C\,\|\mbox{Tr\,}\hat{u}_1\|_{H^{\delta}(\partial\hat{E})} \\[5pt]
+  & \leqslant & C\,\|\hat{u}_1\|_{H^{1/2+\delta}(\hat{E})}. \\[5pt]
+  & \leqslant & C\,\|\hat{u}_1\|_{H^{1}(\hat{E})}.
+\end{IEEEeqnarray*}
+and similarly
 \begin{IEEEeqnarray*}{rCl}
   \left|\iint_{\hat{f}_3} \hat{u}_3\,d\gamma - \iint_{\hat{f}_4} \hat{u}_3\,d\gamma\right| 
-  & \leqslant & 2^{-1/4}\,[\,\|\mbox{Tr}_{\hat{f}_3}\hat{u}_3\|_{L^2(\hat{f}_3)}+
-                             \|\mbox{Tr}_{\hat{f}_4}\hat{u}_3\|_{L^2(\hat{f}_4)}\,] \\[5pt]
-  & \leqslant & C\,\|\mbox{Tr\,}\hat{u}_3\|_{H^{\delta}(\partial\hat{E})} \\[5pt]
-  & \leqslant & C\,\|\hat{u}_3\|_{H^{1/2+\delta}(\hat{E})}.
+  & \leqslant & C\,\|\hat{u}_3\|_{H^{1}(\hat{E})}
 \end{IEEEeqnarray*}
-
-
+all of which leads to
+\begin{IEEEeqnarray*}{rCl}
+  \|(\rku)_1\|_{L^{\infty}(\hat{E})} & \leqslant & C_{\hat{E}} 
+  \left[ 
+    \|\hat{u}_1\|_{H^{1}(\hat{E})} + 
+    \|\dv\hat{\bu}\|_{L^{2}(\hat{E})} + 
+    \|\hat{u}_3\|_{H^{1}(\hat{E})}
+  \right].
+\end{IEEEeqnarray*}
+Copying the argument for the second component
+\begin{IEEEeqnarray*}{rCl}
+  \|(\rku)_1\|_{L^{\infty}(\hat{E})} & \leqslant & C_{\hat{E}} 
+  \left[ 
+    \|\hat{u}_1\|_{H^{1}(\hat{E})} + 
+    \|\dv\hat{\bu}\|_{L^{2}(\hat{E})} + 
+    \|\hat{u}_3\|_{H^{1}(\hat{E})}
+  \right].
+\end{IEEEeqnarray*}
+From~(\ref{term_rk3}) we deduce
+\begin{IEEEeqnarray*}{rCl}
+  \|(\rku)_3\|_{\scriptscriptstyle{L^\infty(\hat{E})}} & \leqslant & C_{\hat{E}}
+    \left[\|u_3\|_{\scriptscriptstyle{H^{1}(\hat{E})}} +
+    \|\dv \bu\|_{\scriptscriptstyle{L^2}(\hat{E})}\right].
+\end{IEEEeqnarray*}
+The quantity $C_{\hat{E}}$ depends only on the supremum of the (fixed)
+basis shape functions of Table~(\ref{shape_face_table}) over the pyramid.
 \end{proof}
 
   
