@@ -583,10 +583,17 @@ Lastly, for any $\hat\bu$
                  & = &\hat{x}_3\int\limits_{\hat{E}} \mbox{div}\,\hat{\bu}\,d\hat{\bx} 
      + \iint\limits_{\hat{f}_5} \hat{u}_3\,d\hat{\gamma}
 \end{IEEEeqnarray*}
-\noindent{\color{blue}\#\#\#\#\#\#\# continue here:} para acotar los de la fila 4 
-de la tabla "Terms" ir a Monk a la demostración de continuidad 
-del grado de libertad (por si no me sale acomodar las integrales dobles como hac'iamos.)
+By Theorem 3.9 in~\cite{monk}, page 43,
+\begin{IEEEeqnarray*}{rCl}
+  \left|\iint_{\hat{f}_3} \hat{u}_3\,d\gamma - \iint_{\hat{f}_4} \hat{u}_3\,d\gamma\right| 
+  & \leqslant & 2^{-1/4}\,[\,\|\mbox{Tr}_{\hat{f}_3}\hat{u}_3\|_{L^2(\hat{f}_3)}+
+                             \|\mbox{Tr}_{\hat{f}_4}\hat{u}_3\|_{L^2(\hat{f}_4)}\,] \\[5pt]
+  & \leqslant & C\,\|\mbox{Tr\,}\hat{u}_3\|_{H^{\delta}(\partial\hat{E})} \\[5pt]
+  & \leqslant & C\,\|\hat{u}_3\|_{H^{1/2+\delta}(\hat{E})}.
+\end{IEEEeqnarray*}
+\noindent{\color{blue}\#\#\#\#\#\#\# continue here!} 
 \end{proof}
+
   
 % subsection face_elements (end)
 % section pyramidal_finite_elements (end) 
