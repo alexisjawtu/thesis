@@ -355,42 +355,55 @@ and the sum of the three estimates yields the theorem.
 \section{Pyramidal Finite Elements} % (fold)
 \label{sec:pyramidal_finite_elements}
 
-\begin{table}[h!]
-\centering
-\caption{Notation}
-\label{pyramidNotationTable}
-    \begin{IEEEeqnarraybox}
-    [\IEEEeqnarraystrutmode
-     \IEEEeqnarraystrutsizeadd{0pt}{0pt}]{v/c/v/c/v/c/v/c/v}
+\begin{table}[!h]
+    \centering  
+    \caption{Notation for the faces of $\hat{E}$.}
+    \label{pyramidNotationTable}
+    \begin{IEEEeqnarraybox*}
+      [\IEEEeqnarraystrutmode
+      \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/v/}
         \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[3pt]\\
-        &\hfill\raisebox{22pt}[0pt][0pt]{}\hfill
-                            & & ***
-                            & & ***
-                            & & *** &\\
+        \IEEEeqnarrayseprow[5pt]\\
+          & \hat f_1 & & \subseteq & &  \{\hat x_2 = 0 \}            & \\
         \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[3pt]\\
-        &\hfill\raisebox{30pt}[0pt][0pt]{***}\hfill& &
-            \begin{IEEEeqnarraybox}{c}
-            ***\\***
-            \end{IEEEeqnarraybox}
-        &&&&
-            \begin{IEEEeqnarraybox}{c}
-                ***\\***
-            \end{IEEEeqnarraybox}
-        &\\
-        \IEEEeqnarrayseprow[3pt]\\
+        \IEEEeqnarrayseprow[5pt]\\
+          & \hat f_2 & & \subseteq & &  \{\hat x_1 = 0 \}            & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+          & \hat f_3 & & \subseteq & &  \{\hat x_1 + \hat x_3 = 1 \} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+          & \hat f_4 & & \subseteq & &  \{\hat x_2 + \hat x_3 = 1 \} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+          & \hat f_5 & & \subseteq & &  \{\hat x_3 = 0\}             & \\
         \IEEEeqnarrayrulerow
-    \end{IEEEeqnarraybox}
+    \end{IEEEeqnarraybox*}
 \end{table}
-{\color{blue}\#\#\#\#\#\#\#\# ver G\&H99.}
-\begin{IEEEeqnarray*}{rClCrClCrCl}
-  \hat f_1 & \subseteq &  \{\hat x_2 = 0 \} & \qquad & \hat \be_1& = & \{(\hat x_1,0,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\}  &\quad& \hat \be_6& = & \{(1-\hat x_3,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} \\[4pt]
-  \hat f_2 & \subseteq &  \{\hat x_1 = 0      \} & \qquad & \hat \be_2& = & \{(1,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\}  &\quad& \hat \be_7& = & \{(0,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} \\[4pt]
-  \hat f_3 & \subseteq &  \{\hat x_1 + \hat x_3 = 1      \} & \qquad & \hat \be_3& = & \{(\hat x_1,1,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\}  &\quad& \hat \be_8& = & \{(1-\hat x_3,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} \\[4pt]
-  \hat f_4 & \subseteq &  \{\hat x_1 + \hat x_2 = 1      \} & \qquad & \hat \be_4& = & \{(0,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\}  &\quad&  &  & \\[4pt]
-  \hat f_5 & \subseteq &  \{\hat x_3 = 0\}  & \qquad & \hat \be_5& = & \{(0,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\}  &     &           &           &
-\end{IEEEeqnarray*}
+
+\begin{table}[!h]
+    \centering  
+    \caption{Notation for the edges of $\hat{E}$.}
+    \label{pyramidNotationTable}
+    \begin{IEEEeqnarraybox*}
+      [\IEEEeqnarraystrutmode
+      \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/x/v/x/c/x/c/x/c/v/}
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   & \hat \be_1 && = && \{(\hat x_1,0,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \be_5 && = && \{(0,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   & \hat \be_2 && = && \{(1,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \be_6 && = && \{(1-\hat x_3,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   & \hat \be_3 && = && \{(\hat x_1,1,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \be_7 && = && \{(0,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   & \hat \be_4 && = && \{(0,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \be_8 && = && \{(1-\hat x_3,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+        \IEEEeqnarrayrulerow
+    \end{IEEEeqnarraybox*}
+\end{table}
+
 $\hat{E}$ will be the reference pyramid  in figure~(\ref{reference_pyramid}).
 
 \subsection{Edge Elements} % (fold)
@@ -408,8 +421,8 @@ $\hat{E}$ will be the reference pyramid  in figure~(\ref{reference_pyramid}).
   &\lesssim& \|u_1\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
     \|\dv \bu\|_{\scriptscriptstyle{L^p}(\hat{E})} + \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_1}\right\|_{\scriptscriptstyle{L^p}(\hat{E})}
       + \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_2}
-        \right\|_{\scriptscriptstyle{L^p}(\hat{E})} + \left\|\dfrac{{\scriptstyle\partial} u_2}{{\scriptstyle\partial} x_2} 
-        \right\|_{\scriptscriptstyle{L^p}(\hat{E})}.\\[12pt]
+        \right\|_{\scriptscriptstyle{L^p}(\hat{E})} + {\color{red}\mbox{se iria}\left\|\dfrac{{\scriptstyle\partial} u_2}{{\scriptstyle\partial} x_2} 
+                \right\|_{\scriptscriptstyle{L^p}(\hat{E})}}.\\[12pt]
   \|(\rku)_2\|_{\scriptscriptstyle{L^\infty(\hat{E})}}
   &\lesssim& \|u_2\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
     \|\dv \bu\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
@@ -417,8 +430,8 @@ $\hat{E}$ will be the reference pyramid  in figure~(\ref{reference_pyramid}).
       \right\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
     \left\|\dfrac{{\scriptstyle\partial} u_3}{{\scriptstyle\partial} x_2}
       \right\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
-    \left\|\dfrac{{\scriptstyle\partial} u_1}{{\scriptstyle\partial} x_1}
-        \right\|_{\scriptscriptstyle{L^p}(\hat{E})}.\\[12pt]
+    {\color{red}\mbox{se iria! sacar tambien de la charla de chile}\left\|\dfrac{{\scriptstyle\partial} u_1}{{\scriptstyle\partial} x_1}
+            \right\|_{\scriptscriptstyle{L^p}(\hat{E})}}.\\[12pt]
   \|(\rku)_3\|_{\scriptscriptstyle{L^\infty(\hat{E})}} & \lesssim & 
     \|u_3\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
     \|\dv \bu\|_{\scriptscriptstyle{L^p}(\hat{E})}.
@@ -554,21 +567,26 @@ Table~(\ref{terms_table}).
          & & 
           \begin{IEEEeqnarraybox*}{l}
             y\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}\\[5pt] +\, 
-              ({\iint_{\hat{f}_4} \bu \cdot \hat\bn_3\,d\gamma}
+              ({\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\gamma}
              \\[5pt] 
-             -{\iint_{\hat{f}_3} \bu \cdot \hat\bn_4\,d\gamma})r(y,z)
+             -{\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\gamma})r(y,z)
           \end{IEEEeqnarraybox*}
         &\\\IEEEeqnarrayrulerow
     \end{IEEEeqnarraybox*}
 \end{table}
-{\color{blue}\#\#\#\#\#\#\#\# continue here.}
 Lastly, for any $\hat\bu$
 \begin{IEEEeqnarray*}{rCl}
-    (\rku)_3\xyz & = &\hat{x}_3\int\limits_{\hat{E}} \mbox{div}\,\hat{\bu}\,d\hat{\bx} 
-     + \iint\limits_{\hat{f}_5} \hat{u}_3\,d\hat{s}
+    (\rku)_3\xyz & = &   z\sum_{i=1}^4\iint_{\hat{f}_i} \hat{\bu}\cdot\hat{\bn}_i\,d\gamma
+                      + (z-1) \iint_{\hat{f}_5}\hat{\bu}\cdot\hat{\bn}_5\,d\gamma\\[5pt]
+                 & = & z\iint_{\partial\hat{E}} \hat{\bu}\cdot\hat{\bn} - \iint_{f_5}
+                 \hat{\bu}\cdot\hat{\bn}_5\,d\gamma\\[5pt]
+                 & = &\hat{x}_3\int\limits_{\hat{E}} \mbox{div}\,\hat{\bu}\,d\hat{\bx} 
+     + \iint\limits_{\hat{f}_5} \hat{u}_3\,d\hat{\gamma}
 \end{IEEEeqnarray*}
-
+\noindent{\color{blue}\#\#\#\#\#\#\# continue here:} para acotar los de la fila 4 
+de la tabla "Terms" ir a Monk a la demostración de continuidad 
+del grado de libertad (por si no me sale acomodar las integrales dobles como hac'iamos.)
 \end{proof}
   
 % subsection face_elements (end)
-% section pyramidal_finite_elements (end)
+% section pyramidal_finite_elements (end) 
