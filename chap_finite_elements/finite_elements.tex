@@ -274,6 +274,19 @@ we take a basis...
                                         \sum_{r}   \rho_{r}  (\hat{\bu})\,\hat{\bv}_{r}
 \end{IEEEeqnarray}
 \end{remark}
+\begin{proposition} On the Finite Element~(\ref{defi_h_div_conforme}). 
+$\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
+which is, at the same time, equal to the number of its independent degrees of freedom.
+\end{proposition}
+\begin{proof}
+    From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
+    \begin{IEEEeqnarray*}{rCl}
+        \dim (P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y)) \otimes P_{k-1}(z) + \dim P_{k-1}(x,y)\otimes P_k(z) & = &\\[5pt]
+        \IEEEeqnarraymulticol{3}{r}{=\,(k(k+1)+k)k+\dfrac{k(k+1)}{2}(k+1)} 
+    \end{IEEEeqnarray*}
+    and the same quantity is obtained by summing up the dimensions of all the
+    \emph{test} spaces on the right of~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
+\end{proof}
 We want this same setting to build Finite Elements on arbitrary contiguous prisms
 belonging to a fixed mesh, all of which being an affine image of the reference prism.
 In order to do so we transform the set $\hat{E}$, the discrete local space and the 
@@ -339,19 +352,19 @@ $C^\infty(\bar{E})^3$ es un subespacio denso de $\wpcurl{E}$ con la
 norma~(\ref{normaWpcurl}).
 \end{lemma}
 % subsection defEdgeElement (end)
-\begin{proposition} On the Finite Element~(\ref{defi_h_div_conforme}). 
-$\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
-which is, at the same time, equal to the number of its independent degrees of freedom.
-\end{proposition}
-\begin{proof}
-    From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
-    \begin{IEEEeqnarray*}{rCl}
-        \dim (P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y)) \otimes P_{k-1}(z) + \dim P_{k-1}(x,y)\otimes P_k(z) & = &\\[5pt]
-        \IEEEeqnarraymulticol{3}{r}{=\,(k(k+1)+k)k+\dfrac{k(k+1)}{2}(k+1)} 
-    \end{IEEEeqnarray*}
-    and the same quantity is obtained by summing up the dimensions of all the
-    \emph{test} spaces on the right of~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
-\end{proof}
+% \begin{proposition} On the Finite Element~(\ref{defi_h_div_conforme}). 
+% $\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
+% which is, at the same time, equal to the number of its independent degrees of freedom.
+% \end{proposition}
+% \begin{proof}
+%     From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
+%     \begin{IEEEeqnarray*}{rCl}
+%         \dim (P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y)) \otimes P_{k-1}(z) + \dim P_{k-1}(x,y)\otimes P_k(z) & = &\\[5pt]
+%         \IEEEeqnarraymulticol{3}{r}{=\,(k(k+1)+k)k+\dfrac{k(k+1)}{2}(k+1)} 
+%     \end{IEEEeqnarray*}
+%     and the same quantity is obtained by summing up the dimensions of all the
+%     \emph{test} spaces on the right of~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
+% \end{proof}
 \noindent Now a key result that establishes a relation between the interpolation operators. It will used as an important step in the proof of the stability of the
 edge element on a prism.
 \begin{lemma}\label{lema_pi_star_rot_u} Si $\pi$ es el operador de interpolaci\'on determinado por el elemento en
