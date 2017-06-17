@@ -387,37 +387,49 @@ and the sum of the three estimates yields the theorem.
 
 \begin{table}[!h]
     \centering  
-    \caption{Notation for the faces of $\hat{E}$.}
+    \caption{Notation for the faces and positive normals of $\partial\hat{E}$.}
     \label{pyramidNotationTableFaces}
     \begin{IEEEeqnarraybox*}
       [\IEEEeqnarraystrutmode
-      \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/v/}
+      \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/v/c/x/c/x/c/v/}
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_1 & & \subseteq & &  \{\hat x_2 = 0 \}            & \\
+          & \hat f_1 & & \subseteq & &  \{\hat x_2 = 0 \}            & &&&&&\\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_2 & & \subseteq & &  \{\hat x_1 = 0 \}            & \\
+          & \hat f_2 & & \subseteq & &  \{\hat x_1 = 0 \}            & &&&&&\\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_3 & & \subseteq & &  \{\hat x_1 + \hat x_3 = 1 \} & \\
+          & \hat f_3 & & \subseteq & &  \{\hat x_1 + \hat x_3 = 1 \} & &&&&&\\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_4 & & \subseteq & &  \{\hat x_2 + \hat x_3 = 1 \} & \\
+          & \hat f_4 & & \subseteq & &  \{\hat x_2 + \hat x_3 = 1 \} & &&&&&\\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_5 & & \subseteq & &  \{\hat x_3 = 0\}             & \\
+          & \hat f_5 & & \subseteq & &  \{\hat x_3 = 0\}             & &&&&&\\
         \IEEEeqnarrayrulerow
     \end{IEEEeqnarraybox*}
 \end{table}
 
 \begin{table}[!h]
     \centering  
-    \caption{Notation for the edges of $\hat{E}$.}
+    \caption{Notation for the edges and positive tangents of $\partial\hat{E}$.}
     \label{pyramidNotationTableEdges}
     \begin{IEEEeqnarraybox*}
       [\IEEEeqnarraystrutmode
       \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/x/v/x/c/x/c/x/c/v/}
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   & \hat \be_1 && = && \{(\hat x_1,0,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \be_5 && = && \{(0,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   & \hat \be_2 && = && \{(1,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \be_6 && = && \{(1-\hat x_3,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   & \hat \be_3 && = && \{(\hat x_1,1,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \be_7 && = && \{(0,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+        \IEEEeqnarrayrulerow\\
+        \IEEEeqnarrayseprow[5pt]\\
+   & \hat \be_4 && = && \{(0,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \be_8 && = && \{(1-\hat x_3,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
    & \hat \be_1 && = && \{(\hat x_1,0,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \be_5 && = && \{(0,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
@@ -438,7 +450,7 @@ $\hat{E}$ will be the reference pyramid  in figure~(\ref{reference_pyramid}).
 
 \subsection{Edge Elements} % (fold)
 \label{sub:edge_elements}
-
+\input{./chap_interpolation/stability_edge_ref_pyramid}
 % subsection edge_elements (end)
 \subsection{Face Elements} % (fold)
 \label{sub:face_elements}
