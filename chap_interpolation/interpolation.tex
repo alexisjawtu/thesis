@@ -420,28 +420,28 @@ and the sum of the three estimates yields the theorem.
       \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/x/v/x/c/x/c/x/c/v/}
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_1 && = && \{(\hat x_1,0,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \be_5 && = && \{(0,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+   & \hat \be_1 && = && \{(\hat x_1,0,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \btau_1 && = && (1,0,0)' & \\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_2 && = && \{(1,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \be_6 && = && \{(1-\hat x_3,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+   & \hat \be_2 && = && \{(1,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \btau_2 && = && (0,1,0)' & \\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_3 && = && \{(\hat x_1,1,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \be_7 && = && \{(0,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+   & \hat \be_3 && = && \{(\hat x_1,1,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \btau_3 && = && (-1,0,0)' & \\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_4 && = && \{(0,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \be_8 && = && \{(1-\hat x_3,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+   & \hat \be_4 && = && \{(0,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \btau_4 && = && (0,-1,0)' & \\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_1 && = && \{(\hat x_1,0,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \be_5 && = && \{(0,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+   & \hat \be_5 && = && \{(0,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} && && \hat \btau_5 && = && (0,0,1)' & \\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_2 && = && \{(1,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \be_6 && = && \{(1-\hat x_3,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+   & \hat \be_6 && = && \{(1-\hat x_3,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} && && \hat \btau_6 && = && 2^{-\nicefrac{1}{2}}(-1,0,1)' & \\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_3 && = && \{(\hat x_1,1,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \be_7 && = && \{(0,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+   & \hat \be_7 && = && \{(0,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} && && \hat \btau_7 && = && 2^{-\nicefrac{1}{2}}(0,-1,1)' & \\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_4 && = && \{(0,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \be_8 && = && \{(1-\hat x_3,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} & \\
+   & \hat \be_8 && = && \{(1-\hat x_3,1-\hat x_3,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} && && \hat \btau_8 && = && 3^{-\nicefrac{1}{2}}(-1,-1,1) & \\
         \IEEEeqnarrayrulerow
     \end{IEEEeqnarraybox*}
 \end{table}
@@ -682,8 +682,6 @@ From~(\ref{term_rk3}) we deduce
 The quantity $C_{\hat{E}}$ depends only on the supremum of the (fixed)
 basis shape functions of Table~(\ref{shape_face_table}) over the pyramid.
 \end{proof}
-
-\noindent{\color{blue}\#\#\#\#\#\#\# continue here stab curl pyr} 
 
 % subsection face_elements (end)
 % section pyramidal_finite_elements (end) 
