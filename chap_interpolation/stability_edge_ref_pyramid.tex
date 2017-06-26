@@ -104,48 +104,21 @@ For the next component,
   &=& -\iint_{\hat{f}_2}\nabla\times\hat\bu\cdot\hat\bn\,d\gamma~=~
       -\iint_{\hat{f}_2}\frac{{\s\partial} u_2}{{\s\partial} x_3}.
 \end{IEEEeqnarray*}
+And for the third one, {\color{red}\#\#\#\#\#\#\#\# aca pruebo una manera de acomodar. ver otras después de
+armar la tabla para acotar.}
+\begin{IEEEeqnarray*}{rCl}
+	(\wku)_3&=&(\alpha_4+\alpha_7)(\hat\bu)\,y + (\alpha_2-\alpha_4-\alpha_7+\alpha_8)(\hat\bu)\,\frac{xy}{1-z}\\[4pt]
+	& &\,+\,(\alpha_7-\alpha_8)(\hat\bu)\,\frac{xyz}{(1-z)^2}.\\[8pt]
+	&=&(\alpha_2 - \alpha_4)(\hat\bu)\,\frac{xy}{1-z} + (\alpha_4+\alpha_7)(\hat\bu)\,y\\[8pt]
+	& &-(\alpha_7-\alpha_8)(\hat\bu)\,\frac{xy}{(1-z)^2}.
+\end{IEEEeqnarray*}
 {\color{blue}\#\#\#\#\#\#\#\# continue here.}
+Finally for $\hat\bu = (0,0,\hat u_3)$ it is
+$\wku = \alpha_5(\hat\bu)\bgamma_5 + 
+		\alpha_6(\hat\bu)\bgamma_6 + 
+		\alpha_7(\hat\bu)\bgamma_7 +
+		\alpha_8(\hat\bu)\bgamma_8. $
 \begin{IEEEeqnarray*}{rCl}
-	(\pi\bu)_3&=&(\alpha_4+\alpha_7)y + (\alpha_2-\alpha_4-\alpha_7+\alpha_8)\frac{xy}{1-z}
-	+(\alpha_7-\alpha_8)\frac{xyz}{(1-z)^2}.\\
-	\alpha_4+\alpha_7 &=&-\int\limits_{0}^{1}\int\limits_{0}^{1-t}\frac{{\s\partial} u_2}{{\s\partial} x_3}(0,t,s)\,dsdt\\
-	\alpha_7-\alpha_8 &=&\int\limits_{0}^{1}\int\limits_{0}^{1-t}\frac{{\s\partial} u_2}{{\s\partial} x_1}(s,1-t,t)\,dsdt.
-\end{IEEEeqnarray*}
-\begin{IEEEeqnarray*}{rCl}
-	\alpha_2+\alpha_8&=&\int\limits_{e_2}\bu\cdot\btau+\int\limits_{e_8}\bu\cdot\btau
-	+\int\limits_{e_6}\bu\cdot\btau\\
-	&=&\iint\limits_{[a_2,a_4,a_5]}\nabla\times\bu\cdot\bn\,dS\\
-	&=&\int\limits_{0}^{1}\int\limits_{0}^{t}-\frac{{\s\partial} u_2}{{\s\partial} x_3}(t,s,1-t) + \frac{{\s\partial} u_2}{{\s\partial} x_1}(t,s,1-t)\,dsdt.
-\end{IEEEeqnarray*}
-On the other hand, since $\bu$ is orthogonal to the tangent to $e_5$:
-\begin{IEEEeqnarray*}{rCl}
-	\alpha_4+\alpha_7&=&
-		\int\limits_{e_4}\bu\cdot\btau+
-		\int\limits_{e_7}\bu\cdot\btau+
-		\int\limits_{e_5}\bu\cdot\btau\\[5pt]
-		&=&\iint\limits_{[a_1,a_3,a_5]}\nabla\times\bu\cdot\bn\,dS\\[5pt]
-		&=&-\int\limits_{0}^{1}\int\limits_{0}^{1-t}\frac{{\s\partial} u_2}{{\s\partial} x_3}(0,t,s)\,dsdt\\[5pt]
-		&=&-\int\limits_{0}^{1}\int\limits_{t}^{1}\frac{{\s\partial} u_2}{{\s\partial} x_3}(0,t,1-s)\,dsdt\\[5pt]
-		&=&-\int\limits_{0}^{1}\int\limits_{0}^{s}\frac{{\s\partial} u_2}{{\s\partial} x_3}(0,t,1-s)\,dtds\\[5pt]
-		&=&-\int\limits_{0}^{1}\int\limits_{0}^{t}\frac{{\s\partial} u_2}{{\s\partial} x_3}(0,s,1-t)\,dsdt
-\end{IEEEeqnarray*}
-So
-\begin{IEEEeqnarray*}{rCl}
-	\alpha_2-\alpha_4-\alpha_7+\alpha_8 & = &
-	\int\limits_{0}^{1}\int\limits_{0}^{t}
-	-\frac{{\s\partial} u_2}{{\s\partial} x_3}(t,s,1-t) + \frac{{\s\partial} u_2}{{\s\partial} x_3}(0,s,1-t)\,dsdt\\
-	&&\,+\int\limits_{0}^{1}\int\limits_{0}^{t}\frac{{\s\partial} u_2}{{\s\partial} x_1}(t,s,1-t)\,dsdt\\
-	&=&\int\limits_{0}^{1}
-	\int\limits_{0}^{t}
-	\int\limits_{0}^{t}\frac{\partial^2u_2}{\partial x_1\partial x_3}(r,s,1-t)
-	\,dr\,ds\,dt+
-	\int\limits_{0}^{1}\int\limits_{0}^{t}\frac{{\s\partial} u_2}{{\s\partial} x_1}(t,s,1-t)\,ds\,dt.
-\end{IEEEeqnarray*}
-\centerline{\rule{100pt}{0.5pt}}
-\begin{IEEEeqnarray*}{rCl}
-	\bu & = & (0,0,u_3)\\
-	\nabla\times\bu &=& (\frac{{\s\partial} u_3}{{\s\partial} x_2},-\frac{{\s\partial} u_3}{{\s\partial} x_1},0)\\
-	\pi\bu &=& \alpha_5\gamma_5 + \alpha_6\gamma_6+ \alpha_7\gamma_7+\alpha_8\gamma_8\\
 	(\pi\bu)_1 & = &(\alpha_5-\alpha_6)z+
 		(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)\frac{yz}{1-z}.\\
 	\alpha_5-\alpha_6 & = &-\int\limits_{\mathcal{C}_{125}}\bu\cdot\btau\,d\sigma\\
