@@ -35,8 +35,10 @@ and the  global space $V_h$ will consist of functions defined piecewise with the
 local spaces:
 \begin{IEEEeqnarray*}{ccrCl}
 V_h&=&V_h(\Th)&:=&\Big\{\bv\in H(\dv,\Omega): \bv|_E\in V_h(E), \mbox{for all element }
-E\in\Th\Big\}
+E\in\Th\Big\}.
 \end{IEEEeqnarray*}
+\noindent{\color{blue}\#\#\#\#\#\#\# poner algo de por qu'e se pone
+la condicion del curl: para que sea el gradiente de alguien (Nicaise)}. 
 The scalar discrete space we will consider is
 \begin{IEEEeqnarray}{rCl}
   Q_h & = & \mathcal{P}_0(\Th)
@@ -58,7 +60,7 @@ of the elements, consistently taken in the case of neighbour elements.
   of freedom~(\ref{dofs}) corresponding to the faces of $E$ are unisolvent
   in $V_h(E)$.
 \end{lemma}
-\begin{proof} \emph{Existence.} Let $n_{f,E}$ the number of faces of $E$ and
+\begin{proof} \emph{Existence.} Let $n_{f,E}$ be the number of faces of $E$ and
 take real numbers $\{\alpha_i\}_{i=1}^{n_{f,E}}$. Let $g$ the  piecewise constant
 function on $\partial E$ satisfying, for all $i$, %face $f$ of $E$
 \[
@@ -159,6 +161,7 @@ compuesto con pi es para que sea calculable con dofs, el de S(,) es para estabil
 \hat V(E) = \left\{\hat \bv\in V_h(E): \hat \bv = \nabla \hat q_2,
 \mbox{ for some } \hat q_2\in \mathcal P_2(E)\right\} = V_h(E)\cap\nabla\mathcal{P}_2(E).
 \]
+$\hat V(\mathcal{T}_{\textit{h}}) = \{\hat{\bw} : \hat{\bw}|_{E} \in\} $
 \begin{remark}\label{vem_equal_fem} By an inspection of the Finite Elements defined in Chapter~\ref{chap_prelim}
 If $E$ is a tetrahedron or a prism, then $V_h(E) = \hat V(E) = RT_0(E)$
 (cfr.~(\ref{sub:definition_of_the_h_div_element_on_prisms})
@@ -338,10 +341,14 @@ and
 \frac1{\sqrt{\dfrac1{(\beta^*)^2}+1}}\,\|q^*\|_{Q_h}.
 \end{IEEEeqnarray*}
 \end{proof}
-\begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution.  
-\noindent{\color{blue}\#\#\#\#\#\#\# and
-for every $u_\pi$ ... escribir bien
-esta demostracion, que es totalmente estandar.} 
+\begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution
+$(\bu_{\textit{h}},p_{\textit{h}})$ and
+for every approximation $\pi(\bu)$ of $\bu$ in
+$\hat V(\mathcal{T}_{\textit{h}})$ it holds
+  \begin{IEEEeqnarray*}{rCl}
+    \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\} \\[5pt]
+    \|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant& C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\}
+  \end{IEEEeqnarray*} 
 \end{theorem}
 % paragraph discrete_inf_sup (end)
 \end{chapter}
