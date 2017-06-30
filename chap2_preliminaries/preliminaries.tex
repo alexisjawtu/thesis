@@ -200,3 +200,68 @@ results in $H(\text{div},\Omega_1\cup\Omega_2)$.
 \end{defi}
 % section preliminares (end)
 	
+\section{Regularity of the solution for a model Elliptic Problem}
+
+\macroTetraRegularity
+\macroPrismRegularity
+\noindent We are concerned in solving 
+the following problem.
+\begin{problem}\label{mixedContinuous}
+Suppose we have a simply connected Lipschitz polyhedron
+$\Omega\subseteq\mathbb{R}^3$ which is not convex. Given $f\in L^2(\Omega)$
+we look for a $\bu\in H(\dv,\Omega)$ such that 
+\begin{IEEEeqnarray*}{rCl}
+  \boldsymbol{u}              & = & \nabla p \\
+  -\text{div\,}\boldsymbol{u} & = & f \\
+   p|_{\partial\Omega}
+  & = & 0.
+\end{IEEEeqnarray*}
+\mbox{la cond de borde VA?\quad COMO LO PONGO? \quad (ver apunte de FEM2012 talvez)}
+\end{problem}
+Due to the polyhedron not being convex there will be ingoing
+vertices and edges whose interior angles are obtuse. In the following
+we are going to recall how to formalize the singularities in a polyhedron
+and how to classify the regularity of the solution of problem~(\ref{mixedContinuous})\\[5pt]
+
+In~(\cite{put_ref_here}) it is stated that the solution
+  \begin{itemize}
+    \item
+  $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ macroelements
+      \begin{itemize}
+       \item ({\color{blue}tetrahedral or prismatic}).
+    \end{itemize}
+  \item One singular edge  per $\Lambda_\ell$.
+  \item One singular vertex per $\Lambda_\ell$.\\[5pt]
+  \item
+$
+\|v\|^{1,2}_{\beta,\delta} := \left\{\sum_{|\alpha|\leqslant 1}
+\|R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}D^\alpha v\|_{L^2(\Lambda)}^2\right\}^{1/2}
+$
+\item $R({\bf x}) \,=\, d({\bf x},\mbox{ vertices of }\Lambda$),
+\item $r({\bf x}) \,=\, d({\bf x},\mbox{ edges of }\Lambda$),
+$\theta({\bf x})\,=\,\frac{r({\bf x})}{R({\bf x})}$
+\item
+$
+V^{1,2}_{\beta,\delta} = \left\{v\in \mathcal D'(\Lambda): \|v\|^{1,2}_{\beta,\delta} < \infty\right\}
+$
+  \end{itemize}
+\begin{itemize}
+\item $\{\xi_i\}:$ directions of three concurrent edges of $\Lambda_\ell$
+\item $\xi_3$ = direction of singular edge
+\item $\beta > \frac12-\lambda_{\bv}^{(\ell)} > 0$
+\item $\delta > 1-\lambda_{\be}^{(\ell)} = 1-\pi/\omega_{\be}$
+\end{itemize}
+
+ \begin{theorem}
+Solutions $\bu$ and $p$ of~(\ref{P}) satisfy
+\begin{itemize}
+  \item $p\in H^1(\Omega)$
+  \item for each $\Lambda_{\ell}$
+  \begin{itemize}
+    \item $\bu = \bu_r + \bu_s$\\[5pt]
+    \item $\bu_r\in H^1(\Omega)^3$ \\[5pt]
+    \item $\bu_s\cdot \xi_i\in V^{1,2}_{\beta,\delta}(\Lambda_\ell), \quad i=1,2$ \\[5pt]
+    \item $\bu_s\cdot\xi_3\in V^{1,2}_{\beta,0}(\Lambda_\ell)$
+  \end{itemize}
+\end{itemize}
+\end{theorem}

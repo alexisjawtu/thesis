@@ -113,30 +113,15 @@ an $H(\text{div})$--like local interpolation operator well defined.
 \end{IEEEeqnarray*}
 \end{lemma}
 \noindent{\color{blue}\#\#\#\#\#\#\# desde ac\'a est\'a sin controlar} 
-\begin{theorem}
-The solutions $\bu$ and $p$ of problem ~(\ref{mixedContinuous}) satisfy
-\[
-p\in H^1(\Omega)
-\] 
-and for each $\ell$
-\[
-\bu=\bu_r + \bu_s
-\]
-with $\bu_r\in H^1(\Omega)$ and
-\[
-\bu_s\cdot \xi_i\in V^{1,2}_{\beta,\delta}(\Lambda_\ell), \quad i=1,2, \qquad \bu_s\cdot\xi_3\in V^{1,2}_{\beta,0}(\Lambda_\ell)
-\]
-where $\xi_i$, $i=1,2,3$, are the directions of three concurrent edges of $\Lambda_\ell$ with $\xi_3$ being the direction of the singular edge if it exists in $\Omega_\ell$, and $\beta,\delta\ge0$ satisfying $\beta>\frac12-\lambda_v^{(\ell)}$ and $\delta>1-\lambda_e^{(\ell)}$, $v$ and $e$ being the singular vertex and edge, respectively, {\color{red}mas lindo}if they exist.
-\end{theorem} 
-\paragraph{discretized forms} % (fold)
-\label{par:discretized_forms}
-\[
-\noindent{\color{blue}\#\#\#\#\#\#\# \mbox{¿hace falta?}} 
-  a(\bv,\bw)=\sum_{E\in\mathcal T_h}a^E(\bv,\bw), \qquad
-  b(\bv,q)=\sum_{E\in\mathcal T_h}b^E(\bv,q).
-\]
+%\paragraph{discretized forms} % (fold)
+%\label{par:discretized_forms}
+%\[
+%\noindent{\color{blue}\#\#\#\#\#\#\# \mbox{¿hace falta?}} 
+%  a(\bv,\bw)=\sum_{E\in\mathcal T_h}a^E(\bv,\bw), \qquad
+%  b(\bv,q)=\sum_{E\in\mathcal T_h}b^E(\bv,q).
+%\]
 Next, together with the finite dimensional spaces already defined,
- discretized version of the bilinear forms.\\
+discretized version of the bilinear forms.\\
 The evaluation of the form $b(\cdot,\cdot)$ in $(\bv,q)\in V_h\times Q_h$ can
 be computed using the degrees of freedom~(\ref{dofs}) applied to $\bv$. For if $q\in Q_h$, then
 \[
