@@ -76,18 +76,18 @@ Then we consider the auxiliary problem of seeking a solution of
   \Delta \phi & = & d \quad \mbox{in $E$,} \qquad & 
   \frac{\partial \phi}{\partial \bn}& = &g \quad \mbox{on }\partial E.
 \end{IEEEeqnarray}
-{\color{red}By definition we obtain the compatibility condition}
+By definition we obtain the compatibility condition
 \begin{IEEEeqnarray*}{rCl}
   \int\limits_E d\,d\textbf{x}& = & \int\limits_{\partial E} g\,d\gamma    
 \end{IEEEeqnarray*}
 so the solution $\phi$ to the problem~(\ref{aux_prob}) exists. Now
-we take $\bu:=\nabla \phi$ and  it holds immediately $\dv\bu$ is constant in $E$,
+we take $\bu:=\nabla \phi$ and  it holds immediately that $\dv\bu$ is constant in $E$,
 $\bu\cdot\bn$ is constant on each face of $\partial E$ and $\curl\bu = 0$. So
 $\bu$ lies in $V_h(E)$ and also for all $1\leqslant i\leqslant n_{f,E}$ $\int_{f_i} \bu\cdot\bn\,d\gamma = \alpha_i$.\\[4pt]
 \emph{Uniqueness.} Suppose that $\bv\in V_h(E)$ has vanishing
 degrees of freedom. Condition $\curl\bv=0$ implies
 $\bv=\nabla\phi$ for certain $\phi$. Now, since $\dv\bv$ is constant on $E$, the
-relations 
+relation
 \begin{IEEEeqnarray*}{rCl}
    0 & = & \int\limits_{\partial P}\bv\cdot\bn\,d\gamma 
 \end{IEEEeqnarray*} %& = & \int\limits_P\dv\bv\,d\textbf{x}
@@ -96,20 +96,20 @@ imply $\dv\bv=0$ by Green Theorem. Then, the potential $\phi$ satisfies
   \Delta \phi & = & 0 \quad \mbox{in $E$,} \qquad & 
   \frac{\partial \phi}{\partial \bn}& = &0 \quad \mbox{on }\partial E
 \end{IEEEeqnarray*}
-{\color{red} which means it is a constant}, and it follows $\bv=0$.
+which means it is a constant, and it follows $\bv=0$.
 \end{proof}
 With this Lemma already {\color{red}demonstrated} we are able to consider
 an $H(\text{div})$--like local interpolation operator well defined.
 \begin{corollary} \label{interpolant}
-  For every $\bv\in H^1(E)^3$ there exists a $V_h(E)$--interpolant $\bv_I$
+  For every $\bv\in H^1(E)^3$ there exists a $V_h(E)$--interpolant $I(\bv)$
   defined as the unique element in $V_h(E)$ such that for every face $f$ of $E$
     \begin{IEEEeqnarray*}{rCl}
-      \int\limits_f \bv_I\cdot\bn\,d\gamma & = & \int\limits_f \bv\cdot\bn\,d\gamma       
+      \int\limits_f I(\bv)\cdot\bn\,d\gamma & = & \int\limits_f \bv\cdot\bn\,d\gamma.       
     \end{IEEEeqnarray*}
 \end{corollary}
 \begin{lemma} \label{p0_projection} Consider the projection $P_0$ onto the constants on $E$. It holds
 \begin{IEEEeqnarray*}{rCl}
-  \dv\bv_I & = & P_0\,\dv\bv.
+  \dv I(\bv) & = & P_0\,\dv\bv.
 \end{IEEEeqnarray*}
 \end{lemma}
 \noindent{\color{blue}\#\#\#\#\#\#\# desde ac\'a est\'a sin controlar} 
