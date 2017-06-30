@@ -30,3 +30,43 @@
 
 \end{tikzpicture}
 }
+
+\def\macroTetraRegularity{  
+\begin{figure}[!h]
+  \centering
+  \subfloat
+  {
+    \begin{tikzpicture}[scale=1.5]
+    \label{macro_tetra_reg}
+      \draw (0.0,0.0,0.0) -- node[midway] {\tiny{\color{black}$\xi_1$}} (0.0,1.0,0.0);
+      \draw (0.0,0.0,0.0) -- node[midway] {\tiny{\color{black}$\xi_2$}} (1.0,0.0,0.0);
+      \draw (0.0,1.0,0.0) -- (1.0,0.0,0.0);
+      \draw[orange] (0.0,0.0,0.0) -- node[midway] {\tiny{\color{black}$\xi_3$}} (0.0,0.0,1.0);
+      \draw (0.0,1.0,0.0) -- (0.0,0.0,1.0);
+      \draw (1.0,0.0,0.0) -- (0.0,0.0,1.0);
+      \fill[red] (0,0,1) circle (1.5pt);
+    \end{tikzpicture}
+  }
+  \caption{Tetrahedral Macroelement.}
+\end{figure}
+}
+
+\def\macroPrismRegularity{  
+\begin{figure}[!h]
+  \centering
+  \subfloat
+  {
+    \begin{tikzpicture}[scale=1.5]
+    \label{macro_prism_reg}
+      \draw (0.0,0.0,0.0) -- node[midway] {\tiny{\color{black}$\xi_1$}} (0.0,1.0,0.0);
+      \draw (0.0,0.0,0.0) -- node[midway] {\tiny{\color{black}$\xi_2$}} (1.0,0.0,0.0);
+      \draw (0.0,1.0,0.0) -- (1.0,0.0,0.0);
+      \draw[orange] (0.0,0.0,0.0) -- node[midway] {\tiny{\color{black}$\xi_3$}} (0.0,0.0,1.0);
+      \draw (0.0,1.0,0.0) -- (0.0,0.0,1.0);
+      \draw (1.0,0.0,0.0) -- (0.0,0.0,1.0);
+      \fill[red] (0,0,1) circle (1.5pt);
+    \end{tikzpicture}
+  }
+  \caption{Prismatic Macroelement.}
+\end{figure}
+}
