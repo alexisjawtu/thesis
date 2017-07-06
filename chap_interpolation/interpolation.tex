@@ -74,12 +74,16 @@
 The exposition in this section will be the $H(\mbox{div})$--conforming analogue
 of the exposition in the previous section.\\
 \noindent In present subsection $\hat\bu$ will be an element
-in $H(\mbox{div},\hat{E})$ and we will assume there is
-a positive $\delta$ such that $\hat\bu$ belongs to $H^{1/2+\delta}(\hat{E})^3$.
+of $W^{1,1}(\hat E)$ in which elements have well defined
+normal traces over the faces of $\hat{E}$, another possibility
+being, as mentioned in~\cite{monk}, Lemma $5.15$, page $120$, to assume
+there is
+a positive $\delta$ such that $\hat\bu$ belongs to
+$H^{1/2+\delta}(\hat{E})^3$.
 $\hat\br_k$ will be, for the whole subsection, the $k$--th order face 
 interpolation operator on the reference
 Prism determined by the element of
-\emph{Definition}~(\ref{defi_h_div_conforme}).
+\emph{Definition}~\ref{defi_h_div_conforme}.
 \label{stability_of_rt_element_in_hat_k}
 \begin{lemma}\label{lemmaRT3zero}
 $(\rku)_3$ is linearly and univocally determined by $\hat{u}_3$.
@@ -114,7 +118,7 @@ then $\rku\xyz = (0,0,\hat{\xi}_3\xyz)$ for some $\hat{\xi}_3\in
 P_{k-1}(\hat{f}_3)\otimes P_k(\hat{x}_3)$.
 \end{lemma}
 \begin{proof}
-In a completely analogous way as was done in Section~(\ref{sub:defEdgeElement})
+In a completely analogous way as was done in Section~\ref{sub:defEdgeElement}
 we can derive the following expressions for 
 $\rku = (\hat{p}_1, \hat{p}_2, \hat{p}_3)^t \in  P_{\hat{E}}$: 
 \begin{IEEEeqnarray*}{rCl}
@@ -129,7 +133,7 @@ $\hat{q}_3 \in \mathcal{P}_{k-1}(\hat{f}_3)\otimes\mathcal{P}_{k}(\hat{x}_3)$,
 and
 $\hat{h} \in \tilde{\mathcal{P}}_{k-1}(\hat{f}_3)\otimes\mathcal{P}_{k-1}(\hat{x}_3)$.
 Take an arbitrary $\hat{q}\in\mathcal{P}_{k-1}(\hat f_1)\otimes\mathcal P_{k-1}(\hat z)$.
-Continuing with the technique developed for Section~(\ref{stab_edge_prism}), 
+Continuing with the technique developed for Section~\ref{stab_edge_prism}, 
 the trick will be to apply Green's Theorem to the field
 $(\hat{p}_1, \hat{p}_2, 0)^t$ and the scalar $\hat{q}$. By the surface degrees of
 freedom~(\ref{momentos2hdiv}) and the volume degrees of freedom~(\ref{momentos3hdiv}) we have
@@ -148,7 +152,7 @@ freedom~(\ref{momentos2hdiv}) and the volume degrees of freedom~(\ref{momentos3h
   \end{IEEEeqnarray*}
   And since $\mbox{div}(\hat{p}_1, \hat{p}_2, 0)^t$ also belongs to
   $\pp{k-1}{k-1}$, we just established it vanishes on all $\hat{E}$.\\[3pt]
-  In a similar way as done in Lemma~(\ref{lemma_PIu2_k_in_N}), eq.~(\ref{h_is_zero}),
+  In a similar way as done in Lemma~\ref{lemma_PIu2_k_in_N}, eq.~(\ref{h_is_zero}),
   we get to prove $\hat{h} \equiv 0$ in expression~(\ref{exprPrt}). It means we may
   assume that $\hat{p}_1$ and $\hat{p}_2$ belong to 
   $\mathcal{P}_{k-1}(\hat{f}_3)\otimes\mathcal{P}_{k-1}(\hat{x}_3)$.
@@ -186,7 +190,7 @@ constantly null over all $\hat{E}$.
 \end{itemize}
 \end{lemma}
 \begin{proof} Let us prove the first one of the two claims. The second one 
-  has an entirely analogous proof. By Lemma~(\ref{lemmaRT3zero}) we get
+  has an entirely analogous proof. By Lemma~\ref{lemmaRT3zero} we get
   $(\rku)_3 = 0$.
   The nullity of $\dv\hat{\bu}$ and the commutative
   diagram property~(\ref{lema_pi_star_rot_u}) give us
@@ -195,7 +199,7 @@ constantly null over all $\hat{E}$.
   degrees of freedom~(\ref{momentos2hdiv})
   on the face $\hat f_1 \subseteq \{x_1=0\}$
   and~(\ref{momentos3hdiv}) over $\hat E$, implies, as we have seen in
-  Lemma~(\ref{lemma_u1_u2}), that $(\rku)_1 = 0$.
+  Lemma~\ref{lemma_u1_u2}, that $(\rku)_1 = 0$.
   And if look again at 
   $\dv\rku = {\partial\rku}/{\partial\hat x_2} = 0$
   we have that $(\rku)_2$ does not depend on $\hat x_2$.
@@ -214,9 +218,21 @@ constantly null over all $\hat{E}$.
 \end{IEEEeqnarray}
 where the constants in the inequalities depend olny on $\hat{E}$.
 \end{theorem}
-\begin{proof} The proof is based on the last three Lemmas. Let
-us prove the first inequality.
-Given $\hat{\bu} \in W^{1,1}(\hat{E})$ let
+\begin{remark}\label{density_wpcurl}
+  Denote with $\omega$ the closure of $\hat{E}$.
+  The space $\mathcal{C}^\infty(\omega)^3$ is dense in
+  $W^p(\curl,\hat{E})$ with its norm defined in~(\ref{normaWpcurl}).
+  The proof follows techniques which can be learned from Chapter $3$
+  in the book~\cite{adams} of Adams.
+  {\color{blue}\#\#\#\#\#\#\#\# poner un esbozo de la prueba, mirar chap 3 adams
+  si queda tiempo.}
+\end{remark}
+\begin{proof}[Proof of Theorem~\ref{thm_stab_div}] The proof is based on the
+last three Lemmas. By Remark~\ref{density_wpcurl} we can state the estimate for
+a smooth field $\hat{\bu}$ and then finish the proof with a density argument.\\[4pt]
+Take again $\omega$ as the closure of $\hat{E}$ and 
+$\hat\bu\in\mathcal{C}^\infty(\omega)^3$. Let
+us prove the first inequality. Set
 $\hat{\bv} = (\hat{u}_1, \hat{u}_2 - \hat{u}_2(\hat{x}_1,0,\hat{x}_3), 0)$.
 Then $(\hat{\br}_k\bv)_1 = (\rku)_1$.
 By evaluating the degrees of freedom to $\hat{\bv}$ we observe
@@ -288,7 +304,7 @@ Then, by standard result for traces in Sobolev spaces,
   &\leqslant& c(\hat{E}) \|\hat{u}_3\|_{W^{1,1}(\hat{E})}
 \end{IEEEeqnarray*}
 \end{proof}
-Theorems~(\ref{thm_stab_edge}) and~(\ref{thm_stab_div}) show that the interpolations
+Theorems~\ref{thm_stab_edge} and~\ref{thm_stab_div} show that the interpolations
 determined by the Finite Elements~(\ref{edgeelement}) and~(\ref{defi_h_div_conforme})
 are anisotropically stable, in the sense that the image of a field $\hat\bu$ under
 the linear operator depends not only continously on $\hat\bu$, but also with a
@@ -303,9 +319,25 @@ There is $C > 0$, independent of $h_1$, $h_2$ and $h_3$, s.t. for all $p \geqsla
     \left\| \rkutilde \right\|_{L^p(\tilde{E})}
     & \leqslant & C \left( \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
     + \sum_{i=1}^3 h_i \left\| \frac{\partial\tilde{\bu}}{\partial\tilde{x}_i} \right\|_{L^p(\tilde{E})}
-    + h_{\tilde{E}}\left\|\mathit{\dv}(\tilde{u}_1, \tilde{u}_2, 0) \,\right\|_{L^p(\tilde{E})}\right).
+    + \max\{h_1,h_2\}\left\|{\dv}(\tilde{u}_1, \tilde{u}_2, 0) \,\right\|_{L^p(\tilde{E})}\right).
   \end{IEEEeqnarray*}
 \end{theorem}
+\begin{remark}
+{\color{red}esto va en el cap. de approx tal vez}  When it comes to estimate in terms of the data $f$ we
+  will assume $h_3 \geqslant C\max\{h_1,h_2\}$ to be able to do
+  \begin{IEEEeqnarray*}{rCl}
+    \left\| \rkutilde \right\|_{L^p(\tilde{E})}
+    & \leqslant & C \left( \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
+    + \sum_{i=1}^3 h_i \left\| \frac{\partial\tilde{\bu}}{\partial\tilde{x}_i} \right\|_{L^p(\tilde{E})}
+    + \max\{h_1,h_2\}\left\|{\dv}\hat\bu\right\|_{L^p(\tilde{E})}
+    + \max\{h_1,h_2\}\left\|\frac{\partial\hat u_3}{\partial\hat x_3}\right\|_{L^p(\tilde{E})}\right).\\[5pt]
+    &\leqslant& C \left( \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
+    + \sum_{i=1}^3 h_i \left\| \frac{\partial\tilde{\bu}}{\partial\tilde{x}_i} \right\|_{L^p(\tilde{E})}
+    + \max\{h_1,h_2\}\left\|{\dv}\hat\bu\right\|_{L^p(\tilde{E})}\right).
+  \end{IEEEeqnarray*}
+  this is not a restriction since we needed the prisms to be 
+  elongated exactly along the direction paralell to the cuadrilateral faces.
+\end{remark}
 \begin{proof}
 Pick $p\geqslant 1$. If we pull 
 $\tilde{\bu}$ back to $\hat{E}$ we get the relation
@@ -381,6 +413,10 @@ so, immediately,
 and the sum of the three estimates yields the theorem.
 \end{proof}
 % section prismatic_finite_elements (end)
+\subsection{Local Interpolation Estimates for Pyramidal Elements} % (fold)
+\label{sub:local_interpolation_estimates_for_pyramidal_elements}
+llegar hasta el elemento físico...
+% subsection local_interpolation_estimates_for_pyramidal_elements (end)
 
 \section{Pyramidal Finite Elements} % (fold)
 \label{sec:pyramidal_finite_elements}
@@ -446,7 +482,7 @@ and the sum of the three estimates yields the theorem.
     \end{IEEEeqnarraybox*}
 \end{table}
 
-$\hat{E}$ will be the reference pyramid  in figure~(\ref{reference_pyramid}).
+$\hat{E}$ will be the reference pyramid  in Figure~\ref{reference_pyramid}.
 
 \subsection{Edge Elements} % (fold)
 \label{sub:edge_elements}
@@ -474,9 +510,9 @@ $\hat{E}$ will be the reference pyramid  in figure~(\ref{reference_pyramid}).
 \end{theorem}
 
 \begin{proof}
-We will use the notation of Table~(\ref{shape_edge_table}) for the 
-shape functions and Tables~(\ref{pyramidNotationTableFaces}) and
-~(\ref{pyramidNotationTableEdges}) for the border of the pyramid. The variables 
+We will use the notation of Table~\ref{shape_edge_table} for the 
+shape functions and Tables~\ref{pyramidNotationTableFaces} and
+~\ref{pyramidNotationTableEdges} for the border of the pyramid. The variables 
 in the local coordinate system of $\hat E$ are $x,y$ and $z$.\\[5pt]
 Consider the case $\hat{\bu} = (\hat{u}_1,0,0)'$ and compute it's interpolate. 
 \begin{IEEEeqnarray*}{rCl}
@@ -562,7 +598,7 @@ In a completely similar fashion
                         \frac{y}{1-z}.}
 \end{IEEEeqnarray*}
 We collect every term obtained so far for the first and second components in
-Table~(\ref{terms_table}).
+Table~\ref{terms_table}.
 \begin{table}[!h]
     \centering  
     \caption{Terms\\[4pt]$q(s,t) = \frac{2s-st}{1-t},\,r(s,t) = \frac{st}{1-t}$}
@@ -680,8 +716,16 @@ From~(\ref{term_rk3}) we deduce
     \|\dv \bu\|_{\scriptscriptstyle{L^2}(\hat{E})}\right].
 \end{IEEEeqnarray*}
 The quantity $C_{\hat{E}}$ depends only on the supremum of the (fixed)
-basis shape functions of Table~(\ref{shape_face_table}) over the pyramid.
+basis shape functions of Table~\ref{shape_face_table} over the pyramid.
 \end{proof}
-
 % subsection face_elements (end)
+\subsection{Local Interpolation Estimates for Pyramidal Elements} % (fold)
+\label{sub:local_interpolation_estimates_for_pyramidal_elements}
+decir que permitimos pirámides elongadas perpendicularmente a la base
+$h_3\geqslant C\min\{h_1,h_2\}$
+Verificar si es esto o $h3 >= max (h1, h2)$\\
+poner tres dibujos con casos $h1=h2<h3$; $h1<h2<h3$; $h2<h1<h3$
+
+% subsection local_interpolation_estimates_for_pyramidal_elements (end)
+
 % section pyramidal_finite_elements (end) 

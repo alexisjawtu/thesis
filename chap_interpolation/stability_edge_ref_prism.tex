@@ -5,9 +5,10 @@ degrees of freedom and the very definition of the operator. The author and his
 advisor think these Lemmas, although just with technical purpose, exhibit
 nice properties of the interpolators.\\
 \noindent In the present subsection $\hat\bu$ is an element
-in $W^{1,1}(\hat{E})$ which is a space whose elements have well
-defined normal traces on each face of the prism $\hat{E}$.
-Another possibility, as stated in~\cite{monk}, is to 
+in $W^{1,p}(\hat{E})$ for $p>2$ which is a space whose elements have well
+defined tangential traces on each edge of the prism $\hat{E}$.
+Another possibility, as stated in~\cite{monk}, Lemma $5.38$, page $134$,
+is to 
 assume there are 
 a positive $\delta$ and a $p>2$ such that 
 $\hat\bu$ belongs to $H^{1/2+\delta}(\hat{E})^3$ and
@@ -15,7 +16,7 @@ ${\bf curl}\,\bu$ belongs to $L^p(\hat{E})^3$.
 $\hat\bw_k$ will be, for the whole section, the $k$--th order edge 
 interpolation operator on the reference
 Prism determined by the element of
-\emph{Definition}~(\ref{edgeelement}).
+\emph{Definition}~\ref{edgeelement}.
 \begin{lemma}\label{lema_PIu3_k_cualquiera} 
 $(\wku)_3$ is linearly and univocally 
 determined by $\hat{u}_3$.
@@ -101,7 +102,7 @@ $(\wku)_3 \equiv 0$ on $\hat E$.
 \end{itemize}
 \end{lemma}
 \begin{proof} We will prove the first inequality, as the second follows
-with the same ideas. In Subsection~(\ref{sub:defEdgeElement}) we found 
+with the same ideas. In Subsection~\ref{sub:defEdgeElement} we found 
 expression~(\ref{elemento_P_k}) which states
 \begin{IEEEeqnarray*}{rCl}
   \wku\xyz  & = & (p_1\xyz, p_2\xyz, p_3\xyz)^t\\[4pt]
@@ -331,7 +332,7 @@ $\hat{\bv}\,:\,\hat{E}\longmapsto\mathbb{R}^3$ with
 \[
   \hat{\bv}\xyz = (\hat{u}_1\xyz, \hat{u}_2\xyz - \hat{u}_2(0,\hat{x}_2,\hat{x}_3), 0).
 \]
-Thanks to the Lemmas~(\ref{lemma_PIu2_k_in_N}) and~(\ref{pi00u3}) it holds
+Thanks to the Lemmas~\ref{lemma_PIu2_k_in_N} and~\ref{pi00u3} it holds
 \begin{IEEEeqnarray*}{rCl}
 	(\hat{\bw}_k\hat{\bv})_1 & = & (\wku)_1 - 
 	\hat{\bw}_k(0, \hat{u}_2(0,\hat{x}_2,\hat{x}_3), 0)_1 -
@@ -512,7 +513,7 @@ which is the bound we wanted to prove. The same procedure applies for
 inequality~(\ref{teorema_2}).\\[7pt]
 \noindent For inequality~(\ref{teorema_3}) given $\hat{\bu} \in W^{1,p}(\hat{E})^3$, define
 $\hat{\bv}  =  (0,0, \hat{u}_3).$
-Thanks to Lemma~(\ref{lema_PIu3_k_cualquiera}) we have 
+Thanks to Lemma~\ref{lema_PIu3_k_cualquiera} we have 
 $\hat{\bw}_k(\hat{\bv})_3 = (\hat{\bw}_k\hat{\bu})_3 - (\hat{\bw}_k(\hat{u}_1, \hat{u}_2, 0))_3 = (\hat{\bw}_k\hat{\bu})_3.$
 By expression~(\ref{edge_interp_explicit}), taking another look at 
 the unit tangent vector of the edges and unit normal vectors to the
