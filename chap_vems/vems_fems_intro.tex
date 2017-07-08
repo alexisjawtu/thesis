@@ -166,14 +166,15 @@ from $H(\dv,E)$ onto $\hat V(E)$ defined by
 \end{IEEEeqnarray}
 fully computably in terms of the degrees of freedom of $\bv$.\\[5pt]
 One fact to note
-about the projection $\hat\pi$ in~(\ref{projection}) is that, by Remark~(\ref{vem_equal_fem}),
+about the projection $\hat\pi$ in~(\ref{projection}) is that, by
+Remark~\ref{vem_equal_fem},
 it coincides with the identity $I\,:\,\hat V(E)\to\hat V(E)$ whenever the element $E\in\Th$
 is a Prism or a Tetrahedron, so that, immediately
 \begin{remark}\label{ah_equal_a} If $E$ is a tetrahedron or a prism, then
   $a_h^E(\bv,\bw)=a^E(\bv,\bw)$ for all $\bv,\bw \in V_h(E)$.
 \end{remark}
 We need the following last object to complete the discretization of $a(\cdot,\cdot)$.
-Thanks to Lemma~(\ref{unisolvence}) we can consider a basis $B=\{\bv_{i,E}\}$
+Thanks to Lemma~\ref{unisolvence} we can consider a basis $B=\{\bv_{i,E}\}$
 of $V_h(E)$ dual to the functionals~(\ref{dofs}), that is, for every
 $1\leqslant i,j\leqslant n_{f,E}$
 \begin{IEEEeqnarray}{rCl}
@@ -237,7 +238,7 @@ of~(\ref{ah_equal_a}). In the case of a Pyramid, firstly a simple computation yi
   \label{comput}
   a^E(\bv,\bv)&=&a^E(\bv-\hat\pi^E\bv,\bv-\hat\pi^E\bv)&+&a^E(\hat\pi^E\bv,\hat\pi^E\bv).
 \end{IEEEeqnarray}
-Remark~(\ref{equivalence}) and~(\ref{comput}) give
+Remark~\ref{equivalence} and~(\ref{comput}) give
 \begin{IEEEeqnarray*}{rCl}
 a_h^E(\bv,\bv) &\leqslant& a^E(\hat\pi\bv,\hat\pi\bv) + Ca^E(\bv-\hat\pi\bv,\bv-\hat\pi\bv) \\[5pt]
                &\leqslant& \max\{1,C\}a^E(\bv,\bv).
@@ -274,7 +275,7 @@ $\bw^*\in H^1_0(\Omega)^3$ with $\dv\bw^*=q*$ such that
   \|q^*\|_{Q}.
 \end{IEEEeqnarray}
 Now, for each $q^*\in Q_h$ take $\bw_h^*:=\bw^*_I$, the $V_h$-interpolant of $\bw^*$, as was
-already defined in Corollary~(\ref{interpolant}). As a consequence of~(\ref{vem_equal_fem})
+already defined in Corollary~\ref{interpolant}. As a consequence of~(\ref{vem_equal_fem})
 and because we are considering the exact same degrees of freedom, this
 interpolation operator coincides, in the lowest order case, with the
 $H(\dv)$--conforming operators~(\ref{sub:definition_of_the_h_div_element_on_prisms})
@@ -309,7 +310,7 @@ There exists $\beta > 0$ such that for all $q^*\in Q_h$
   \sup_{0\ne\bv\in V_h} \frac{b_h(\bv,q^*)}{\|\bv\|_{V_h}} &\geqslant& \beta\|q^*\|_{Q_h}.
 \end{IEEEeqnarray*}
 \end{theorem}
-\begin{proof} By Lemma~(\ref{lemma_inf_sup_bh}) for $q^*\in Q_h$
+\begin{proof} By Lemma~\ref{lemma_inf_sup_bh} for $q^*\in Q_h$
 there exists $\bw_h^*\in V_h$ such that $\dv\bw_h^*=q^*$ and
 $\beta^*\|\bw_h^*\|_{L^2(\Omega)}\leqslant\|q^*\|_{Q_h}$ (the constant $\beta^*$
 is independent of $q^*$). Then

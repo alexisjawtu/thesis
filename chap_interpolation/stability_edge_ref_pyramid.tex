@@ -1,6 +1,7 @@
-The proof is based on mere calculation.
-Recall the shape funtions in Table~(\ref{shape_edge_table}).
-Start with $\bu$ of the form $(u_1,0,0)'$. After computations we have
+$\hat\bu$ is an element of $W^{1,p}(\hat(E))$ for a $p$ greater than $2$.
+The proof is based on mere calculation. 
+Let us recall the shape funtions in Table~\ref{shape_edge_table} and
+start with $\bu$ of the form $(u_1,0,0)'$. After computations we have
 \begin{IEEEeqnarray*}{rCl}
 	\nabla\times\bu &=& (0, \frac{{\s\partial} u_1}{{\s\partial} x_3},-\frac{{\s\partial} u_1}{{\s\partial} x_2})\\[5pt]
 	\wku	&=& [{\s\int_{\hat{\be}_1}\bu\cdot\btau\, ds}]\bgamma_1 +
@@ -85,8 +86,8 @@ As $\hat\bu$ has zero tangential component along $\be_5$ and $\be_7$,
   (\wku)_1 & = &(\alpha_7-\alpha_8)(\hat{\bu})\,\frac{yz}{1-z}\\
   		   & = &(\alpha_7-\alpha_8 - \alpha_3)(\hat{\bu})\,\frac{yz}{1-z}\\
   		   & = &\int_{\partial\hat{f}_4}\hat{\bu}\cdot\btau\,d\hat{s}\,\frac{yz}{1-z}\\
-  		   & = &\iint_{\hat{f}_4} \nabla\times\hat\bu\cdot\,d\gamma
-  		     =  \iint_{\hat{f}_4} \frac{\partial\hat{u}_2}{\partial\hat{x}_1}\,d\gamma.
+  		   & = &\iint_{\hat{f}_4} \nabla\times\hat\bu\cdot\,d\gamma\,\frac{yz}{1-z}
+  		     =  \iint_{\hat{f}_4} \frac{\partial\hat{u}_2}{\partial\hat{x}_1}\,d\gamma\,\frac{yz}{1-z}.
 \end{IEEEeqnarray*}
 For the next component,
 \begin{IEEEeqnarray*}{rCl}
@@ -112,58 +113,50 @@ armar la tabla para acotar.}
 	&=&(\alpha_2 - \alpha_4)(\hat\bu)\,\frac{xy}{1-z} + (\alpha_4+\alpha_7)(\hat\bu)\,y\\[8pt]
 	& &-(\alpha_7-\alpha_8)(\hat\bu)\,\frac{xy}{(1-z)^2}.
 \end{IEEEeqnarray*}
-{\color{blue}\#\#\#\#\#\#\#\# continue here.}
 Finally for $\hat\bu = (0,0,\hat u_3)$ it is
 $\wku = \alpha_5(\hat\bu)\bgamma_5 + 
 		\alpha_6(\hat\bu)\bgamma_6 + 
 		\alpha_7(\hat\bu)\bgamma_7 +
 		\alpha_8(\hat\bu)\bgamma_8. $
 \begin{IEEEeqnarray*}{rCl}
-	(\pi\bu)_1 & = &(\alpha_5-\alpha_6)z+
+	(\wku)_1 & = &(\alpha_5-\alpha_6)z+
 		(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)\frac{yz}{1-z}.\\
-	\alpha_5-\alpha_6 & = &-\int\limits_{\mathcal{C}_{125}}\bu\cdot\btau\,d\sigma\\
-	&=&-\iint\limits_{[a_1,a_2,a_5]}\nabla\times\bu\cdot\bn\,dS
+	\alpha_5-\alpha_6 & = &\alpha_5-\alpha_6-\alpha_1  \\
+	&=&-\iint\limits_{\hat f_1}\nabla\times\hat\bu\cdot\hat\bn\,dS
 \end{IEEEeqnarray*}
-($\bn$ is the outer normal $(0,-1,0)$)
-Similarly:
+On the other hand and analogously
 \begin{IEEEeqnarray*}{rCl} 	
-	\alpha_7-\alpha_8 & = & 
-	\iint\limits_{[a_3,a_5,a_4]}\nabla\times\bu\cdot\bn\,dS
+	\alpha_7-\alpha_8 & = &	\iint\limits_{\hat{f}_4}\nabla\times\hat\bu\cdot\hat\bn\,dS
 \end{IEEEeqnarray*}
-so {\color{red}($\nabla\times\bu\cdot(0,1,1)/\sqrt{2} = -\frac{{\s\partial} u_3}{{\s\partial} x_1}$)}
+% &=&-\iint\limits_{\hat f_1}\partial_1 \hat{u}_3\,dS.
+so 
 \begin{IEEEeqnarray*}{rCl}
-	-\alpha_5+\alpha_6+\alpha_7-\alpha_8 & = & 
-	\iint\limits_{[a_1,a_2,a_5]}\nabla\times\bu\cdot\bn\,dS
-	+\iint\limits_{[a_3,a_5,a_4]}\nabla\times\bu\cdot\bn\,dS\\
-	&=&\int\limits_{0}^{1}
-	\int\limits_{0}^{1-t}\frac{{\s\partial} u_3}{{\s\partial} x_1} (s,0,t) \,ds\,dt
-	-\int\limits_{0}^{1}
-	 \int\limits_{0}^{1-t}\frac{{\s\partial} u_3}{{\s\partial} x_1} (s,1-t,t) \,ds\,dt\\
-	&=&-\int\limits_{0}^{1}
-	\int\limits_{0}^{1-t}
-	\int\limits_{0}^{1-t}\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}(s,r,t)\,dr\,ds\,dt\\
-	&=&-\iiint\limits_{\hat{P}}\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
+	(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)(\hat\bu) & = & 
+	\iint\limits_{\hat{f}_1}\nabla\times\bu\cdot\bn\,dS
+	+\iint\limits_{\hat{f}_4}\nabla\times\bu\cdot\bn\,dS\\
+	&=&
+	\iint\limits_{\hat f_1}\frac{{\s\partial} u_3}{{\s\partial} x_1}\,dS
+	-\iint\limits_{\hat f_4}\frac{{\s\partial} u_3}{{\s\partial} x_1}\,dS\\
+	&=&-\int\limits_{\hat{P}}\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
 \end{IEEEeqnarray*}
 For now
 \begin{IEEEeqnarray*}{rCl}
-	(\pi\bu)_1 & = & -z\int\limits_{0}^{1-t}\frac{{\s\partial} u_3}{{\s\partial} x_1}\,ds\,dt
-	-\frac{yz}{1-z}\iiint\limits_{\hat{P}}
+	(\wku)_1 & = & -z\int\limits_{\hat f_1}\frac{{\s\partial} u_3}{{\s\partial} x_1}\,dS
+	-\frac{yz}{1-z}\int\limits_{\hat{P}}
 		\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
 \end{IEEEeqnarray*}
+Regarding the second component,
 \begin{IEEEeqnarray*}{rCl}
-	(\pi\bu)_2& = &(\alpha_5-\alpha_7)z
-				+(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)\frac{xz}{1-z}\\[5pt]
+  (\wku)_2& = &(\alpha_5-\alpha_7)(\hat\bu)z
+		+(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)(\hat\bu)\frac{xz}{1-z}\\
+	& = &\iint\limits_{\hat f_2}\nabla\times\bu\cdot\bn\,dS\,z
+		+\int\limits_{\hat{P}}
+	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV\,\frac{xz}{1-z}\\
+	& = &-\iint\limits_{\hat f_2}\frac{{\s\partial} u_3}{{\s\partial} x_2}\,dS\,z
+		+\int\limits_{\hat{P}}
+	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV\,\frac{xz}{1-z}.
 \end{IEEEeqnarray*}
-\begin{IEEEeqnarray*}{rCl}
-	\alpha_5-\alpha_7& = & \iint\limits_{[a_1,a_5,a_3]}\nabla\times\bu\cdot\bn\,dS\\
-	& = &-\int\limits_{0}^{1}\int\limits_{0}^{1-t} \frac{{\s\partial} u_3}{{\s\partial} x_2}(0,s,t)\,ds\,dt
-\end{IEEEeqnarray*}
-\begin{IEEEeqnarray*}{rCl}
-	(\pi\bu)_2& = &
-	-z\int\limits_{0}^{1}\int\limits_{0}^{1-t}\frac{{\s\partial} u_3}{{\s\partial} x_2}(0,s,t)\,ds\,dt
-	+\frac{xz}{1-z}\iiint\limits_{\hat{P}}
-	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
-\end{IEEEeqnarray*}
+{\color{blue}\#\#\#\#\#\#\#\# continue here.}
 \begin{IEEEeqnarray*}{rCl}
 	(\pi\bu)_3&=& \alpha_5 + x(-\alpha_5+\alpha_6)+y(-\alpha_5+\alpha_7)\\[5pt]
 	&&\,+(\alpha_5-\alpha_6-\alpha_7+\alpha_8)\frac{xy}{1-z}
