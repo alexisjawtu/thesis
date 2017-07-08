@@ -123,8 +123,8 @@ $\wku = \alpha_5(\hat\bu)\bgamma_5 +
 First component:
 \begin{IEEEeqnarray*}{rCl}
 	(\wku)_1 & = &(\alpha_5-\alpha_6)(\hat\bu)z+
-		(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)\frac{yz}{1-z}.\ok\\
-	\alpha_5-\alpha_6 & = &\alpha_5-\alpha_6-\alpha_1  \ok\\
+		(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)(\hat\bu)\,\frac{yz}{1-z}.\ok\\
+	(\alpha_5-\alpha_6)(\hat\bu) & = & (\alpha_5-\alpha_6-\alpha_1)(\hat\bu) \ok\\
 	&=&-\iint\limits_{\hat f_1}\nabla\times\hat\bu\cdot\hat\bn\,dS\ok
 \end{IEEEeqnarray*}
 On the other hand and analogously
@@ -133,15 +133,21 @@ On the other hand and analogously
 \end{IEEEeqnarray*}
 % &=&-\iint\limits_{\hat f_1}\partial_1 \hat{u}_3\,dS.
 so 
-\noindent{\color{blue}\#\#\#\#\#\#\# continue here}
 \begin{IEEEeqnarray*}{rCl}
-	(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)(\hat\bu) & = & 
-	\iint\limits_{\hat{f}_1}\nabla\times\bu\cdot\bn\,dS
-	+\iint\limits_{\hat{f}_4}\nabla\times\bu\cdot\bn\,dS\ok\\
-	&=&{\color{blue} los dS hay que cambiarlos, si no sobrar'a un sqrt(2)}
-	\iint\limits_{\hat f_1}\frac{{\s\partial} u_3}{{\s\partial} x_1}\,dS
-	-\iint\limits_{\hat f_4}\frac{{\s\partial} u_3}{{\s\partial} x_1}\,dS\\
-	&=&-\int\limits_{\hat{P}}\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
+  (-\alpha_5+\alpha_6+\alpha_7-\alpha_8)(\hat\bu) & = & 
+  \iint\limits_{\hat{f}_1}\nabla\times\bu\cdot\bn\,dS
+  +\iint\limits_{\hat{f}_4}\nabla\times\bu\cdot\bn\,dS\ok\\
+&=&
+  \int\limits_{\mathbb{D}_{\hat f_1}}\frac{{\s\partial} u_3}{{\s\partial} x_1}
+  (\Phi_{\hat f_1}(t_1,t_2))\,dt_1dt_2
+  -\int\limits_{\mathbb{D}_{\hat f_4}}\frac{{\s\partial} u_3}{{\s\partial} x_1}
+  (\Phi_{\hat f_4}(t_1,t_2))\,dt_1dt_2\\
+&=&{\color{blue}\#\#\#\#\#\#\# continue here}
+  \int_0^1\int_0^{1-t_2} 
+  \left[\frac{{\s\partial} u_3}{{\s\partial} x_1}(t_1,0,t_2)
+    - \frac{{\s\partial} u_3}{{\s\partial} x_1}\right]
+  \,dt_1dt_2\\
+&=&-\int\limits_{\hat{P}}\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
 \end{IEEEeqnarray*}
 For now
 \begin{IEEEeqnarray*}{rCl}
