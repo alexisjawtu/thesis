@@ -412,11 +412,11 @@ so, immediately,
 \end{IEEEeqnarray*}
 and the sum of the three estimates yields the theorem.
 \end{proof}
-% section prismatic_finite_elements (end)
-\subsection{Local Interpolation Estimates for Pyramidal Elements} % (fold)
-\label{sub:local_interpolation_estimates_for_pyramidal_elements}
+\subsection{Local Interpolation Estimates for Prismatic Elements} % (fold)
+\label{sub:local_interpolation_estimates_for_prismatic_elements}
 llegar hasta el elemento físico...
-% subsection local_interpolation_estimates_for_pyramidal_elements (end)
+% subsection local_interpolation_estimates_for_prismatic_elements (end)
+% section prismatic_finite_elements (end)
 
 \section{Pyramidal Finite Elements} % (fold)
 \label{sec:pyramidal_finite_elements}
@@ -427,22 +427,22 @@ llegar hasta el elemento físico...
     \label{pyramidNotationTableFaces}
     \begin{IEEEeqnarraybox*}
       [\IEEEeqnarraystrutmode
-      \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/v/c/x/c/x/c/v/}
+      \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/x/v/x/c/x/c/x/c/v/}
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_1 & & \subseteq & &  \{\hat x_2 = 0 \}            & &&&&&\\
+          & \hat f_1 && \subseteq &&  \{\hat x_2 = 0 \}            && && \hat{\bn}_1 && = && (0,-1,0)' & \\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_2 & & \subseteq & &  \{\hat x_1 = 0 \}            & &&&&&\\
+          & \hat f_2 && \subseteq &&  \{\hat x_1 = 0 \}            && && \hat{\bn}_2 && = && (-1,0,0)' &\\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_3 & & \subseteq & &  \{\hat x_1 + \hat x_3 = 1 \} & &&&&&\\
+          & \hat f_3 && \subseteq &&  \{\hat x_1 + \hat x_3 = 1 \} && && \hat{\bn}_3 && = && 2^{-\nicefrac{1}{2}}(1,0,1)' &\\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_4 & & \subseteq & &  \{\hat x_2 + \hat x_3 = 1 \} & &&&&&\\
+          & \hat f_4 && \subseteq &&  \{\hat x_2 + \hat x_3 = 1 \} && && \hat{\bn}_4 && = && 2^{-\nicefrac{1}{2}}(0,1,1)' &\\
         \IEEEeqnarrayrulerow\\
         \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_5 & & \subseteq & &  \{\hat x_3 = 0\}             & &&&&&\\
+          & \hat f_5 && \subseteq &&  \{\hat x_3 = 0\}             && && \hat{\bn}_5 && = && (0,0,-1)' &\\
         \IEEEeqnarrayrulerow
     \end{IEEEeqnarraybox*}
 \end{table}
