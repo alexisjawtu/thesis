@@ -132,7 +132,8 @@ On the other hand and analogously
 	\alpha_7-\alpha_8 & = &	\iint\limits_{\hat{f}_4}\nabla\times\hat\bu\cdot\hat\bn\,dS\ok
 \end{IEEEeqnarray*}
 % &=&-\iint\limits_{\hat f_1}\partial_1 \hat{u}_3\,dS.
-so 
+so \noindent{\color{blue} cambia lo de region tipo I y eso? estoy haciendo
+$0\leqslant t_2 \leqslant 1; 0\leqslant t_1\leqslant 1-t_2$} 
 \begin{IEEEeqnarray*}{rCl}
   (-\alpha_5+\alpha_6+\alpha_7-\alpha_8)(\hat\bu) & = & 
   \iint\limits_{\hat{f}_1}\nabla\times\bu\cdot\bn\,dS
@@ -141,19 +142,24 @@ so
   \int\limits_{\mathbb{D}_{\hat f_1}}\frac{{\s\partial} u_3}{{\s\partial} x_1}
   (\Phi_{\hat f_1}(t_1,t_2))\,dt_1dt_2
   -\int\limits_{\mathbb{D}_{\hat f_4}}\frac{{\s\partial} u_3}{{\s\partial} x_1}
-  (\Phi_{\hat f_4}(t_1,t_2))\,dt_1dt_2\\
-&=&{\color{blue}\#\#\#\#\#\#\# continue here}
+  (\Phi_{\hat f_4}(t_1,t_2))\,dt_1dt_2\ok\\
+&=&
   \int_0^1\int_0^{1-t_2} 
   \left[\frac{{\s\partial} u_3}{{\s\partial} x_1}(t_1,0,t_2)
-    - \frac{{\s\partial} u_3}{{\s\partial} x_1}\right]
-  \,dt_1dt_2\\
-&=&-\int\limits_{\hat{P}}\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
+    - \frac{{\s\partial} u_3}{{\s\partial} x_1}(t_1,1-t_2,t_2)\right]
+  \,dt_1dt_2\ok\\
+&=&
+  -\int_0^1\int_0^{1-t_2}\int_0^{1-t_2} 
+  \frac{{\s\partial^2} u_3}{{\s\partial} x_2{\s\partial} x_1}(t_1,s,t_2)
+  \,dsdt_1dt_2\ok\\[6pt]
+&=&-\int\limits_{\hat{E}}\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}
+\,d\hat\bx\ok.
 \end{IEEEeqnarray*}
 For now
 \begin{IEEEeqnarray*}{rCl}
 	(\wku)_1 & = & -z\int\limits_{\hat f_1}\frac{{\s\partial} u_3}{{\s\partial} x_1}\,dS
-	-\frac{yz}{1-z}\int\limits_{\hat{P}}
-		\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
+	-\frac{yz}{1-z}\int\limits_{\hat{E}}
+		\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.
 \end{IEEEeqnarray*}
 Regarding the second component,
 \begin{IEEEeqnarray*}{rCl}
