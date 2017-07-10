@@ -208,7 +208,7 @@ For the third component denote $\xi(x,y,z) =
 All together, for a $\hat\bu=(\hat u_1,\hat u_2,\hat u_3)$, if we combine 
 what was obtained in~(\ref{first_a})--(\ref{third_c}), then
 \begin{IEEEeqnarray*}{rCl}
-	(\pi\bu)_1 & = & \int\limits_{0}^{1}u_1(t,0,0)\,dt + 
+	(\wku)_1 & = & \int\limits_{0}^{1}u_1(t,0,0)\,dt + 
 	z \int\limits_0^1\int\limits_0^{1-t}
 	\frac{{\s\partial} u_1}{{\s\partial} x_3}(t,0,s)\,dsdt +
 	y \int\limits_0^1\int\limits_0^{1}
@@ -218,8 +218,8 @@ what was obtained in~(\ref{first_a})--(\ref{third_c}), then
 	\frac{yz}{1-z} \int\limits_0^1\int\limits_0^{1-t}
 	\frac{{\s\partial} u_2}{{\s\partial} x_1}(s,1-t,t)\,dsdt\\
 	&&\,-z\int\limits_0^1\int\limits_0^{1-t}
-	\frac{{\s\partial} u_3}{{\s\partial} x_1}(s,0,t)\,dsdt +
-	\frac{yz}{1-z} \iiint\limits_{\hat{P}}
+	\frac{{\s\partial} u_3}{{\s\partial} x_1}(s,0,t)\,dsdt -
+	\frac{yz}{1-z} \int\limits_{\hat{E}}
 	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.\\[10pt]
 	(\pi\bu)_2 & = & \int\limits_{0}^{1}u_2(0,t,0)\,dt + 
 	z \int\limits_0^1\int\limits_0^{1-t}
