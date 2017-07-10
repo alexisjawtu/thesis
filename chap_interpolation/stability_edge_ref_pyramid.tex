@@ -161,26 +161,32 @@ For now
 	-\frac{yz}{1-z}\int\limits_{\hat{E}}
 		\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.\ok
 \end{IEEEeqnarray*}
-Regarding the second component, it is the simmetric case.
+Regarding the second component, it is the symmetrical case.
 \begin{IEEEeqnarray*}{rCl}
   (\wku)_2& = &(\alpha_5-\alpha_7)(\hat\bu)z
 		+(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)(\hat\bu)\frac{xz}{1-z}\\
 	& = &z\iint\limits_{\hat f_2}\nabla\times\bu\cdot\bn\,dS
 	-\frac{xz}{1-z}\int\limits_{\hat{E}}
 	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx\\
-	& = &-z\iint\limits_{\hat f_2}\frac{{\s\partial} u_3}{{\s\partial} x_2}\,dS
+	& = &-z\iint\limits_{\hat f_2}\frac{{\s\partial} u_3}{{\s\partial} {\color{red}x_1}}\,dS
 		-\frac{xz}{1-z}\int\limits_{\hat{E}}
-	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.\ok
+	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.
 \end{IEEEeqnarray*}
-{\color{blue}\#\#\#\#\#\#\#\# continue here.}
+For the third component denote $\xi(x,y,z) = 
+  \frac{xyz}{(1-z)^2}-\frac{xz}{1-z}$. Then
 \begin{IEEEeqnarray*}{rCl}
-	(\pi\bu)_3&=& \alpha_5 + x(-\alpha_5+\alpha_6)+y(-\alpha_5+\alpha_7)\\[5pt]
-	&&\,+(\alpha_5-\alpha_6-\alpha_7+\alpha_8)\frac{xy}{1-z}
-	+(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)\frac{xyz}{(1-z)^2}.
+  (\wku)_3& = & \alpha_5(\hat\bu) + x\,(\alpha_6-\alpha_5)(\hat\bu)+
+  y\,(\alpha_7-\alpha_5)(\hat\bu)\\[5pt]
+  && \,+\,\xi(x,y,z)\,(\alpha_6-\alpha_5+\alpha_7-\alpha_8)(\hat\bu).\ok\\[5pt]
+  &=& \int\limits_{\hat\be_5}\hat\bu\cdot\hat\tau\,ds + 
+  y\,\iint\limits_{\hat{f}_2}\frac{{\s\partial} u_3}{{\s\partial} {\color{red}x_1}}\,dS +
+  x\,\iint\limits_{\hat{f}_1}\frac{{\s\partial} u_3}{{\s\partial} {\color{red}x_1}}\,dS
+	-\xi(x,y,z)\int\limits_{\hat{E}}
+	  \frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.
 \end{IEEEeqnarray*}
-\begin{IEEEeqnarray*}{rCl}
-	\alpha_5&=&\int\limits_{0}^1u_3(0,0,t)\,dt.
-\end{IEEEeqnarray*}
+%\begin{IEEEeqnarray*}{rCl}
+%	\alpha_5&=&\int\limits_{0}^1u_3(0,0,t)\,dt.
+%\end{IEEEeqnarray*}
 Joinig everything
 \begin{IEEEeqnarray*}{rCl}
 	(\pi\bu)_3 & = & \int\limits_{0}^1u_3(0,0,t)\,dt
@@ -188,10 +194,8 @@ Joinig everything
 						\frac{{\s\partial} u_3}{{\s\partial} x_1} (s,0,t) \,ds\,dt
 				+ y \int\limits_{0}^{1}\int\limits_{0}^{1-t}
 						\frac{{\s\partial} u_3}{{\s\partial} x_2}(0,s,t) \,ds\,dt\\
-				&&\,+ \frac{xyz}{(1-z)^2}\iiint\limits_{\hat{P}}
-				\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
-				-\frac{xz}{1-z}\iiint\limits_{\hat{P}}
-				\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
+				&&\,\xi\int\limits_{\hat{E}}
+				\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.
 \end{IEEEeqnarray*}
 All together, for an $\bu=(u_1,u_2,u_3)$.
 \begin{IEEEeqnarray*}{rCl}
@@ -207,9 +211,7 @@ All together, for an $\bu=(u_1,u_2,u_3)$.
 	&&\,-z\int\limits_0^1\int\limits_0^{1-t}
 	\frac{{\s\partial} u_3}{{\s\partial} x_1}(s,0,t)\,dsdt +
 	\frac{yz}{1-z} \iiint\limits_{\hat{P}}
-	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
-\end{IEEEeqnarray*}
-\begin{IEEEeqnarray*}{rCl}
+	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.\\[10pt]
 	(\pi\bu)_2 & = & \int\limits_{0}^{1}u_2(0,t,0)\,dt + 
 	z \int\limits_0^1\int\limits_0^{1-t}
 	\frac{{\s\partial} u_2}{{\s\partial} x_3}(0,t,s)\,dsdt +
@@ -221,7 +223,7 @@ All together, for an $\bu=(u_1,u_2,u_3)$.
 	\frac{{\s\partial} u_2}{{\s\partial} x_1}(s,1-t,t)\,dsdt\\
 	&&\,-z\int\limits_0^1\int\limits_0^{1-t}
 	\frac{{\s\partial} u_3}{{\s\partial} x_2}(0,s,t)\,dsdt +
-	\frac{xz}{1-z} \iiint\limits_{\hat{P}}
+	\frac{xz}{1-z} \int\limits_{\hat{P}}
 	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
 \end{IEEEeqnarray*}
 \begin{IEEEeqnarray*}{rCl}
@@ -253,9 +255,9 @@ All together, for an $\bu=(u_1,u_2,u_3)$.
 	\int\limits_{0}^{t}
 	\frac{{\s\partial}^2u_2}{{\s\partial}x_1{\s\partial}x_3}(r,s,1-t)\,dr\,ds\,dt\\
 	&&\,
-	+\frac{xyz}{(1-z)^2} \iiint\limits_{\hat{P}}
+	+\frac{xyz}{(1-z)^2} \int\limits_{\hat{P}}
 	\frac{{\s\partial}^2 u_3}{{\s\partial} x_1{\s\partial} x_2}\,dV
-	-\frac{xz}{1-z} \iiint\limits_{\hat{P}}
+	-\frac{xz}{1-z} \int\limits_{\hat{P}}
 	\frac{{\s\partial}^2 u_3}{{\s\partial} x_1{\s\partial} x_2}\,dV
 \end{IEEEeqnarray*}
 {\color{red}controlar contra el papel y contra los signos
