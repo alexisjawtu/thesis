@@ -88,6 +88,7 @@ As $\hat\bu$ has zero tangential component along $\be_5$ and $\be_7$,
   -2^{-\nicefrac{1}{2}}\iint_{\hat{f}_4}[\frac{\partial\hat{u}_1}{\partial\hat{x}_3}
    + \frac{\partial\hat{u}_1}{\partial\hat{x}_2}]\,dS.
 \end{IEEEeqnarray*}
+We write down this component:
 \begin{IEEEeqnarray}{rCl}\label{third_a}
 	\nonumber
   (\wku)_3 & = & 
@@ -158,13 +159,13 @@ $\wku = \alpha_5(\hat\bu)\bgamma_5 +
 First component of the interpolate:
 \begin{IEEEeqnarray*}{rCl}
 	(\wku)_1 & = &(\alpha_5-\alpha_6)(\hat\bu)z+
-		(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)(\hat\bu)\,\frac{yz}{1-z}.\ok\\
-	(\alpha_5-\alpha_6)(\hat\bu) & = & (\alpha_5-\alpha_6-\alpha_1)(\hat\bu) \ok\\
-	&=&-\iint\limits_{\hat f_1}\nabla\times\hat\bu\cdot\hat\bn\,dS\ok
+		(-\alpha_5+\alpha_6+\alpha_7-\alpha_8)(\hat\bu)\,\frac{yz}{1-z}.\\
+	(\alpha_5-\alpha_6)(\hat\bu) & = & (\alpha_5-\alpha_6-\alpha_1)(\hat\bu) \\
+	&=&-\iint\limits_{\hat f_1}\nabla\times\hat\bu\cdot\hat\bn\,dS
 \end{IEEEeqnarray*}
 On the other hand and analogously
 \begin{IEEEeqnarray*}{rCl} 	
-	\alpha_7-\alpha_8 & = &	\iint\limits_{\hat{f}_4}\nabla\times\hat\bu\cdot\hat\bn\,dS\ok
+	\alpha_7-\alpha_8 & = &	\iint\limits_{\hat{f}_4}\nabla\times\hat\bu\cdot\hat\bn\,dS
 \end{IEEEeqnarray*}
 % &=&-\iint\limits_{\hat f_1}\partial_1 \hat{u}_3\,dS.
 so \noindent{\color{blue} cambia lo de region tipo I y eso? estoy haciendo
@@ -172,29 +173,29 @@ $0\leqslant t_2 \leqslant 1; 0\leqslant t_1\leqslant 1-t_2$}
 \begin{IEEEeqnarray*}{rCl}
   (-\alpha_5+\alpha_6+\alpha_7-\alpha_8)(\hat\bu) & = & 
   \iint\limits_{\hat{f}_1}\nabla\times\bu\cdot\bn\,dS
-  +\iint\limits_{\hat{f}_4}\nabla\times\bu\cdot\bn\,dS\ok\\
+  +\iint\limits_{\hat{f}_4}\nabla\times\bu\cdot\bn\,dS\\
 &=&
   \int\limits_{\mathbb{D}_{\hat f_1}}\frac{{\s\partial} u_3}{{\s\partial} x_1}
   (\Phi_{\hat f_1}(t_1,t_2))\,dt_1dt_2
   -\int\limits_{\mathbb{D}_{\hat f_4}}\frac{{\s\partial} u_3}{{\s\partial} x_1}
-  (\Phi_{\hat f_4}(t_1,t_2))\,dt_1dt_2\ok\\
+  (\Phi_{\hat f_4}(t_1,t_2))\,dt_1dt_2\\
 &=&
   \int_0^1\int_0^{1-t_2} 
   \left[\frac{{\s\partial} u_3}{{\s\partial} x_1}(t_1,0,t_2)
     - \frac{{\s\partial} u_3}{{\s\partial} x_1}(t_1,1-t_2,t_2)\right]
-  \,dt_1dt_2\ok\\
+  \,dt_1dt_2\\
 &=&
   -\int_0^1\int_0^{1-t_2}\int_0^{1-t_2} 
   \frac{{\s\partial^2} u_3}{{\s\partial} x_2{\s\partial} x_1}(t_1,s,t_2)
-  \,dsdt_1dt_2\ok\\[6pt]
+  \,dsdt_1dt_2\\[6pt]
 &=&-\int\limits_{\hat{E}}\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}
-\,d\hat\bx\ok.
+\,d\hat\bx.
 \end{IEEEeqnarray*}
 For now
 \begin{IEEEeqnarray}{rCl}\label{first_c}
 	(\wku)_1 & = & -z\iint\limits_{\hat f_1}\frac{{\s\partial} u_3}{{\s\partial} x_1}\,dS
 	-\frac{yz}{1-z}\int\limits_{\hat{E}}
-		\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.\ok
+		\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.
 \end{IEEEeqnarray}
 Regarding the second component, it is the symmetrical case.
 \begin{IEEEeqnarray*}{rCl}
@@ -206,20 +207,20 @@ Regarding the second component, it is the symmetrical case.
 	\yesnumber\label{second_c}
 	& = &-z\iint\limits_{\hat f_2}\frac{{\s\partial} u_3}{{\s\partial} {x_2}}\,dS
 		-\frac{xz}{1-z}\int\limits_{\hat{E}}
-	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.\ok
+	\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.
 \end{IEEEeqnarray*}
 For the third component denote $\xi(x,y,z) = 
   \frac{xyz}{(1-z)^2}-\frac{xz}{1-z}$. Then
 \begin{IEEEeqnarray*}{rCl}
   (\wku)_3& = & \alpha_5(\hat\bu) + x\,(\alpha_6-\alpha_5)(\hat\bu)+
   y\,(\alpha_7-\alpha_5)(\hat\bu)\\[5pt]
-  && \,+\,\xi(x,y,z)\,(\alpha_6-\alpha_5+\alpha_7-\alpha_8)(\hat\bu).\ok\\[5pt]
+  && \,+\,\xi(x,y,z)\,(\alpha_6-\alpha_5+\alpha_7-\alpha_8)(\hat\bu).\\[5pt]
   \yesnumber\label{third_c}
   &=& \int\limits_{\hat\be_5}\hat\bu\cdot\hat\tau\,ds + 
   y\,\iint\limits_{\hat{f}_2}\frac{{\s\partial} u_3}{{\s\partial} {x_2}}\,dS +
   x\,\iint\limits_{\hat{f}_1}\frac{{\s\partial} u_3}{{\s\partial} {x_1}}\,dS
 	-\xi(x,y,z)\int\limits_{\hat{E}}
-	  \frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.\ok
+	  \frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.
 \end{IEEEeqnarray*}
 %\begin{IEEEeqnarray*}{rCl}
 %	(\wku)_3 & = & \int\limits_{0}^1u_3(0,0,t)\,dt
@@ -230,39 +231,18 @@ For the third component denote $\xi(x,y,z) =
 %				&&\,\xi\int\limits_{\hat{E}}
 %				\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.
 %\end{IEEEeqnarray*}
-All together, for a $\hat\bu=(\hat u_1,\hat u_2,\hat u_3)$, if we combine 
+All together, for a $\hat\bu=(\hat u_1,\hat u_2,\hat u_3)'$, if we combine 
 what was obtained in~(\ref{first_a})--(\ref{third_c}), then
 \begin{IEEEeqnarray*}{rCl}
   (\wku)_1 & = & 
-    \int_{\hat\be_1}u_1\,d\alpha \ok+ 
-  z \iint_{\hat f_1}(\nabla\times\hat\bu)_2\,dS \ok+
-  y \iint_{{\hat f_5}}\frac{{\s\partial} u_1}{{\s\partial} x_2}\,dS\ok\\
+    \int_{\hat\be_1}u_1\,d\alpha + 
+  z \iint_{\hat f_1}(\nabla\times\hat\bu)_2\,dS +
+  y \iint_{{\hat f_5}}\frac{{\s\partial} u_1}{{\s\partial} x_2}\,dS\\[6pt]
     &&\,
-+\frac{yz}{1-z} \iint_{\hat f_3} \frac{{\s\partial} u_1}{{\s\partial} x_2}\,dS\ok +
- \frac{yz}{1-z} \iint_{\hat f_4} \frac{{\s\partial} u_2}{{\s\partial} x_1}\,dS\ok\\
++\frac{yz}{1-z} \iint_{\hat f_3} \frac{{\s\partial} u_1}{{\s\partial} x_2}\,dS +
+ \frac{yz}{1-z} \iint_{\hat f_4} \frac{{\s\partial} u_2}{{\s\partial} x_1}\,dS\\[6pt]
     &&\,
--\frac{yz}{1-z} \int\limits_{\hat{E}}\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx\ok.
-\end{IEEEeqnarray*}
-%%==========================================================================
-%{\color{brown}
-%    \begin{IEEEeqnarray*}{rCl}
-%        (\wku)_1 & = & \int\limits_{0}^{1}u_1(t,0,0)\,dt \ok+ 
-%        z \int\limits_0^1\int\limits_0^{1-t_1}
-%        \frac{{\s\partial} u_1}{{\s\partial} x_3}(t_1,0,t_2)\,dt_2dt_1 \ok+
-%        y \int_{{\hat f_5}}
-%        \frac{{\s\partial} u_1}{{\s\partial} x_2}\,dS\ok\\
-%        &&\,+\frac{yz}{1-z} \int\limits_0^1\int\limits_0^{1-t}
-%        \frac{{\s\partial} u_1}{{\s\partial} x_2}(1-t,s,t)\,dsdt +
-%        \frac{yz}{1-z} \int\limits_0^1\int\limits_0^{1-t}
-%        \frac{{\s\partial} u_2}{{\s\partial} x_1}(s,1-t,t)\,dsdt\\
-%        &&\,-z\int\limits_0^1\int\limits_0^{1-t_1}
-%        \frac{{\s\partial} u_3}{{\s\partial} x_1}(t_1,0,t_2)\,dt_2dt_1 \ok-
-%        \frac{yz}{1-z} \int\limits_{\hat{E}}
-%        \frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
-%    \end{IEEEeqnarray*}
-%}
-%%=========================================================================
-\begin{IEEEeqnarray*}{rCl}
+-\frac{yz}{1-z} \int\limits_{\hat{E}}\frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.\\[12pt]
     (\wku)_2 & = & \int_{\hat\be_4}u_2\,d\alpha - 
     z \iint_{\hat f_2}(\nabla\times\hat\bu)_1\,dS +
     x \iint_{\hat f_5}\frac{{\s\partial} u_2}{{\s\partial} x_1}\,dS\\
@@ -271,28 +251,7 @@ what was obtained in~(\ref{first_a})--(\ref{third_c}), then
     \frac{xz}{1-z} \iint_{\hat f_4}
     \frac{{\s\partial} u_2}{{\s\partial} x_1}\,dS\\
     &&\,+\frac{xz}{1-z} \int\limits_{\hat{E}}
-    \frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx\ok.
-\end{IEEEeqnarray*}
-%%===================================================================
-%{\color{brown}
-%\begin{IEEEeqnarray*}{rCl}
-%    (\wku)_2 & = & \int\limits_{0}^{1}u_2(0,t,0)\,dt + 
-%    z \int\limits_0^1\int\limits_0^{1-t}
-%    \frac{{\s\partial} u_2}{{\s\partial} x_3}(0,t,s)\,dsdt +
-%    x \int\limits_0^1\int\limits_0^{1}
-%    \frac{{\s\partial} u_2}{{\s\partial} x_1}(s,t,0)\,dsdt\\
-%    &&\,+\frac{xz}{1-z} \int\limits_0^1\int\limits_0^{1-t}
-%    \frac{{\s\partial} u_1}{{\s\partial} x_2}(1-t,s,t)\,dsdt +
-%    \frac{xz}{1-z} \int\limits_0^1\int\limits_0^{1-t}
-%    \frac{{\s\partial} u_2}{{\s\partial} x_1}(s,1-t,t)\,dsdt\\
-%    &&\,-z\int\limits_0^1\int\limits_0^{1-t}
-%    \frac{{\s\partial} u_3}{{\s\partial} x_2}(0,s,t)\,dsdt +
-%    \frac{xz}{1-z} \int\limits_{\hat{P}}
-%    \frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
-%\end{IEEEeqnarray*}
-%}
-%%==================================================================
-\begin{IEEEeqnarray*}{rCl}
+    \frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,d\hat\bx.\\[12pt]
   (\wku)_3 & = & \int_{\hat\be_5}u_3\,d\alpha - 
     x \iint_{\hat{f}_1} (\nabla\times\hat\bu)_2\,dS +
     y \iint_{\hat{f}_2} (\nabla\times\hat\bu)_1\,dS\\[8pt]
@@ -315,6 +274,47 @@ what was obtained in~(\ref{first_a})--(\ref{third_c}), then
 \int\limits_{\hat{E}}
   \frac{{\s\partial}^2 u_3}{{\s\partial} x_1{\s\partial} x_2}\,d\hat\bx.
 \end{IEEEeqnarray*}
+
+%%==========================================================================
+%{\color{brown}
+%    \begin{IEEEeqnarray*}{rCl}
+%        (\wku)_1 & = & \int\limits_{0}^{1}u_1(t,0,0)\,dt + 
+%        z \int\limits_0^1\int\limits_0^{1-t_1}
+%        \frac{{\s\partial} u_1}{{\s\partial} x_3}(t_1,0,t_2)\,dt_2dt_1 +
+%        y \int_{{\hat f_5}}
+%        \frac{{\s\partial} u_1}{{\s\partial} x_2}\,dS\\
+%        &&\,+\frac{yz}{1-z} \int\limits_0^1\int\limits_0^{1-t}
+%        \frac{{\s\partial} u_1}{{\s\partial} x_2}(1-t,s,t)\,dsdt +
+%        \frac{yz}{1-z} \int\limits_0^1\int\limits_0^{1-t}
+%        \frac{{\s\partial} u_2}{{\s\partial} x_1}(s,1-t,t)\,dsdt\\
+%        &&\,-z\int\limits_0^1\int\limits_0^{1-t_1}
+%        \frac{{\s\partial} u_3}{{\s\partial} x_1}(t_1,0,t_2)\,dt_2dt_1 -
+%        \frac{yz}{1-z} \int\limits_{\hat{E}}
+%        \frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
+%    \end{IEEEeqnarray*}
+%}
+%%=========================================================================
+
+%%===================================================================
+%{\color{brown}
+%\begin{IEEEeqnarray*}{rCl}
+%    (\wku)_2 & = & \int\limits_{0}^{1}u_2(0,t,0)\,dt + 
+%    z \int\limits_0^1\int\limits_0^{1-t}
+%    \frac{{\s\partial} u_2}{{\s\partial} x_3}(0,t,s)\,dsdt +
+%    x \int\limits_0^1\int\limits_0^{1}
+%    \frac{{\s\partial} u_2}{{\s\partial} x_1}(s,t,0)\,dsdt\\
+%    &&\,+\frac{xz}{1-z} \int\limits_0^1\int\limits_0^{1-t}
+%    \frac{{\s\partial} u_1}{{\s\partial} x_2}(1-t,s,t)\,dsdt +
+%    \frac{xz}{1-z} \int\limits_0^1\int\limits_0^{1-t}
+%    \frac{{\s\partial} u_2}{{\s\partial} x_1}(s,1-t,t)\,dsdt\\
+%    &&\,-z\int\limits_0^1\int\limits_0^{1-t}
+%    \frac{{\s\partial} u_3}{{\s\partial} x_2}(0,s,t)\,dsdt +
+%    \frac{xz}{1-z} \int\limits_{\hat{P}}
+%    \frac{{\s\partial}^2u_3}{{\s\partial} x_2{\s\partial} x_1}\,dV.
+%\end{IEEEeqnarray*}
+%}
+%%==================================================================
+
 %%===========================================================================
 %{\color{brown}
 %\begin{IEEEeqnarray*}{rCl}
