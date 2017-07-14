@@ -215,13 +215,13 @@ que es un homog\'eneo en $x,y$ por uno en $z$.)}
 \end{IEEEeqnarray*}
 \begin{defi}\label{defi_h_div_conforme} The $RT$ element
 \begin{itemize}
-    \item $\hat{E}$ is the reference prism (Figure~\ref{reference_prism}).
-    \item El espacio $P_{\hat{E}}$ de polinomios es
-        \begin{IEEEeqnarray*}{rCl}
-            P_{\hat{E}} & = & \{ \boldsymbol{v} = (v_1,v_2,v_3):\,(v_1,v_2)\in D_k\otimes P_{k-1}(z),\\ 
-                        &   & v_3\in P_{k-1}(x,y)\otimes P_k(z) \}.
-         \end{IEEEeqnarray*} 
-    \item The degrees of freedom are of two types, surface and volumen integrals:
+  \item $\hat{E}$ is the reference prism (Figure~\ref{reference_prism}).
+  \item El espacio $P_{\hat{E}}$ de polinomios es
+    \begin{IEEEeqnarray*}{rCl}
+      P_{\hat{E}} & = & \{ \boldsymbol{v} = (v_1,v_2,v_3):\,(v_1,v_2)\in D_k\otimes P_{k-1}(z),\\ 
+      \yesnumber\label{prismaticSpace}&   & v_3\in P_{k-1}(x,y)\otimes P_k(z) \}.
+    \end{IEEEeqnarray*} 
+  \item The degrees of freedom are of two types, surface and volumen integrals:
 \begin{IEEEeqnarray}{lcl}
     \label{momentos1hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
         && \mbox{for } q \in P_{k-1}(\hat{f}):=\mathcal{P}_{\hat{f}}\mbox{,}\\
@@ -339,9 +339,9 @@ The Finite Elements defined here are the ones found in~\cite{gh99}.
 Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_tetrahedra}
 {\color{red} TODO: completar esto }
-\begin{IEEEeqnarray*}{rCl}
-    P_{\hat{E}} & = & P_k^3(\hat{E}) + P_{k-1}(\hat{E})\,\textbf{x}.
-\end{IEEEeqnarray*}
+\begin{IEEEeqnarray}{rCl}\label{tetrahedralSpace}
+    P_{\hat{E}} & = & P_k^3(\hat{E}) + P_{k}(\hat{E})\,\textbf{x}.
+\end{IEEEeqnarray}
 % subsection definition_of_the_h_div_element_on_tetrahedra
 El siguiente lemma será usado para demostrar el teorema de estabilidad en el
 reference prism con un argumento de densidad. Para su demostración referimos

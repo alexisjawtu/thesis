@@ -26,11 +26,12 @@ find $\bu\in V$ and $p\in Q$ such that for every $\bv\in V$ and every $q\in Q$
 We start with a polihedral triangulation $\Th$ of $\Omega$ to define the 
 virtual spaces $V_h$ and $Q_h$ as discretizations of $V$ and $Q$ respectively.\\[5pt]
 For $E\in\Th$ the local space of vector fields will be
-\begin{eqnarray*}
+\begin{IEEEeqnarray*}{rCl}
   V_h(E)&=&\Big\{\bv\in H(\mbox{div},E)\cap H(\textbf{curl},E)\,:\,\\
+  \yesnumber\label{vhE}
   &&\qquad \bv\cdot\bn|_f\in \mathcal P_0(f) \,\,\mbox{for all face $f$ of }E, \\
   && \qquad\dv\bv\in \mathcal P_0(E) \mbox{ and } \curl\bv = 0 \Big\}
-\end{eqnarray*}
+\end{IEEEeqnarray*}
 and the  global space $V_h$ will consist of functions defined piecewise with the former
 local spaces:
 \begin{IEEEeqnarray*}{ccrCl}
@@ -45,17 +46,18 @@ The scalar discrete space we will consider is
 \end{IEEEeqnarray}
 meaning the functions that are constant on each element of $\Th$. As expected,
 with $V_h$ we consider the $H(\dv,\Omega)$ norm, 
-$\|\bv\|^2_{V_h} = \|\bv\|^2_{L^2(\Omega)} + \|\dv\bv\|^2_{L^2(\Omega)}$ for all
-$\bv \in V_h$, and with $Q_h$ we consider the $L^2(\Omega)$ norm.
+$\|\bv\|^2_{V_h} = \|\bv\|^2_{L^2(\Omega)} + \|\dv\bv\|^2_{L^2(\Omega)}$,
+and with $Q_h$ we consider the $L^2(\Omega)$ norm.
 
 The condition in the definitions of these spaces suffice to construct an interpolation
 operator, which is a key object both in Finite Elements as in Virtual Elements.
 Let us take the degrees of freedom
 \begin{IEEEeqnarray}{rCl}\label{dofs}
-  \int\limits_f \bv\cdot\bn\,d\gamma & \qquad\mbox{ for all face $f$ of } & \Th.
+  \iint_f \bv\cdot\bn\,dS & \qquad\mbox{ for all face $f$ of } & \Th.
 \end{IEEEeqnarray}
 With \emph{faces of $\Th$} we mean the family of all faces forming the boundary
-of the elements, consistently taken in the case of neighbour elements.
+of the elements, with the unit normals consistently taken in the case of
+neighbour elements.
 \begin{lemma}\label{unisolvence} Given a polyhedron $E\in\Th$, the degrees
   of freedom~(\ref{dofs}) corresponding to the faces of $E$ are unisolvent
   in $V_h(E)$.
@@ -112,7 +114,85 @@ an $H(\text{div})$--like local interpolation operator well defined.
   \dv I(\bv) & = & P_0\,\dv\bv.
 \end{IEEEeqnarray*}
 \end{lemma}
-\noindent{\color{blue}\#\#\#\#\#\#\# desde ac\'a est\'a sin controlar} 
+\begin{proposition}\label{vem_equal_fem}
+Recall the space $D_k$ introduced in~(\ref{dk}).\\
+If $E$ is a right prism, then
+\begin{IEEEeqnarray}{rCl}\label{d1p1}
+  V_{\textit{h}}(E) & = & D_1(x,y)\otimes P_1(z)\mbox{,}
+\end{IEEEeqnarray}
+with $x,y,z$ being the variables in a cartesian system of coordinates in which
+the $z$--axis is orthogonal to the planes containing the triangular faces of $E$.\\
+If $E$ is a tetrahedron, then
+\begin{IEEEeqnarray}{rCl}\label{p03}
+  V_{\textit{h}}(E) & = & P_0^3(\bx) + P_0\bx\mbox{,}
+\end{IEEEeqnarray}
+with $\bx = (x,y,z)$ being the vector of variables in a cartesian system of coordinates.
+\end{proposition}
+\begin{proof}
+  In the case of a prism $E$, the space $D_1(x,y)\otimes P_1(z)$ can be written as
+  \[
+    \{\bv \in P_1(E)\,:\, \bv=(a+\gamma x,b+\gamma y,c+d z),
+        a,b,c,d,\gamma\in\mathbb{R})\}
+  \]
+  and then it is inmediately seen that it has the same dimension five
+  as $V_{\textit{h}}(E)$. Finally, recalling that the $\dv$ and $\curl$ operators
+  can be computed in the chosen local variables, given $\bv\in D_1(x,y)\otimes P_1(z)$
+  we can compute $\bv|_{f}\cdot\bn_f$ on each face of $E$, $\dv\bv$ and $\curl\bv$
+  to verify explicitly that the space on the right side of~(\ref{d1p1}) fulfills the 
+  definition of $V_h(E)$ given in~(\ref{vhE}).
+  Exactlty the same argument works for the case of a tetrahedron $E$, in which we
+  deal with two vectorial spaces of dimension four that are such that 
+  every element in
+  \[
+    P_0^3(\bx) + P_0\bx=\{\bv \in P_1(E)\,:\,
+    \bv=(a+\gamma x,b+\gamma y,c+\gamma z,
+    a,b,c,\gamma\in\mathbb{R})\}
+  \]
+  fulfills the conditions defining $V_{\textit{h}}(E)$.
+\end{proof}
+\begin{remark}
+  By Proposition~\ref{vem_equal_fem} the spaces $V_h(E)$ conicide with the
+  lowest order $H(\dv)$--conforming local Finite Element spaces
+  introduced in~(\ref{prismaticSpace})
+  for the prismatic case and in~(\ref{tetrahedralSpace}) for the tetrahedral case.
+\end{remark}
+\begin{lemma}
+  The definition of the lowest order $H(\dv)$ Finite Elements on
+  right prisms or tetrahedra is independent of
+the choice of the cartesian axes (as long as the $z$-axis is
+perpendicular to the trianguar faces in case of prisms).
+\end{lemma}
+\begin{proof}
+  This can be prooved by hand. Let us proove the case of a Prism $E$. Let $(x,y,z)$ and $(x',y',z')$ be two cartesian coordinate systems satisfying the required properties. Then we can write
+  \begin{IEEEeqnarray*}{rCl}
+    x & = & p+\alpha x'-\beta  y' \\
+    y & = & q+\beta x' -\alpha y' \\
+    z & = & r+z'
+  \end{IEEEeqnarray*}
+for $\alpha$ and $\beta$ satisfying $\alpha^2+\beta^2 = 1$.
+Let 
+$\bv$ be an element in $V_{\textit{h}}(E)$. So
+\begin{IEEEeqnarray*}{rCl}
+\bv(x,y,z) & = & (a+\gamma x,b+\gamma y,c+d z)^{\scriptstyle t}\\
+&=&\left((a+\gamma p) + \gamma(\alpha x' - \beta y'),
+         (b+\gamma q) + \gamma(\beta x'+\alpha y'),
+         (c+dr)+dz'\right)^{\scriptstyle t}.
+\end{IEEEeqnarray*}
+Then, the components of $\bv$ in the new coordinate versors are
+\begin{IEEEeqnarray*}{rCcCl}
+  \bv\cdot(\alpha,\beta,0)^{\scriptstyle t} & = &
+   (\alpha a + \beta b + \gamma(\alpha p + \beta q )) +\gamma x' & =: & a' + \gamma x' \\
+  \bv\cdot(-\beta,\alpha,0)^{\scriptstyle t} & = &
+   (-\beta a + \alpha b + \gamma(-\beta p + \alpha q )) +\gamma y' & =: & b' + \gamma y' \\
+  \bv\cdot(0,0,1)^{\scriptstyle t} & = &
+   (c+dr)+d z' & =: & c' + dz'.
+\end{IEEEeqnarray*}
+Is follows that, in the $x'y'z'$ system,
+\[
+  \bv(x',y',z') = (a' + \gamma x', b' + \gamma y', c' + dz')^{\scriptstyle t}
+  \in D_1(x',y')\otimes P_1(z').
+\]
+\end{proof}
 %\paragraph{discretized forms} % (fold)
 %\label{par:discretized_forms}
 %\[
@@ -136,77 +216,90 @@ so in the case of the form $b_h(\bv,q)$ we put simply
 where $b^E(\bv,q) = \int_Eq\,\dv\bv\,d\textbf{x}$.
 For the bilinear form $a(,)$, we can decompose it as
 \[
-  a(\bv,\bw)=\sum_{E\in\mathcal T_h}a^E(\bv,\bw)
+  a(\bv,\bw)=\sum_{E\in\mathcal T_h}\int_E\bv\cdot\bw\,d\bx
 \]
-but this is not \noindent{\color{blue}\#\#\#\#\#\#\# computable from the 
-degres of freedom}. {\color{blue} The following construction
-is done in order to stabilize the oper. NO: dos cosas: el termino que esta
-compuesto con pi es para que sea calculable con dofs, el de S(,) es para estabilizar}
-\[
-\hat V(E) = \left\{\hat \bv\in V_h(E): \hat \bv = \nabla \hat q_2,
-\mbox{ for some } \hat q_2\in \mathcal P_2(E)\right\} = V_h(E)\cap\nabla\mathcal{P}_2(E).
-\]
-$\hat V(\mathcal{T}_{\textit{h}}) = \{\hat{\bw} : \hat{\bw}|_{E} \in\} $
-\begin{remark}\label{vem_equal_fem} By an inspection of the Finite Elements defined in Chapter~\ref{chap_prelim}
-If $E$ is a tetrahedron or a prism, then $V_h(E) = \hat V(E) = RT_0(E)$
-(cfr.~(\ref{sub:definition_of_the_h_div_element_on_prisms})
-and~(\ref{sub:definition_of_the_h_div_element_on_tetrahedra}) both
-in the lower case).
-\end{remark}
-Again, if $\bv\in V_h(E)$ and $\hat\bu\in\hat V(E)$, $a^E(\hat\bu,\bv)$ can be 
+but this is not computable from the 
+degres of freedom. The following construction
+is done in order to get a calculable discrete form and
+also we will introduce a term for the
+stability.\\[4pt]
+For each element $E\in\mathcal{T}_{\textit{h}}$, let the space $W(E)$
+be defined by
+\begin{IEEEeqnarray*}{rCl}
+  W(E) & = & \left\{ \bw\in V_h(E):  \bw = \nabla  q_2,
+\mbox{ for some }  q_2\in P_2(E)\right\}\\[5pt]
+       & = & V_h(E)\cap\nabla {P}_2(E)\mbox{,}
+\end{IEEEeqnarray*}
+and with these we consider $W(\mathcal{T}_{\textit{h}}) = \{{\bw} : {\bw}|_{E} \in W(E)
+\mbox{ for each }E\in\mathcal{\textit{h}}\}$. Integrating arbitrary elements
+in~(\ref{d1p1}) and~(\ref{p03}) yields the following result.
+\begin{lemma} When $E\in\mathcal{T}_{\textit{h}}$ is a tetrahedron or 
+a prism, then $W(E) = V_{\textit{h}}(E)$.  
+\end{lemma}
+Again, observe that if $\bv\in V_h(E)$ and $\hat\bu\in\hat V(E)$, $a^E(\hat\bu,\bv)$ can be 
 computed using the degrees of freedom of $\bv$, because it holds
 \begin{IEEEeqnarray*}{rCCCl}
-a^E(\hat\bu,\bv) &=& \int_E\hat\bu\cdot\bv &=& \int_E\nabla \hat q_2\cdot\bv\\
+a^E(\hat\bu,\bv) &:=& \int_E\hat\bu\cdot\bv &=& \int_E\nabla \hat q_2\cdot\bv\\
                  &=&-\int_E\hat q_2 \dv\bv &+& \int_{\partial E}\hat q_2\bv\cdot\bn.
 \end{IEEEeqnarray*}
-This means we can consider an auxiliary projection  operator $\hat\pi^E$
-from $H(\dv,E)$ onto $\hat V(E)$ defined by
+This means we can consider an auxiliary projection  operator $\pi^E$
+from $H(\dv,E)$ onto $W(E)$ defined by
 \begin{IEEEeqnarray}{rCl}\label{projection}
-  a^E(\bv-\hat\pi^E\bv,\hat\bw) = 0 &\qquad& \mbox{for all }\hat\bw\in\hat V(E)
+  a^E(\bv-\pi^E\bv,\bw) = 0 &\qquad& \mbox{for all }\bw\in W(E)
 \end{IEEEeqnarray}
-fully computably in terms of the degrees of freedom of $\bv$.\\[5pt]
-One fact to note
-about the projection $\hat\pi$ in~(\ref{projection}) is that, by
-Remark~\ref{vem_equal_fem},
-it coincides with the identity $I\,:\,\hat V(E)\to\hat V(E)$ whenever the element $E\in\Th$
-is a Prism or a Tetrahedron, so that, immediately
-\begin{remark}\label{ah_equal_a} If $E$ is a tetrahedron or a prism, then
-  $a_h^E(\bv,\bw)=a^E(\bv,\bw)$ for all $\bv,\bw \in V_h(E)$.
-\end{remark}
+fully computable in terms of the degrees of freedom of $\bv$.
+
 We need the following last object to complete the discretization of $a(\cdot,\cdot)$.
 Thanks to Lemma~\ref{unisolvence} we can consider a basis $B=\{\bv_{i,E}\}$
 of $V_h(E)$ dual to the functionals~(\ref{dofs}), that is, for every
 $1\leqslant i,j\leqslant n_{f,E}$
 \begin{IEEEeqnarray}{rCl}
-  \int\limits_{f_j} \bv_{i,E}\cdot\bn\,d\gamma & = & \delta_{i,j}.
+  \iint_{f_j} \bv_{i,E}\cdot\bn_j\,dS & = & \delta_{i,j}.
 \end{IEEEeqnarray}
 What we are considering is the inner product
-$\mathcal S^E(\bv,\bw)$ of the coordinates
-of the fields in $V_h(E)\times V_h(E)$ with respect 
-to this local dual basis $B$.\\
-An important thing about $\mathcal S^E$:
-\begin{remark}\label{equivalence} For all $\bv\in V_h(E)$ and all $E\in\mathcal T_h$
-  \[
-    S^E(\bv,\bv)\sim c_E a^E(\bv,\bv)
-  \]
-and $c_E$ depends only on the shape regularity of $E$.
-\noindent{\color{blue}\#\#\#\#\#\#\# lo siguiente un poco mejor?} 
-In particular, {\color{blue}if the elements belong to a regular
-family, then $c_E=O(1)$.}
-\end{remark}
+$\mathcal \langle(\bv)_B,(\bw)_B\rangle$ of the coordinates
+of the fields $\bv,\bw\in V_h(E)$ with respect 
+to this local dual basis $B$.
 
-Finally, the local discrete form $a_h^E$ is defined by the following equation:
-\[
-  a^E_h(\bv,\bw) := a^E(\hat\pi^E\bv,\hat\pi^E\bw) + 
-  \mathcal S^E((I-\hat\pi^E)\bv,(I-\hat\pi^E)\bw)
-\]
-for $\bv$ and $\bw$ in $V_h(E)$. Now that we have the local forms, the discrete global form $a_h$ is,
-as always,
+Finally, the local discrete form $a_h^E$ is stated in the following definition.
+\begin{defi} Given an element $E\in\Th$, for $\bv$ and $\bw$ in $V_{\textit{h}}(E)$
+\begin{IEEEeqnarray}{rCl}\label{discreteLocal_a}
+  a^E_{\textit{h}}(\bv,\bw) &:=& a^E(\pi^E\bv,\pi^E\bw) + 
+  h_E^{-1}\langle(\bv-\pi^E\bv)_B,(\bw-\pi^E\bw)_B\rangle
+\end{IEEEeqnarray}  
+where $h_E$ is the diameter of $E$.
+\end{defi}
+The discrete global form $a_h$ is defined by the following equation.
 \[
   a_h(\bv,\bw) = \sum_{E\in \mathcal T_h} a_h^E(\bv|_E,\bw|_E),
     \quad\mbox{ for } \bv \mbox{ and } \bw \in V_h.
 \]
-\noindent The discrete problem: To find $\bu_h\in V_h$ and $p_h\in Q_h$ such that
+
+One fact to note
+about the projection $\pi^E$ in~(\ref{projection}) is that, by
+Remark~\ref{vem_equal_fem},
+it coincides with the identity $I:W(E)\to W(E)$ whenever the element $E\in\Th$
+is a Prism or a Tetrahedron so that, immediately, we have the following
+property.
+\begin{remark}\label{ah_equal_a} If $E$ is a tetrahedron or a prism, then
+  $a_h^E(\bv,\bw)=a^E(\bv,\bw)$ for all $\bv,\bw \in V_h(E)$.
+\end{remark}
+Now we state a key result concerning the stability of the
+discrete form $a^E_{\textit{h}}$ and which explains the form of the
+term $h_E^{-1}\langle\,\cdot\,,\cdot\,\rangle$ in~(\ref{discreteLocal_a}).
+\\{\color{blue}\#\#\#\#\#\#\#\# prop 3.2...}
+Proposition 3.2 (OJO; PONER ref) yields the next corollary.
+\begin{corollary}\label{equivalence} For all $\bv\in V_h(E)$ and all pyramidal
+$E\in\mathcal T_h$ it holds
+\begin{IEEEeqnarray*}{rCcCl}
+  c_E\,a^E(\bv,\bv) & \leqslant & h_E^{-1}\langle(\bv)_B,(\bv)_B\rangle & \leqslant
+  & C_E\,a^E(\bv,\bv)
+\end{IEEEeqnarray*}
+where $c_E$ and $C_E$ depend only on the shape regularity of $E$.
+\end{corollary}
+The discrete problem in the Finite--Virtual Element scheme is stated as follows.
+\begin{problem}
+To find $\bu_h\in V_h$ and $p_h\in Q_h$ such that
 $\forall \bv\in V_h \qquad \forall q\in Q_h $
 \begin{equation}\label{mixedDiscrete}
   \makebox[0pt]{
@@ -218,13 +311,18 @@ $\forall \bv\in V_h \qquad \forall q\in Q_h $
     \end{minipage}}
   \tag{MD}
 \end{equation}
-\paragraph{discrete $\inf-\sup$$\inf-\sup$ condition.} % (fold)
-\label{par:discrete_inf_sup}\noindent{\color{blue}\#\#\#\#\#\#\# desde aca esta controlado} 
-\begin{lemma} For all $E\in\Th$, all $\hat\bu\in\hat V(E)$ and all $\bv\in V_h(E)$
+\end{problem}
+In what follows we will be concerned in proving existence
+and uniqueness for Problem~(\ref{mixedDiscrete}). It will be done
+showing coercivity for one of the bilinear forms and a
+discrete version of the $\inf$--$\sup$ condition for the other.
+\begin{lemma} For all $E\in\Th$, all $\bu\in W(E)$ and all $\bv\in V_h(E)$
 \begin{IEEEeqnarray}{rCcCl} 
-a_h^E(\hat\bu,\bv) & = & a^E(\hat\bu,\bv)       & &\label{L1}\\
-ca^E(\bv,\bv)      & \leqslant & a_h^E(\bv,\bv) & \leqslant & Ca^E(\bv,\bv)\label{L2}
+a_h^E(\bu,\bv) & = & a^E(\bu,\bv)       & &\label{L1}\\
+c_E\,a^E(\bv,\bv)      & \leqslant & a_h^E(\bv,\bv) & \leqslant & C_E\,a^E(\bv,\bv)\label{L2}
 \end{IEEEeqnarray}
+with $c_E = C_E = 1$ when $E$ is tetrahedral or prismatic and $c_E,C_E$ depending
+only on the shape regularity of $E$ when $E$ is pyramidal.
 \end{lemma}
 \begin{proof} The relation $\hat\bu=\hat\pi^E\bu$, condition~(\ref{projection})
 and the symmetry of $a^E$ imply
@@ -238,26 +336,41 @@ of~(\ref{ah_equal_a}). In the case of a Pyramid, firstly a simple computation yi
   \label{comput}
   a^E(\bv,\bv)&=&a^E(\bv-\hat\pi^E\bv,\bv-\hat\pi^E\bv)&+&a^E(\hat\pi^E\bv,\hat\pi^E\bv).
 \end{IEEEeqnarray}
-Remark~\ref{equivalence} and~(\ref{comput}) give
+Corollary~\ref{equivalence} and~(\ref{comput}) give
 \begin{IEEEeqnarray*}{rCl}
-a_h^E(\bv,\bv) &\leqslant& a^E(\hat\pi\bv,\hat\pi\bv) + Ca^E(\bv-\hat\pi\bv,\bv-\hat\pi\bv) \\[5pt]
-               &\leqslant& \max\{1,C\}a^E(\bv,\bv).
+a_h^E(\bv,\bv) &\leqslant& a^E(\hat\pi\bv,\hat\pi\bv) + C_E\,a^E(\bv-\hat\pi\bv,\bv-\hat\pi\bv) \\[5pt]
+               &\leqslant& \max\{1,C_E\}\,a^E(\bv,\bv).
 \end{IEEEeqnarray*}
 In a similar manner, it holds
 \[
-  a_h^E(\bv,\bv)\geqslant C a^E(\bv,\bv).
+  a_h^E(\bv,\bv)\geqslant \min{1,c_E}\,a^E(\bv,\bv).
 \]
 \end{proof}
-\noindent If we consider the following kernel
+If we consider the following kernel
 \begin{IEEEeqnarray*}{rCl}
-  \mathcal K_h & = & \{\bv_h\in V_h: b(\bv_h,q)=0\,\,\forall q\in Q_h\} \\[4pt]
-               & = & \{\bv_h\in V_h: \dv\bv_h=0\}
+  \mathcal K_h & = & \{\bv_h\in V_h: b(\bv_h,q)=0\,\,
+                        \mbox{for all } q\in Q_h\} \\[4pt]
+               & = & V_{\textit{h}}\cap\ker\dv
 \end{IEEEeqnarray*}
-then the previuos Lemma implies the following corollary.
-\begin{corollary}
-  $a_h$ is coercive over $\mathcal K_h$ and the coercivity constant is independent
-  of $h$.  
-\end{corollary}
+then the previuos Lemma implies the following Proposition.
+\begin{proposition}
+  $a_h$ is coercive over $\mathcal K_h$ and the coercivity constant
+  depends only on the shape regularity of the pyramids of the mesh.
+\end{proposition}
+\begin{proposition} \label{cont} The local discrete bilinear form $a_h^E$ is continuous en $L^2(E)$, that is,
+\[
+a_h^E(\bu,\bv)\le C \|\bu\|_{L^2(E)}\|\bv\|_{L^2(E)}, \qquad \forall \bu,\bv\in V_h(E),
+\]
+where $C$ equals $1$ when $E$ is a right prism or tetrahedron, and depends only on the aspect ratio of $E$ in the case of pyramids.
+\end{proposition}
+\begin{proof}
+When $E$ is a prism or tetrahedron, $a_h^E(\bu,\bv)=a^E(\bu,\bv)$ for $\bu$ and $\bv$ in $V_h(E)$, and the result is clear from the definition of $a^E$. When $E$ is a pyramid, we observe that $a_h^E$ is symmetric and coercive in $L^2(E)$ because of \eqref{L2}, and then it defines an inner product. Hence, from Cauchy-Schwarz inequality and again \eqref{L2} we have
+\begin{multline*}
+\left|a_h^E(\bu,\bv)\right|\le a_h^E(\bu,\bu)^\frac12 a_h^E(\bv,\bv)^\frac12 \le\\ C_E a^E(\bu,\bu)^\frac12 a^E(\bv,\bv)^\frac12 \le C_E\|\bu\|_{L^2(E)}\|\bv\|_{L^2(E)}.
+\end{multline*}
+The constant $C_E$ depends on the aspect ratio of $E$. This concludes the proof.
+\end{proof}
+{\color{blue}\#\#\#\#\#\#\#\# continue here, ver mi cuaderno amarillo.}
 \begin{lemma} \label{lemma_inf_sup_bh} There exists a constant
 $\beta^*>0$ depending only on $\Omega$
 such that for all $q^*\in Q_h$ there exists $\bw_h^*\in V_h$ such
@@ -336,5 +449,120 @@ $\hat V(\mathcal{T}_{\textit{h}})$ it holds
     \|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant& C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\}
   \end{IEEEeqnarray*} 
 \end{theorem}
-% paragraph discrete_inf_sup (end)
+\begin{proof}
+  {\color{blue}\#\#\#\#\#\#\#\# completar.}
+\end{proof}
+We know that when $E$ is a tetrahedron or a prism $W(E)=V_h(E)$. The purpose of this Section is to characterize $W(E)$ when $E$ is a pyramid. The Section finishes with some computational insights. 
+\begin{lemma}\label{L3}
+Let $\hat P$ be the reference pyramid 
+of Definition~\ref{defi_of_ref_pyr}.
+Then if $\bv \in\mathcal P_1(\hat P)^3$ verifies $\bv \cdot \bn =0$ on $\hat f_1$, $\hat f_2$, $\hat f_3$ and
+$\hat f_5$, then $\bv({\bf x})=(0,cx_2,0)$ with $c$ constant.
+\end{lemma}
+\begin{proof}
+Using that $\bv\cdot\bn$ is constant on $\hat f_1$, $\hat f_2$ and
+$\hat f_5$ we obtain that $\bv$ is of the form
+\[
+\bv({\bf x}) = (a_1+b_1x_1, a_2+c_2x_2,a_3+d_3x_3),
+\]
+and since $\bv\cdot\bn=0$ on those faces it result
+$a_1=a_2=a_3=0$. Now, using that $\bv\cdot\bn=0$ on
+$\hat f_3$  we have that $b_1x_1+d_3x_3|_{\hat f_3}=d_3+(b_1-d_3)x_1|_{\hat f_3}=0$, so $b_1=d_3=0$. Then $\bv=(0,c_2x_2,0)$ as we wanted to prove.
+\end{proof}
+
+\begin{lemma}\label{L4}
+Let $P$ be a pyramid. Then $\mbox{dim\,}W(P)\le4$.
+\end{lemma}
+\begin{proof}
+We have $W(P)\subseteq V(P)$ and $\mbox{dim\,}V(P)=5$. In order to prove that $W(P)\ne
+V(P)$ we will show that there exists no field
+$\bv=\nabla q_2$ with $q_2\in \mathcal P_2(P)$ with normal
+component vanishing on four faces of $P$ and being constant different from $0$ on
+the another face.
+
+Let $\hat P$ be the reference pyramid of Lemma \ref{L3} and
+use the same notation for the faces. Let $F(\hat {\bf x})=B\hat
+{\bf x} + {\bf b}$ be an affine map from $\hat P$ onto $P$ and we denote
+$f_i=F(\hat f_i)$. Suppose
+that $\bv=\nabla q_2\in \mathcal P_2(P)$ is such that
+$\bv\cdot\bn=0$ on $f_1$, $f_2$, $f_3$ and $f_5$, while
+$\bv\cdot\bn=1$ on $f_4$. Now we consider $\hat\bv$
+obtained via the Piola trasform from $\bv$, that is
+\begin{equation}\label{piola}
+\bv({\bf x}) = \frac1{|B|}B\hat\bv(\hat{\bf x}), \qquad {\bf x}=F(\hat {\bf x}),
+\end{equation}
+which is in $\mathcal P_1(\hat P)^3$. Using properties of the Piola transform \cite[pages 12--14]{BBDDFF} we have for $i=1,2,3,5$,
+\[
+\int_{\hat f_i}\hat \bv\cdot {\bf n}\hat\phi = \int_{f_i}\bv\cdot {\bf n}\phi =0\qquad \forall \phi\in\mathcal P_1(f_i).
+\]
+with $\hat \phi = \phi\circ F$. Since $\hat\bv|_{\hat f_i}\cdot {\bf n}\in\mathcal P_1(\hat f_i)$, this implies $\hat\bv|_{\hat f_i}\cdot {\bf n}=0$ for $i=1,2,3,5$. From the previous Lemma we obtain that
+\[
+\hat\bv(\hat{\bf x})=(0,c\hat x_2,0).
+\]
+Then
+\[
+\bv({\bf x})=\frac1{|B|}B(0,c\hat x_2,0)^t = \frac c{|B|}{\bf b}_2 \hat x_2
+\]
+if $B=[{\bf b}_1\,\,{\bf b}_2\,\,{\bf b}_3]$ (that s, ${\bf b}_i$, $i=1,2,3$,  are the columns of $B$). Then, on $f_4$ we have 
+\[
+\bv({\bf x})\cdot {\bf n}=\frac c{|B|}\hat x_2{\bf b}_2\cdot {\bf n} 
+\]
+and we note that $\hat x_2$ is not constant on $f_4$, it varies from $0$ to $1$, and ${\bf b}_2\cdot {\bf n}\ne 0$, since ${\bf b}_2$ is a transversal vector to the face $f_4$. Then, $\bv({\bf x})\cdot {\bf n}$ is not constant on $f_4$, which is a contradicts our definition of $\bf v$.  
+\end{proof}
+
+\begin{proposition}
+Let $P$ be a pyramid. Then $W(P)=\mathcal
+P_0^3(P)+{\bf x}\mathcal P_0(P)$.
+\end{proposition}
+\begin{proof}
+We have
+\[
+\mathcal P_0^3(P)+{\bf x}\mathcal P_0(P)\subseteq \hat
+V(P).
+\]
+Since
+\[
+\mbox{dim\,}\left(\mathcal P_0^3(P)+{\bf x}\mathcal
+P_0(P)\right)=4
+\]
+and that from Lemma \ref{L4}, $\mbox{dim\,}\hat
+V(P)\le4$, we conclude the assertion.
+\end{proof}
+
+Given a field $\bv \in V_h(E)$, we can construct $\Pi_w^E\bv$
+as follows. We choose a basis $\{\bw_i\}$ of $W(E)$, for
+example,
+\[
+\left\{ (1,0,0), (0,1,0), (0,0,1), (x,y,z) \right\} =: \{
+\bw_i: 1\le i\le4\}
+\]
+with $\bw_i=\nabla q_i$, $i=1,2,3,4$. Then $a^E(\bv,\bw_i)$ is calculable from $\bv$'s degrees of freedom
+\[
+a^E(\bv,\bw_i) = \int_E\bv\cdot\nabla q_i =
+-\int_E\mbox{div\,}\bv\,q_i + \int_{\partial E}\bv\cdot\bn\,q_i.
+\]
+Then if $\Pi_w^E\bv=\sum_{j=1}^4\alpha_j\bw_j$ we can
+compute the coefficients $\alpha_j$ by solving the linear system
+\[
+\sum_{j=1}^4\alpha_j a^E(\bw_j,\bw_i) =
+a^E(\bv,\bw_i), \qquad i=1,2,3,4.
+\]
+In order to compute the stabilization part of the discrete
+bilinear form we need to write $\Pi_w^E\bv$ as a linear
+combination of the basis $\{\bv_i\}$ of $V_h(E)$ associated with
+the degrees of freedom, this is (always in the pyramidal case)
+\[
+\int_{f_i}\bv_j\cdot\bn =\delta_{ij}, \qquad 1\le i,j\le 5.
+\]
+In this case, we have $\Pi_w^E\bv = \sum_{i=1}^5\beta_i\bv_i$,
+with
+\[
+\beta_i=\sum_{j=1}^4\alpha_j\int_{f_i}\bw_j\cdot\bn.
+\]
+
+
+
+
 \end{chapter}
+
+
