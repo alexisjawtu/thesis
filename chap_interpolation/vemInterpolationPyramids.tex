@@ -1,0 +1,54 @@
+\section{local interpolation estimates with Virtual E on pyramids}
+
+\begin{theorem}
+If $E$ is an isotropic tetrahedron or pyramid, then  
+\begin{equation}\label{estab2}
+\|\bu_I\|_{L^p(E)}\le C\left(\|\bu\|_{L^p(E)}+ h_T|\bu|_{W^{1,p}(E)}\right), \qquad \forall \bu\in W^{1,p}(E),
+\end{equation}
+with the constant $C$ depending on the shape regularity of $E$, and $1\le p$ if $E$ is a tetrahedron and $1\le p\le 2$ if $E$ is a pyramid.
+\end{theorem}
+\begin{proof}
+When $E$ is a tetrahedron, this result is contained in \cite{AApDL2}. So we assume that $E$ is a pyramid. We note that 
+\begin{equation}\label{estab2:eq1}
+\bu_I=\sum_{i=1}^5 \left(\int_{f_i}\bu\cdot \bn\right)\bv_i
+\end{equation}
+where $\{\bv_i\}_{i=1}^5$ is the basis of $V_h(E)$ dual to the degree of freedom \eqref{degreeOfFreedom}. Denote by $f_j$, $j=1,\ldots,5$ the faces of $E$. First of all we need to estimate the $L^2$-norm of the basis functions $\bv_i$. Fixed $1\le i\le 5$, it follows from the proof of Lemma \ref{existenciaInterpolante} that $\bv_i=\nabla \psi$ where $\psi$ is the solution of
+\begin{eqnarray*}
+\Delta\psi&=&d\qquad\mbox{in }\Omega\\ \frac{\partial\psi}{\partial\bn}&=&g\qquad\mbox{on }\partial E\\ \int_E\psi&=&0
+\end{eqnarray*}
+with
+\[
+g|_{f_j}=\left\{\begin{array}{cl}\frac1{|f_i|}&\mbox{if }i=j\\0&\mbox{if }i\ne j\end{array}\right., \qquad d=\frac1{|E|}.
+\]
+Multiplying the first equation defining $\psi$ by $\psi$, and integrating by parts, we obtain
+\begin{eqnarray*}
+\|\nabla\psi\|_{L^2(E)}^2 &=& -\int_Ed\psi + \int_{\partial E}g\psi\\ &\le& 
+\|d\|_{L^2(E)}\|\psi\|_{L^2(E)} + \|g\|_{L^2(\partial E)}\|\psi\|_{L^2(\partial E)}.
+\end{eqnarray*}
+Using Poincare's and trace inequalities we have for, a constant $C$ depending on the aspect ratio of $E$ 
+\begin{equation}\label{estab2:eq2}
+\|\nabla\psi\|_{L^2(E)}^2\le  C\left(h_E\|d\|_{L^2(E)} + h_E^\frac12 \|g\|_{L^2(\partial E)}\right) \|\nabla\psi\|_{L^2(E)}.
+\end{equation}
+Taking into account the definitions of $d$ and $g$ we have
+\[
+\|d\|_{L^2(E)}\le Ch_E^{-\frac32}, \qquad \|g\|_{L^2(\partial E)}\le Ch_E^{-1}
+\]
+and so from \eqref{estab2:eq2} we obtain
+\begin{equation}\label{estab2:eq3}
+\|\bv_i\|_{L^2(E)}=\|\nabla\psi\|_{L^2(E)}\le Ch_E^{-\frac12}.
+\end{equation}
+
+Now, for $1\le p\le 2$ using H\"older's inequality and the expression \eqref{estab2:eq1} we have
+\begin{eqnarray*}
+\|\bu_I\|_{L^p(E)}&\le& |E|^{\frac1p-\frac12}\|\bu_I\|_{L^2(T)}\\&\le&|E|^{\frac1p-\frac12} \sum_{i=1}^5  \left|\int_{f_i}\bu\cdot\bn\right|\|\bv_i\|_{L^2(E)}.
+\end{eqnarray*}
+By using \eqref{estab2:eq3}, H\"older's inequality, trace inequalities and taking into account the shape-regularity of $E$ we obtain
+\begin{eqnarray*}
+\|\bu_I\|_{L^p(E)}&\le& C |E|^{\frac1p-\frac12} h_E^{-\frac1p}\left(\|\bu\|_{L^p(\Omega)}+h_E\|\nabla\bu\|_{L^p(E)}\right)|\partial E|^{1-\frac1p} \|\bv_i\|_{L^2(E)}\\&\le& C h_E^{3\left(\frac1p-\frac12\right)}h_E^{-\frac1p}h_E^{2\left(1-\frac1p\right)} h_E^{-\frac12}\left(\|\bu\|_{L^p(\Omega)}+h_E\|\nabla\bu\|_{L^p(E)}\right)\\&=& C \left(\|\bu\|_{L^p(\Omega)}+h_E\|\nabla\bu\|_{L^p(E)}\right)
+\end{eqnarray*}
+
+
+%\sum_{i=1}^5 \left|\int_{f_i}\bu\cdot\bn\right|\|\bv_i\|_{L^2(E)}\\&\le& \sum_{i=1}^5 |f_i|^\frac12\|\bu\|_{L^2(f_i)}\|\bv_i\|_{L^2(E)}\\ &\le& C|f_i|^\frac12\left(h_e^{-\frac12}\|\bu\|_{L^2(E)}+h_E^\frac12\|\nabla\bu\|_{L^2(E)}\right)\|\bv_i\|_{L^2(E)}\\ &\le& C\left(\|\bu\|_{L^2(E)}+h_E\|\nabla\bu\|_{L^2(E)}\right)
+
+where $C$ depends on the shape regularity of $E$.
+\end{proof}

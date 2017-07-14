@@ -1,9 +1,13 @@
 \begin{chapter}[Virtual Elements]{Virtual Elements}
+
+The vems are customarly defined in terms of a given problem.
+
 It is our intention to propose a Virtual Elements Method (VEM) scheme
 as a generalization of $H(\text{div})$--conforming Finite Elements
 in meshes consisting of polyhedra of arbitrary kind.
 We deal with tetrahedra, triangular prisms and pyramids and, in the presence of
 the latter, our VEM scheme is put in the framework of non-polynomial Finite Elements.\\[5pt]
+\section{primera}
 Let be given an open \emph{non--convex} domain $\Omega\subseteq\mathbb{R}^3$ with
 Lipschitz--continuous boundary
 consisting of planar faces and define $V:=H(\mbox{div},\Omega)$ and $Q:=L^2(\Omega)$.
@@ -297,6 +301,8 @@ $E\in\mathcal T_h$ it holds
 \end{IEEEeqnarray*}
 where $c_E$ and $C_E$ depend only on the shape regularity of $E$.
 \end{corollary}
+
+\section{discrete problem. well posedness. local estimates?}
 The discrete problem in the Finite--Virtual Element scheme is stated as follows.
 \begin{problem}
 To find $\bu_h\in V_h$ and $p_h\in Q_h$ such that
@@ -380,14 +386,15 @@ that
 \]
 \end{lemma}
 \begin{proof} Start considering the infinite dimensional version
-of the statement. There is, in fact, a constant $\beta^*$ such that
-for each every $q^*\in Q_h \subseteq Q$ there exists 
+of the statement. There is, in fact, a constant $\beta^*$ depending only on
+$\Omega$ such that
+for every $q^*\in Q_h \subseteq Q$ there exists 
 $\bw^*\in H^1_0(\Omega)^3$ with $\dv\bw^*=q*$ such that
 \begin{IEEEeqnarray}{rCl} \label{bound_w}
   \beta^*\|\bw^*\|_{H^1(\Omega)} & \leqslant &
   \|q^*\|_{Q}.
 \end{IEEEeqnarray}
-Now, for each $q^*\in Q_h$ take $\bw_h^*:=\bw^*_I$, the $V_h$-interpolant of $\bw^*$, as was
+Now, for each $q^*\in Q_h$ take $\bw_h^*:=I\bw^*$, the $V_h$-interpolant of $\bw^*$, as was
 already defined in Corollary~\ref{interpolant}. As a consequence of~(\ref{vem_equal_fem})
 and because we are considering the exact same degrees of freedom, this
 interpolation operator coincides, in the lowest order case, with the
@@ -440,129 +447,8 @@ and
 \frac1{\sqrt{\dfrac1{(\beta^*)^2}+1}}\,\|q^*\|_{Q_h}.
 \end{IEEEeqnarray*}
 \end{proof}
-\begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution
-$(\bu_{\textit{h}},p_{\textit{h}})$ and
-for every approximation $\pi(\bu)$ of $\bu$ in
-$\hat V(\mathcal{T}_{\textit{h}})$ it holds
-  \begin{IEEEeqnarray*}{rCl}
-    \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\} \\[5pt]
-    \|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant& C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\}
-  \end{IEEEeqnarray*} 
-\end{theorem}
-\begin{proof}
-  {\color{blue}\#\#\#\#\#\#\#\# completar.}
-\end{proof}
-We know that when $E$ is a tetrahedron or a prism $W(E)=V_h(E)$. The purpose of this Section is to characterize $W(E)$ when $E$ is a pyramid. The Section finishes with some computational insights. 
-\begin{lemma}\label{L3}
-Let $\hat P$ be the reference pyramid 
-of Definition~\ref{defi_of_ref_pyr}.
-Then if $\bv \in\mathcal P_1(\hat P)^3$ verifies $\bv \cdot \bn =0$ on $\hat f_1$, $\hat f_2$, $\hat f_3$ and
-$\hat f_5$, then $\bv({\bf x})=(0,cx_2,0)$ with $c$ constant.
-\end{lemma}
-\begin{proof}
-Using that $\bv\cdot\bn$ is constant on $\hat f_1$, $\hat f_2$ and
-$\hat f_5$ we obtain that $\bv$ is of the form
-\[
-\bv({\bf x}) = (a_1+b_1x_1, a_2+c_2x_2,a_3+d_3x_3),
-\]
-and since $\bv\cdot\bn=0$ on those faces it result
-$a_1=a_2=a_3=0$. Now, using that $\bv\cdot\bn=0$ on
-$\hat f_3$  we have that $b_1x_1+d_3x_3|_{\hat f_3}=d_3+(b_1-d_3)x_1|_{\hat f_3}=0$, so $b_1=d_3=0$. Then $\bv=(0,c_2x_2,0)$ as we wanted to prove.
-\end{proof}
 
-\begin{lemma}\label{L4}
-Let $P$ be a pyramid. Then $\mbox{dim\,}W(P)\le4$.
-\end{lemma}
-\begin{proof}
-We have $W(P)\subseteq V(P)$ and $\mbox{dim\,}V(P)=5$. In order to prove that $W(P)\ne
-V(P)$ we will show that there exists no field
-$\bv=\nabla q_2$ with $q_2\in \mathcal P_2(P)$ with normal
-component vanishing on four faces of $P$ and being constant different from $0$ on
-the another face.
+\input{./chap_vems/approximationEstimateVems}
 
-Let $\hat P$ be the reference pyramid of Lemma \ref{L3} and
-use the same notation for the faces. Let $F(\hat {\bf x})=B\hat
-{\bf x} + {\bf b}$ be an affine map from $\hat P$ onto $P$ and we denote
-$f_i=F(\hat f_i)$. Suppose
-that $\bv=\nabla q_2\in \mathcal P_2(P)$ is such that
-$\bv\cdot\bn=0$ on $f_1$, $f_2$, $f_3$ and $f_5$, while
-$\bv\cdot\bn=1$ on $f_4$. Now we consider $\hat\bv$
-obtained via the Piola trasform from $\bv$, that is
-\begin{equation}\label{piola}
-\bv({\bf x}) = \frac1{|B|}B\hat\bv(\hat{\bf x}), \qquad {\bf x}=F(\hat {\bf x}),
-\end{equation}
-which is in $\mathcal P_1(\hat P)^3$. Using properties of the Piola transform \cite[pages 12--14]{BBDDFF} we have for $i=1,2,3,5$,
-\[
-\int_{\hat f_i}\hat \bv\cdot {\bf n}\hat\phi = \int_{f_i}\bv\cdot {\bf n}\phi =0\qquad \forall \phi\in\mathcal P_1(f_i).
-\]
-with $\hat \phi = \phi\circ F$. Since $\hat\bv|_{\hat f_i}\cdot {\bf n}\in\mathcal P_1(\hat f_i)$, this implies $\hat\bv|_{\hat f_i}\cdot {\bf n}=0$ for $i=1,2,3,5$. From the previous Lemma we obtain that
-\[
-\hat\bv(\hat{\bf x})=(0,c\hat x_2,0).
-\]
-Then
-\[
-\bv({\bf x})=\frac1{|B|}B(0,c\hat x_2,0)^t = \frac c{|B|}{\bf b}_2 \hat x_2
-\]
-if $B=[{\bf b}_1\,\,{\bf b}_2\,\,{\bf b}_3]$ (that s, ${\bf b}_i$, $i=1,2,3$,  are the columns of $B$). Then, on $f_4$ we have 
-\[
-\bv({\bf x})\cdot {\bf n}=\frac c{|B|}\hat x_2{\bf b}_2\cdot {\bf n} 
-\]
-and we note that $\hat x_2$ is not constant on $f_4$, it varies from $0$ to $1$, and ${\bf b}_2\cdot {\bf n}\ne 0$, since ${\bf b}_2$ is a transversal vector to the face $f_4$. Then, $\bv({\bf x})\cdot {\bf n}$ is not constant on $f_4$, which is a contradicts our definition of $\bf v$.  
-\end{proof}
-
-\begin{proposition}
-Let $P$ be a pyramid. Then $W(P)=\mathcal
-P_0^3(P)+{\bf x}\mathcal P_0(P)$.
-\end{proposition}
-\begin{proof}
-We have
-\[
-\mathcal P_0^3(P)+{\bf x}\mathcal P_0(P)\subseteq \hat
-V(P).
-\]
-Since
-\[
-\mbox{dim\,}\left(\mathcal P_0^3(P)+{\bf x}\mathcal
-P_0(P)\right)=4
-\]
-and that from Lemma \ref{L4}, $\mbox{dim\,}\hat
-V(P)\le4$, we conclude the assertion.
-\end{proof}
-
-Given a field $\bv \in V_h(E)$, we can construct $\Pi_w^E\bv$
-as follows. We choose a basis $\{\bw_i\}$ of $W(E)$, for
-example,
-\[
-\left\{ (1,0,0), (0,1,0), (0,0,1), (x,y,z) \right\} =: \{
-\bw_i: 1\le i\le4\}
-\]
-with $\bw_i=\nabla q_i$, $i=1,2,3,4$. Then $a^E(\bv,\bw_i)$ is calculable from $\bv$'s degrees of freedom
-\[
-a^E(\bv,\bw_i) = \int_E\bv\cdot\nabla q_i =
--\int_E\mbox{div\,}\bv\,q_i + \int_{\partial E}\bv\cdot\bn\,q_i.
-\]
-Then if $\Pi_w^E\bv=\sum_{j=1}^4\alpha_j\bw_j$ we can
-compute the coefficients $\alpha_j$ by solving the linear system
-\[
-\sum_{j=1}^4\alpha_j a^E(\bw_j,\bw_i) =
-a^E(\bv,\bw_i), \qquad i=1,2,3,4.
-\]
-In order to compute the stabilization part of the discrete
-bilinear form we need to write $\Pi_w^E\bv$ as a linear
-combination of the basis $\{\bv_i\}$ of $V_h(E)$ associated with
-the degrees of freedom, this is (always in the pyramidal case)
-\[
-\int_{f_i}\bv_j\cdot\bn =\delta_{ij}, \qquad 1\le i,j\le 5.
-\]
-In this case, we have $\Pi_w^E\bv = \sum_{i=1}^5\beta_i\bv_i$,
-with
-\[
-\beta_i=\sum_{j=1}^4\alpha_j\int_{f_i}\bw_j\cdot\bn.
-\]
-
-
-
-
+\input{./chap_vems/spaceWE}
 \end{chapter}
-
-
