@@ -1,4 +1,3 @@
-\section{}
 \begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution
 $(\bu_{\textit{h}},p_{\textit{h}})$ and
 for every approximation $\pi(\bu)$ of $\bu$ in
@@ -10,3 +9,20 @@ $\hat V(\mathcal{T}_{\textit{h}})$ it holds
 \end{theorem}
 \begin{proof}
 \end{proof}
+
+\begin{corollary}
+If $\Omega$ is convex and $f\in L^2(\Omega)$ we know that the solution $p$ of problem $H^2(\Omega)$, and so $\bu\in H^1(\Omega)^3$. In this case, using the interpolation error estimates we proved in Propositions \ref{propErrorInterpolacionPrismas} and \eqref{propErrorInterpolacionPiramidesTetraedros}, the result of Proposition \ref{propupi}, and a standard estimate for $L^2$-projection error, we obtain from Theorem \ref{estimacionError} that 
+\begin{eqnarray*}
+\|\bu-\bu_h\|_{L^2(\Omega)}&\le& Ch|p|_{H^2(\Omega)}\\ \|p-p_h\|_{L^2(\Omega)}&\le& C|p|_{H^1(\Omega)}
+\end{eqnarray*}
+where the constant $C$ depends only on the aspect ratios of tetrahedra 
+and pyramids and the triangular basis of the right prisms on the mesh. 
+\end{corollary}
+
+Arbitrarily narrow right prisms can be used in the mesh without 
+affecting this estimate. This fact can be further exploited when the
+domain $\Omega$ is not convex or $f$ is not in $L^2(\Omega)$. We 
+leave this for further research.
+
+
+

@@ -52,3 +52,36 @@ By using \eqref{estab2:eq3}, H\"older's inequality, trace inequalities and takin
 
 where $C$ depends on the shape regularity of $E$.
 \end{proof}
+
+\begin{proposition}\label{propErrorInterpolacionPiramidesTetraedros}
+Let $E$ be a tetrahedron or a pyramid satisfying the shape-regularity property with constant $\sigma$. Then there exists a constant $C$ depending only on $\sigma$ such that 
+\[
+\|\bu-\bu_I\|_{L^2(E)}\le C h_E|\bu|_{H^1(E)} \qquad \forall \bu\in H^1(E).
+\]
+\end{proposition}
+\begin{proof} Let $Q\bu$ be the $L^2(E)$-projection of $u$ onto the constant fields. Then we have
+\[
+\bu-\bu_I = (\bu - Q\bu) + (Q\bu-\bu)_I
+\]
+and using the previous Lemma and a clasical estimate for the $L^2(E)$-projection error we have
+\begin{eqnarray*}
+\|\bu-\bu_I\|_{L^2(E)} &\le& \|\bu - Q\bu\|_{L^2(E)} + \|(\bu-Q\bu)_I\|_{L^2(E)}\\ &\le& \|\bu - Q\bu\|_{L^2(E)} + C \left(\|\bu-Q\bu\|_{L^2(E)} + h_E\|\nabla(\bu-Q\bu)\|_{L^2(E)}\right)\\ &=& C\left(\|\bu-Q\bu\|_{L^2(E)} + h_E\|\nabla\bu\|_{L^2(E)}\right)\\&\le& Ch_E\|\nabla\bu\|_{L^2(E)}
+\end{eqnarray*}
+as we wnated to prove.
+\end{proof}
+
+
+\begin{proposition}\label{propupi}
+Let $E$ be a pyramid satisfying a shape regularity property with constant $\sigma$, and $\bu\in H^1(E)$. 
+Then there exists a field $\bu_\pi\in W(E)$ such that
+\[
+\|\bu-\bu_\pi\|_{L^2(E)}\le C h_E|\bu|_{H^1(E)}.
+\]
+(Poner directo) Then
+\[
+\|\bu-P^{\perp}\bu\|_{L^2(E)}\le C h_E|\bu|_{H^1(E)}.
+\]
+\end{proposition}
+\begin{proof}
+We can define $\bu_\pi$ on $E$ as the $L^2(E)$-projection of $\bu$ on the space of constant fields $P_0(E)^3\subset W(E)$. The error estimate follows from Bramble-Hilbert Lemma.  
+\end{proof}
