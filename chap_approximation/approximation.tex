@@ -58,7 +58,7 @@ The constant $C_E$ depends on the aspect ratio of $E$. This concludes the proof.
 \end{proof}
 \begin{lemma} \label{lemma_inf_sup_bh} There exists a constant
 $\beta^*>0$ depending only on $\Omega$ {\color{brown} and the maximum aspect
-ratio of the pyramids of $\Th$}
+ratio of the pyramids of $\Th$ (is this necessary?)}
 such that for all $q^*\in Q_h$ there exists $\bw_h^*\in V_h$ such
 that
 \[
@@ -74,36 +74,30 @@ $\bw^*\in H^1_0(\Omega)^3$ with $\dv\bw^*=q^*$ such that
   \beta^*\|\bw^*\|_{H^1(\Omega)} & \leqslant &
   \|q^*\|_{Q}.
 \end{IEEEeqnarray}
-Now, for each $q^*\in Q_h$ take $\bw_h^*:=I\bw^*$ as defined in
+Now, for each $q^*\in Q_h$ take {\color{red} poner que wh* se define
+como una funcion partida, porque Corollary~\ref{interpolant} es local; 
+queda mal si no.}$\bw_h^*:=I\bw^*$ as defined in
 Corollary~\ref{interpolant}. As a consequence of Proposition~\ref{vem_equal_fem}
 and because we are considering the exact same degrees of freedom, this
 interpolation operator coincides, in the lowest order case, with the
 $H(\dv)$--conforming operators~(\ref{sub:definition_of_the_h_div_element_on_prisms})
 on prisms and~(\ref{sub:definition_of_the_h_div_element_on_tetrahedra}) on tetrahedra,
-respectively.
-In {\color{blue}\#\#\#\#\#\#\#\# poner qu'e lugar es} we obtained
-the stability estimates~({\color{blue}\#\#\#\#\#\#\#\# referencia estimate.})
-and~({\color{blue}\#\#\#\#\#\#\#\# ref estimate.}) for the finite elements, which
-we repeat here for clarity. If $E$ is a prism or a tetrahedron, then
-
-
-{\color{blue}\#\#\#\#\#\#\#\# stability fems}
-
-
-
-Using this and the estimate {\color{blue}\#\#\#\#\#\#\#\# (????)}
-for virtual elements on pyramids and~(\ref{bound_w}) we get
+respectively. For prismatic elements we use the estimate in~(\ref{estabLp}), which is the 
+analog of the statement in Theorem $3.1$ in page $149$ of~\cite{aadl}.
+In the case of a pyramidal element we draw upon estimate~(\ref{estab2}). With
+all these together and~(\ref{bound_w}) for all cases we get
 \[
-  \|\bw_I^*\|_{Q}\leqslant
+  \|\bw_{\textit{h}}^*\|_{Q} =
+  \|I\bw^*\|_{Q}\leqslant
   C(1+\textit{h})\|\bw^*\|_{H^1(\Omega)}
-  \leqslant\frac{C(1+\textcolor{h})}{\beta^*}\|q^*\|_{Q}.
+  \leqslant\frac{C(1+\textit{h})}{\beta^*}\|q^*\|_{Q}.
 \]
 Besides, since $q^*\in Q_h$, by~(\ref{p0_projection}) we have
 \[
-  \dv\bw_I^*=P_0\,\dv\bw^*=P_0\,q^*=q^*.
+  \dv I\bw^*=P_0\,\dv\bw^*=P_0\,q^*=q^*.
 \]
 \end{proof}
-Now, we can prove the discrete inf-sup condition. 
+Now we can prove the discrete inf-sup condition. 
 \begin{theorem}[Discrete $\inf-\sup$ condition for $b_h$] \label{inf_sup_b_h}
 There exists $\beta > 0$ such that for all $q^*\in Q_h$ 
 \begin{IEEEeqnarray*}{rCl}
@@ -130,19 +124,28 @@ and
 
 % section well_posedness (end)
 
+\begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution
+$(\bu_{\textit{h}},p_{\textit{h}})$ and
+for every approximation $\pi(\bu)$ of $\bu$ in
+$\hat V(\mathcal{T}_{\textit{h}})$ it holds
+  \begin{IEEEeqnarray*}{rCl}
+    \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\} \\[5pt]
+    \|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant& C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\}
+  \end{IEEEeqnarray*} 
+\end{theorem}
+\begin{proof}
+\end{proof}
 
+\begin{corollary}
+If $\Omega$ is convex and $f\in L^2(\Omega)$ we know that the solution $p$ of problem $H^2(\Omega)$, and so $\bu\in H^1(\Omega)^3$. In this case, using the interpolation error estimates we proved in Propositions \ref{propErrorInterpolacionPrismas} and \eqref{propErrorInterpolacionPiramidesTetraedros}, the result of Proposition \ref{propupi}, and a standard estimate for $L^2$-projection error, we obtain from Theorem \ref{estimacionError} that 
+\begin{eqnarray*}
+\|\bu-\bu_h\|_{L^2(\Omega)}&\le& Ch|p|_{H^2(\Omega)}\\ \|p-p_h\|_{L^2(\Omega)}&\le& C|p|_{H^1(\Omega)}
+\end{eqnarray*}
+where the constant $C$ depends only on the aspect ratios of tetrahedra 
+and pyramids and the triangular basis of the right prisms on the mesh. 
+\end{corollary}
 
-
-
-
-
-\input{./chap_vems/approximationEstimateVems}
-
-
-
-
-
-
-
-
-% section regularity (end)
+Arbitrarily narrow right prisms can be used in the mesh without 
+affecting this estimate. This fact can be further exploited when the
+domain $\Omega$ is not convex or $f$ is not in $L^2(\Omega)$. We 
+leave this for further research.
