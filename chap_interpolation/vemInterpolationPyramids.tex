@@ -1,18 +1,23 @@
-\section{local interpolation estimates with Virtual E on pyramids}
+\section{Pyramidal Virtual Elements}
 
 \begin{theorem}
 If $E$ is an isotropic tetrahedron or pyramid, then  
 \begin{equation}\label{estab2}
-\|\bu_I\|_{L^p(E)}\le C\left(\|\bu\|_{L^p(E)}+ h_T|\bu|_{W^{1,p}(E)}\right), \qquad \forall \bu\in W^{1,p}(E),
+\|\bu_I\|_{L^p(E)}\leqslant C\left(\|\bu\|_{L^p(E)}+ h_T|\bu|_{W^{1,p}(E)}\right), \qquad \forall \bu\in W^{1,p}(E),
 \end{equation}
-with the constant $C$ depending on the shape regularity of $E$, and $1\le p$ if $E$ is a tetrahedron and $1\le p\le 2$ if $E$ is a pyramid.
+with the constant $C$ depending on the shape regularity of $E$, and $1\leqslant p$ if $E$ is a tetrahedron and $1\leqslant p\leqslant 2$ if $E$ is a pyramid.
 \end{theorem}
 \begin{proof}
-When $E$ is a tetrahedron, this result is contained in \cite{AApDL2}. So we assume that $E$ is a pyramid. We note that 
+{\color{blue}\#\#\#\#\#\#\#\# esto no ponerlo, al momento de usar tetra para
+malla, citar del articulo\\.}
+When $E$ is a tetrahedron, this result is contained in \cite{aadl}. So we assume that $E$ is a pyramid.\\ 
+{\color{blue}\#\#\#\#\#\#\#\#\\}
+We note that 
 \begin{equation}\label{estab2:eq1}
 \bu_I=\sum_{i=1}^5 \left(\int_{f_i}\bu\cdot \bn\right)\bv_i
 \end{equation}
-where $\{\bv_i\}_{i=1}^5$ is the basis of $V_h(E)$ dual to the degree of freedom \eqref{degreeOfFreedom}. Denote by $f_j$, $j=1,\ldots,5$ the faces of $E$. First of all we need to estimate the $L^2$-norm of the basis functions $\bv_i$. Fixed $1\le i\le 5$, it follows from the proof of Lemma \ref{existenciaInterpolante} that $\bv_i=\nabla \psi$ where $\psi$ is the solution of
+where $\{\bv_i\}_{i=1}^5$ is the basis of $V_h(E)$ dual to the degrees of freedom
+\ref{dofs}. Denote by $f_j$, $j=1,\ldots,5$ the faces of $E$. First of all we need to estimate the $L^2$-norm of the basis functions $\bv_i$. Fixed $1\leqslant i\leqslant 5$, it follows from the proof of Lemma \ref{existenciaInterpolante} that $\bv_i=\nabla \psi$ where $\psi$ is the solution of
 \begin{eqnarray*}
 \Delta\psi&=&d\qquad\mbox{in }\Omega\\ \frac{\partial\psi}{\partial\bn}&=&g\qquad\mbox{on }\partial E\\ \int_E\psi&=&0
 \end{eqnarray*}
@@ -22,23 +27,23 @@ g|_{f_j}=\left\{\begin{array}{cl}\frac1{|f_i|}&\mbox{if }i=j\\0&\mbox{if }i\ne j
 \]
 Multiplying the first equation defining $\psi$ by $\psi$, and integrating by parts, we obtain
 \begin{eqnarray*}
-\|\nabla\psi\|_{L^2(E)}^2 &=& -\int_Ed\psi + \int_{\partial E}g\psi\\ &\le& 
+\|\nabla\psi\|_{L^2(E)}^2 &=& -\int_Ed\psi + \int_{\partial E}g\psi\\ &\leqslant & 
 \|d\|_{L^2(E)}\|\psi\|_{L^2(E)} + \|g\|_{L^2(\partial E)}\|\psi\|_{L^2(\partial E)}.
 \end{eqnarray*}
 Using Poincare's and trace inequalities we have for, a constant $C$ depending on the aspect ratio of $E$ 
 \begin{equation}\label{estab2:eq2}
-\|\nabla\psi\|_{L^2(E)}^2\le  C\left(h_E\|d\|_{L^2(E)} + h_E^\frac12 \|g\|_{L^2(\partial E)}\right) \|\nabla\psi\|_{L^2(E)}.
+\|\nabla\psi\|_{L^2(E)}^2\leqslant  C\left(h_E\|d\|_{L^2(E)} + h_E^\frac12 \|g\|_{L^2(\partial E)}\right) \|\nabla\psi\|_{L^2(E)}.
 \end{equation}
 Taking into account the definitions of $d$ and $g$ we have
 \[
-\|d\|_{L^2(E)}\le Ch_E^{-\frac32}, \qquad \|g\|_{L^2(\partial E)}\le Ch_E^{-1}
+\|d\|_{L^2(E)}\leqslant Ch_E^{-\frac32}, \qquad \|g\|_{L^2(\partial E)}\leqslant Ch_E^{-1}
 \]
 and so from \eqref{estab2:eq2} we obtain
 \begin{equation}\label{estab2:eq3}
-\|\bv_i\|_{L^2(E)}=\|\nabla\psi\|_{L^2(E)}\le Ch_E^{-\frac12}.
+\|\bv_i\|_{L^2(E)}=\|\nabla\psi\|_{L^2(E)}\leqslant Ch_E^{-\frac12}.
 \end{equation}
 
-Now, for $1\le p\le 2$ using H\"older's inequality and the expression \eqref{estab2:eq1} we have
+Now, for $1\leqslant p\leqslant 2$ using H\"older's inequality and the expression \eqref{estab2:eq1} we have
 \begin{eqnarray*}
 \|\bu_I\|_{L^p(E)}&\le& |E|^{\frac1p-\frac12}\|\bu_I\|_{L^2(T)}\\&\le&|E|^{\frac1p-\frac12} \sum_{i=1}^5  \left|\int_{f_i}\bu\cdot\bn\right|\|\bv_i\|_{L^2(E)}.
 \end{eqnarray*}
@@ -56,7 +61,7 @@ where $C$ depends on the shape regularity of $E$.
 \begin{proposition}\label{propErrorInterpolacionPiramidesTetraedros}
 Let $E$ be a tetrahedron or a pyramid satisfying the shape-regularity property with constant $\sigma$. Then there exists a constant $C$ depending only on $\sigma$ such that 
 \[
-\|\bu-\bu_I\|_{L^2(E)}\le C h_E|\bu|_{H^1(E)} \qquad \forall \bu\in H^1(E).
+\|\bu-\bu_I\|_{L^2(E)}\leqslant C h_E|\bu|_{H^1(E)} \qquad \forall \bu\in H^1(E).
 \]
 \end{proposition}
 \begin{proof} Let $Q\bu$ be the $L^2(E)$-projection of $u$ onto the constant fields. Then we have
@@ -75,11 +80,11 @@ as we wnated to prove.
 Let $E$ be a pyramid satisfying a shape regularity property with constant $\sigma$, and $\bu\in H^1(E)$. 
 Then there exists a field $\bu_\pi\in W(E)$ such that
 \[
-\|\bu-\bu_\pi\|_{L^2(E)}\le C h_E|\bu|_{H^1(E)}.
+\|\bu-\bu_\pi\|_{L^2(E)}\leqslant C h_E|\bu|_{H^1(E)}.
 \]
 (Poner directo) Then
 \[
-\|\bu-P^{\perp}\bu\|_{L^2(E)}\le C h_E|\bu|_{H^1(E)}.
+\|\bu-P^{\perp}\bu\|_{L^2(E)}\leqslant C h_E|\bu|_{H^1(E)}.
 \]
 \end{proposition}
 \begin{proof}
