@@ -99,8 +99,42 @@ from the definition, $\dim \mathcal{P}\otimes \mathcal{Q} = \dim \mathcal{P} \di
 % subsection polynomials (end)
 \subsection{Functional Spaces. Trace Spaces.} % (fold)
 \label{sub:functional_spaces_trace_spaces}
-\noindent{\color{blue}\#\#\#\#\#\#\# continue here\\\\me gusta la introduccion
-de los sobolev que dan en dupont scott. ver necas.} 
+Let $\bx$, $\by$, \dots denote points in $\mathbb{R}^n$
+and let $d\bx$, $d\by$, \dots denote Lebesgue measure. If $\Omega$
+is a measurable set, $1\leqslant p\leqslant\infty$ and $f$ is a 
+real or complex valued measurable function, we say $f\in L^p(\Omega)$
+if
+\begin{IEEEeqnarray*}{rCcCl}
+    \|f\|_{L^p(\Omega)}\,=\,|f|_{0,\Omega}& := &(\int_\Omega |f(\bx)|^p\,d\bx)^{\nicefrac1p} 
+    & < & \infty
+\end{IEEEeqnarray*}
+with the usual modification when $p=\infty$.
+
+Let $\mathbb{Z}_{\geqslant 0}$ denote the set of nonnegative integers. A
+\emph{multi--index} $\alpha$ is an $n$--tuple of nonnegative integers:
+$\alpha = (\alpha_1,\ldots,\alpha_n)$, $\alpha_i\in\mathbb{Z}_{\geqslant 0}$,
+$i=1,\ldots,n$. With multi--indices we will establish the following
+notations:
+\begin{IEEEeqnarray*}{rCl}
+    |\alpha|&=&\sum_i\alpha_i\mbox{,}\\[5pt]
+    \alpha&\leqslant&|\beta|\mbox{ iff } \alpha_i\leqslant\beta_i\mbox{,\,}
+    i=1,\ldots,n\mbox{,}\\[5pt]
+    \alpha+\beta&=&(\alpha_1+\beta_1,\ldots,\alpha_n+\beta_n)\mbox{,}\\[5pt]
+    \alpha-\beta&=&(\max\{\alpha_1-\beta_1,0\},\ldots,\max\{\alpha_n-\beta_n,0\})\mbox{,}\\[5pt]
+    \alpha!&=&\Pi_{i=1}^n \alpha_i!\mbox{,}\\[5pt]
+    \bx^\alpha&=&\Pi_{i=1}^n x_i^{\alpha_i}\mbox{\,and}\\[5pt]
+    (\frac{\partial}{\partial\bx})^\alpha&=&\frac{\partial^{|\alpha|}}{\partial x_1^{\alpha_1}
+    \ldots\partial x_n^{\alpha_n}}\\[5pt]
+    &=&\Pi_{i=1}^n (\frac{\partial}{\partial x_i})^{\alpha_i}.
+\end{IEEEeqnarray*}
+When $\Omega$ is an open set, let $\mathcal{C}^\infty(\Omega)$ denote
+the space of infinitely differentiable functions in $\Omega$. For $f\in\mathcal{C}^\infty(\Omega)$
+\begin{IEEEeqnarray*}{rCcCl}
+    \partial^{\alpha}f&=&f^{(\alpha)}&=&(\frac{\partial}{\partial\bx})^{\alpha}f.
+\end{IEEEeqnarray*}
+Let $\mathcal{C}_0^\infty(\Omega)$ denote the vectorial subspace of $\mathcal{C}^\infty(\Omega)$
+functions that have compact support
+\noindent{\color{blue}\#\#\#\#\#\#\# continue here: dup scott page 444.} 
 \begin{defi}
 \begin{IEEEeqnarray*}{rCl}
 	W^p(\curl, E) & = & \{\bu\in W^{1,p}(E)^3\,:\,
@@ -287,9 +321,10 @@ Solutions $\bu$ and $p$ of~(\ref{P}) satisfy
 \label{sec:polynomial_interpolation}
 
 \begin{defi}
-  $\mathcal{C}^{k}(\Omega)$
+  Given $f\in\mathcal{C}^{k}(\Omega)$ the $k$--th degree
+  Taylor polynomial of $f$ centered at $y\in\Omega$, $T_y^kf$, is defined by
   \begin{IEEEeqnarray}{rCl}\label{taylor}
-      (T_y^kf)(x)&=&\sum_{|\alpha|\leqslant k} f^{(\alpha)}(y)
+      (T_y^kf)(x)&=&\sum_{|\alpha|\leqslant k} \frac{f^{(\alpha)}(y)}{\alpha!}(x-y)^{\alpha}.
   \end{IEEEeqnarray}
 \end{defi}
 
@@ -309,4 +344,25 @@ of $f$, $\mathcal{Q}_{k,B}f\in P_k$ defined by
 with $T_y^k$ as in~(\ref{taylor}) but with distributional
 derivatives.
 \end{defi}
+\begin{lemma}
+  Let $\Omega\subseteq\mathcal{R}^n$ be an open connected set
+  with diameter $d$ which is star--shaped with respect to a 
+  set $B\subseteq\Omega$ of positive measure. Given an integer
+  $k\geqslant 0$ and $f\in W^{k+1,p}(\Omega)$ there exists a 
+  positive $C=C(k,n)$ such that, for $|\beta|\geqslant k+1$,
+  \begin{IEEEeqnarray*}{rCl}
+      \|\partial^{\beta}(f-\mathcal{Q}_{k,B}f)\|_{L^p(\Omega)}
+        &\leqslant&C\frac{|\Omega|^{\nicefrac1p}}{|B|^{\nicefrac1p}}
+          d^{k-|\beta|+1}|f|_{k+1,\Omega}.
+  \end{IEEEeqnarray*}
+  In particular, if $\Omega$ is convex,
+  \begin{IEEEeqnarray*}{rCl}
+    \|\partial^{\beta}(f-\mathcal{Q}_{k,\Omega}f)\|_{L^p(\Omega)}
+        &\leqslant&Cd^{k-|\beta|+1}|f|_{k+1,\Omega}.
+  \end{IEEEeqnarray*}
+\end{lemma} 
+\begin{proof}
+  \noindent{\color{blue}\#\#\#\#\#\#\#continue here: demo para Lp} 
+\end{proof}
+
 % section polynomial_interpolation (end)
