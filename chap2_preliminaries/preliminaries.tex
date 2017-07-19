@@ -51,6 +51,8 @@ there is a sequence of elements $E_{n_k}\in\mathcal{T}_{n_k}$ for which
 \label{sub:polynomials}
 The finite elements involved in this Thesis are built with piecewise
 polynomial functions or rational functions (that is, quotients of polynomials).
+As we will see, the virtual elements also involve functions of these
+two kinds.
 For that reason we state some handy notations here.
 \begin{defi}
 \begin{IEEEeqnarray*}{rCl}
@@ -97,6 +99,8 @@ from the definition, $\dim \mathcal{P}\otimes \mathcal{Q} = \dim \mathcal{P} \di
 % subsection polynomials (end)
 \subsection{Functional Spaces. Trace Spaces.} % (fold)
 \label{sub:functional_spaces_trace_spaces}
+\noindent{\color{blue}\#\#\#\#\#\#\# continue here\\\\me gusta la introduccion
+de los sobolev que dan en dupont scott. ver necas.} 
 \begin{defi}
 \begin{IEEEeqnarray*}{rCl}
 	W^p(\curl, E) & = & \{\bu\in W^{1,p}(E)^3\,:\,
@@ -281,5 +285,28 @@ Solutions $\bu$ and $p$ of~(\ref{P}) satisfy
 
 \section{Polynomial Interpolation} % (fold)
 \label{sec:polynomial_interpolation}
-{\color{blue}\#\#\#\#\#\#\#\# continue here with dupont scott.}
+
+\begin{defi}
+  $\mathcal{C}^{k}(\Omega)$
+  \begin{IEEEeqnarray}{rCl}\label{taylor}
+      (T_y^kf)(x)&=&\sum_{|\alpha|\leqslant k} f^{(\alpha)}(y)
+  \end{IEEEeqnarray}
+\end{defi}
+
+\begin{defi} $\Omega$ is star--shaped with respect to $B$ if, for all
+$x\in\Omega$, the closed convex hull of $\{x\}\cup\Omega$ is 
+a subset of $\Omega$.
+\end{defi}
+
+\begin{defi}
+Assume that $\Omega$ is star--shaped with respect to a se t $B\subseteq\Omega$
+of positive measure. Given an integer $k\geqslant 0$ and 
+$f\in W^{k+1,p}(\Omega)$ we introduce the averaged Taylor polynomial
+of $f$, $\mathcal{Q}_{k,B}f\in P_k$ defined by
+\begin{IEEEeqnarray}{rCl}\label{averagedTaylor}
+  (\mathcal{Q}_{k,B}f)(x) & = & \frac{1}{|B|} \int_B (T_y^kf)(x)\,dy 
+\end{IEEEeqnarray}
+with $T_y^k$ as in~(\ref{taylor}) but with distributional
+derivatives.
+\end{defi}
 % section polynomial_interpolation (end)
