@@ -127,14 +127,44 @@ notations:
     \ldots\partial x_n^{\alpha_n}}\\[5pt]
     &=&\Pi_{i=1}^n (\frac{\partial}{\partial x_i})^{\alpha_i}.
 \end{IEEEeqnarray*}
-When $\Omega$ is an open set, let $\mathcal{C}^\infty(\Omega)$ denote
-the space of infinitely differentiable functions in $\Omega$. For $f\in\mathcal{C}^\infty(\Omega)$
+Given a function $f$
 \begin{IEEEeqnarray*}{rCcCl}
     \partial^{\alpha}f&=&f^{(\alpha)}&=&(\frac{\partial}{\partial\bx})^{\alpha}f.
 \end{IEEEeqnarray*}
-Let $\mathcal{C}_0^\infty(\Omega)$ denote the vectorial subspace of $\mathcal{C}^\infty(\Omega)$
-functions that have compact support
-\noindent{\color{blue}\#\#\#\#\#\#\# continue here: dup scott page 444.} 
+If $|\alpha| = 0$, $\partial^{\alpha}f=f$.
+
+When $\Omega$ is an open set, let $\mathcal{C}^\infty(\Omega)$ denote
+the space of infinitely differentiable functions in $\Omega$.
+For $f\in\mathcal{C}^\infty(\Omega)$
+Let $\mathcal{D}(\Omega)$ denote the vectorial subspace of $\mathcal{C}^\infty(\Omega)$
+functions that have compact support in $\Omega$, called the \emph{space of test functions}
+with the usual topology~(\cite{rudin}, page 136) 
+for which we say a sequence $\phi_n\to 0$ in the topology of $\mathcal{D}(\Omega)$
+if and only if there is a compact $K\subseteq\Omega$ which contains the support
+of every $\phi_n$, and $\partial^{\alpha}\phi_n\to 0$ uniformly on $K$, as $n\to\infty$,
+for every multi--index $\alpha$. The dual $\mathcal{D}'(\Omega)$ of $\mathcal{D}(\Omega)$
+is called the space of \emph{distributions} on $\Omega$. If $\phi\in\mathcal{D}'(\Omega)$
+and $\alpha$ is a multi--index, $\partial^{\alpha}\phi$ is called a distributional
+or weak derivative of $\phi$, where $\partial^{\alpha}\phi$ is defined by
+\begin{IEEEeqnarray*}{rCl}
+  (\partial^{\alpha}\phi)(f) & = & (-1)^{|\alpha|}\phi(\partial^{\alpha}f)\mbox{,\qquad}
+    f\in\mathcal{D}(\Omega).
+\end{IEEEeqnarray*}
+A distribution $\phi\in\mathcal{D}'(\Omega)$ will be identified with a function
+$\psi$ defined on $\Omega$ if for each $f\in \mathcal{D}(\Omega)$, $\psi f\in L^1(\Omega)$
+and $\phi(f) = \int_\Omega \psi f\,d\bx$. In this case we shall let
+$\phi$ denote the identified function, $\psi$, as well. 
+
+If $m\in\mathbb{Z}_{\geqslant 0}$ and if for each multi--index $\alpha$
+with $|\alpha|\leqslant m$, $\partial^{\alpha}\phi$ si  given by a function such that
+\begin{IEEEeqnarray*}{rCcCl}
+  \|\phi\|_{W^{m,p}(\Omega)} & := & \sum_{|\alpha|\leqslant m}\|\phi\|_{W^{m,p}(\Omega)} & < & \infty\mbox{,}
+\end{IEEEeqnarray*}
+then $\phi\in W^{m,p}(\Omega)$. For $\phi\in W^{m,p}(\Omega)$ let
+\begin{IEEEeqnarray*}{rCcCl}
+  |\phi|_{W^{m,p}(\Omega)} & = & |\phi|_{m,p,\Omega} 
+    & := & \sum_{|\alpha|=m}\|\phi\|_{W^{m,p}(\Omega)}.
+\end{IEEEeqnarray*}
 \begin{defi}
 \begin{IEEEeqnarray*}{rCl}
 	W^p(\curl, E) & = & \{\bu\in W^{1,p}(E)^3\,:\,
