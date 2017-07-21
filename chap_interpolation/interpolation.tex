@@ -1,4 +1,13 @@
 \chapter{Interpolation}
+We prove anisotropic local interpolation error estimates for two different operators
+and use this result to estimate the global approximation error.
+
+Edge elements are one example of $\textrm{H}(\textbf{curl})-$conforming elements, and they were
+defined to determine a natural interpolation operator for fields with continuous tangential components.
+Similarly, the other elements considered are $\textrm{H}(\text{div})-$conforming, and we will use them 
+to interpolate fields with continuous tangential components. These are the cases of the
+solutions of Stokes' equations, the solutions of time harmonic Maxwell's equations, and the vectorial
+variable of the following problem, which will be our application.
 \section{Prismatic Finite Elements} % (fold)
 \label{sec:prismatic_finite_elements}
 
@@ -472,13 +481,36 @@ Then the proof concludes by noting that $\|B\|\leqslant C$ and $\|B^{-1}\|\sim \
 \subsection{Local Interpolation Estimates for Prismatic Elements} % (fold)
 \label{sub:local_interpolation_estimates_for_prismatic_elements}
 one of the main results in this thesis
-\begin{theorem}\label{thmErrorInterpolacionPrismas}
-Let $P$ be a right prism, and consider a local system of coordinates $x_1x_2x_3$ such that the triangular basis of $P$ are parallel to the $x_1x_2$-coordinate plane. Denote by $\xi_{P,1}$ and $\xi_{P,2}$ the versors parallel to the edges of the triangular basis of $P$ adjacent to its maximum angle $\alpha_P$, $\xi_{P,3}=(0,0,1)$ and $h_{P,i}$ are the lengths of the edges of $P$ parallel to $\xi_{P,i}$. We assume that $h_{P,3}>ch_{P,1}$ and $h_{P,3}>ch_{P,2}$. Then, there exists a constant $C$ depending only on $c$ and $\alpha_P$, such that for all $\bu\in H^1(P)$ we have
-\begin{equation}\label{interp}
-\|\bu-\boldsymbol{r}_E\bu\|_{L^2(E)} \leqslant C\left(\sum_{i=1}^3 h_{E,i} \|\partial_{\xi_{E,i}}\bu\|_{L^2(E)} + h_T\|\dv\bu\|_{L^2(E)}\right).
-\end{equation}
+Sean un prisma obl\'{\i}cuo irregular $K$, $k\in\mathbb{N}$, el operador de interpolaci\'on 
+$\pi_k$ determinado por el elemento en la Definición~(\ref{edgeelement}), y $p>2$.
 
+{\color{blue}\#\#\#\#\#\#\#\# ver el estilo del resultado en
+articulo ariel.}
+\begin{theorem}
+Existe $C > 0$ independiente de $K$ tal que para todo campo ${\bf u}\in W^{m + 1,p}(K)$ con 
+${\bf curl}({\bf u})\in W^{m,p}(K)$ y $m\leqslant k-1$, 
+\[
+  \|{\bf u}-\pi_k {\bf u}\|_{L^p(K)} \leqslant C \left(
+  \sum_{|\alpha|=m+1}h^\alpha \|D^\alpha{\bf u}\|_{L^p(K)} +
+  h_K^{m+1}\|D^m{\bf{curl}}({\bf u})\|_{L^p(K)} \right).
+\]
 \end{theorem}
+%%==============================================================================
+% \begin{theorem}\label{thmErrorInterpolacionPrismas}
+% Let $P$ be a right prism, and consider a local system of coordinates $x_1x_2x_3$
+% such that the triangular basis of $P$ are parallel to the $x_1x_2$-coordinate
+% plane. Denote by $\xi_{P,1}$ and $\xi_{P,2}$ the versors parallel to the edges
+% of the triangular basis of $P$ adjacent to its maximum angle
+% $\alpha_P$, $\xi_{P,3}=(0,0,1)$ and $h_{P,i}$ are the lengths of the edges of
+% $P$ parallel to $\xi_{P,i}$. We assume that $h_{P,3}>ch_{P,1}$ and
+% $h_{P,3}>ch_{P,2}$. Then, there exists a constant $C$ depending only on $c$
+% and $\alpha_P$, such that for all $\bu\in H^1(P)$ we have
+% \begin{equation}\label{interp}
+% \|\bu-\boldsymbol{r}_E\bu\|_{L^2(E)} \leqslant C\left(\sum_{i=1}^3 h_{E,i}
+% \|\partial_{\xi_{E,i}}\bu\|_{L^2(E)} + h_T\|\dv\bu\|_{L^2(E)}\right).
+% \end{equation}
+% \end{theorem}
+%%==============================================================================
 
 % subsection local_interpolation_estimates_for_prismatic_elements (end)
 % section prismatic_finite_elements (end)

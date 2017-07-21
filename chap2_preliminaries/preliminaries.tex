@@ -157,14 +157,19 @@ $\phi$ denote the identified function, $\psi$, as well.
 
 If $m\in\mathbb{Z}_{\geqslant 0}$ and if for each multi--index $\alpha$
 with $|\alpha|\leqslant m$, $\partial^{\alpha}\phi$ si  given by a function such that
-\begin{IEEEeqnarray*}{rCcCl}
-  \|\phi\|_{W^{m,p}(\Omega)} & := & \sum_{|\alpha|\leqslant m}\|\phi\|_{W^{m,p}(\Omega)} & < & \infty\mbox{,}
+\begin{IEEEeqnarray*}{rCcccCl}
+  \|\phi\|_{W^{m,p}(\Omega)} & = & 
+  \|\phi\|_{m,p,\Omega} & := & \sum_{|\alpha|\leqslant m}\|\phi\|_{W^{m,p}(\Omega)} 
+  & < & \infty\mbox{,}
 \end{IEEEeqnarray*}
 then $\phi\in W^{m,p}(\Omega)$. For $\phi\in W^{m,p}(\Omega)$ let
 \begin{IEEEeqnarray*}{rCcCl}
   |\phi|_{W^{m,p}(\Omega)} & = & |\phi|_{m,p,\Omega} 
     & := & \sum_{|\alpha|=m}\|\phi\|_{W^{m,p}(\Omega)}.
 \end{IEEEeqnarray*}
+In the previous notation we will skip the number $2$ for the special case $p=2$ and 
+write $\|\phi\|_{W^{m,2}(\Omega)}=\|\phi\|_{m,\Omega}$,
+$|\phi|_{W^{m,2}(\Omega)}=|\phi|_{m,\Omega}$.
 \begin{defi}
 \begin{IEEEeqnarray*}{rCl}
 	W^p(\curl, E) & = & \{\bu\in W^{1,p}(E)^3\,:\,
@@ -347,8 +352,8 @@ Solutions $\bu$ and $p$ of~(\ref{P}) satisfy
 \end{itemize}
 \end{theorem}
 
-\section{Polynomial Interpolation} % (fold)
-\label{sec:polynomial_interpolation}
+\section{Polynomial Approximation} % (fold)
+\label{sec:polynomial_approximation}
 
 \begin{defi}
   Given $f\in\mathcal{C}^{k}(\Omega)$ the $k$--th degree
@@ -367,15 +372,25 @@ a subset of $\Omega$.
 Assume that $\Omega$ is star--shaped with respect to a se t $B\subseteq\Omega$
 of positive measure. Given an integer $k\geqslant 0$ and 
 $f\in W^{k+1,p}(\Omega)$ we introduce the averaged Taylor polynomial
-of $f$, $\mathcal{Q}_{k,B}f\in P_k$ defined by
+of $f$, $\Qb_{k,B}f\in P_k$ defined by
 \begin{IEEEeqnarray}{rCl}\label{averagedTaylor}
   (\mathcal{Q}_{k,B}f)(x) & = & \frac{1}{|B|} \int_B (T_y^kf)(x)\,dy 
 \end{IEEEeqnarray}
 with $T_y^k$ as in~(\ref{taylor}) but with distributional
 derivatives.
 \end{defi}
+Ahora definimos el Taylor promediado vectorial coordenada a coordenada. Dado $\textbf{u} = (u_1, u_2, u_3) \in W^{m+1,p} (U)^3$,
+\begin{IEEEeqnarray*}{rCl}
+  \textbf{Q}_m \textbf{u} (\textbf{x}) & = &  (Q_m u_1 (\textbf{x}), Q_m u_2 (\textbf{x}), Q_m u_3 (\textbf{x})).
+\end{IEEEeqnarray*}
 \begin{lemma}
-  Let $\Omega\subseteq\mathcal{R}^n$ be an open connected set
+Si $\beta$ es un multiíndice tal que $|\beta| \leqslant m$, entonces 
+\begin{IEEEeqnarray}{rCl}
+  D^\beta Q_m u & = & Q_{m-|\beta|}D^\beta u.
+\end{IEEEeqnarray}
+\end{lemma}
+\begin{lemma}
+  Let $\Omega\subseteq\mathbb{R}^n$ be an open connected set
   with diameter $d$ which is star--shaped with respect to a 
   set $B\subseteq\Omega$ of positive measure. Given an integer
   $k\geqslant 0$ and $f\in W^{k+1,p}(\Omega)$ there exists a 
@@ -394,5 +409,5 @@ derivatives.
 \begin{proof}
   \noindent{\color{blue}\#\#\#\#\#\#\#continue here: demo para Lp} 
 \end{proof}
-
-% section polynomial_interpolation (end)
+{\color{red}\#\#\#\#\#\#\#\# agregar lo de pags 25-26 de articulo ariel.}
+% section polynomial_approximation (end)

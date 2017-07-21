@@ -6,6 +6,7 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{calrsfs}
 %\usepackage{helvet}
 \usepackage{nicefrac}
 \usepackage{palatino}
@@ -26,6 +27,9 @@
 %\usepackage{syntonly}
 %\syntaxonly
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+
 
 \def\ok{{\color{green}\quad ok}}
 \def\xyz{(\hat x_1, \hat x_2, \hat x_3)}
@@ -52,7 +56,8 @@
 \def\rku{\br_{\hat{E}}\hat{\bu}}
 \def\rkutilde{\br_{\tilde{E}}\tilde{\bu}}
 
-\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
+\newcommand{\Qb}{\pazocal{Q}}
+{\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
     \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
 \newcommand{\forma}[2]{\int\limits_\Omega {\bf #1}\cdot{\bf #2}\,d\boldsymbol{x}}
 \newcommand{\formb}[2]{\int\limits_\Omega #2\,\dv {\bf #1}\,d\boldsymbol{x}}

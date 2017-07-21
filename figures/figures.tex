@@ -18,15 +18,30 @@
 {
 \begin{tikzpicture}[scale=2]
 \label{reference_pyramid}
-	\coordinate (o) at (0,0,0);
-	\coordinate (e1) at (0,0,1);
-	\coordinate (e2) at (1,0,0);
-	\coordinate (e3) at (0,1,0);
+  \coordinate (o) at (0,0,0);
+  \coordinate (e1) at (0,0,1);
+  \coordinate (e2) at (1,0,0);
+  \coordinate (e3) at (0,1,0);
 
-	\draw (o) -- (e1) -- ($(e1)+(e2)$) -- (e2) -- (e3) -- 
-			(o)-- (e2);
-	\draw (e3) -- (e1);
-	\draw (e3) -- ($(e1)+(e2)$);
+  \draw (o) -- (e1) -- ($(e1)+(e2)$) -- (e2) -- (e3) -- 
+      (o)-- (e2);
+  \draw (e3) -- (e1);
+  \draw (e3) -- ($(e1)+(e2)$);
+
+\end{tikzpicture}
+}
+
+\def\referenceTetrahedronTikz
+{
+\begin{tikzpicture}[scale=1.1]
+\label{reference_tetrahedron}
+  \coordinate (o) at (0,0,0);
+  \coordinate (e1) at (0,0,1);
+  \coordinate (e2) at (1,0,0);
+  \coordinate (e3) at (0,1,0);
+
+  \draw (o) -- (e1) -- (e2) -- (o) -- (e3) -- (e2);
+  \draw (e3) -- (e1);
 
 \end{tikzpicture}
 }

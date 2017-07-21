@@ -25,6 +25,17 @@ with $\bu_r\in H^1(\Omega)$ and
 where $\xi_i$, $i=1,2,3$, are the directions of three concurrent edges of $\Lambda_\ell$ with $\xi_3$ being the direction of the singular edge if it exists in $\Omega_\ell$, and $\beta,\delta\ge0$ satisfying $\beta>\frac12-\lambda_v^{(\ell)}$ and $\delta>1-\lambda_e^{(\ell)}$, $v$ and $e$ being the singular vertex and edge, respectively, if they exist.
 \end{theorem} 
 
+\begin{IEEEeqnarray*}{rCl}
+    \| u_{s,i} \|_{V_{\beta,\delta}^{1,2}(T_l)}   & \leqslant c & \| f \|_{L^2(T_l)}\\[5pt]
+    \| u_{s,3} \|_{V_{\beta,0}^{1,2}(T_l)}    & \leqslant c & \| f \|_{L^2(T_l)}
+  \end{IEEEeqnarray*}
+  con
+  \begin{IEEEeqnarray*}{rCl}
+    {\color{violet} \delta} & > & 1 - \frac{\pi}{\omega_{\textbf{e}}}\text{,}\\
+    {\color{violet} \beta} & > & \frac{1}{2} - \lambda_{\textbf{v}}.
+  \end{IEEEeqnarray*}
+
+
 \begin{remark}\label{sobreBetaYDelta}
 \textcolor{red}{Note that it is always possible in the previous Theorem to take $0<\beta=\delta<1$.} 
 \end{remark}
@@ -121,13 +132,16 @@ and
 \frac1{\sqrt{\dfrac1{(\beta^*)^2}+1}}\,\|q^*\|_{Q_h}.
 \end{IEEEeqnarray*}
 \end{proof}
-
-% section well_posedness (end)
-
 \begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution
-$(\bu_{\textit{h}},p_{\textit{h}})$ and
+\end{theorem}
+% section well_posedness (end)
+\section{approximation} % (fold)
+\label{sec:approximation}
+
+\begin{theorem} solution $(\bu_{\textit{h}},p_{\textit{h}})$
+to~(\ref{mixedDiscrete}) satisfies,
 for every approximation $\pi(\bu)$ of $\bu$ in
-$\hat V(\mathcal{T}_{\textit{h}})$ it holds
+$\hat V(\mathcal{T}_{\textit{h}})$,
   \begin{IEEEeqnarray*}{rCl}
     \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\} \\[5pt]
     \|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant& C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\}
@@ -135,6 +149,25 @@ $\hat V(\mathcal{T}_{\textit{h}})$ it holds
 \end{theorem}
 \begin{proof}
 \end{proof}
+
+{\color{brown}
+esta version de intercalado se usa??
+\begin{proof}
+\begin{IEEEeqnarray*}{lCl}
+  \|\boldsymbol{u} - \boldsymbol{u}_{\textit{h}}\|_{L^2(\Omega)^3}
+  &\leqslant& 
+  C\,\inf_{v\in\mathbb{V}_h}\|\boldsymbol{u} - \textbf{v}\|_{\mathbb{V}}\\[7pt]
+  &\leqslant& 
+  C\,\|\boldsymbol{u} - \pi\boldsymbol{u}\|_{\mathbb{V}}\\[10pt]
+  \|p-p_{\textit{h}}\|_{\mathbb{Q}} &\leqslant&
+  C\,[\inf_{v\in\mathbb{V}_h}\|\boldsymbol{u} - \textbf{v}\|_{\mathbb{V}}+
+    \inf_{q\in\mathbb{Q}_h}\|p - q\|_{\mathbb{Q}}]\\
+    &\leqslant&
+  C\,[\|\boldsymbol{u} - \pi\boldsymbol{u}\|_{\mathbb{V}}+\|p - \pi_{\textit{h}}^{\bot} p \|_{\mathbb{Q}}].
+\end{IEEEeqnarray*}
+\end{proof}
+
+}
 
 If $\Omega$ were convex and $f\in L^2(\Omega)$ we know that the solution $p$ of
 problem $H^2(\Omega)$, and so $\bu\in H^1(\Omega)^3$. In this case, using the 
@@ -157,6 +190,128 @@ Arbitrarily narrow right prisms can be used in the mesh without
 affecting this estimate. This fact can be further exploited when the
 domain $\Omega$ is not convex or $f$ is not in $L^2(\Omega)$. This is what follows!
 
-{\color{blue}\#\#\#\#\#\#\#\# thms del final de la charla de sn3\\[5pt]}
+\begin{theorem}
+There exists a family of anisotropic graded meshes
+$\{\mathcal{T}_{\textit{h}}\}_{{\textit{h}}\downarrow 0}\,$
+made up of
+Prisms, tetrahedra and pyramids 
+for which 
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\bu_{\textit{h}}\|_{0,\Omega}&\leqslant &C {\textit{h}} \|f\|_{0,\Omega}\\[5pt]
+  \|p-p_{\textit{h}}\|_{0,\Omega}&\leqslant &C \textit{h} \|f\|_{0,\Omega}
+\end{IEEEeqnarray*}
+whith $\textit{h}$ being smaller than  $C N^{\nicefrac{-1}{3}}$, where
+$N = N_{\textit{h}}$ is the  number of elements in $\mathcal{T}_{\textit{h}}$.
+\end{theorem}
+
+%%=========== GRADING ==============================================
+\begin{IEEEeqnarray*}{lCl}
+  h_1, h_2 &\sim&
+    \begin{cases}
+      \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(K,e)=0\\
+      \textit{h}\,d(K,e)^{1-\mu}  & \text{ if\, }0<d(K,e)\lesssim1\\
+      \textit{h}          & \text{ if\, }d(K,e)\sim1
+    \end{cases}\\[5pt]
+  h_3   &\sim& 
+    \begin{cases}
+      \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(K,v)=0\\
+      \textit{h}\,d(K,v)^{1-\nu}  & \text{ if\, }0<d(K,v)\lesssim1\\
+      \textit{h}          & \text{ if\, }d(K,v)\sim1
+    \end{cases}
+\end{IEEEeqnarray*}
+%%==================================================================
+{\color{violet} $\mu \sim 1 - \delta$},\\
+{\color{violet} $\nu \sim 1 - \beta$}\\
+
+\textbf{Obs}: si $\delta(\Lambda)>1$ entonces
+\[
+  R_K(\textbf{x}) \leqslant \delta(\Lambda)\min\{ R_K(\textbf{x}), 1\}
+\]
+as\'i que asumimos $R_K(\textbf{x})\leqslant 1$.\\[7pt]
+\textbf{Obs}: $\mu < 1 \Rightarrow \mu \leqslant \nu$. \\[7pt]
+
+
+Another way, less formal but clearer, to look
+at the  mesh points in a tetrahedral macroelement
+with both kinds of singularities is the following.
+
+Fijamos:
+\begin{IEEEeqnarray*}{rCl}
+  T &=& \left[\textbf{p}_0,\textbf{p}_1,\textbf{p}_2,\textbf{p}_3\right]\\[7pt]
+  \textbf{p}_0 &=& 0\\[7pt]
+  \left[\textbf{p}_0,\textbf{p}_3\right] &=& 
+  \text{la arista singular}\\[7pt]
+  \textbf{p}_3 & = & \text{v\'ertice singular}\\[7pt]
+  \left[\textbf{p}_0, \textbf{p}_1, 
+  \textbf{p}_2\right]&\subseteq&\{z=0\}.
+\end{IEEEeqnarray*}
+  
+$\lambda_0,\lambda_1$ y $\lambda_2$: {\color{RedOrange}coordenadas  baric\'entricas} con respecto a
+$\textbf{p}_0,\textbf{p}_1$ y $\textbf{p}_2$.\\[10pt]
+$\textbf{p}_{i,j}$ es tal que\\[5pt]
+\begin{IEEEeqnarray*}{rCl}
+  \lambda_0(\textbf{p}_{i,j}) &=& 1-\lambda_1(\textbf{p}_{i,j}) - \lambda_2(\textbf{p}_{i,j}) \\[5pt]
+  \lambda_1(\textbf{p}_{i,j})  &=& \frac{i}{n}\left(\frac{i+j}{n}\right)^{\frac{1}{\mu}-1}\\[5pt]
+  \lambda_2(\textbf{p}_{i,j})  &=& \frac{j}{n}\left(\frac{i+j}{n}\right)^{\frac{1}{\mu}-1}.\\[15pt]
+  &&0\leqslant i\leqslant n\\[5pt]
+  &&0\leqslant j\leqslant n-i
+\end{IEEEeqnarray*}
+  
+Los puntos son la uni\'on de\\[5pt]
+\begin{IEEEeqnarray*}{lCl}
+  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n,\quad
+    0\leqslant j\leqslant n-i \right\}&&\\[7pt]
+  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n-1,\quad
+  0\leqslant j\leqslant n-1-i \right\} & \quad+\quad & 
+  [{\scriptstyle 1-\left(\frac{n-1}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[7pt]
+  \IEEEeqnarraymulticol{3}{c}{\vdots}\\[7pt]
+  \left\{\textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n-k,\quad
+  0\leqslant j\leqslant n-k-i \right\} & \quad+\quad &
+  [{\scriptstyle 1-\left(\frac{n-k}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[7pt]
+  \IEEEeqnarraymulticol{3}{c}{\vdots}\\[7pt]
+  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant 1,\quad
+  0\leqslant j\leqslant 1-i \right\} & \quad+\quad &
+  [{\scriptstyle 1-\left(\frac{1}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[10pt]
+  \IEEEeqnarraymulticol{3}{l}{\left\{\textbf{e}_3\right\}}\text{,}
+\end{IEEEeqnarray*}
+i.e.:
+\begin{IEEEeqnarray*}{rCl}
+  \mathcal{P} & = & \bigcup_{k=0}^n\;\left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n - k,\quad
+  0\leqslant j\leqslant n-k-i \right\}\\[8pt]
+  &&\quad+\,[{\scriptstyle1-\left(\frac{n-k}{n}\right)^{1/\mu}}]\,\textbf{e}_3.
+\end{IEEEeqnarray*}
+
+
+{\color{brown}The following table shows what has to be done for each type of
+element.
+\begin{table}
+\centering
+\caption{Parte singular.}
+  \begin{IEEEeqnarraybox}
+  [\IEEEeqnarraystrutmode
+   \IEEEeqnarraystrutsizeadd{0pt}{0pt}]{v/c/v/c/v/c/v/c/v}
+    \IEEEeqnarrayrulerow\\
+    \IEEEeqnarrayseprow[3pt]\\
+    &\hfill\raisebox{22pt}[0pt][0pt]{$d(K,\textbf{e})>0$}\hfill
+                & & \referencePrismTikz 
+              & & \referencePyramidTikz
+                & & \referenceTetrahedronTikz &\\
+    \IEEEeqnarrayrulerow\\
+    \IEEEeqnarrayseprow[3pt]\\
+    &\hfill\raisebox{30pt}[0pt][0pt]{$d(K,\textbf{e})=0$}\hfill& &
+      \begin{IEEEeqnarraybox}{c}
+      \referencePrismTikz\\d(K,\textbf{v}) > 0
+      \end{IEEEeqnarraybox}
+    &&&&
+      \begin{IEEEeqnarraybox}{c}
+        \referenceTetrahedronTikz\\d(K,\textbf{v}) = 0
+      \end{IEEEeqnarraybox}
+    &\\
+    \IEEEeqnarrayseprow[3pt]\\
+    \IEEEeqnarrayrulerow
+  \end{IEEEeqnarraybox}
+\end{table}
+}
 {\color{blue}\#\#\#\#\#\#\#\# meshing procedure and examples\\[5pt]}
 {\color{blue}\#\#\#\#\#\#\#\# continue here. anisotropic estimates!\\[5pt]}
+% section approximation (end)
