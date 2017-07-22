@@ -6,10 +6,10 @@ a Preliminaries.}
 \label{sub:defEdgeElement}
 Now we introduce two polynomial spaces which will be used to construct 
 the edge elements on the reference prism (Figure~\ref{reference_prism}).
-\begin{defi} $R_k(\hat{T})$ is the space of polynomials defined over the
-triangle $\hat{T}$ given by
-\begin{IEEEeqnarray}{rClCrCl}
-    R_k(\hat{T}) & := & P_{k-1}(\hat{T})^2 \oplus S_k(\hat{T}) &\quad&  k&\geqslant&1
+\begin{defi} For an integer $k\geqslant 1$, let $R_k(\hat{T})$ denote the space of polynomials, defined over the
+triangle $\hat{T}$, given by
+\begin{IEEEeqnarray}{rCl}
+    R_k(\hat{T}) & := & P_{k-1}(\hat{T})^2 \oplus S_k(\hat{T})
 \end{IEEEeqnarray}
 where
 \begin{IEEEeqnarray}{rClCrCl}
@@ -72,14 +72,13 @@ y finalmente
 \begin{defi}\label{edgeelement} Given a natural $k$, the \emph{edge elements}
 of degree $k$ are defined by the following:
 \begin{enumerate}
-    \item $\hat{E}$ is the reference prism $\hat{T} \times \hat{I}$ where $\hat{T} = 
-    \{ 0 < x + y < 1 \}$ and $\hat{I} = \{ 0<z<1 \} $.
-    \item The polynomial space $P_{\hat{E}}$ is
+  \item $\hat{E}$ is the reference prism in Definition~\ref{defi_of_ref_prism}.
+  \item The polynomial space $P_{\hat{E}}$ is
         \begin{IEEEeqnarray*}{rCl}
             P_{\hat{E}} & = & R_k(\hat{T}) \otimes P_k(\hat{I}) \times 
             P_k(\hat{T}) \otimes P_{k-1}(\hat{I}).
          \end{IEEEeqnarray*} 
-    \item The degrees of freedom are:
+  \item The degrees of freedom are:
 \begin{IEEEeqnarray}{ll}
     \label{momentos1hcurl} \int\limits_{\be} \textbf{u} \cdot \boldsymbol{\tau} \,q\, ds  
         & q\in P_{k-1}\mbox{,} \\
@@ -128,64 +127,67 @@ we write their test spaces more explicitly here.
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face }f \subseteq \{x+y=1\} \mbox{ with normal }\boldsymbol{n} = (1,1,0) \mbox{;}}
 \end{IEEEeqnarray}
 \noindent{\color{blue}\#\#\#\#\#\#\# }
-
-\noindent {\bf how es un elemento de $P_K$}
-Take $\textbf{s}=(s_1,s_2)\in\mathcal{S}_k$ defined in~(\ref{defSk}).
-Set $s_1 = \sum_{i+j=k} a_{ij} x^iy^j$, $s_2 = \sum_{i+j=k} b_{ij} x^iy^j$.
+In the following Remark we make an explicitation of the elements
+of $P_{\hat E}$.
+\begin{remark} 
+Take $\textbf{s}=(s_1,s_2)\in{S}_k$ defined in~(\ref{defSk}).
+Set $s_1 = \sum_{i+j=k} a_{ij} x_1^ix_2^j$, $s_2 = \sum_{i+j=k} b_{ij} x_1^ix_2^j$.
 By defnition is 
 \begin{IEEEeqnarray*}{rCl}
-    0&=&xs_1 + ys_2\\
-    &=&a_{k,0}x^{k+1} + b_{0,k}y^{k+1}+\sum_{i+j=k}(a_{i-1,j+1} + b_{ij})x^iy^{j+1}
+    0&=&x_1s_1 + x_2s_2\\
+    &=&a_{k,0}x_1^{k+1} + b_{0,k}x_2^{k+1}+\sum_{i+j=k}(a_{i-1,j+1} + b_{ij})x_1^ix_2^{j+1}
 \end{IEEEeqnarray*}
 so $a_{k,0} = b_{0,k} = 0$ and for all pair $(i,j)$ with $i+j=k$ and
 $i\geqslant 1$ $a_{i-1,j+1} = -b_{i,j}$.
 Then
 \begin{IEEEeqnarray*}{rCcCl}
-    s_1 & = & \sum_{i+j = k, j\geqslant 1} a_{ij}x^iy^j
-        & = & y\sum_{i+j = k, j\geqslant 1} a_{ij}x^iy^{j-1} \\[5pt]
-    s_2 & = & -\sum_{i+j = k, j = 1}^k a_{ij}x^{i+1}y^{j-1}
-        & = & -x\sum_{i+j = k, j = 1}^k a_{ij}x^{i}y^{j-1}.
+    s_1 & = & \sum_{i+j = k, j\geqslant 1} a_{ij}x_1^ix_2^j
+        & = & x_2\sum_{i+j = k, j\geqslant 1} a_{ij}x_1^ix_2^{j-1} \\[5pt]
+    s_2 & = & -\sum_{i+j = k, j = 1}^k a_{ij}x_1^{i+1}x_2^{j-1}
+        & = & -x\sum_{i+j = k, j = 1}^k a_{ij}x_1^{i}x_2^{j-1}.
 \end{IEEEeqnarray*}
 So any $\boldsymbol{p} \in P_K$ may be written as
 \begin{IEEEeqnarray*}{rCl}
   \boldsymbol{p} & =   & (p_1, p_2, p_3) \\
-  \yesnumber\label{elemento_P_k} & =   & (\xi_1 + y\,h, \xi_2 - x\,h, \xi_3), \\[6pt]
-  \xi_1, \xi_2   & \in & P_{k-1}(x,y) \otimes P_k(z),\\
-         \xi_3   & \in & P_{k}(x,y) \otimes P_{k-1}(z),\\
-             h   & \in & \tilde{P}_{k-1}(x,y) \otimes P_k(z).\\
+  \yesnumber\label{elemento_P_k} & =   & (\xi_1 + x_2\,h, \xi_2 - x_1\,h, \xi_3), \\[6pt]
+  \xi_1, \xi_2   & \in & P_{k-1}(x_1,x_2) \otimes P_k(x_3),\\
+         \xi_3   & \in & P_{k}(x_1,x_2) \otimes P_{k-1}(x_3),\\
+             h   & \in & \tilde{P}_{k-1}(x_1,x_2) \otimes P_k(x_3).\\
 \end{IEEEeqnarray*}
-% subsubsection elemento_P_k (end)
+\end{remark}
 An illustrative example.
-\begin{ejemplo}[edge elements of degree 1]
+\begin{example}[edge elements of degree 1]
 \begin{IEEEeqnarray*}{rCl}
-\hat{\textbf{u}}\,(\hat{x},\hat{y},\hat{z}) &=& 
+\hat{\textbf{u}}\,\xyz &=& 
 \left(
     \begin{array}{c}
         a_1 + a_3\hat{y} + a_4\hat{z} + a_6\hat{y}\hat{z} \\[8pt]
         a_2 - a_3\hat{x} + a_5\hat{z} - a_6\hat{x}\hat{z} \\[8pt]
         a_7 + a_8\hat{x} + a_9\hat{y}
     \end{array}
-\right)\\[8pt]
-(\hat{\textbf{u}}\cdot\boldsymbol{\tau})|_{\boldsymbol{e}}
-    &\in&\mathbb{P}_0
+\right)\mbox{,}\\[10pt]
+(\hat{\textbf{u}}\cdot\hat{\boldsymbol{\tau}})|_{\hat{\be}}
+    &\in&\mathbb{P}_0(\hat{\be}).
 \end{IEEEeqnarray*}
-\end{ejemplo}
+\end{example}
 
-Por la presencia de los momentos~(\ref{momentos1hcurl}) no se puede definir
-el interpolador para un campo arbitrario
-en $H(\textbf{curl}, K)$, así que por eso to\-ma\-mos co\-mo hi\-pó\-te\-sis
-que sea $p>2$ (ver~\cite{monk}, página 134,
-~\cite{adams}, Theorem 5.4).
-En~\cite{nedelec2} se prueba que este elemento es
-$H(\textbf{curl})$--conforme y unisolvente. {\color{BrickRed}>Está
-bien usar esta conformidad, siendo que restringimos a Wp?}
-\begin{defi} the interpolator
+
+\begin{defi} the interpolator is well defined and bounded... ver
+como dice monk o pensar y poner espacios
   \begin{IEEEeqnarray}{lClc}
     \varphi_{\be,p}\,(\hat{\bu} - \wku) & = & 0 &\quad\mbox{for $\be$ and }p\in\mathcal{}  \\
     \varphi_{f,\bq}\,(\hat{\bu} - \wku) & = & 0 &\quad\mbox{for $f$ and }\bq\in\mathcal{}  \\
     \varphi_{\boldsymbol{r}}\,(\hat{\bu} - \wku) & = & 0 &\quad\mbox{for }\boldsymbol{r}\in\mathcal{}.
   \end{IEEEeqnarray}
 \end{defi}
+Because of the presence of degrees of freedom~(\ref{momentos1hcurl})
+no se puede definir
+el interpolador para un campo arbitrario
+en $H(\textbf{curl}, \hat E)$, así que por eso to\-ma\-mos co\-mo hi\-pó\-te\-sis
+que sea $p>2$ (ver~\cite{monk}, página 134,
+~\cite{adams}, Theorem 5.4).
+En~\cite{nedelec2} se prueba que este elemento es
+$H(\textbf{curl})$--conforme y unisolvente.
 \begin{remark} {\color{red} primero hacer unisolvencia!} The interpolation operator
 can be written
 {\color{blue}\#\#\#\#\#\#\#\# definir notación para los grados de libertad;
@@ -198,7 +200,6 @@ en la suma.}
   \sum_{\boldsymbol{r}}   \varphi_{\boldsymbol{r}}  (\hat{\bu})\,\hat{\bv}_{\boldsymbol{r}}
 \end{IEEEeqnarray}
 \end{remark}
-
 
 \subsection{Definition of the $H(\text{div})$-conforming element on prisms. 
 Generalization of the Raviart-Thomas Finite Element} % (fold)

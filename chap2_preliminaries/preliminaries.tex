@@ -228,7 +228,7 @@ para transformar $\hat{E} $ en $\tilde{E} $ v\'ia
 y para transformar campos, rotores y el interpolador. Por ejemplo, usaremos que 
 \begin{IEEEeqnarray*}{rCl}
     \hat{\pi}_i & = & h_i\tilde{\pi}_i \\
-    (\textbf{curl}\,\hat{\textbf{u}})_3 & = & h_1h_2(\textbf{curl}\,\tilde{\textbf{u}})_3.
+    (\textbf{curl}\,\hat{\bu})_3 & = & h_1h_2(\textbf{curl}\,\tilde{\bu})_3.
 \end{IEEEeqnarray*}
 
 
@@ -241,27 +241,32 @@ y para transformar campos, rotores y el interpolador. Por ejemplo, usaremos que
 % subsection transformations (end)
 \begin{figure}[!h]
 	\centering
-	\subfloat[Reference Prism]
+	\subfloat[Reference Prism $\hat E.$]
 	{
+    \label{reference_prism}
 		\referencePrismTikz
-	}
-	\caption{Prisms}
+	}\hspace{1.8cm}
+  \subfloat[Reference Triangle $\hat T.$]
+  {
+    \label{reference_triangle}
+    \referenceTriangleTikz
+  }
+	\caption{Prisms, Triangles.}
 \end{figure}
 
+\begin{defi}\label{defi_of_ref_prism}
+Let $\hat T$ be the triangle $\{ 0 < x + y < 1 \}$. 
+The reference prism is the interior of 
+$\hat T\times\{ 0 < z < 1 \}$ (cfr. Figure~\ref{reference_prism}).
+\end{defi}
 \begin{defi}\label{defi_of_ref_pyr}
-  The reference pyramid $\hat P$ is the one with vertices at $(0,0,0)$,
-$(1,0,0)$, $(0,1,0)$, $(1,1,0)$ and $(0,0,1)$. We denote by $\hat
-f_1$ the face with vertices at $(0,0,0)$, $(0,1,0)$, $(0,0,1)$, by
-$\hat f_2$ the one with vertices at $(0,0,0)$, $(1,0,0)$,
-$(0,0,1)$, by $\hat f_3$ the one with vertices at $(1,0,0)$,
-$(1,1,0)$, $(0,0,1)$, by $\hat f_4$ the one with vertices at
-$(1,1,0)$, $(0,1,0)$, $(0,0,1)$ and by $\hat f_5$ the square
-basis (cfr. Figure~\ref{refpyr}).
+The reference pyramid $\hat P$ is the one with vertices at $(0,0,0)$,
+$(1,0,0)$, $(0,1,0)$, $(1,1,0)$ and $(0,0,1)$ (cfr. Figure~\ref{refpyr}).
 \end{defi}
 
 \begin{figure}
 	\centering
-	\subfloat[Reference Pyramid]
+	\subfloat[Reference Pyramid $\hat E$.]
 	{
 		\label{refpyr}
 		\referencePyramidTikz
@@ -288,8 +293,8 @@ results in $H(\text{div},\Omega_1\cup\Omega_2)$.
 	
 \section{Regularity of the solution for a model Elliptic Problem}
 
-\macroTetraRegularity
-\macroPrismRegularity
+\macroRegularity
+%\macroPrismRegularity
 \noindent We are concerned in solving 
 the following problem.
 \begin{problem}\label{mixedContinuous}
@@ -308,49 +313,59 @@ Due to the polyhedron not being convex there will be ingoing
 vertices and edges whose interior angles are obtuse. In the following
 we are going to recall how to formalize the singularities in a polyhedron
 and how to classify the regularity of the solution of problem~(\ref{mixedContinuous})\\[5pt]
-
-In~(\cite{apelNicaise}) it is stated that the solution
-  \begin{itemize}
-    \item
-  $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ macroelements
-      \begin{itemize}
-       \item ({\color{blue}tetrahedral or prismatic}).
-    \end{itemize}
-  \item One singular edge  per $\Lambda_\ell$.
-  \item One singular vertex per $\Lambda_\ell$.\\[5pt]
-  \item
-$
+\label{sec:regularity}
+\begin{defi}
+  If $\Omega$ is a non--convex polihedron $\lambda_e$ is ... and $\lambda_v$ is --- 
+  $\delta > 1-\lambda_{\be}^{(\ell)} = 1-\pi/\omega_{\be}$
+\end{defi}
+\noindent Assuming a decomposition of $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ in tetrahedral macroelements having at most a singular edge and a singular vertex, we have the following regularity result.
+First we introduce the space $V^{1,2}_{\beta,\delta}(\Lambda)$ for a macroelement $\Lambda$ as
+\[
+V^{1,2}_{\beta,\delta} = \left\{v\in \mathcal D'(\Lambda): R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}D^\alpha v\in L^2(\Lambda), \alpha\in \mathbb N^3, |\alpha|\le1\right\}
+\]
+where $R({\bf x})$ is the distance of ${\bf x}$ to the vertices of $\Lambda$, $r({\bf x})$ is the distance from ${\bf x}$ to the edges of $\Lambda$ and finally $\theta({\bf x})$ is the angular distance $\theta({\bf x})=\frac{r({\bf x})}{R({\bf x})}$.
+\[
 \|v\|^{1,2}_{\beta,\delta} := \left\{\sum_{|\alpha|\leqslant 1}
 \|R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}D^\alpha v\|_{L^2(\Lambda)}^2\right\}^{1/2}
-$
-\item $R({\bf x}) \,=\, d({\bf x},\mbox{ vertices of }\Lambda$),
-\item $r({\bf x}) \,=\, d({\bf x},\mbox{ edges of }\Lambda$),
-$\theta({\bf x})\,=\,\frac{r({\bf x})}{R({\bf x})}$
-\item
-$
+\]
+\[
 V^{1,2}_{\beta,\delta} = \left\{v\in \mathcal D'(\Lambda): \|v\|^{1,2}_{\beta,\delta} < \infty\right\}
-$
-  \end{itemize}
-\begin{itemize}
-\item $\{\xi_i\}:$ directions of three concurrent edges of $\Lambda_\ell$
-\item $\xi_3$ = direction of singular edge
-\item $\beta > \frac12-\lambda_{\bv}^{(\ell)} > 0$
-\item $\delta > 1-\lambda_{\be}^{(\ell)} = 1-\pi/\omega_{\be}$
-\end{itemize}
+\]
 
- \begin{theorem}
-Solutions $\bu$ and $p$ of~(\ref{P}) satisfy
-\begin{itemize}
-  \item $p\in H^1(\Omega)$
-  \item for each $\Lambda_{\ell}$
-  \begin{itemize}
-    \item $\bu = \bu_r + \bu_s$\\[5pt]
-    \item $\bu_r\in H^1(\Omega)^3$ \\[5pt]
-    \item $\bu_s\cdot \xi_i\in V^{1,2}_{\beta,\delta}(\Lambda_\ell), \quad i=1,2$ \\[5pt]
-    \item $\bu_s\cdot\xi_3\in V^{1,2}_{\beta,0}(\Lambda_\ell)$
-  \end{itemize}
-\end{itemize}
+\begin{theorem}
+The solutions $\bu$ and $p$ of problem \eqref{mixedContinuous} satisfy
+\[
+p\in H^1(\Omega)
+\] 
+and for each $\ell$
+\[
+\bu=\bu_r + \bu_s
+\]
+with $\bu_r\in H^1(\Omega)$ and
+\[
+\bu_s\cdot \xi_i\in V^{1,2}_{\beta,\delta}(\Lambda_\ell), \quad i=1,2, \qquad
+\bu_s\cdot\xi_3\in V^{1,2}_{\beta,0}(\Lambda_\ell)
+\]
+where $\xi_i$, $i=1,2,3$, are the directions of three concurrent
+edges of $\Lambda_\ell$ with $\xi_3$ being the direction of the
+singular edge if it exists in $\Omega_\ell$, and $\beta,\delta\ge0$
+satisfying $\beta>\frac12-\lambda_{\bv}^{(\ell)}$ and
+$\delta>1-\lambda_{\be}^{(\ell)}$, $v$ and $e$ being the singular
+vertex and edge, respectively, if they exist.
 \end{theorem}
+\begin{IEEEeqnarray*}{rCl}
+  \| \bu_r \|_{H^1(\Omega)} & \leqslant & c\,\|f\|_{H^1(\Omega)}\\[5pt]
+  \| \bu_s\cdot\xi_i \|_{V_{\beta,\delta}^{1,2}(\Lambda_\ell)} & \leqslant & c\,\| f \|_{L^2(\Lambda_\ell)}\\[5pt]
+  \| \bu_s\cdot\xi_3 \|_{V_{\beta,0}^{1,2}(\Lambda_\ell)}      & \leqslant & c\,\| f \|_{L^2(\Lambda_\ell)}
+\end{IEEEeqnarray*}
+  provided
+\begin{IEEEeqnarray*}{rCl}
+  {\color{violet} \delta} & > & 1 - \frac{\pi}{\omega_{\textbf{e}}}\text{,}\\
+  {\color{violet} \beta} & > & \frac{1}{2} - \lambda_{\textbf{v}}.
+\end{IEEEeqnarray*}
+\begin{remark}\label{sobreBetaYDelta}
+\textcolor{red}{Note that it is always possible in the previous Theorem to take $0<\beta=\delta<1$.} 
+\end{remark}
 
 \section{Polynomial Approximation} % (fold)
 \label{sec:polynomial_approximation}
@@ -369,24 +384,29 @@ a subset of $\Omega$.
 \end{defi}
 
 \begin{defi}
-Assume that $\Omega$ is star--shaped with respect to a se t $B\subseteq\Omega$
+Assume that $\Omega$ is star--shaped with respect to a set $B\subseteq\Omega$
 of positive measure. Given an integer $k\geqslant 0$ and 
 $f\in W^{k+1,p}(\Omega)$ we introduce the averaged Taylor polynomial
 of $f$, $\Qb_{k,B}f\in P_k$ defined by
 \begin{IEEEeqnarray}{rCl}\label{averagedTaylor}
-  (\mathcal{Q}_{k,B}f)(x) & = & \frac{1}{|B|} \int_B (T_y^kf)(x)\,dy 
+  (\Qb_{k,B}f)(x) & = & \frac{1}{|B|} \int_B (T_y^kf)(x)\,dy 
 \end{IEEEeqnarray}
 with $T_y^k$ as in~(\ref{taylor}) but with distributional
 derivatives.
-\end{defi}
-Ahora definimos el Taylor promediado vectorial coordenada a coordenada. Dado $\textbf{u} = (u_1, u_2, u_3) \in W^{m+1,p} (U)^3$,
+
+Given a field $\bu = (u_1, u_2, u_3)' \in W^{m+1,p} (\Omega)^3$,
+the vectorial averaged Taylor polynomial of $\bu$ is defined
+componentwise as
 \begin{IEEEeqnarray*}{rCl}
-  \textbf{Q}_m \textbf{u} (\textbf{x}) & = &  (Q_m u_1 (\textbf{x}), Q_m u_2 (\textbf{x}), Q_m u_3 (\textbf{x})).
+  \boldsymbol{\Qb}_{k,B}\,\bu  & = &  
+  (\Qb_{k,B}\,u_1 , \Qb_{k,B}\,u_2 , \Qb_{k,B}\,u_3 ).
 \end{IEEEeqnarray*}
+\end{defi}
 \begin{lemma}
-Si $\beta$ es un multiíndice tal que $|\beta| \leqslant m$, entonces 
+Let $\beta$ be a multi--index such that  $|\beta| \leqslant k$,
+then 
 \begin{IEEEeqnarray}{rCl}
-  D^\beta Q_m u & = & Q_{m-|\beta|}D^\beta u.
+  \partial^\beta \Qb_{k,B} f & = & \Qb_{k-|\beta|,B} \partial^\beta f.
 \end{IEEEeqnarray}
 \end{lemma}
 \begin{lemma}
@@ -396,13 +416,13 @@ Si $\beta$ es un multiíndice tal que $|\beta| \leqslant m$, entonces
   $k\geqslant 0$ and $f\in W^{k+1,p}(\Omega)$ there exists a 
   positive $C=C(k,n)$ such that, for $|\beta|\geqslant k+1$,
   \begin{IEEEeqnarray*}{rCl}
-      \|\partial^{\beta}(f-\mathcal{Q}_{k,B}f)\|_{L^p(\Omega)}
+      \|\partial^{\beta}(f-\Qb_{k,B}f)\|_{L^p(\Omega)}
         &\leqslant&C\frac{|\Omega|^{\nicefrac1p}}{|B|^{\nicefrac1p}}
           d^{k-|\beta|+1}|f|_{k+1,\Omega}.
   \end{IEEEeqnarray*}
   In particular, if $\Omega$ is convex,
   \begin{IEEEeqnarray*}{rCl}
-    \|\partial^{\beta}(f-\mathcal{Q}_{k,\Omega}f)\|_{L^p(\Omega)}
+    \|\partial^{\beta}(f-\Qb_{k,\Omega}f)\|_{L^p(\Omega)}
         &\leqslant&Cd^{k-|\beta|+1}|f|_{k+1,\Omega}.
   \end{IEEEeqnarray*}
 \end{lemma} 
