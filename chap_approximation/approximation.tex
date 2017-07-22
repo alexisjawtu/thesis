@@ -93,8 +93,8 @@ and
 \begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution
 \end{theorem}
 % section well_posedness (end)
-\section{approximation} % (fold)
-\label{sec:approximation}
+\section{convex Case} % (fold)
+\label{sec:convex Case}
 
 \begin{theorem} solution $(\bu_{\textit{h}},p_{\textit{h}})$
 to~(\ref{mixedDiscrete}) satisfies,
@@ -148,6 +148,9 @@ Arbitrarily narrow right prisms can be used in the mesh without
 affecting this estimate. This fact can be further exploited when the
 domain $\Omega$ is not convex or $f$ is not in $L^2(\Omega)$. This is what follows!
 
+\section{non--convex case}
+\label{sec:non_convex_case}
+
 \begin{theorem}
 There exists a family of anisotropic graded meshes
 $\{\mathcal{T}_{\textit{h}}\}_{{\textit{h}}\downarrow 0}\,$
@@ -190,9 +193,11 @@ as\'i que asumimos $R_K(\textbf{x})\leqslant 1$.\\[7pt]
 
 
 
-\section{Meshes}\label{meshes}
-\subsection{Macroelement with singular edge and vertex}\label{caso4}
-Let $T$ be a tetrahedral macroelement with vertices $P_0, P_1, P_2$ and $P_3$. We suppose that $P_0$ is the singular vertex and that the
+\subsection{Meshes}\label{meshes}
+\noindent{\color{BrickRed}*** ver si las mallas hacen falta antes del caso convexo;
+ver si hace falta llegar hasta subsubseccion} 
+\subsubsection{Macro--element with singular edge and vertex}\label{caso4}
+Let $T$ be a tetrahedral macro--element with vertices $P_0, P_1, P_2$ and $P_3$. We suppose that $P_0$ is the singular vertex and that the
 singular edge is $P_0P_1$. The mesh $\mathcal T_h$ on $T$ will contain tetrahedra, prisms and pyramids. Now we describe those elements in terms
 of the barycentric coordinates of the vertices of each element corresponding to the ordered vertices $P_0, P_1, P_2$ and $P_3$.
 \bigskip
@@ -265,11 +270,30 @@ For
 \begin{tabular}{c}
 
 \end{tabular}
-\bigskip
+\subsubsection{Macro--element with a singular edge}
+This case corresponds to the prismatic macro--element.
+A mesh is constructed as the cartesian product between a graded mesh
+in a triangle and a quasi--uniform mesh along the singular edge.
 
-\subsection{Macroelement with a singular vertex}
+\def\col{black}
+\def\height{0}
+\def\twoPi{360}
+\begin{tikzpicture}[scale=2]
+  \prismaticMacroelement{8}{2}{.63}{4}{\col}
+\end{tikzpicture}
+\begin{tikzpicture}[scale=2]
+  \prismaticMacroelement{8}{3}{.63}{4}{\col}
+  \draw[red] (0,0,0) -- (0,-1.5,0);
+\end{tikzpicture}
+\begin{tikzpicture}[scale=2]
+  \prismaticMacroelement{8}{4}{.63}{4}{\col}
+  \draw[red] (0,0,0) -- (0,-1.5,0);
+\end{tikzpicture}
+\noindent{\color{blue}\#\#\#\#\#\#\# tablita de nodos}  
 
-We consider again a tetrahedral macroelement $T$ with vertices $P_0, P_1, P_2$ and $P_3$, assuming that it has a singular vertex at $P_0$ and no singular edge. We construct a triangulation of $T$ made of tetrahedra describing the barycentric coordinates of the vertices of each tetrahedron with respect to $P_0, P_1, P_2$ and $P_3$. This case corresponds to Case 1 of \cite{AN}.
+\subsubsection{Macro--element with a singular vertex}
+
+We consider again a tetrahedral macro--element $T$ with vertices $P_0, P_1, P_2$ and $P_3$, assuming that it has a singular vertex at $P_0$ and no singular edge. We construct a triangulation of $T$ made of tetrahedra describing the barycentric coordinates of the vertices of each tetrahedron with respect to $P_0, P_1, P_2$ and $P_3$. This case corresponds to Case 1 of \cite{AN}.
 
 Let $p_{i,j,k}$ be the points with barycentric coordinates
 \begin{eqnarray*}
@@ -290,7 +314,7 @@ Then, the tetrahedra are the ones with vertices
 
 \begin{proposition} Pyramids and tetrahedra are isotropic.
 \end{proposition}
-\begin{proof} We deal firstly with pyramids. Consider a pyramid with vertices $p_0, \ldots, p_4$ in a macroelement of vertices $P_0,P_1,P_2$ and $P_3$ as in Subsection \ref{caso4}. Note that the basis of the pyramid is the paralelogram $p_0p_1p_3p_2$ with
+\begin{proof} We deal firstly with pyramids. Consider a pyramid with vertices $p_0, \ldots, p_4$ in a macro--element of vertices $P_0,P_1,P_2$ and $P_3$ as in Subsection \ref{caso4}. Note that the basis of the pyramid is the paralelogram $p_0p_1p_3p_2$ with
 \begin{eqnarray}\label{once}
 &&p_1-p_0=p_3-p_2=\frac1n\left(\frac{n-l-1}n\right)^{\gamma-1}(P_3-P_2)\\\label{doce} &&p_2-p_0=p_3-p_1=\left[\left(\frac{n-l}n\right)^\gamma-\left(\frac{n-l-1}n\right)^\gamma\right](P_0-P_1).
 \end{eqnarray}
@@ -302,9 +326,9 @@ and
 \[
 \frac1\gamma\left(\frac12\right)^{\gamma-1}\le\frac1\gamma\left(\frac{n-l-1}{n-l}\right)^{\gamma-1}\le\frac{|p_1-p_0|}{|p_2-p_0|}\le \frac1\gamma.
 \]
-Then the parallelogram $p_0p_1p_3p_2$ is shape-regular since the angle between $P_0-P_1$ and $P_3-P_2$ depends only on the macroelement, and so it is away from $0$ and $\pi$. 
+Then the parallelogram $p_0p_1p_3p_2$ is shape-regular since the angle between $P_0-P_1$ and $P_3-P_2$ depends only on the macro--element, and so it is away from $0$ and $\pi$. 
 
-Now we prove that there exists constants $c_0$ and $c_1$ depending only on $\gamma$ and the macroelement's vertices such that
+Now we prove that there exists constants $c_0$ and $c_1$ depending only on $\gamma$ and the macro--element's vertices such that
 \begin{eqnarray}\label{diez}
 &c_0\le\frac{|p_4-p_2|}{|p_2-p_0|}\le c_1&\\ \label{trece}
 &c_0\le\frac{|p_4-p_3|}{|p_2-p_0|}\le c_1&.
@@ -317,7 +341,7 @@ where we used that
 \[
 \frac{\frac in \left[\left(\frac{n-l}n\right)^{\gamma-1} - \left(\frac{n-l-1}n\right)^{\gamma-1}\right]}{\left[\left(\frac{n-l}n\right)^\gamma - \left(\frac{n-l-1}n\right)^\gamma\right]}\le \frac{\gamma-1}{\gamma},
 \]
-that the angle between $P_3-P_0$ and $P_2-P_3$ is fixed (and depends only on the macroelement) and equation \eqref{doce}. This prove \eqref{diez}, and \eqref{trece} follows analogously. In order to prove that the pyramid is isotropic now we have to note that the basis $p_0p_1p_3p_2$ is contained in a plane parallel to the one generated by the vectors $P_1-P_0$ and $P_3-P_2$, and the face $p_2p_3p_4$ is in a plane parallel to the plane (macroelement's face) $P_0P_2P_3$, and the angle between those planes depends only on the macroelement.      
+that the angle between $P_3-P_0$ and $P_2-P_3$ is fixed (and depends only on the macro--element) and equation \eqref{doce}. This prove \eqref{diez}, and \eqref{trece} follows analogously. In order to prove that the pyramid is isotropic now we have to note that the basis $p_0p_1p_3p_2$ is contained in a plane parallel to the one generated by the vectors $P_1-P_0$ and $P_3-P_2$, and the face $p_2p_3p_4$ is in a plane parallel to the plane (macro--element's face) $P_0P_2P_3$, and the angle between those planes depends only on the macro--element.      
 
 
 COMPLETAR PRUEBA PARA LOS TETRAEDROS
@@ -326,7 +350,7 @@ COMPLETAR PRUEBA PARA LOS TETRAEDROS
 
 
 Another way, less formal but clearer, to look
-at the  mesh points in a tetrahedral macroelement
+at the  mesh points in a tetrahedral macro--element
 with both kinds of singularities is the following.
 
 Fijamos:
@@ -375,7 +399,7 @@ i.e.:
   &&\quad+\,[{\scriptstyle1-\left(\frac{n-k}{n}\right)^{1/\mu}}]\,\textbf{e}_3.
 \end{IEEEeqnarray*}
 
-\section{main approximation theorem}
+\section{main interpolation error theorem}
 {\color{brown}The following table shows what has to be done for each type of
 element.
 \begin{table}
@@ -406,6 +430,6 @@ element.
   \end{IEEEeqnarraybox}
 \end{table}
 }
+
+
 {\color{blue}\#\#\#\#\#\#\#\# meshing procedure and examples\\[5pt]}
-{\color{blue}\#\#\#\#\#\#\#\# continue here. anisotropic estimates!\\[5pt]}
-% section approximation (end)

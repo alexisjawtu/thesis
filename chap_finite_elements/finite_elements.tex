@@ -275,6 +275,30 @@ we take a basis...
                                         \sum_{r}   \rho_{r}  (\hat{\bu})\,\hat{\bv}_{r}
 \end{IEEEeqnarray}
 \end{remark}
+The singular part in Problem (put ref) has a well defined interpolate.
+\begin{lemma}
+Firstly, we remark that if $\beta,\delta\in[0,1)$ and $\beta + \delta\le1$ then 
+\[
+V^{1,2}_{\beta,\delta}(\Lambda_\ell) \subset W^{1,1}(\Lambda_\ell)
+\]
+for all macroelement $\Lambda_{\ell}$.
+\end{lemma}
+\begin{proof}
+Indeed, clearly
+${\bv}\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$ satisfies
+$\bv\in L^1(\Lambda_\ell)$. On the other hand,
+\[
+R^{-\beta}\theta^{-\delta}\le\left(\max_{{\bf x}
+\in\Lambda_\ell}R({\bf x})^\delta\right)
+r^{-\beta-\delta}
+\le C r^{-\beta-\delta}\in L^2(\Lambda_\ell)
+\]
+which implies $D^\alpha{\bv}\in L^1(\Lambda_\ell)$ for all $\bv\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$.
+\end{proof}
+
+So, given a mesh of $\Omega$, we can consider the interpolation $\bu_{s,I}$ of
+the singular part $\bu_s$ of the solution, since the traces on faces of the elements
+of $\bu_s$ are well defined and its normal component can be integrated there.
 \begin{proposition} On the Finite Element~(\ref{defi_h_div_conforme}). 
 $\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
 which is, at the same time, equal to the number of its independent degrees of freedom.
