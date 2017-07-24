@@ -172,50 +172,6 @@
 \end{tikzpicture}
 }
 
-\newcommand{\polygon}[6]{
-\def\m{#1} % piso y tapa como m-'agonos
-\def\n{#2} % (n + 1) puntos en cada arista del tri'angulo
-\def\mu{#3} % graduaci'on
-\def\init{#4} % hacia d'onde queremos que apunte la boca
-
-\begin{scope}[shift={(0,#5,0)}]   %% --->>> perspectiva
-\coordinate (point0) at (0,0,0);
-
-\pgfmathparse{\m + \init - 2} \let\last\pgfmathresult
-
-%%% TODO perspectiva: hacer unos defs con los canonicos y el entero 1, 2, 3 de entrada
-
-\foreach \r in {\init,...,\last} {
-  \coordinate (point1) at ({cos((\r-2)*\twoPi/\m)},0,{sin((\r-2)*\twoPi/\m)});  %% -->> perspectiva
-  \coordinate (point2) at ({cos((\r-1)*\twoPi/\m)},0,{sin((\r-1)*\twoPi/\m)});
-  \draw[color=#6] (point1) -- (point2);
-
-  \pgfmathparse{\n-1} \let\to\pgfmathresult
-  \foreach \i in {0,...,\to} {  
-    \pgfmathparse{pow(\i/\n,1/\mu)} \let\rad\pgfmathresult
-    \draw[color=#6] ($\rad*(point1)$) -- ($\rad*(point2)$);
-    
-    \pgfmathparse{\i/\n}    \let\alfa\pgfmathresult
-    \pgfmathparse{(\n-\i)/\n}   \let\beta\pgfmathresult
-    
-    \pgfmathparse{\n-\i-1} \let\ni\pgfmathresult
-    \foreach \j in {0,...,\ni} {
-      \pgfmathparse{(\i/\n)*pow((\i+\j)/\n,1/\mu-1)} \let\alfa\pgfmathresult
-      \pgfmathparse{(\j/\n)*pow((\i+\j)/\n,1/\mu-1)} \let\beta\pgfmathresult
-
-      \pgfmathparse{(\i/\n)*pow((\i+(\j+1))/\n,1/\mu-1)}    \let\alfaSuc\pgfmathresult
-      \pgfmathparse{((\j+1)/\n)*pow((\i+(\j+1))/\n,1/\mu-1)}  \let\betaSuc\pgfmathresult
-      
-      \draw[color=#6] ($\alfa*(point1) + \beta*(point2)$) -- 
-          ($\alfaSuc*(point1) + \betaSuc*(point2)$);
-      \draw[color=#6] ($\alfa*(point2) + \beta*(point1)$) -- 
-          ($\alfaSuc*(point2) + \betaSuc*(point1)$);
-    };
-  }
-}
-\end{scope}
-}
-
 \newcommand{\prismaticMacroelement}[5]{
 \def\m{#1} % piso y tapa como m-'agonos
 \def\n{#2} % (n + 1) puntos en cada arista del tri'angulo
@@ -228,8 +184,8 @@
   %%% TODO perspectiva: hacer unos defs con los canonicos y el entero 1, 2, 3 de entrada
   %\pgfmathparse{\n + 1} \let\N\pgfmathresult
   \begin{scope}[shift={(0,\L,0)}]   %% --->>> altura
-    \coordinate (point1) at ({cos((\init-2)*\twoPi/\m)},0,{sin((\init-2)*\twoPi/\m)});  %% -->> perspectiva
-    \coordinate (point2) at ({cos((\init-1)*\twoPi/\m)},0,{sin((\init-1)*\twoPi/\m)});
+    \coordinate (point1) at ({cos((.15+\init-2)*\twoPi/\m)},0,{sin((.15+\init-2)*\twoPi/\m)});  %% -->> perspectiva
+    \coordinate (point2) at ({cos((.15+\init-1)*\twoPi/\m)},0,{sin((.15+\init-1)*\twoPi/\m)});
     \draw[color=#5] (point1) -- (point2);
 
     \pgfmathparse{\n-1} \let\to\pgfmathresult
@@ -253,8 +209,8 @@
     }
   \end{scope}
   }
-  \coordinate (point1) at ({cos((\init-2)*\twoPi/\m)},0,{sin((\init-2)*\twoPi/\m)});
-  \coordinate (point2) at ({cos((\init-1)*\twoPi/\m)},0,{sin((\init-1)*\twoPi/\m)}); 
+  \coordinate (point1) at ({cos((.15+\init-2)*\twoPi/\m)},0,{sin((.15+\init-2)*\twoPi/\m)});
+  \coordinate (point2) at ({cos((.15+\init-1)*\twoPi/\m)},0,{sin((.15+\init-1)*\twoPi/\m)}); 
   \pgfmathparse{\n} \let\to\pgfmathresult
   \foreach \i in {0,...,\to} {  
     \pgfmathparse{\n-\i} \let\ni\pgfmathresult
@@ -269,3 +225,111 @@
   };
   \draw[red] (0,0,0) -- (0,-2,0);
 }
+
+\def\prismsBaryCoordA{
+\begin{table}[!h]
+  \centering  
+  \caption{{Barycentric coordinates of mesh points} in $\Lambda_\ell$}
+  \label{prisms_barycentric}
+  \begin{IEEEeqnarraybox*}
+    [\IEEEeqnarraystrutmode
+    \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/v/c/v/c/v/c/v/c/v/}
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_0 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma      } 
+               && {\textstyle \left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma   }
+               && {\textstyle \frac in \left(\frac{i+j}n\right)^{\gamma-1}   }
+               && {\textstyle \frac jn \left(\frac{i+j}n\right)^{\gamma-1} }
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_1 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma} 
+               && {\textstyle \left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j+1}n\right)^\gamma }
+               && {\textstyle \frac{i+1}n \left(\frac{i+1+j}n\right)^{\gamma-1} }
+               && {\textstyle \frac jn \left(\frac{i+1+j}n\right)^{\gamma-1} }
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_2 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma }
+               && {\textstyle \left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j+1}n\right)^\gamma }
+               && {\textstyle \frac in \left(\frac{i+j+1}n\right)^{\gamma-1} }
+               && {\textstyle \frac{j+1}n \left(\frac{i+1+j}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_3 && {\textstyle 1-\left(\frac{n-l-1}n\right)^\gamma }
+               && {\textstyle \left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma }
+               && {\textstyle \frac in \left(\frac{i+j}n\right)^{\gamma-1} }
+               && {\textstyle \frac jn \left(\frac{i+j}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_4 && {\textstyle 1-\left(\frac{n-l-1}n\right)^\gamma }
+               && {\textstyle \left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+1+j}n\right)^\gamma }
+               && {\textstyle \frac{i+1}n \left(\frac{i+1+j}n\right)^{\gamma-1} }
+               && {\textstyle \frac jn \left(\frac{i+1+j}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_5 && {\textstyle 1-\left(\frac{n-l-1}n\right)^\gamma }
+               && {\textstyle \left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+j+1}n\right)^\gamma }
+               && {\textstyle \frac in \left(\frac{i+j+1}n\right)^{\gamma-1} }
+               && {\textstyle \frac{j+1}n \left(\frac{i+1+j}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow
+  \end{IEEEeqnarraybox*}
+\end{table}}
+
+\def\prismsBaryCoordB{
+\begin{table}[!h]
+  \centering  
+  \caption{{Barycentric coordinates of mesh points} in $\Lambda_\ell$}
+  \label{prisms_barycentric}
+  \begin{IEEEeqnarraybox*}
+    [\IEEEeqnarraystrutmode
+    \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/v/c/v/c/v/c/v/c/v/}
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_0  && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma      } 
+               && {\textstyle \left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma   }
+               && {\textstyle \frac in \left(\frac{i+j}n\right)^{\gamma-1}   }
+               && {\textstyle \frac jn \left(\frac{i+j}n\right)^{\gamma-1} }
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_1  && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma }  
+               && {\textstyle \left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j+1}n\right)^\gamma }
+               && {\textstyle \frac in \left(\frac{i+j+1}n\right)^{\gamma-1} }
+               && {\textstyle   \frac{j+1}n \left(\frac{i+j+1}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_2 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma  }
+               && {\textstyle \left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma }
+               && {\textstyle \frac{i-1}n \left(\frac{i+j}n\right)^{\gamma-1} }
+               && {\textstyle \frac{j+1}n \left(\frac{i+j}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_3  && {\textstyle 1-\left(\frac{n-l-1}n\right)^\gamma }
+               && {\textstyle \left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma }
+               && {\textstyle \frac in \left(\frac{i+j}n\right)^{\gamma-1} }
+               && {\textstyle   \frac jn \left(\frac{i+j}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_4 && {\textstyle 1-\left(\frac{n-l-1}n\right)^\gamma }
+               && {\textstyle \left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+j+1}n\right)^\gamma }
+               && {\textstyle \frac in \left(\frac{i+j+1}n\right)^{\gamma-1} }
+               && {\textstyle \frac{j+1}n \left(\frac{i+j+1}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_5  && {\textstyle 1-\left(\frac{n-l-1}n\right)^\gamma }
+               && {\textstyle \left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma }
+               && {\textstyle \frac{i-1}n \left(\frac{i+j}n\right)^{\gamma-1} }
+               && {\textstyle \frac{j+1}n \left(\frac{i+j}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow
+  \end{IEEEeqnarraybox*}
+\end{table}}
