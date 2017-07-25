@@ -16,6 +16,7 @@
 \usepackage{tikz}
 \usepackage[retainorgcmds]{IEEEtrantools}
 \usepackage{subfig}
+\usepackage[format=hang,margin=10pt,font=small,labelfont=bf,labelsep=endash]{caption}
 
 \usetikzlibrary{calc,shapes.geometric,arrows}
 
@@ -55,9 +56,11 @@
 \def\wku{\bw_{\hat{E}}\hat{\bu}}
 \def\wkutilde{\bw_{\tilde{E}}\tilde{\bu}}
 \def\rku{\br_{\hat{E}}\hat{\bu}}
+\def\rZerou{\br_{0}\bu}
 \def\rkutilde{\br_{\tilde{E}}\tilde{\bu}}
 
 \newcommand{\Qb}{\pazocal{Q}}
+\newcommand{\Tb}{\pazocal{T}}
 {\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
     \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
 \newcommand{\forma}[2]{\int\limits_\Omega {\bf #1}\cdot{\bf #2}\,d\boldsymbol{x}}

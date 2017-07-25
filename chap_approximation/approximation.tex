@@ -198,92 +198,47 @@ as\'i que asumimos $R_K(\textbf{x})\leqslant 1$.\\[7pt]
 ver si hace falta llegar hasta subsubseccion} 
 \subsubsection{Macro--element with singular edge and vertex}\label{caso4}
 Let $T$ be a tetrahedral macro--element with vertices $P_0, P_1, P_2$ and $P_3$. We suppose that $P_0$ is the singular vertex and that the
-singular edge is $P_0P_1$. The mesh $\mathcal T_h$ on $T$ will contain tetrahedra, prisms and pyramids. Now we describe those elements in terms
+singular edge is $P_0P_1$. The mesh $\mathcal T_h$ on $T$ will contain tetrahedra, prisms and pyramids. 
+In Tables~\ref{prisms_barycentric_a}--\ref{tetrahedral_barycentric}
+we explicit the elements in terms
 of the barycentric coordinates of the vertices of each element corresponding to the ordered vertices $P_0, P_1, P_2$ and $P_3$.
 \bigskip
 
-\underline{Prisms}
-
-For 
-\[
-0\le l\le n-2 \qquad\mbox{and}\qquad i+j\le n-l-2
-\]
-
-\begin{tabular}{|c|c|c|c|c|}
-\hline $p_0$  &  $1-\left(\frac{n-l}n\right)^\gamma$  &  $\left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma$  &  $\frac in \left(\frac{i+j}n\right)^{\gamma-1}$  &  $\frac jn \left(\frac{i+j}n\right)^{\gamma-1}$\\
-\hline $p_1$  &  $1-\left(\frac{n-l}n\right)^\gamma$  &  $\left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j+1}n\right)^\gamma$  &  $\frac{i+1}n \left(\frac{i+1+j}n\right)^{\gamma-1}$  &  $\frac jn \left(\frac{i+1+j}n\right)^{\gamma-1}$\\
-\hline $p_2$  &  $1-\left(\frac{n-l}n\right)^\gamma$  &  $\left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j+1}n\right)^\gamma$  &  $\frac in \left(\frac{i+j+1}n\right)^{\gamma-1}$  &  $\frac{j+1}n \left(\frac{i+1+j}n\right)^{\gamma-1}$\\
-\hline $p_3$  &  $1-\left(\frac{n-l-1}n\right)^\gamma$  &  $\left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma$  &  $\frac in \left(\frac{i+j}n\right)^{\gamma-1}$  &  $\frac jn \left(\frac{i+j}n\right)^{\gamma-1}$\\
-\hline $p_4$  &  $1-\left(\frac{n-l-1}n\right)^\gamma$  &  $\left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+1+j}n\right)^\gamma$  &  $\frac{i+1}n \left(\frac{i+1+j}n\right)^{\gamma-1}$  &  $\frac jn \left(\frac{i+1+j}n\right)^{\gamma-1}$\\
-\hline $p_5$  &  $1-\left(\frac{n-l-1}n\right)^\gamma$  &  $\left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+j+1}n\right)^\gamma$  &  $\frac in \left(\frac{i+j+1}n\right)^{\gamma-1}$  &  $\frac{j+1}n \left(\frac{i+1+j}n\right)^{\gamma-1}$\\
-\hline
-\end{tabular}\medskip
-controlar si son los mismos n'umeros
 \prismsBaryCoordA
 
-and for 
-\[
-0\le l\le n-2,\qquad
-i\ge1, \qquad \mbox{and}\qquad i+j\le n-l-2
-\]
-
-\begin{tabular}{|c|c|c|c|c|}
-\hline $p_0$  &  $1-\left(\frac{n-l}n\right)^\gamma$  &  $\left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma$  &  $\frac in \left(\frac{i+j}n\right)^{\gamma-1}$  &  $\frac jn \left(\frac{i+j}n\right)^{\gamma-1}$\\
-\hline $p_1$  &  $1-\left(\frac{n-l}n\right)^\gamma$  &  $\left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j+1}n\right)^\gamma$  &  $\frac in \left(\frac{i+j+1}n\right)^{\gamma-1}$  &  $\frac{j+1}n \left(\frac{i+j+1}n\right)^{\gamma-1}$\\
-\hline $p_2$  &  $1-\left(\frac{n-l}n\right)^\gamma$   &  $\left(\frac{n-l}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma$  &  $\frac{i-1}n \left(\frac{i+j}n\right)^{\gamma-1}$  &  $\frac{j+1}n \left(\frac{i+j}n\right)^{\gamma-1}$\\
-\hline $p_3$  &  $1-\left(\frac{n-l-1}n\right)^\gamma$  &  $\left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma$  &  $\frac in \left(\frac{i+j}n\right)^{\gamma-1}$  &  $\frac jn \left(\frac{i+j}n\right)^{\gamma-1}$\\
-\hline $p_4$  &  $1-\left(\frac{n-l-1}n\right)^\gamma$  &  $\left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+j+1}n\right)^\gamma$  &  $\frac in \left(\frac{i+j+1}n\right)^{\gamma-1}$  &  $\frac{j+1}n \left(\frac{i+j+1}n\right)^{\gamma-1}$\\
-\hline $p_5$  &  $1-\left(\frac{n-l-1}n\right)^\gamma$  &  $\left(\frac{n-l-1}n\right)^\gamma-\left(\frac{i+j}n\right)^\gamma$  &  $\frac{i-1}n \left(\frac{i+j}n\right)^{\gamma-1}$  &  $\frac{j+1}n \left(\frac{i+j}n\right)^{\gamma-1}$\\
-\hline
-\end{tabular}
-\bigskip
-
-controlar si son los mismos
 \prismsBaryCoordB
 
-\underline{Pyramids}
+\pyramidsBaryCoord
 
-For 
-\[
-0\le l\le n-2 \qquad\mbox{and}\qquad 1\le i\le n-l-1
-\]
+\tetrahedraBaryCoord
 
-\begin{tabular}{|c|c|c|c|c|}
-\hline $p_0$  &  $1-\left(\frac{n-l}n\right)^\gamma$   &  $\left(\frac{n-l}n\right)^\gamma-\left(\frac{n-l-1}n\right)^\gamma$   &  $\frac in \left(\frac{n-l-1}n\right)^{\gamma-1}$   &  $\frac{n-l-i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}$\\
-\hline $p_1$  &  $1-\left(\frac{n-l}n\right)^\gamma$   &  $\left(\frac{n-l}n\right)^\gamma-\left(\frac{n-l-1}n\right)^\gamma$   &  $\frac{i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}$   &  $\frac{n-l-i}n \left(\frac{n-l-1}n\right)^{\gamma-1}$\\
-\hline $p_2$  &  $1-\left(\frac{n-l-1}n\right)^\gamma$   &  $0$   &  $\frac in \left(\frac{n-l-1}n\right)^{\gamma-1}$   &  $\frac{n-l-i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}$\\
-\hline $p_3$  &  $1-\left(\frac{n-l-1}n\right)^\gamma$   &  $0$   &  $\frac{i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}$   &  $\frac{n-l-i}n \left(\frac{n-l-1}n\right)^{\gamma-1}$\\
-\hline $p_4$  &  $1-\left(\frac{n-l}n\right)^\gamma$   &  $0$   &  $\frac in \left(\frac{n-l}n\right)^{\gamma-1}$   &  $ \frac{n-l-i}n \left(\frac{n-l}n\right)^{\gamma-1}$\\
-\hline
-\end{tabular}
-\bigskip 
-
-\underline{Tetrahedra}
-
-For 
-\[
-0\le l\le n-1\qquad\mbox{and}\qquad 1\le i\le n-l-1
-\]
-
-\begin{tabular}{|c|c|c|c|c|}
-\hline $p_0$  &  $1-\left(\frac{n-l}n\right)^\gamma$   &  $\left(\frac{n-l}n\right)^\gamma-\left(\frac{n-l-1}n\right)^\gamma$   &  $\frac in \left(\frac{n-l-1}n\right)^{\gamma-1}$   &  $\frac{n-l-i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}$\\ 
-\hline $p_1$  &  $1-\left(\frac{n-l-1}n\right)^\gamma$   &  $0$   &  $\frac in \left(\frac{n-l-1}n\right)^{\gamma-1}$   &  $\frac{n-l-i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}$\\
-\hline $p_2$  &  $1-\left(\frac{n-l}n\right)^\gamma$   &  $0$   &  $\frac in \left(\frac{n-l}n\right)^{\gamma-1}$   &  $\frac{n-l-i}n \left(\frac{n-l}n\right)^{\gamma-1}$\\
-\hline $p_3$  &  $1-\left(\frac{n-l}n\right)^\gamma$   &  $0$   &  $\frac{i+1}n \left(\frac{n-l}n\right)^{\gamma-1}$   &  $\frac{n-l-i-1}n \left(\frac{n-l}n\right)^{\gamma-1}$\\
-\hline 
-\end{tabular}\qquad
-\begin{tabular}{c}
-
-\end{tabular}
 \subsubsection{Macro--element with a singular edge}
 This case corresponds to the prismatic macro--element.
 A mesh is constructed as the cartesian product between a graded mesh
-in a triangle and a quasi--uniform mesh along the singular edge.
+in a triangle and a quasi--uniform mesh along the singular edge. Table~\ref{prisms_product}
+shows the points
+For $0\leqslant i\leqslant n$ and $0\leqslant j\leqslant n-1$ let $p_{i,j}$
+be the point with barycentric coordinates, with respect to $P_0,P_1,P_2$,
+equal to      
+\begin{eqnarray*}
+&&\lambda_0(i,j)=1-\lambda_1(i,j)-\lambda_2(i,j),\\[5pt]
+&&\lambda_1(i,j)=\frac in\left(\frac{i+j}n\right)^{\gamma-1},\quad
+  \lambda_2(i,j)=\frac jn\left(\frac{i+j}n\right)^{\gamma-1},\quad
+\end{eqnarray*}
+Now let $\Tb$ the family of triangles with vertices  {\color{BrickRed}( controlar )}
+\begin{IEEEeqnarray*}{lllCLL}
+p_{i,j} & p_{i+1,j} & p_{i,j+1} & \quad & 0\leqslant i  < n\mbox{,\quad}&0\leqslant j < n - i\\
+p_{i,j} & p_{i+1,j-1} & p_{i+1,j} & \quad & 0\leqslant i  < n-1\mbox{,\quad}&1\leqslant j < n - i.
+\end{IEEEeqnarray*}
+The elements in $\Lambda_\ell$ will be
+$\tau\times (P_{0,3} + \frac kn h_{\Lambda_\ell,3}, P_{0,3} + \frac{k+1}{n} h_{\Lambda_\ell,3})$
+for each $\tau\in\Tb$ and each $0\leqslant k<n$. See Figure~\ref{prismatic_macroelements}.
+%borrar ---->>>  \prismsProductCoord
 
 \def\col{black}
 \def\height{0}
 \def\twoPi{360}
-\begin{figure}[!h]\centering\label{prismatic_macroelements}
+\begin{figure}[!h]\centering
   \subfloat
   {
     \begin{tikzpicture}[scale=2]
@@ -300,18 +255,24 @@ in a triangle and a quasi--uniform mesh along the singular edge.
   }
   \caption{Elements of the family of
     meshes restricted to a prismatic macro--element.$\mu = .63$}
+  \label{prismatic_macroelements}
 \end{figure}
-\noindent{\color{blue}\#\#\#\#\#\#\# tablita de nodos}  
 
 \subsubsection{Macro--element with a singular vertex}
 
-We consider again a tetrahedral macro--element $T$ with vertices $P_0, P_1, P_2$ and $P_3$, assuming that it has a singular vertex at $P_0$ and no singular edge. We construct a triangulation of $T$ made of tetrahedra describing the barycentric coordinates of the vertices of each tetrahedron with respect to $P_0, P_1, P_2$ and $P_3$. This case corresponds to Case 1 of \cite{AN}.
+We consider again a tetrahedral macro--element $T$ with vertices $P_0, P_1, P_2$
+and $P_3$, assuming that it has a singular vertex at $P_0$ and no singular edge.
+We construct a triangulation of $T$ made of tetrahedra describing 
+the barycentric coordinates of the vertices of each tetrahedron with respect
+to $P_0, P_1, P_2$ and $P_3$. This case corresponds to Case 1 of \cite{AN}.
 
 Let $p_{i,j,k}$ be the points with barycentric coordinates
 \begin{eqnarray*}
-&&\lambda_0=1-\lambda_1-\lambda_2-\lambda_3,\\
-&&\lambda_1=\frac in\left(\frac{i+j+k}n\right)^{\gamma-1},\quad \lambda_2=\frac jn\left(\frac{i+j+k}n\right)^{\gamma-1},\quad \lambda_3=\frac kn\left(\frac{i+j+k}n\right)^{\gamma-1},
-\\ &&0\le i+j+k\le n.
+&&\lambda_0=1-\lambda_1-\lambda_2-\lambda_3,\\[5pt]
+&&\lambda_1=\frac in\left(\frac{i+j+k}n\right)^{\gamma-1},\quad
+  \lambda_2=\frac jn\left(\frac{i+j+k}n\right)^{\gamma-1},\quad
+  \lambda_3=\frac kn\left(\frac{i+j+k}n\right)^{\gamma-1},
+\\[5pt] &&0\le i\le n, 0\le j\le n-i, 0\le k\le n-i-j.
 \end{eqnarray*}
 Then, the tetrahedra are the ones with vertices
 \begin{eqnarray*}
@@ -412,46 +373,57 @@ i.e.:
 \end{IEEEeqnarray*}
 
 \section{main interpolation error theorem}
-**Primero: divergence term igual para todos.
+\begin{theorem} $\bu$ solution of problem.
+  \begin{IEEEeqnarray*}{rCl}
+    \|\bu-\rZerou\|_{\mathbb{V}} &\leqslant& C \textit{h}\|f\|_{0,\Omega}
+  \end{IEEEeqnarray*}
+\end{theorem}
+\begin{proof}
+  
+\end{proof} Recall that $\|\bw\|^2_{\mathbb{V}} = \|\bw\|^2_{0,\Omega} + \|\dv\,\bw\|^2_{0,\Omega}$ 
+and that, by Lemma~\ref{well_defined_dofs}, the field $\rZerou = r_0u_s + r_0u_r$ is well defined.  
+First, for the divergence term,
+Primero usar el lemma de taylor promediado aplicado al caso sin derivar. Despu'es:
+If we apply this after the commutative diagram property~(\ref{div_commutativity})
 \begin{IEEEeqnarray*}{rCl}
-\|\dvg(\textbf{u} - \pi\textbf{u})\|^2_{0,\Omega} & = &
-  \|\dvg\,\textbf{u} - \dvg\,\pi\textbf{u}\|^2_{0,\Omega}\\
-  \text{proy. ortog. por elem.}&=&\|\dvg\,\textbf{u} - \boldsymbol{p}_{\tau_h}\dvg\,\textbf{u}\|^2_{0,\Omega}\\
-  &\leqslant&h^2\,\|\dvg\,\textbf{u}\|^2_{0,\Omega}\\
-  &=&h^2\,\|f\|^2_{0,\Omega}.
+\|\dv(\bu - \rZerou)\|^2_{0,\Omega} & = &
+  \|\dv\,\bu - \dv\,\rZerou\|^2_{0,\Omega}\\
+    & = &\|\dv\,\bu - \boldsymbol{P}_{\mathcal{T}_h}\dv\,\bu\|^2_{0,\Omega}\\
+  &\leqslant&\textit{h}^2\,\|\dv\,\bu\|^2_{0,\Omega}\\
+  &=&\textit{h}^2\,\|f\|^2_{0,\Omega}.|
 \end{IEEEeqnarray*}
 **bound for the scalar variable: para todos igual, 
 lo pongo una sola vez.\\[5pt]
-**bound for the regular part: para todos igual.
+In order to bound the regular part,
 \begin{IEEEeqnarray*}{rCl}
-  \|\boldsymbol{\sigma}_r - \boldsymbol{r}\boldsymbol{\sigma}_r\|_{L^2(\Omega)}^2 & = &
-  \sum_{K\in\mathcal{T}_{\boldsymbol{h}}}
-  \|\boldsymbol{\sigma}_r - \boldsymbol{r}\boldsymbol{\sigma}_r\|_{L^2(K)}^2\\
-  &=&\sum_{K\in\mathcal{T}_{\boldsymbol{h}}}\left( \sum_{|\alpha| = 1} 
-  \boldsymbol{h}^\alpha \|D^\alpha\boldsymbol{\sigma}_r\|_{L^2(K)} + 
-  h_K\|\text{div}\boldsymbol{\sigma}_r\|_{L^2(K)}
+  \|\bu_r - \boldsymbol{r}_0\bu_r\|_{L^2(\Omega)}^2 & = &
+  \sum_{E\in\mathcal{T}_{\textit{h}}}
+  \|\bu_r - \boldsymbol{r}_0\bu_r\|_{L^2(E)}^2\\
+  &=&\sum_{E\in\mathcal{T}_{\textit{h}}}\left( \sum_{|\alpha| = 1} 
+  \boldsymbol{h}^\alpha \|D^\alpha\bu_r\|_{L^2(E)} + 
+  h_E\|\dv\bu_r\|_{L^2(E)}
   \right)^2\\
-  &\leqslant&\sum_{K\in\mathcal{T}_{\boldsymbol{h}}}\left[\sum_{|\alpha| = 1}
-  \boldsymbol{h}^{2\alpha} + h_K^{2} \right]
-  \left[\sum_{|\alpha| = 1}\|D^\alpha\boldsymbol{\sigma}_r\|_{L^2(K)}^2 + 
-  \|\text{div}\boldsymbol{\sigma}_r\|_{L^2(K)}^2\right].
+  &\leqslant&\sum_{E\in\mathcal{T}_{\textit{h}}}\left[\sum_{|\alpha| = 1}
+  \boldsymbol{h}^{2\alpha} + h_E^{2} \right]
+  \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(E)}^2 + 
+  \|\dv\bu_r\|_{L^2(E)}^2\right].
 \end{IEEEeqnarray*}
 Now $\boldsymbol{h}\leqslant C\,\textit{h}$ and $h_K \leqslant C\,h_3 \sim \textit{h}$ for all the elements of the
 mesh, so that we get
 \begin{IEEEeqnarray*}{rCl}
-  &\leqslant&\sum_{K\in\mathcal{T}_{\boldsymbol{h}}}4\,\textit{h}^{2}
-  \left[\sum_{|\alpha| = 1}\|D^\alpha\boldsymbol{\sigma}_r\|_{L^2(K)}^2 + 
-  \|\text{div}\boldsymbol{\sigma}_r\|_{L^2(K)}^2\right]\\
+  &\leqslant&\sum_{K\in\mathcal{T}_{\textit{h}}}4\,\textit{h}^{2}
+  \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(E)}^2 + 
+  \|\text{div}\bu_r\|_{L^2(E)}^2\right]\\
   &=&4\,\textit{h}^{2}
-  \left[\sum_{|\alpha| = 1}\|D^\alpha\boldsymbol{\sigma}_r\|_{L^2(\Omega)}^2 + 
-  \|\text{div}\boldsymbol{\sigma}_r\|_{L^2(\Omega)}^2\right].
+  \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(\Omega)}^2 + 
+  \|\text{div}\bu_r\|_{L^2(\Omega)}^2\right].
 \end{IEEEeqnarray*}
 Then, finally
 \begin{IEEEeqnarray*}{rCl}
-  \|\boldsymbol{\sigma}_r - \boldsymbol{r}\boldsymbol{\sigma}_r\|_{L^2(\Omega)}&\leqslant&
+  \|\bu_r - \boldsymbol{r}_0\bu_r\|_{L^2(\Omega)}&\leqslant&
   C\,\textit{h}
-  \left(\sum_{|\alpha| = 1}\|D^\alpha\boldsymbol{\sigma}_r\|_{L^2(\Omega)} + 
-  \|\text{div}\boldsymbol{\sigma}_r\|_{L^2(\Omega)}\right).
+  \left(\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(\Omega)} + 
+  \|\text{div}\bu_r\|_{L^2(\Omega)}\right).
 \end{IEEEeqnarray*}
 {\color{red} C\'omo pasamos a la norma de $f$?}
 \subsection{bound singular part prismatic macroelement} % (fold)
@@ -459,11 +431,11 @@ Then, finally
 Here we need to distinguish between the elements $\text{d}(K,e) > 0$ and $\text{d}(K,e) = 0$.
 \begin{IEEEeqnarray*}{rCl}
   \| \boldsymbol{\sigma}_s - \boldsymbol{r}\boldsymbol{\sigma} _s\|_{L^2(\Omega)}^2 &\leqslant&
-  \sum_{\text{d}(K,e) = 0} \left(\| \boldsymbol{\sigma}_s\|_{L^2(K)} + 
-  \|\boldsymbol{r}\boldsymbol{\sigma} _s\|_{L^2(K)}\right)^2\\
+  \sum_{\text{d}(K,e) = 0} \left(\| \boldsymbol{\sigma}_s\|_{L^2(E)} + 
+  \|\boldsymbol{r}\boldsymbol{\sigma} _s\|_{L^2(E)}\right)^2\\
   & &\:+\sum_{\text{d}(K,e) > 0} \left( \sum_{|\alpha| = 1} 
-  \boldsymbol{h}^\alpha \|D^\alpha\boldsymbol{\sigma}_s\|_{L^2(K)} + 
-  h_K\|\text{div}\boldsymbol{\sigma}_s\|_{L^2(K)}
+  \boldsymbol{h}^\alpha \|D^\alpha\boldsymbol{\sigma}_s\|_{L^2(E)} + 
+  h_K\|\text{div}\boldsymbol{\sigma}_s\|_{L^2(E)}
   \right)^2.
 \end{IEEEeqnarray*}
 \paragraph{Elements with $d(K,e) > 0$.} % (fold)
@@ -471,13 +443,13 @@ Here we need to distinguish between the elements $\text{d}(K,e) > 0$ and $\text{
 The objective of the following items is to bound each one of the terms
 involved by a constant times $\textit{h}$ times the norm of the data $f$. 
 Afterwards, we will sum up every term to find our estimation.
-\subparagraph{Bound for $\|\partial_{x_1}\boldsymbol{\sigma}_s\|_{L^2(K)}$.} % (fold)
+\subparagraph{Bound for $\|\partial_{x_1}\boldsymbol{\sigma}_s\|_{L^2(E)}$.} % (fold)
 \label{subp:bound_for_100} Pick up a weight $w(\textbf{x})$ such that $w(\textbf{x})\geq h_1$.
 \begin{IEEEeqnarray*}{rCl}
-  h_1\|\partial_{x_1}\boldsymbol{\sigma}_s\|_{L^2(K)}& = & 
-    \sum_{i=1,2} \|h_1\partial_{x_1}\sigma_{s,i}\|_{L^2(K)} +
-      h_1\|\partial_{x_1}\sigma_{s,3}\|_{L^2(K)}\\
-  & \leqslant & \sum_{i=1,2} \|w(\textbf{x})\partial_{x_1}\sigma_{s,i}\|_{L^2(K)} +
+  h_1\|\partial_{x_1}\boldsymbol{\sigma}_s\|_{L^2(E)}& = & 
+    \sum_{i=1,2} \|h_1\partial_{x_1}\sigma_{s,i}\|_{L^2(E)} +
+      h_1\|\partial_{x_1}\sigma_{s,3}\|_{L^2(E)}\\
+  & \leqslant & \sum_{i=1,2} \|w(\textbf{x})\partial_{x_1}\sigma_{s,i}\|_{L^2(E)} +
       h_1\|\sigma_{s,3}\|_{V_0^{1,2}(\Omega)}.
 \end{IEEEeqnarray*}
 Now it turns out that if we could choose $w(\textbf{x}) = \textit{h}\,r(\textbf{x})^\delta \geq h_1$, then
@@ -500,22 +472,22 @@ case $\text{d(K,e)} \sim 1$
 In both cases we take $\delta \sim 1-\mu > 1 - \frac{\pi}{\omega} $. The bound for the term 
 $\alpha = (0,1,0)$ is similar.
 % subparagraph bound_for_100 (end)
-\subparagraph{Bound for $\|\partial_{x_3}\boldsymbol{\sigma}_s\|_{L^2(K)}$.} % (fold)
+\subparagraph{Bound for $\|\partial_{x_3}\boldsymbol{\sigma}_s\|_{L^2(E)}$.} % (fold)
 \label{subp:bound_for_001}
 If $i = 1,2,3$, $\partial_{x_3}\sigma_i$ equals $\partial_{x_i}\sigma_3$.
 \begin{IEEEeqnarray*}{rCl}
-  h_3\|\partial_{x_3}\boldsymbol{\sigma}_s\|_{L^2(K)}& = & 
-    \sum_{i=1,2,3} h_3\,\|\partial_{x_3}\sigma_{s,i}\|_{L^2(K)}\\
+  h_3\|\partial_{x_3}\boldsymbol{\sigma}_s\|_{L^2(E)}& = & 
+    \sum_{i=1,2,3} h_3\,\|\partial_{x_3}\sigma_{s,i}\|_{L^2(E)}\\
     &\lesssim&\textit{h}\,\| \sigma_3 \|_{V_0^{1,2}(\Omega)}\leqslant\textit{h}\,\|f\|_{L^2(\Omega)}.
 \end{IEEEeqnarray*}
 \subparagraph{Bound for the divergence.} % (fold)
 \label{subp:bound_for_the_div}
 \begin{IEEEeqnarray*}{rCl}
-  h_K\,\| \dvg\boldsymbol{\sigma}_s \|_{L^2(K)} & \lesssim &
+  h_K\,\| \dvg\boldsymbol{\sigma}_s \|_{L^2(E)} & \lesssim &
   {h_3}\,\|\dvg\boldsymbol{\sigma}_s\|_{L^2(\Omega)}\sim
   \textit{h}\,\|\dvg\boldsymbol{\sigma}_s\|_{L^2(\Omega)}\\[7pt]
   &\leqslant&\textit{h}\,(\|f\|+
-  \|\dvg\boldsymbol{\sigma}_r\|_{L^2(\Omega)})\lesssim\textit{h}\,\|f\|.
+  \|\dvg\bu_r\|_{L^2(\Omega)})\lesssim\textit{h}\,\|f\|.
 \end{IEEEeqnarray*}
 % subparagraph bound_for_the_div (end)
 
@@ -523,11 +495,11 @@ If $i = 1,2,3$, $\partial_{x_3}\sigma_i$ equals $\partial_{x_i}\sigma_3$.
 \paragraph{Elements with $d(K,e) = 0$.} % (fold)
 \label{par:elements_with_d0}
 Take $\delta \sim 1-\mu$ in this paragraph again.
-\subparagraph{Bound for $\| \boldsymbol{\sigma}_s\|_{L^2(K)}$.} % (fold)
+\subparagraph{Bound for $\| \boldsymbol{\sigma}_s\|_{L^2(E)}$.} % (fold)
 \label{subp:bound_for_sigma_i}
 \begin{IEEEeqnarray*}{rCl}
-  \|\boldsymbol{\sigma}_s\|_{L^2(K)}& = & \sum_{i=1,2,3}\|{\sigma_{s,i}}\|_{L^2(K)}\\
-  &=&\sum_{i=1,2,3}\|r(\textbf{x})^{1-\delta} r(\textbf{x})^{\delta-1} {\sigma_{s,i}}\|_{L^2(K)}\\
+  \|\boldsymbol{\sigma}_s\|_{L^2(E)}& = & \sum_{i=1,2,3}\|{\sigma_{s,i}}\|_{L^2(E)}\\
+  &=&\sum_{i=1,2,3}\|r(\textbf{x})^{1-\delta} r(\textbf{x})^{\delta-1} {\sigma_{s,i}}\|_{L^2(E)}\\
   &\leqslant& \max r(\textbf{x})^{1-\delta}\sum_{i=1,2,3}\|{\sigma_{s,i}}\|_{V_\delta^{1,2}(\Omega)}\\
   &\lesssim& h_1^{1-\delta}\sum_{i=1,2,3}\|{\sigma_{s,i}}\|_{V_\delta^{1,2}(\Omega)}\\
   &\sim&  (\textit{h}^{1/\mu})^\mu\sum_{i=1,2,3}\|{\sigma_{s,i}}\|_{V_\delta^{1,2}(\Omega)}
@@ -604,7 +576,7 @@ Now, for $\|\sigma_{s,i}\|$ with $i=1,2$,
 \begin{IEEEeqnarray*}{rCl}
   \|\sigma_{s,i}\|_{L^1(K)} & = & 
   \| r(\textbf{x})^{1-\delta} r(\textbf{x})^{\delta-1} \sigma_{s,i}\|_{L^1(K)}\\
-  &\leqslant& \|r^{1-\delta}\|_{L^2(K)} \|\sigma_{s,i}\|_{V_\delta^{1,2}(K)}\\
+  &\leqslant& \|r^{1-\delta}\|_{L^2(E)} \|\sigma_{s,i}\|_{V_\delta^{1,2}(K)}\\
   &\leqslant& C\,h_1^{1-\delta}\,|K|^{1/2}\,\|\sigma_{s,i}\|_{V_\delta^{1,2}(K)}\\
   &\leqslant& C\,\textit{h}\,|K|^{1/2}\,\|\sigma_{s,i}\|_{V_\delta^{1,2}(\Omega)}\\
   &\leqslant& C\,\textit{h}\,|K|^{1/2}\,\|f\|_{L^{2}(\Omega)}.
@@ -612,11 +584,11 @@ Now, for $\|\sigma_{s,i}\|$ with $i=1,2$,
 \noindent With respect to the derivatives orthogonal to the singular edge, take $i,j = 1,2$ and, by H\"older's inequality,
 \begin{IEEEeqnarray*}{rCl}
   h_1\|\partial_{x_j}\sigma_{s,i}\|_{L^1(K)} &\leqslant&
-  h_1\,\|r^{-\delta}\|_{L^2(K)}\,\|\sigma_{s,i}\|_{V_\delta^{1,2}(K)}.
+  h_1\,\|r^{-\delta}\|_{L^2(E)}\,\|\sigma_{s,i}\|_{V_\delta^{1,2}(K)}.
 \end{IEEEeqnarray*}
 Integrating:
 \begin{IEEEeqnarray*}{rCl}
-  \|r^{-\delta}\|_{L^2(K)} & \leqslant & C\, h_1^{-\delta}\,h_1\,h_3^{1/2}\\
+  \|r^{-\delta}\|_{L^2(E)} & \leqslant & C\, h_1^{-\delta}\,h_1\,h_3^{1/2}\\
   & \sim & h_1^{-\delta}(h_1h_2h_3)^{1/2}\\
   &\leqslant& C\, h_1^{-\delta} |K|^{1/2},
 \end{IEEEeqnarray*}
@@ -632,7 +604,7 @@ So we have
 For the derivatives along the singular edge: by H\"older's inequality
 \begin{IEEEeqnarray*}{rCl}
   h_3\,\| \partial_{x_3}\sigma_{s,i} \|_{L^1(K)} &=& h_3\,\| \partial_{x_i}\sigma_{s,3} \|_{L^1(K)}\\
-  &\leqslant& h_3\,|K|^{1/2}\,\| \partial_{x_i}\sigma_{s,3} \|_{L^2(K)}\\
+  &\leqslant& h_3\,|K|^{1/2}\,\| \partial_{x_i}\sigma_{s,3} \|_{L^2(E)}\\
   \yesnumber\label{alongSingular}&\leqslant& C\,|K|^{1/2}\,\textit{h}\,\|f\|_{L^2{(\Omega)}}.
 \end{IEEEeqnarray*}
 \noindent For the divergence we can do... recalling again the grading condition $h_1\sim h_2$,
@@ -654,7 +626,7 @@ $\| (\boldsymbol{r} \boldsymbol{\sigma}_s)_3 \|_{L^{2}(K)}$ is as follows. By Th
 \end{IEEEeqnarray*}
 Now
 \begin{IEEEeqnarray*}{rCl}
-  \|\sigma_{s,3}\|_{L^1(K)} &\leqslant& \|r\|_{L^2(K)} \,\|r^{-1}\,\sigma_{s,3}\|_{L^2(K)}\\
+  \|\sigma_{s,3}\|_{L^1(K)} &\leqslant& \|r\|_{L^2(E)} \,\|r^{-1}\,\sigma_{s,3}\|_{L^2(E)}\\
               &\leqslant&C\,h_1\,|K|^{\frac{1}{2}}\,\|\sigma_{s,3}\|_{V_0^{1,2}(\Omega)}\\
               &\leqslant&C\,\textit{h}\,|K|^{\frac{1}{2}}\,\|\sigma_{s,3}\|_{V_0^{1,2}(\Omega)}. 
 \end{IEEEeqnarray*}
@@ -712,11 +684,11 @@ element.
 
 Parte singular:
 \begin{IEEEeqnarray*}{rCl}
-  \|\textbf{u}_s - \pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(\Omega)^3}
+  \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(\Omega)^3}
   &=&\sum_{d(K,e) = 0}
-  \|\textbf{u}_s - \pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(K)^3}+
+  \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}+
   \sum_{d(K,e) > 0}
-  \|\textbf{u}_s - \pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(K)^3}\\[7pt]
+  \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}\\[7pt]
 \end{IEEEeqnarray*}
 Parte con $d(K,e)>0$. Recordar c\'omo son los nuevos $h_1,h_2,h_3$.
 %% (y,z,x)
@@ -752,7 +724,7 @@ Parte con $d(K,e)>0$. Recordar c\'omo son los nuevos $h_1,h_2,h_3$.
 \end{center}
 $K$ es una pir\'amide
 \begin{IEEEeqnarray*}{rCl}
-  \|\textbf{u}_s - \pi\textbf{u}_s\|^2_{\ss L^2(K)}&\leqslant&
+  \|\textbf{u}_s - \pi\textbf{u}_s\|^2_{\ss L^2(E)}&\leqslant&
   h_1^2\|\gancho_{\eta_1}\textbf{u}_s\|^2+
   h_2^2\|\gancho_{\eta_2}\textbf{u}_s\|^2+
   h_3^2\|\gancho_{\eta_3}\textbf{u}_s\|^2+
@@ -812,7 +784,7 @@ Now, since $h_2\sim h_1$:
 Parte con ${\color{red} d(K,e)=0}$.
 \begin{IEEEeqnarray}{rCl}
   \label{distancia_cero_arista}\sum_{d(K,e) = 0}
-  \|\textbf{u}_s - \pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(K)^3}
+  \|\textbf{u}_s - \pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(E)^3}
   &\lesssim&
   {\color{green} \|\textbf{u}_s\|^2} + 
     {\color{blue}\|\pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(Tetra)^3}}\\[5pt]
@@ -820,7 +792,7 @@ Parte con ${\color{red} d(K,e)=0}$.
   \substack{\text{ prisms }K\\
         d(K,e) = 0}
     }
-  {\color{green} \|\textbf{u}_s\|^2} + {\color{olive} \|\pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(K)^3}}.
+  {\color{green} \|\textbf{u}_s\|^2} + {\color{olive} \|\pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(E)^3}}.
 \end{IEEEeqnarray}
 \\[10pt]
 Si $K$ es tanto el tetraedro con el v\'ertice singular como un prisma 
@@ -862,7 +834,7 @@ Volvemos y queda
 con tal de tomar $\beta\sim 1-\nu$ y $\delta\sim 1-\mu$.\\[10pt]
 ${\color{blue}\|\pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(Tetra)^3}}$: First
 \begin{IEEEeqnarray*}{rCl}
-  \|(\pi\textbf{u}_s)_1\|_{\scriptscriptstyle L^2(K)}
+  \|(\pi\textbf{u}_s)_1\|_{\scriptscriptstyle L^2(E)}
     & \leqslant & C|K|^{-1/2} \|(\pi\textbf{u}_s)_1\|_{\scriptscriptstyle L^1(K)}.
 \end{IEEEeqnarray*}
 Now, by Prop 3.4 de AADL
@@ -885,8 +857,8 @@ PESOS
   \sum_{i=1,2}\|R^{\nu}\theta^{\mu}R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^1(K)} + 
   \|R^{\nu}\theta R^{-\nu}\theta^{-1}u_{s,3}\|_{L^1(K)} \\[7pt]
 \text{H\"older\quad}&\leqslant&
-\sum_{i=1,2}\|R^{\nu}\theta^{\mu}\|_{L^2(K)}\|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2(K)} + 
-  \|R^{\nu}\theta\|_{L^2(K)}\|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2(K)}
+\sum_{i=1,2}\|R^{\nu}\theta^{\mu}\|_{L^2(E)}\|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2(E)} + 
+  \|R^{\nu}\theta\|_{L^2(E)}\|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2(E)}
  \\[7pt]
 &\leqslant&
 \max_{\textbf{x}}R(\textbf{x})^\nu\theta(\textbf{x})^{\mu}|K|^{1/2}

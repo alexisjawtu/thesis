@@ -56,8 +56,9 @@
 }
 
 \def\macroRegularity{  
-\begin{figure}[!h]
+\begin{figure}
   \centering
+  \caption{Macroelements.}
   \subfloat[Tetrahedral Macro\-ele\-ment.]
   {
     \label{macro_tetra_reg}
@@ -88,7 +89,6 @@
       \draw[white] (1,0,0) -- (1.3,0,0);
     \end{tikzpicture}
   }
-  \caption{Macroelements.}
 \end{figure}
 }
 
@@ -227,10 +227,11 @@
 }
 
 \def\prismsBaryCoordA{
-\begin{table}[!h]
+\begin{table}
   \centering  
-  \caption{{Barycentric coordinates of mesh points} in $\Lambda_\ell$}
-  \label{prisms_barycentric}
+  \caption{{Barycentric coordinates of prismatic mesh points} in $\Lambda_\ell$
+   \newline $0\leqslant l\leqslant n-2$, $i+j\leqslant n-l-2$}
+  \label{prisms_barycentric_a}
   \begin{IEEEeqnarraybox*}
     [\IEEEeqnarraystrutmode
     \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/v/c/v/c/v/c/v/c/v/}
@@ -281,10 +282,11 @@
 \end{table}}
 
 \def\prismsBaryCoordB{
-\begin{table}[!h]
+\begin{table}
   \centering  
-  \caption{{Barycentric coordinates of mesh points} in $\Lambda_\ell$}
-  \label{prisms_barycentric}
+  \caption{{Barycentric coordinates of prismatic mesh points} in $\Lambda_\ell$
+  \newline $0\leqslant l\leqslant n-2,\qquad i\ge1, \qquad \mbox{and}\qquad i+j\leqslant n-l-2$}
+  \label{prisms_barycentric_b}
   \begin{IEEEeqnarraybox*}
     [\IEEEeqnarraystrutmode
     \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/v/c/v/c/v/c/v/c/v/}
@@ -333,3 +335,140 @@
       \IEEEeqnarrayrulerow
   \end{IEEEeqnarraybox*}
 \end{table}}
+
+\def\pyramidsBaryCoord{
+\begin{table}
+  \centering  
+  \caption{Barycentric coordinates of pyramidal mesh points in $\Lambda_\ell$.
+      \newline
+    $0\leqslant l\leqslant n-2 \qquad\mbox{and}\qquad 1\leqslant i\leqslant n-l-1.$
+      \newline}
+  \label{pyramidal_barycentric}
+  \begin{IEEEeqnarraybox*}
+    [\IEEEeqnarraystrutmode
+    \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/v/c/v/c/v/c/v/c/v/}
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_0 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma  }
+               && {\textstyle \left(\frac{n-l}n\right)^\gamma-\left(\frac{n-l-1}n\right)^\gamma  }
+               && {\textstyle \frac in \left(\frac{n-l-1}n\right)^{\gamma-1}  }
+               && {\textstyle \frac{n-l-i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_1 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma }
+               && {\textstyle \left(\frac{n-l}n\right)^\gamma-\left(\frac{n-l-1}n\right)^\gamma }
+               && {\textstyle \frac{i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1} }
+               && {\textstyle \frac{n-l-i}n \left(\frac{n-l-1}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_2 && {\textstyle 1-\left(\frac{n-l-1}n\right)^\gamma  }
+               && {\textstyle   0  }
+               && {\textstyle   \frac in \left(\frac{n-l-1}n\right)^{\gamma-1}  }
+               && {\textstyle   \frac{n-l-i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_3 && {\textstyle 1-\left(\frac{n-l-1}n\right)^\gamma  }
+               && {\textstyle 0  }
+               && {\textstyle \frac{i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}  }
+               && {\textstyle \frac{n-l-i}n \left(\frac{n-l-1}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_4 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma  }
+               && {\textstyle 0  }
+               && {\textstyle \frac in \left(\frac{n-l}n\right)^{\gamma-1}  }
+               && {\textstyle \frac{n-l-i}n \left(\frac{n-l}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow
+  \end{IEEEeqnarraybox*}
+\end{table}}
+
+\def\tetrahedraBaryCoord{
+\begin{table}
+  \centering  
+  \caption{Barycentric coordinates of tetrahedral mesh points in $\Lambda_\ell$.
+      \newline
+$0\leqslant l\leqslant n-1\qquad\mbox{and}\qquad 1\leqslant i\leqslant n-l-1$
+      \newline}
+  \label{tetrahedral_barycentric}
+  \begin{IEEEeqnarraybox*}
+    [\IEEEeqnarraystrutmode
+    \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/v/c/v/c/v/c/v/c/v/}
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_0 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma }
+               && {\textstyle \left(\frac{n-l}n\right)^\gamma-\left(\frac{n-l-1}n\right)^\gamma }
+               && {\textstyle \frac in \left(\frac{n-l-1}n\right)^{\gamma-1} }
+               && {\textstyle \frac{n-l-i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_1 && {\textstyle 1-\left(\frac{n-l-1}n\right)^\gamma  }
+               && {\textstyle 0  }
+               && {\textstyle \frac in \left(\frac{n-l-1}n\right)^{\gamma-1}  }
+               && {\textstyle \frac{n-l-i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_2 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma  }
+               && {\textstyle 0  }
+               && {\textstyle \frac in \left(\frac{n-l}n\right)^{\gamma-1}  }
+               && {\textstyle \frac{n-l-i}n \left(\frac{n-l}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow\\
+      \IEEEeqnarrayseprow[5pt]\\
+         & p_3 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma  }
+               && {\textstyle 0  }
+               && {\textstyle \frac{i+1}n \left(\frac{n-l}n\right)^{\gamma-1}  }
+               && {\textstyle \frac{n-l-i-1}n \left(\frac{n-l}n\right)^{\gamma-1}}
+         & \\
+      \IEEEeqnarrayrulerow
+  \end{IEEEeqnarraybox*}
+\end{table}}
+
+%\def\prismsProductCoord{
+%\begin{table}
+%  \centering  
+%  \caption{Cartesian coordinates of prismatic mesh points in $\Lambda_\ell$.
+%      \newline
+%$0\leqslant l\leqslant n-1\qquad\mbox{and}\qquad 1\leqslant i\leqslant n-l-1$
+%      \newline}
+%  \label{prisms_product}
+%  \begin{IEEEeqnarraybox*}
+%    [\IEEEeqnarraystrutmode
+%    \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/v/c/v/c/v/c/v/c/v/}
+%      \IEEEeqnarrayrulerow\\
+%      \IEEEeqnarrayseprow[5pt]\\
+%         & p_0 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma }
+%               && {\textstyle \left(\frac{n-l}n\right)^\gamma-\left(\frac{n-l-1}n\right)^\gamma }
+%               && {\textstyle \frac in \left(\frac{n-l-1}n\right)^{\gamma-1} }
+%               && {\textstyle \frac{n-l-i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}}
+%         & \\
+%      \IEEEeqnarrayrulerow\\
+%      \IEEEeqnarrayseprow[5pt]\\
+%         & p_1 && {\textstyle 1-\left(\frac{n-l-1}n\right)^\gamma  }
+%               && {\textstyle 0  }
+%               && {\textstyle \frac in \left(\frac{n-l-1}n\right)^{\gamma-1}  }
+%               && {\textstyle \frac{n-l-i-1}n \left(\frac{n-l-1}n\right)^{\gamma-1}}
+%         & \\
+%      \IEEEeqnarrayrulerow\\
+%      \IEEEeqnarrayseprow[5pt]\\
+%         & p_2 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma  }
+%               && {\textstyle 0  }
+%               && {\textstyle \frac in \left(\frac{n-l}n\right)^{\gamma-1}  }
+%               && {\textstyle \frac{n-l-i}n \left(\frac{n-l}n\right)^{\gamma-1}}
+%         & \\
+%      \IEEEeqnarrayrulerow\\
+%      \IEEEeqnarrayseprow[5pt]\\
+%         & p_3 && {\textstyle 1-\left(\frac{n-l}n\right)^\gamma  }
+%               && {\textstyle 0  }
+%               && {\textstyle \frac{i+1}n \left(\frac{n-l}n\right)^{\gamma-1}  }
+%               && {\textstyle \frac{n-l-i-1}n \left(\frac{n-l}n\right)^{\gamma-1}}
+%         & \\
+%      \IEEEeqnarrayrulerow
+%  \end{IEEEeqnarraybox*}
+%\end{table}}
+

@@ -276,7 +276,7 @@ we take a basis...
 \end{IEEEeqnarray}
 \end{remark}
 The singular part in Problem (put ref) has a well defined interpolate.
-\begin{lemma}
+\begin{lemma}\label{well_defined_dofs}
 Firstly, we remark that if $\beta,\delta\in[0,1)$ and $\beta + \delta\le1$ then 
 \[
 V^{1,2}_{\beta,\delta}(\Lambda_\ell) \subset W^{1,1}(\Lambda_\ell)
@@ -401,7 +401,10 @@ igual que en el diagrama }
 \begin{IEEEeqnarray}{rCl}
 \label{curl_commutativity}
   \emph{\textbf{curl}}\,\pi \emph{\textbf{u}}
-  &=& \pi^*\emph{\textbf{curl}}\,\emph{\textbf{u}}.
+  &=& \pi^*\emph{\textbf{curl}}\,\emph{\textbf{u}}.\\
+\label{div_commutativity}
+  \dv\,\pi \emph{\textbf{u}}
+  &=& \pi^*\dv\,\emph{\textbf{u}}.
 \end{IEEEeqnarray}
 \end{lemma}
 \begin{proof}
