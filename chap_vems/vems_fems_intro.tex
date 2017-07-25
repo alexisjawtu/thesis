@@ -8,6 +8,8 @@ in meshes consisting of polyhedra of arbitrary kind.
 We deal with tetrahedra, triangular prisms and pyramids and, in the presence of
 the latter, our VEM scheme is put in the framework of non-polynomial Finite Elements.\\[5pt]
 \section{primera}
+Recall Problem~\ref{weakMixedContinuous} and add some notation on
+bilinear forms.
 Let be given an open \emph{non--convex} domain $\Omega\subseteq\mathbb{R}^3$ with
 Lipschitz--continuous boundary
 consisting of planar faces and define $V:=H(\mbox{div},\Omega)$ and $Q:=L^2(\Omega)$.
@@ -302,23 +304,23 @@ $E\in\mathcal T_h$ it holds
 where $c_E$ and $C_E$ depend only on the shape regularity of $E$.
 \end{corollary}
 
-\section{discrete problem. well posedness. local estimates?}
+\section{discrete problem.}
 The discrete problem in the Finite--Virtual Element scheme is stated as follows.
-\begin{problem}
-To find $\bu_h\in V_h$ and $p_h\in Q_h$ such that
-$\forall \bv\in V_h \qquad \forall q\in Q_h $
-\begin{equation}\label{mixedDiscrete}
+\begin{problem}\label{mixedDiscrete}
+To find $\bu_{\Th}\in V_{\Th}$ and $p_{\Th}\in Q_{\Th}$ such that
+$\forall \bv\in V_{\Th} \forall q\in Q_{\Th} $
+\begin{equation}
   \makebox[0pt]{
     \begin{minipage}{\linewidth}
       \begin{IEEEeqnarray*}{rCCCl}
-        a_h(\bu_h,\bv) & + & b(\bv,p_h) & = & 0 \\[5pt]
-                       & - & b(\bu_h,q) & = & (f,q)
+        a_{\scriptscriptstyle\Th}(\bu_{\Th},\bv) & + & b(\bv,p_{\Th}) & = & 0 \\[5pt]
+                               & - & b(\bu_{\Th},q) & = & (f,q)
       \end{IEEEeqnarray*}
     \end{minipage}}
-  \tag{MD}
+  %\tag{MD}
 \end{equation}
 \end{problem}
-In what follows we will be concerned in proving existence
+In Section~\ref{sec:well_posedness} we will be concerned in proving existence
 and uniqueness for Problem~(\ref{mixedDiscrete}). It will be done
 showing coercivity for one of the bilinear forms and a
 discrete version of the $\inf$--$\sup$ condition for the other.

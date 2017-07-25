@@ -372,13 +372,43 @@ i.e.:
   &&\quad+\,[{\scriptstyle1-\left(\frac{n-k}{n}\right)^{1/\mu}}]\,\textbf{e}_3.
 \end{IEEEeqnarray*}
 
-\section{main interpolation error theorem}
-\begin{theorem} $\bu$ solution of problem.
+\section{main global interpolation error theorem}
+Given a positive parameter $\textit{h}\downarrow 0$ and the mesh $\Th$ of
+Subsection~\ref{meshes} let $\rZerou$  be the \emph{global interpolation operator}
+\begin{IEEEeqnarray}{rCl}\label{global_interpolator}
+  \rZerou & : & W^{1,1}(\Omega) \to V_{\textit{h}}
+\end{IEEEeqnarray}
+such that, for each $\{\overline{E}:E\in\Th\}$,
+\begin{equation*}
+  (\rZerou)|_{E} = 
+    \left\{
+    \begin{array}{rll}
+      \boldsymbol{r}_E\,[\bu|_E] & \mbox{\,as in Definition~\ref{defi_face_element}} & \mbox{if $E$ is a prism}\\[5pt]
+                         I\bu    & \mbox{\,as in Corollary~\ref{interpolant}} & \mbox{if $E$ is a pyramid}\\[5pt]
+      \boldsymbol{r}_E\,[\bu|_E] & \mbox{\,as in Definition~\ref{defi_face_element_tetra}} & \mbox{if $E$ is a tetrahedron,}
+    \end{array}
+    \right.
+\end{equation*}
+in all cases with the lowest interpolation degree $k=0$ and
+with consistent normal components for interelementary faces.
+The following is the main interpolation error theorem.
+\begin{theorem}\label{interpolation_theorem} Let $\Omega$ and $f$ be the data and $(\bu,p)$ be the 
+solution
+of Problem~\ref{weakMixedContinuous}. Let  $\boldsymbol{r}_0$ be the operator~(\ref{global_interpolator}), then
   \begin{IEEEeqnarray*}{rCl}
-    \|\bu-\rZerou\|_{\mathbb{V}} &\leqslant& C \textit{h}\|f\|_{0,\Omega}
+    \|\bu-\rZerou\|_{0,\Omega} &\leqslant& C \textit{h}\|f\|_{0,\Omega}\\[5pt]
+    \|p-P_{\scriptscriptstyle \Th}p\|_{0,\Omega} &\leqslant& 
+    \mbox{>}C \textit{h}\|f\|_{0,\Omega}\mbox{ o bien }C \textit{h}\|p\|_{1,\Omega}\mbox{?}
   \end{IEEEeqnarray*}
 \end{theorem}
-\begin{proof}
+
+\begin{lemma}
+  The oerator~(\ref{global_interpolator}) is well defined because *** ver cuaderno
+\end{lemma}
+
+\begin{proof}[Proof of Theorem~\ref{interpolation_theorem}]
+**bound for the scalar variable: para todos igual, 
+lo pongo una sola vez.
   
 \end{proof} Recall that $\|\bw\|^2_{\mathbb{V}} = \|\bw\|^2_{0,\Omega} + \|\dv\,\bw\|^2_{0,\Omega}$ 
 and that, by Lemma~\ref{well_defined_dofs}, the field $\rZerou = r_0u_s + r_0u_r$ is well defined.  
@@ -392,8 +422,6 @@ If we apply this after the commutative diagram property~(\ref{div_commutativity}
   &\leqslant&\textit{h}^2\,\|\dv\,\bu\|^2_{0,\Omega}\\
   &=&\textit{h}^2\,\|f\|^2_{0,\Omega}.|
 \end{IEEEeqnarray*}
-**bound for the scalar variable: para todos igual, 
-lo pongo una sola vez.\\[5pt]
 In order to bound the regular part,
 \begin{IEEEeqnarray*}{rCl}
   \|\bu_r - \boldsymbol{r}_0\bu_r\|_{L^2(\Omega)}^2 & = &

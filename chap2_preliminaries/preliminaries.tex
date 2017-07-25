@@ -309,6 +309,18 @@ we look for a $\bu\in H(\dv,\Omega)$ such that
 \end{IEEEeqnarray*}
 \mbox{la cond de borde VA?\quad COMO LO PONGO? \quad (ver apunte de FEM2012 talvez)}
 \end{problem}
+\begin{problem}[Weak formulation.]\label{weakMixedContinuous}
+Suppose we have a simply connected Lipschitz polyhedron
+$\Omega\subseteq\mathbb{R}^3$ which is not convex. Given $f\in L^2(\Omega)$,
+find       $(\bu, p)  \in  H(\dv, \Omega) \times L^2(\Omega)$ 
+    such that for all   $(\bv, q)  \in  H(\dv, \Omega) \times L^2(\Omega)$
+  \begin{IEEEeqnarray*}{rCl}
+    \int_{\Omega} \bu\cdot\bv\,d\bx + 
+    \int_{\Omega} p\,\dv\bv\,d\bx                     & = & 0\\
+     -\int_{\Omega} q\dv\bu\,d\bx     & = & 
+    \int_{\Omega} f\,q\,d\bx.    
+  \end{IEEEeqnarray*}
+\end{problem}
 Due to the polyhedron not being convex there will be ingoing
 vertices and edges whose interior angles are obtuse. In the following
 we are going to recall how to formalize the singularities in a polyhedron
