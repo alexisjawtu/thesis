@@ -99,17 +99,20 @@ and
 \begin{theorem} solution $(\bu_{\textit{h}},p_{\textit{h}})$
 to~(\ref{mixedDiscrete}) satisfies,
 for every approximation $\pi(\bu)$ of $\bu$ in
-$\hat V(\mathcal{T}_{\textit{h}})$,
+$W(\mathcal{T}_{\textit{h}})$,
   \begin{IEEEeqnarray*}{rCl}
     \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\} \\[5pt]
-    \|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant& C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\}
+    \|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant& C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\}\\[5pt]
+    &{\color{red}\uparrow}&\\[5pt]
+        \IEEEeqnarraymulticol{3}{c}{\mbox{{\color{red} tal vez ac\'a no va como lemma 3.9 de ricardo mixed porque no tengo la propiedad}}}\\
+        \IEEEeqnarraymulticol{3}{c}{\mbox{{\color{red}div(Vh) = PPk}}}
   \end{IEEEeqnarray*} 
 \end{theorem}
 \begin{proof}
 \end{proof}
 
 {\color{brown}
-esta version de intercalado se usa??
+esta version de intercalado se usa?? Dur\'an Mixed lemma 3.9 es la segunda de estas
 \begin{proof}
 \begin{IEEEeqnarray*}{lCl}
   \|\boldsymbol{u} - \boldsymbol{u}_{\textit{h}}\|_{L^2(\Omega)^3}
@@ -117,11 +120,8 @@ esta version de intercalado se usa??
   C\,\inf_{v\in\mathbb{V}_h}\|\boldsymbol{u} - \textbf{v}\|_{\mathbb{V}}\\[7pt]
   &\leqslant& 
   C\,\|\boldsymbol{u} - \pi\boldsymbol{u}\|_{\mathbb{V}}\\[10pt]
-  \|p-p_{\textit{h}}\|_{\mathbb{Q}} &\leqslant&
-  C\,[\inf_{v\in\mathbb{V}_h}\|\boldsymbol{u} - \textbf{v}\|_{\mathbb{V}}+
-    \inf_{q\in\mathbb{Q}_h}\|p - q\|_{\mathbb{Q}}]\\
-    &\leqslant&
-  C\,[\|\boldsymbol{u} - \pi\boldsymbol{u}\|_{\mathbb{V}}+\|p - \pi_{\textit{h}}^{\bot} p \|_{\mathbb{Q}}].
+  \|p-p_{\textit{h}}\|_{\mathbb{Q}}&\leqslant&
+  C\,[\|\boldsymbol{u} - \pi\boldsymbol{u}\|_{L2(\Omega)}+\|p - \pi_{\textit{h}}^{\bot} p \|_{\mathbb{Q}}].
 \end{IEEEeqnarray*}
 \end{proof}
 
@@ -152,6 +152,12 @@ domain $\Omega$ is not convex or $f$ is not in $L^2(\Omega)$. This is what follo
 \label{sec:non_convex_case}
 
 \begin{theorem}
+
+{\color{BrickRed} poner esto en la intro como objetivo de todo el texto que sigue y
+el enunciado este, entero, ponerlo al final, en donde digo lo de la $\bw_{\bu}$ \\
+
+no, ojo que las mallas las estoy queriendo poner antes ... pensarlo}
+
 There exists a family of anisotropic graded meshes
 $\{\mathcal{T}_{\textit{h}}\}_{{\textit{h}}\downarrow 0}\,$
 made up of
@@ -407,21 +413,24 @@ of Problem~\ref{weakMixedContinuous}. Let  $\boldsymbol{r}_0$ be the operator~(\
 \end{lemma}
 
 \begin{proof}[Proof of Theorem~\ref{interpolation_theorem}]
+by Lemma~\ref{well_defined_dofs}, the field $\rZerou = r_0u_s + r_0u_r$ is well defined.  
+\end{proof} 
 **bound for the scalar variable: para todos igual, 
 lo pongo una sola vez.
-  
-\end{proof} Recall that $\|\bw\|^2_{\mathbb{V}} = \|\bw\|^2_{0,\Omega} + \|\dv\,\bw\|^2_{0,\Omega}$ 
-and that, by Lemma~\ref{well_defined_dofs}, the field $\rZerou = r_0u_s + r_0u_r$ is well defined.  
-First, for the divergence term,
-Primero usar el lemma de taylor promediado aplicado al caso sin derivar. Despu'es:
-If we apply this after the commutative diagram property~(\ref{div_commutativity})
-\begin{IEEEeqnarray*}{rCl}
-\|\dv(\bu - \rZerou)\|^2_{0,\Omega} & = &
-  \|\dv\,\bu - \dv\,\rZerou\|^2_{0,\Omega}\\
-    & = &\|\dv\,\bu - \boldsymbol{P}_{\mathcal{T}_h}\dv\,\bu\|^2_{0,\Omega}\\
-  &\leqslant&\textit{h}^2\,\|\dv\,\bu\|^2_{0,\Omega}\\
-  &=&\textit{h}^2\,\|f\|^2_{0,\Omega}.|
-\end{IEEEeqnarray*}
+%%======================================================================================= 
+% Recall that $\|\bw\|^2_{\mathbb{V}} = \|\bw\|^2_{0,\Omega} + \|\dv\,\bw\|^2_{0,\Omega}$ 
+% and that, 
+% First, for the divergence term,
+% Primero usar el lemma de taylor promediado aplicado al caso sin derivar. Despu'es:
+% If we apply this after the commutative diagram property~(\ref{div_commutativity})
+% \begin{IEEEeqnarray*}{rCl}
+% \|\dv(\bu - \rZerou)\|^2_{0,\Omega} & = &
+%   \|\dv\,\bu - \dv\,\rZerou\|^2_{0,\Omega}\\
+%     & = &\|\dv\,\bu - \boldsymbol{P}_{\mathcal{T}_h}\dv\,\bu\|^2_{0,\Omega}\\
+%   &\leqslant&\textit{h}^2\,\|\dv\,\bu\|^2_{0,\Omega}\\
+%   &=&\textit{h}^2\,\|f\|^2_{0,\Omega}.|
+% \end{IEEEeqnarray*}
+%%======================================================================================= 
 In order to bound the regular part,
 \begin{IEEEeqnarray*}{rCl}
   \|\bu_r - \boldsymbol{r}_0\bu_r\|_{L^2(\Omega)}^2 & = &
@@ -1006,6 +1015,46 @@ and, as was done for these two terms, we have
 \subsection{bound singular part tetrahedral macroelement with
 singular vertex and no singular edge.}
 
+*****************************************************
 
+Now we establish the bound for the error in the statement of the Theorem.
+For every $\bw\in W(\Th)$:
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\bw\|_{L^2(\Omega)^3}\}.
+\end{IEEEeqnarray*}
+Now
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\bw\|^2_{0,\Omega} &=& \sum_1^N \|\bu-\bw\|^2_{0,\Lambda_\ell}\\
+    &=& \sum_1^N \left\{
+      \sum_{pri} \|\bu-\bw\|^2_{0,E_\ell} +
+      \sum_{tet} \|\bu-\bw\|^2_{0,E_\ell} +
+      \sum_{pyr} \|\bu-\bw\|^2_{0,E_\ell}
+    \right\} 
+\end{IEEEeqnarray*}
+so it suggests to do: 
+let $P_{0,E_{\ell}}$ be the projection onto the constants over $E_{\ell}$;
+take a $\bw_{\bu}$ such that, for every $E_\ell$
+\begin{equation*}
+  (\bw_{\bu})|_{E_\ell} = 
+    \left\{
+    \begin{array}{rll}
+      \boldsymbol{r}_{E_\ell}\,[\bu|_{E_\ell}] & \mbox{if $E_\ell$ is a prism or a tetrahedron}\\[5pt]
+                         P_{0,E_{\ell}}\bu    & \mbox{if $E_{\ell}$ is a pyramid}\\[5pt]
+    \end{array}
+    \right.
+\end{equation*}
+then, we able to do:
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\bw_{\bu}\|^2_{0,\Omega}
+    &=& \sum_1^N \left\{
+      \sum_{pri} \|\bu-I\bu\|^2_{0,E_\ell} +
+      \sum_{tet} \|\bu-I\bu\|^2_{0,E_\ell} +
+      \sum_{pyr} \|\bu-P_{0,E_{\ell}}\|^2_{0,E_\ell}
+    \right\} 
+\end{IEEEeqnarray*}
+
+\noindent{\color{blue}\#\#\#\#\#\#\# continue here: ojo, hacer que quede
+el cardinal de la malla $\mathcal{T}_{h_0}$ y no el N = nro. elem de malla. Ojo que N está 
+como cardinal de la primera malla y también como cardinal de una malla cualquiera}.
 
 {\color{blue}\#\#\#\#\#\#\#\# examples of the meshing procedure \\[5pt]}
