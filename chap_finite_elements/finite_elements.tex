@@ -206,8 +206,7 @@ Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_prisms}
 With the notation introduced in~(\ref{sub:polynomials}) we consider
 the polynomial space
-Notaci\'on:{\color{red} Controlar si est\'a bien usada la notaci\'on de prod. tensorial cuando
-es un vector de dos coords. por un escalar, y Controlar si es el mismo $h(x,y,z)$ en las coords. 1 y 2 (el 
+Notaci\'on:{\color{red} Controlar si es el mismo $h(x,y,z)$ en las coords. 1 y 2 (el 
 que es un homog\'eneo en $x,y$ por uno en $z$.)}
 \begin{IEEEeqnarray*}{rCl}
     \yesnumber\label{dk}
@@ -260,6 +259,20 @@ en pyramids}
     \rho_{\boldsymbol{r}}\,(\hat{\bu} - \rku) & = & 0 &\quad\mbox{for }\boldsymbol{r}\in\mathcal{}.
   \end{IEEEeqnarray}
 \end{defi}
+\begin{proposition} On the Finite Element~(\ref{defi_h_div_conforme}). 
+$\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
+which is, at the same time, equal to the number of its independent degrees of freedom.
+\end{proposition}
+\begin{proof}
+    From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
+    \begin{IEEEeqnarray*}{rCl}
+        \dim (P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y)) \otimes P_{k-1}(z) + \dim P_{k-1}(x,y)\otimes P_k(z) & = &\\[5pt]
+        \IEEEeqnarraymulticol{3}{r}{=\,(k(k+1)+k)k+\dfrac{k(k+1)}{2}(k+1)} 
+    \end{IEEEeqnarray*}
+    and the same quantity is obtained by summing up the dimensions of all the
+    \emph{test} spaces on the right of~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
+\end{proof}
+
 \begin{remark} {\color{red} primero hacer unisolvencia!} The interpolation operator
 can be written
 {\color{blue}\#\#\#\#\#\#\#\# definir notación para los grados de libertad;
@@ -299,32 +312,6 @@ which implies $D^\alpha{\bv}\in L^1(\Lambda_\ell)$ for all $\bv\in V^{1,2}_{\bet
 So, given a mesh of $\Omega$, we can consider the interpolation $\bu_{s,I}$ of
 the singular part $\bu_s$ of the solution, since the traces on faces of the elements
 of $\bu_s$ are well defined and its normal component can be integrated there.
-\begin{proposition} On the Finite Element~(\ref{defi_h_div_conforme}). 
-$\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
-which is, at the same time, equal to the number of its independent degrees of freedom.
-\end{proposition}
-\begin{proof}
-    From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
-    \begin{IEEEeqnarray*}{rCl}
-        \dim (P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y)) \otimes P_{k-1}(z) + \dim P_{k-1}(x,y)\otimes P_k(z) & = &\\[5pt]
-        \IEEEeqnarraymulticol{3}{r}{=\,(k(k+1)+k)k+\dfrac{k(k+1)}{2}(k+1)} 
-    \end{IEEEeqnarray*}
-    and the same quantity is obtained by summing up the dimensions of all the
-    \emph{test} spaces on the right of~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
-\end{proof}
-We want this same setting to build Finite Elements on arbitrary contiguous prisms
-belonging to a fixed mesh, all of which being an affine image of the reference prism.
-In order to do so we transform the set $\hat{E}$, the discrete local space and the 
-degrees of freedom exactly as we are told by the push-forward
-transformations~(\ref{push-forward}). 
-
-Consider a prism $E\subseteq\mathbb{R}^3$ that is the affine image of the reference prism $\hat{E}$
-under 
-\begin{IEEEeqnarray*}{rCl}
-                      F &:& \hat{E}\to E\\
-    F(\hat{\textbf{x}}) &=& B\hat{\textbf{x}} + \boldsymbol{p}_E
-\end{IEEEeqnarray*}
-where $B$ is a matrix of rank $3$.
 
 \noindent---------------------------------------------------------
 \input{./chap_vems/hdiv_basis_low_order}\\
@@ -371,14 +358,7 @@ Generalization of the Raviart-Thomas Finite Element} % (fold)
   Face interpolator on tetrahedra
 \end{defi}
 % subsection definition_of_the_h_div_element_on_tetrahedra
-El siguiente lemma será usado para demostrar el teorema de estabilidad en el
-reference prism con un argumento de densidad. Para su demostración referimos
-a~\cite{adams}.{\color{blue}\#\#\#\#\#\#\#\# es el de pag. 51 Adams?.}
-{\color{blue}\#\#\#\#\#\#\#\# tal vez mejor el Teorema 3.26 de monk, pag.55?.}
-\begin{lemma}\label{lemaDensidad}
-$C^\infty(\bar{E})^3$ es un subespacio denso de $\wpcurl{E}$ con la
-norma~(\ref{normaWpcurl}).
-\end{lemma}
+
 % subsection defEdgeElement (end)
 % \begin{proposition} On the Finite Element~(\ref{defi_h_div_conforme}). 
 % $\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
@@ -505,77 +485,11 @@ $\textbf{u} \in \mathcal{C}^1(\bar{S})^2 $ y $\phi \in \mathcal{C}^1(\bar{S})$ t
 
 % subsection definition_of_the_h_div_element (end)
 
-\subsection{Transformaciones entre prismas} % (fold)
-\label{sub:transformaciones_entre_prismas}
-Consideremos la aplicación $\hat{\textbf{x}}\longmapsto{\textbf{x}} = 
-F_K(\hat{\textbf{x}})$, en donde $F_K = M\hat{\textbf{x}} + \textbf{x}_0$, que transforma
-$\hat{E}$ en un elemento $K$ de la malla y $M$ es inversible y tiene determinante 
-de signo constante.
-Si tenemos una función escalar $\hat{p} \in H^1(\hat{E})$ definimos $p$ en $K$ por
-\begin{IEEEeqnarray}{rCl}
-    \label{transfEscalar} p\circ F_K & = & \hat{p}.
-\end{IEEEeqnarray}
-Then, with multiindex notation, for $F_K = \diag{h_1}{h_2}{h_3}$:
-\begin{IEEEeqnarray*}{rCl}
-    \partial^\alpha \hat{u} (\hat{\textbf{x}})&=&
-        h^\alpha\partial^\alpha u(F_K(\hat{\textbf{x}})).
-\end{IEEEeqnarray*}
-Como $\nabla p = M^{-t}\hat{\nabla} \hat{p} \circ F_K^{-1}$, entonces resulta 
-$p \in H^1(K)$.
-Ahora tomemos $\hat{\textbf{u}} \in H(curl, \hat{E})$. Buscamos asociarle una
-$\textbf{u}$ en $K$. Como para $\hat{p}$ y $p$ como recién vale
-$\nabla p \in H(curl, K)$ y $\hat{\nabla} \hat{p} \in H(curl, \hat{E})$, la igualdad
-anterior nos sugiere la transformación de $\hat{\textbf{u}}$ a $\textbf{u}$. En efecto
-\begin{IEEEeqnarray}{rCl}
-    \label{transfHcurl} \textbf{u}\circ F_K & = & M^{-t}\hat{\textbf{u}}.
-\end{IEEEeqnarray} 
-Con esta definición tenemos $\textbf{u}\in H(\textbf{curl}, K)$ y además
-\begin{IEEEeqnarray}{rCl}
-    \label{transfCurl} (\textbf{curl}\,\textbf{u})\circ F_K & = & 
-    \frac{1}{\det M} M (\hat{\textbf{curl}}\,\hat{\textbf{u}}).
-\end{IEEEeqnarray}
-Transformación en $H(\dvg)$. Since $F_K$ is affine
-\begin{IEEEeqnarray}{rCl}
-    \label{transfDiv} \textbf{u}\circ F_K & = & 
-    \frac{1}{\det M} M \hat{\textbf{u}}.
-\end{IEEEeqnarray}
-With~(\ref{transfDiv})
-\begin{IEEEeqnarray*}{rCl}
-    \|\hat{\textbf{v}}\|^2_{L^2(\hat{E})}
-    &=& \sum_{1\leqslant i\leqslant 3}\|\hat{v}_i\|^2_{0,\hat{E}}\\[7pt]
-    &=& \sum_{1\leqslant i\leqslant 3}\frac{h_jh_k}{h_i}\,\|v_i\|^2_{0,K};\\[7pt]
-    \|\hat{v}_i\|^2_{0,\hat{E}}&=&\frac{h_jh_k}{h_i}\,\|v_i\|^2_{0,K}
-\end{IEEEeqnarray*}
-where $\{i,j,k\} = \{1,2,3\}$.
-\begin{lemma} For all $\tilde{\boldsymbol{\sigma}} \in H(\dvg, \tilde{K})$, $\boldsymbol{\sigma}$ results in
-$H(\dvg, K)$ and in fact
-\[
-    \emph{div}\,\boldsymbol{\sigma}(\emph{\textbf{x}}) =
-        \frac{1}{\det DF}\,\tilde{\emph{div}}\,\tilde{\boldsymbol{\sigma}}(\tilde{\emph{\textbf{x}}}).
-\]
-\end{lemma}
-\begin{proof}
-Observe that
-\begin{IEEEeqnarray*}{rCl}
-    trace(A\cdot B\cdot A^{-1}) &=& trace(B)\\
-    \label{Piola}\yesnumber\boldsymbol{\sigma} \circ F & = & \frac{1}{\det(A)} A\,\tilde{\boldsymbol{\sigma}}\\
-    \label{derivadaPiola}\yesnumber\tilde{D}\tilde{\boldsymbol{\sigma}}(\tilde{\textbf{x}}) & = &
-        \det(A)\,A^{-1}\,D\boldsymbol{\sigma} (F(\tilde{\textbf{x}})) \,A.
-\end{IEEEeqnarray*}
-Then
-\begin{IEEEeqnarray*}{rCl}
-    \text{div}\,\boldsymbol{\sigma}(\textbf{x}) & = & trace(D\boldsymbol{\sigma} (\textbf{x}))\\
-                                        & = & \frac{1}{\det(A)}\,trace(A\,\tilde{D}\tilde{\boldsymbol{\sigma}} (F^{-1}(\textbf{x}))\,A^{-1})\\
-                                        & = & \frac{1}{\det(A)}\,\tilde{\text{div}}\,\tilde{\boldsymbol{\sigma}}(\tilde{\textbf{x}}).   
-\end{IEEEeqnarray*}
-\end{proof}
-
-Todas estas igualdades se prueban en~\cite{monk}.\\\\
-Citar de~\cite{monk}.\\\\
 El sigte lema, hacerlo una vez para edge
 y una vez para face, para un cierto poliedro, y decir que vale 
 la misma cuenta en los otros. Ver (3.79) (3.80) en monk: transf.
-de normales y tangentes.
+de normales y tangentes.\\\\
+remite a transform entre prismas etc ... de preliminares
 \begin{lemma} The edge element interpolators satisfy
 \begin{IEEEeqnarray}{rCl}\label{piTransformado}
     \wku(\hat{\bx}) & = & M^{t} \bw_k\bu(F(\hat{\bx})).

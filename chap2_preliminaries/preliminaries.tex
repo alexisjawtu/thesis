@@ -179,6 +179,14 @@ $|\phi|_{W^{m,2}(\Omega)}=|\phi|_{m,\Omega}$.
 	\| \curl\bu \|_{_{W^{1,1}(E)}}. 
 \end{IEEEeqnarray*}
 \end{defi}
+El siguiente lemma será usado para demostrar el teorema de estabilidad en el
+reference prism con un argumento de densidad. Para su demostración referimos
+a~\cite{adams}.{\color{blue}\#\#\#\#\#\#\#\# es el de pag. 51 Adams?.}
+{\color{blue}\#\#\#\#\#\#\#\# tal vez mejor el Teorema 3.26 de monk, pag.55?.}
+\begin{lemma}\label{lemaDensidad}
+$C^\infty(\bar{E})^3$ es un subespacio denso de $\wpcurl{E}$ con la
+norma~(\ref{normaWpcurl}).
+\end{lemma}
 To talk  about the regularity of a solution in a \emph{non--convex} domain
 we will make use of the following weighted Sobolev space.
 \begin{defi} Suppose $\Omega$ non--convex, $\Lambda \subseteq \Omega$ such that 
@@ -222,6 +230,28 @@ the normal traces of $\boldsymbol{u}_1$ and $\boldsymbol{u}_2$ coincide on $f$.
 
 \{*** traido de seccion $\tilde{E}$
 y usamos todo lo que estudiamos en la Sección~\ref{sub:transformaciones_entre_prismas}
+
+We want this same setting to build Finite Elements on 
+arbitrary contiguous prisms
+belonging to a fixed mesh, all of which being an affine 
+image of the reference prism.
+In order to do so we transform the set $\hat{E}$, the 
+discrete local space and the 
+degrees of freedom exactly as we are told by the 
+push-forward
+transformations~(\ref{push-forward}). 
+
+Consider a prism $E\subseteq\mathbb{R}^3$ that is the 
+affine image of the reference prism $\hat{E}$
+under 
+\begin{IEEEeqnarray*}{rCl}
+                      F &:& \hat{E}\to E\\
+    F(\hat{\textbf{x}}) &=& B\hat{\textbf{x}} + \
+    boldsymbol{p}_E
+\end{IEEEeqnarray*}
+where $B$ is a matrix of rank $3$.
+
+
 para transformar $\hat{E} $ en $\tilde{E} $ v\'ia
 
 
@@ -273,6 +303,76 @@ $(1,0,0)$, $(0,1,0)$, $(1,1,0)$ and $(0,0,1)$ (cfr. Figure~\ref{refpyr}).
 	}
 	\caption{Pyramids}
 \end{figure}
+
+\subsection{Transformaciones entre prismas} % (fold)
+\label{sub:transformaciones_entre_prismas}
+Consideremos la aplicación $\hat{\textbf{x}}\longmapsto{\textbf{x}} = 
+F_K(\hat{\textbf{x}})$, en donde $F_K = M\hat{\textbf{x}} + \textbf{x}_0$, que transforma
+$\hat{E}$ en un elemento $K$ de la malla y $M$ es inversible y tiene determinante 
+de signo constante.
+Si tenemos una función escalar $\hat{p} \in H^1(\hat{E})$ definimos $p$ en $K$ por
+\begin{IEEEeqnarray}{rCl}
+    \label{transfEscalar} p\circ F_K & = & \hat{p}.
+\end{IEEEeqnarray}
+Then, with multiindex notation, for $F_K = \diag{h_1}{h_2}{h_3}$:
+\begin{IEEEeqnarray*}{rCl}
+    \partial^\alpha \hat{u} (\hat{\textbf{x}})&=&
+        h^\alpha\partial^\alpha u(F_K(\hat{\textbf{x}})).
+\end{IEEEeqnarray*}
+Como $\nabla p = M^{-t}\hat{\nabla} \hat{p} \circ F_K^{-1}$, entonces resulta 
+$p \in H^1(K)$.
+Ahora tomemos $\hat{\textbf{u}} \in H(curl, \hat{E})$. Buscamos asociarle una
+$\textbf{u}$ en $K$. Como para $\hat{p}$ y $p$ como recién vale
+$\nabla p \in H(curl, K)$ y $\hat{\nabla} \hat{p} \in H(curl, \hat{E})$, la igualdad
+anterior nos sugiere la transformación de $\hat{\textbf{u}}$ a $\textbf{u}$. En efecto
+\begin{IEEEeqnarray}{rCl}
+    \label{transfHcurl} \textbf{u}\circ F_K & = & M^{-t}\hat{\textbf{u}}.
+\end{IEEEeqnarray} 
+Con esta definición tenemos $\textbf{u}\in H(\textbf{curl}, K)$ y además
+\begin{IEEEeqnarray}{rCl}
+    \label{transfCurl} (\textbf{curl}\,\textbf{u})\circ F_K & = & 
+    \frac{1}{\det M} M (\hat{\textbf{curl}}\,\hat{\textbf{u}}).
+\end{IEEEeqnarray}
+Transformación en $H(\dvg)$. Since $F_K$ is affine
+\begin{IEEEeqnarray}{rCl}
+    \label{transfDiv} \textbf{u}\circ F_K & = & 
+    \frac{1}{\det M} M \hat{\textbf{u}}.
+\end{IEEEeqnarray}
+With~(\ref{transfDiv})
+\begin{IEEEeqnarray*}{rCl}
+    \|\hat{\textbf{v}}\|^2_{L^2(\hat{E})}
+    &=& \sum_{1\leqslant i\leqslant 3}\|\hat{v}_i\|^2_{0,\hat{E}}\\[7pt]
+    &=& \sum_{1\leqslant i\leqslant 3}\frac{h_jh_k}{h_i}\,\|v_i\|^2_{0,K};\\[7pt]
+    \|\hat{v}_i\|^2_{0,\hat{E}}&=&\frac{h_jh_k}{h_i}\,\|v_i\|^2_{0,K}
+\end{IEEEeqnarray*}
+where $\{i,j,k\} = \{1,2,3\}$.
+\begin{lemma} For all $\tilde{\boldsymbol{\sigma}} \in H(\dvg, \tilde{K})$, $\boldsymbol{\sigma}$ results in
+$H(\dvg, K)$ and in fact
+\[
+    \emph{div}\,\boldsymbol{\sigma}(\emph{\textbf{x}}) =
+        \frac{1}{\det DF}\,\tilde{\emph{div}}\,\tilde{\boldsymbol{\sigma}}(\tilde{\emph{\textbf{x}}}).
+\]
+\end{lemma}
+\begin{proof}
+Observe that
+\begin{IEEEeqnarray*}{rCl}
+    trace(A\cdot B\cdot A^{-1}) &=& trace(B)\\
+    \label{Piola}\yesnumber\boldsymbol{\sigma} \circ F & = & \frac{1}{\det(A)} A\,\tilde{\boldsymbol{\sigma}}\\
+    \label{derivadaPiola}\yesnumber\tilde{D}\tilde{\boldsymbol{\sigma}}(\tilde{\textbf{x}}) & = &
+        \det(A)\,A^{-1}\,D\boldsymbol{\sigma} (F(\tilde{\textbf{x}})) \,A.
+\end{IEEEeqnarray*}
+Then
+\begin{IEEEeqnarray*}{rCl}
+    \text{div}\,\boldsymbol{\sigma}(\textbf{x}) & = & trace(D\boldsymbol{\sigma} (\textbf{x}))\\
+                                        & = & \frac{1}{\det(A)}\,trace(A\,\tilde{D}\tilde{\boldsymbol{\sigma}} (F^{-1}(\textbf{x}))\,A^{-1})\\
+                                        & = & \frac{1}{\det(A)}\,\tilde{\text{div}}\,\tilde{\boldsymbol{\sigma}}(\tilde{\textbf{x}}).   
+\end{IEEEeqnarray*}
+\end{proof}
+
+Todas estas igualdades se prueban en~\cite{monk}.\\\\
+Citar de~\cite{monk}.\\\\
+
+
 \begin{defi} We say that the unisolvent Finite Element $(E, P_E, \Sigma)$ is
 $H(\text{div})$--conforming if every time we take two
 \emph{push-forward} elements $(E_1, P_{E_1}, \Sigma_1)$

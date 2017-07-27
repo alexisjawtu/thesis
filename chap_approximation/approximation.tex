@@ -1046,15 +1046,31 @@ take a $\bw_{\bu}$ such that, for every $E_\ell$
 then, we able to do:
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bw_{\bu}\|^2_{0,\Omega}
-    &=& \sum_1^N \left\{
+    &=& \sum_{\ell=1}^N \left\{
       \sum_{pri} \|\bu-I\bu\|^2_{0,E_\ell} +
       \sum_{tet} \|\bu-I\bu\|^2_{0,E_\ell} +
       \sum_{pyr} \|\bu-P_{0,E_{\ell}}\|^2_{0,E_\ell}
-    \right\} 
+    \right\}\\[5pt]
+    &\leqslant& \sum_{\ell=1}^N \left\{
+      \sum_{pri} \textit{h} \|f\|^2_{0,E_\ell} +
+      \sum_{tet} \textit{h} \|f\|^2_{0,E_\ell} +
+      \sum_{pyr} h_{E_\ell}|\bu|^2_{1,E_\ell}
+    \right\}\\[5pt]
+    &\leqslant& \textit{h} \sum_{\ell=1}^N \left\{
+      \sum_{pri}  \|f\|^2_{0,E_\ell} +
+      \sum_{tet}  \|f\|^2_{0,E_\ell} +
+      \sum_{pyr} |\bu|^2_{1,E_\ell} {\color{red}\mbox{$\leftarrow$ esta parte? $\|f\|?$}}
+    \right\}\\[5pt]
+    \IEEEeqnarraymulticol{3}{c}{{\color{red} \mbox{tal vez haya que tomar las distancias
+        a la arista y al vertice. Me gustar\'ia que quede lo sgte:}}}\\
+    &\leqslant& \textit{h} \sum_{\ell=1}^N \|f\|^2_{0,\Lambda_\ell} \,=\,
+      \textit{h}\,\|f\|^2_{0,\Omega}.
 \end{IEEEeqnarray*}
 
-\noindent{\color{blue}\#\#\#\#\#\#\# continue here: ojo, hacer que quede
-el cardinal de la malla $\mathcal{T}_{h_0}$ y no el N = nro. elem de malla. Ojo que N está 
+\noindent{\color{blue}\#\#\#\#\#\#\# Ojo que N está 
 como cardinal de la primera malla y también como cardinal de una malla cualquiera}.
+
+
+
 
 {\color{blue}\#\#\#\#\#\#\#\# examples of the meshing procedure \\[5pt]}
