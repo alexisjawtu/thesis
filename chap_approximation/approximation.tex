@@ -7,7 +7,7 @@ If we consider the following kernel
                         \mbox{for all } q\in Q_h\} \\[4pt]
                & = & V_{\textit{h}}\cap\ker\dv
 \end{IEEEeqnarray*}
-then the {\color{red}previuos Lemma} implies the following Proposition.
+then Lemma~\ref{lemma_for_coercivity} implies the following Proposition.
 \begin{proposition}
   $a_h$ is coercive over $\mathcal K_h$ and the coercivity constant
   depends only on the shape regularity of the pyramids of the mesh.
@@ -431,7 +431,9 @@ lo pongo una sola vez.
 %   &=&\textit{h}^2\,\|f\|^2_{0,\Omega}.|
 % \end{IEEEeqnarray*}
 %%======================================================================================= 
-In order to bound the regular part,
+In any macro--element, in order to bound the regular part,
+
+Given an element $E$, let $\boldsymbol{h}=(h_{E,1},h_{E,2},h_{E,3})'$.
 \begin{IEEEeqnarray*}{rCl}
   \|\bu_r - \boldsymbol{r}_0\bu_r\|_{L^2(\Omega)}^2 & = &
   \sum_{E\in\mathcal{T}_{\textit{h}}}
@@ -445,25 +447,23 @@ In order to bound the regular part,
   \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(E)}^2 + 
   \|\dv\bu_r\|_{L^2(E)}^2\right].
 \end{IEEEeqnarray*}
-Now $\boldsymbol{h}\leqslant C\,\textit{h}$ and $h_K \leqslant C\,h_3 \sim \textit{h}$ for all the elements of the
-mesh, so that we get
+Now $\boldsymbol{h}\leqslant C\,\textit{h}$ and $h_E \leqslant C\,h_3 \sim \textit{h}$ for all the elements of the
+mesh, so the last expression is bounded above by
 \begin{IEEEeqnarray*}{rCl}
-  &\leqslant&\sum_{K\in\mathcal{T}_{\textit{h}}}4\,\textit{h}^{2}
+  C^2\sum_{E\in\mathcal{T}_{\textit{h}}}4\,\textit{h}^{2}
   \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(E)}^2 + 
-  \|\text{div}\bu_r\|_{L^2(E)}^2\right]\\
-  &=&4\,\textit{h}^{2}
+  \|\text{div}\bu_r\|_{L^2(E)}^2\right]
+  &=&C\,\textit{h}^{2}
   \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(\Omega)}^2 + 
   \|\text{div}\bu_r\|_{L^2(\Omega)}^2\right].
 \end{IEEEeqnarray*}
 Then, finally
 \begin{IEEEeqnarray*}{rCl}
   \|\bu_r - \boldsymbol{r}_0\bu_r\|_{L^2(\Omega)}&\leqslant&
-  C\,\textit{h}
-  \left(\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(\Omega)} + 
-  \|\text{div}\bu_r\|_{L^2(\Omega)}\right).
+  C\,\textit{h}\,|\bu_r|_{1,\Omega}.
 \end{IEEEeqnarray*}
 {\color{red} C\'omo pasamos a la norma de $f$?}
-\subsection{bound singular part prismatic macroelement} % (fold)
+\subsection{prismatic macro--element, bound singular part} % (fold)
 \label{sub:bound_singular_part_prismatic_macroelement}
 Here we need to distinguish between the elements $\text{d}(K,e) > 0$ and $\text{d}(K,e) = 0$.
 \begin{IEEEeqnarray*}{rCl}
