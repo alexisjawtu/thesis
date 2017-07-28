@@ -179,14 +179,30 @@ $|\phi|_{W^{m,2}(\Omega)}=|\phi|_{m,\Omega}$.
 	\| \curl\bu \|_{_{W^{1,1}(E)}}. 
 \end{IEEEeqnarray*}
 \end{defi}
-El siguiente lemma será usado para demostrar el teorema de estabilidad en el
-reference prism con un argumento de densidad. Para su demostración referimos
-a~\cite{adams}.{\color{blue}\#\#\#\#\#\#\#\# es el de pag. 51 Adams?.}
-{\color{blue}\#\#\#\#\#\#\#\# tal vez mejor el Teorema 3.26 de monk, pag.55?.}
-\begin{lemma}\label{lemaDensidad}
-$C^\infty(\bar{E})^3$ es un subespacio denso de $\wpcurl{E}$ con la
-norma~(\ref{normaWpcurl}).
-\end{lemma}
+%%=============================================================================
+%{\color{blue}\#\#\#\#\#\#\#\# es el de pag. 51 Adams?.}
+%{\color{blue}\#\#\#\#\#\#\#\# tal vez mejor el Teorema 3.26 de monk, pag.55?.}
+%{\color{blue}\#\#\#\#\#\#\#\# poner un esbozo de la prueba, mirar chap 3 adams
+%si queda tiempo.}
+%%=============================================================================
+\begin{defi}
+  We shall say that a domain $\Omega$ has the \textsl{segment property}
+  if for every $x$ in the boundary of $\Omega$ there exists an open set
+  $U_x$ and a nonzero vector $y_x$ such that $x\in U_x$ and if 
+  $z\in\overline{\Omega}\cap U_x$, then $z+ty_x \in \Omega$ for $0<t<1$.
+\end{defi}
+  A domain having this property must have $(n-1)$--dimensional boundary
+  and cannot simultaneously lie on both sides of any given part of its
+  boundary.
+
+  Since the polyhedra we will consider to build finite elements are
+  convex and obviously satisfy the segment property,
+  with techniques that can be learned from Chapter $3$
+  in the book~\cite{adams} we can prove the following Remark.
+\begin{remark}\label{density_wpcurl}
+  The space $\mathcal{C}^\infty(\bar{E})^3$ is dense in
+  $W^p(\curl,{E})$ with its norm defined in~(\ref{normaWpcurl}).
+\end{remark}
 To talk  about the regularity of a solution in a \emph{non--convex} domain
 we will make use of the following weighted Sobolev space.
 \begin{defi} Suppose $\Omega$ non--convex, $\Lambda \subseteq \Omega$ such that 

@@ -69,9 +69,9 @@ Besides, since $q^*\in Q_h$, by~(\ref{p0_projection}) we have
 Now we can prove the discrete inf-sup condition. 
 \begin{theorem}[Discrete $\inf-\sup$ condition for $b_h$] \label{inf_sup_b_h}
 There exists $\beta > 0$ such that for all $q^*\in Q_h$ 
-\begin{IEEEeqnarray*}{rCl}
+\begin{IEEEeqnarray}{rCl}\label{discrete_inf_sup_b} 
   \sup_{0\ne\bv\in V_h} \frac{b_h(\bv,q^*)}{\|\bv\|_{V_h}} &\geqslant& \beta\|q^*\|_{Q_h}.
-\end{IEEEeqnarray*}
+\end{IEEEeqnarray}
 \end{theorem}
 \begin{proof} By Lemma~\ref{lemma_inf_sup_bh} for $q^*\in Q_h$
 there exists $\bw_h^*\in V_h$ such that $\dv\bw_h^*=q^*$ and
@@ -92,6 +92,25 @@ and
 \end{proof}
 \begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution
 \end{theorem}
+\begin{proof}
+  Theorem 5.2 of~\ref{ricardoMixed} states that 
+  Problem~(\ref{mixedDiscrete}) has a unique solution
+  provided~(\ref{discrete_inf_sup_b})  holds and 
+  that there exists some $\alpha>0$ such that for all $\bu\in\mathcal{K}_{\textit{h}}$
+\begin{IEEEeqnarray*}{rCl}\label{discrete_inf_sup_a} 
+  \sup_{0\ne\bv\in \mathcal{K}_{\textit{h}}}
+  \frac{a_{\textit{h}}(\bu,\bv)}{\|\bv\|_{V_h}} &\geqslant& \alpha\|\bu\|_{V_h}
+\end{IEEEeqnarray*}
+  but this is implied by the coercivity of $a_{\textit{h}}$
+since
+\begin{IEEEeqnarray*}{rCcCl}
+  \sup_{0\ne\bv\in \mathcal{K}_{\textit{h}}}
+  \frac{a_{\textit{h}}(\bu,\bv)}{\|\bv\|_{V_h}}
+  & \geqslant &
+  \frac{a_{\textit{h}}(\bu,\bu)}{\|\bu\|_{V_h}}
+  & \geqslant & c\|\bu\|_{V_h}.
+\end{IEEEeqnarray*}
+\end{proof}
 % section well_posedness (end)
 \section{convex Case} % (fold)
 \label{sec:convex Case}
@@ -170,7 +189,6 @@ for which
 whith $\textit{h}$ being smaller than  $C N^{\nicefrac{-1}{3}}$, where
 $N = N_{\textit{h}}$ is the  number of elements in $\mathcal{T}_{\textit{h}}$.
 \end{theorem}
-
 %%=========== GRADING ==============================================
 \begin{IEEEeqnarray*}{lCl}
   h_1, h_2 &\sim&
@@ -189,15 +207,12 @@ $N = N_{\textit{h}}$ is the  number of elements in $\mathcal{T}_{\textit{h}}$.
 %%==================================================================
 {\color{violet} $\mu \sim 1 - \delta$},\\
 {\color{violet} $\nu \sim 1 - \beta$}\\
-
 \textbf{Obs}: si $\delta(\Lambda)>1$ entonces
 \[
   R_K(\textbf{x}) \leqslant \delta(\Lambda)\min\{ R_K(\textbf{x}), 1\}
 \]
 as\'i que asumimos $R_K(\textbf{x})\leqslant 1$.\\[7pt]
 \textbf{Obs}: $\mu < 1 \Rightarrow \mu \leqslant \nu$. \\[7pt]
-
-
 
 \subsection{Meshes}\label{meshes}
 \noindent{\color{BrickRed}*** ver si las mallas hacen falta antes del caso convexo;
