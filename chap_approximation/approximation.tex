@@ -43,9 +43,8 @@ $\bw^*\in H^1_0(\Omega)^3$ with $\dv\bw^*=q^*$ such that
   \beta^*\|\bw^*\|_{H^1(\Omega)} & \leqslant &
   \|q^*\|_{Q}.
 \end{IEEEeqnarray}
-Now, for each $q^*\in Q_h$ take {\color{red} poner que wh* se define
-como una funcion partida, porque Corollary~\ref{interpolant} es local; 
-queda mal si no.}$\bw_h^*:=I\bw^*$ as defined in
+Now, for each $q^*\in Q_h$ take $\bw_h^*$ such that,
+in every $E\in\Th$, $\bw_h^*|_E := I(\bw^*|_E)$, as defined in
 Corollary~\ref{interpolant}. As a consequence of Proposition~\ref{vem_equal_fem}
 and because we are considering the exact same degrees of freedom, this
 interpolation operator coincides, in the lowest order case, with the
@@ -716,7 +715,7 @@ element.
     &\hfill\raisebox{22pt}[0pt][0pt]{$d(K,\textbf{e})>0$}\hfill
                 & & \referencePrismTikz 
               & & \referencePyramidTikz
-                & & \referenceTetrahedronTikz &\\
+                & & \referenceTetrahedronTikz{1.1}&\\
     \IEEEeqnarrayrulerow\\
     \IEEEeqnarrayseprow[3pt]\\
     &\hfill\raisebox{30pt}[0pt][0pt]{$d(K,\textbf{e})=0$}\hfill& &
@@ -725,7 +724,7 @@ element.
       \end{IEEEeqnarraybox}
     &&&&
       \begin{IEEEeqnarraybox}{c}
-        \referenceTetrahedronTikz\\d(K,\textbf{v}) = 0
+        \referenceTetrahedronTikz{1.1}\d(K,\textbf{v}) = 0
       \end{IEEEeqnarraybox}
     &\\
     \IEEEeqnarrayseprow[3pt]\\

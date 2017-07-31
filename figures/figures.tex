@@ -41,9 +41,9 @@
 \end{tikzpicture}
 }
 
-\def\referenceTetrahedronTikz
+\newcommand{\referenceTetrahedronTikz}[1]
 {
-\begin{tikzpicture}[scale=1.1]
+\begin{tikzpicture}[scale={#1}]
   \coordinate (o) at (0,0,0);
   \coordinate (e1) at (0,0,1);
   \coordinate (e2) at (1,0,0);

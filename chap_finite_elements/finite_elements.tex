@@ -259,10 +259,20 @@ en pyramids}
 \begin{defi}\label{defi_face_element} 
 $\boldsymbol{r}_{\hat{E}}\,:\,W^{1,1}(\hat{E})\to$
   \begin{IEEEeqnarray}{lClc}
-    \rho_{f,\bq}\,(\hat{\bu} - \rku)          & = & 0 &\quad\mbox{for $f$ and }\bq\in\mathcal{}  \\
-    \rho_{\boldsymbol{r}}\,(\hat{\bu} - \rku) & = & 0 &\quad\mbox{for }\boldsymbol{r}\in\mathcal{}.
+    \rho_{f,\bq}\,(\hat{\bu} - \rku)          & = & 0 &\quad\mbox{for $f$ and }
+      \bq\in\mathcal{}  \\
+    \rho_{\boldsymbol{r}}\,(\hat{\bu} - \rku) & = & 0 &\quad\mbox{for }
+      \boldsymbol{r}\in\mathcal{}.
   \end{IEEEeqnarray}
 \end{defi}
+Because of the degrees of freedom~(\ref{momentos1hdiv}) and~(\ref{momentos2hdiv})
+we had to restrict the condition $\hat\bu\in H(\dv,\hat E)$
+to the one of $\hat\bu\in W^{1,1}(\hat E)$ in order to define the 
+interpolation operator.
+\begin{lemma}
+  The operator of Definition~\ref{defi_face_element} is well defined and
+  bounded.
+\end{lemma}
 \begin{proposition} On the Finite Element~(\ref{defi_h_div_conforme}). 
 $\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
 which is, at the same time, equal to the number of its independent degrees of freedom.
@@ -346,20 +356,37 @@ The Finite Elements defined here are the ones found in~\cite{gh99}.
 \end{IEEEeqnarray}
 \end{itemize}
 \end{defi}
-
-
-
 % subsection face (end)
 \section{Tetrahedral Finite Elements}
 \subsection{Definition of the $H(\text{div})$-conforming element on tetrahedra. 
 Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_tetrahedra}
-{\color{red} TODO: completar esto }
+For $k > 0$, let
 \begin{IEEEeqnarray}{rCl}\label{tetrahedralSpace}
-    P_{\hat{E}} & = & P_k^3(\hat{E}) + P_{k}(\hat{E})\,\textbf{x}.
+    P_{\hat{E}} & = & (P_{k-1})^3 + P_{k-1}\,\bx\\
+    &=& (P_{k-1})^3 \otimes \tilde{P}_{k-1}\,\bx
 \end{IEEEeqnarray}
-\begin{defi}\label{defi_face_element_tetra}
-  Face interpolator on tetrahedra
+where all the polynomial spaces are taken over $\hat{E}$.
+\begin{lemma}
+  The dimension of $P_{\hat{E}}$ is $\nicefrac{1}{2}(k+3)(k+1)k$.
+\end{lemma}
+\begin{lemma}\label{lema_div} $\dv P_{\hat E} = P_{k-1}$.
+\noindent{\color{BrickRed}\#\#\#\#\#\#\# esto ya no lo tenemos en
+virtuales :)}
+\end{lemma}
+\begin{defi}[Divergence conforming element] The element is defined by
+\label{defi_face_element_tetra}
+\begin{itemize}
+    \item $\hat{E}$ is the reference tetrahedron of Definition~\ref{def_of_ref_elems}. 
+    \item $P_{\hat{E}}$ is the polynomial space in~(\ref{tetrahedralSpace}).
+    \item The degrees of freedom $\Sigma_{\hat{E}}$ are
+    \begin{IEEEeqnarray*}{lll}
+      \iint_{\hat f}\hat{q}\hat\bu\cdot\hat\bn\,d\hat{S}
+      \quad  &\mbox{for all $\hat q\in P_{k-1}(\hat f)$}&\mbox{for all face $\hat f$ of $\hat E$}\\
+      \int_{\hat E} \hat\bu\cdot\hat{\bq}\,d\hat\bx
+      \quad  &\mbox{for all $\hat\bq\in (P_{k-2}(\hat E))^3$}&
+    \end{IEEEeqnarray*} 
+\end{itemize}
 \end{defi}
 % subsection definition_of_the_h_div_element_on_tetrahedra
 

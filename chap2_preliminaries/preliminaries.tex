@@ -285,39 +285,45 @@ y para transformar campos, rotores y el interpolador. Por ejemplo, usaremos que
 	{\color{red} \ldots \mbox{push-forward} \ldots y que los pull--backs conmutan con los interpoladores}
 \end{equation}
 % subsection transformations (end)
-\begin{figure}[!h]
-	\centering
-	\subfloat[Reference Prism $\hat E.$]
-	{
-    \label{reference_prism}
-		\referencePrismTikz
-	}\hspace{1.8cm}
-  \subfloat[Reference Triangle $\hat T.$]
-  {
-    \label{reference_triangle}
-    \referenceTriangleTikz
-  }
-	\caption{Prisms, Triangles.}
-\end{figure}
 
 \begin{defi}\label{defi_of_ref_prism}
 Let $\hat T$ be the triangle $\{ 0 < x + y < 1 \}$. 
 The reference prism is the interior of 
-$\hat T\times\{ 0 < z < 1 \}$ (cfr. Figure~\ref{reference_prism}).
+$\hat T\times\{ 0 < z < 1 \}$ (cfr. Figure~\ref{d}).
 \end{defi}
 \begin{defi}\label{defi_of_ref_pyr}
+\noindent{\color{BrickRed}\#\#\#\#\#\#\# poner como conjunto con desigualdades} 
 The reference pyramid $\hat P$ is the one with vertices at $(0,0,0)$,
 $(1,0,0)$, $(0,1,0)$, $(1,1,0)$ and $(0,0,1)$ (cfr. Figure~\ref{refpyr}).
+\end{defi}
+\begin{defi}\label{def_of_ref_elems}
+The reference Tetrahedron is (cfr. Figure~\ref{reftetr})
+${\bx\in\mathbb{R}^3\,:\,x>0,y>0,z>0,x+y+z<1}$.
 \end{defi}
 
 \begin{figure}
 	\centering
-	\subfloat[Reference Pyramid $\hat E$.]
-	{
-		\label{refpyr}
-		\referencePyramidTikz
+  \subfloat[Pyramid]
+  {
+    \label{refpyr}
+    \referencePyramidTikz
+  }
+  \subfloat[Prism]
+  {
+    \label{reference_prism}
+    \referencePrismTikz
+  }\\
+  \subfloat[Tetrahedron]
+  {
+		\label{reftetr}
+		\referenceTetrahedronTikz{2}
 	}
-	\caption{Pyramids}
+  \subfloat[Triangle]
+  {
+    \label{reference_triangle}
+    \referenceTriangleTikz
+  }
+	\caption{Reference Elements}
 \end{figure}
 
 \subsection{Transformaciones entre prismas} % (fold)
@@ -530,7 +536,7 @@ componentwise as
   (\Qb_{k,B}\,u_1 , \Qb_{k,B}\,u_2 , \Qb_{k,B}\,u_3 ).
 \end{IEEEeqnarray*}
 \end{defi}
-\begin{lemma}
+\begin{lemma}\label{avg_taylor_commutes}
 Let $\beta$ be a multi--index such that  $|\beta| \leqslant k$,
 then 
 \begin{IEEEeqnarray}{rCl}
@@ -554,8 +560,67 @@ then
         &\leqslant&Cd^{k-|\beta|+1}|f|_{k+1,\Omega}.
   \end{IEEEeqnarray*}
 \end{lemma} 
-\begin{proof}
-  \noindent{\color{blue}\#\#\#\#\#\#\#continue here: demo para Lp} 
+\begin{proof} In view of Lemma~\ref{avg_taylor_commutes} we may only prove
+the estimate for the case $|\beta| = 0$ and, for $|\beta|>0$, apply it to
+$\partial^{\beta}f-\Qb_{k-|\beta|,B}\partial^{\beta}f$.
+
+Consider $|\beta| = 0$ and take $q$ as the H\"older conjugate of $p\geqslant 1$.
+By density we may assume $f\in \mathcal{C}^\infty(\Omega)$.
+Firt use Taylor's Theorem
+\begin{IEEEeqnarray*}{rCl}
+  f(\bx)-(T_{\by}^kf)(\bx) & = & {k+1}
+    \sum_{|\alpha|=k+1} \frac{(\bx-\by)^\alpha}{\alpha!}
+    \int_0^1 \partial^\alpha f(t\by+(1-t)\bx)\,t^k\,dt
+\end{IEEEeqnarray*}
+which implies
+\begin{IEEEeqnarray*}{rCl}
+  f(\bx)-\Qb_{k,B}f(\bx) & = & \frac{k+1}{B}
+    \sum_{|\alpha|=k+1} \int_B\int_0^1 \frac{(\bx-\by)^\alpha}{\alpha!}
+      \partial^\alpha f(t\by+(1-t)\bx)\,t^k\,dtd\by.
+\end{IEEEeqnarray*}
+By H\"older's inequality twice (once in a finite dimensional version) we have
+\begin{IEEEeqnarray*}{rCl}
+  \int_{\Omega}|f(\bx)-\Qb_{k,B}f(\bx)|^p\,d\bx&\leqslant& C\frac{d^{p(k+1)}}{|B|^p}
+    \sum_{|\alpha|=k+1}\int_{\Omega}
+      (\int_B\int_0^1|\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by)
+      (\frac{|B|}{qk+1})^{\nicefrac{p}{q}}
+    \\[5pt]
+&=& \frac{C}{(qk+1)^{\nicefrac{p}{q}}}\frac{d^{p(k+1)}}{|B|}
+    \sum_{|\alpha|=k+1} \int_{\Omega}\int_B\int_0^1
+      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx.
+\end{IEEEeqnarray*}
+For any multi--index $\alpha$ we split
+\begin{IEEEeqnarray}{rCl}
+\label{first_auxiliary}
+  \int_{\Omega}\int_B\int_0^1
+      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx
+   & = & 
+ \int_{\Omega}\int_B\int_0^{\nicefrac12}
+      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx\\
+\label{second_auxiliary}
+   &  &\, +  
+\int_{\Omega}\int_B\int_{\nicefrac12}^1
+      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx.
+\end{IEEEeqnarray}
+Let $\phi_\alpha$ be the extension by zero of $\partial^\alpha f$ to $\mathbb{R}^n$.
+By Fubini's Theorem and change of variables,
+\begin{IEEEeqnarray*}{rCl}
+  (\ref{first_auxiliary}) &\leqslant& \int_{B}\int_0^{\nicefrac12}\int_{\mathbb{R}^n}
+      |\phi_\alpha(\bz)|^p(1-t)^{-n}\,d\bz dt d\by\\
+      &\leqslant& 2^{n-1} |B|\|\partial^\alpha f\|^p_{p,\Omega}.
+\end{IEEEeqnarray*}
+\begin{IEEEeqnarray*}{rCl}
+  (\ref{second_auxiliary}) &\leqslant& \int_{\Omega}\int_{\nicefrac12}^1\int_{\mathbb{R}^n}
+      |\phi_\alpha(t\by)|^p\,d\by dt d\bx\\
+  &=& \int_{\Omega}\int_{\nicefrac12}^1\int_{\mathbb{R}^n}
+      |\phi_\alpha(\bz)|^pt^{-n}\,d\bz dt d\bx\\
+      &\leqslant& 2^{n-1} |\Omega|\|\partial^\alpha f\|^p_{p,\Omega}.
+\end{IEEEeqnarray*}
+Summing theese up for any $\alpha$ of order $k+1$ we obtain
+\begin{IEEEeqnarray*}{rCl}
+  \|f-\Qb_{k,B}f\|_p^p & \leqslant & 
+  \frac{C}{(qk+1)^{\nicefrac{p}{q}}}d^{p(k+1)}\frac{|\Omega|}{|B|} |f|^p_{p,k+1,\Omega}.
+\end{IEEEeqnarray*}
 \end{proof}
 {\color{red}\#\#\#\#\#\#\#\# agregar lo de pags 25-26 de articulo ariel.}
 % section polynomial_approximation (end)
