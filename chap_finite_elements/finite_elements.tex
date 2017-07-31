@@ -74,10 +74,10 @@ of degree $k$ are defined by the following:
 \begin{enumerate}
   \item $\hat{E}$ is the reference prism in Definition~\ref{defi_of_ref_prism}.
   \item The polynomial space $P_{\hat{E}}$ is
-        \begin{IEEEeqnarray*}{rCl}
+        \begin{IEEEeqnarray}{rCl} \label{spaceFEprismHdiv}
             P_{\hat{E}} & = & R_k(\hat{T}) \otimes P_k(\hat{I}) \times 
             P_k(\hat{T}) \otimes P_{k-1}(\hat{I}).
-         \end{IEEEeqnarray*} 
+         \end{IEEEeqnarray} 
   \item The degrees of freedom are:
 \begin{IEEEeqnarray}{ll}
     \label{momentos1hcurl} \int\limits_{\be} \textbf{u} \cdot \boldsymbol{\tau} \,q\, ds  
@@ -219,17 +219,18 @@ que es un homog\'eneo en $x,y$ por uno en $z$.)}
 \begin{defi}\label{defi_h_div_conforme} The $RT$ element
 \begin{itemize}
   \item $\hat{E}$ is the reference prism (Figure~\ref{reference_prism}).
-  \item El espacio $P_{\hat{E}}$ de polinomios es
+  \item The polynomial space $P_{\hat{E}}$ is
     \begin{IEEEeqnarray*}{rCl}
-      P_{\hat{E}} & = & \{ \boldsymbol{v} = (v_1,v_2,v_3):\,(v_1,v_2)\in D_k\otimes P_{k-1}(z),\\ 
+      P_{\hat{E}} & = & \{ \bv = (v_1,v_2,v_3):\,(v_1,v_2)\in D_k\otimes P_{k-1}(z),\\ 
       \yesnumber\label{prismaticSpace}&   & v_3\in P_{k-1}(x,y)\otimes P_k(z) \}.
     \end{IEEEeqnarray*} 
   \item The degrees of freedom are of two types, surface and volumen integrals:
 \begin{IEEEeqnarray}{lcl}
-    \label{momentos1hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
-        && \mbox{for } q \in P_{k-1}(\hat{f}):=\mathcal{P}_{\hat{f}}\mbox{,}\\
+    \label{momentos1hdiv} 
+    \rho_{\hat f,q}(\bv) = & \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
+        & \mbox{for } q \in P_{k-1}(\hat{f})\\
     \nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
-    \label{momentos2hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
+    \label{momentos2hdiv} \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
         && \mbox{for } q \in {\color{red} tal vez poner Pk-1(f) y despues aclarar Q_{k-1, k-1}}\mbox{,}\\
     \nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{y}=0\}$
      or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
@@ -243,10 +244,10 @@ que es un homog\'eneo en $x,y$ por uno en $z$.)}
 en pyramids}
 %% original version of dofs
 %\begin{IEEEeqnarray}{lcl}
-%   \label{momentos1hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
+%   \label{momentos1hdiv} \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
 %       && \mbox{for } q \in P_{k-1}(x,y)\mbox{,}\\
 %   \nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
-%   \label{momentos2hdiv} \int\limits_{f} (\boldsymbol{v}\cdot\boldsymbol{\nu})q\,d\gamma 
+%   \label{momentos2hdiv} \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
 %       && \mbox{for } q \in Q_{k-1, k-1, k-1}\mbox{,}\\
 %   \nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{y}=0\}$
 %    or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
@@ -256,13 +257,18 @@ en pyramids}
 %       &\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
 %\end{IEEEeqnarray}
 \end{defi}
-\begin{defi}\label{defi_face_element} 
-$\boldsymbol{r}_{\hat{E}}\,:\,W^{1,1}(\hat{E})\to$
+\begin{defi}\label{defi_face_element} Let $P_{\hat E}$ be as in~(\ref{spaceFEprismHdiv}).
+Let $\boldsymbol{r}_{\hat{E}}\,:\,W^{1,1}(\hat{E})\to P_{\hat E}$
+be the operator such that 
+for each $\hat\bu\in W^{1,1}(\hat E)$, $\rku$ is
+defined as the unique element in $P_{\hat E}$ satisfying
   \begin{IEEEeqnarray}{lClc}
-    \rho_{f,\bq}\,(\hat{\bu} - \rku)          & = & 0 &\quad\mbox{for $f$ and }
-      \bq\in\mathcal{}  \\
-    \rho_{\boldsymbol{r}}\,(\hat{\bu} - \rku) & = & 0 &\quad\mbox{for }
-      \boldsymbol{r}\in\mathcal{}.
+    \rho_{f,\bq}\,(\hat{\bu} - \rku) & = & 0 &
+    \quad\mbox{for $\rho_{\hat f,q}$ as in~(\ref{momentos1hdiv})
+      and~(\ref{momentos2hdiv})}\\
+    \rho_{\br}\,(\hat{\bu} - \rku) & = & 0 &
+    \quad\mbox{for $\rho_{\br}$ as in~(\ref{momentos3hdiv})
+      and~(\ref{momentos4hdiv})}.
   \end{IEEEeqnarray}
 \end{defi}
 Because of the degrees of freedom~(\ref{momentos1hdiv}) and~(\ref{momentos2hdiv})
@@ -294,7 +300,7 @@ tal vez notación para los espacios test de cada grado de lib para después usar
 en la suma.}\\[5pt]
 we take a basis...
 \begin{IEEEeqnarray*}{rCl}
-  \int\limits_{\hat f}(\boldsymbol{v}_{f,\hat{p}}\cdot\boldsymbol{\nu})\hat{q}\,d\gamma  & = & \delta_{\hat{p},\hat{q}}
+  \int\limits_{\hat f}(\bv_{f,\hat{p}}\cdot\boldsymbol{\nu})\hat{q}\,d\gamma  & = & \delta_{\hat{p},\hat{q}}
   \,\,etc\,\,etc
 \end{IEEEeqnarray*}
 \begin{IEEEeqnarray}{rCl}\label{face_interp_explicit}  
