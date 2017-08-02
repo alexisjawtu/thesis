@@ -11,79 +11,8 @@ variable of the following problem, which will be our application.
 \section{Prismatic Finite Elements} % (fold)
 \label{sec:prismatic_finite_elements}
 
-\begin{table}[!h]
-    \centering  
-    \caption{Notation for the faces and positive normals of $\partial\hat{E}$.}
-    \label{prismNotationTableFaces}
-    \begin{IEEEeqnarraybox*}
-      [\IEEEeqnarraystrutmode
-      \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/x/v/x/c/x/c/x/c/v/}
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_1 && \subseteq &&  \{\hat x_1 = 0 \}            && && \hat{\bn}_1 && = && (-1,0,0)' & \\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_2 && \subseteq &&  \{\hat x_2 = 0 \}            && && \hat{\bn}_2 && = && (0,-1,0)' &\\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_3 && \subseteq &&  \{\hat x_3 = 0 \} && && \hat{\bn}_3 && = && (0,0,-1)' &\\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_4 && \subseteq &&  \{\hat x_3 = 1 \} && && \hat{\bn}_4 && = && (0,0,1)' &\\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-          & \hat f_5 && \subseteq &&  \{\hat x_1+\hat x_2 = 1\} && && \hat{\bn}_5 && = && 2^{-\nicefrac{1}{2}}(1,1,0)' &\\
-        \IEEEeqnarrayrulerow
-    \end{IEEEeqnarraybox*}
-\end{table}
 
-\begin{table}[!h]
-    \centering  
-    \caption{Notation for the edges and positive tangents of $\partial\hat{E}$.
-    {\color{red} chequear}}
-    \label{prismNotationTableEdges}
-    \begin{IEEEeqnarraybox*}
-      [\IEEEeqnarraystrutmode
-      \IEEEeqnarraystrutsizeadd{2pt}{6pt}]{v/c/x/c/x/c/x/v/x/c/x/c/x/c/v/}
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_1 && = && \{(\hat x_1,0,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \btau_1 && = && (1,0,0)' & \\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_2 && = && \{(0,\hat x_2,0)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \btau_2 && = && (0,1,0)' & \\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_3 && = && \{(0,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} && && \hat \btau_3 && = && (0,0,1)' & \\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_4 && = && \{(\hat x_1,0,1)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \btau_4 && = && (0,0,1)' & \\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_5 && = && \{(0,\hat x_2,1)^t\,:\,0\leqslant\hat x_2\leqslant 1\} && && \hat \btau_5 && = && (0,0,1)' & \\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_6 && = && \{(1,0,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} && && \hat \btau_6 && = && (1,0,0)' & \\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_7 && = && \{(0,1,\hat x_3)^t\,:\,0\leqslant\hat x_3\leqslant 1\} && && \hat \btau_7 && = && (0,1,0)' & \\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_8 && = && \{(\hat x_1,1-\hat x_1,1)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \btau_8 && = && 2^{-\nicefrac{1}{2}}(1,-1,0)' & \\
-        \IEEEeqnarrayrulerow\\
-        \IEEEeqnarrayseprow[5pt]\\
-   & \hat \be_9 && = && \{(\hat x_1,1-\hat x_1,0)^t\,:\,0\leqslant\hat x_1\leqslant 1\} && && \hat \btau_9 && = && 2^{-\nicefrac{1}{2}}(1,-1,0)' & \\
-        \IEEEeqnarrayrulerow  
-    \end{IEEEeqnarraybox*}
-\end{table}
-\begin{figure}[!h]
-  \centering
-  \subfloat
-  {
-    \label{unitTanPrism}
-    \unitTangentsPrism
-  }
-  \caption{Directions of positive unit tangents (cfr. Table~\ref{prismNotationTableEdges}).}
-\end{figure}
+
 \subsection{Stability of curl--conforming Finite Element on Prisms}
 \label{stab_edge_prism}
 \input{./chap_interpolation/stability_edge_ref_prism}

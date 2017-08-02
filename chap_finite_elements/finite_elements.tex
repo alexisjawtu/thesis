@@ -69,6 +69,17 @@ y finalmente
         & = & k(k+1)(k+2).
 \end{IEEEeqnarray*}
 ($\dim\left(P_K\right) = 3\frac{k(k+1)(k+2)}{2}$).
+\facesOfPrism
+\edgesOfPrism
+\begin{figure}[!h]
+  \centering
+  \subfloat
+  {
+    \label{unitTanPrism}
+    \unitTangentsPrism
+  }
+  \caption{Directions of positive unit tangents (cfr. Table~\ref{prismNotationTableEdges}).}
+\end{figure}|
 \begin{defi}\label{edgeelement} Given a natural $k$, the \emph{edge elements}
 of degree $k$ are defined by the following:
 \begin{enumerate}
@@ -225,19 +236,22 @@ que es un homog\'eneo en $x,y$ por uno en $z$.)}
       \yesnumber\label{prismaticSpace}&   & v_3\in P_{k-1}(x,y)\otimes P_k(z) \}.
     \end{IEEEeqnarray*} 
   \item The degrees of freedom are of two types, surface and volumen integrals:
-\begin{IEEEeqnarray}{lcl}
+\begin{IEEEeqnarray}{cCccl}
     \label{momentos1hdiv} 
-    \rho_{\hat f,q}(\bv) = & \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
-        & \mbox{for } q \in P_{k-1}(\hat{f})\\
-    \nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
-    \label{momentos2hdiv} \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
-        && \mbox{for } q \in {\color{red} tal vez poner Pk-1(f) y despues aclarar Q_{k-1, k-1}}\mbox{,}\\
-    \nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{y}=0\}$
-     or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
-    \label{momentos3hdiv} \int\limits_{\hat{E}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
-        &\quad& {r_1\mbox{, } r_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z);}\\
-    \label{momentos4hdiv} \int\limits_{\hat{E}} v_3q_3\,d\textbf{x} 
-        &\quad& { r_3\in P_{k-1}(\hat{f}_3) \otimes P_{k-2}(\hat{x}_3).} 
+    \rho_{\hat f,q}(\bv) & = & \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
+        &\quad & \mbox{for } q \in P_{k-1}(\hat{f})\mbox{,}\\
+    \nonumber&&&\quad&\mbox{if $\hat f = \hat f_3$ or $\hat f_4$;}\\[5pt]
+    \label{momentos2hdiv}
+    \rho_{\hat f,q}(\bv) & = & \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
+        &\quad & \mbox{for } q \in Q_{k-1, k-1}(\hat f)\mbox{,}\\
+    \nonumber&&&\quad&\mbox{ if $\hat f = \hat f_1$, $\hat f_2$ or $\hat f_5$;}\\[5pt]
+    \nonumber
+    \rho_{\hat \br}(\bv) & = & \int\limits_{\hat{E}} (v_1\,r_1 + v_2\,r_2)\,d\bx 
+        &\quad& \mbox{for }r_1\mbox{, }r_2\in P_{k-2}(x,y) \otimes P_{k-1}(z);\\
+    \label{momentos3hdiv}&&&&\\
+    \label{momentos4hdiv}
+    \rho_{\hat \br}(\bv) & = & \int\limits_{\hat{E}} v_3\,r_3\,d\bx 
+        &\quad& \mbox{for }r_3\in P_{k-1}(\hat{f}_3) \otimes P_{k-2}(\hat{x}_3). 
 \end{IEEEeqnarray}
 \end{itemize}
 {\color{red}TODO: tal vez en los dofs (\ref{momentos2hdiv}) haya que separar los espacios test como hice
