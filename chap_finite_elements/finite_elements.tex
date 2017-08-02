@@ -91,53 +91,67 @@ of degree $k$ are defined by the following:
          \end{IEEEeqnarray} 
   \item The degrees of freedom are:
 \begin{IEEEeqnarray}{ll}
-    \label{momentos1hcurl} \int\limits_{\be} \textbf{u} \cdot \boldsymbol{\tau} \,q\, ds  
+    \label{momentos1hcurl}  
+    \varphi_{\hat{\be}_i,p}\,(\bu) = 
+    \int_{\be} \bu \cdot \boldsymbol{\tau} \,q\, ds  
         & q\in P_{k-1}\mbox{,} \\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each edge $\be$ with unit tangent } \boldsymbol{\tau} \mbox{;}}\\[8pt]
-    \label{momentos2hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+    \label{momentos2hcurl} 
+    \varphi_{f_j,\bq}\,(\bu) =  
+    \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
     d\gamma\mbox{, } &\bq = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each horizontal face $f$ with normal } \boldsymbol{\nu} = (0,0,\pm1) \mbox{;}}\\[8pt]
-    \label{momentos3hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+    \label{momentos3hcurl}
+    \varphi_{f_j,\bq}\,(\bu) =  
+    \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
     d\gamma\mbox{, } &\bq = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
     Q_{k-1,k-2}\mbox{, } \\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ x=0 \} \mbox{ with normal }\boldsymbol{\nu} = (-1,0,0) \mbox{;}}\\[8pt]
-    \label{momentos4hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
+    \label{momentos4hcurl}
+    \varphi_{f_j,\bq}\,(\bu) =  
+    \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
     d\gamma\mbox{, } & \bq = (q_3,0,q_1) \in Q_{k-2,k-1} \times \{ 0 \} \times
     Q_{k-1,k-2},\\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ y=0 \} \mbox{ with normal }\boldsymbol{n} = (0,-1,0) \mbox{;}}\\[8pt]
-    \label{momentos5hcurl} \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
+    \label{momentos5hcurl}
+    \varphi_{f_j,\bq}\,(\bu) =  
+    \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
     d\gamma\mbox{, } & \bq = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times
     Q_{k-1,k-2}\mbox{, }\\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face }f \subseteq \{x+y=1\} \mbox{ with normal }\boldsymbol{n} = (1,1,0) \mbox{;}}\\[8pt]
-    \label{momentos6hcurl} \int\limits_{\hat{E}} \textbf{u} \cdot \br \, d\textbf{x}\mbox{, }&\\
+    \label{momentos6hcurl}
+    \varphi_{\br\,(\bu)} = 
+    \int\limits_{\hat{E}} \bu \cdot \br \, d\textbf{x}\mbox{, }&\\
     \IEEEeqnarraymulticol{2}{l}{\nonumber r_1, r_2 \in P_{k-2}(x,y) \otimes 
         P_{k-2}(z)\mbox{, }r_3 \in P_{k-3}(x,y) \otimes P_{k-1}(z).}
 \end{IEEEeqnarray}
 \end{enumerate}
 \end{defi}
-\noindent{\color{blue}\#\#\#\#\#\#\# poner mas sinteticos los dofs de superficie
-aca arriba y aca abajo aclararlos para mostrar como se computan}
-In order to clarify how to compute the degrees of
-freedom~(\ref{momentos2hcurl})--(\ref{momentos5hcurl}) for an implementation
-we write their test spaces more explicitly here.
-\begin{IEEEeqnarray}{ll}
-    (\ref{momentos2hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
-    d\gamma\mbox{, } &\bq = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
-    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each horizontal face $f$ with normal } \boldsymbol{\nu} = (0,0,\pm1) \mbox{;}}\\[8pt]
-    (\ref{momentos3hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
-    d\gamma\mbox{, } &\bq = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
-    Q_{k-1,k-2}\mbox{, } \\
-    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ x=0 \} \mbox{ with normal }\boldsymbol{\nu} = (-1,0,0) \mbox{;}}\\[8pt]
-    (\ref{momentos4hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
-    d\gamma\mbox{, } & \bq = (q_3,0,q_1) \in Q_{k-2,k-1} \times \{ 0 \} \times
-    Q_{k-1,k-2},\\
-    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ y=0 \} \mbox{ with normal }\boldsymbol{n} = (0,-1,0) \mbox{;}}\\[8pt]
-    (\ref{momentos5hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
-    d\gamma\mbox{, } & \bq = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times
-    Q_{k-1,k-2}\mbox{, }\\
-    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face }f \subseteq \{x+y=1\} \mbox{ with normal }\boldsymbol{n} = (1,1,0) \mbox{;}}
-\end{IEEEeqnarray}
-\noindent{\color{blue}\#\#\#\#\#\#\# }
+%%==============================================================================
+%% \noindent{\color{blue}\#\#\#\#\#\#\# poner mas sinteticos los dofs de superficie
+%% aca arriba y aca abajo aclararlos para mostrar como se computan}
+%% In order to clarify how to compute the degrees of
+%% freedom~(\ref{momentos2hcurl})--(\ref{momentos5hcurl}) for an implementation
+%% we write their test spaces more explicitly here.
+%% \begin{IEEEeqnarray}{ll}
+%%     (\ref{momentos2hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+%%     d\gamma\mbox{, } &\bq = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
+%%     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each horizontal face $f$ with normal } \boldsymbol{\nu} = (0,0,\pm1) \mbox{;}}\\[8pt]
+%%     (\ref{momentos3hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+%%     d\gamma\mbox{, } &\bq = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
+%%     Q_{k-1,k-2}\mbox{, } \\
+%%     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ x=0 \} \mbox{ with normal }\boldsymbol{\nu} = (-1,0,0) \mbox{;}}\\[8pt]
+%%     (\ref{momentos4hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
+%%     d\gamma\mbox{, } & \bq = (q_3,0,q_1) \in Q_{k-2,k-1} \times \{ 0 \} \times
+%%     Q_{k-1,k-2},\\
+%%     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ y=0 \} \mbox{ with normal }\boldsymbol{n} = (0,-1,0) \mbox{;}}\\[8pt]
+%%     (\ref{momentos5hcurl}) \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
+%%     d\gamma\mbox{, } & \bq = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times
+%%     Q_{k-1,k-2}\mbox{, }\\
+%%     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face }f \subseteq \{x+y=1\} \mbox{ with normal }\boldsymbol{n} = (1,1,0) \mbox{;}}
+%% \end{IEEEeqnarray}
+%% \noindent{\color{blue}\#\#\#\#\#\#\# }
+%%==============================================================================
 In the following Remark we make an explicitation of the elements
 of $P_{\hat E}$.
 \begin{remark} 

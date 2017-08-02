@@ -189,28 +189,34 @@ whith $\textit{h}$ being smaller than  $C N^{\nicefrac{-1}{3}}$, where
 $N = N_{\textit{h}}$ is the  number of elements in $\mathcal{T}_{\textit{h}}$.
 \end{theorem}
 %%=========== GRADING ==============================================
-\begin{IEEEeqnarray*}{lCl}
+\begin{equation}\label{label_grading}
+\begin{IEEEeqnarraybox*}{lCl}
   h_1, h_2 &\sim&
     \begin{cases}
-      \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(K,e)=0\\
-      \textit{h}\,d(K,e)^{1-\mu}  & \text{ if\, }0<d(K,e)\lesssim1\\
-      \textit{h}          & \text{ if\, }d(K,e)\sim1
+      \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(E,e)=0\\
+      \textit{h}\,d(E,e)^{1-\mu}  & \text{ if\, }0<d(E,e)\lesssim1\\
+      \textit{h}          & \text{ if\, }d(E,e)\sim1
     \end{cases}\\[5pt]
   h_3   &\sim& 
     \begin{cases}
-      \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(K,v)=0\\
-      \textit{h}\,d(K,v)^{1-\nu}  & \text{ if\, }0<d(K,v)\lesssim1\\
-      \textit{h}          & \text{ if\, }d(K,v)\sim1
+      \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(E,v)=0\\
+      \textit{h}\,d(E,v)^{1-\nu}  & \text{ if\, }0<d(E,v)\lesssim1\\
+      \textit{h}          & \text{ if\, }d(E,v)\sim1
     \end{cases}
-\end{IEEEeqnarray*}
+\end{IEEEeqnarraybox*}
+\end{equation}
 %%==================================================================
 {\color{violet} $\mu \sim 1 - \delta$},\\
 {\color{violet} $\nu \sim 1 - \beta$}\\
+
+To avoid what would result in an illegible proof we decided to partition
+the proof in subsections, paragraphs and items.\\
+
 \textbf{Obs}: si $\delta(\Lambda)>1$ entonces
 \[
-  R_K(\textbf{x}) \leqslant \delta(\Lambda)\min\{ R_K(\textbf{x}), 1\}
+  R_K(\bx) \leqslant \delta(\Lambda)\min\{ R_K(\bx), 1\}
 \]
-as\'i que asumimos $R_K(\textbf{x})\leqslant 1$.\\[7pt]
+as\'i que asumimos $R_K(\bx)\leqslant 1$.\\[7pt]
 \textbf{Obs}: $\mu < 1 \Rightarrow \mu \leqslant \nu$. \\[7pt]
 
 \subsection{Meshes}\label{meshes}
@@ -447,7 +453,7 @@ lo pongo una sola vez.
 %%======================================================================================= 
 In any macro--element, in order to bound the regular part,
 
-Given an element $E$, let $\boldsymbol{h}=(h_{E,1},h_{E,2},h_{E,3})'$.
+Given an element $E$, let $\boldsymbol{h}=(h_{1},h_{2},h_{3})'=(h_{E,1},h_{E,2},h_{E,3})'$.
 \begin{IEEEeqnarray*}{rCl}
   \|\bu_r - \boldsymbol{r}_0\bu_r\|_{L^2(\Omega)}^2 & = &
   \sum_{E\in\mathcal{T}_{\textit{h}}}
@@ -477,87 +483,101 @@ Then, finally
   C\,\textit{h}\,|\bu_r|_{1,\Omega}.
 \end{IEEEeqnarray*}
 {\color{red} C\'omo pasamos a la norma de $f$?}
+
+Now the bound for the singular part in each type of macro--element.
 \subsection{prismatic macro--element, bound singular part} % (fold)
 \label{sub:bound_singular_part_prismatic_macroelement}
-Here we need to distinguish between the elements $\text{d}(K,e) > 0$ and $\text{d}(K,e) = 0$.
+Let $\Lambda_\ell$ be a prismatic element of $\mathcal{T}_{\textit{h}_0}$.
+Let $\be$ be the singular edge of $\Lambda_\ell$ and let 
+$\bxi = (\xi_1,\xi_2,\xi_3)$ be it's local coordinates satisfying the hypotheses
+of Theorem~\ref{thm_regularity}. In this case we need to
+distinguish between the elements $E$ with $d(E,\be) > 0$ and
+$d(E,\be) = 0$.
 \begin{IEEEeqnarray*}{rCl}
-  \| \boldsymbol{\sigma}_s - \boldsymbol{r}\boldsymbol{\sigma} _s\|_{L^2(\Omega)}^2 &\leqslant&
-  \sum_{\text{d}(K,e) = 0} \left(\| \boldsymbol{\sigma}_s\|_{L^2(E)} + 
-  \|\boldsymbol{r}\boldsymbol{\sigma} _s\|_{L^2(E)}\right)^2\\
-  & &\:+\sum_{\text{d}(K,e) > 0} \left( \sum_{|\alpha| = 1} 
-  \boldsymbol{h}^\alpha \|D^\alpha\boldsymbol{\sigma}_s\|_{L^2(E)} + 
-  h_K\|\text{div}\boldsymbol{\sigma}_s\|_{L^2(E)}
-  \right)^2.
+  \| \bu_s - \boldsymbol{r}\bu _s\|_{L^2(\Lambda_\ell)}^2 &\leqslant&
+  \sum_{d(K,e) = 0} \left(\| \bu_s\|_{L^2(E)} + 
+  \|\boldsymbol{r}\bu _s\|_{L^2(E)}\right)^2\\
+  & &\:+\sum_{d(K,e) > 0} \left( \sum_{|\alpha| = 1} 
+  \boldsymbol{h}^\alpha \|D^\alpha\bu_s\|_{L^2(E)} + 
+  h_K\|\text{div}\bu_s\|_{L^2(E)}
+  \right)^2.\\
+  \yesnumber\label{aux_label}&&
 \end{IEEEeqnarray*}
-\paragraph{Elements with $d(K,e) > 0$.} % (fold)
+The objective of the following paragraphs and items is to bound each one of the
+terms involved in the right hand side of~(\ref{aux_label}) by a constant times
+$\textit{h}$ times the norm of $f$, to sum everything up afterwards.
+\paragraph{Elements with $d(E,e) > 0$.} % (fold)
 \label{par:elements_with_d_pos}
-The objective of the following items is to bound each one of the terms
-involved by a constant times $\textit{h}$ times the norm of the data $f$. 
-Afterwards, we will sum up every term to find our estimation.
-\subparagraph{Bound for $\|\partial_{x_1}\boldsymbol{\sigma}_s\|_{L^2(E)}$.} % (fold)
-\label{subp:bound_for_100} Pick up a weight $w(\textbf{x})$ such that $w(\textbf{x})\geq h_1$.
+\begin{enumerate}
+\item {Bound for $\|\partial_{\xi_1}\bu_s\|_{L^2(E)}$, $\alpha = (1,0,1).$} % (fold)
+\label{subp:bound_for_100} Pick any weight $w(\bx)\geqslant h_1$.
 \begin{IEEEeqnarray*}{rCl}
-  h_1\|\partial_{x_1}\boldsymbol{\sigma}_s\|_{L^2(E)}& = & 
-    \sum_{i=1,2} \|h_1\partial_{x_1}\sigma_{s,i}\|_{L^2(E)} +
-      h_1\|\partial_{x_1}\sigma_{s,3}\|_{L^2(E)}\\
-  & \leqslant & \sum_{i=1,2} \|w(\textbf{x})\partial_{x_1}\sigma_{s,i}\|_{L^2(E)} +
-      h_1\|\sigma_{s,3}\|_{V_0^{1,2}(\Omega)}.
+  h_1\|\partial_{\xi_1}\bu_s\|_{L^2(E)}& = & 
+    \sum_{i=1,2} \|h_1\partial_{\xi_1}u_{s,i}\|_{L^2(E)} +
+      h_1\|\partial_{\xi_1}u_{s,3}\|_{L^2(E)}\\
+  & \leqslant & \sum_{i=1,2} \|w(\bx)\partial_{\xi_1}u_{s,i}\|_{L^2(E)} +
+      h_1\|u_{s,3}\|_{V_0^{1,2}(E)}.
 \end{IEEEeqnarray*}
-Now it turns out that if we could choose $w(\textbf{x}) = \textit{h}\,r(\textbf{x})^\delta \geq h_1$, then
+Now it turns out that if we could choose $w(\bx) = \textit{h}\,r(\bx)^\delta \geqslant h_1$
+for some $\delta$, then
 we would have
 \begin{IEEEeqnarray*}{rCl}
-  &\leqslant&\textit{h} \sum_{i=1,2} \|\sigma_{s,i}\|_{V_\delta^{1,2}(\Omega)} +
-      \textit{h}\|\sigma_{s,3}\|_{V_0^{1,2}(\Omega)}\\
-  &\leqslant&C\,\textit{h}\|f\|_{L^2(\Omega)}.
+  h_1\|\partial_{\xi_1}\bu_s\|_{L^2(E)}
+  &\leqslant&\textit{h} \sum_{i=1,2} \|u_{s,i}\|_{V_\delta^{1,2}(E)} +
+      \textit{h}\|u_{s,3}\|_{V_0^{1,2}(E)}\\
+  \yesnumber\label{aux_label1}
+  &\leqslant&C\,\textit{h}\|f\|_{L^2(\Lambda_\ell)}.
 \end{IEEEeqnarray*}
-Let's look for $\delta$. We have $r(\textbf{x})\geq \text{d(K,e)}$ so, according to the grading, in the 
-case $0< \text{d(K,e)} <1$, it holds
+Let's look for $\delta$. We have $r(\bx)\geqslant d(E,e)$ so, according to the
+grading~(\ref{label_grading}) , in the 
+case $0< d(E,e) <1$, it holds
 \begin{IEEEeqnarray*}{rClCl}
-  \textit{h}\,r(\textbf{x})^{1-\mu}&\geq&\textit{h}\,\text{d(K,e)}^{1-\mu}&\sim& h_1.
+  \textit{h}\,r(\bx)^{1-\mu}&\geqslant&\textit{h}\,d(E,e)^{1-\mu}&\sim& h_1.
 \end{IEEEeqnarray*}
 In the 
-case $\text{d(K,e)} \sim 1$
+case $d(E,e) \sim 1$
 \begin{IEEEeqnarray*}{rClCl}
-  \textit{h}\,r(\textbf{x})^{1-\mu}&\gtrsim&\textit{h}&\sim& h_1.
+  \textit{h}\,r(\bx)^{1-\mu}&\gtrsim&\textit{h}&\sim& h_1.
 \end{IEEEeqnarray*}
-In both cases we take $\delta \sim 1-\mu > 1 - \frac{\pi}{\omega} $. The bound for the term 
-$\alpha = (0,1,0)$ is similar.
-% subparagraph bound_for_100 (end)
-\subparagraph{Bound for $\|\partial_{x_3}\boldsymbol{\sigma}_s\|_{L^2(E)}$.} % (fold)
+In both cases we have to take $\delta \sim 1-\mu > 1 - \frac{\pi}{\omega_\ell}$
+to get the estimate~(\ref{aux_label1}).
+The bound for the term with
+$\alpha = (0,1,0)$ is done similarly.
+\item { \noindent{\color{BrickRed}\#\#\#\#\#\#\# continue here}  Bound for $\|\partial_{x_3}\bu_s\|_{L^2(E)}$.} % (fold)
 \label{subp:bound_for_001}
-If $i = 1,2,3$, $\partial_{x_3}\sigma_i$ equals $\partial_{x_i}\sigma_3$.
+If $i = 1,2,3$, $\partial_{x_3}u_i$ equals $\partial_{x_i}u_3$.
 \begin{IEEEeqnarray*}{rCl}
-  h_3\|\partial_{x_3}\boldsymbol{\sigma}_s\|_{L^2(E)}& = & 
-    \sum_{i=1,2,3} h_3\,\|\partial_{x_3}\sigma_{s,i}\|_{L^2(E)}\\
-    &\lesssim&\textit{h}\,\| \sigma_3 \|_{V_0^{1,2}(\Omega)}\leqslant\textit{h}\,\|f\|_{L^2(\Omega)}.
+  h_3\|\partial_{x_3}\bu_s\|_{L^2(E)}& = & 
+    \sum_{i=1,2,3} h_3\,\|\partial_{x_3}u_{s,i}\|_{L^2(E)}\\
+    &\lesssim&\textit{h}\,\| u_3 \|_{V_0^{1,2}(\Lambda_\ell)}\leqslant\textit{h}\,\|f\|_{L^2(\Lambda_\ell)}.
 \end{IEEEeqnarray*}
-\subparagraph{Bound for the divergence.} % (fold)
+\item {Bound for the divergence.} % (fold)
 \label{subp:bound_for_the_div}
 \begin{IEEEeqnarray*}{rCl}
-  h_K\,\| \dvg\boldsymbol{\sigma}_s \|_{L^2(E)} & \lesssim &
-  {h_3}\,\|\dvg\boldsymbol{\sigma}_s\|_{L^2(\Omega)}\sim
-  \textit{h}\,\|\dvg\boldsymbol{\sigma}_s\|_{L^2(\Omega)}\\[7pt]
+  h_K\,\| \dvg\bu_s \|_{L^2(E)} & \lesssim &
+  {h_3}\,\|\dvg\bu_s\|_{L^2(\Lambda_\ell)}\sim
+  \textit{h}\,\|\dvg\bu_s\|_{L^2(\Lambda_\ell)}\\[7pt]
   &\leqslant&\textit{h}\,(\|f\|+
-  \|\dvg\bu_r\|_{L^2(\Omega)})\lesssim\textit{h}\,\|f\|.
+  \|\dvg\bu_r\|_{L^2(\Lambda_\ell)})\lesssim\textit{h}\,\|f\|.
 \end{IEEEeqnarray*}
-% subparagraph bound_for_the_div (end)
+\end{enumerate}
 
 % paragraph elements_with_d_pos (end)
-\paragraph{Elements with $d(K,e) = 0$.} % (fold)
+\paragraph{Elements with $d(E,e) = 0$.} % (fold)
 \label{par:elements_with_d0}
 Take $\delta \sim 1-\mu$ in this paragraph again.
-\subparagraph{Bound for $\| \boldsymbol{\sigma}_s\|_{L^2(E)}$.} % (fold)
+\subparagraph{Bound for $\| \bu_s\|_{L^2(E)}$.} % (fold)
 \label{subp:bound_for_sigma_i}
 \begin{IEEEeqnarray*}{rCl}
-  \|\boldsymbol{\sigma}_s\|_{L^2(E)}& = & \sum_{i=1,2,3}\|{\sigma_{s,i}}\|_{L^2(E)}\\
-  &=&\sum_{i=1,2,3}\|r(\textbf{x})^{1-\delta} r(\textbf{x})^{\delta-1} {\sigma_{s,i}}\|_{L^2(E)}\\
-  &\leqslant& \max r(\textbf{x})^{1-\delta}\sum_{i=1,2,3}\|{\sigma_{s,i}}\|_{V_\delta^{1,2}(\Omega)}\\
-  &\lesssim& h_1^{1-\delta}\sum_{i=1,2,3}\|{\sigma_{s,i}}\|_{V_\delta^{1,2}(\Omega)}\\
-  &\sim&  (\textit{h}^{1/\mu})^\mu\sum_{i=1,2,3}\|{\sigma_{s,i}}\|_{V_\delta^{1,2}(\Omega)}
-  \leqslant C\,\textit{h}\,\|f\|_{L^2(\Omega)}.
+  \|\bu_s\|_{L^2(E)}& = & \sum_{i=1,2,3}\|{u_{s,i}}\|_{L^2(E)}\\
+  &=&\sum_{i=1,2,3}\|r(\bx)^{1-\delta} r(\bx)^{\delta-1} {u_{s,i}}\|_{L^2(E)}\\
+  &\leqslant& \max r(\bx)^{1-\delta}\sum_{i=1,2,3}\|{u_{s,i}}\|_{V_\delta^{1,2}(\Lambda_\ell)}\\
+  &\lesssim& h_1^{1-\delta}\sum_{i=1,2,3}\|{u_{s,i}}\|_{V_\delta^{1,2}(\Lambda_\ell)}\\
+  &\sim&  (\textit{h}^{1/\mu})^\mu\sum_{i=1,2,3}\|{u_{s,i}}\|_{V_\delta^{1,2}(\Lambda_\ell)}
+  \leqslant C\,\textit{h}\,\|f\|_{L^2(\Lambda_\ell)}.
 \end{IEEEeqnarray*}
 % subparagraph bound_for_sigma_i (end)
-\subparagraph{Bound for $\| \boldsymbol{r} \boldsymbol{\sigma}_s \|_{L^{2}(K)}$.} % (fold)
+\subparagraph{Bound for $\| \boldsymbol{r} \bu_s \|_{L^{2}(K)}$.} % (fold)
 \label{subp:bound_for_r_k_1} 
 First, if $\phi$ is a scalar polynomial defined on a physical element $K$, then
 \begin{IEEEeqnarray}{rCl}\label{normaL2L1}
@@ -566,76 +586,76 @@ First, if $\phi$ is a scalar polynomial defined on a physical element $K$, then
 \end{IEEEeqnarray}
 Now we estimate the $L^1$ norms, starting with the stability estimate in $\tilde{K}$.
 \begin{IEEEeqnarray*}{rCl}
-  \| (\boldsymbol{r}\boldsymbol{\sigma}_s)_1 \|_{L^{1}(K)}  & = & \int\limits_K |(\boldsymbol{r} \boldsymbol{\sigma}_s)_1|\,d\textbf{x}\\
-        & = & \int\limits_{\tilde{K}} |(A\,\tilde{\boldsymbol{r}}\tilde{\boldsymbol{\sigma}}_s)_1|\,d\tilde{\textbf{x}}\\
-        & \leqslant & {\color{BrickRed} \|A\|_\infty} \left[\|\tilde{\sigma}_{s,1}\|_{L^1(\tilde{K})} + \|\tilde{\sigma}_{s,2}\|_{L^1(\tilde{K})}\right.\\
-   &    & +\;h_1 \left( \| \partial_{x} \tilde{\sigma}_{s,1} \|_{L^{1}(\tilde{K})} +
-        \| \partial_{x} \tilde{\sigma}_{s,2} \|_{L^{1}(\tilde{K})}\right)\\
-   &    & +\;h_2 \left( \| \partial_{y} \tilde{\sigma}_{s,1} \|_{L^{1}(\tilde{K})} +
-        \| \partial_{y} \tilde{\sigma}_{s,2} \|_{L^{1}(\tilde{K})}\right)\\
-   &    & +\;\left.h_3 \left( \| \partial_{z} \tilde{\sigma}_{s,1} \|_{L^{1}(\tilde{K})} +
-        \| \partial_{z} \tilde{\sigma}_{s,2} \|_{L^{1}(\tilde{K})}\right) + 
-          2 h_1\|\tilde{\text{div}}(\tilde{\sigma}_{s,1},\tilde{\sigma}_{s,2},0)\|_{L^{1}(\tilde{K})}\right].
+  \| (\boldsymbol{r}\bu_s)_1 \|_{L^{1}(K)}  & = & \int\limits_K |(\boldsymbol{r} \bu_s)_1|\,d\bx\\
+        & = & \int\limits_{\tilde{K}} |(A\,\tilde{\boldsymbol{r}}\tilde{\bu}_s)_1|\,d\tilde{\bx}\\
+        & \leqslant & {\color{BrickRed} \|A\|_\infty} \left[\|\tilde{u}_{s,1}\|_{L^1(\tilde{K})} + \|\tilde{u}_{s,2}\|_{L^1(\tilde{K})}\right.\\
+   &    & +\;h_1 \left( \| \partial_{x} \tilde{u}_{s,1} \|_{L^{1}(\tilde{K})} +
+        \| \partial_{x} \tilde{u}_{s,2} \|_{L^{1}(\tilde{K})}\right)\\
+   &    & +\;h_2 \left( \| \partial_{y} \tilde{u}_{s,1} \|_{L^{1}(\tilde{K})} +
+        \| \partial_{y} \tilde{u}_{s,2} \|_{L^{1}(\tilde{K})}\right)\\
+   &    & +\;\left.h_3 \left( \| \partial_{z} \tilde{u}_{s,1} \|_{L^{1}(\tilde{K})} +
+        \| \partial_{z} \tilde{u}_{s,2} \|_{L^{1}(\tilde{K})}\right) + 
+          2 h_1\|\tilde{\text{div}}(\tilde{u}_{s,1},\tilde{u}_{s,2},0)\|_{L^{1}(\tilde{K})}\right].
 \end{IEEEeqnarray*}
 {\color{BrickRed}($\|A\|_\infty$ no molesta! $1 \leqslant \|A^{-1}\|_\infty$, $\|A\|_\infty \leqslant \|A\|_\infty\|A^{-1}\|_\infty$).}
 By~(\ref{Piola}) and~(\ref{derivadaPiola}):
 \begin{IEEEeqnarray*}{rCl}
-  \|\tilde{\sigma}_{s,1}\|_{L^1(\tilde{K})} & = &
-  \frac{1}{|\det(A)|} \int\limits_{K} \left|\tilde{\sigma}_{s,1}(F^{-1}(\textbf{x}))\right|\,d\textbf{x}\\
-        & =   &         \int\limits_{K} |A^{-1}_{\text{row}_1}\boldsymbol{\sigma}_s(\textbf{x})|\,d\textbf{x}\\
-        & \leqslant &         \|A^{-1}\|_\infty\left(\|\sigma_{s,1}\|_{L^1(K)} + \|\sigma_{s,2}\|_{L^1(K)}\right),
+  \|\tilde{u}_{s,1}\|_{L^1(\tilde{K})} & = &
+  \frac{1}{|\det(A)|} \int\limits_{K} \left|\tilde{u}_{s,1}(F^{-1}(\bx))\right|\,d\bx\\
+        & =   &         \int\limits_{K} |A^{-1}_{\text{row}_1}\bu_s(\bx)|\,d\bx\\
+        & \leqslant &         \|A^{-1}\|_\infty\left(\|u_{s,1}\|_{L^1(K)} + \|u_{s,2}\|_{L^1(K)}\right),
 \end{IEEEeqnarray*}
 and
 \begin{IEEEeqnarray*}{rCl}
-  \|\tilde{\sigma}_{s,2}\|_{L^1(\tilde{K})} & \leqslant & \|A^{-1}\|_\infty\left(\|\sigma_{s,1}\|_{L^1(K)} + \|\sigma_{s,2}\|_{L^1(K)}\right).
+  \|\tilde{u}_{s,2}\|_{L^1(\tilde{K})} & \leqslant & \|A^{-1}\|_\infty\left(\|u_{s,1}\|_{L^1(K)} + \|u_{s,2}\|_{L^1(K)}\right).
 \end{IEEEeqnarray*}
 Derivatives. If $k,l = 1,2$: 
 \begin{IEEEeqnarray*}{rCl}
-  \|\partial_{\tilde{x}_l} \tilde{\sigma}_{s,k}\|_{L^1(\tilde{K})} 
+  \|\partial_{\tilde{x}_l} \tilde{u}_{s,k}\|_{L^1(\tilde{K})} 
   & = & \frac{1}{|\det(A)|} \int\limits_{K} \left|\det(A)\,A^{-1}_{\text{row}_k}\,
-  D\boldsymbol{\sigma}_s(\textbf{x})\,A_{\text{col}_l}\right|\,d\textbf{x}\\
-  %& \leqslant & \|A^{-1}_{\text{row}_k}\|_\infty\|A_{\text{col}_l}\|_\infty\sum_{i,j = 1,2} \|\partial_{x_j}\sigma_{s,i}\|_{L^{1}(K)}\\
-  & \leqslant & \|A^{-1}\|_\infty\|\partial_{\xi_j}\boldsymbol{\sigma}_{s}\|_{L^{1}(K)},
+  D\bu_s(\bx)\,A_{\text{col}_l}\right|\,d\bx\\
+  %& \leqslant & \|A^{-1}_{\text{row}_k}\|_\infty\|A_{\text{col}_l}\|_\infty\sum_{i,j = 1,2} \|\partial_{x_j}u_{s,i}\|_{L^{1}(K)}\\
+  & \leqslant & \|A^{-1}\|_\infty\|\partial_{\xi_j}\bu_{s}\|_{L^{1}(K)},
 \end{IEEEeqnarray*}
 and similarly, if $k=1,2$:
 \begin{IEEEeqnarray*}{rCl}
-  \|\partial_{\tilde{x}_3} \tilde{\sigma}_{s,k}\|_{L^1(\tilde{K})} & \leqslant &
-  \|A^{-1}\|_\infty\sum_{i = 1,2} \|\partial_{\xi_3}\sigma_{s,i}\|_{L^{1}(K)}.
+  \|\partial_{\tilde{x}_3} \tilde{u}_{s,k}\|_{L^1(\tilde{K})} & \leqslant &
+  \|A^{-1}\|_\infty\sum_{i = 1,2} \|\partial_{\xi_3}u_{s,i}\|_{L^{1}(K)}.
 \end{IEEEeqnarray*}
 Divergence: because of the blocks of the matrix $A$ we have
 \begin{IEEEeqnarray*}{rCl}
-  (\sigma_1(\textbf{x}), \sigma_2(\textbf{x}), 0)^t & = &
-\frac{1}{\det A}\,A\, (\tilde{\sigma}_1(\tilde{\textbf{x}}), \tilde{\sigma}_2(\tilde{\textbf{x}}), 0)^t\text{,}\\
-{\text{div}}({\sigma}_1,{\sigma}_2,0)&=&\frac{1}{\det A} \tilde{\text{div}}(\tilde{\sigma}_1,\tilde{\sigma}_2,0).
+  (u_1(\bx), u_2(\bx), 0)^t & = &
+\frac{1}{\det A}\,A\, (\tilde{u}_1(\tilde{\bx}), \tilde{u}_2(\tilde{\bx}), 0)^t\text{,}\\
+{\text{div}}({u}_1,{u}_2,0)&=&\frac{1}{\det A} \tilde{\text{div}}(\tilde{u}_1,\tilde{u}_2,0).
 \end{IEEEeqnarray*}
 Then, changing variables,
 \begin{IEEEeqnarray*}{rCl}
-  \|\tilde{\text{div}}(\tilde{\sigma}_{s,1},\tilde{\sigma}_{s,2},0)\|_{L^{1}(\tilde{K})} &=&
-  \|\text{div}(\sigma_{s,1},\sigma_{s,2},0)\|_{L^{1}(K)}.
+  \|\tilde{\text{div}}(\tilde{u}_{s,1},\tilde{u}_{s,2},0)\|_{L^{1}(\tilde{K})} &=&
+  \|\text{div}(u_{s,1},u_{s,2},0)\|_{L^{1}(K)}.
 \end{IEEEeqnarray*}
 Joining everything, by~(\ref{matrix1}) and~(\ref{matrix2}), and $\|A\|_\infty\leqslant C$:
 \begin{IEEEeqnarray*}{rCl}
-  \| (\boldsymbol{r} \boldsymbol{\sigma}_s)_1 \|_{L^{1}(K)} & \lesssim & 
-  \|\sigma_{s,1}\|_{L^1(K)} + \|\sigma_{s,2}\|_{L^1(K)}\\
-  & &+\;h_1\|\partial_{\xi_1}\boldsymbol{\sigma}_{s}\|_{L^{1}(K)} +
-    h_2\|\partial_{\xi_2}\boldsymbol{\sigma}_{s}\|_{L^{1}(K)} +
-  h_3 \sum_{i = 1,2} \|\partial_{\xi_3}\sigma_{s,i}\|_{L^{1}(K)}\\
-  & & +\;h_1 \|\text{div}(\sigma_{s,1}, \sigma_{s,2}, 0)\|_{L^{1}(K)}.
+  \| (\boldsymbol{r} \bu_s)_1 \|_{L^{1}(K)} & \lesssim & 
+  \|u_{s,1}\|_{L^1(K)} + \|u_{s,2}\|_{L^1(K)}\\
+  & &+\;h_1\|\partial_{\xi_1}\bu_{s}\|_{L^{1}(K)} +
+    h_2\|\partial_{\xi_2}\bu_{s}\|_{L^{1}(K)} +
+  h_3 \sum_{i = 1,2} \|\partial_{\xi_3}u_{s,i}\|_{L^{1}(K)}\\
+  & & +\;h_1 \|\text{div}(u_{s,1}, u_{s,2}, 0)\|_{L^{1}(K)}.
 \end{IEEEeqnarray*}
 {\color{red} PESOS: revisar desde ac\'a por la correcci\'on de la p\'agina anterior.}
-Now, for $\|\sigma_{s,i}\|$ with $i=1,2$,
+Now, for $\|u_{s,i}\|$ with $i=1,2$,
 \begin{IEEEeqnarray*}{rCl}
-  \|\sigma_{s,i}\|_{L^1(K)} & = & 
-  \| r(\textbf{x})^{1-\delta} r(\textbf{x})^{\delta-1} \sigma_{s,i}\|_{L^1(K)}\\
-  &\leqslant& \|r^{1-\delta}\|_{L^2(E)} \|\sigma_{s,i}\|_{V_\delta^{1,2}(K)}\\
-  &\leqslant& C\,h_1^{1-\delta}\,|K|^{1/2}\,\|\sigma_{s,i}\|_{V_\delta^{1,2}(K)}\\
-  &\leqslant& C\,\textit{h}\,|K|^{1/2}\,\|\sigma_{s,i}\|_{V_\delta^{1,2}(\Omega)}\\
-  &\leqslant& C\,\textit{h}\,|K|^{1/2}\,\|f\|_{L^{2}(\Omega)}.
+  \|u_{s,i}\|_{L^1(K)} & = & 
+  \| r(\bx)^{1-\delta} r(\bx)^{\delta-1} u_{s,i}\|_{L^1(K)}\\
+  &\leqslant& \|r^{1-\delta}\|_{L^2(E)} \|u_{s,i}\|_{V_\delta^{1,2}(K)}\\
+  &\leqslant& C\,h_1^{1-\delta}\,|K|^{1/2}\,\|u_{s,i}\|_{V_\delta^{1,2}(K)}\\
+  &\leqslant& C\,\textit{h}\,|K|^{1/2}\,\|u_{s,i}\|_{V_\delta^{1,2}(\Lambda_\ell)}\\
+  &\leqslant& C\,\textit{h}\,|K|^{1/2}\,\|f\|_{L^{2}(\Lambda_\ell)}.
 \end{IEEEeqnarray*}
 \noindent With respect to the derivatives orthogonal to the singular edge, take $i,j = 1,2$ and, by H\"older's inequality,
 \begin{IEEEeqnarray*}{rCl}
-  h_1\|\partial_{x_j}\sigma_{s,i}\|_{L^1(K)} &\leqslant&
-  h_1\,\|r^{-\delta}\|_{L^2(E)}\,\|\sigma_{s,i}\|_{V_\delta^{1,2}(K)}.
+  h_1\|\partial_{x_j}u_{s,i}\|_{L^1(K)} &\leqslant&
+  h_1\,\|r^{-\delta}\|_{L^2(E)}\,\|u_{s,i}\|_{V_\delta^{1,2}(K)}.
 \end{IEEEeqnarray*}
 Integrating:
 \begin{IEEEeqnarray*}{rCl}
@@ -646,53 +666,53 @@ Integrating:
 (where we used the minimun angle condition and $h_1 \sim h_2$)
 So we have
 \begin{IEEEeqnarray*}{rCl}
-  h_1\|\partial_{x_j}\sigma_{s,i}\|_{L^1(K)} & \leqslant & C\,h_1^{1-\delta} |K|^{1/2}
-  \|\sigma_{s,i}\|_{V_\delta^{1,2}(K)}\\
+  h_1\|\partial_{x_j}u_{s,i}\|_{L^1(K)} & \leqslant & C\,h_1^{1-\delta} |K|^{1/2}
+  \|u_{s,i}\|_{V_\delta^{1,2}(K)}\\
   &\sim& (\textit{h}^{1/\mu})^{\mu} |K|^{1/2}
-  \|\sigma_{s,i}\|_{V_\delta^{1,2}(K)}\\
-  \label{derivOrtog} \yesnumber &=&|K|^{1/2}\,\textit{h}\,\|\sigma_{s,i}\|_{V_\delta^{1,2}(K)}.
+  \|u_{s,i}\|_{V_\delta^{1,2}(K)}\\
+  \label{derivOrtog} \yesnumber &=&|K|^{1/2}\,\textit{h}\,\|u_{s,i}\|_{V_\delta^{1,2}(K)}.
 \end{IEEEeqnarray*}
 For the derivatives along the singular edge: by H\"older's inequality
 \begin{IEEEeqnarray*}{rCl}
-  h_3\,\| \partial_{x_3}\sigma_{s,i} \|_{L^1(K)} &=& h_3\,\| \partial_{x_i}\sigma_{s,3} \|_{L^1(K)}\\
-  &\leqslant& h_3\,|K|^{1/2}\,\| \partial_{x_i}\sigma_{s,3} \|_{L^2(E)}\\
-  \yesnumber\label{alongSingular}&\leqslant& C\,|K|^{1/2}\,\textit{h}\,\|f\|_{L^2{(\Omega)}}.
+  h_3\,\| \partial_{x_3}u_{s,i} \|_{L^1(K)} &=& h_3\,\| \partial_{x_i}u_{s,3} \|_{L^1(K)}\\
+  &\leqslant& h_3\,|K|^{1/2}\,\| \partial_{x_i}u_{s,3} \|_{L^2(E)}\\
+  \yesnumber\label{alongSingular}&\leqslant& C\,|K|^{1/2}\,\textit{h}\,\|f\|_{L^2{(\Lambda_\ell)}}.
 \end{IEEEeqnarray*}
 \noindent For the divergence we can do... recalling again the grading condition $h_1\sim h_2$,
 \begin{IEEEeqnarray*}{rCl}
-  h_1 \|\text{div}(\sigma_{s,1}, \sigma_{s,2}, 0)\|_{L^{1}(K)} & \leqslant &
-  h_1 \|\partial_{x_1} \sigma_{s,1}\|_{L^{1}(K)} + h_1\|\partial_{x_2} \sigma_{s,2}\|_{L^{1}(K)}
+  h_1 \|\text{div}(u_{s,1}, u_{s,2}, 0)\|_{L^{1}(K)} & \leqslant &
+  h_1 \|\partial_{x_1} u_{s,1}\|_{L^{1}(K)} + h_1\|\partial_{x_2} u_{s,2}\|_{L^{1}(K)}
 \end{IEEEeqnarray*}
 and reuse the estimates~(\ref{derivOrtog}). The estimate for 
-$\| (\boldsymbol{r} \boldsymbol{\sigma}_s)_2 \|_{L^{2}(K)}$ is the same.The estimate for 
-$\| (\boldsymbol{r} \boldsymbol{\sigma}_s)_3 \|_{L^{2}(K)}$ is as follows. By Theorem~\ref{thmStabilityKtildeRT},
+$\| (\boldsymbol{r} \bu_s)_2 \|_{L^{2}(K)}$ is the same.The estimate for 
+$\| (\boldsymbol{r} \bu_s)_3 \|_{L^{2}(K)}$ is as follows. By Theorem~\ref{thmStabilityKtildeRT},
 \begin{IEEEeqnarray*}{rCl}
-          \| (\boldsymbol{r}\boldsymbol{\sigma}_s)_3 \|_{L^{1}(K)}
+          \| (\boldsymbol{r}\bu_s)_3 \|_{L^{1}(K)}
   & =     &
-  \| (\tilde{\boldsymbol{r}}\tilde{\boldsymbol{\sigma}}_s)_3 \|_{L^{1}(\tilde{K})}\\
-  & \leqslant & C\,(\,\|\tilde{\sigma}_{s,3}\|_{L^1(\tilde{K})} +
-    \sum_{j=1,2,3} h_j\,\|\partial_{\tilde{x}_j}\tilde{\sigma}_{s,3}\|_{L^1(\tilde{K})}\,)\\
-  & \leqslant & C\,(\,\|{\sigma}_{s,3}\|_{L^1({K})} +
-    \sum_{j=1,2,3} h_j\|\partial_{\xi_j}{\sigma}_{s,3}\|_{L^1({K})}).
+  \| (\tilde{\boldsymbol{r}}\tilde{\bu}_s)_3 \|_{L^{1}(\tilde{K})}\\
+  & \leqslant & C\,(\,\|\tilde{u}_{s,3}\|_{L^1(\tilde{K})} +
+    \sum_{j=1,2,3} h_j\,\|\partial_{\tilde{x}_j}\tilde{u}_{s,3}\|_{L^1(\tilde{K})}\,)\\
+  & \leqslant & C\,(\,\|{u}_{s,3}\|_{L^1({K})} +
+    \sum_{j=1,2,3} h_j\|\partial_{\xi_j}{u}_{s,3}\|_{L^1({K})}).
 \end{IEEEeqnarray*}
 Now
 \begin{IEEEeqnarray*}{rCl}
-  \|\sigma_{s,3}\|_{L^1(K)} &\leqslant& \|r\|_{L^2(E)} \,\|r^{-1}\,\sigma_{s,3}\|_{L^2(E)}\\
-              &\leqslant&C\,h_1\,|K|^{\frac{1}{2}}\,\|\sigma_{s,3}\|_{V_0^{1,2}(\Omega)}\\
-              &\leqslant&C\,\textit{h}\,|K|^{\frac{1}{2}}\,\|\sigma_{s,3}\|_{V_0^{1,2}(\Omega)}. 
+  \|u_{s,3}\|_{L^1(K)} &\leqslant& \|r\|_{L^2(E)} \,\|r^{-1}\,u_{s,3}\|_{L^2(E)}\\
+              &\leqslant&C\,h_1\,|K|^{\frac{1}{2}}\,\|u_{s,3}\|_{V_0^{1,2}(\Lambda_\ell)}\\
+              &\leqslant&C\,\textit{h}\,|K|^{\frac{1}{2}}\,\|u_{s,3}\|_{V_0^{1,2}(\Lambda_\ell)}. 
 \end{IEEEeqnarray*}
 We have also {\color{red} (al final no va $(h_1 + h_2)$)}
 \begin{IEEEeqnarray*}{rCl}
-  (h_1 + h_2)\sum_{i=1,2} \|\partial_{{x}_i}{\sigma}_{s,3}\|_{L^1({K})} &\leqslant&
-  C\,|K|^{1/2}\,\textit{h}\,\|\sigma_{s,3}\|_{V_0^{1,2}(\Omega)}
+  (h_1 + h_2)\sum_{i=1,2} \|\partial_{{x}_i}{u}_{s,3}\|_{L^1({K})} &\leqslant&
+  C\,|K|^{1/2}\,\textit{h}\,\|u_{s,3}\|_{V_0^{1,2}(\Lambda_\ell)}
 \end{IEEEeqnarray*}
 and~(\ref{alongSingular})
 \begin{IEEEeqnarray*}{rCl}
-  h_3\,\|\partial_{x_3}\sigma_{s,3}\|_{L^1(K)} &\leqslant& C\,|K|^{1/2}\,\textit{h}\,\|f\|_{L^2{(\Omega)}}.
+  h_3\,\|\partial_{x_3}u_{s,3}\|_{L^1(K)} &\leqslant& C\,|K|^{1/2}\,\textit{h}\,\|f\|_{L^2{(\Lambda_\ell)}}.
 \end{IEEEeqnarray*}
 At last, having the bound for each of the three components, by~(\ref{normaL2L1}), {\color{BrickRed}(redactar mejor)}
 \begin{IEEEeqnarray*}{rCl}
-  \|\boldsymbol{r} \boldsymbol{\sigma}_s\|_{L^{2}(K)} &\leqslant& C\,\textit{h}\,\|f\|_{L^2(\Omega)}.
+  \|\boldsymbol{r} \bu_s\|_{L^{2}(K)} &\leqslant& C\,\textit{h}\,\|f\|_{L^2(\Lambda_\ell)}.
 \end{IEEEeqnarray*}
 % subparagraph bound_for_r_k (end)
 
@@ -712,19 +732,19 @@ element.
    \IEEEeqnarraystrutsizeadd{0pt}{0pt}]{v/c/v/c/v/c/v/c/v}
     \IEEEeqnarrayrulerow\\
     \IEEEeqnarrayseprow[3pt]\\
-    &\hfill\raisebox{22pt}[0pt][0pt]{$d(K,\textbf{e})>0$}\hfill
+    &\hfill\raisebox{22pt}[0pt][0pt]{$d(E,\textbf{e})>0$}\hfill
                 & & \referencePrismTikz 
               & & \referencePyramidTikz
                 & & \referenceTetrahedronTikz{1.1}&\\
     \IEEEeqnarrayrulerow\\
     \IEEEeqnarrayseprow[3pt]\\
-    &\hfill\raisebox{30pt}[0pt][0pt]{$d(K,\textbf{e})=0$}\hfill& &
+    &\hfill\raisebox{30pt}[0pt][0pt]{$d(E,\textbf{e})=0$}\hfill& &
       \begin{IEEEeqnarraybox}{c}
-      \referencePrismTikz\\d(K,\textbf{v}) > 0
+      \referencePrismTikz\\d(E,\textbf{v}) > 0
       \end{IEEEeqnarraybox}
     &&&&
       \begin{IEEEeqnarraybox}{c}
-        \referenceTetrahedronTikz{1.1}\d(K,\textbf{v}) = 0
+        \referenceTetrahedronTikz{1.1}\d(E,\textbf{v}) = 0
       \end{IEEEeqnarraybox}
     &\\
     \IEEEeqnarrayseprow[3pt]\\
@@ -735,13 +755,13 @@ element.
 
 Parte singular:
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(\Omega)^3}
-  &=&\sum_{d(K,e) = 0}
+  \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(\Lambda_\ell)^3}
+  &=&\sum_{d(E,e) = 0}
   \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}+
-  \sum_{d(K,e) > 0}
+  \sum_{d(E,e) > 0}
   \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}\\[7pt]
 \end{IEEEeqnarray*}
-Parte con $d(K,e)>0$. Recordar c\'omo son los nuevos $h_1,h_2,h_3$.
+Parte con $d(E,e)>0$. Recordar c\'omo son los nuevos $h_1,h_2,h_3$.
 %% (y,z,x)
 \begin{center}
 \begin{tikzpicture}[rotate=0,scale=1,shape border uses incircle,shape border rotate=-30]
@@ -817,8 +837,8 @@ Now, since $h_2\sim h_1$:
   h_3\sum_{i=1}^3 \|\gancho_{\eta_3}\textbf{u}_{s,i}\|\\[7pt]
   &=&h_3\left(\sum_{i=1}^2\|\gancho_{\eta_i}\textbf{u}_{s,3}\|+
     \|\gancho_{\eta_3}\textbf{u}_{s,3}\|\right)\\[7pt]
-  &\leqslant&\textit{h}\left(\sum_{i=1}^2\|d(K,v)^{1-\nu}\gancho_{\eta_i}\textbf{u}_{s,3}\|+
-    \|d(K,v)^{1-\nu}\gancho_{\eta_3}\textbf{u}_{s,3}\|\right)\\[7pt]
+  &\leqslant&\textit{h}\left(\sum_{i=1}^2\|d(E,v)^{1-\nu}\gancho_{\eta_i}\textbf{u}_{s,3}\|+
+    \|d(E,v)^{1-\nu}\gancho_{\eta_3}\textbf{u}_{s,3}\|\right)\\[7pt]
   &\leqslant&
   \textit{h}\left(\sum_{i=1}^2\|R^{\beta}\gancho_{\eta_i}\textbf{u}_{s,3}\|+
     \|R^{\beta}\gancho_{\eta_3}\textbf{u}_{s,3}\|\right)\\[7pt]
@@ -832,41 +852,41 @@ Now, since $h_2\sim h_1$:
   h_K\|\dvg\textbf{u}_s+\dvg\textbf{u}_r\|+h_K\|\dvg\textbf{u}_r\|\\[7pt]
   &\lesssim&h_K\|f\|\sim \textit{h}\|f\|.
 \end{IEEEeqnarray*}
-Parte con ${\color{red} d(K,e)=0}$.
+Parte con ${\color{red} d(E,e)=0}$.
 \begin{IEEEeqnarray}{rCl}
-  \label{distancia_cero_arista}\sum_{d(K,e) = 0}
+  \label{distancia_cero_arista}\sum_{d(E,e) = 0}
   \|\textbf{u}_s - \pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(E)^3}
   &\lesssim&
   {\color{green} \|\textbf{u}_s\|^2} + 
     {\color{blue}\|\pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(Tetra)^3}}\\[5pt]
   &&\,+\sum_{
   \substack{\text{ prisms }K\\
-        d(K,e) = 0}
+        d(E,e) = 0}
     }
   {\color{green} \|\textbf{u}_s\|^2} + {\color{olive} \|\pi\textbf{u}_s\|^2_{\scriptscriptstyle L^2(E)^3}}.
 \end{IEEEeqnarray}
 \\[10pt]
 Si $K$ es tanto el tetraedro con el v\'ertice singular como un prisma 
-($d(K,e) = 0$, $d(K,v) > 0$):
+($d(E,e) = 0$, $d(E,v) > 0$):
 \begin{IEEEeqnarray*}{rCl}
   {\color{green} \|\textbf{u}_s\|} &=&
     \sum_{i=1}^2 \|R^\nu\theta^\mu R^{-\nu}\theta^{-\mu}\textbf{u}_{s,i}\|
     + \|R^\nu\theta^{-1}R^{-\nu}\theta\textbf{u}_{s,3}\|\\[7pt]
-  &\leqslant&\max_{\textbf{x}}R(\textbf{x})^\nu\theta(\textbf{x})^\mu
+  &\leqslant&\max_{\bx}R(\bx)^\nu\theta(\bx)^\mu
   \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}\textbf{u}_{s,i}\|
-    + \max_{\textbf{x}}R(\textbf{x})^\nu\theta(\textbf{x})
+    + \max_{\bx}R(\bx)^\nu\theta(\bx)
     \|R^{-\nu}\theta^{-1}\textbf{u}_{s,3}\|.
 \end{IEEEeqnarray*}
 Pero es $\theta < 1$ y $\mu \leqslant \nu < 1$, entonces
 \begin{IEEEeqnarray}{rClClCr}
   \label{cota_pesos}
-  R(\textbf{x})^\nu\theta(\textbf{x})&\leqslant&
-  R(\textbf{x})^\nu\theta(\textbf{x})^\mu&\leqslant&R(\textbf{x})^\mu\theta(\textbf{x})^\mu&=&
-  r(\textbf{x})^\mu.
+  R(\bx)^\nu\theta(\bx)&\leqslant&
+  R(\bx)^\nu\theta(\bx)^\mu&\leqslant&R(\bx)^\mu\theta(\bx)^\mu&=&
+  r(\bx)^\mu.
 \end{IEEEeqnarray}
 Volvemos y queda
 \begin{IEEEeqnarray*}{rCl}
-  \|\textbf{u}_s\|&\leqslant&\max_{\textbf{x}}r(\textbf{x})^\mu
+  \|\textbf{u}_s\|&\leqslant&\max_{\bx}r(\bx)^\mu
   \left(
     \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}\textbf{u}_{s,i}\|
     + \|R^{-\nu}\theta^{-1}\textbf{u}_{s,3}\|
@@ -912,9 +932,9 @@ PESOS
   \|R^{\nu}\theta\|_{L^2(E)}\|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2(E)}
  \\[7pt]
 &\leqslant&
-\max_{\textbf{x}}R(\textbf{x})^\nu\theta(\textbf{x})^{\mu}|K|^{1/2}
+\max_{\bx}R(\bx)^\nu\theta(\bx)^{\mu}|K|^{1/2}
 \sum_{i=1,2}\|\ldots u_{s,i}\|_{L^2} + 
-\max_{\textbf{x}}R(\textbf{x})^\nu\theta(\textbf{x})|K|^{1/2}
+\max_{\bx}R(\bx)^\nu\theta(\bx)|K|^{1/2}
 \|\ldots u_{s,3}\|_{L^2}\\[7pt]
 \text{por~(\ref{cota_pesos})\quad}&\leqslant&
 (\textit{h}^{1/\mu})^\mu|K|^{1/2}
@@ -931,12 +951,12 @@ diferente, como pas\'o antes):
 \end{IEEEeqnarray*}
 As $0\leqslant1-\nu\leqslant1-\mu<1$ we get 
 \[
-  R(\textbf{x})^{1-\nu}\geqslant R(\textbf{x})^{1-\mu}
+  R(\bx)^{1-\nu}\geqslant R(\bx)^{1-\mu}
 \]
 and
 \[
-  R(\textbf{x})^{\nu-1}\theta(\textbf{x})^{\mu-1}\leqslant
-  R(\textbf{x})^{\mu-1}\theta(\textbf{x})^{\mu-1} = r(\textbf{x})^{\mu-1},
+  R(\bx)^{\nu-1}\theta(\bx)^{\mu-1}\leqslant
+  R(\bx)^{\mu-1}\theta(\bx)^{\mu-1} = r(\bx)^{\mu-1},
 \]
 \[
   \|R^{\nu-1}\theta^{\mu-1}\|_{L^2} \leqslant \|r^{\mu-1}\|_{L^2}.
@@ -999,7 +1019,7 @@ For $\partial_{\xi_j}u_{s,3}$:
   &\leqslant& h_j \|r^{\mu-1}\|_{L^2}\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{L^2}\\[7pt]
   &\lesssim& \textit{h}\,\sqrt{|K|}\,\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{L^2}.
 \end{IEEEeqnarray*}
-For $\partial_{\xi_3}$ ($h_3\sim\textit{h}\,d(K,\textbf{v})^{1-\nu}$):\\
+For $\partial_{\xi_3}$ ($h_3\sim\textit{h}\,d(E,\textbf{v})^{1-\nu}$):\\
 First and second components:
 \begin{IEEEeqnarray*}{rCl}
   h_3\|\partial_{\xi_3}u_{s,i}\|_{L^1}& = & h_3\|\partial_{\xi_i}u_{s,3}\|_{L^1}\\[7pt]
@@ -1008,7 +1028,7 @@ First and second components:
 \end{IEEEeqnarray*}
 Third component:
 \begin{IEEEeqnarray*}{rCl}
-  h_3\|\partial_{\xi_3}u_{s,3}\|_{L^1}& \sim & \textit{h}\|d(K,\textbf{v})^{1-\nu}
+  h_3\|\partial_{\xi_3}u_{s,3}\|_{L^1}& \sim & \textit{h}\|d(E,\textbf{v})^{1-\nu}
     \partial_{\xi_3}u_{s,3}\|_{L^1}\\[7pt]
   & \leqslant & C\textit{h}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L^1}\\[7pt]
   & \leqslant & C\textit{h}|K|^{1/2}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L^2}.
