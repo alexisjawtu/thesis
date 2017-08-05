@@ -189,7 +189,19 @@ whith $\textit{h}$ being smaller than  $C N^{\nicefrac{-1}{3}}$, where
 $N = N_{\textit{h}}$ is the  number of elements in $\mathcal{T}_{\textit{h}}$.
 \end{theorem}
 %%=========== GRADING ==============================================
+
+{\color{BrickRed}\paragraph{TODO} % (fold)
+\label{par:todo}
+ver qu'e pasa con lo de distance to the vertices, distance to de 
+singular vertices.
+
+ver si se acomoda definiendo $\lambda_e, \lambda_v$ como $+\infty$ en caso de
+ser arista o v'ertice regulares, y as'i poder usar las cotas con las 
+distancias al \'unico v\'ertice o arista de cada macroelemento, etc...
+% paragraph todo (end)
+}
 grading
+
 \begin{equation}\label{label_grading}
 \begin{IEEEeqnarraybox*}{lCl}
   h_1, h_2 &\sim&
@@ -206,9 +218,21 @@ grading
     \end{cases}
 \end{IEEEeqnarraybox*}
 \end{equation}
+with $\mu\le 1-\delta$ for some $\delta>1-\lambda_{\be}$.\\
+with $\nu\le 1-\beta$ for some $\beta>\frac12-\lambda_{\bv}$.
 %%==================================================================
-{\color{violet} $\mu \sim 1 - \delta$},\\
-{\color{violet} $\nu \sim 1 - \beta$}\\
+\begin{remark} \noindent{\color{BrickRed} ESto seguro que va, todavia no se
+bien adonde.} 
+We remark that if a mesh satisfies~(\ref{label_grading})
+for $\mu=\mu_0$ and $\nu=\nu_0$, then it satisfies the
+same for $\mu>\mu_0$ and $\nu>\nu_0$. Thus, the mesh can be overrefined by
+taking $\mu=\nu=\min\{1-\delta,1-\beta\}$, and it still
+verifies~(\ref{label_grading}) for
+$\min\{1-\delta,1-\beta\}\le\mu\le 1-\delta$ and
+$\min\{1-\delta,1-\beta\}\le\nu\le 1-\beta$. The possibility to use $\mu=\nu$
+for the construction of the mesh, allows to validate condition stating
+that Tetrahedra and pyramids in $\Th$ are not necessarily anisotropic.
+\end{remark}
 
 To avoid what would result in an illegible proof we decided to partition
 the proof in subsections, paragraphs and items.\\
@@ -434,7 +458,15 @@ of Problem~\ref{weakMixedContinuous}. Let  $\boldsymbol{r}_0$ be the operator~(\
 \end{lemma}
 
 \begin{proof}[Proof of Theorem~\ref{interpolation_theorem}]
-by Lemma~\ref{well_defined_dofs}, the field $\rZerou = r_0u_s + r_0u_r$ is well defined.  
+by Lemma~\ref{well_defined_dofs}, the field $\rZerou = r_0u_s + r_0u_r$ is well defined.
+
+{\color{BrickRed}The case when there is no weight with respect to $R$ is also available by simply putting 
+$R\equiv 1.$
+The case when there is no weight with respect to $\theta$ is also available by simply putting 
+$\theta\equiv 1.$
+
+Additionally, if $\be$ is not singular, the condition turns $\delta > -\infty$
+and if $\bv$ is not singular, the condition turns $\beta > -\infty.$}
 \end{proof} 
 **bound for the scalar variable: para todos igual, 
 lo pongo una sola vez.
@@ -494,7 +526,8 @@ $\bxi = (\xi_1,\xi_2,\xi_3)$ be it's local coordinates satisfying the hypotheses
 of Theorem~\ref{thm_regularity}. In this case we need to
 distinguish between the elements $E$ with $d(E,\be) > 0$ and
 $d(E,\be) = 0$.
-\begin{IEEEeqnarray*}{rCl}
+\begin{IEEEeqnarray}{rCl}
+  \label{aux_label2}
   \| \bu_s - \boldsymbol{r}\bu _s\|_{L^2(\Lambda_\ell)}^2 &\leqslant&
   \sum_{d(E,\be) = 0} \left(\| \bu_s\|_{L^2(E)} + 
   \|\boldsymbol{r}\bu _s\|_{L^2(E)}\right)^2\\
@@ -502,12 +535,13 @@ $d(E,\be) = 0$.
   \boldsymbol{h}^\alpha \|D^\alpha\bu_s\|_{L^2(E)} + 
   h_K\|\text{div}\bu_s\|_{L^2(E)}
   \right)^2.\\
-  \yesnumber\label{aux_label}&&
-\end{IEEEeqnarray*}
+  \label{aux_label}&&
+\end{IEEEeqnarray}
 The objective of the following paragraphs and items is to bound each one of the
-terms involved in the right hand side of~(\ref{aux_label}) by a constant times
+terms involved in the right hand side of~(\ref{aux_label2}) and~(\ref{aux_label})
+by a constant times
 $\textit{h}$ times the norm of $f$, to sum everything up afterwards.
-\paragraph{Elements with $d(E,\be) > 0$.} % (fold)
+\paragraph{Elements with $d(E,\be) > 0$ (cfr.~(\ref{aux_label})).} % (fold)
 \label{par:elements_with_d_pos}
 \begin{enumerate}
 \item {Bound for $\|\partial_{\xi_1}\bu_s\|_{L^2(E)}$, $\alpha = (1,0,1).$} % (fold)
@@ -546,36 +580,45 @@ The bound for the term with
 $\alpha = (0,1,0)$ is done similarly.
 \item Bound for $\|\partial_{\xi_3}\bu_s\|_{L^2(E)}$. % (fold)
 \label{subp:bound_for_001}
-If $i = 1,2,3$, $\partial_{\xi_3}u_i$ equals $\partial_{\xi_i}u_3$.
+If $i = 1$,$2$ or $3$, $\partial_{\xi_3}u_i$ equals $\partial_{\xi_i}u_3$, so
 \begin{IEEEeqnarray*}{rCl}
-  h_3\|\partial_{\xi_3}\bu_s\|_{L^2(E)}& = & 
-    \sum_{i=1,2,3} h_3\,\|\partial_{\xi_3}u_{s,i}\|_{L^2(E)}\\
-    &\lesssim&\textit{h}\,\| u_3 \|_{V_0^{1,2}(\Lambda_\ell)}\leqslant\textit{h}\,\|f\|_{L^2(\Lambda_\ell)}.
+  h_3^2\|\partial_{\xi_3}\bu_s\|^2_{L^2(E)}& = & 
+     h_3^2\sum_{i=1,2,3}\|\partial_{\xi_3}u_{s,i}\|^2_{L^2(E)}\\
+    &\lesssim&\textit{h}^2\,\| u_3 \|^2_{V_0^{1,2}(\Lambda_\ell)}
+    \leqslant\textit{h}^2\,\|f\|^2_{L^2(\Lambda_\ell)}.
 \end{IEEEeqnarray*}
-\item {Bound for the divergence.} % (fold)
+\item {Bound for the divergence.} By the grading in this macro--element and
+the triangle inequality we have
 \label{subp:bound_for_the_div}
 \begin{IEEEeqnarray*}{rCl}
   h_K\,\| \dvg\bu_s \|_{L^2(E)} & \lesssim &
   {h_3}\,\|\dvg\bu_s\|_{L^2(\Lambda_\ell)}\sim
   \textit{h}\,\|\dvg\bu_s\|_{L^2(\Lambda_\ell)}\\[7pt]
-  &\leqslant&\textit{h}\,(\|f\|+
-  \|\dvg\bu_r\|_{L^2(\Lambda_\ell)})\lesssim\textit{h}\,\|f\|.
+  &\leqslant&\textit{h}\,(\|f\|_{L^2(\Lambda_\ell)}+
+  \|\dvg\bu_r\|_{L^2(\Lambda_\ell)})\lesssim\textit{h}\,\|f\|_{L^2(\Lambda_\ell)}.
 \end{IEEEeqnarray*}
 \end{enumerate}
-\paragraph{Elements with $d(E,\be) = 0$.} % (fold)
+\paragraph{Elements with $d(E,\be) = 0$ \mbox{(cfr.~(\ref{aux_label2}))}.} % (fold)
 Take $\delta \sim 1-\mu$ in this paragraph again.
 \begin{enumerate}
   \item Bound for $\| \bu_s\|_{L^2(E)}$. % (fold)
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu_s\|_{L^2(E)}& = & \sum_{i=1,2,3}\|{u_{s,i}}\|_{L^2(E)}\\
-  &=&\sum_{i=1,2,3}\|r(\bx)^{1-\delta} r(\bx)^{\delta-1} {u_{s,i}}\|_{L^2(E)}\\
-  &\leqslant& \max r(\bx)^{1-\delta}\sum_{i=1,2,3}\|{u_{s,i}}\|_{V_\delta^{1,2}(\Lambda_\ell)}\\
-  &\lesssim& h_1^{1-\delta}\sum_{i=1,2,3}\|{u_{s,i}}\|_{V_\delta^{1,2}(\Lambda_\ell)}\\
-  &\sim&  (\textit{h}^{1/\mu})^\mu\sum_{i=1,2,3}\|{u_{s,i}}\|_{V_\delta^{1,2}(\Lambda_\ell)}
-  \leqslant C\,\textit{h}\,\|f\|_{L^2(\Lambda_\ell)}.
+  \|\bu_s\|^2_{L^2(E)}& = & \sum_{i=1,2}\|{u_{s,i}}\|^2_{L^2(E)} + 
+    \|{u_{s,3}}\|^2_{L^2(E)}\\
+  &=&\sum_{i=1,2}\|r(\bx)^{1-\delta} r(\bx)^{\delta-1} {u_{s,i}}\|^2_{L^2(E)}
+    + \|r\,r^{-1} {u_{s,3}}\|^2_{L^2(E)}\\
+  &\leqslant& \max r(\bx)^{2(1-\delta)}\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(\Lambda_\ell)}
+  + \max_{\bx\in E} r(\bx)^{2}\|{u_{s,3}}\|^2_{V_0^{1,2}(\Lambda_\ell)}\\
+  &\lesssim& h_1^{2(1-\delta)}\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(\Lambda_\ell)}
+  + h_1\|{u_{s,3}}\|^2_{V_0^{1,2}(\Lambda_\ell)}\\
+  &\sim&  (\textit{h}^{\nicefrac{2}{\mu}})^\mu\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(\Lambda_\ell)}
+  + (\textit{h}^{\nicefrac{1}{\mu}})^2\|{u_{s,3}}\|^2_{V_0^{1,2}(\Lambda_\ell)}\\
+  (\mbox{$\mu \leqslant 1$})&\leqslant& C\,\left\{\textit{h}^2\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(\Lambda_\ell)}
+    + \textit{h}^2\|{u_{s,3}}\|^2_{V_0^{1,2}(\Lambda_\ell)}\right\} \\
+  &\leqslant& C\,\textit{h}^2\,\|f\|^2_{L^2(\Lambda_\ell)}.
 \end{IEEEeqnarray*}
 \item {Bound for $\| \boldsymbol{r} \bu_s \|_{L^{2}(K)}$.} % (fold)
-\noindent{\color{BrickRed}\#\#\#\#\#\#\# cu'anto abarca este} 
+\noindent{\color{BrickRed}\#\#\#\#\#\#\# continue here} 
 \end{enumerate}
 First, if $\phi$ is a scalar polynomial defined on a physical element $K$, then
 \begin{IEEEeqnarray}{rCl}\label{normaL2L1}
