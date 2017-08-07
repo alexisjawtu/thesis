@@ -170,6 +170,8 @@ then $\phi\in W^{m,p}(\Omega)$. For $\phi\in W^{m,p}(\Omega)$ let
 In the previous notation we will skip the number $2$ for the special case $p=2$ and 
 write $\|\phi\|_{W^{m,2}(\Omega)}=\|\phi\|_{m,\Omega}$,
 $|\phi|_{W^{m,2}(\Omega)}=|\phi|_{m,\Omega}$.
+\noindent{\color{BrickRed}\#\#\#\#\#\#\# defi de hcurl y hdiv}
+
 \begin{defi}
 \begin{IEEEeqnarray*}{rCl}
 	W^p(\curl, E) & = & \{\bu\in W^{1,p}(E)^3\,:\,
@@ -223,6 +225,8 @@ of $\Lambda$ and
 finally $\theta({\bf x})$ is the angular distance
 $\theta({\bf x})=\frac{r({\bf x})}{R({\bf x})}$.
 \end{defi}
+With an elementary application of integration by parts for distributional
+derivatives we get the following Lemma.
 \begin{lemma} Let two disjoint Lipschitz domains $\Omega_1$ and $\Omega_2$
 be given  in $\mathbb{R}^n$, such that $\overline{\Omega_1}\cap\overline{\Omega_2}$ is an
 $(n-1)$--dimensional surface $f$ of positive measure. Take
@@ -238,9 +242,11 @@ and $\bu_2 \in H(\text{div},\Omega_2)$. Consider
 Then $\bu$ is in $H(\text{div},\Omega)$ if and only if
 the normal traces of $\boldsymbol{u}_1$ and $\boldsymbol{u}_2$ coincide on $f$.
 \end{lemma}
-\begin{proof}
-	{\color{red} TODO}
-\end{proof}
+%=================
+%\begin{proof}
+%	{\color{red} TODO}
+%\end{proof}
+%=================
 % subsection functional_spaces_trace_spaces (end)
 \subsection{Transformations} % (fold)
 
@@ -394,7 +400,8 @@ Then
 Todas estas igualdades se prueban en~\cite{monk}.\\\\
 Citar de~\cite{monk}.\\\\
 
-
+\noindent{\color{BrickRed}\#\#\#\#\#\#\# tal vez usar def de conforming
+de nedelec 86 pag 58, est'a bastante linda.} 
 \begin{defi} We say that the unisolvent Finite Element $(E, P_E, \Sigma)$ is
 $H(\text{div})$--conforming if every time we take two
 \emph{push-forward} elements $(E_1, P_{E_1}, \Sigma_1)$

@@ -438,31 +438,45 @@ virtuales :)}
 %     and the same quantity is obtained by summing up the dimensions of all the
 %     \emph{test} spaces on the right of~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
 % \end{proof}
-\noindent Now a key result that establishes a relation between the interpolation operators. It will used as an important step in the proof of the stability of the
-edge element on a prism.
-\begin{lemma}\label{lema_pi_star_rot_u} Si $\pi$ es el operador de interpolaci\'on determinado por el elemento en
-la Definici\'on~\ref{edgeelement} y $\pi^*$ es el operador de interpolaci\'on determinado por el elemento en la
-Definici\'on~(\ref{defi_h_div_conforme}), entonces, para toda $\emph{\textbf{u}}$ tal que 
-"existan las dos composiciones"
-{\color{red} poner tambien la conmut de rk con el proy ortog y poner los nombres
-igual que en el diagrama }
+
+\section{Differentials and Coordinate Transformations of Finite Elements}
+First a key result that establishes a relation between the interpolation
+operators. It will used as an important step in the proof of the stability of the
+edge element as well as in the proof of the stability of the face elements.
+\begin{remark} Lemma 5.40 in page 135 and the first Paragraph of Section 5.7 
+in page 149 of~\cite{monk} state the following facts.
+  
+Take $\bw_E$ es el operador de interpolaci\'on determinado por el elemento en
+la Definici\'on~\ref{edgeelement}, $\br_E$ es el operador de interpolaci\'on determinado por el elemento en la
+Definici\'on~(\ref{defi_h_div_conforme}) and $\pi^{\perp}_E$ is
+the $L^2$--orthogonal projection onto $P_k(E)$, then 
+\begin{enumerate}
+  \item 
+For all sufficiently smooth $\bu$ such that both the interpolants
+$\bw_E\bu$ and $\br_E\curl\bu$ are defined, then
 \begin{IEEEeqnarray}{rCl}
 \label{curl_commutativity}
-  \emph{\textbf{curl}}\,\pi \emph{\textbf{u}}
-  &=& \pi^*\emph{\textbf{curl}}\,\emph{\textbf{u}}.\\
-\label{div_commutativity}
-  \dv\,\pi \emph{\textbf{u}}
-  &=& \pi^*\dv\,\emph{\textbf{u}}.
+  \curl\bw_E\bu &=& \br_E\curl\bu.
 \end{IEEEeqnarray}
-\end{lemma}
-\begin{proof}
-Vamos a usar la siguiente versión superficial del Teorema de Stokes. Sea dado un dominio Lipschitz acotado 
-$S\subseteq\mathbb{R}^2$ con tangente unitaria $\boldsymbol{\tau}$ al borde $\partial S$. Para 
-$\textbf{u} \in \mathcal{C}^1(\bar{S})^2 $ y $\phi \in \mathcal{C}^1(\bar{S})$ tenemos
+  \item 
+For all sufficiently smooth $\bu$ such that both the interpolants
+$\br_E\bu$ and $\pi^{\perp}_E\dv\bu$ are defined, then
 \begin{IEEEeqnarray}{rCl}
-    \int\limits_S \textbf{u} d\gamma & = &   %% HACER SEGUIR ACA
+\label{div_commutativity}
+  \dv\,\br_E\bu & = & \pi^{\perp}_E\dv\,\bu.
 \end{IEEEeqnarray}
-\end{proof}
+\end{enumerate}
+\end{remark}
+%=============================================================
+% \begin{proof}
+% Vamos a usar la siguiente versión superficial del Teorema de Stokes. Sea dado un dominio Lipschitz acotado 
+% $S\subseteq\mathbb{R}^2$ con tangente unitaria $\boldsymbol{\tau}$ al borde $\partial S$. Para 
+% $\textbf{u} \in \mathcal{C}^1(\bar{S})^2 $ y $\phi \in \mathcal{C}^1(\bar{S})$ tenemos
+% \begin{IEEEeqnarray}{rCl}
+%     \int\limits_S \textbf{u} d\gamma & = &   %% HACER SEGUIR ACA
+% \end{IEEEeqnarray}
+% \end{proof}
+%=============================================================
 \noindent The last result can be expressed saying that the following diagram commutes:
 \begin{center}
         \begin{tikzpicture}[point/.style={circle, inner sep=0pt, minimum size=2pt,fill=red}]
@@ -554,12 +568,14 @@ El sigte lema, hacerlo una vez para edge
 y una vez para face, para un cierto poliedro, y decir que vale 
 la misma cuenta en los otros. Ver (3.79) (3.80) en monk: transf.
 de normales y tangentes.\\\\
-remite a transform entre prismas etc ... de preliminares
+remite a transform entre prismas etc ... de preliminares\\
 \begin{lemma} The edge element interpolators satisfy
 \begin{IEEEeqnarray}{rCl}\label{piTransformado}
-    \wku(\hat{\bx}) & = & M^{t} \bw_k\bu(F(\hat{\bx})).
+    \wku(\hat{\bx}) & = & M^{t} \bw_E\bu(F_E(\hat{\bx}))
 \end{IEEEeqnarray}
-{\color{BrickRed} > lo probamos?}
+provided $\det M^{t} > 0$.
 \end{lemma}
+\begin{proof} See Lemmas 5.32 and 5.34 in pages 130 and 131 of~\cite{monk}.  
+\end{proof}
 
 % subsection transformaciones_entre_prismas (end)
