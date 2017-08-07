@@ -170,7 +170,39 @@ then $\phi\in W^{m,p}(\Omega)$. For $\phi\in W^{m,p}(\Omega)$ let
 In the previous notation we will skip the number $2$ for the special case $p=2$ and 
 write $\|\phi\|_{W^{m,2}(\Omega)}=\|\phi\|_{m,\Omega}$,
 $|\phi|_{W^{m,2}(\Omega)}=|\phi|_{m,\Omega}$.
-\noindent{\color{BrickRed}\#\#\#\#\#\#\# defi de hcurl y hdiv}
+In the definitions of the following two functional spaces, the differential
+operators must be understood in the distributional sense.
+\begin{defi}
+  \begin{IEEEeqnarray*}{rCl}
+    H(\dv,\Omega) & := & \{\bu\in L^2(\Omega)^3\,:\,\dv \bu \in L^2(\Omega)\} \\[5pt]
+    \|\bu\|_{H(\dv,\Omega)} & := & \left(\|\bu\|^2_{L^2(\Omega)^3}+
+      \|\dv \bu\|^2_{L^2(\Omega)}\right)^{\nicefrac12}
+  \end{IEEEeqnarray*}
+\end{defi}
+\begin{defi}
+  \begin{IEEEeqnarray*}{rCl}
+    H(\curl,\Omega) & := & \{\bu\in L^2(\Omega)^3\,:\,\curl \bu \in L^2(\Omega)^3\} \\[5pt]
+    \|\bu\|_{H(\curl,\Omega)} & := & \left(\|\bu\|^2_{L^2(\Omega)^3}+
+      \|\dv \bu\|^2_{L^2(\Omega)^3}\right)^{\nicefrac12}.
+  \end{IEEEeqnarray*}
+\end{defi}
+
+The concept of a component that is normal to the boundary can be extended
+to $H(\dv)$  by continuity using density. This is what we call \textsl{the
+normal trace}. For a function $\bv\in\mathcal{C}^\infty(\overline{\Omega})^3$
+the normal trace $\gamma_{\boldsymbol{\nu}}$ is defined simply by
+\begin{IEEEeqnarray}{rCl}\label{normal_trace}
+  \gamma_{\boldsymbol{\nu}}(\bv) & := & \bv|_{\partial\Omega}\cdot\boldsymbol{\nu}.
+\end{IEEEeqnarray}
+The proof of next Theorem can be found in~\cite{monk}, page $53$ and uses merely
+the density of $\mathcal{C}^\infty(\overline{\Omega})^3$ in $H(\dv,\Omega)$.
+\begin{theorem} The operator $\gamma_{\boldsymbol{\nu}}$ defined in~(\ref{normal_trace})
+can be extended by continuity to a continuous linear map $\gamma_{\boldsymbol{\nu}}$ from
+$H(\dv,\Omega)$ onto $(H^{\nicefrac12}(\partial\Omega))'.$
+\end{theorem}
+With regard to trace properties in $H(  )$
+
+
 
 \begin{defi}
 \begin{IEEEeqnarray*}{rCl}
@@ -225,8 +257,23 @@ of $\Lambda$ and
 finally $\theta({\bf x})$ is the angular distance
 $\theta({\bf x})=\frac{r({\bf x})}{R({\bf x})}$.
 \end{defi}
-With an elementary application of integration by parts for distributional
-derivatives we get the following Lemma.
+With elementary applications of integration by parts for distributional
+derivatives we get the following two Lemata.
+\begin{lemma} Let two disjoint Lipschitz domains $\Omega_1$ and $\Omega_2$
+be given  in $\mathbb{R}^n$, such that $\overline{\Omega_1}\cap\overline{\Omega_2}$ is an
+$(n-1)$--dimensional surface $f$ of positive measure. Take
+$\Omega = \Omega_1\cup \Omega_2\cup f$. Let $\bu_1 \in H(\text{div},\Omega_1)$ 
+and $\bu_2 \in H(\text{div},\Omega_2)$. Consider 
+\begin{IEEEeqnarray*}{rCl}
+  \bu & = &
+    \begin{cases}
+      \bu_1, &\text{ on }\Omega_1\\
+      \bu_2, &\text{ on }\Omega_2     
+    \end{cases}.
+\end{IEEEeqnarray*}
+Then $\bu$ is in $H(\text{div},\Omega)$ if and only if
+the normal traces of $\boldsymbol{u}_1$ and $\boldsymbol{u}_2$ coincide on $f$.
+\end{lemma}
 \begin{lemma} Let two disjoint Lipschitz domains $\Omega_1$ and $\Omega_2$
 be given  in $\mathbb{R}^n$, such that $\overline{\Omega_1}\cap\overline{\Omega_2}$ is an
 $(n-1)$--dimensional surface $f$ of positive measure. Take
@@ -239,8 +286,8 @@ and $\bu_2 \in H(\text{div},\Omega_2)$. Consider
 	  	\bu_2, &\text{ on }\Omega_2	  	
 	  \end{cases}.
 \end{IEEEeqnarray*}
-Then $\bu$ is in $H(\text{div},\Omega)$ if and only if
-the normal traces of $\boldsymbol{u}_1$ and $\boldsymbol{u}_2$ coincide on $f$.
+Then $\bu$ is in $H(\curl,\Omega)$ if and only if
+the tangential traces of $\boldsymbol{u}_1$ and $\boldsymbol{u}_2$ coincide on $f$.
 \end{lemma}
 %=================
 %\begin{proof}
@@ -248,63 +295,22 @@ the normal traces of $\boldsymbol{u}_1$ and $\boldsymbol{u}_2$ coincide on $f$.
 %\end{proof}
 %=================
 % subsection functional_spaces_trace_spaces (end)
-\subsection{Transformations} % (fold)
-
-\{*** traido de seccion $\tilde{E}$
-y usamos todo lo que estudiamos en la Sección~\ref{sub:transformaciones_entre_prismas}
-
-We want this same setting to build Finite Elements on 
-arbitrary contiguous prisms
-belonging to a fixed mesh, all of which being an affine 
-image of the reference prism.
-In order to do so we transform the set $\hat{E}$, the 
-discrete local space and the 
-degrees of freedom exactly as we are told by the 
-push-forward
-transformations~(\ref{push-forward}). 
-
-Consider a prism $E\subseteq\mathbb{R}^3$ that is the 
-affine image of the reference prism $\hat{E}$
-under 
-\begin{IEEEeqnarray*}{rCl}
-                      F &:& \hat{E}\to E\\
-    F(\hat{\textbf{x}}) &=& B\hat{\textbf{x}} + \
-    boldsymbol{p}_E
-\end{IEEEeqnarray*}
-where $B$ is a matrix of rank $3$.
-
-
-para transformar $\hat{E} $ en $\tilde{E} $ v\'ia
-
-
-y para transformar campos, rotores y el interpolador. Por ejemplo, usaremos que 
-\begin{IEEEeqnarray*}{rCl}
-    \hat{\pi}_i & = & h_i\tilde{\pi}_i \\
-    (\textbf{curl}\,\hat{\bu})_3 & = & h_1h_2(\textbf{curl}\,\tilde{\bu})_3.
-\end{IEEEeqnarray*}
-
-
-\}
-
-\label{sub:transformations}
-\begin{equation}\label{push-forward}
-	{\color{red} \ldots \mbox{push-forward} \ldots y que los pull--backs conmutan con los interpoladores}
-\end{equation}
-% subsection transformations (end)
 
 \begin{defi}\label{defi_of_ref_prism}
-Let $\hat T$ be the triangle $\{ 0 < x + y < 1 \}$. 
-The reference prism is the interior of 
-$\hat T\times\{ 0 < z < 1 \}$ (cfr. Figure~\ref{d}).
+  Let $\hat T$ be the triangle $\{ 0 < x + y < 1 \}$. 
+  The reference prism is the interior of 
+  $\hat T\times\{ 0 < z < 1 \}$ (cfr. Figure~\ref{d}).
 \end{defi}
 \begin{defi}\label{defi_of_ref_pyr}
-\noindent{\color{BrickRed}\#\#\#\#\#\#\# poner como conjunto con desigualdades} 
-The reference pyramid $\hat P$ is the one with vertices at $(0,0,0)$,
-$(1,0,0)$, $(0,1,0)$, $(1,1,0)$ and $(0,0,1)$ (cfr. Figure~\ref{refpyr}).
+The reference pyramid $\hat E$ is the polyhedron 
+$\{\bx\in\mathbb{R}^3\,:\,0< x_3< 1,
+0<  x_1<  1-x_3, 0<  x_2<  1-x_3\}$
+with vertices at $(0,0,0)'$,
+$(1,0,0)'$, $(0,1,0)'$, $(1,1,0)'$ and $(0,0,1)'$ (cfr. Figure~\ref{refpyr}).
 \end{defi}
 \begin{defi}\label{def_of_ref_elems}
 The reference Tetrahedron is (cfr. Figure~\ref{reftetr})
-${\bx\in\mathbb{R}^3\,:\,x>0,y>0,z>0,x+y+z<1}$.
+$\{\bx\in\mathbb{R}^3\,:\,x_1 > 0, x_2 > 0, x_3 > 0, x_1+x_2+x_3 < 1\}$.
 \end{defi}
 
 \begin{figure}
@@ -332,94 +338,47 @@ ${\bx\in\mathbb{R}^3\,:\,x>0,y>0,z>0,x+y+z<1}$.
 	\caption{Reference Elements}
 \end{figure}
 
-\subsection{Transformaciones entre prismas} % (fold)
-\label{sub:transformaciones_entre_prismas}
-Consideremos la aplicación $\hat{\textbf{x}}\longmapsto{\textbf{x}} = 
-F_K(\hat{\textbf{x}})$, en donde $F_K = M\hat{\textbf{x}} + \textbf{x}_0$, que transforma
-$\hat{E}$ en un elemento $K$ de la malla y $M$ es inversible y tiene determinante 
-de signo constante.
-Si tenemos una función escalar $\hat{p} \in H^1(\hat{E})$ definimos $p$ en $K$ por
-\begin{IEEEeqnarray}{rCl}
-    \label{transfEscalar} p\circ F_K & = & \hat{p}.
-\end{IEEEeqnarray}
-Then, with multiindex notation, for $F_K = \diag{h_1}{h_2}{h_3}$:
-\begin{IEEEeqnarray*}{rCl}
-    \partial^\alpha \hat{u} (\hat{\textbf{x}})&=&
-        h^\alpha\partial^\alpha u(F_K(\hat{\textbf{x}})).
-\end{IEEEeqnarray*}
-Como $\nabla p = M^{-t}\hat{\nabla} \hat{p} \circ F_K^{-1}$, entonces resulta 
-$p \in H^1(K)$.
-Ahora tomemos $\hat{\textbf{u}} \in H(curl, \hat{E})$. Buscamos asociarle una
-$\textbf{u}$ en $K$. Como para $\hat{p}$ y $p$ como recién vale
-$\nabla p \in H(curl, K)$ y $\hat{\nabla} \hat{p} \in H(curl, \hat{E})$, la igualdad
-anterior nos sugiere la transformación de $\hat{\textbf{u}}$ a $\textbf{u}$. En efecto
-\begin{IEEEeqnarray}{rCl}
-    \label{transfHcurl} \textbf{u}\circ F_K & = & M^{-t}\hat{\textbf{u}}.
-\end{IEEEeqnarray} 
-Con esta definición tenemos $\textbf{u}\in H(\textbf{curl}, K)$ y además
-\begin{IEEEeqnarray}{rCl}
-    \label{transfCurl} (\textbf{curl}\,\textbf{u})\circ F_K & = & 
-    \frac{1}{\det M} M (\hat{\textbf{curl}}\,\hat{\textbf{u}}).
-\end{IEEEeqnarray}
-Transformación en $H(\dvg)$. Since $F_K$ is affine
-\begin{IEEEeqnarray}{rCl}
-    \label{transfDiv} \textbf{u}\circ F_K & = & 
-    \frac{1}{\det M} M \hat{\textbf{u}}.
-\end{IEEEeqnarray}
-With~(\ref{transfDiv})
-\begin{IEEEeqnarray*}{rCl}
-    \|\hat{\textbf{v}}\|^2_{L^2(\hat{E})}
-    &=& \sum_{1\leqslant i\leqslant 3}\|\hat{v}_i\|^2_{0,\hat{E}}\\[7pt]
-    &=& \sum_{1\leqslant i\leqslant 3}\frac{h_jh_k}{h_i}\,\|v_i\|^2_{0,K};\\[7pt]
-    \|\hat{v}_i\|^2_{0,\hat{E}}&=&\frac{h_jh_k}{h_i}\,\|v_i\|^2_{0,K}
-\end{IEEEeqnarray*}
-where $\{i,j,k\} = \{1,2,3\}$.
-\begin{lemma} For all $\tilde{\boldsymbol{\sigma}} \in H(\dvg, \tilde{K})$, $\boldsymbol{\sigma}$ results in
-$H(\dvg, K)$ and in fact
-\[
-    \emph{div}\,\boldsymbol{\sigma}(\emph{\textbf{x}}) =
-        \frac{1}{\det DF}\,\tilde{\emph{div}}\,\tilde{\boldsymbol{\sigma}}(\tilde{\emph{\textbf{x}}}).
-\]
-\end{lemma}
-\begin{proof}
-Observe that
-\begin{IEEEeqnarray*}{rCl}
-    trace(A\cdot B\cdot A^{-1}) &=& trace(B)\\
-    \label{Piola}\yesnumber\boldsymbol{\sigma} \circ F & = & \frac{1}{\det(A)} A\,\tilde{\boldsymbol{\sigma}}\\
-    \label{derivadaPiola}\yesnumber D\tilde{\boldsymbol{\sigma}}(\tilde{\textbf{x}}) & = &
-        \det(A)\,A^{-1}\,D\boldsymbol{\sigma} (F(\tilde{\textbf{x}})) \,A.
-\end{IEEEeqnarray*}
-Then
-\begin{IEEEeqnarray*}{rCl}
-    \text{div}\,\boldsymbol{\sigma}(\textbf{x}) & = & trace(D\boldsymbol{\sigma} (\textbf{x}))\\
-                                        & = & \frac{1}{\det(A)}\,trace(A\,\tilde{D}\tilde{\boldsymbol{\sigma}} (F^{-1}(\textbf{x}))\,A^{-1})\\
-                                        & = & \frac{1}{\det(A)}\,\tilde{\text{div}}\,\tilde{\boldsymbol{\sigma}}(\tilde{\textbf{x}}).   
-\end{IEEEeqnarray*}
-\end{proof}
-
-Todas estas igualdades se prueban en~\cite{monk}.\\\\
-Citar de~\cite{monk}.\\\\
 
 \noindent{\color{BrickRed}\#\#\#\#\#\#\# tal vez usar def de conforming
 de nedelec 86 pag 58, est'a bastante linda.} 
-\begin{defi} We say that the unisolvent Finite Element $(E, P_E, \Sigma)$ is
-$H(\text{div})$--conforming if every time we take two
+\begin{defi} Given a fucntional space $\mathbb{W}$ we say that the unisolvent Finite Element
+$(E, P_E, \Sigma)$ is
+$\mathbb{W}$--conforming if every time we take two
 \emph{push-forward} elements $(E_1, P_{E_1}, \Sigma_1)$
 and $(E_2, P_{E_2}, \Sigma_2)$ according
-to~(\ref{sub:transformations}), and denote $\pi_1$, $\pi_2$
+to~(\ref{sub:transformations}) sharing a common face,
+and denote $\pi_1$, $\pi_2$
 the interpolation operators determined by the degrees
 of freedom $\Sigma_1$ and $\Sigma_2$, the field defined as
 \begin{IEEEeqnarray*}{rCl}
-	\bw & = &
-	  \begin{cases}
-	  	\pi_1(\bu|_{\Omega_1}), &\text{ on }\Omega_1\\
-	  	\pi_2(\bu|_{\Omega_2}), &\text{ on }\Omega_2	  	
-	  \end{cases}
+  \bw & = &
+    \begin{cases}
+      \pi_1(\bu|_{E_1}), &\text{ on }E_1\\
+      \pi_2(\bu|_{E_2}), &\text{ on }E_2      
+    \end{cases}
 \end{IEEEeqnarray*}
-results in $H(\text{div},\Omega_1\cup\Omega_2)$.
+results in $\mathbb{W}(E_1\cup E_2)$.
 \end{defi}
+%==========================================================================
+%\begin{defi} We say that the unisolvent Finite Element $(E, P_E, \Sigma)$ is
+%$H(\curl)$--conforming if every time we take two
+%\emph{push-forward} elements $(E_1, P_{E_1}, \Sigma_1)$
+%and $(E_2, P_{E_2}, \Sigma_2)$ according
+%to~(\ref{sub:transformations}), and denote $\pi_1$, $\pi_2$
+%the interpolation operators determined by the degrees
+%of freedom $\Sigma_1$ and $\Sigma_2$, the field defined as
+%\begin{IEEEeqnarray*}{rCl}
+% \bw & = &
+%   \begin{cases}
+%     \pi_1(\bu|_{\Omega_1}), &\text{ on }\Omega_1\\
+%     \pi_2(\bu|_{\Omega_2}), &\text{ on }\Omega_2      
+%   \end{cases}
+%\end{IEEEeqnarray*}
+%results in $H(\curl,\Omega_1\cup\Omega_2)$.
+%\end{defi}
 % section preliminares (end)
-	
+%==========================================================================
+  
 \section{Regularity of the solution for a model Elliptic Problem}
 
 \macroRegularity
