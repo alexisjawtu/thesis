@@ -7,8 +7,9 @@ We want this same setting to build Finite Elements on
 arbitrary contiguous prisms
 belonging to a fixed mesh, all of which being an affine 
 image of the reference prism.
-In order to do so we transform the set $\hat{E}$, the 
-discrete local space and the 
+In order to do so we transform the set $\hat{E}$ and show how to
+pull--back and forward the scalars and fields in the 
+discrete local spaces and the corresponding 
 degrees of freedom.
 
 %===============
@@ -44,8 +45,8 @@ equality~(\ref{aux_label4}) suggests the following transformation.
 \end{IEEEeqnarray} 
 With this definition we have $\bu\in H(\bcurl, E)$ and also
 \begin{IEEEeqnarray}{rCl}
-    \label{transfCurl} (\textbf{curl}\,\bu)\circ F_K & = & 
-    \frac{1}{\det M} M (\hat{\textbf{curl}}\,\hat{\bu})\mbox{,}
+    \label{transfCurl} (\textbf{curl}\,\bu)\circ F_E & = & 
+    \frac{1}{\det M_E} M_E (\curl\hat{\bu})\mbox{,}
 \end{IEEEeqnarray}
 (cfr. Lemma 3.57, page 77 and Corollary 3.58 in~\cite{monk}).
 Now we proceed in a similar way for $H(\dv)$. The relation 
@@ -55,94 +56,64 @@ into $\bu\in H(\dv,E)$ we must do it via
 \begin{IEEEeqnarray}{rCl}\label{transfDiv}
 	\bu\circ F_E & = & \frac{1}{\det M_E}M_E\hat\bu.
 \end{IEEEeqnarray}
-By Lemma 3.59 in~\cite{monk}, if $\bu$ and $\hat\bu$ are related
-by~(\ref{transfDiv}), then $\dv\,\bu = (\det M_E)^{-1}\dv\,\hat\bu$
-and hence $\bu\in H(\dv,E)$ if and only if $\hat\bu\in H(\dv,\hat E)$.\\
-
-
-**********************************************\\
-Since $F_K$ is affine
-\begin{IEEEeqnarray}{rCl}
-    \label{transfDiv} \bu\circ F_K & = & 
-    \frac{1}{\det M} M \hat{\bu}.
+If $\bu$ and $\hat\bu$ are related
+by~(\ref{transfDiv}), then with a $\mathcal{D}(E)$ density argument we get 
+\begin{IEEEeqnarray}{rCl} %% By Lemma 3.59 in~\cite{monk}
+  \label{derivadaPiola} (\dv\,\bu)\circ F_E & = & (\det M_E)^{-1}\dv\,\hat\bu.
 \end{IEEEeqnarray}
+and hence $\bu\in H(\dv,E)$ if and only if $\hat\bu\in H(\dv,\hat E)$.
 
-
-Then, with multiindex notation, for $F_K = \diag{h_1}{h_2}{h_3}$:
+Normals and tangents are transformed as follows (cfr. page 265 of~\cite{giraultRaviart}).
+Let $\hat{\boldsymbol{\nu}}$ be the unit outward normal to $\hat E$
+If $\hat\bx\in\partial \hat{E}$ and $\boldsymbol{\nu}$ is defined by
 \begin{IEEEeqnarray*}{rCl}
-    \partial^\alpha \hat{u} (\hat{\bx})&=&
-        h^\alpha\partial^\alpha u(F_K(\hat{\bx})).
-\end{IEEEeqnarray*}
-
-
-
-With~(\ref{transfDiv})
+  \boldsymbol{\nu}(F_E\hat\bx)&=&
+    \frac{M_E^{-t}\hat{\boldsymbol{\nu}}(\hat\bx)}{\|M_E^{-t}\hat{\boldsymbol{\nu}}(\hat\bx)\|}\mbox{,}
+\end{IEEEeqnarray*} 
+then $\boldsymbol{\nu}$ is a unit normal to $E$. Second, let $\hat\btau$ be any
+unit vector tangent to $\partial{\hat{E}}$ at $\hat\bx$. If $\btau$ is
+given by
 \begin{IEEEeqnarray*}{rCl}
-    \|\hat{\textbf{v}}\|^2_{L^2(\hat{E})}
-    &=& \sum_{1\leqslant i\leqslant 3}\|\hat{v}_i\|^2_{0,\hat{E}}\\[7pt]
-    &=& \sum_{1\leqslant i\leqslant 3}\frac{h_jh_k}{h_i}\,\|v_i\|^2_{0,K};\\[7pt]
-    \|\hat{v}_i\|^2_{0,\hat{E}}&=&\frac{h_jh_k}{h_i}\,\|v_i\|^2_{0,K}
+  \btau(F_E\hat\bx)&=&
+    \frac{M_E\hat{\btau}(\hat\bx)}{\|M_E\hat{\btau}(\hat\bx)\|}\mbox{,}
 \end{IEEEeqnarray*}
-where $\{i,j,k\} = \{1,2,3\}$.
-\begin{lemma} For all $\tilde{\boldsymbol{\sigma}} \in H(\dvg, \tilde{K})$, $\boldsymbol{\sigma}$ results in
-$H(\dvg, K)$ and in fact
-\[
-    {div}\,\boldsymbol{\sigma}({\bx}) =
-        \frac{1}{\det DF}\,\tilde{{div}}\,\tilde{\boldsymbol{\sigma}}(\tilde{{\bx}}).
-\]
-\end{lemma}
-\begin{proof}
-Observe that
-\begin{IEEEeqnarray*}{rCl}
-    trace(A\cdot B\cdot A^{-1}) &=& trace(B)\\
-    \label{Piola}\yesnumber\boldsymbol{\sigma} \circ F & = & \frac{1}{\det(A)} A\,\tilde{\boldsymbol{\sigma}}\\
-    \label{derivadaPiola}\yesnumber D\tilde{\boldsymbol{\sigma}}(\tilde{\bx}) & = &
-        \det(A)\,A^{-1}\,D\boldsymbol{\sigma} (F(\tilde{\bx})) \,A.
-\end{IEEEeqnarray*}
-Then
-\begin{IEEEeqnarray*}{rCl}
-    \text{div}\,\boldsymbol{\sigma}(\bx) & = & trace(D\boldsymbol{\sigma} (\bx))\\
-                                        & = & \frac{1}{\det(A)}\,trace(A\,\tilde{D}\tilde{\boldsymbol{\sigma}} (F^{-1}(\bx))\,A^{-1})\\
-                                        & = & \frac{1}{\det(A)}\,\tilde{\text{div}}\,\tilde{\boldsymbol{\sigma}}(\tilde{\bx}).   
-\end{IEEEeqnarray*}
-\end{proof}
+then $\btau$ is a unit vector tangent to $\partial E$ at $F_E\hat\bx$.
 
-Todas estas igualdades se prueban en~\cite{monk}.\\\\
-Citar de~\cite{monk}.\\\\
-
-
-\{*** traido de seccion $\tilde{E}$
-
-~\ref{sub:transformaciones_entre_prismas}
-
-
-Consider a prism $E\subseteq\mathbb{R}^3$ that is the 
-affine image of the reference prism $\hat{E}$
-under 
-\begin{IEEEeqnarray*}{rCl}
-                      F &:& \hat{E}\to E\\
-    F(\hat{\bx}) &=& B\hat{\bx} + \
-    boldsymbol{p}_E
-\end{IEEEeqnarray*}
-where $B$ is a matrix of rank $3$.
-
-
-para transformar $\hat{E} $ en $\tilde{E} $ v\'ia
-
-
-y para transformar campos, rotores y el interpolador. Por ejemplo, usaremos que 
-\begin{IEEEeqnarray*}{rCl}
-    \hat{\pi}_i & = & h_i\tilde{\pi}_i \\
-    (\textbf{curl}\,\hat{\bu})_3 & = & h_1h_2(\textbf{curl}\,\tilde{\bu})_3.
-\end{IEEEeqnarray*}
-
-
-\}
-
-\begin{equation}\label{push-forward}
-  {\color{red} \ldots \mbox{push-forward} \ldots y que los pull--backs conmutan con los interpoladores}
-\end{equation}
-
+%======================================================================
+% With~(\ref{transfDiv})
+% \begin{IEEEeqnarray*}{rCl}
+%    \|\hat{\textbf{v}}\|^2_{L^2(\hat{E})}
+%    &=& \sum_{1\leqslant i\leqslant 3}\|\hat{v}_i\|^2_{0,\hat{E}}\\[7pt]
+%    &=& \sum_{1\leqslant i\leqslant 3}\frac{h_jh_k}{h_i}\,\|v_i\|^2_{0,K};\\[7pt]
+%    \|\hat{v}_i\|^2_{0,\hat{E}}&=&\frac{h_jh_k}{h_i}\,\|v_i\|^2_{0,K}
+% \end{IEEEeqnarray*}
+% where $\{i,j,k\} = \{1,2,3\}$.
+%======================================================================
+%=================================================================
+%\begin{lemma} For all $\tilde{\boldsymbol{\sigma}} \in H(\dvg, \tilde{K})$,
+%$\boldsymbol{\sigma}$ results in
+%$H(\dvg, K)$ and in fact
+%\[
+%    {div}\,\boldsymbol{\sigma}({\bx}) =
+%        \frac{1}{\det DF}\,\tilde{{div}}\,\tilde{\boldsymbol{\sigma}}(\tilde{{\bx}}).
+%\]
+%\end{lemma}
+%\begin{proof}
+%Observe that
+%\begin{IEEEeqnarray*}{rCl}
+%    trace(A\cdot B\cdot A^{-1}) &=& trace(B)\\
+%    \label{Piola}\yesnumber\boldsymbol{\sigma} \circ F & = & \frac{1}{\det(A)} A\,\tilde{\boldsymbol{\sigma}}\\
+%    \label{derivadaPiola}\yesnumber D\tilde{\boldsymbol{\sigma}}(\tilde{\bx}) & = &
+%        \det(A)\,A^{-1}\,D\boldsymbol{\sigma} (F(\tilde{\bx})) \,A.
+%\end{IEEEeqnarray*}
+%Then
+%\begin{IEEEeqnarray*}{rCl}
+%    \text{div}\,\boldsymbol{\sigma}(\bx) & = & trace(D\boldsymbol{\sigma} (\bx))\\
+%                                        & = & \frac{1}{\det(A)}\,trace(A\,\tilde{D}\tilde{\boldsymbol{\sigma}} (F^{-1}(\bx))\,A^{-1})\\
+%                                        & = & \frac{1}{\det(A)}\,\tilde{\text{div}}\,\tilde{\boldsymbol{\sigma}}(\tilde{\bx}).   
+%\end{IEEEeqnarray*}
+%\end{proof}
+%=================================================================
 
 First a key result that establishes a relation between the interpolation
 operators. It will used as an important step in the proof of the stability of the
@@ -265,21 +236,22 @@ $\br_E\bu$ and $\pi^{\perp}_E\dv\bu$ are defined, then
             \draw[->] (r5c11) to node[left] {$\pi^{\perp}$} (r8c11);
         \end{tikzpicture}
     \end{center}
-
-% subsection definition_of_the_h_div_element (end)
-
 El sigte lema, hacerlo una vez para edge
 y una vez para face, para un cierto poliedro, y decir que vale 
 la misma cuenta en los otros. Ver (3.79) (3.80) en monk: transf.
 de normales y tangentes.\\\\
-remite a transform entre prismas etc ... de preliminares\\
-\begin{lemma} The edge element interpolators satisfy
+\begin{equation}\label{push-forward}
+  \mbox{\color{red} \ldots \mbox{push-forward} de los interpoladores\\
+    y que los pull--backs conmutan con los interpoladores}
+\end{equation}
+
+\begin{lemma} Provided $\det M^{t} > 0$, the edge element interpolators satisfy
 \begin{IEEEeqnarray}{rCl}\label{piTransformado}
     \wku(\hat{\bx}) & = & M^{t} \bw_E\bu(F_E(\hat{\bx}))
 \end{IEEEeqnarray}
-provided $\det M^{t} > 0$.
+That is, the interpolator commutes with the coordinate change~(\ref{transfHcurl}).
 \end{lemma}
-\begin{proof} See Lemmas 5.32 and 5.34 in pages 130 and 131 of~\cite{monk}.  
+\begin{proof} See Lemmas 5.32 and 5.34 in pages 130 and 131 of~\cite{monk}, where
+it is proved for tetrahedra. Exacly the same considerations about the degrees
+of freedom therein apply to prove the Lemma for prisms or pyramids.  
 \end{proof}
-
-% subsection transformaciones_entre_prismas (end)
