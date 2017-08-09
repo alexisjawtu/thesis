@@ -9,6 +9,7 @@ the edge elements on the reference prism (Figure~\ref{reference_prism}).
 \begin{defi} For an integer $k\geqslant 1$, let $R_k(\hat{T})$ denote the space of polynomials, defined over the
 triangle $\hat{T}$, given by
 \begin{IEEEeqnarray}{rCl}
+    \label{defRk}
     R_k(\hat{T}) & := & P_{k-1}(\hat{T})^2 \oplus S_k(\hat{T})
 \end{IEEEeqnarray}
 where
@@ -79,13 +80,13 @@ y finalmente
     \unitTangentsPrism
   }
   \caption{Directions of positive unit tangents (cfr. Table~\ref{prismNotationTableEdges}).}
-\end{figure}|
+\end{figure}
 \begin{defi}\label{edgeelement} Given a natural $k$, the \emph{edge elements}
 of degree $k$ are defined by the following:
 \begin{enumerate}
   \item $\hat{E}$ is the reference prism in Definition~\ref{defi_of_ref_prism}.
   \item The polynomial space $P_{\hat{E}}$ is
-        \begin{IEEEeqnarray}{rCl} \label{spaceFEprismHdiv}
+        \begin{IEEEeqnarray}{rCl} \label{spaceFEprismHcurl}
             P_{\hat{E}} & = & R_k(\hat{T}) \otimes P_k(\hat{I}) \times 
             P_k(\hat{T}) \otimes P_{k-1}(\hat{I}).
          \end{IEEEeqnarray} 
@@ -127,6 +128,7 @@ of degree $k$ are defined by the following:
 \end{IEEEeqnarray}
 \end{enumerate}
 \end{defi}
+
 %%==============================================================================
 %% \noindent{\color{blue}\#\#\#\#\#\#\# poner mas sinteticos los dofs de superficie
 %% aca arriba y aca abajo aclararlos para mostrar como se computan}
@@ -154,7 +156,7 @@ of degree $k$ are defined by the following:
 %%==============================================================================
 In the following Remark we make an explicitation of the elements
 of $P_{\hat E}$.
-\begin{remark} 
+\begin{remark} \label{aux_label6}
 Take $\textbf{s}=(s_1,s_2)\in{S}_k$ defined in~(\ref{defSk}).
 Set $s_1 = \sum_{i+j=k} a_{ij} x_1^ix_2^j$, $s_2 = \sum_{i+j=k} b_{ij} x_1^ix_2^j$.
 By defnition is 
@@ -285,7 +287,7 @@ en pyramids}
 %       &\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
 %\end{IEEEeqnarray}
 \end{defi}
-\begin{defi}\label{defi_face_element} Let $P_{\hat E}$ be as in~(\ref{spaceFEprismHdiv}).
+\begin{defi}\label{defi_face_element} Let $P_{\hat E}$ be as in~(\ref{prismaticSpace}).
 Let $\boldsymbol{r}_{\hat{E}}\,:\,W^{1,1}(\hat{E})\to P_{\hat E}$
 be the operator such that 
 for each $\hat\bu\in W^{1,1}(\hat E)$, $\rku$ is

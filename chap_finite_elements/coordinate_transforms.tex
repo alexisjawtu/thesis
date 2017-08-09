@@ -236,22 +236,89 @@ $\br_E\bu$ and $\pi^{\perp}_E\dv\bu$ are defined, then
             \draw[->] (r5c11) to node[left] {$\pi^{\perp}$} (r8c11);
         \end{tikzpicture}
     \end{center}
-El sigte lema, hacerlo una vez para edge
-y una vez para face, para un cierto poliedro, y decir que vale 
-la misma cuenta en los otros. Ver (3.79) (3.80) en monk: transf.
-de normales y tangentes.\\\\
 \begin{equation}\label{push-forward}
   \mbox{\color{red} \ldots \mbox{push-forward} de los interpoladores\\
     y que los pull--backs conmutan con los interpoladores}
 \end{equation}
+\begin{lemma} Let $\hat E$ be the reference prism~(\ref{defi_of_ref_prism}) and
+let $P_{\hat E}$ be the space in~(\ref{spaceFEprismHcurl}), that is,
+\begin{IEEEeqnarray*}{rCl}
+  P_{\hat{E}} & = & R_k(\hat{x}_1,\hat{x}_2) \otimes P_k(\hat{x}_3) \times 
+            P_k(\hat{x}_1,\hat{x}_2) \otimes P_{k-1}(\hat{x}_3).
+\end{IEEEeqnarray*}
+Provided the matrix $M_E$ is block--diagonal in this manner
+\begin{IEEEeqnarray*}{rCl}
+  M_E & = & \blockdiag{m_{1,1}}{m_{1,2}}{m_{2,1}}{m_{2,2}}{m_{3,3}}\mbox{,}
+\end{IEEEeqnarray*}
+then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfHcurl}).
+\end{lemma}
+\begin{proof}
+  Starting with transformation~(\ref{transfHcurl}) take 
+  $\hat{\bu}=(\hat u_1,\hat u_2,\hat u_3)'\in P_{\hat E}$
+  and $\bu := (M_E^{-t}\hat{\bu})\circ F_E^{-1}$.
+  Let 
+  \[
+    M_2 = \left(
+    \begin{array}{cc}
+      m_{1,1}  & m_{1,2}\\
+      m_{2,1}  & m_{2,2} 
+    \end{array}
+    \right)
+  \]
+  and let $m_{i,j}^{(-1)}$ denote the coefficients of the inverse.
+  By definition, 
+  $(\hat u_1,\hat u_2)' = \hat{q}(\hat\bp + \hat{\boldsymbol{s}})$ for some
+  $\hat\bp$, $\hat{\boldsymbol{s}}$ as in~(\ref{defSk}) and~(\ref{defRk}) and
+  $\hat{q}\in P_{k}(\hat x_3).$ Using the blocks of $M_E$ and the tensor nature of
+  $P_{\hat E}$,
+  \begin{IEEEeqnarray*}{rCl}
+    (\hat u_1(\bx),\hat u_2(\bx))' & = & (\hat{q}M_2^{-t}(\hat\bp + 
+      \hat{\boldsymbol{s}}))(M_E^{-1}\bx - M_E^{-1}\bx_E)\\
+    & = & \hat{q}(m_{3,3}^{(-1)}(x_3-x_{E,3}))(M_2^{-t}(\hat\bp + 
+      \hat{\boldsymbol{s}}))(M_2^{-1}\bx - M_2^{-1}\bx_E).
+  \end{IEEEeqnarray*}
+  Now, $\hat{q}(m_{3,3}^{(-1)}(x_3-x_{E,3}))$ is a polynomial $q(x_3)$ with the
+  same 
+  degree as $\hat{q}$ is qith respect to $\hat x_3$. Furthermore,
+  as by Remark~(\ref{aux_label6}) $\hat{\boldsymbol{s}}$ has degree $\leqslant k-1$,
+  $(M_2^{-t}(\hat\bp + \hat{\boldsymbol{s}}))(M_2^{-1}\bx - M_2^{-1}\bx_E)$
+  can be seen as
+  $M_2^{-t}(\bp(x_1,x_2) + \hat{\boldsymbol{s}}(M_2^{-1}\bx))$ with $\bp$
+  having the expected degrees. And now
+  \begin{IEEEeqnarray*}{rCcCl}
+    M_2^{-t}\hat{\boldsymbol{s}}(M_2^{-1}\bx)\cdot(x_1,x_2)'
+        &=& 
+    \hat{\boldsymbol{s}}(M_2^{-1}(x_1,x_2)')\cdot M_2^{-1}(x_1,x_2)' &=& 0.
+  \end{IEEEeqnarray*}
+  The invariance of the third component of elements in $P_{\hat E}$ is
+  an immediate consequence of the affine nature of the coordinate change.
+\end{proof}
+\begin{remark}
+  \begin{figure}
+    \centering
+    *** ***
+    \caption{hybrid mesh}\label{obliquePrism}
+  \end{figure}
+  dibujo prisma oblicuo subdividido: tetra + prism + pyramid. Figure~\ref{obliquePrism}
+\end{remark}
 
-\begin{lemma} Provided $\det M^{t} > 0$, the edge element interpolators satisfy
+\begin{lemma} The finite element in Definition~\ref{edgeelement}  is conforming
+in $H\curl$ and unisolvent.
+  theorem 8 page 75 in~\cite{nedelec2} is wrong, because it is only on
+  the reference element.
+\end{lemma}
+
+\begin{lemma} >Provided $\det M^{t} > 0$?, the edge element interpolators satisfy
 \begin{IEEEeqnarray}{rCl}\label{piTransformado}
     \wku(\hat{\bx}) & = & M^{t} \bw_E\bu(F_E(\hat{\bx}))
 \end{IEEEeqnarray}
 That is, the interpolator commutes with the coordinate change~(\ref{transfHcurl}).
 \end{lemma}
-\begin{proof} See Lemmas 5.32 and 5.34 in pages 130 and 131 of~\cite{monk}, where
-it is proved for tetrahedra. Exacly the same considerations about the degrees
-of freedom therein apply to prove the Lemma for prisms or pyramids.  
+\begin{proof} 
 \end{proof}
+%===========================
+% See Lemmas 5.32 and 5.34 in pages 130 and 131 of~\cite{monk}, where
+% it is proved for tetrahedra. Exacly the same considerations about the degrees
+% of freedom therein apply to prove the Lemma for prisms or pyramids.  
+% Ver (3.79) (3.80) en monk: transf. de normales y tangentes.\\\\
+%===========================

@@ -81,11 +81,19 @@
 \newcommand{\pp}[2]{\mathcal{P}_{#1}(\hat f_1)\otimes\mathcal P_{#2}(\hat z)}
 \newcommand{\wpcurl}[1]{W^p(\textbf{curl}, #1)}
 \newcommand{\diag}[3]{
+    \left(
+    \begin{array}{ccc}
+        #1  & 0     & 0\\
+        0   & #2    & 0\\
+        0   & 0     & #3
+    \end{array}
+    \right)}
+\newcommand{\blockdiag}[5]{
 	\left(
 	\begin{array}{ccc}
-		#1 	& 0 	& 0\\
-		0	& #2 	& 0\\
-		0	& 0		& #3
+		#1 	& #2 	& 0\\
+		#3	& #4 	& 0\\
+		0	& 0		& #5
 	\end{array}
 	\right)}
 \newcommand{\dvg}{\text{div}\,}
