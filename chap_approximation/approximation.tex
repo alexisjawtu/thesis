@@ -513,7 +513,8 @@ mesh, so the last expression is bounded above by
 Then, finally
 \begin{IEEEeqnarray*}{rCl}
   \|\bu_r - \br_0\bu_r\|_{L^2(\Omega)}&\leqslant&
-  C\,\textit{h}\,|\bu_r|_{1,\Omega}.
+  C\,\textit{h}\,|\bu_r|_{1,\Omega}\\
+  \mbox{by~(\ref{aux_label11})}&\leqslant&.C\,\textit{h}\,\|f\|_{0,\Omega}
 \end{IEEEeqnarray*}
 {\color{red} C\'omo pasamos a la norma de $f$?}
 
@@ -1155,8 +1156,8 @@ then, we able to do:
       \sum_{tet}  \|f\|^2_{0,E_\ell} +
       \sum_{pyr} |\bu|^2_{1,E_\ell} {\color{red}\mbox{$\leftarrow$ esta parte? $\|f\|?$}}
     \right\}\\[5pt]
-    \IEEEeqnarraymulticol{3}{c}{{\color{red} \mbox{tal vez haya que tomar las distancias
-        a la arista y al vertice. Me gustar\'ia que quede lo sgte:}}}\\
+    \IEEEeqnarraymulticol{3}{c}{{\color{red} \mbox{Tomar las distancias
+        a la arista y al vertice para el termino piramidal:}}}\\
     &\leqslant& \textit{h} \sum_{\ell=1}^N \|f\|^2_{0,\Lambda_\ell} \,=\,
       \textit{h}\,\|f\|^2_{0,\Omega}.
 \end{IEEEeqnarray*}

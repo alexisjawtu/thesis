@@ -1,4 +1,4 @@
-\section{Differentials, coordinate transformations 
+\section{Differentials, coordinate transformations, 
 unisolvence and conformity of Finite Elements}
 
 For \noindent{\color{BrickRed} SOME of}  the following exposition we refer to~\cite{ciarlet},
@@ -20,7 +20,11 @@ degrees of freedom.
 %===============
 
 Consider the application $\hat{\bx}\longmapsto{\bx} = 
-F_E(\hat{\bx})$, where $F_E = M_E\hat{\bx} + \bx_0$, that transforms
+F_E(\hat{\bx})$, where 
+\begin{IEEEeqnarray}{rCl} \label{aux_label8}       
+  F_E &= &M_E\hat{\bx} + \bx_0\mbox{, } 
+\end{IEEEeqnarray}
+that transforms
 $\hat{E}$ in an element $E$ of the mesh and $M_E$ is invertible.
 
 A scalar function $\hat{p} \in H^1(\hat{E})$ is transformed into a 
@@ -67,17 +71,17 @@ and hence $\bu\in H(\dv,E)$ if and only if $\hat\bu\in H(\dv,\hat E)$.
 Normals and tangents are transformed as follows (cfr. page 265 of~\cite{giraultRaviart}).
 Let $\hat{\boldsymbol{\nu}}$ be the unit outward normal to $\hat E$
 If $\hat\bx\in\partial \hat{E}$ and $\boldsymbol{\nu}$ is defined by
-\begin{IEEEeqnarray*}{rCl}
+\begin{IEEEeqnarray}{rCl} \label{aux_label9}
   \boldsymbol{\nu}(F_E\hat\bx)&=&
     \frac{M_E^{-t}\hat{\boldsymbol{\nu}}(\hat\bx)}{\|M_E^{-t}\hat{\boldsymbol{\nu}}(\hat\bx)\|}\mbox{,}
-\end{IEEEeqnarray*} 
+\end{IEEEeqnarray} 
 then $\boldsymbol{\nu}$ is a unit normal to $E$. Second, let $\hat\btau$ be any
 unit vector tangent to $\partial{\hat{E}}$ at $\hat\bx$. If $\btau$ is
 given by
-\begin{IEEEeqnarray*}{rCl}
+\begin{IEEEeqnarray}{rCl} \label{aux_label10}
   \btau(F_E\hat\bx)&=&
     \frac{M_E\hat{\btau}(\hat\bx)}{\|M_E\hat{\btau}(\hat\bx)\|}\mbox{,}
-\end{IEEEeqnarray*}
+\end{IEEEeqnarray}
 then $\btau$ is a unit vector tangent to $\partial E$ at $F_E\hat\bx$.
 
 %======================================================================
@@ -241,6 +245,7 @@ $\br_E\bu$ and $\pi^{\perp}_E\dv\bu$ are defined, then
   \mbox{\color{red} \ldots \mbox{push-forward} de los interpoladores\\
     y que los pull--backs conmutan con los interpoladores}
 \end{equation}
+{\bf hcurl}
 \begin{lemma} \label{aux_label7}
 Let $\hat E$ be the reference prism~(\ref{defi_of_ref_prism}) and
 let $P_{\hat E}$ be the space in~(\ref{spaceFEprismHcurl}), that is,
@@ -295,14 +300,6 @@ then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfHcurl}).
   The invariance of the third component of elements in $P_{\hat E}$ is
   an immediate consequence of the affine nature of the coordinate change.
 \end{proof}
-\begin{lemma} Let $\hat E$ be the reference prism~(\ref{defi_of_ref_prism}) and
-let $P_{\hat E}$ be the space in~(\ref{prismaticSpace}).
-Provided the matrix $M_E$ is block--diagonal as in Lemma~\ref{aux_label7},
-then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfDiv}).
-\end{lemma}
-\begin{proof} The proof uses the same straightforward approach as the proof of 
-Lemma~\ref{aux_label7} and in a much simpler case. \noindent{\color{BrickRed}pensar esto}   
-\end{proof}
 \begin{remark} this is not a restriccion...
   \begin{figure}
     \centering
@@ -311,10 +308,62 @@ Lemma~\ref{aux_label7} and in a much simpler case. \noindent{\color{BrickRed}pen
   \end{figure}
   dibujo prisma oblicuo subdividido: tetra + prism + pyramid. Figure~\ref{obliquePrism}
 \end{remark}
+\begin{lemma} Let a physical prism $E = F_E(\hat{E})$ for $F_E$ as in~(\ref{aux_label8}).
+Given $\hat\bu$ defined in $\hat{E}$ let $\bu$ in $E$ dtermined by~(\ref{transfHcurl}), and
+let $\hat\btau$, $\btau$, $\hat\bnu$ and $\bnu$ be tangents and normals in
+$\hat E$ and $E$ related by~(\ref{aux_label10}) and~(\ref{aux_label9}). Suppose
+we define degrees of freedom of $\bu$ on $E$ as
+\begin{IEEEeqnarray}{ll}
+    \label{momentos1hcurlPhys}  
+    \varphi_{\hat{\be}_i,p}\,(\bu) **= 
+    \int_{\be} \bu \cdot \boldsymbol{\tau} \,q\, ds  
+        & q\in P_{k-1}\mbox{,} \\
+    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each edge $\be$ with unit tangent } \boldsymbol{\tau} \mbox{;}}\\[8pt]
+    \label{momentos2hcurlPhys} 
+    \varphi_{f_j,\bq}\,(\bu) **=  
+    \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+    d\gamma\mbox{, } &\bq = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
+    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each horizontal face $f$ with normal } \boldsymbol{\nu} = (0,0,\pm1) \mbox{;}}\\[8pt]
+    \label{momentos3hcurlPhys}
+    \varphi_{f_j,\bq}\,(\bu) **=  
+    \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+    d\gamma\mbox{, } &\bq = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
+    Q_{k-1,k-2}\mbox{, } \\
+    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ x=0 \} \mbox{ with normal }\boldsymbol{\nu} = (-1,0,0) \mbox{;}}\\[8pt]
+    \label{momentos4hcurlPhys}
+    \varphi_{f_j,\bq}\,(\bu) **=  
+    \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
+    d\gamma\mbox{, } & \bq = (q_3,0,q_1) \in Q_{k-2,k-1} \times \{ 0 \} \times
+    Q_{k-1,k-2},\\
+    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ y=0 \} \mbox{ with normal }\boldsymbol{n} = (0,-1,0) \mbox{;}}\\[8pt]
+    \label{momentos5hcurlPhys}
+    \varphi_{f_j,\bq}\,(\bu) **=  
+    \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
+    d\gamma\mbox{, } & \bq = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times
+    Q_{k-1,k-2}\mbox{, }\\
+    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face }f \subseteq \{x+y=1\} \mbox{ with normal }\boldsymbol{n} = (1,1,0) \mbox{;}}\\[8pt]
+    \label{momentos6hcurlPhys}
+    \varphi_{\br}(\bu) = 
+    \int_{E} \bu \cdot \br \, d\bx\mbox{, }&\br = (\det M_E)^{-1} M_E\hat\br \circ F_E^{-1}\\
+    &{\nonumber\hat\br \in P_{k-2,k-2} \times P_{k-3,k-1}.}
+\end{IEEEeqnarray}
+Provided $\det > 0$, the degrees of freedom are identical
+\end{lemma}
+
+{\bf hdiv}
+\begin{lemma} Let $\hat E$ be the reference prism~(\ref{defi_of_ref_prism}) and
+let $P_{\hat E}$ be the space in~(\ref{prismaticSpace}).
+Provided the matrix $M_E$ is block--diagonal as in Lemma~\ref{aux_label7},
+then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfDiv}).
+\end{lemma}
+\begin{proof} The proof uses the same straightforward approach as the proof of 
+Lemma~\ref{aux_label7} and in a much simpler case. \noindent{\color{BrickRed}pensar esto}   
+\end{proof}
+
 
 \begin{lemma} The finite element in Definition~\ref{edgeelement}  is conforming
 in $H\curl$ and unisolvent.
-  theorem 8 page 75 in~\cite{nedelec2} is wrong, because it is only on
+  theorem 8 page 75 in~\cite{nedelec2} is incomplete, because it is only on
   the reference element.
 \end{lemma}
 

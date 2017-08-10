@@ -90,7 +90,10 @@ If $\mathcal{P}$ and $\mathcal{Q}$ are two polynomial spaces
 \end{defi}
 \noindent In particular we will use the notation.
 \begin{notation}
-  $Q_{k,k,k} = P_k(\hat{x}_1)\otimes P_k(\hat{x}_2)\otimes P_k(\hat{x}_3)$.
+  \begin{itemize}
+    \item $P_{k,l} = P_{k}(x,y) \otimes P_{l}(z)$
+    \item $Q_{k,l,m} = P_k(\hat{x}_1)\otimes P_l(\hat{x}_2)\otimes P_m(\hat{x}_3)$.
+  \end{itemize}
 \end{notation}
 \begin{remark}\label{tensor_prod_dim} an observation that we will use several times is that,
 from the definition, $\dim \mathcal{P}\otimes \mathcal{Q} = \dim \mathcal{P} \dim \mathcal{Q}$.
@@ -445,6 +448,8 @@ and how to classify the regularity of the solution of problem~(\ref{mixedContinu
   If $\Omega$ is a non--convex polihedron $\lambda_e$ is ... and $\lambda_v$ is --- 
   $\delta > 1-\lambda_{\be}^{(\ell)} = 1-\pi/\omega_{\be}$
 \end{defi}
+{\color{blue} poner que beta y delta dependen de l; o sea, regularidad
+local, R = dist a EL vertice de  $\Lambda_l$.}
 \noindent Assuming a decomposition of $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ in tetrahedral macroelements having at most a singular edge and a singular vertex, we have the following regularity result.
 First we introduce the space $V^{1,2}_{\beta,\delta}(\Lambda)$ for a macroelement $\Lambda$ as
 \[
@@ -465,7 +470,7 @@ and, consistently,
 \|r^{\delta-1+|\alpha|}\partial^\alpha v\|_{L^2(\Lambda)}^2\right\}^{1/2}.
 \]
 \begin{theorem}\label{thm_regularity}
-The solutions $\bu$ and $p$ of problem \eqref{mixedContinuous} satisfy
+The solutions $\bu$ and $p$ of problem \eqref{weakMixedContinuous} satisfy
 \[
 p\in H^1(\Omega)
 \] 
@@ -485,11 +490,12 @@ satisfying $\beta>\frac12-\lambda_{\bv}^{(\ell)}$ and
 $\delta>1-\lambda_{\be}^{(\ell)}$, $v$ and $e$ being the singular
 vertex and edge, respectively, if they exist.
 \end{theorem}
-\begin{IEEEeqnarray*}{rCl}
-  \| \bu_r \|_{H^1(\Omega)} & \leqslant & c\,\|f\|_{H^1(\Omega)}\\[5pt]
-  \| \bu_s\cdot\xi_i \|_{V_{\beta,\delta}^{1,2}(\Lambda_\ell)} & \leqslant & c\,\| f \|_{L^2(\Lambda_\ell)}\\[5pt]
-  \| \bu_s\cdot\xi_3 \|_{V_{\beta,0}^{1,2}(\Lambda_\ell)}      & \leqslant & c\,\| f \|_{L^2(\Lambda_\ell)}
-\end{IEEEeqnarray*}
+\begin{IEEEeqnarray}{rCl}
+  \label{aux_label11}
+  \| \bu_r \|_{H^1(\Omega)} & \leqslant & c\,\|f\|_{L^2(\Omega)}\\[5pt]
+  \| \bu_s\cdot\xi_i \|_{V_{\beta,\delta}^{1,2}(\Lambda_\ell)} & \leqslant & c\,\| f \|_{L^2(\Omega)}\\[5pt]
+  \| \bu_s\cdot\xi_3 \|_{V_{\beta,0}^{1,2}(\Lambda_\ell)}      & \leqslant & c\,\| f \|_{L^2(\Omega)}
+\end{IEEEeqnarray}
   provided
 \begin{IEEEeqnarray*}{rCl}
   {\color{violet} \delta} & > & 1 - \frac{\pi}{\omega_{\textbf{e}}}\text{,}\\
