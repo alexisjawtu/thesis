@@ -69,13 +69,13 @@ by~(\ref{transfDiv}), then with a $\mathcal{D}(E)$ density argument we get
 and hence $\bu\in H(\dv,E)$ if and only if $\hat\bu\in H(\dv,\hat E)$.
 
 Normals and tangents are transformed as follows (cfr. page 265 of~\cite{giraultRaviart}).
-Let $\hat{\boldsymbol{\nu}}$ be the unit outward normal to $\hat E$
-If $\hat\bx\in\partial \hat{E}$ and $\boldsymbol{\nu}$ is defined by
+Let $\hat{\bnu}$ be the unit outward normal to $\hat E$
+If $\hat\bx\in\partial \hat{E}$ and $\bnu$ is defined by
 \begin{IEEEeqnarray}{rCl} \label{aux_label9}
-  \boldsymbol{\nu}(F_E\hat\bx)&=&
-    \frac{M_E^{-t}\hat{\boldsymbol{\nu}}(\hat\bx)}{\|M_E^{-t}\hat{\boldsymbol{\nu}}(\hat\bx)\|}\mbox{,}
+  \bnu(F_E\hat\bx)&=&
+    \frac{M_E^{-t}\hat{\bnu}(\hat\bx)}{\|M_E^{-t}\hat{\bnu}(\hat\bx)\|}\mbox{,}
 \end{IEEEeqnarray} 
-then $\boldsymbol{\nu}$ is a unit normal to $E$. Second, let $\hat\btau$ be any
+then $\bnu$ is a unit normal to $E$. Second, let $\hat\btau$ be any
 unit vector tangent to $\partial{\hat{E}}$ at $\hat\bx$. If $\btau$ is
 given by
 \begin{IEEEeqnarray}{rCl} \label{aux_label10}
@@ -83,7 +83,10 @@ given by
     \frac{M_E\hat{\btau}(\hat\bx)}{\|M_E\hat{\btau}(\hat\bx)\|}\mbox{,}
 \end{IEEEeqnarray}
 then $\btau$ is a unit vector tangent to $\partial E$ at $F_E\hat\bx$.
-
+Surface differentials are changed in the following way.
+\begin{IEEEeqnarray}{rCl} \label{surface_diffs}
+    dS & = & \|M_E^{-t}\hat\bnu\|\,|\det B|\,d\hat{S}
+\end{IEEEeqnarray}
 %======================================================================
 % With~(\ref{transfDiv})
 % \begin{IEEEeqnarray*}{rCl}
@@ -246,6 +249,7 @@ $\br_E\bu$ and $\pi^{\perp}_E\dv\bu$ are defined, then
     y que los pull--backs conmutan con los interpoladores}
 \end{equation}
 {\bf hcurl}
+  
 \begin{lemma} \label{aux_label7}
 Let $\hat E$ be the reference prism~(\ref{defi_of_ref_prism}) and
 let $P_{\hat E}$ be the space in~(\ref{spaceFEprismHcurl}), that is,
@@ -300,14 +304,16 @@ then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfHcurl}).
   The invariance of the third component of elements in $P_{\hat E}$ is
   an immediate consequence of the affine nature of the coordinate change.
 \end{proof}
-\begin{remark} this is not a restriccion...
-  \begin{figure}
-    \centering
-    *** ***
-    \caption{hybrid mesh}\label{obliquePrism}
-  \end{figure}
-  dibujo prisma oblicuo subdividido: tetra + prism + pyramid. Figure~\ref{obliquePrism}
-\end{remark}
+%=======================================================================
+%\begin{remark} this is not a restriccion...
+%  \begin{figure}
+%    \centering
+%    *** ***
+%    \caption{hybrid mesh}\label{obliquePrism}
+%  \end{figure}
+%  dibujo prisma oblicuo subdividido: tetra + prism + pyramid. Figure~\ref{obliquePrism}
+%\end{remark}
+%=======================================================================
 \begin{lemma} Let a physical prism $E = F_E(\hat{E})$ for $F_E$ as in~(\ref{aux_label8}).
 Given $\hat\bu$ defined in $\hat{E}$ let $\bu$ in $E$ dtermined by~(\ref{transfHcurl}), and
 let $\hat\btau$, $\btau$, $\hat\bnu$ and $\bnu$ be tangents and normals in
@@ -321,15 +327,15 @@ we define degrees of freedom of $\bu$ on $E$ as
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each edge $\be$ with unit tangent } \boldsymbol{\tau} \mbox{;}}\\[8pt]
     \label{momentos2hcurlPhys} 
     \varphi_{f_j,\bq}\,(\bu) **=  
-    \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+    \int\limits_{f} \textbf{u} \times \bnu \cdot \bq\,
     d\gamma\mbox{, } &\bq = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
-    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each horizontal face $f$ with normal } \boldsymbol{\nu} = (0,0,\pm1) \mbox{;}}\\[8pt]
+    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each horizontal face $f$ with normal } \bnu = (0,0,\pm1) \mbox{;}}\\[8pt]
     \label{momentos3hcurlPhys}
     \varphi_{f_j,\bq}\,(\bu) **=  
-    \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
+    \int\limits_{f} \textbf{u} \times \bnu \cdot \bq\,
     d\gamma\mbox{, } &\bq = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
     Q_{k-1,k-2}\mbox{, } \\
-    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ x=0 \} \mbox{ with normal }\boldsymbol{\nu} = (-1,0,0) \mbox{;}}\\[8pt]
+    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ x=0 \} \mbox{ with normal }\bnu = (-1,0,0) \mbox{;}}\\[8pt]
     \label{momentos4hcurlPhys}
     \varphi_{f_j,\bq}\,(\bu) **=  
     \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
@@ -349,17 +355,23 @@ we define degrees of freedom of $\bu$ on $E$ as
 \end{IEEEeqnarray}
 Provided $\det > 0$, the degrees of freedom are identical
 \end{lemma}
-
-{\bf hdiv}
-\begin{lemma} Let $\hat E$ be the reference prism~(\ref{defi_of_ref_prism}) and
-let $P_{\hat E}$ be the space in~(\ref{prismaticSpace}).
-Provided the matrix $M_E$ is block--diagonal as in Lemma~\ref{aux_label7},
-then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfDiv}).
-\end{lemma}
-\begin{proof} The proof uses the same straightforward approach as the proof of 
-Lemma~\ref{aux_label7} and in a much simpler case. \noindent{\color{BrickRed}pensar esto}   
+\begin{proof}
+  Edge dofs: ver foto
+  \begin{figure}[!h]
+    \centering
+    \includegraphics[scale=.15]{./figures/edgedofs.png}
+  \end{figure}\\
+  Face dofs: {\color{blue}\#\#\#\#\#\#\#\# continue here.}\\
+  Vol dofs
+  \begin{IEEEeqnarray}{rCl}
+    \int_{E}\bv\cdot\br\,d\bx
+    & = & 
+    \int_{\hat E}M_E^{-t}\hat\bv(F_E^{-1}\bx)\cdot
+      (\det M_E)^{-1}M_E\hat\br(F_E^{-1}\bx)\,d\hat\bx.\\
+    & = & 
+    \int_{\hat E}\hat\bv(\hat\bx)\cdot\hat\br(\hat\bx)\,d\hat\bx.
+  \end{IEEEeqnarray} 
 \end{proof}
-
 
 \begin{lemma} The finite element in Definition~\ref{edgeelement}  is conforming
 in $H\curl$ and unisolvent.
@@ -375,6 +387,106 @@ That is, the interpolator commutes with the coordinate change~(\ref{transfHcurl}
 \end{lemma}
 \begin{proof} 
 \end{proof}
+
+{\bf hcurl end}
+
+{\bf hdiv begin}
+
+\begin{lemma}\label{aux_label13} Let $\hat E$ be the reference prism~(\ref{defi_of_ref_prism}) and
+let $P_{\hat E}$ be the space in~(\ref{prismaticSpace}).
+Provided the matrix $M_E$ is block--diagonal as in Lemma~\ref{aux_label7},
+then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfDiv}).
+\end{lemma}
+\begin{proof} The proof uses the same straightforward approach as the proof of 
+Lemma~\ref{aux_label7} and in a much simpler case. \noindent{\color{BrickRed}pensar esto}   
+\end{proof}
+
+\begin{lemma} \label{aux_label12}
+The degrees of freedom are identical, surface and volumen integrals:
+in which the faces are related by $F\hat{f} = f$.
+\begin{IEEEeqnarray}{cCccl}
+    \label{momentos1hdivPhys} 
+    \rho_{ f,q}(\bv) & = & \int_{f} (\bv\cdot\bnu)q\,dS 
+        &\quad & \mbox{for } q = \hat{q}\circ F_E^-1, \hat{q} \in P_{k-1}(\hat{f})\mbox{,}\\
+    \nonumber&&&\quad&\mbox{if $ \hat{f} =  \hat{f}_3$ or $ \hat{f}_4$;}\\[5pt]
+    \label{momentos2hdivPhys}
+    \rho_{ f,q}(\bv) & = & \int_{f} (\bv\cdot\bnu)q\,dS 
+        &\quad & \mbox{for } q = \hat{q}\circ F_E^-1, \hat{q} \in Q_{k-1, k-1}(\hat f)\mbox{,}\\
+    \nonumber&&&\quad&\mbox{ if $ \hat{f} =  \hat{f}_1$, $ \hat{f}_2$ or $ \hat{f}_5$;}\\[5pt]
+    \label{momentos3hdivPhys}
+    \rho_{ \br}(\bv) & = & \int_{{E}} \bv\cdot\br\,d\bx 
+        &\quad& \mbox{for }\br = M_E^{-t}\hat\br\circ F_E^{-1}, \hat\br\in (P_{k-2,k-1})^2 \times P_{k-1,k-2};
+\end{IEEEeqnarray}
+\end{lemma}
+\begin{proof}
+  Face dofs, by~(\ref{transfDiv}) and~(\ref{surface_diffs})
+  \begin{IEEEeqnarray*}{rCl}
+    \int_{f} (\bv\cdot\bnu)q\,dS & = & 
+      \int_{\hat f} \hat\bv(F_E^{-1}\bx)\cdot\hat{\bnu}\frac{\hat{q}(F_E^{-1}\bx)}{\det M_E\|M_E^{-t}\hat\bnu\|}\,dS\\
+      &&\int_{\hat f} (\hat\bv\cdot\hat{\boldsymbol{\nu}})\hat{q}\,d\hat{S}
+  \end{IEEEeqnarray*} 
+  Vol dofs
+  \begin{IEEEeqnarray}{rCcCl}
+    \int_{E}\bv\cdot\br\,d\bx
+    & = & 
+    \int_{\hat E}M_E\hat\bv\cdot M_E^{-t}\hat\br\,d\hat\bx.
+    & = & 
+    \int_{\hat E}\hat\bv\cdot\hat\br\,d\hat\bx.
+  \end{IEEEeqnarray}
+\end{proof}
+
+\begin{lemma}
+  If $\bu\in P_{E}$ is such that all the
+  dofs~(\ref{momentos1hdivPhys}) or~(\ref{momentos2hdivPhys}) vanish
+  on the respective face $f$, then the normal component of $\bu$ 
+  vanishes identically on $f$.
+\end{lemma}
+\begin{proof}
+  This fact is stated in the proof of Theorem 4, page $66$ of~\cite{nedelec2} 
+  only for the reference prism. By transforming the degrees of freedom to 
+  the faces of $\hat E$ and back to the faces of $E$ using Lemma~\ref{aux_label12}
+  we get the result.
+\end{proof}
+\begin{lemma}
+  If $\bu\in P_{E}$ is such that all the
+  dofs~(\ref{momentos1hdivPhys})--(\ref{momentos3hdivPhys}) vanish, 
+  then $\bu$ vanishes identically on $E$.
+\end{lemma}
+\begin{proof}
+  In the case of the reference prism $\hat E$, we refer to the proof of 
+  Theorem 4 in page $66$ of~\cite{nedelec2}.
+  by the invariance of the finite element space under
+  the change~(\ref{transfDiv}) (Lemma~\ref{aux_label13}) we have our result.
+\end{proof}
+\begin{corollary}
+  Finite Element on $E$ is $H(\dv)$--conforming and unisolvent.
+\end{corollary}
+\begin{corollary}
+  For any $\bv\in W^{1,1}(E)$ expressions 
+  ~(\ref{momentos1hdivPhys})--(\ref{momentos3hdivPhys}) 
+  determine a well defined local interpolate
+  $\br_E\,\bu$ defined as the unique finite element function in $P_E$ such that
+  \begin{IEEEeqnarray}{lClc}
+    \rho_{f,\bq}\,(\bv - \br_E\,\bu) & = & 0 &
+    \quad\mbox{for $\rho_{f,\bq}$ as in~(\ref{momentos1hdivPhys})
+      and~(\ref{momentos2hdivPhys})}\\
+    \rho_{\br}\,(\bv - \br_E\,\bu) & = & 0 &
+    \quad\mbox{for $\rho_{\br}$ as in~(\ref{momentos3hdivPhys})}.
+  \end{IEEEeqnarray}
+\end{corollary}
+And the momentos3hdivPhyswt important
+\begin{corollary}
+  Given $\bu \in W^{1,1}(E)$, then
+  \begin{IEEEeqnarray}{rCl} \label{div_interp_commutes}
+    \rku & = & \det M_E\,(M_E^{-1}\,\br_E\,\bu)\circ F_E\mbox{,}
+  \end{IEEEeqnarray}
+  that is, the $H(\dv)$ interpolator commutes with the coordinate
+  change~(\ref{transfDiv}).
+\end{corollary}
+
+{\bf hdiv end}
+
+
 \begin{remark}
   Unisolvence and conformity of the finite elements on tetrahedra in
   Section~\ref{sec:tetrahedralFEs}

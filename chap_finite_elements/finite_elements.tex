@@ -2,6 +2,8 @@
 {\color{blue} Ir viendo que algunas cosas de acá van a ir a parar
 a Preliminaries.}
 \section{Prismatic Finite Elements}
+>this intends to be an extension of the treatment
+in~\cite{giraultRaviart} to prismatic elements?
 \subsection{Definici\'on del \emph{edge element} en prismas} % (fold)
 \label{sub:defEdgeElement}
 Now we introduce two polynomial spaces which will be used to construct 
@@ -254,12 +256,12 @@ que es un homog\'eneo en $x,y$ por uno en $z$.)}
   \item The degrees of freedom are of two types, surface and volumen integrals:
 \begin{IEEEeqnarray}{cCccl}
     \label{momentos1hdiv} 
-    \rho_{\hat f,q}(\bv) & = & \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
-        &\quad & \mbox{for } q \in P_{k-1}(\hat{f})\mbox{,}\\
+    \rho_{\hat f,q}(\bv) & = & \int_{\hat f} (\hat\bv\cdot\hat{\boldsymbol{\nu}})\hat{q}\,d\hat{S} 
+        &\quad & \mbox{for } \hat{q} \in P_{k-1}(\hat{f})\mbox{,}\\
     \nonumber&&&\quad&\mbox{if $\hat f = \hat f_3$ or $\hat f_4$;}\\[5pt]
     \label{momentos2hdiv}
-    \rho_{\hat f,q}(\bv) & = & \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
-        &\quad & \mbox{for } q \in Q_{k-1, k-1}(\hat f)\mbox{,}\\
+    \rho_{\hat f,q}(\bv) & = & \int_{\hat f} (\hat\bv\cdot\hat{\boldsymbol{\nu}})\hat{q}\,d\hat{S} 
+        &\quad & \mbox{for } \hat{q} \in Q_{k-1, k-1}(\hat f)\mbox{,}\\
     \nonumber&&&\quad&\mbox{ if $\hat f = \hat f_1$, $\hat f_2$ or $\hat f_5$;}\\[5pt]
     \nonumber
     \rho_{\hat \br}(\bv) & = & \int\limits_{\hat{E}} (v_1\,r_1 + v_2\,r_2)\,d\bx 
