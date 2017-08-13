@@ -92,32 +92,34 @@ of degree $k$ are defined by the following:
             P_{\hat{E}} & = & R_k(\hat{T}) \otimes P_k(\hat{I}) \times 
             P_k(\hat{T}) \otimes P_{k-1}(\hat{I}).
          \end{IEEEeqnarray} 
-  \item The degrees of freedom are:
+  \item The degrees of freedom are: ver si en~\ref{momentos2hcurl} y los otros de caras
+  hay que cambiar orden de componentes o signos por lo que acomod'e para definir el elemento
+  af'in; ver~(\ref{momentos2hcurlPhys}).
 \begin{IEEEeqnarray}{ll}
     \label{momentos1hcurl}  
-    \varphi_{\hat{\be}_i,p}\,(\bu) = 
+    \hat\varphi_{\hat{\be}_i,p}\,(\bu) = 
     \int_{\be} \bu \cdot \boldsymbol{\tau} \,q\, ds  
         & q\in P_{k-1}\mbox{,} \\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each edge $\be$ with unit tangent } \boldsymbol{\tau} \mbox{;}}\\[8pt]
     \label{momentos2hcurl} 
-    \varphi_{f_j,\bq}\,(\bu) =  
+    \varphi_{\hat f_j,\hat\bq}\,(\hat\bu) =  
     \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
     d\gamma\mbox{, } &\bq = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each horizontal face $f$ with normal } \boldsymbol{\nu} = (0,0,\pm1) \mbox{;}}\\[8pt]
     \label{momentos3hcurl}
-    \varphi_{f_j,\bq}\,(\bu) =  
+    \varphi_{\hat f_j,\hat\bq}\,(\hat\bu) =  
     \int\limits_{f} \textbf{u} \times \boldsymbol{\nu} \cdot \bq\,
     d\gamma\mbox{, } &\bq = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
     Q_{k-1,k-2}\mbox{, } \\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ x=0 \} \mbox{ with normal }\boldsymbol{\nu} = (-1,0,0) \mbox{;}}\\[8pt]
     \label{momentos4hcurl}
-    \varphi_{f_j,\bq}\,(\bu) =  
+    \varphi_{\hat f_j,\hat\bq}\,(\hat\bu) =  
     \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
     d\gamma\mbox{, } & \bq = (q_3,0,q_1) \in Q_{k-2,k-1} \times \{ 0 \} \times
     Q_{k-1,k-2},\\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ y=0 \} \mbox{ with normal }\boldsymbol{n} = (0,-1,0) \mbox{;}}\\[8pt]
     \label{momentos5hcurl}
-    \varphi_{f_j,\bq}\,(\bu) =  
+    \varphi_{\hat f_j,\hat\bq}\,(\hat\bu) =  
     \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
     d\gamma\mbox{, } & \bq = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times
     Q_{k-1,k-2}\mbox{, }\\

@@ -321,33 +321,16 @@ $\hat E$ and $E$ related by~(\ref{aux_label10}) and~(\ref{aux_label9}). Suppose
 we define degrees of freedom of $\bu$ on $E$ as
 \begin{IEEEeqnarray}{ll}
     \label{momentos1hcurlPhys}  
-    \varphi_{\hat{\be}_i,p}\,(\bu) **= 
+    \varphi_{\be_i,p}\,(\bu) = 
     \int_{\be} \bu \cdot \boldsymbol{\tau} \,q\, ds  
         & q\in P_{k-1}\mbox{,} \\
     \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each edge $\be$ with unit tangent } \boldsymbol{\tau} \mbox{;}}\\[8pt]
     \label{momentos2hcurlPhys} 
-    \varphi_{f_j,\bq}\,(\bu) **=  
-    \int\limits_{f} \textbf{u} \times \bnu \cdot \bq\,
-    d\gamma\mbox{, } &\bq = (q_1,q_2,0) \in P_{k-2}^2 \times \{ 0 \},\\ 
-    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each horizontal face $f$ with normal } \bnu = (0,0,\pm1) \mbox{;}}\\[8pt]
-    \label{momentos3hcurlPhys}
-    \varphi_{f_j,\bq}\,(\bu) **=  
-    \int\limits_{f} \textbf{u} \times \bnu \cdot \bq\,
-    d\gamma\mbox{, } &\bq = (0,q_3,q_2) \in \{ 0 \} \times Q_{k-2,k-1} \times 
-    Q_{k-1,k-2}\mbox{, } \\
-    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ x=0 \} \mbox{ with normal }\bnu = (-1,0,0) \mbox{;}}\\[8pt]
-    \label{momentos4hcurlPhys}
-    \varphi_{f_j,\bq}\,(\bu) **=  
-    \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
-    d\gamma\mbox{, } & \bq = (q_3,0,q_1) \in Q_{k-2,k-1} \times \{ 0 \} \times
-    Q_{k-1,k-2},\\
-    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face } f \subseteq \{ y=0 \} \mbox{ with normal }\boldsymbol{n} = (0,-1,0) \mbox{;}}\\[8pt]
-    \label{momentos5hcurlPhys}
-    \varphi_{f_j,\bq}\,(\bu) **=  
-    \int\limits_{f} \textbf{u} \times \boldsymbol{n} \cdot \bq\,
-    d\gamma\mbox{, } & \bq = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times
-    Q_{k-1,k-2}\mbox{, }\\
-    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for the face }f \subseteq \{x+y=1\} \mbox{ with normal }\boldsymbol{n} = (1,1,0) \mbox{;}}\\[8pt]
+    \varphi_{f,\bq}\,(\bu) =  
+    \int_{f} \bu \cdot \bq_0\,
+    dS\mbox{, } &\bq_0 = (\det M_E\|M_E^{-t}\hat\bnu\|)^{-1} M_E\hat{\bq}_T\\
+    &\hat{\bq}_T := (\hat\bnu\times\hat\bq)\times\hat\bnu\\
+    &\mbox{$\hat\bq$ as in~(\ref{momentos2hcurl})--(\ref{momentos5hcurl})}.\\[8pt]
     \label{momentos6hcurlPhys}
     \varphi_{\br}(\bu) = 
     \int_{E} \bu \cdot \br \, d\bx\mbox{, }&\br = (\det M_E)^{-1} M_E\hat\br \circ F_E^{-1}\\
@@ -357,12 +340,30 @@ Provided $\det > 0$, the degrees of freedom are identical
 \end{lemma}
 \begin{proof}
   Edge dofs: ver foto
-  \begin{figure}[!h]
-    \centering
-    \includegraphics[scale=.15]{./figures/edgedofs.png}
-  \end{figure}\\
-  Face dofs: {\color{blue}\#\#\#\#\#\#\#\# continue here.}\\
-  Vol dofs
+  Take a param $\hat{\boldsymbol{\alpha}}(t):I=[0,1]\to \hat\be$ such that
+  $\hat\btau=\stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)/\|\stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)\|$.
+  As  a jacobian maps tangents into tangents,
+  $\boldsymbol{\alpha}(t)=M_E{\hat\bx}(t) + \bx_E$ parameterizes
+  $\be$. Then\\
+  Edge dofs:
+  \begin{IEEEeqnarray*}{rCl}
+    \int_{\be}(q\bu)\cdot d\boldsymbol{\alpha}
+    &=&\int_{I}
+    q\bu(F\hat\bx(t)))\cdot M_E
+    \stackrel{.}{\hat{\boldsymbol{\bx}}}(t)dt  \\[5pt]
+    &=&\int_{I}
+    \hat q(\hat\bx(t)) M_E^{-t}
+    \hat\bu(\hat\bx(t))\cdot M_E\stackrel{.}{\hat{\boldsymbol{\bx}}}(t)dt\\[5pt]
+    &=&\int_{\hat\be}(\hat q\hat\bu)\cdot d\boldsymbol{\hat\alpha}.
+  \end{IEEEeqnarray*}
+  Face dofs: 
+  \begin{IEEEeqnarray*}{rCl}
+    \int_{\hat f} \hat\bv\times\hat\bnu\cdot\hat\bq\times\hat\bnu\,d\hat S 
+    & = & \int_{\hat f} (\hat\bnu\times\hat\bq)\times\hat\bnu\cdot\hat\bu\,d\hat S \\
+    & = & \int_{\hat f} \det M_E\|M_E^{-t}\hat\bnu\| \bq_0 (F\hat\bx) \cdot \bu(F\hat \bx) d\hat S \\
+    & = & \int_{ f} \bq_0 (\bx) \cdot \bu( \bx) d S
+  \end{IEEEeqnarray*}
+  Vol dofs:
   \begin{IEEEeqnarray}{rCl}
     \int_{E}\bv\cdot\br\,d\bx
     & = & 
@@ -420,11 +421,6 @@ in which the faces are related by $F\hat{f} = f$.
 \end{lemma}
 \begin{proof}
   Face dofs, by~(\ref{transfDiv}) and~(\ref{surface_diffs})
-  \begin{IEEEeqnarray*}{rCl}
-    \int_{f} (\bv\cdot\bnu)q\,dS & = & 
-      \int_{\hat f} \hat\bv(F_E^{-1}\bx)\cdot\hat{\bnu}\frac{\hat{q}(F_E^{-1}\bx)}{\det M_E\|M_E^{-t}\hat\bnu\|}\,dS\\
-      &&\int_{\hat f} (\hat\bv\cdot\hat{\boldsymbol{\nu}})\hat{q}\,d\hat{S}
-  \end{IEEEeqnarray*} 
   Vol dofs
   \begin{IEEEeqnarray}{rCcCl}
     \int_{E}\bv\cdot\br\,d\bx
