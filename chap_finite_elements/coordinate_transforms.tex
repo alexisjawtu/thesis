@@ -1,7 +1,8 @@
 \section{Differentials, coordinate transformations, 
 unisolvence and conformity of Finite Elements}
 
-For \noindent{\color{BrickRed} SOME of}  the following exposition we refer to~\cite{ciarlet},
+For \noindent{\color{BrickRed} the motivation of (SOME of)}  the following exposition we
+refer to~\cite{ciarlet},
  Section 3.9 of~\cite{monk} and~\cite{gh99}.
 
 We want this same setting to build Finite Elements on 
@@ -314,7 +315,8 @@ then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfHcurl}).
 %  dibujo prisma oblicuo subdividido: tetra + prism + pyramid. Figure~\ref{obliquePrism}
 %\end{remark}
 %=======================================================================
-\begin{lemma} Let a physical prism $E = F_E(\hat{E})$ for $F_E$ as in~(\ref{aux_label8}).
+\begin{lemma}\label{aux_label14}
+Let a physical prism $E = F_E(\hat{E})$ for $F_E$ as in~(\ref{aux_label8}).
 Given $\hat\bu$ defined in $\hat{E}$ let $\bu$ in $E$ dtermined by~(\ref{transfHcurl}), and
 let $\hat\btau$, $\btau$, $\hat\bnu$ and $\bnu$ be tangents and normals in
 $\hat E$ and $E$ related by~(\ref{aux_label10}) and~(\ref{aux_label9}). Suppose
@@ -331,7 +333,7 @@ we define degrees of freedom of $\bu$ on $E$ as
     dS\mbox{, } &\bq_0 = (\det M_E\|M_E^{-t}\hat\bnu\|)^{-1} M_E\hat{\bq}_T\\
     &\hat{\bq}_T := (\hat\bnu\times\hat\bq)\times\hat\bnu\\
     &\mbox{$\hat\bq$ as in~(\ref{momentos2hcurl})--(\ref{momentos5hcurl})}.\\[8pt]
-    \label{momentos6hcurlPhys}
+    \label{momentos3hcurlPhys}
     \varphi_{\br}(\bu) = 
     \int_{E} \bu \cdot \br \, d\bx\mbox{, }&\br = (\det M_E)^{-1} M_E\hat\br \circ F_E^{-1}\\
     &{\nonumber\hat\br \in P_{k-2,k-2} \times P_{k-3,k-1}.}
@@ -339,21 +341,20 @@ we define degrees of freedom of $\bu$ on $E$ as
 Provided $\det > 0$, the degrees of freedom are identical
 \end{lemma}
 \begin{proof}
-  Edge dofs: ver foto
-  Take a param $\hat{\boldsymbol{\alpha}}(t):I=[0,1]\to \hat\be$ such that
-  $\hat\btau=\stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)/\|\stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)\|$.
-  As  a jacobian maps tangents into tangents,
-  $\boldsymbol{\alpha}(t)=M_E{\hat\bx}(t) + \bx_E$ parameterizes
-  $\be$. Then\\
-  Edge dofs:
+  Edge dofs\\
+  Take a Parametrization $\hat{\boldsymbol{\alpha}}(t):I=[0,1]\to \hat\be$ such that
+  $\hat\btau = \stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)/\|\stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)\|$.
+  As a jacobian maps tangents into tangents,
+  $\boldsymbol{\alpha}(t) = M_E\hat{\boldsymbol{\alpha}}(t) + \bx_E$ parameterizes
+  $\be$. Then
   \begin{IEEEeqnarray*}{rCl}
     \int_{\be}(q\bu)\cdot d\boldsymbol{\alpha}
     &=&\int_{I}
-    q\bu(F\hat\bx(t)))\cdot M_E
-    \stackrel{.}{\hat{\boldsymbol{\bx}}}(t)dt  \\[5pt]
+    q\bu(F\hat{\boldsymbol{\alpha}}(t)))\cdot M_E
+    \stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)dt  \\[5pt]
     &=&\int_{I}
-    \hat q(\hat\bx(t)) M_E^{-t}
-    \hat\bu(\hat\bx(t))\cdot M_E\stackrel{.}{\hat{\boldsymbol{\bx}}}(t)dt\\[5pt]
+    \hat q(\hat{\boldsymbol{\alpha}}(t)) M_E^{-t}
+    \hat\bu(\hat{\boldsymbol{\alpha}}(t))\cdot M_E\stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)dt\\[5pt]
     &=&\int_{\hat\be}(\hat q\hat\bu)\cdot d\boldsymbol{\hat\alpha}.
   \end{IEEEeqnarray*}
   Face dofs: 
@@ -374,21 +375,49 @@ Provided $\det > 0$, the degrees of freedom are identical
   \end{IEEEeqnarray} 
 \end{proof}
 
-\begin{lemma} The finite element in Definition~\ref{edgeelement}  is conforming
+\begin{corollary} The finite element in Definition~\ref{edgeelement}  is conforming
 in $H\curl$ and unisolvent.
   theorem 8 page 75 in~\cite{nedelec2} is incomplete, because it is only on
   the reference element.
-\end{lemma}
+\end{corollary}
+\begin{proof}
+  Transform the dofs to $\hat E$ and use proof of Theorem 8, page 75 of
+  ~\cite{nedelec2}. 
+\end{proof}
 
-\begin{lemma} >Provided $\det M^{t} > 0$?, the edge element interpolators satisfy
+\begin{corollary} \noindent{\color{BrickRed}\#\#\#\#\#\#\# ojo tipeo ac'a\\} 
+  For any $\bv\in W^{1,p}(E)$ expressions 
+  ~(\ref{momentos1hcurlPhys})--(\ref{momentos3hcurlPhys}) 
+  determine a well defined local interpolate
+  $\bw_E\,\bu$ defined as the unique finite element function in $P_E$ such that
+  \begin{IEEEeqnarray}{lClc}
+    \varphi_{\be,q}\,(\bv - \bw_E\,\bu) & = & 0 &
+    \quad\mbox{for $\varphi_{\be,q}$ as in~(\ref{momentos1hcurlPhys})}\\
+    \varphi_{f,\bq}\,(\bv - \bw_E\,\bu) & = & 0 &
+    \quad\mbox{for $\varphi_{f,\bq}$ as in~(\ref{momentos2hcurlPhys})}\\
+    \varphi_{\br}\,(\bv - \bw_E\,\bu) & = & 0 &
+    \quad\mbox{for $\varphi_{\br}$ as in~(\ref{momentos3hcurlPhys})}.
+  \end{IEEEeqnarray}
+\end{corollary}
+
+
+This will be used in the proof of local interpolation estimates.
+\begin{lemma} Provided $\det M^{t} > 0$, the edge element interpolators satisfy
 \begin{IEEEeqnarray}{rCl}\label{piTransformado}
     \wku(\hat{\bx}) & = & M^{t} \bw_E\bu(F_E(\hat{\bx}))
 \end{IEEEeqnarray}
 That is, the interpolator commutes with the coordinate change~(\ref{transfHcurl}).
 \end{lemma}
 \begin{proof} 
+  By definition, for all dof $\varphi$ in (poner refs)
+  $\varphi(\bu - \bw_E\bu) = 0$. By dofs identity in Lemma~\ref{aux_label14}
+  \[
+  \hat{\varphi}\left((\bu - \bw_E\bu)^{\hat{}\,}\right) = \hat{\varphi}\left(\hat{\bu} - (\bw_E\bu)^{\displaystyle\hat{}\,}\right) = 0
+  \]
+  which implies $\wku = \hat{\bw}_E(\bw_E\bu)^{\hat{}}$.
+  The space $P_{\hat E}$ was proven to be invariant under~(\ref{transfCurl}), so
+  $\wku = (\bw_E\bu)^{\hat{}}$.
 \end{proof}
-
 {\bf hcurl end}
 
 {\bf hdiv begin}
@@ -420,7 +449,9 @@ in which the faces are related by $F\hat{f} = f$.
 \end{IEEEeqnarray}
 \end{lemma}
 \begin{proof}
-  Face dofs, by~(\ref{transfDiv}) and~(\ref{surface_diffs})
+  Face dofs, by~(\ref{transfDiv}) and~(\ref{surface_diffs}) 
+  \noindent{\color{BrickRed}\#\#\#\#\#\#\# continue here}
+  \noindent{\color{BrickRed}\#\#\#\#\#\#\# ver hoja (-3) en cuaderno amarillo}\\ 
   Vol dofs
   \begin{IEEEeqnarray}{rCcCl}
     \int_{E}\bv\cdot\br\,d\bx
@@ -470,7 +501,7 @@ in which the faces are related by $F\hat{f} = f$.
     \quad\mbox{for $\rho_{\br}$ as in~(\ref{momentos3hdivPhys})}.
   \end{IEEEeqnarray}
 \end{corollary}
-And the momentos3hdivPhyswt important
+And the most important, whose proof is like the one of~(\ref{piTransformado}).
 \begin{corollary}
   Given $\bu \in W^{1,1}(E)$, then
   \begin{IEEEeqnarray}{rCl} \label{div_interp_commutes}
