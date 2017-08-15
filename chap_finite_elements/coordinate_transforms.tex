@@ -450,9 +450,12 @@ in which the faces are related by $F\hat{f} = f$.
 \end{lemma}
 \begin{proof}
   Face dofs, by~(\ref{transfDiv}) and~(\ref{surface_diffs}) 
-  \noindent{\color{BrickRed}\#\#\#\#\#\#\# continue here}
-  \noindent{\color{BrickRed}\#\#\#\#\#\#\# ver hoja (-3) en cuaderno amarillo}\\ 
-  Vol dofs
+  \begin{IEEEeqnarray*}{rCl}
+    \int_{f} \bv\cdot\bnu\bq\,d S & = & 
+    \int_{f} (\det M_E)^{-1} \hat\bv(F_E^{-1}\bx)\cdot\|M_E^{-t}\hat\bnu\|^{-1}\hat\bnu\hat\bq(F_E^{-1}\bx)\,d S \\
+    & = &\int_{\hat f} \hat\bv(\hat\bx)\cdot\hat\bnu\hat\bq(\hat\bx)\,d\hat S 
+  \end{IEEEeqnarray*}    
+Vol dofs
   \begin{IEEEeqnarray}{rCcCl}
     \int_{E}\bv\cdot\br\,d\bx
     & = & 

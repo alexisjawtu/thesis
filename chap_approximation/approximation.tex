@@ -120,31 +120,28 @@ for every approximation $\pi(\bu)$ of $\bu$ in
 $W(\mathcal{T}_{\textit{h}})$,
   \begin{IEEEeqnarray*}{rCl}
     \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\} \\[5pt]
-    \|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant& C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\}\\[5pt]
-    &{\color{red}\uparrow}&\\[5pt]
-        \IEEEeqnarraymulticol{3}{c}{\mbox{{\color{red} tal vez ac\'a no va como lemma 3.9 de ricardo mixed porque no tengo la propiedad}}}\\
-        \IEEEeqnarraymulticol{3}{c}{\mbox{{\color{red}div(Vh) = PPk}}}
+    \|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant&
+    C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\}\\[5pt]
   \end{IEEEeqnarray*} 
 \end{theorem}
-\begin{proof}
+\begin{proof} Cfr. proof of Theorem 5.1 in~\cite{bfm}.
 \end{proof}
-
-{\color{brown}
-esta version de intercalado se usa?? Dur\'an Mixed lemma 3.9 es la segunda de estas
-\begin{proof}
-\begin{IEEEeqnarray*}{lCl}
-  \|\boldsymbol{u} - \boldsymbol{u}_{\textit{h}}\|_{L^2(\Omega)^3}
-  &\leqslant& 
-  C\,\inf_{v\in\mathbb{V}_h}\|\boldsymbol{u} - \textbf{v}\|_{\mathbb{V}}\\[7pt]
-  &\leqslant& 
-  C\,\|\boldsymbol{u} - \pi\boldsymbol{u}\|_{\mathbb{V}}\\[10pt]
-  \|p-p_{\textit{h}}\|_{\mathbb{Q}}&\leqslant&
-  C\,[\|\boldsymbol{u} - \pi\boldsymbol{u}\|_{L2(\Omega)}+\|p - \pi_{\textit{h}}^{\bot} p \|_{\mathbb{Q}}].
-\end{IEEEeqnarray*}
-\end{proof}
-
-}
-
+%% ============================================================================
+% {\color{brown}
+% esta version de intercalado se usa?? Dur\'an Mixed lemma 3.9 es la segunda de estas
+% \begin{proof}
+% \begin{IEEEeqnarray*}{lCl}
+%   \|\boldsymbol{u} - \boldsymbol{u}_{\textit{h}}\|_{L^2(\Omega)^3}
+%   &\leqslant& 
+%   C\,\inf_{v\in\mathbb{V}_h}\|\boldsymbol{u} - \textbf{v}\|_{\mathbb{V}}\\[7pt]
+%   &\leqslant& 
+%   C\,\|\boldsymbol{u} - \pi\boldsymbol{u}\|_{\mathbb{V}}\\[10pt]
+%   \|p-p_{\textit{h}}\|_{\mathbb{Q}}&\leqslant&
+%   C\,[\|\boldsymbol{u} - \pi\boldsymbol{u}\|_{L2(\Omega)}+\|p - \pi_{\textit{h}}^{\bot} p \|_{\mathbb{Q}}].
+% \end{IEEEeqnarray*}
+% \end{proof}
+% }
+%% ============================================================================
 If $\Omega$ were convex and $f\in L^2(\Omega)$ we know that the solution $p$ of
 problem $H^2(\Omega)$, and so $\bu\in H^1(\Omega)^3$. In this case, using the 
 interpolation error estimates we proved in Propositions 
@@ -703,7 +700,8 @@ Finally joining everything,
   h_3 \sum_{i = 1,2} \|\partial_{\xi_3}u_{s,i}\|_{L^{1}(E)}\\
   & &\left. +\;h_1 \|\dv(u_{s,1}, u_{s,2}, 0)'\|_{L^{1}(E)}\right\}.
 \end{IEEEeqnarray*}
-\noindent{\color{BrickRed}\#\#\#\#\#\#\# continue here} 
+\noindent{\color{BrickRed}\#\#\#\#\#\#\# continue here y anotar para seguir 
+en el remark del caso de macroel. que me marcó ariel que faltar'ia (ver mi cuaderno)} 
 {\color{red} PESOS: revisar desde ac\'a por la correcci\'on de la p\'agina anterior.}
 Now, for $\|u_{s,i}\|$ with $i=1,2$,
 \begin{IEEEeqnarray*}{rCl}
