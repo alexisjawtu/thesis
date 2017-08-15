@@ -1,0 +1,256 @@
+\section{non--convex case}
+\label{sec:non_convex_case}
+
+\begin{theorem}
+
+{\color{BrickRed} poner esto en la intro como objetivo de todo el texto que sigue y
+el enunciado este, entero, ponerlo al final, en donde digo lo de la $\bw_{\bu}$ \\
+
+no, ojo que las mallas las estoy queriendo poner antes ... pensarlo}
+
+There exists a family of anisotropic graded meshes
+$\{\mathcal{T}_{\textit{h}}\}_{{\textit{h}}\downarrow 0}\,$
+made up of
+Prisms, tetrahedra and pyramids 
+for which 
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\bu_{\textit{h}}\|_{0,\Omega}&\leqslant &C {\textit{h}} \|f\|_{0,\Omega}\\[5pt]
+  \|p-p_{\textit{h}}\|_{0,\Omega}&\leqslant &C \textit{h} \|f\|_{0,\Omega}
+\end{IEEEeqnarray*}
+whith $\textit{h}$ being smaller than  $C N^{\nicefrac{-1}{3}}$, where
+$N = N_{\textit{h}}$ is the  number of elements in $\mathcal{T}_{\textit{h}}$.
+\end{theorem}
+%%=========== GRADING ==============================================
+
+{\color{BrickRed}\paragraph{TODO} % (fold)
+\label{par:todo}
+ver qu'e pasa con lo de distance to the vertices, distance to de 
+singular vertices.
+
+ver si se acomoda definiendo $\lambda_e, \lambda_v$ como $+\infty$ en caso de
+ser arista o v'ertice regulares, y as'i poder usar las cotas con las 
+distancias al \'unico v\'ertice o arista de cada macroelemento, etc...
+% paragraph todo (end)
+}
+grading
+
+\begin{equation}\label{label_grading}
+\begin{IEEEeqnarraybox*}{lCl}
+  h_1, h_2 &\sim&
+    \begin{cases}
+      \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(E,\be)=0\\
+      \textit{h}\,d(E,\be)^{1-\mu}  & \text{ if\, }0<d(E,\be)\lesssim1\\
+      \textit{h}          & \text{ if\, }d(E,\be)\sim1
+    \end{cases}\\[5pt]
+  h_3   &\sim& 
+    \begin{cases}
+      \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(E,v)=0\\
+      \textit{h}\,d(E,v)^{1-\nu}  & \text{ if\, }0<d(E,v)\lesssim1\\
+      \textit{h}          & \text{ if\, }d(E,v)\sim1
+    \end{cases}
+\end{IEEEeqnarraybox*}
+\end{equation}
+with $\mu\le 1-\delta$ for some $\delta>1-\lambda_{\be}$.\\
+with $\nu\le 1-\beta$ for some $\beta>\frac12-\lambda_{\bv}$.
+%%==================================================================
+\begin{remark} \noindent{\color{BrickRed} ESto seguro que va, todavia no se
+bien adonde.} 
+We remark that if a mesh satisfies~(\ref{label_grading})
+for $\mu=\mu_0$ and $\nu=\nu_0$, then it satisfies the
+same for $\mu>\mu_0$ and $\nu>\nu_0$. Thus, the mesh can be overrefined by
+taking $\mu=\nu=\min\{1-\delta,1-\beta\}$, and it still
+verifies~(\ref{label_grading}) for
+$\min\{1-\delta,1-\beta\}\le\mu\le 1-\delta$ and
+$\min\{1-\delta,1-\beta\}\le\nu\le 1-\beta$. The possibility to use $\mu=\nu$
+for the construction of the mesh, allows to validate condition stating
+that Tetrahedra and pyramids in $\Th$ are not necessarily anisotropic.
+\end{remark}
+
+To avoid what would result in an illegible proof we decided to partition
+the proof in subsections, paragraphs and items.\\
+
+\textbf{Obs}: si $\delta(\Lambda)>1$ entonces
+\[
+  R_K(\bx) \leqslant \delta(\Lambda)\min\{ R_K(\bx), 1\}
+\]
+as\'i que asumimos $R_K(\bx)\leqslant 1$.\\[7pt]
+\textbf{Obs}: $\mu < 1 \Rightarrow \mu \leqslant \nu$. \\[7pt]
+
+\subsection{Meshes}\label{meshes}
+\noindent{\color{BrickRed}*** ver si las mallas hacen falta antes del caso convexo;
+ver si hace falta llegar hasta subsubseccion} 
+\subsubsection{Macro--element with singular edge and vertex}\label{caso4}
+Let $T$ be a tetrahedral macro--element with vertices $P_0, P_1, P_2$ and $P_3$. We suppose that $P_0$ is the singular vertex and that the
+singular edge is $P_0P_1$. The mesh $\mathcal T_h$ on $T$ will contain tetrahedra, prisms and pyramids. 
+In Tables~\ref{prisms_barycentric_a}--\ref{tetrahedral_barycentric}
+we explicit the elements in terms
+of the barycentric coordinates of the vertices of each element corresponding to the ordered vertices $P_0, P_1, P_2$ and $P_3$.
+\bigskip
+
+\prismsBaryCoordA
+
+\prismsBaryCoordB
+
+\pyramidsBaryCoord
+
+\tetrahedraBaryCoord
+
+\subsubsection{Macro--element with a singular edge}
+This case corresponds to the prismatic macro--element.
+A mesh is constructed as the cartesian product between a graded mesh
+in a triangle and a quasi--uniform mesh along the singular edge. Table~\ref{prisms_product}
+shows the points
+For $0\leqslant i\leqslant n$ and $0\leqslant j\leqslant n-1$ let $p_{i,j}$
+be the point with barycentric coordinates, with respect to $P_0,P_1,P_2$,
+equal to      
+\begin{eqnarray*}
+&&\lambda_0(i,j)=1-\lambda_1(i,j)-\lambda_2(i,j),\\[5pt]
+&&\lambda_1(i,j)=\frac in\left(\frac{i+j}n\right)^{\gamma-1},\quad
+  \lambda_2(i,j)=\frac jn\left(\frac{i+j}n\right)^{\gamma-1},\quad
+\end{eqnarray*}
+Now let $\Tb$ the family of triangles with vertices  {\color{BrickRed}( controlar )}
+\begin{IEEEeqnarray*}{lllCLL}
+p_{i,j} & p_{i+1,j} & p_{i,j+1} & \quad & 0\leqslant i  < n\mbox{,\quad}&0\leqslant j < n - i\\
+p_{i,j} & p_{i+1,j-1} & p_{i+1,j} & \quad & 0\leqslant i  < n-1\mbox{,\quad}&1\leqslant j < n - i.
+\end{IEEEeqnarray*}
+The elements in $\Lambda_\ell$ will be
+$\tau\times (P_{0,3} + \frac kn h_{\Lambda_\ell,3}, P_{0,3} + \frac{k+1}{n} h_{\Lambda_\ell,3})$
+for each $\tau\in\Tb$ and each $0\leqslant k<n$. See Figure~\ref{prismatic_macroelements}.
+%borrar ---->>>  \prismsProductCoord
+
+\def\col{black}
+\def\height{0}
+\def\twoPi{360}
+\begin{figure}[!h]\centering
+  \subfloat
+  {
+    \begin{tikzpicture}[scale=2]
+      \prismaticMacroelement{8}{2}{.63}{4}{\col}
+    \end{tikzpicture}\hspace{1cm}
+    \begin{tikzpicture}[scale=2]
+      \prismaticMacroelement{8}{3}{.63}{4}{\col}
+      \draw[red] (0,0,0) -- (0,-1.5,0);
+    \end{tikzpicture}\hspace{1cm}
+    \begin{tikzpicture}[scale=2]
+      \prismaticMacroelement{8}{4}{.63}{4}{\col}
+      \draw[red] (0,0,0) -- (0,-1.5,0);
+    \end{tikzpicture}
+  }
+  \caption{Elements of the family of
+    meshes restricted to a prismatic macro--element.$\mu = .63$}
+  \label{prismatic_macroelements}
+\end{figure}
+
+\subsubsection{Macro--element with a singular vertex}
+
+We consider again a tetrahedral macro--element $T$ with vertices $P_0, P_1, P_2$
+and $P_3$, assuming that it has a singular vertex at $P_0$ and no singular edge.
+We construct a triangulation of $T$ made of tetrahedra describing 
+the barycentric coordinates of the vertices of each tetrahedron with respect
+to $P_0, P_1, P_2$ and $P_3$. This case corresponds to Case 1 of \cite{AN}.
+
+Let $p_{i,j,k}$ be the points with barycentric coordinates
+\begin{eqnarray*}
+&&\lambda_0=1-\lambda_1-\lambda_2-\lambda_3,\\[5pt]
+&&\lambda_1=\frac in\left(\frac{i+j+k}n\right)^{\gamma-1},\quad
+  \lambda_2=\frac jn\left(\frac{i+j+k}n\right)^{\gamma-1},\quad
+  \lambda_3=\frac kn\left(\frac{i+j+k}n\right)^{\gamma-1},
+\\[5pt] &&0\le i\le n, 0\le j\le n-i, 0\le k\le n-i-j.
+\end{eqnarray*}
+Then, the tetrahedra are the ones with vertices
+\begin{eqnarray*}
+&& p_{i,j,k}, p_{i+1,j,k}, p_{i,j+1,k}, p_{i,j,k+1}, \qquad 0\le i+j+k\le n-1\\
+&& p_{i+1,j,k}, p_{i,j+1,k}, p_{i,j,k+1}, p_{i+1,j,k+1}, \qquad 0\le i+j+k\le n-2\\
+&& p_{i,j+1,k}, p_{i,j,k+1}, p_{i+1,j,k+1}, p_{i,j+1,k+1}, \qquad 0\le i+j+k\le n-2\\
+&& p_{i+1,j,k}, p_{i,j+1,k}, p_{i+1,j+1,k}, p_{i+1,j,k+1}, \qquad 0\le i+j+k\le n-2\\
+&& p_{i,j+1,k}, p_{i+1,j+1,k}, p_{i+1,j,k+1}, p_{i,j+1,k+1}, \qquad 0\le i+j+k\le n-2\\
+&& p_{i+1,j+1,k}, p_{i+1,j,k+1}, p_{i,j+1,k+1}, p_{i+1,j+1,k+1}, \qquad 0\le i+j+k\le n-3
+\end{eqnarray*}
+
+
+\begin{proposition} Pyramids and tetrahedra are isotropic.
+\end{proposition}
+\begin{proof} We deal firstly with pyramids. Consider a pyramid with vertices $p_0, \ldots, p_4$ in a macro--element of vertices $P_0,P_1,P_2$ and $P_3$ as in Subsection \ref{caso4}. Note that the basis of the pyramid is the paralelogram $p_0p_1p_3p_2$ with
+\begin{eqnarray}\label{once}
+&&p_1-p_0=p_3-p_2=\frac1n\left(\frac{n-l-1}n\right)^{\gamma-1}(P_3-P_2)\\\label{doce} &&p_2-p_0=p_3-p_1=\left[\left(\frac{n-l}n\right)^\gamma-\left(\frac{n-l-1}n\right)^\gamma\right](P_0-P_1).
+\end{eqnarray}
+So 
+\[
+\frac{\gamma}{n}\left(\frac{n-l-1}n\right)^{\gamma-1}|P_0-P_1|\le |p_2-p_0|=|p_3-p_1|\le \frac{\gamma}{n}\left(\frac{n-l}n\right)^{\gamma-1}|P_0-P_1|,
+\]
+and 
+\[
+\frac1\gamma\left(\frac12\right)^{\gamma-1}\le\frac1\gamma\left(\frac{n-l-1}{n-l}\right)^{\gamma-1}\le\frac{|p_1-p_0|}{|p_2-p_0|}\le \frac1\gamma.
+\]
+Then the parallelogram $p_0p_1p_3p_2$ is shape-regular since the angle between $P_0-P_1$ and $P_3-P_2$ depends only on the macro--element, and so it is away from $0$ and $\pi$. 
+
+Now we prove that there exists constants $c_0$ and $c_1$ depending only on $\gamma$ and the macro--element's vertices such that
+\begin{eqnarray}\label{diez}
+&c_0\le\frac{|p_4-p_2|}{|p_2-p_0|}\le c_1&\\ \label{trece}
+&c_0\le\frac{|p_4-p_3|}{|p_2-p_0|}\le c_1&.
+\end{eqnarray}
+After simple computations we obtain
+\begin{eqnarray*}
+p_4-p_2 &=& \left[\left(\frac{n-l}n\right)^\gamma - \left(\frac{n-l-1}n\right)^\gamma\right](P_3-P_0) \\ &&\qquad + \frac in \left[\left(\frac{n-l}n\right)^{\gamma-1} - \left(\frac{n-l-1}n\right)^{\gamma-1}\right](P_2-P_3)\\ &=& \left[\left(\frac{n-l}n\right)^\gamma - \left(\frac{n-l-1}n\right)^\gamma\right]\bigg\{P_3-P_0 +\\ &&\qquad + \frac{\frac in \left[\left(\frac{n-l}n\right)^{\gamma-1} - \left(\frac{n-l-1}n\right)^{\gamma-1}\right]}{\left[\left(\frac{n-l}n\right)^\gamma - \left(\frac{n-l-1}n\right)^\gamma\right]} (P_2-P_3)\bigg\}\\ &\sim& \left[\left(\frac{n-l}n\right)^\gamma - \left(\frac{n-l-1}n\right)^\gamma\right](P_3-P_0)\\ &\sim& p_3-p_1
+\end{eqnarray*}
+where we used that 
+\[
+\frac{\frac in \left[\left(\frac{n-l}n\right)^{\gamma-1} - \left(\frac{n-l-1}n\right)^{\gamma-1}\right]}{\left[\left(\frac{n-l}n\right)^\gamma - \left(\frac{n-l-1}n\right)^\gamma\right]}\le \frac{\gamma-1}{\gamma},
+\]
+that the angle between $P_3-P_0$ and $P_2-P_3$ is fixed (and depends only on the macro--element) and equation \eqref{doce}. This prove \eqref{diez}, and \eqref{trece} follows analogously. In order to prove that the pyramid is isotropic now we have to note that the basis $p_0p_1p_3p_2$ is contained in a plane parallel to the one generated by the vectors $P_1-P_0$ and $P_3-P_2$, and the face $p_2p_3p_4$ is in a plane parallel to the plane (macro--element's face) $P_0P_2P_3$, and the angle between those planes depends only on the macro--element.      
+
+
+COMPLETAR PRUEBA PARA LOS TETRAEDROS
+\end{proof}
+
+
+
+Another way, less formal but clearer, to look
+at the  mesh points in a tetrahedral macro--element
+with both kinds of singularities is the following.
+
+Fijamos:
+\begin{IEEEeqnarray*}{rCl}
+  T &=& \left[\textbf{p}_0,\textbf{p}_1,\textbf{p}_2,\textbf{p}_3\right]\\[7pt]
+  \textbf{p}_0 &=& 0\\[7pt]
+  \left[\textbf{p}_0,\textbf{p}_3\right] &=& 
+  \text{la arista singular}\\[7pt]
+  \textbf{p}_3 & = & \text{v\'ertice singular}\\[7pt]
+  \left[\textbf{p}_0, \textbf{p}_1, 
+  \textbf{p}_2\right]&\subseteq&\{z=0\}.
+\end{IEEEeqnarray*}
+  
+$\lambda_0,\lambda_1$ y $\lambda_2$: {\color{RedOrange}coordenadas  baric\'entricas} con respecto a
+$\textbf{p}_0,\textbf{p}_1$ y $\textbf{p}_2$.\\[10pt]
+$\textbf{p}_{i,j}$ es tal que\\[5pt]
+\begin{IEEEeqnarray*}{rCl}
+  \lambda_0(\textbf{p}_{i,j})  &=& 1-\lambda_1(\textbf{p}_{i,j}) - \lambda_2(\textbf{p}_{i,j}) \\[5pt]
+  \lambda_1(\textbf{p}_{i,j})  &=& \frac{i}{n}\left(\frac{i+j}{n}\right)^{\frac{1}{\mu}-1}\\[5pt]
+  \lambda_2(\textbf{p}_{i,j})  &=& \frac{j}{n}\left(\frac{i+j}{n}\right)^{\frac{1}{\mu}-1}.\\[15pt]
+  &&0\leqslant i\leqslant n\\[5pt]
+  &&0\leqslant j\leqslant n-i
+\end{IEEEeqnarray*}
+  
+Los puntos son la uni\'on de\\[5pt]
+\begin{IEEEeqnarray*}{lCl}
+  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n,\quad
+    0\leqslant j\leqslant n-i \right\}&&\\[7pt]
+  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n-1,\quad
+  0\leqslant j\leqslant n-1-i \right\} & \quad+\quad & 
+  [{\scriptstyle 1-\left(\frac{n-1}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[7pt]
+  \IEEEeqnarraymulticol{3}{c}{\vdots}\\[7pt]
+  \left\{\textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n-k,\quad
+  0\leqslant j\leqslant n-k-i \right\} & \quad+\quad &
+  [{\scriptstyle 1-\left(\frac{n-k}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[7pt]
+  \IEEEeqnarraymulticol{3}{c}{\vdots}\\[7pt]
+  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant 1,\quad
+  0\leqslant j\leqslant 1-i \right\} & \quad+\quad &
+  [{\scriptstyle 1-\left(\frac{1}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[10pt]
+  \IEEEeqnarraymulticol{3}{l}{\left\{\textbf{e}_3\right\}}\text{,}
+\end{IEEEeqnarray*}
+i.e.:
+\begin{IEEEeqnarray*}{rCl}
+  \mathcal{P} & = & \bigcup_{k=0}^n\;\left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n - k,\quad
+  0\leqslant j\leqslant n-k-i \right\}\\[8pt]
+  &&\quad+\,[{\scriptstyle1-\left(\frac{n-k}{n}\right)^{1/\mu}}]\,\textbf{e}_3.
+\end{IEEEeqnarray*}
