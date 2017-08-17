@@ -9,12 +9,12 @@
 \end{tikzpicture}
 }
 
-\def\referencePrismTikz
+\newcommand{\referencePrismTikz}[1]
 {
-\begin{tikzpicture}
-  \draw (0, 0, 0) -- (0, 0, 2.4); 
-  \draw (0, 0, 0) -- (2.2, 0, 0);
-  \draw (0, 0, 0) -- (0, 2.2, 0);
+\begin{tikzpicture}[scale={#1}]
+  \draw (0, 0, 0) -- (0, 0, 2); 
+  \draw (0, 0, 0) -- (2, 0, 0);
+  \draw (0, 0, 0) -- (0, 2, 0);
 	\draw (0, 0, 2) -- (2, 0, 0);
 	\draw (0, 2, 2) -- (2, 2, 0);
 	\draw (2, 0, 0) -- (2, 2, 0);
@@ -24,9 +24,9 @@
 \end{tikzpicture}
 }
 
-\def\referencePyramidTikz
+\newcommand{\referencePyramidTikz}[1]
 {
-\begin{tikzpicture}[scale=2]
+\begin{tikzpicture}[scale={#1}]
   \coordinate (o) at (0,0,0);
   \coordinate (e1) at (0,0,1);
   \coordinate (e2) at (1,0,0);
