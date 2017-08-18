@@ -257,6 +257,10 @@ There is $C > 0$, independent of $h_1$, $h_2$ and $h_3$, s.t. for all $p \geqsla
     + \max\{h_1,h_2\}\left\|{\dv}(\tilde{u}_1, \tilde{u}_2, 0) \,\right\|_{L^p(\tilde{E})}\right).
   \end{IEEEeqnarray*}
 \end{theorem}
+
+\noindent{\color{BrickRed}\#\#\#\#\#\#\# continue here. Ver si en aadl hacen
+estabilidad fisica (creo que si). ver c'omo est'a en lombardi hcurl tetra.} 
+
 \begin{remark}
 {\color{red}esto va en el cap. de approx tal vez, decidir, porque esta dos veces
 esto mismo.}  When it comes to estimate in terms of the data $f$ we
@@ -401,12 +405,40 @@ Then the proof concludes by noting that $\|B\|\leqslant C$ and $\|B^{-1}\|\sim \
 \label{sub:local_interpolation_estimates_for_prismatic_elements}
 
 For the following paragraph we refer to the exposition in pages $25$--$26$
-of~\cite{ariel} and page 161 of~\cite{aadl}. We will state scaling consequences
-of inequalities~(\ref{aux_label19}). Let $\partial^m f$ denote
+of~\cite{ariel}, in which the author
+state the forthcoming facts for tetrahedra. We will state scaling consequences
+of inequalities~(\ref{aux_label19}). For a non--negative integer
+$m$ let $\partial^m f$ denote
 the sum of the absolute values of all the derivatives of order $m$ of $f$.
+\begin{lemma}\label{aux_label20}
+Let $E$ be a prism such that (\noindent{\color{BrickRed}hip. prisma}).
+Let $\xi_i$, $1\leqslant i \leqslant 3$ be unitary vectors with the directions
+of the three edges sharing a vertex $\bx_E$ of $E$, whose lengths are
+$h_i$, $1\leqslant i\leqslant 3$. Given $p\geqslant 1$, $m\geqslant 0$ and
+$\bu \in W_{m+1,p}$ there exists a vector polynomial $\bq\in P_m(E)^3$ such that 
+\begin{IEEEeqnarray*}{rCl}
+  \left\|\frac{\partial}{\partial \xi_i}(\bu-\bq)\right\|_{L^p(E)}
+  &\leqslant&C\sum_{|\alpha| = m} \boldsymbol{h}^\alpha 
+  \left\|\frac{\partial}{\partial\xi_i} (\partial^{\alpha}\bu) \right\|_{L^p(E)}
+\end{IEEEeqnarray*} 
+and 
+\begin{IEEEeqnarray*}{rCl}
+  \|\dv(\bu-\bq)\|_{L^p(E)}&\leqslant&Ch_E^m\|\partial^m\dv\bu\|_{L^p(E)}
+\end{IEEEeqnarray*}
+where $C$ depends only on $m$ and \noindent{\color{BrickRed} ????}.
 
-
-poner lo del articulo de ariel y lo de apel, duran lombardi, acosta RT
+If $m \geqslant 1$ and $p \geqslant 1$
+\begin{IEEEeqnarray*}{rCl}
+  \|\curl(\tilde\bu-\tilde\bq)\|_{L^1(\tilde E)}&\leqslant&
+  C|E|^{1-\nicefrac1p}\,h^m
+  \|\partial^m\curl\tilde\bu\|_{L^p(\tilde E)}\\[5pt]
+  \|\frac{\partial}{\partial_{\tilde x_i}}\curl(\tilde\bu-\tilde\bq)\|_{L^1(\tilde E)}&\leqslant&
+  C|E|^{1-\nicefrac1p}\,h^{m-1}
+  \|\partial^m\curl\tilde\bu\|_{L^p(\tilde E)}
+\end{IEEEeqnarray*}
+where C depends only on $m$, $\sigma$ (cfr. Theorem~\ref{aux_label21})
+and the reference element.
+\end{lemma}
 
 
 
