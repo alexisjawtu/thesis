@@ -436,14 +436,19 @@ and the reference element.
 
 
 
+{\color{blue}\#\#\#\#\#\#\#\# continue here.} 
 
 one of the main results in this thesis
 Sean un prisma obl\'{\i}cuo irregular $K$, $k\in\mathbb{N}$, el operador de interpolaci\'on 
 $\bw_E$ de grado $k$ determinado por el elemento en la Definición~(\ref{edgeelement}), y $p>2$.
 
-\begin{theorem}
-Existe $C > 0$ independiente de $E$ tal que para todo campo $\bu\in W^{m + 1,p}(E)$
-con $\bcurl \bu\in W^{m,p}(E)$ y $m\leqslant k-1$, 
+$h_E$ is the diameter of $E$.
+
+\begin{theorem} Let $p>2$ and let $E$ be a prism whose triangular
+faces have >least/greatest? angle >greater/less? than $c_0$.
+there exists $C > 0$ and three edges $\ell_i$ of $E$
+ such that for all $\bu\in W^{m + 1,p}(E)^3$
+and $m\leqslant k-1$, %with $\bcurl \bu\in W^{m,p}(E)^3$
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bw_E \bu\|_{L^p(E)} & \leqslant & C
   \left(
@@ -451,16 +456,22 @@ con $\bcurl \bu\in W^{m,p}(E)$ y $m\leqslant k-1$,
     h_E^{m+1}\|\partial^m \bcurl \bu\|_{L^p(E)}
   \right).
 \end{IEEEeqnarray*} 
-$C$ can be chosen so that, if M_E is the matrix made with
-$\x_i$ as columns, then $\|M\|_\infty\leqslant C$ and $\|M^{-1}\|_\infty\leqslant C$ 
+$C$ depends only on $c_0$.
+$C$ can be chosen so that, if $M_E$ is the matrix made with
+$\xi_i$ as columns, then $\|M\|_\infty\leqslant C$ and $\|M^{-1}\|_\infty\leqslant C$ 
 and $\det M_E \geqslant C$
 \end{theorem}
-\begin{proof}
+\begin{proof} {\color{blue}\#\#\#\#\#\#\#\# Ariel, por favor mirar si es correcta
+la manera en que lo digo.}
+Since $W^{m+1,p}(E)\hookrightarrow W^{1,p}(E)$ and $p$ is greater than $2$,
+the edge interpolator $\bw_E$ is well--defined via corollary~\ref{aux_label26}.
   Consider the prism $\tilde E$ as in~(\ref{tilde_prism}). There is an affine map
   $\tilde \bx \mapsto \bx = M_E\tilde\bx+\bx_E$ from $\tilde E$ onto $E$, such that 
-  \|M\|, \|\|
+  $\|M\|$, $\|\|$
+  The matrix $M_E$ is made up of vectors $\xi_i$, $i = 1$, $2$, $3$, as its columns,
+  where $\xi_i$ are the unitary vectors in the directions of three edges $\ell_i$
+   of E of lengths $h_i$ sharing the vertex $\bx_E$.
 
-{\color{blue}\#\#\#\#\#\#\#\# continue here.} 
   ~(\ref{aux_label24})
 
   ~(\ref{aux_label25})
