@@ -420,6 +420,14 @@ and
 where $C$ depends only on $m$ and \noindent{\color{BrickRed} ????}.
 
 If $m \geqslant 1$ and $p \geqslant 1$
+
+{\color{blue}\#\#\#\#\#\#\#\# continue here.
+estas desig de taylor prom yo solo las uso
+directo en Lp, por eso ya estaria acomodado
+lo de la medida de E a la (1-1/p) etc...
+ver despues de '...is finite measured...' y lo uso como ahi sin 
+lo de la medida. Despues de esto, terminar el teorema de interpolacion local}
+
 \begin{IEEEeqnarray}{rCl}
   \label{aux_label24}
   \|\curl(\tilde\bu-\tilde\bq)\|_{L^1(\tilde E)}&\leqslant&
@@ -433,10 +441,6 @@ If $m \geqslant 1$ and $p \geqslant 1$
 where C depends only on $m$, $\sigma$ (cfr. Theorem~\ref{aux_label21})
 and the reference element.
 \end{lemma}
-
-
-
-{\color{blue}\#\#\#\#\#\#\#\# continue here.} 
 
 one of the main results in this thesis
 Sean un prisma obl\'{\i}cuo irregular $K$, $k\in\mathbb{N}$, el operador de interpolaci\'on 
@@ -453,7 +457,9 @@ and $m\leqslant k-1$, %with $\bcurl \bu\in W^{m,p}(E)^3$
   \|\bu-\bw_E \bu\|_{L^p(E)} & \leqslant & C
   \left(
     \sum_{|\alpha|=m+1}\boldsymbol{h}^\alpha \|\partial^\alpha \bu\|_{L^p(E)} +
-    h_E^{m+1}\|\partial^m \bcurl \bu\|_{L^p(E)}
+    h_E^{m+1}\|\partial^m 
+    {\color{red}(\bcurl \bu)_3}
+    \|_{L^p(E)}
   \right).
 \end{IEEEeqnarray*} 
 $C$ depends only on $c_0$.
@@ -494,7 +500,19 @@ and again the coordinate transformation,
     |M|^{\nicefrac1p}\|M_E^{-1}\|  
       \|\tilde{\bw}_{\tilde E}(\tilde\bu-\tilde\bq)\|_{L^p(\tilde E)}
 \end{IEEEeqnarray*}
-Theorem~\ref{aux_label27}
+Theorem~\ref{aux_label27} implies
+\begin{IEEEeqnarray*}{rCl}
+    \|\bw_E(\bu-\bq)\|_{L^p(E)}
+    & \leqslant & C\|M^{-1}\||\det M_E|^{\nicefrac1p}
+\left[ \| \tilde\bu-\tilde\bq \|_{L^p(\tilde{E})}
+    + \sum_{i=1}^3 h_i \| \partial_{\tilde{x}_i}(\tilde\bu-\tilde\bq) \|_{L^p(\tilde{E})}\right.\\
+    & & \left.
+    \:+\;h\left(\left\|(\curl\,(\tilde\bu-\tilde\bq))_3 \right\|_{L^p(\tilde{E})}
+     + \sum_{i=1}^3 h_i
+     \left\| \partial_{\tilde{x}_i}(\curl\,(\tilde\bu-\tilde\bq))_3 \right\|_{L^p(\tilde{E})}\right)
+  \right].
+\end{IEEEeqnarray*}
+
 
 
 
