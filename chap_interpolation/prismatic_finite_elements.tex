@@ -391,11 +391,8 @@ and the sum of the three estimates yields the theorem.
   elongated exactly along the direction paralell to the cuadrilateral faces.
 \end{remark}
 
-
-
 \subsection{Local Interpolation Estimates for Prismatic Elements} % (fold)
 \label{sub:local_interpolation_estimates_for_prismatic_elements}
-
 For the following paragraph we refer to the exposition in pages $25$--$26$
 of~\cite{ariel}, in which the author
 state the forthcoming facts for tetrahedra. We will state scaling consequences
@@ -431,16 +428,7 @@ If $m \geqslant 0$ and $p \geqslant 1$
   \left\|\frac{\partial}{\partial\tilde x_i} (\partial^{\alpha}\tilde\bu)
   \right\|_{L^p(\tilde E)}
 \end{IEEEeqnarray} 
-
-
 If $m \geqslant 1$ and $p \geqslant 1$
-{\color{blue}\#\#\#\#\#\#\#\# continue here.
-estas desig de taylor prom yo solo las uso
-directo en Lp, por eso ya estaria acomodado
-lo de la medida de E a la (1-1/p) etc...
-ver despues de '...is finite measured...' y lo uso como ahi sin 
-lo de la medida. Despues de esto, terminar el teorema de interpolacion local}
-
 \begin{IEEEeqnarray}{rCl}
   \label{aux_label24__}
   \|\curl(\tilde\bu-\tilde\bq)\|_{L^p(\tilde E)}&\leqslant&
@@ -517,19 +505,16 @@ the edge interpolator $\bw_E$ is well--defined via corollary~\ref{aux_label26}.
   The matrix $M_E$ is made up of vectors $\xi_i$, $i = 1$, $2$, $3$, as its columns,
   where $\xi_i$ are the unitary vectors in the directions of three edges $\ell_i$
    of E of lengths $h_i$ sharing the vertex $\bx_E$.
-
-  ~(\ref{aux_label24})
-
-  ~(\ref{aux_label25})
-
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bw_E\bu\|_{L^p(E)} & \leqslant & \|\bu-\bq\|_{L^p(E)}
     +\|\bw_E(\bu-\bq)\|_{L^p(E)}
 \end{IEEEeqnarray*}
 For the first term we may simply do, by Remark~\ref{aux_label28} and the
 transformation~(\ref{transfHcurl}),
-\begin{IEEEeqnarray}{rCl}\label{aux_label37}
+\begin{IEEEeqnarray}{rCl}
+\nonumber
   \|\bu-\bq\|_{L^p(E)} & = & \|M_E^{-t}(\tilde{\bu}-\tilde{\bq})\circ F_E^{-1}\|_{L^p(E)} \\[5pt]
+\label{aux_label37}
   &\leqslant& \|M^{-1}\||\det M_E|^{\nicefrac1p}\|\tilde{\bu}-\tilde{\bq}\|_{L^p(\tilde E)}.
 \end{IEEEeqnarray}
 With regard to the second term, by the commutativity property~(\ref{piTransformado})
@@ -600,13 +585,14 @@ which implies, for every $\alpha$ of order $m$,
 \end{IEEEeqnarray}
 {\color{blue}\#\#\#\#\#\#\#\# De donde sale el $(2+m)$ de (6.15) en
 ~\cite{ariel}?.}
-
 Now combine~(\ref{aux_label33}),~(\ref{aux_label36}) and~(\ref{aux_label35}) 
-with~(\ref{aux_label34}) and~(\ref{aux_label37}) to get
-
-
-
+with~(\ref{aux_label34}) and~(\ref{aux_label37}) to obtain the
+Theorem.
 \end{proof}
+Imitating the former proof and adding the information of
+
+
+
 
 
 %
