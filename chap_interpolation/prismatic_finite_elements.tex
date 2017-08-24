@@ -477,6 +477,25 @@ the edge interpolator $\bw_E$ is well--defined via corollary~\ref{aux_label26}.
   ~(\ref{aux_label25})
 
 
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\bw_E\bu\|_{L^p(E)} & \leqslant & \|\bu-\bq\|_{L^p(E)}
+    +\|\bw_E(\bu-\bq)\|_{L^p(E)}
+\end{IEEEeqnarray*}
+For the first term we may simply do, by Remark~\ref{aux_label28} and the
+transformation~(\ref{transfHcurl}),
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\bq\|_{L^p(E)} & = & \|M_E^{-t}(\tilde{\bu}-\tilde{\bq})\circ F_E^{-1}\|_{L^p(E)} \\[5pt]
+  &\leqslant& \|M^{-1}\||\det M_E|^{\nicefrac1p}\|\tilde{\bu}-\tilde{\bq}\|_{L^p(\tilde E)}.
+\end{IEEEeqnarray*}
+With regard to the second term, by the commutativity property~(\ref{piTransformado})
+and again the coordinate transformation,
+\begin{IEEEeqnarray*}{rCl}
+  \|\bw_E(\bu-\bq)\|_{L^p(E)}&\leqslant&
+    |M|^{\nicefrac1p}\|M_E^{-1}\|  
+      \|\tilde{\bw}_{\tilde E}(\tilde\bu-\tilde\bq)\|_{L^p(\tilde E)}
+\end{IEEEeqnarray*}
+Theorem~\ref{aux_label27}
+
 
 
 
@@ -486,7 +505,7 @@ the edge interpolator $\bw_E$ is well--defined via corollary~\ref{aux_label26}.
 \end{proof}
 
 
-{\color{BrickRed}
+\begin{remark}\label{aux_label28}
 Take a kernel $\hat{\phi}\in\mathcal{C}_0^\infty(\mathbb{R}^n)$ such that
 \begin{IEEEeqnarray*}{rCl}
   \supp{\hat{\phi}}&\subseteq&\hat{B}\\[5pt]
@@ -517,7 +536,7 @@ where
   \hat{Q}&=&\text{avg. Taylor polyn. over }\hat{B}\text{ with kernel }\hat{\phi}\\[5pt]
   {Q}&=&\text{avg. Taylor polyn. over }{B}\text{ with kernel }{\phi_B}
 \end{IEEEeqnarray*}
-}
+\end{remark}
 
 
 
