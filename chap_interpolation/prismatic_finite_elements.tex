@@ -247,10 +247,6 @@ There is $C > 0$, independent of $h_1$, $h_2$ and $h_3$, s.t. for all $p \geqsla
     + \max\{h_1,h_2\}\left\|{\dv}(\tilde{u}_1, \tilde{u}_2, 0) \,\right\|_{L^p(\tilde{E})}\right).
   \end{IEEEeqnarray*}
 \end{theorem}
-
-\noindent{\color{BrickRed}\#\#\#\#\#\#\# continue here. Ver si en aadl hacen
-estabilidad fisica (creo que si). ver c'omo est'a en lombardi hcurl tetra.} 
-
 \begin{remark}
 {\color{red}esto va en el cap. de approx tal vez, decidir, porque esta dos veces
 esto mismo.}  When it comes to estimate in terms of the data $f$ we
@@ -369,9 +365,11 @@ and the sum of the three estimates yields the theorem.
 % \end{remark}
 %===============================================================================
 
-\begin{corollary} Under assumptions of Lemma \ref{L6}, and if $h_{P,3}\ge \max\{h_{P,1},h_{P,2}\}$ we obtain 
+\begin{corollary}\label{aux_label38}
+Under assumptions of Lemma \ref{L6}, and if $h_{P,3}\ge \max\{h_{P,1},h_{P,2}\}$ we obtain 
 \begin{equation}\label{estabLp}
-\|\br_E \bu\|_{L^p(E)} \leqslant \left(\|\bu\|_{L^p(E)} + \sum_{i=1}^3 h_{E,i}\|\partial_{\xi_i} \bu\|_{L^p(E)}+ h_E\|\mbox{div\,}\bu\|_{L^p(E)}\right)
+\|\br_E \bu\|_{L^p(E)} \leqslant \left(\|\bu\|_{L^p(E)} +
+\sum_{i=1}^3 h_{E,i}\|\partial_{\xi_i} \bu\|_{L^p(E)}+ h_E\|\mbox{div\,}\bu\|_{L^p(E)}\right)
 \end{equation}
 \end{corollary}
 \begin{remark}
@@ -400,17 +398,12 @@ of inequalities~(\ref{aux_label19}). For a non--negative integer
 $m$ let $\partial^m f$ denote
 the sum of the absolute values of all the derivatives of order $m$ of $f$.
 \begin{lemma}\label{aux_label20}
+{\color{blue}\#\#\#\#\#\#\#\# continue here. acomodar, mirar un poco. y despues ver etiquetas.tex}\\\\
 Let $E$ be a prism such that (\noindent{\color{BrickRed}hip. prisma}).
 Let $\xi_i$, $1\leqslant i \leqslant 3$ be unitary vectors with the directions
 of the three edges sharing a vertex $\bx_E$ of $E$, whose lengths are
 $h_i$, $1\leqslant i\leqslant 3$. Given $p\geqslant 1$, $m\geqslant 0$ and
 $\bu \in W_{m+1,p}$ there exists a vector polynomial $\bq\in P_m(E)^3$ such that 
-\begin{IEEEeqnarray}{rCl}\label{aux_label22}
-  \left\|\frac{\partial}{\partial \xi_i}(\bu-\bq)\right\|_{L^p(E)}
-  &\leqslant&C\sum_{|\alpha| = m} \boldsymbol{h}^\alpha 
-  \left\|\frac{\partial}{\partial\xi_i} (\partial^{\alpha}\bu) \right\|_{L^p(E)}
-\end{IEEEeqnarray} 
-and 
 \begin{IEEEeqnarray}{rCl}\label{aux_label23}
   \|\dv(\bu-\bq)\|_{L^p(E)}&\leqslant&Ch_E^m\|\partial^m\dv\bu\|_{L^p(E)}
 \end{IEEEeqnarray}
@@ -589,7 +582,17 @@ Now combine~(\ref{aux_label33}),~(\ref{aux_label36}) and~(\ref{aux_label35})
 with~(\ref{aux_label34}) and~(\ref{aux_label37}) to obtain the
 Theorem.
 \end{proof}
-Imitating the former proof and adding the information of
+Imitating the former proof and adding the information of~(\ref{aux_label23}),
+from Corollary~\ref{aux_label38} we deduce the following Theorem.
+\begin{theorem}
+ $k\in\mathbb{N}_0, p \geqslant 1:$\quad$\exists$ $C > 0$\quad$\forall$ $\bu\in W^{m + 1,p}(E)$\quad and
+\quad$m\leqslant k$, 
+\begin{IEEEeqnarray}{C}\label{aux_label39}
+  \|\bu-\br_E \bu\|_{L^p(E)} \leqslant C \left(
+  \sum_{|\alpha|=m+1}h^\alpha \|D^\alpha\bu\|_{L^p(E)} +
+  h_K^{m+1}\|D^m(\text{div} \,\bu)\|_{L^p(E)} \right).
+\end{IEEEeqnarray}
+\end{theorem}
 
 
 
