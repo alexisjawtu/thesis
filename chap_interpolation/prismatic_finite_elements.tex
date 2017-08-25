@@ -409,16 +409,13 @@ and~(\ref{transfDiv}) then
 \end{IEEEeqnarray*}
 \end{remark}
 \begin{lemma}\label{aux_label20}
-{\color{blue}\#\#\#\#\#\#\#\# continue here. acomodar, mirar un poco. y despues ver etiquetas.tex}\\\\
-Let $E$ be a prism such that (\noindent{\color{BrickRed}hip. prisma}).
-Let $\xi_i$, $1\leqslant i \leqslant 3$ be unitary vectors with the directions
-of the three edges sharing a vertex $\bx_E$ of $E$, whose lengths are
-$h_i$, $1\leqslant i\leqslant 3$. Given $p\geqslant 1$, $m\geqslant 0$ and
-$\bu \in W_{m+1,p}$ there exists a vector polynomial $\bq\in P_m(E)^3$ such that 
-\begin{IEEEeqnarray}{rCl}\label{aux_label23}
-  \|\dv(\bu-\bq)\|_{L^p(E)}&\leqslant&Ch_E^m\|\partial^m\dv\bu\|_{L^p(E)}
-\end{IEEEeqnarray}
-where $C$ depends only on $m$ and \noindent{\color{BrickRed} ????}.
+{\color{blue}\#\#\#\#\#\#\#\# continue here. acomodar.}
+Let $\tilde E$ be the rescaled reference prism in Figure~\ref{rescaled_prism}
+and denote its diameter by $h$.
+Given $p\geqslant 1$, $m\geqslant 0$ and
+$\tilde\bu \in W^{m+1,p}(\tilde E)$, let $\tilde \bq\in P_m(\tilde E)^3$ be the
+vector averaged Taylor polynomial 
+of $\tilde \bu$ as in  Remark~\ref{aux_label28}. Then
 If $m \geqslant 0$ and $p \geqslant 1$
 \begin{IEEEeqnarray}{rCl}\label{aux_label30}
   \|\tilde \bu - \tilde \bq\|_{L^p(\tilde E)}& \leqslant &
@@ -432,6 +429,10 @@ If $m \geqslant 0$ and $p \geqslant 1$
   \left\|\frac{\partial}{\partial\tilde x_i} (\partial^{\alpha}\tilde\bu)
   \right\|_{L^p(\tilde E)}
 \end{IEEEeqnarray} 
+\begin{IEEEeqnarray}{rCl}\label{aux_label23}
+  \|\tilde{\dv}(\tilde\bu-\tilde\bq)\|_{L^p(\tilde E)}&\leqslant&Ch^m\|\tilde \partial^m\tilde\dv\tilde\bu\|_{L^p(\tilde E)}
+\end{IEEEeqnarray}
+where $C$ depends only on $m$ and \noindent{\color{BrickRed} ????}.
 If $m \geqslant 1$ and $p \geqslant 1$
 \begin{IEEEeqnarray}{rCl}
   \label{aux_label24__}
@@ -468,6 +469,17 @@ Sean un prisma obl\'{\i}cuo irregular $K$, $k\in\mathbb{N}$, el operador de inte
 $\bw_E$ de grado $k$ determinado por el elemento en la Definición~(\ref{edgeelement}), y $p>2$.
 
 $h_E$ is the diameter of $E$.
+
+
+======================================================\\
+such that (\noindent{\color{BrickRed}hip. prisma}).
+Let $\xi_i$, $1\leqslant i \leqslant 3$ be unitary vectors with the directions
+of the three edges sharing a vertex $\bx_E$ of $E$, whose lengths are
+$h_i$, $1\leqslant i\leqslant 3$.\\
+======================================================
+
+
+
 
 \begin{theorem} \label{aux_label32} Let $p>2$ and let $E$ be a prism whose triangular
 faces have >least/greatest? angle >greater/less? than $c_0$.
