@@ -549,21 +549,22 @@ then
   \partial^\beta \Qb_{k,B} f & = & \Qb_{k-|\beta|,B} \partial^\beta f.
 \end{IEEEeqnarray}
 \end{lemma}
-\begin{lemma}
+\begin{lemma} \label{aux_label40}
   Let $\Omega\subseteq\mathbb{R}^n$ be an open connected set
   with diameter $d$ which is star--shaped with respect to a 
-  set $B\subseteq\Omega$ of positive measure. Given an integer
+  set $B\subseteq\Omega$ of positive measure. Given $p\geqslant 1$
+  and an integer
   $k\geqslant 0$ and $f\in W^{k+1,p}(\Omega)$ there exists a 
   positive $C=C(k,n)$ such that, for $|\beta|\geqslant k+1$,
   \begin{IEEEeqnarray*}{rCl}
       \|\partial^{\beta}(f-\Qb_{k,B}f)\|_{L^p(\Omega)}
         &\leqslant&C\frac{|\Omega|^{\nicefrac1p}}{|B|^{\nicefrac1p}}
-          d^{k-|\beta|+1}|f|_{k+1,\Omega}.
+          d^{k-|\beta|+1}|f|_{k+1,p,\Omega}.
   \end{IEEEeqnarray*}
   In particular, if $\Omega$ is convex,
   \begin{IEEEeqnarray*}{rCl}
     \|\partial^{\beta}(f-\Qb_{k,\Omega}f)\|_{L^p(\Omega)}
-        &\leqslant&Cd^{k-|\beta|+1}|f|_{k+1,\Omega}.
+        &\leqslant&Cd^{k-|\beta|+1}|f|_{k+1,p,\Omega}.
   \end{IEEEeqnarray*}
 \end{lemma} 
 \begin{proof} In view of Lemma~\ref{avg_taylor_commutes} we may only prove

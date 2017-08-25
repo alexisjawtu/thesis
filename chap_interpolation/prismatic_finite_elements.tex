@@ -397,6 +397,17 @@ state the forthcoming facts for tetrahedra. We will state scaling consequences
 of inequalities~(\ref{aux_label19}). For a non--negative integer
 $m$ let $\partial^m f$ denote
 the sum of the absolute values of all the derivatives of order $m$ of $f$.
+\begin{remark}\label{aux_label28}
+Denote by $\Qbb_{m,E}\,\bw$ the vector averaged Taylor polynomial of $\bw$
+\[
+  \Qbb_{m,E}\,\bw = (\Qb_{m,E}\,w_1,\Qb_{m,E}\,w_2,\Qb_{m,E}\,w_3)'.
+\]
+If $(\,\cdot\,)\,\hat{}\,$ denotes any of transformations~(\ref{transfHcurl})
+and~(\ref{transfDiv}) then
+\begin{IEEEeqnarray*}{rCl}
+  \Qbb_{m,\hat{E}}\hat{\bw} & = & (\Qbb_{m,E}\,\bw)\,\hat{}.
+\end{IEEEeqnarray*}
+\end{remark}
 \begin{lemma}\label{aux_label20}
 {\color{blue}\#\#\#\#\#\#\#\# continue here. acomodar, mirar un poco. y despues ver etiquetas.tex}\\\\
 Let $E$ be a prism such that (\noindent{\color{BrickRed}hip. prisma}).
@@ -448,7 +459,10 @@ where C depends only on $m$, $\sigma$ (cfr. Theorem~\ref{aux_label21})
 and the reference element.
 }
 \end{lemma}
-
+\begin{proof}
+  Lemma~\ref{aux_label40} rescaling $\hat{E}$ so that $d = 1$ and then
+  pushing forward to $\tilde E$.
+\end{proof}
 one of the main results in this thesis
 Sean un prisma obl\'{\i}cuo irregular $K$, $k\in\mathbb{N}$, el operador de interpolaci\'on 
 $\bw_E$ de grado $k$ determinado por el elemento en la Definición~(\ref{edgeelement}), y $p>2$.
@@ -474,18 +488,10 @@ $C$ can be chosen so that, if $M_E$ is the matrix made with
 $\xi_i$ as columns, then $\|M\|_\infty\leqslant C$ and $\|M^{-1}\|_\infty\leqslant C$ 
 and $\det M_E \geqslant C$
 \end{theorem}
-\begin{remark}\label{aux_label28}
-Denote by $\Qbb_{m,E}\,\bw$ the vector averaged Taylor polynomial of $\bw$
-\[
-  \Qbb_{m,E}\,\bw = (\Qb_{m,E}\,w_1,\Qb_{m,E}\,w_2,\Qb_{m,E}\,w_3)'.
-\]
-If $(\,\cdot\,)\,\hat{}\,$ denotes any of transformations~(\ref{transfHcurl})
-and~(\ref{transfDiv}) then
-\begin{IEEEeqnarray*}{rCl}
-  \Qbb_{m,\hat{E}}\hat{\bw} & = & (\Qbb_{m,E}\,\bw)\,\hat{}.
-\end{IEEEeqnarray*}
-\end{remark}
-\begin{proof}[Proof of Theorem~\ref{aux_label23}] {\color{blue}\#\#\#\#\#\#\#\# Ariel, por favor mirar si es correcta
+
+%[Proof of Theorem~\ref{aux_label32}]
+\begin{proof}
+{\color{blue}\#\#\#\#\#\#\#\# Ariel, por favor mirar si es correcta
 la manera en que lo digo.}\\\\
 {\color{BrickRed}\#\#\#\#\#\#\#\# Otra cosa: primero pongo la demostracion
 y despues me fijo si esta bien dejar que solo usamos 
