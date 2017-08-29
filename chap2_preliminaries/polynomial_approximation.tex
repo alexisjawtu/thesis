@@ -1,0 +1,147 @@
+\section{Polynomial Approximation} % (fold)
+\label{sec:polynomial_approximation}
+
+\begin{defi}
+  Given $f\in\mathcal{C}^{k}(\Omega)$ the $k$--th degree
+  Taylor polynomial of $f$ centered at $y\in\Omega$, $T_y^kf$, is defined by
+  \begin{IEEEeqnarray}{rCl}\label{taylor}
+      (T_y^kf)(x)&=&\sum_{|\alpha|\leqslant k} \frac{f^{(\alpha)}(y)}{\alpha!}(x-y)^{\alpha}.
+  \end{IEEEeqnarray}
+\end{defi}
+
+\begin{defi} $\Omega$ is star--shaped with respect to $B$ if, for all
+$x\in\Omega$, the closed convex hull of $\{x\}\cup\Omega$ is 
+a subset of $\Omega$.
+\end{defi}
+
+\begin{defi}
+Assume that $\Omega$ is star--shaped with respect to a set $B\subseteq\Omega$
+of positive measure. Given an integer $k\geqslant 0$ and 
+$f\in W^{k+1,p}(\Omega)$ we introduce the averaged Taylor polynomial
+of $f$, $\Qb_{k,B}f\in P_k$ defined by
+\begin{IEEEeqnarray}{rCl}\label{averagedTaylor}
+  (\Qb_{k,B}f)(x) & = & \frac{1}{|B|} \int_B (T_y^kf)(x)\,dy 
+\end{IEEEeqnarray}
+with $T_y^k$ as in~(\ref{taylor}) but with distributional
+derivatives.
+
+Given a field $\bu = (u_1, u_2, u_3)' \in W^{m+1,p} (\Omega)^3$,
+the vectorial averaged Taylor polynomial of $\bu$ is defined
+componentwise as
+\begin{IEEEeqnarray*}{rCl}
+  \boldsymbol{\Qb}_{k,B}\,\bu  & = &  
+  (\Qb_{k,B}\,u_1 , \Qb_{k,B}\,u_2 , \Qb_{k,B}\,u_3 ).
+\end{IEEEeqnarray*}
+\end{defi}
+\begin{lemma}\label{avg_taylor_commutes}
+Let $\beta$ be a multi--index such that  $|\beta| \leqslant k$,
+then 
+\begin{IEEEeqnarray}{rCl}
+  \partial^\beta \Qb_{k,B} f & = & \Qb_{k-|\beta|,B} \partial^\beta f.
+\end{IEEEeqnarray}
+\end{lemma}
+\begin{lemma} \label{aux_label40}
+  Let $\Omega\subseteq\mathbb{R}^n$ be an open connected set
+  with diameter $d$ which is star--shaped with respect to a 
+  set $B\subseteq\Omega$ of positive measure. Given $p\geqslant 1$
+  and an integer
+  $k\geqslant 0$ and $f\in W^{k+1,p}(\Omega)$ there exists a 
+  positive $C=C(k,n)$ such that, for $|\beta|\geqslant k+1$,
+  \begin{IEEEeqnarray*}{rCl}
+      \|\partial^{\beta}(f-\Qb_{k,B}f)\|_{L^p(\Omega)}
+        &\leqslant&C\frac{|\Omega|^{\nicefrac1p}}{|B|^{\nicefrac1p}}
+          d^{k-|\beta|+1}|f|_{k+1,p,\Omega}.
+  \end{IEEEeqnarray*}
+  In particular, if $\Omega$ is convex,
+  \begin{IEEEeqnarray*}{rCl}
+    \|\partial^{\beta}(f-\Qb_{k,\Omega}f)\|_{L^p(\Omega)}
+        &\leqslant&Cd^{k-|\beta|+1}|f|_{k+1,p,\Omega}.
+  \end{IEEEeqnarray*}
+\end{lemma} 
+\begin{proof} In view of Lemma~\ref{avg_taylor_commutes} we may only prove
+the estimate for the case $|\beta| = 0$ and, for $|\beta|>0$, apply it to
+$\partial^{\beta}f-\Qb_{k-|\beta|,B}\partial^{\beta}f$.
+
+Consider $|\beta| = 0$ and take $q$ as the H\"older conjugate of $p\geqslant 1$.
+By density we may assume $f\in \mathcal{C}^\infty(\Omega)$.
+Firt use Taylor's Theorem
+\begin{IEEEeqnarray*}{rCl}
+  f(\bx)-(T_{\by}^kf)(\bx) & = & {k+1}
+    \sum_{|\alpha|=k+1} \frac{(\bx-\by)^\alpha}{\alpha!}
+    \int_0^1 \partial^\alpha f(t\by+(1-t)\bx)\,t^k\,dt
+\end{IEEEeqnarray*}
+which implies
+\begin{IEEEeqnarray*}{rCl}
+  f(\bx)-\Qb_{k,B}f(\bx) & = & \frac{k+1}{B}
+    \sum_{|\alpha|=k+1} \int_B\int_0^1 \frac{(\bx-\by)^\alpha}{\alpha!}
+      \partial^\alpha f(t\by+(1-t)\bx)\,t^k\,dtd\by.
+\end{IEEEeqnarray*}
+By H\"older's inequality twice (once in a finite dimensional version) we have
+\begin{IEEEeqnarray*}{rCl}
+  \int_{\Omega}|f(\bx)-\Qb_{k,B}f(\bx)|^p\,d\bx&\leqslant& C\frac{d^{p(k+1)}}{|B|^p}
+    \sum_{|\alpha|=k+1}\int_{\Omega}
+      (\int_B\int_0^1|\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by)
+      (\frac{|B|}{qk+1})^{\nicefrac{p}{q}}
+    \\[5pt]
+&=& \frac{C}{(qk+1)^{\nicefrac{p}{q}}}\frac{d^{p(k+1)}}{|B|}
+    \sum_{|\alpha|=k+1} \int_{\Omega}\int_B\int_0^1
+      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx.
+\end{IEEEeqnarray*}
+For any multi--index $\alpha$ we split
+\begin{IEEEeqnarray}{rCl}
+\label{first_auxiliary}
+  \int_{\Omega}\int_B\int_0^1
+      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx
+   & = & 
+ \int_{\Omega}\int_B\int_0^{\nicefrac12}
+      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx\\
+\label{second_auxiliary}
+   &  &\, +  
+\int_{\Omega}\int_B\int_{\nicefrac12}^1
+      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx.
+\end{IEEEeqnarray}
+Let $\phi_\alpha$ be the extension by zero of $\partial^\alpha f$ to $\mathbb{R}^n$.
+By Fubini's Theorem and change of variables,
+\begin{IEEEeqnarray*}{rCl}
+  (\ref{first_auxiliary}) &\leqslant& \int_{B}\int_0^{\nicefrac12}\int_{\mathbb{R}^n}
+      |\phi_\alpha(\bz)|^p(1-t)^{-n}\,d\bz dt d\by\\
+      &\leqslant& 2^{n-1} |B|\|\partial^\alpha f\|^p_{p,\Omega}.
+\end{IEEEeqnarray*}
+\begin{IEEEeqnarray*}{rCl}
+  (\ref{second_auxiliary}) &\leqslant& \int_{\Omega}\int_{\nicefrac12}^1\int_{\mathbb{R}^n}
+      |\phi_\alpha(t\by)|^p\,d\by dt d\bx\\
+  &=& \int_{\Omega}\int_{\nicefrac12}^1\int_{\mathbb{R}^n}
+      |\phi_\alpha(\bz)|^pt^{-n}\,d\bz dt d\bx\\
+      &\leqslant& 2^{n-1} |\Omega|\|\partial^\alpha f\|^p_{p,\Omega}.
+\end{IEEEeqnarray*}
+Summing theese up for any $\alpha$ of order $k+1$ we obtain
+\begin{IEEEeqnarray*}{rCl}
+  \|f-\Qb_{k,B}f\|_p^p & \leqslant & 
+  \frac{C}{(qk+1)^{\nicefrac{p}{q}}}d^{p(k+1)}\frac{|\Omega|}{|B|} |f|^p_{p,k+1,\Omega}.
+\end{IEEEeqnarray*}
+\end{proof}
+For the following paragraphs we refer to the exposition in
+Theorem 3.2 of~\cite{dupontScott}.
+\begin{theorem}
+  \label{aux_label21}
+let $m\geqslant 0$ and $p$, $\bar{p}\in [1,\infty]$. Suppose
+\begin{IEEEeqnarray*}{rCl}
+  \frac{1}{\bar{p}} - \frac{1}{p} + \frac{m+1}{3} & \geqslant & 0
+\end{IEEEeqnarray*}
+and that there exists $\sigma$ with 
+\begin{IEEEeqnarray*}{rCcCl}
+  0 & < & \sigma & \leqslant & 
+  \max\left\{
+    \left\lfloor \frac{m+1}{3} \right\rfloor,
+    \frac{1}{\bar{p}} - \frac{1}{p} + \frac{m+1}{3},
+    \min\left\{1-\frac{1}{\bar{p}},\frac{1}{\bar{p}}\right\}
+  \right\}\mbox{,}
+\end{IEEEeqnarray*}
+then there is a positive $C$ depending only on $m$,$\sigma$ and $\Omega$ such
+that, for all $g\in W^{m+1,p}(\Omega)$
+\begin{IEEEeqnarray}{rCl} \label{aux_label19}
+  \|\partial^{\beta}(g-\Qb_m g)\|_{L^{\bar{p}}(\Omega)} & \leqslant & C|g|_{W^{m+1,p}(\Omega)}
+\end{IEEEeqnarray}
+whenever $0 \geqslant |\beta| \geqslant m+1$.
+\end{theorem}
+% section polynomial_approximation (end)

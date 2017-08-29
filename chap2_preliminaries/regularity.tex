@@ -1,0 +1,118 @@
+\section{Regularity of the solution for a model Elliptic Problem}
+\label{sec:regularity}
+\macroRegularity
+%\macroPrismRegularity
+\noindent We are concerned in solving 
+the following problem.
+\begin{problem}\label{mixedContinuous}
+Suppose we have a simply connected Lipschitz polyhedron
+$\Omega\subseteq\mathbb{R}^3$ which is not convex. Given $f\in L^2(\Omega)$
+we look for a $\bu\in H(\dv,\Omega)$ such that 
+\begin{IEEEeqnarray*}{rCl}
+  \boldsymbol{u}              & = & \nabla p \\
+  -\text{div\,}\boldsymbol{u} & = & f \\
+   p|_{\partial\Omega}
+  & = & 0.
+\end{IEEEeqnarray*}
+\mbox{la cond de borde VA?\quad COMO LO PONGO? \quad (ver apunte de FEM2012 talvez)}
+\end{problem}
+\begin{problem}[Weak formulation.]\label{weakMixedContinuous}
+Suppose we have a simply connected Lipschitz polyhedron
+$\Omega\subseteq\mathbb{R}^3$ which is not convex. Given $f\in L^2(\Omega)$,
+find       $(\bu, p)  \in  H(\dv, \Omega) \times L^2(\Omega)$ 
+    such that for all   $(\bv, q)  \in  H(\dv, \Omega) \times L^2(\Omega)$
+  \begin{IEEEeqnarray*}{rCl}
+    \int_{\Omega} \bu\cdot\bv\,d\bx + 
+    \int_{\Omega} p\,\dv\bv\,d\bx                     & = & 0\\
+     -\int_{\Omega} q\dv\bu\,d\bx     & = & 
+    \int_{\Omega} f\,q\,d\bx.    
+  \end{IEEEeqnarray*}
+\end{problem}
+Due to the polyhedron not being convex there will be ingoing
+vertices and edges whose interior angles are obtuse. In the following
+we are going to recall how to formalize the singularities in a polyhedron
+and how to classify the regularity of the solution of problem~(\ref{mixedContinuous})\\[5pt]
+
+
+To talk  about the regularity of a solution in a \emph{non--convex} domain
+we will make use of the following weighted Sobolev space.
+\begin{defi} Suppose $\Omega$ is a non--convex polihedron, $\Lambda \subseteq \Omega$ such that 
+$\bar{\Lambda}$ contains one singular vertex $\bv$ and one singular edge $\be$. Given two
+positive parameters $\beta$ and $\delta$, the symbol $V_{\beta,\delta}^{1,2}(\Lambda)$
+denotes the space
+\begin{IEEEeqnarray}{rCl}\label{weighted_sobolev}
+  V_{\beta,\delta}^{1,2}(\Lambda) & = &
+    \left\{v\in \mathcal D'(\Lambda):
+      R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}D^\alpha v\in L^2(\Lambda),
+      \alpha\in \mathbb N_0^3, |\alpha|\leqslant 1
+    \right\}
+\end{IEEEeqnarray}
+where $R({\bf x})$ is the distance of ${\bf x}$ to the vertices
+of $\Lambda$,
+$r({\bf x})$ is the distance from ${\bf x}$ to the edges
+of $\Lambda$ and
+finally $\theta({\bf x})$ is the angular distance
+$\theta({\bf x})=\frac{r({\bf x})}{R({\bf x})}$.
+\end{defi}
+
+
+\begin{defi}
+  If $\Omega$ is a non--convex polihedron $\lambda_e$ is ... and $\lambda_v$ is --- 
+  $\delta > 1-\lambda_{\be}^{(\ell)} = 1-\pi/\omega_{\be}$
+\end{defi}
+{\color{blue} poner que beta y delta dependen de l; o sea, regularidad
+local, R = dist a EL vertice de  $\Lambda_l$.}
+\noindent Assuming a decomposition of $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ in tetrahedral macroelements having at most a singular edge and a singular vertex, we have the following regularity result.
+First we introduce the space $V^{1,2}_{\beta,\delta}(\Lambda)$ for a macroelement $\Lambda$ as
+\[
+V^{1,2}_{\beta,\delta} = \left\{v\in \mathcal D'(\Lambda): R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}D^\alpha v\in L^2(\Lambda), \alpha\in \mathbb N^3, |\alpha|\le1\right\}
+\]
+where $R({\bf x})$ is the distance of ${\bf x}$ to the vertices of $\Lambda$, $r({\bf x})$ is the distance from ${\bf x}$ to the edges of $\Lambda$ and finally $\theta({\bf x})$ is the angular distance $\theta({\bf x})=\frac{r({\bf x})}{R({\bf x})}$.
+\[
+\|v\|^{1,2}_{\beta,\delta} := \left\{\sum_{|\alpha|\leqslant 1}
+\|R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}D^\alpha v\|_{L^2(\Lambda)}^2\right\}^{1/2}
+\]
+\[
+V^{1,2}_{\beta,\delta} = \left\{v\in \mathcal D'(\Lambda): \|v\|^{1,2}_{\beta,\delta} < \infty\right\}.
+\]
+If $\beta = \delta$ we will write $V_{\delta,\delta,1,2}(\Lambda_\ell)  = V_{\delta,1,2}(\Lambda)$
+and, consistently, 
+\[
+\|v\|_{\delta,1,2} := \left\{\sum_{|\alpha|\leqslant 1}
+\|r^{\delta-1+|\alpha|}\partial^\alpha v\|_{L^2(\Lambda)}^2\right\}^{1/2}.
+\]
+\begin{theorem}\label{thm_regularity}
+The solutions $\bu$ and $p$ of problem \eqref{weakMixedContinuous} satisfy
+\[
+p\in H^1(\Omega)
+\] 
+and for each $\ell$
+\[
+\bu=\bu_r + \bu_s
+\]
+with $\bu_r\in H^1(\Omega)$ and
+\[
+\bu_s\cdot \xi_i\in V^{1,2}_{\beta,\delta}(\Lambda_\ell), \quad i=1,2, \qquad
+\bu_s\cdot\xi_3\in V^{1,2}_{\beta,0}(\Lambda_\ell)
+\]
+where $\xi_i$, $i=1,2,3$, are the directions of three concurrent
+edges of $\Lambda_\ell$ with $\xi_3$ being the direction of the
+singular edge if it exists in $\Omega_\ell$, and $\beta,\delta\ge0$
+satisfying $\beta>\frac12-\lambda_{\bv}^{(\ell)}$ and
+$\delta>1-\lambda_{\be}^{(\ell)}$, $v$ and $e$ being the singular
+vertex and edge, respectively, if they exist.
+\end{theorem}
+\begin{IEEEeqnarray}{rCl}
+  \label{aux_label11}
+  \| \bu_r \|_{H^1(\Omega)} & \leqslant & c\,\|f\|_{L^2(\Omega)}\\[5pt]
+  \| \bu_s\cdot\xi_i \|_{V_{\beta,\delta}^{1,2}(\Lambda_\ell)} & \leqslant & c\,\| f \|_{L^2(\Omega)}\\[5pt]
+  \| \bu_s\cdot\xi_3 \|_{V_{\beta,0}^{1,2}(\Lambda_\ell)}      & \leqslant & c\,\| f \|_{L^2(\Omega)}
+\end{IEEEeqnarray}
+  provided
+\begin{IEEEeqnarray*}{rCl}
+  {\color{violet} \delta} & > & 1 - \frac{\pi}{\omega_{\textbf{e}}}\text{,}\\
+  {\color{violet} \beta} & > & \frac{1}{2} - \lambda_{\textbf{v}}.
+\end{IEEEeqnarray*}
+\begin{remark}\label{sobreBetaYDelta}
+\textcolor{red}{Note that it is always possible in the previous Theorem to take $0<\beta=\delta<1$.} 
+\end{remark}
