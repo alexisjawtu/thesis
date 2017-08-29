@@ -255,12 +255,22 @@ $\br_E\bu$ and $\pi^{\perp}_E\dv\bu$ are defined, then
             \draw[->] (r5c11) to node[left] {$\pi^{\perp}$} (r8c11);
         \end{tikzpicture}
     \end{center}
-\begin{equation}\label{push-forward}
-  \mbox{\color{red} \ldots \mbox{push-forward} de los interpoladores\\
-    y que los pull--backs conmutan con los interpoladores}
-\end{equation}
-{\bf hcurl}
-  
+\begin{defi} 
+Suppose $\Omega$ is the union of two elements $E_1$ and $E_2$ with a common face $f$, 
+we say that the family of unisolvent Finite Elements $(E, P_E, \Sigma)$ is conforming in 
+some functional space $\mathbb{W}$
+if, writing $\pi_1$, $\pi_2$
+the interpolation operators determined by the degrees
+of freedom $\Sigma_1$ and $\Sigma_2$, on $E_1$ and $E_2$, the field defined as
+\begin{IEEEeqnarray*}{rCl}
+  \bw & = &
+    \begin{cases}
+      \pi_1(\bu|_{E_1}), &\text{ on }E_1\\
+      \pi_2(\bu|_{E_2}), &\text{ on }E_2      
+    \end{cases}
+\end{IEEEeqnarray*}
+results in $\mathbb{W}(E_1\cup E_2)$.
+\end{defi}
 \begin{lemma} \label{aux_label7}
 Let $\hat E$ be the reference prism~(\ref{defi_of_ref_prism}) and
 let $P_{\hat E}$ be the space in~(\ref{spaceFEprismHcurl}), that is,
@@ -429,10 +439,6 @@ That is, the interpolator commutes with the coordinate change~(\ref{transfHcurl}
   The space $P_{\hat E}$ was proven to be invariant under~(\ref{transfCurl}), so
   $\wku = (\bw_E\bu)^{\hat{}}$.
 \end{proof}
-{\bf hcurl end}
-
-{\bf hdiv begin}
-
 \begin{lemma}\label{aux_label13} Let $\hat E$ be the reference prism~(\ref{defi_of_ref_prism}) and
 let $P_{\hat E}$ be the space in~(\ref{prismaticSpace}).
 Provided the matrix $M_E$ is block--diagonal as in Lemma~\ref{aux_label7},
@@ -524,10 +530,6 @@ And the most important, whose proof is like the one of~(\ref{piTransformado}).
   that is, the $H(\dv)$ interpolator commutes with the coordinate
   change~(\ref{transfDiv}).
 \end{corollary}
-
-{\bf hdiv end}
-
-
 \begin{remark}
   Unisolvence and conformity of the finite elements on tetrahedra in
   Section~\ref{sec:tetrahedralFEs}

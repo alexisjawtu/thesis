@@ -290,8 +290,8 @@ the normal traces of $\boldsymbol{u}_1$ and $\boldsymbol{u}_2$ coincide on $f$.
 \begin{lemma} Let two disjoint Lipschitz domains $\Omega_1$ and $\Omega_2$
 be given  in $\mathbb{R}^n$, such that $\overline{\Omega_1}\cap\overline{\Omega_2}$ is an
 $(n-1)$--dimensional surface $f$ of positive measure. Take
-$\Omega = \Omega_1\cup \Omega_2\cup f$. Let $\bu_1 \in H(\text{div},\Omega_1)$ 
-and $\bu_2 \in H(\text{div},\Omega_2)$. Consider 
+$\Omega = \Omega_1\cup \Omega_2\cup f$. Let $\bu_1 \in H(\bcurl,\Omega_1)$ 
+and $\bu_2 \in H(\bcurl,\Omega_2)$. Consider 
 \begin{IEEEeqnarray*}{rCl}
 	\bu & = &
 	  \begin{cases}
@@ -300,7 +300,7 @@ and $\bu_2 \in H(\text{div},\Omega_2)$. Consider
 	  \end{cases}.
 \end{IEEEeqnarray*}
 Then $\bu$ is in $H(\bcurl,\Omega)$ if and only if
-the tangential traces of $\boldsymbol{u}_1$ and $\boldsymbol{u}_2$ coincide on $f$.
+the tangential traces of $\bu_1$ and $\bu_2$ coincide on $f$.
 \end{lemma}
 %=================
 %\begin{proof}
@@ -352,23 +352,3 @@ $\{\bx\in\mathbb{R}^3\,:\,x_1 > 0, x_2 > 0, x_3 > 0, x_1+x_2+x_3 < 1\}$.
 \end{figure}
 
 
-\noindent{\color{BrickRed}\#\#\#\#\#\#\# tal vez usar def de conforming
-de nedelec 86 pag 58, est'a bastante linda.} 
-\begin{defi} Given a fucntional space $\mathbb{W}$ we say that the unisolvent Finite Element
-$(E, P_E, \Sigma)$ is
-$\mathbb{W}$--conforming if every time we take two
-\emph{push-forward} elements $(E_1, P_{E_1}, \Sigma_1)$
-and $(E_2, P_{E_2}, \Sigma_2)$ according
-to~(\ref{sub:transformations}) sharing a common face,
-and denote $\pi_1$, $\pi_2$
-the interpolation operators determined by the degrees
-of freedom $\Sigma_1$ and $\Sigma_2$, the field defined as
-\begin{IEEEeqnarray*}{rCl}
-  \bw & = &
-    \begin{cases}
-      \pi_1(\bu|_{E_1}), &\text{ on }E_1\\
-      \pi_2(\bu|_{E_2}), &\text{ on }E_2      
-    \end{cases}
-\end{IEEEeqnarray*}
-results in $\mathbb{W}(E_1\cup E_2)$.
-\end{defi}

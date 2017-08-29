@@ -14,7 +14,7 @@ we look for a $\bu\in H(\dv,\Omega)$ such that
    p|_{\partial\Omega}
   & = & 0.
 \end{IEEEeqnarray*}
-\mbox{la cond de borde VA?\quad COMO LO PONGO? \quad (ver apunte de FEM2012 talvez)}
+\mbox{\color{Orange}la cond de borde VA?\quad COMO LO PONGO? \quad (ver apunte de FEM2012 talvez)}
 \end{problem}
 \begin{problem}[Weak formulation.]\label{weakMixedContinuous}
 Suppose we have a simply connected Lipschitz polyhedron
@@ -31,12 +31,49 @@ find       $(\bu, p)  \in  H(\dv, \Omega) \times L^2(\Omega)$
 Due to the polyhedron not being convex there will be ingoing
 vertices and edges whose interior angles are obtuse. In the following
 we are going to recall how to formalize the singularities in a polyhedron
-and how to classify the regularity of the solution of problem~(\ref{mixedContinuous})\\[5pt]
+and how to classify the regularity of the solution of problem~(\ref{mixedContinuous}).\\
 
+{\color{Orange}\#\#\#\#\#\#\#\# continue here.}
+
+Suppose that
+S is the origin of our Cartesian system of co-ordinates. Let C be the infinite
+S
+polyhedral cone of R3 which coincides with ) in a neighbourhood of S; we set
+G "C WS2(S), the intersection of C with the unit sphere centered at S. Then the
+S
+S
+S
+vertex singular exponent related to S is given by
+
+
+\begin{defi}
+  Suppose $\be$ is an edge and $bv$ is a vertex both in a polihedron
+  $\Omega\subseteq \mathbb{R}^3$. We say that
+  \begin{enumerate}
+    \item $\be$ is singular if the interior angle between the faces sharing
+    $\be$ is greater than $\pi$.
+    \item $\bv$ is singular if 
+  $\lambda_{\bv} := -\dfrac12 + \sqrt{\lambda_{\bv,1} + \dfrac14} < \dfrac12$
+  where 
+  $\lambda_{\bv,n} > 0$,$n\in\mathbb{N}$, 
+  are the eigenvalues (in increasing order) of a (positive)
+Laplace--Beltrami operator on a manifold 
+  \end{enumerate}
+  $\lambda_e$ 
+  is ... and 
+   is --- 
+  $\delta > 1-\lambda_{\be}^{(\ell)} = 1-\pi/\omega_{\be}$
+\end{defi}
+{\color{blue} poner que beta y delta dependen de l; o sea, regularidad
+local, R = dist a EL vertice de  $\Lambda_l$.}
+
+The motivation of calling \textsl{singular} an edge or a vertex is that
+the solutions of elliptic problems in non--convex domains have singularities
+at those vertices or approaching those edges.
 
 To talk  about the regularity of a solution in a \emph{non--convex} domain
-we will make use of the following weighted Sobolev space.
-\begin{defi} Suppose $\Omega$ is a non--convex polihedron, $\Lambda \subseteq \Omega$ such that 
+we will make use of the following weighted Sobolev spaces.
+\begin{defi} Suppose $\Omega$ is a non--convex polihedron where $\Lambda \subseteq \Omega$ such that 
 $\bar{\Lambda}$ contains one singular vertex $\bv$ and one singular edge $\be$. Given two
 positive parameters $\beta$ and $\delta$, the symbol $V_{\beta,\delta}^{1,2}(\Lambda)$
 denotes the space
@@ -56,12 +93,7 @@ $\theta({\bf x})=\frac{r({\bf x})}{R({\bf x})}$.
 \end{defi}
 
 
-\begin{defi}
-  If $\Omega$ is a non--convex polihedron $\lambda_e$ is ... and $\lambda_v$ is --- 
-  $\delta > 1-\lambda_{\be}^{(\ell)} = 1-\pi/\omega_{\be}$
-\end{defi}
-{\color{blue} poner que beta y delta dependen de l; o sea, regularidad
-local, R = dist a EL vertice de  $\Lambda_l$.}
+
 \noindent Assuming a decomposition of $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ in tetrahedral macroelements having at most a singular edge and a singular vertex, we have the following regularity result.
 First we introduce the space $V^{1,2}_{\beta,\delta}(\Lambda)$ for a macroelement $\Lambda$ as
 \[
