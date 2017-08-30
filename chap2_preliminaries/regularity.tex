@@ -33,47 +33,37 @@ vertices and edges whose interior angles are obtuse. In the following
 we are going to recall how to formalize the singularities in a polyhedron
 and how to classify the regularity of the solution of problem~(\ref{mixedContinuous}).\\
 
-{\color{Orange}\#\#\#\#\#\#\#\# continue here.}
-
-Suppose that
-S is the origin of our Cartesian system of co-ordinates. Let C be the infinite
-S
-polyhedral cone of R3 which coincides with ) in a neighbourhood of S; we set
-G "C WS2(S), the intersection of C with the unit sphere centered at S. Then the
-S
-S
-S
-vertex singular exponent related to S is given by
-
-
+Recall the description in page 522 of~\cite{apelNicaise} for the following 
+definition. 
 \begin{defi}
-  Suppose $\be$ is an edge and $bv$ is a vertex both in a polihedron
-  $\Omega\subseteq \mathbb{R}^3$. We say that
+Suppose that a vertex
+$\bv\in\partial\Omega$ is the origin of our Cartesian system of coordinates. Let $C_{\bv}$ be the infinite
+polyhedral cone of $\mathbb{R}^3$ which coincides with $\Omega$ in a neighbourhood of 
+$\bv$. Set $G_{\bv} = C_{\bv}\cap S^2(\bv)$, the intersection of $C_{\bv}$ with
+the unit sphere centered at $\bv$. The vertex singular exponent related to $\bv$
+is defined by $\lambda_{\bv} := -\nicefrac12 + \sqrt{\lambda_{\bv,1} + \nicefrac14}$
+where 
+$\lambda_{\bv,n} > 0$, $n\in\mathbb{N}$, are the eigenvalues, in increasing order, of a positive
+Laplace--Beltrami operator $\Delta'$ on $G_{\bv}$ with Dirichlet boundary
+conditions. For any edge of $\partial\Omega$ the edge
+singular exponent is 
+$\pi/\omega_{\be}$ where $\omega_{\be}$ is the interior angle between
+the faces sharing  $\be$.
+We say that
   \begin{enumerate}
-    \item $\be$ is singular if the interior angle between the faces sharing
-    $\be$ is greater than $\pi$.
-    \item $\bv$ is singular if 
-  $\lambda_{\bv} := -\dfrac12 + \sqrt{\lambda_{\bv,1} + \dfrac14} < \dfrac12$
-  where 
-  $\lambda_{\bv,n} > 0$,$n\in\mathbb{N}$, 
-  are the eigenvalues (in increasing order) of a (positive)
-Laplace--Beltrami operator on a manifold 
+    \item $\be$ is singular if $\lambda_{\be} < 1.$ 
+    \item $\bv$ is singular if $\lambda_{\bv} < \dfrac12$
   \end{enumerate}
-  $\lambda_e$ 
-  is ... and 
-   is --- 
-  $\delta > 1-\lambda_{\be}^{(\ell)} = 1-\pi/\omega_{\be}$
 \end{defi}
-{\color{blue} poner que beta y delta dependen de l; o sea, regularidad
-local, R = dist a EL vertice de  $\Lambda_l$.}
-
 The motivation of calling \textsl{singular} an edge or a vertex is that
 the solutions of elliptic problems in non--convex domains have singularities
 at those vertices or approaching those edges.
 
 To talk  about the regularity of a solution in a \emph{non--convex} domain
 we will make use of the following weighted Sobolev spaces.
-\begin{defi} Suppose $\Omega$ is a non--convex polihedron where $\Lambda \subseteq \Omega$ such that 
+\begin{defi} Suppose $\Omega$ is a non--convex polihedron where $\Lambda \subseteq \Omega$ is
+a subdomain such that 
+\noindent{\color{Orange}\#\#\#\#\#\#\# continue here}   
 $\bar{\Lambda}$ contains one singular vertex $\bv$ and one singular edge $\be$. Given two
 positive parameters $\beta$ and $\delta$, the symbol $V_{\beta,\delta}^{1,2}(\Lambda)$
 denotes the space
@@ -92,6 +82,10 @@ finally $\theta({\bf x})$ is the angular distance
 $\theta({\bf x})=\frac{r({\bf x})}{R({\bf x})}$.
 \end{defi}
 
+{\color{blue}
+$\delta > 1-\lambda_{\be}^{(\ell)} = 1-\pi/\omega_{\be}$
+ poner que beta y delta dependen de l; o sea, regularidad
+local, R = dist a EL vertice de  $\Lambda_l$.}
 
 
 \noindent Assuming a decomposition of $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ in tetrahedral macroelements having at most a singular edge and a singular vertex, we have the following regularity result.
