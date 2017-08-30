@@ -3,9 +3,9 @@
 
 \begin{defi}
   Given $f\in\mathcal{C}^{k}(\Omega)$ the $k$--th degree
-  Taylor polynomial of $f$ centered at $y\in\Omega$, $T_y^kf$, is defined by
+  Taylor polynomial of $f$ centered at ${\by}\in\Omega$, $T_{\by}^kf$, is defined by
   \begin{IEEEeqnarray}{rCl}\label{taylor}
-      (T_y^kf)(x)&=&\sum_{|\alpha|\leqslant k} \frac{f^{(\alpha)}(y)}{\alpha!}(x-y)^{\alpha}.
+      (T_{\by}^kf)({\bx})&=&\sum_{|\alpha|\leqslant k} \frac{f^{(\alpha)}({\by})}{\alpha!}(\bx-{\by})^{\alpha}.
   \end{IEEEeqnarray}
 \end{defi}
 
@@ -20,24 +20,24 @@ of positive measure. Given an integer $k\geqslant 0$ and
 $f\in W^{k+1,p}(\Omega)$ we introduce the averaged Taylor polynomial
 of $f$, $\Qb_{k,B}f\in P_k$ defined by
 \begin{IEEEeqnarray}{rCl}\label{averagedTaylor}
-  (\Qb_{k,B}f)(x) & = & \frac{1}{|B|} \int_B (T_y^kf)(x)\,dy 
+  (\Qb_{k,B}f)({\bx}) & = & \frac{1}{|B|} \int_B (T_{\by}^kf)({\bx})\,dy 
 \end{IEEEeqnarray}
-with $T_y^k$ as in~(\ref{taylor}) but with distributional
+with $T_{\by}^k$ as in~(\ref{taylor}) but with distributional
 derivatives.
 
-Given a field $\bu = (u_1, u_2, u_3)' \in W^{m+1,p} (\Omega)^3$,
+Given a field $\bu = (u_1, u_2, u_3)' \in W^{m,p} (\Omega)^3$,
 the vectorial averaged Taylor polynomial of $\bu$ is defined
 componentwise as
 \begin{IEEEeqnarray*}{rCl}
-  \boldsymbol{\Qb}_{k,B}\,\bu  & = &  
-  (\Qb_{k,B}\,u_1 , \Qb_{k,B}\,u_2 , \Qb_{k,B}\,u_3 ).
+  \Qbb_{m,B}\,\bu  & = &  
+  (\Qb_{m,B}\,u_1 , \Qb_{m,B}\,u_2 , \Qb_{m,B}\,u_3 ).
 \end{IEEEeqnarray*}
 \end{defi}
 \begin{lemma}\label{avg_taylor_commutes}
-Let $\beta$ be a multi--index such that  $|\beta| \leqslant k$,
+Let $\beta$ be a multi--index such that  $|\beta| \leqslant m$,
 then 
 \begin{IEEEeqnarray}{rCl}
-  \partial^\beta \Qb_{k,B} f & = & \Qb_{k-|\beta|,B} \partial^\beta f.
+  \partial^\beta \Qb_{m,B} f & = & \Qb_{m-|\beta|,B} \partial^\beta f.
 \end{IEEEeqnarray}
 \end{lemma}
 \begin{lemma} \label{aux_label40}
