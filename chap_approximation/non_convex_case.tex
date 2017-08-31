@@ -20,6 +20,31 @@ for which
 whith $\textit{h}$ being smaller than  $C N^{\nicefrac{-1}{3}}$, where
 $N = N_{\textit{h}}$ is the  number of elements in $\mathcal{T}_{\textit{h}}$.
 \end{theorem}
+If we take the solution $(\bu, p)$ of Problem~\ref{mixedContinuous},
+the singular part of the vectorial variable, $\bu_s$, considered in~(\ref{splitting})
+ has a well defined $H(div, \Omega)$--conforming interpolate.
+This is implied by the next result, since the normal traces on faces
+of the elements in $W^{1,1}(\Lambda_\ell)$ are well defined.
+\begin{lemma}\label{well_defined_dofs}
+If $\beta,\delta\in[0,1)$ and $\beta + \delta\leqslant 1$ then 
+\[
+  V^{1,2}_{\beta,\delta}(\Lambda_\ell) \subset W^{1,1}(\Lambda_\ell)
+\]
+for all macroelement $\Lambda_{\ell}$.
+\end{lemma}
+\begin{proof}
+Every function ${\bv}\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$ has a finite
+$L^1(\Lambda_\ell)$ norm. On the other hand,
+\[
+  R^{-\beta}\theta^{-\delta}\leqslant\left(\max_{\bx
+  \in\Lambda_\ell}R(\bx)^\delta\right)
+  r^{-\beta-\delta}
+  \leqslant C r^{-\beta-\delta}\in L^2(\Lambda_\ell)
+\]
+which implies $\partial^\alpha{\bv}\in L^1(\Lambda_\ell)$ for all
+$\bv\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$.
+\end{proof}
+
 %%=========== GRADING ==============================================
 
 {\color{BrickRed}\paragraph{TODO} % (fold)

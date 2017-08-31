@@ -240,15 +240,15 @@ en la suma.}
 \end{IEEEeqnarray}
 \end{remark}
 
-\subsection{Definition of the $H(\text{div})$-conforming element on prisms. 
+\subsection{Definition of the $H(div)$-conforming element on prisms. 
 Generalization of the Raviart-Thomas Finite Element} % (fold)
 \label{sub:definition_of_the_h_div_element_on_prisms}
 With the notation introduced in Subsection~\ref{sub:polynomials} we consider
 the polynomial space
 \begin{IEEEeqnarray*}{rCl}
     \yesnumber\label{dk}
-    D_k & = & P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y) \textbf{x},\\
-    \textbf{x} & = & (x,y).
+    D_k & = & P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y) \bx,\\
+    \bx & = & (x,y).
 \end{IEEEeqnarray*}
 \begin{defi}\label{defi_h_div_conforme} The $RT$ element
 \begin{enumerate}
@@ -353,29 +353,3 @@ we take a basis...
                                         \sum_{r}   \rho_{r}  (\hat{\bu})\,\hat{\bv}_{r}
 \end{IEEEeqnarray}
 \end{remark}
-{\color{Orange}\#\#\#\#\#\#\#\# continue here.}
-If we take the solution (u,p) in Problem (put ref)
-the singular part of the vectorial 
- has a well defined interpolate.
-\begin{lemma}\label{well_defined_dofs}
-Firstly, we remark that if $\beta,\delta\in[0,1)$ and $\beta + \delta\le1$ then 
-\[
-V^{1,2}_{\beta,\delta}(\Lambda_\ell) \subset W^{1,1}(\Lambda_\ell)
-\]
-for all macroelement $\Lambda_{\ell}$.
-\end{lemma}
-\begin{proof}
-Indeed, clearly
-${\bv}\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$ satisfies
-$\bv\in L^1(\Lambda_\ell)$. On the other hand,
-\[
-R^{-\beta}\theta^{-\delta}\le\left(\max_{{\bf x}
-\in\Lambda_\ell}R({\bf x})^\delta\right)
-r^{-\beta-\delta}
-\le C r^{-\beta-\delta}\in L^2(\Lambda_\ell)
-\]
-which implies $D^\alpha{\bv}\in L^1(\Lambda_\ell)$ for all $\bv\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$.
-\end{proof}
-So, given a mesh of $\Omega$, we can consider the interpolation $\bu_{s,I}$ of
-the singular part $\bu_s$ of the solution, since the traces on faces of the elements
-of $\bu_s$ are well defined and its normal component can be integrated there.

@@ -3,67 +3,65 @@
 The vems are customarly defined in terms of a given problem.
 
 It is our intention to propose a Virtual Elements Method (VEM) scheme
-as a generalization of $H(\text{div})$--conforming Finite Elements
+as a generalization of $H(div)$--conforming Finite Elements
 in meshes consisting of polyhedra of arbitrary kind.
 We deal with tetrahedra, triangular prisms and pyramids and, in the presence of
 the latter, our VEM scheme is put in the framework of non-polynomial Finite Elements.\\[5pt]
 \section{primera}
 Recall Problem~\ref{weakMixedContinuous} and add some notation on
 bilinear forms.
-Let be given an open \emph{non--convex} domain $\Omega\subseteq\mathbb{R}^3$ with
-Lipschitz--continuous boundary
-consisting of planar faces and define $V:=H(\mbox{div},\Omega)$ and $Q:=L^2(\Omega)$.
-Let us consider the following continuous problem.\\[5pt]
-With 
+Let  $V:=H(div, \Omega)$, $Q:=L^2(\Omega)$ and
 \begin{IEEEeqnarray*}{rClCrCl}
-	a(\bv,\bw) & = & \forma{v}{w} &\quad\mbox{and}\quad& b(\bv,q) & = & \formb{v}{q}
+  a(\bv,\bw) & = & \forma{v}{w} &\quad\mbox{and}\quad& b(\bv,q) & = & \formb{v}{q}
 \end{IEEEeqnarray*}
+Then Problem~\ref{weakMixedContinuous} reads to
 find $\bu\in V$ and $p\in Q$ such that for every $\bv\in V$ and every $q\in Q$
 \begin{equation}\label{mixedContinuousWeak}
   \makebox[0pt]{
-    \begin{minipage}{\linewidth}
-  	  \begin{IEEEeqnarray*}{rCCCl}
-  		a(\bu,\bv) &+ &b(\bv,p) & = & 0\\[5pt]
-  				   &- &b(\bu,q) & = & (f,q).
-  	  \end{IEEEeqnarray*}
-    \end{minipage}}
-  \tag{MC}
+    \begin{minipage}{\linewidth}                            %===========
+  	  \begin{IEEEeqnarray*}{rCCCl}                          % Let be given an open \emph{non--convex} domain $\Omega\subseteq\mathbb{R}^3$ with
+  		a(\bu,\bv) &+ &b(\bv,p) & = & 0\\[5pt]                % Lipschitz--continuous boundary
+  				   & - &b(\bu,q) & = & (f,q).                     % consisting of planar faces and define 
+  	  \end{IEEEeqnarray*}                                   % Let us consider the following continuous problem.\\[5pt]
+    \end{minipage}}                                         %===========
+  %\tag{MC}
 \end{equation}
 We start with a polihedral triangulation $\Th$ of $\Omega$ to define the 
 virtual spaces $V_h$ and $Q_h$ as discretizations of $V$ and $Q$ respectively.\\[5pt]
 For $E\in\Th$ the local space of vector fields will be
 \begin{IEEEeqnarray*}{rCl}
-  V_h(E)&=&\Big\{\bv\in H(\mbox{div},E)\cap H(\textbf{curl},E)\,:\,\\
+  V_h(E)& = &\Big\{\bv\in H(\mbox{div},E)\cap H(\bcurl,E)\,:\,\\
   \yesnumber\label{vhE}
-  &&\qquad \bv\cdot\bn|_f\in \mathcal P_0(f) \,\,\mbox{for all face $f$ of }E, \\
-  && \qquad\dv\bv\in \mathcal P_0(E) \mbox{ and } \curl\bv = 0 \Big\}
+   & & \qquad \bv\cdot\bn|_f\in P_0(f) \,\,\mbox{for all face $f$ of }E, \\
+   & & \qquad \dv\bv  \in P_0(E) \mbox{ and } \curl\bv = 0 \Big\}
 \end{IEEEeqnarray*}
 and the  global space $V_h$ will consist of functions defined piecewise with the former
 local spaces:
 \begin{IEEEeqnarray*}{ccrCl}
-V_h&=&V_h(\Th)&:=&\Big\{\bv\in H(\dv,\Omega): \bv|_E\in V_h(E), \mbox{for all element }
-E\in\Th\Big\}.
+  V_h & = & V_h(\Th) & := & \Big\{\bv\in H(\dv,\Omega): \bv|_E\in V_h(E),
+  \mbox{for all element } E\in\Th\Big\}.
 \end{IEEEeqnarray*}
-\noindent{\color{blue}\#\#\#\#\#\#\# poner algo de por qu'e se pone
-la condicion del curl: para que sea el gradiente de alguien (Nicaise)}. 
-The scalar discrete space we will consider is
+{\color{BrickRed} The  condition on the $\curl$ is put because we are
+considering gradients.} The scalar discrete space we will consider is
 \begin{IEEEeqnarray}{rCl}
-  Q_h & = & \mathcal{P}_0(\Th)
+  Q_h & = & {P}_0(\Th)
 \end{IEEEeqnarray}
 meaning the functions that are constant on each element of $\Th$. As expected,
 with $V_h$ we consider the $H(\dv,\Omega)$ norm, 
 $\|\bv\|^2_{V_h} = \|\bv\|^2_{L^2(\Omega)} + \|\dv\bv\|^2_{L^2(\Omega)}$,
 and with $Q_h$ we consider the $L^2(\Omega)$ norm.
-
-The condition in the definitions of these spaces suffice to construct an interpolation
-operator, which is a key object both in Finite Elements as in Virtual Elements.
-Let us take the degrees of freedom
+As Problem~\ref{weakMixedContinuous}  has solution in $H(\mbox{div},\Omega)$
+it suggests to use a face--like  operator as virtual interpolator. That is,
+let the degrees of freedom be
 \begin{IEEEeqnarray}{rCl}\label{dofs}
   \iint_f \bv\cdot\bn\,dS & \qquad\mbox{ for all face $f$ of } & \Th.
 \end{IEEEeqnarray}
 With \emph{faces of $\Th$} we mean the family of all faces forming the boundary
 of the elements, with the unit normals consistently taken in the case of
-neighbour elements.
+neighbour elements. 
+
+Something that has been already established for Finite Elements in
+Chapter~\ref{aux_label43} must be proved for our Virtual Elements.
 \begin{lemma}\label{unisolvence} Given a polyhedron $E\in\Th$, the degrees
   of freedom~(\ref{dofs}) corresponding to the faces of $E$ are unisolvent
   in $V_h(E)$.
@@ -107,12 +105,12 @@ imply $\dv\bv=0$ by Green Theorem. Then, the potential $\phi$ satisfies
 which means it is a constant, and it follows $\bv=0$.
 \end{proof}
 With this Lemma already demonstrated we are able to consider
-an $H(\text{div})$--like local interpolation operator well defined.
+an $H(div)$--like local interpolation operator well defined.
 \begin{corollary} \label{interpolant}
-  For every $\bv\in H^1(E)^3$ there exists a $V_h(E)$--interpolant $I(\bv)$
+  For every $\bv\in H^1(E)^3$ there exists a $V_h(E)$--interpolant $I\bv$
   defined as the unique element in $V_h(E)$ such that for every face $f$ of $E$
     \begin{IEEEeqnarray*}{rCl}
-      \int\limits_f I(\bv)\cdot\bn\,d\gamma & = & \int\limits_f \bv\cdot\bn\,d\gamma.       
+      \iint_f I\bv\cdot\bn\,dS & = & \int\limits_f \bv\cdot\bn\,d\gamma.       
     \end{IEEEeqnarray*}
 \end{corollary}
 \begin{lemma} \label{p0_projection} Consider the projection $P_0$ onto the constants on $E$. It holds
@@ -121,18 +119,23 @@ an $H(\text{div})$--like local interpolation operator well defined.
 \end{IEEEeqnarray*}
 \end{lemma}
 \begin{proposition}\label{vem_equal_fem}
-Recall the space $D_k$ introduced in~(\ref{dk}).\\
-If $E$ is a right prism, then
+Recall the space $D_k$ introduced in~(\ref{dk}). Then
+\begin{enumerate}
+  \item 
+if $E$ is a right prism, we have
 \begin{IEEEeqnarray}{rCl}\label{d1p1}
   V_{\textit{h}}(E) & = & D_1(x,y)\otimes P_1(z)\mbox{,}
 \end{IEEEeqnarray}
 with $x,y,z$ being the variables in a cartesian system of coordinates in which
-the $z$--axis is orthogonal to the planes containing the triangular faces of $E$.\\
-If $E$ is a tetrahedron, then
+the $z$--axis is orthogonal to the planes containing the triangular faces of $E$.
+  \item 
+If $E$ is a tetrahedron, we have
 \begin{IEEEeqnarray}{rCl}\label{p03}
   V_{\textit{h}}(E) & = & P_0^3(\bx) + P_0\bx\mbox{,}
 \end{IEEEeqnarray}
-with $\bx = (x,y,z)$ being the vector of variables in a cartesian system of coordinates.
+with $\bx = (x,y,z)$ being the vector of variables in a cartesian system of
+coordinates.
+\end{enumerate}
 \end{proposition}
 \begin{proof}
   In the case of a prism $E$, the space $D_1(x,y)\otimes P_1(z)$ can be written as
@@ -295,8 +298,9 @@ discrete form $a^E_{\textit{h}}$ and which explains the form of the
 term $h_E^{-1}\langle\,\cdot\,,\cdot\,\rangle$ in~(\ref{discreteLocal_a}).
 \\{\color{blue}\#\#\#\#\#\#\#\# prop 3.2...}
 
-In what follows we analyse the second term in $a_h^E$ when $E$ is a pyramid.
-In this case, denote by $\{\bv_i\}$ the dual basis of the degrees of freedom \eqref{degreeOfFreedom}, that is,
+In what follows we analyse the second term in expression~(\ref{discreteLocal_a})
+for $a_h^E$ when $E$ is a pyramid.
+In this case, denote by $\{\bv_i\}$ the dual basis of the degrees of freedom \eqref{dofs}, that is,
 \[
 \bv_i\in V_h(E), \qquad \mbox{and}\qquad \int_{f_j}\bv_i\cdot\bn =\delta_{i,j}, \quad 1\le i,j\le 5,
 \]
@@ -433,9 +437,6 @@ and then we obtain
 \]
 as we wanted, since the constants in this equivalence depend only on the aspect ratio of $E$.
 \end{proof}
-
-As a consequence of this result we obtain the next Corollary.
-
 Proposition~(\ref{stabilizing_term}) yields the next corollary.
 \begin{corollary}\label{equivalence} For all $\bv\in V_h(E)$ and all pyramidal
 $E\in\mathcal T_h$ it holds

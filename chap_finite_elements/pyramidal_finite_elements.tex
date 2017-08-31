@@ -1,7 +1,10 @@
 \section{Pyramidal Finite Elements}
-The Finite Elements defined here are the ones found in~\cite{gh99}.
-
-
+The Finite Elements defined here are the ones found in~\cite{gh99}. There the authors
+perform a
+construction of discrete differential
+forms by solving a local interpolation problem on the reference pyramid. The
+finite element in an arbitrary mesh pyramid is obtained by pushing forward
+the vector proxies of those discrete forms.
 \begin{table}[!h]
     \centering  
     \caption{Notation for the faces and positive normals of $\partial\hat{E}$.}
@@ -27,7 +30,6 @@ The Finite Elements defined here are the ones found in~\cite{gh99}.
         \IEEEeqnarrayrulerow
     \end{IEEEeqnarraybox*}
 \end{table}
-
 \begin{table}[!h]
     \centering  
     \caption{Notation for the edges and positive tangents of $\partial\hat{E}$.}
@@ -72,17 +74,32 @@ The Finite Elements defined here are the ones found in~\cite{gh99}.
 \subsection{Edge} % (fold)
 \label{sub:edge}
 \input{./figures/shape_table_edge}
+\begin{defi}\label{aux_label50}
+  The following items define a least order $\bcurl$--conforming finite element
+  on the reference Pyramid.
+  \begin{enumerate}
+    \item $\hat E$ is the reference Pyramid in Definition~\ref{defi_of_ref_pyr}. 
+    \item The rational space $P_{\hat E}$ is the span of
+    $\{\hat{\bgamma}_1,\,\ldots,\,\hat{\bgamma}_8\}$ with $\hat{\bgamma}_i$
+    as in Table~\ref{shape_edge_table}.
+    \item The degrees of freedom are the line integrals
+      \begin{IEEEeqnarray*}{c}
+        \int_{\hat\be_j}\hat\bu\cdot\,d\hat\balpha
+      \end{IEEEeqnarray*}
+      for every edge $\hat\be_j$ of $\hat E$, $1\leqslant j\leqslant 8$.
+  \end{enumerate}
+\end{defi}
+\begin{remark}
+  These rational funtions satisfy $\int_{e_j}\bgamma_i\cdot\btau = \delta_{ij}$.   
+\end{remark}
+\begin{lemma}
+  The finite element in Definition~(\ref{aux_label50})  is $H(\bcurl)$--conforming and 
+  unisolvent.
+\end{lemma}
 % subsection edge (end)
-
 \subsection{Face} % (fold)
 \label{sub:face}
 \input{./figures/shape_table}
-\begin{remark}
-  These rational funtions satisfy $\int_{e_j}\bgamma_i\cdot\btau = \delta_{ij}$   
-\end{remark}
-\begin{remark}
-  These rational funtions satisfy $\iint_{f_j}\bz_i\cdot\bn = \delta_{ij}$   
-\end{remark}
 \begin{defi}\label{defi_h_div_conforme_pyramid} Pyramidal $H\dv$--conforming 
 Finite Element.
 \begin{enumerate}
@@ -96,4 +113,11 @@ Finite Element.
 \end{IEEEeqnarray}
 \end{enumerate}
 \end{defi}
+\begin{remark}
+  These rational funtions satisfy $\iint_{f_j}\bz_i\cdot\bn = \delta_{ij}$   
+\end{remark}
+\begin{lemma}
+  The finite element~(\ref{aux_label50})  is $H(div)$--conforming and 
+  unisolvent.
+\end{lemma}
 % subsection face (end)

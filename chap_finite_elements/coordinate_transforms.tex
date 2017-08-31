@@ -1,11 +1,11 @@
 \section{Differentials, coordinate transformations, 
 unisolvence and conformity of Finite Elements}
 
-For \noindent{\color{BrickRed} the motivation of (SOME of)}  the following exposition we
-refer to~\cite{ciarlet},
- Section 3.9 of~\cite{monk} and~\cite{gh99}.
+The motivation of the following exposition  is to extend and complete
+what is said about coordinate transformations in~\cite{ciarlet},~\cite{gh99} and
+Section 3.9 of~\cite{monk}.
 
-We want this same setting to build Finite Elements on 
+We want the same setting to build Finite Elements on 
 arbitrary contiguous prisms
 belonging to a fixed mesh, all of which being an affine 
 image of the reference prism.
@@ -13,13 +13,11 @@ In order to do so we transform the set $\hat{E}$ and show how to
 pull--back and forward the scalars and fields in the 
 discrete local spaces and the corresponding 
 degrees of freedom.
-
 %===============
 %exactly as we are told by the 
 %push-forward
 %transformations~(\ref{push-forward}). 
 %===============
-
 Consider the application $\hat{\bx}\longmapsto{\bx} = 
 F_E(\hat{\bx})$, where 
 \begin{IEEEeqnarray}{rCl} \label{aux_label8}       
@@ -33,7 +31,7 @@ scalar function $p$ on $E$ with
 \begin{IEEEeqnarray}{rCl}
     \label{transfEscalar} p\circ F_E & = & \hat{p}.
 \end{IEEEeqnarray}
-As it holds~(\cite{ciarlet})
+As it holds (cfr.~\cite{ciarlet})
 \begin{IEEEeqnarray}{rCl} \label{aux_label4}
   \nabla p = M^{-t}\hat{\nabla} \hat{p} \circ F_K^{-1}\mbox{,}
 \end{IEEEeqnarray}
@@ -406,17 +404,17 @@ in $H\curl$ and unisolvent.
 \end{proof}
 
 \begin{corollary}
- \label{aux_label26}\noindent{\color{BrickRed}\#\#\#\#\#\#\# ojo tipeo ac'a\\} 
-  For any $\bv\in W^{1,p}(E)$ expressions 
+ \label{aux_label26} 
+  For any $\bu\in W^{1,p}(E)$ expressions 
   ~(\ref{momentos1hcurlPhys})--(\ref{momentos3hcurlPhys}) 
   determine a well defined local interpolate
   $\bw_E\,\bu$ defined as the unique finite element function in $P_E$ such that
   \begin{IEEEeqnarray}{lClc}
-    \varphi_{\be,q}\,(\bv - \bw_E\,\bu) & = & 0 &
+    \varphi_{\be,q}\,(\bu - \bw_E\,\bu) & = & 0 &
     \quad\mbox{for $\varphi_{\be,q}$ as in~(\ref{momentos1hcurlPhys})}\\
-    \varphi_{f,\bq}\,(\bv - \bw_E\,\bu) & = & 0 &
+    \varphi_{f,\bq}\,(\bu - \bw_E\,\bu) & = & 0 &
     \quad\mbox{for $\varphi_{f,\bq}$ as in~(\ref{momentos2hcurlPhys})}\\
-    \varphi_{\br}\,(\bv - \bw_E\,\bu) & = & 0 &
+    \varphi_{\br}\,(\bu - \bw_E\,\bu) & = & 0 &
     \quad\mbox{for $\varphi_{\br}$ as in~(\ref{momentos3hcurlPhys})}.
   \end{IEEEeqnarray}
 \end{corollary}
