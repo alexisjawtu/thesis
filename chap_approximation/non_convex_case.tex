@@ -44,21 +44,20 @@ $L^1(\Lambda_\ell)$ norm. On the other hand,
 which implies $\partial^\alpha{\bv}\in L^1(\Lambda_\ell)$ for all
 $\bv\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$.
 \end{proof}
-
+%=====================================================
+%{\color{BrickRed}\paragraph{TODO} % (fold)
+%\label{par:todo}
+%ver qu'e pasa con lo de distance to the vertices, distance to de 
+%singular vertices.
+%
+%ver si se acomoda definiendo $\lambda_e, \lambda_v$ como $+\infty$ en caso de
+%ser arista o v'ertice regulares, y as'i poder usar las cotas con las 
+%distancias al \'unico v\'ertice o arista de cada macroelemento, etc...
+%}
+%=====================================================
 %%=========== GRADING ==============================================
-
-{\color{BrickRed}\paragraph{TODO} % (fold)
-\label{par:todo}
-ver qu'e pasa con lo de distance to the vertices, distance to de 
-singular vertices.
-
-ver si se acomoda definiendo $\lambda_e, \lambda_v$ como $+\infty$ en caso de
-ser arista o v'ertice regulares, y as'i poder usar las cotas con las 
-distancias al \'unico v\'ertice o arista de cada macroelemento, etc...
-% paragraph todo (end)
-}
-grading
-
+We proove that, in each prismatic or tetrahedral macro--element, our meshes
+fulfill the following grading.
 \begin{equation}\label{label_grading}
 \begin{IEEEeqnarraybox*}{lCl}
   h_1, h_2 &\sim&
@@ -70,13 +69,13 @@ grading
   h_3   &\sim& 
     \begin{cases}
       \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(E,v)=0\\
-      \textit{h}\,d(E,v)^{1-\nu}  & \text{ if\, }0<d(E,v)\lesssim1\\
+      \textit{h}\,d(E,\bv)^{1-\nu}  & \text{ if\, }0<d(E,v)\lesssim1\\
       \textit{h}          & \text{ if\, }d(E,v)\sim1
     \end{cases}
 \end{IEEEeqnarraybox*}
 \end{equation}
-with $\mu\le 1-\delta$ for some $\delta>1-\lambda_{\be}$.\\
-with $\nu\le 1-\beta$ for some $\beta>\frac12-\lambda_{\bv}$.
+with $\mu\le 1-\delta$ for $\delta>1-\lambda_{\be}$.\\
+with $\nu\le 1-\beta$ for $\beta>\frac12-\lambda_{\bv}$.
 %%==================================================================
 \begin{remark} \noindent{\color{BrickRed} ESto seguro que va, todavia no se
 bien adonde.} 
@@ -94,12 +93,16 @@ that Tetrahedra and pyramids in $\Th$ are not necessarily anisotropic.
 To avoid what would result in an illegible proof we decided to partition
 the proof in subsections, paragraphs and items.\\
 
-\textbf{Obs}: si $\delta(\Lambda)>1$ entonces
-\[
-  R_K(\bx) \leqslant \delta(\Lambda)\min\{ R_K(\bx), 1\}
-\]
-as\'i que asumimos $R_K(\bx)\leqslant 1$.\\[7pt]
-\textbf{Obs}: $\mu < 1 \Rightarrow \mu \leqslant \nu$. \\[7pt]
+\begin{remark}
+\textbf{Obs}: If the diameter of $\Lambda$ were greater than $1$, then entonces
+\begin{IEEEeqnarray*}{rCl}
+  R_K(\bx) & \leqslant & \delta(\Lambda)\min\{ R_K(\bx), 1\}
+\end{IEEEeqnarray*}
+as\'i que asumimos $R_K(\bx)\leqslant 1$.
+\end{remark}
+\begin{remark}
+  $\mu < 1 \Rightarrow \mu \leqslant \nu$.
+\end{remark}
 
 \subsection{Meshes}\label{meshes}
 \noindent{\color{BrickRed}*** ver si las mallas hacen falta antes del caso convexo;

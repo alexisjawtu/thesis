@@ -716,8 +716,8 @@ For every $\bw\in W(\Th)$:
 \end{IEEEeqnarray*}
 Now
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu-\bw\|^2_{0,\Omega} &=& \sum_1^N \|\bu-\bw\|^2_{0,\Lambda_\ell}\\
-    &=& \sum_1^N \left\{
+  \|\bu-\bw\|^2_{0,\Omega} &=& \sum_1^{N_{\textit{h}_0}} \|\bu-\bw\|^2_{0,\Lambda_\ell}\\
+    &=& \sum_1^{N_{\textit{h}_0}} \left\{
       \sum_{pri} \|\bu-\bw\|^2_{0,E_\ell} +
       \sum_{tet} \|\bu-\bw\|^2_{0,E_\ell} +
       \sum_{pyr} \|\bu-\bw\|^2_{0,E_\ell}
@@ -738,26 +738,23 @@ take a $\bw_{\bu}$ such that, for every $E_\ell$
 then, we able to do:
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bw_{\bu}\|^2_{0,\Omega}
-    &=& \sum_{\ell=1}^N \left\{
+    &=& \sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
       \sum_{pri} \|\bu-I\bu\|^2_{0,E_\ell} +
       \sum_{tet} \|\bu-I\bu\|^2_{0,E_\ell} +
       \sum_{pyr} \|\bu-P_{0,E_{\ell}}\|^2_{0,E_\ell}
     \right\}\\[5pt]
-    &\leqslant& \sum_{\ell=1}^N \left\{
+    &\leqslant& \sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
       \sum_{pri} \textit{h} \|f\|^2_{0,E_\ell} +
       \sum_{tet} \textit{h} \|f\|^2_{0,E_\ell} +
       \sum_{pyr} h_{E_\ell}|\bu|^2_{1,E_\ell}
     \right\}\\[5pt]
-    &\leqslant& \textit{h} \sum_{\ell=1}^N \left\{
+    &\leqslant& \textit{h} \sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
       \sum_{pri}  \|f\|^2_{0,E_\ell} +
       \sum_{tet}  \|f\|^2_{0,E_\ell} +
       \sum_{pyr} |\bu|^2_{1,E_\ell} {\color{red}\mbox{$\leftarrow$ esta parte? $\|f\|?$}}
     \right\}\\[5pt]
     \IEEEeqnarraymulticol{3}{c}{{\color{red} \mbox{Tomar las distancias
         a la arista y al vertice para el termino piramidal:}}}\\
-    &\leqslant& \textit{h} \sum_{\ell=1}^N \|f\|^2_{0,\Lambda_\ell} \,=\,
+    &\leqslant& \textit{h} \sum_{\ell=1}^{N_{\textit{h}_0}} \|f\|^2_{0,\Lambda_\ell} \,=\,
       \textit{h}\,\|f\|^2_{0,\Omega}.
 \end{IEEEeqnarray*}
-
-\noindent{\color{blue}\#\#\#\#\#\#\# Ojo que N está 
-como cardinal de la primera malla y también como cardinal de una malla cualquiera}.
