@@ -226,23 +226,23 @@ $\br_E\bu$ and $\pi^{\perp}_E\dv\bu$ are defined, then
               \& \node {};
               \& \node {};
               \& \node (r8c11) {};\\
-             \node {$V_{\textit{h}} $};                                 
+             \node {$V_{\hat E} $};                                 
               \& \node (n13) {};
               \& \node       {};
               \& \node (n14) {};
               \& \node (n15) {};
-              \& \node {$W_{\textit{h}} $}; 
+              \& \node {$W_{\hat E} $}; 
               \& \node (r9c7) {};
               \& \node {};
               \& \node {};
               \& \node (r9c10) {};
-              \& \node {$Q_h$};\\
+              \& \node {$Q_{\hat E}$};\\
              };
             \draw[->] (n0) to node[above] {$\textbf{curl}$} (n2); 
             \draw[->] (fromV) to node[above] {$\textbf{curl}$} (toW); 
             \draw[white] (n3) to node {{\color{black}$\cup$}} (n4);
             \draw[white] (n5) to node {{\color{black}$\cup$}} (n6);
-            \draw[->] (n7) to node[left] {$\bw_E$} (n11); 
+            \draw[->] (n7) to node[left] {$\bw_{\hat E}$} (n11); 
             \draw[->] (n8) to node[left] {$\boldsymbol{r}_k$} (n12); 
             \draw[->] (n13) to node[above] {$\textbf{curl}$} (n15); 
             \draw[->] (r1c7) to node[above] {$\text{div}$} (r1c10);
@@ -253,6 +253,8 @@ $\br_E\bu$ and $\pi^{\perp}_E\dv\bu$ are defined, then
             \draw[->] (r5c11) to node[left] {$\pi^{\perp}$} (r8c11);
         \end{tikzpicture}
     \end{center}
+where $V_{\hat E}$, $W_{\hat E}$ and $P_{\hat E}$ are~(\ref{spaceFEprismHcurl}),~(\ref{prismaticSpace})
+and $P_0(\hat E)$ respectively.
 \begin{defi} 
 Suppose $\Omega$ is the union of two elements $E_1$ and $E_2$ with a common face $f$, 
 we say that the family of unisolvent Finite Elements $(E, P_E, \Sigma)$ is conforming in 

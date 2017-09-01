@@ -2,23 +2,27 @@
 \label{sec:well_posedness}
 If we consider the following kernel
 \begin{IEEEeqnarray*}{rCl}
-  \mathcal K_h & = & \{\bv_h\in V_h: b(\bv_h,q)=0\,\,
+  \Kb_{\Th} & = & \{\bv_h\in V_h: b(\bv_h,q)=0\,\,
                         \mbox{for all } q\in Q_h\} \\[4pt]
                & = & V_{\textit{h}}\cap\ker\dv
 \end{IEEEeqnarray*}
 then Lemma~\ref{lemma_for_coercivity} implies the following Proposition.
 \begin{proposition}
-  $a_h$ is coercive over $\mathcal K_h$ and the coercivity constant
+  The form $a_h$ in~(\ref{discreteGlobal_a})  is coercive over $\Kb_{\Th}$
+  and the coercivity constant
   depends only on the shape regularity of the pyramids of the mesh.
 \end{proposition}
-\begin{proposition} \label{cont} The local discrete bilinear form $a_h^E$ is continuous en $L^2(E)$, that is,
+\begin{proposition} \label{cont} For every $E\in\Th$The local discrete bilinear form $a_h^E$
+in~(\ref{discreteLocal_a})
+is continuous en $L^2(E)$. That is,  forall $\bu$,$\bv\in V_h(E)$
 \[
-a_h^E(\bu,\bv)\leqslant C \|\bu\|_{L^2(E)}\|\bv\|_{L^2(E)}, \qquad \forall \bu,\bv\in V_h(E),
+  a_h^E(\bu,\bv) \leqslant C \|\bu\|_{L^2(E)}\|\bv\|_{L^2(E)}\mbox{,}
 \]
-where $C$ equals $1$ when $E$ is a right prism or tetrahedron, and depends only on the aspect ratio of $E$ in the case of pyramids.
+where $C$ equals $1$ when $E$ is a right prism or tetrahedron, and
+depends only on the aspect ratio of $E$ in the case of pyramids.
 \end{proposition}
 \begin{proof}
-When $E$ is a prism or tetrahedron, $a_h^E(\bu,\bv)=a^E(\bu,\bv)$ for $\bu$ and $\bv$ in $V_h(E)$, and the result is clear from the definition of $a^E$. When $E$ is a pyramid, we observe that $a_h^E$ is symmetric and coercive in $L^2(E)$ because of \eqref{L2}, and then it defines an inner product. Hence, from Cauchy-Schwarz inequality and again \eqref{L2} we have
+  When $E$ is a prism or tetrahedron, $a_h^E(\bu,\bv)=a^E(\bu,\bv)$ for $\bu$ and $\bv$ in $V_h(E)$, and the result is clear from the definition of $a^E$. When $E$ is a pyramid, we observe that $a_h^E$ is symmetric and coercive in $L^2(E)$ because of \eqref{L2}, and then it defines an inner product. Hence, from Cauchy-Schwarz inequality and again \eqref{L2} we have
 \begin{multline*}
 \left|a_h^E(\bu,\bv)\right|\leqslant a_h^E(\bu,\bu)^\frac12 a_h^E(\bv,\bv)^\frac12 \le\\ C_E a^E(\bu,\bu)^\frac12 a^E(\bv,\bv)^\frac12 \leqslant C_E\|\bu\|_{L^2(E)}\|\bv\|_{L^2(E)}.
 \end{multline*}
@@ -66,6 +70,7 @@ Besides, since $q^*\in Q_h$, by~(\ref{p0_projection}) we have
 \end{proof}
 Now we can prove the discrete inf-sup condition. 
 \begin{theorem}[Discrete $\inf-\sup$ condition for $b_h$] \label{inf_sup_b_h}
+Consider the bilinear form $b_{\Th}$ in~(\ref{aux_label44}).  
 There exists $\beta > 0$ such that for all $q^*\in Q_h$ 
 \begin{IEEEeqnarray}{rCl}\label{discrete_inf_sup_b} 
   \sup_{0\ne\bv\in V_h} \frac{b_h(\bv,q^*)}{\|\bv\|_{V_h}} &\geqslant& \beta\|q^*\|_{Q_h}.
@@ -91,18 +96,18 @@ and
 \begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution
 \end{theorem}
 \begin{proof}
-  Theorem 5.2 of~\ref{ricardoMixed} states that 
+  Theorem 5.2 of~\cite{ricardoMixed} states that 
   Problem~(\ref{mixedDiscrete}) has a unique solution
   provided~(\ref{discrete_inf_sup_b})  holds and 
-  that there exists some $\alpha>0$ such that for all $\bu\in\mathcal{K}_{\textit{h}}$
+  that there exists some $\alpha>0$ such that for all $\bu\in\Kb_{\Th}$
 \begin{IEEEeqnarray*}{rCl}\label{discrete_inf_sup_a} 
-  \sup_{0\ne\bv\in \mathcal{K}_{\textit{h}}}
+  \sup_{0\ne\bv\in \Kb_{\Th}}
   \frac{a_{\textit{h}}(\bu,\bv)}{\|\bv\|_{V_h}} &\geqslant& \alpha\|\bu\|_{V_h}
 \end{IEEEeqnarray*}
   but this is implied by the coercivity of $a_{\textit{h}}$
 since
 \begin{IEEEeqnarray*}{rCcCl}
-  \sup_{0\ne\bv\in \mathcal{K}_{\textit{h}}}
+  \sup_{0\ne\bv\in \Kb_{\Th}}
   \frac{a_{\textit{h}}(\bu,\bv)}{\|\bv\|_{V_h}}
   & \geqslant &
   \frac{a_{\textit{h}}(\bu,\bu)}{\|\bu\|_{V_h}}

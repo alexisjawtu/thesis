@@ -27,7 +27,13 @@ find $\bu\in V$ and $p\in Q$ such that for every $\bv\in V$ and every $q\in Q$
   %\tag{MC}
 \end{equation}
 We start with a polihedral triangulation $\Th$ of $\Omega$ to define the 
-virtual spaces $V_h$ and $Q_h$ as discretizations of $V$ and $Q$ respectively.\\[5pt]
+virtual spaces $V_h$ and $Q_h$ as discretizations of $V$ and $Q$ respectively.
+We will assume a strictly decreasing parameter $\textit{h}$ tending to zero 
+to mitigate the abuse of notation present in expressions like 
+``$\bu_{\textit{h}}$''
+and ``$\Th$''. Then we are able to write, for example, $\bu_{\textit{h}}$ or 
+$\bu_{\Th}$ indistinctly.
+
 For $E\in\Th$ the local space of vector fields will be
 \begin{IEEEeqnarray*}{rCl}
   V_h(E)& = &\Big\{\bv\in H(\mbox{div},E)\cap H(\bcurl,E)\,:\,\\
@@ -206,26 +212,28 @@ Is follows that, in the $x'y'z'$ system,
 %\label{par:discretized_forms}
 %\[
 %\noindent{\color{blue}\#\#\#\#\#\#\# \mbox{¿hace falta?}} 
-%  a(\bv,\bw)=\sum_{E\in\mathcal T_h}a^E(\bv,\bw), \qquad
-%  b(\bv,q)=\sum_{E\in\mathcal T_h}b^E(\bv,q).
+%  a(\bv,\bw)=\sum_{E\in\Th}a^E(\bv,\bw), \qquad
+%  b(\bv,q)=\sum_{E\in\Th}b^E(\bv,q).
 %\]
 Next, together with the finite dimensional spaces already defined,
 discretized version of the bilinear forms.\\
 The evaluation of the form $b(\cdot,\cdot)$ in $(\bv,q)\in V_h\times Q_h$ can
 be computed using the degrees of freedom~(\ref{dofs}) applied to $\bv$. For if $q\in Q_h$, then
 \[
-  b(\bv,q)=\int_\Omega q\,\dv\bv = \sum_{E\in\mathcal T_h}
-  \int_Eq\,\dv\bv = \sum_{E\in\mathcal T_h}\int_{\partial E}q \bv\cdot\bn.
+  b(\bv,q)=\int_\Omega q\,\dv\bv = \sum_{E\in\Th}
+  \int_Eq\,\dv\bv = \sum_{E\in\Th}\int_{\partial E}q \bv\cdot\bn.
 \]
 so in the case of the form $b_h(\bv,q)$ we put simply
-\[
-  b_h(\bv,q) = b(\bv,q) =
-  \sum_{E\in\mathcal T_h}b^E(\bv,q)\mbox{,}
-\]
+\begin{IEEEeqnarray}{rCcCl}\label{aux_label44}
+  b_h(\bv,q) & = & b(\bv,q) & = &
+  \sum_{E\in\Th}b^E(\bv,q)\mbox{,}
+\end{IEEEeqnarray}
+
+
 where $b^E(\bv,q) = \int_Eq\,\dv\bv\,d\textbf{x}$.
 For the bilinear form $a(,)$, we can decompose it as
 \[
-  a(\bv,\bw)=\sum_{E\in\mathcal T_h}\int_E\bv\cdot\bw\,d\bx
+  a(\bv,\bw)=\sum_{E\in\Th}\int_E\bv\cdot\bw\,d\bx
 \]
 but this is not computable from the 
 degres of freedom. The following construction
@@ -277,13 +285,12 @@ Finally, the local discrete form $a_h^E$ is stated in the following definition.
   h_E^{-1}\langle(\bv-\pi^E\bv)_B,(\bw-\pi^E\bw)_B\rangle
 \end{IEEEeqnarray}  
 where $h_E$ is the diameter of $E$.
-\end{defi}
 The discrete global form $a_h$ is defined by the following equation.
-\[
-  a_h(\bv,\bw) = \sum_{E\in \mathcal T_h} a_h^E(\bv|_E,\bw|_E),
+\begin{IEEEeqnarray}{rCl} \label{discreteGlobal_a}
+  a_h(\bv,\bw) & = & \sum_{E\in \Th} a_h^E(\bv|_E,\bw|_E),
     \quad\mbox{ for } \bv \mbox{ and } \bw \in V_h.
-\]
-
+\end{IEEEeqnarray}
+\end{defi}
 One fact to note
 about the projection $\pi^E$ in~(\ref{projection}) is that, by
 Remark~\ref{vem_equal_fem},
@@ -439,7 +446,7 @@ as we wanted, since the constants in this equivalence depend only on the aspect 
 \end{proof}
 Proposition~(\ref{stabilizing_term}) yields the next corollary.
 \begin{corollary}\label{equivalence} For all $\bv\in V_h(E)$ and all pyramidal
-$E\in\mathcal T_h$ it holds
+$E\in\Th$ it holds
 \begin{IEEEeqnarray*}{rCcCl}
   c_E\,a^E(\bv,\bv) & \leqslant & h_E^{-1}\langle(\bv)_B,(\bv)_B\rangle & \leqslant
   & C_E\,a^E(\bv,\bv)
@@ -451,17 +458,12 @@ where $c_E$ and $C_E$ depend only on the shape regularity of $E$.
 The discrete problem in the Finite--Virtual Element scheme is stated as follows.
 \begin{problem}\label{mixedDiscrete}
 To find $\bu_{\Th}\in V_{\Th}$ and $p_{\Th}\in Q_{\Th}$ such that
-$\forall \bv\in V_{\Th} \forall q\in Q_{\Th} $
-\begin{equation}
-  \makebox[0pt]{
-    \begin{minipage}{\linewidth}
-      \begin{IEEEeqnarray*}{rCCCl}
-        a_{\scriptscriptstyle\Th}(\bu_{\Th},\bv) & + & b(\bv,p_{\Th}) & = & 0 \\[5pt]
-                               & - & b(\bu_{\Th},q) & = & (f,q)
-      \end{IEEEeqnarray*}
-    \end{minipage}}
-  %\tag{MD}
-\end{equation}
+$\forall \bv\in V_{\Th} \forall q\in Q_{\Th}$
+  \begin{IEEEeqnarray*}{rCCCl}
+    a_{\scriptscriptstyle\Th}(\bu_{\scriptscriptstyle\Th},\bv) & + &
+      b_{\scriptscriptstyle\Th}(\bv,p_{\scriptscriptstyle\Th}) & = & 0 \\[5pt]
+                    & - & b_{\scriptscriptstyle\Th}(\bu_{\scriptscriptstyle\Th},q) & = & (f,q)
+  \end{IEEEeqnarray*}
 \end{problem}
 In Section~\ref{sec:well_posedness} we will be concerned in proving existence
 and uniqueness for Problem~(\ref{mixedDiscrete}). It will be done

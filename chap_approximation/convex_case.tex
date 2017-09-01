@@ -1,10 +1,10 @@
 \section{convex Case} % (fold)
 \label{sec:convex Case}
-
-\begin{theorem} solution $(\bu_{\textit{h}},p_{\textit{h}})$
+\noindent{\color{Orange}\#\#\#\#\#\#\# poner el I(u) de manera partida.} 
+\begin{theorem}\label{aux_label47} solution $(\bu_{\textit{h}},p_{\textit{h}})$
 to~(\ref{mixedDiscrete}) satisfies,
 for every approximation $\pi(\bu)$ of $\bu$ in
-$W(\mathcal{T}_{\textit{h}})$,
+$W(\Th)$,
   \begin{IEEEeqnarray*}{rCl}
     \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\} \\[5pt]
     \|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant&
@@ -31,12 +31,10 @@ $W(\mathcal{T}_{\textit{h}})$,
 %% ============================================================================
 If $\Omega$ were convex and $f\in L^2(\Omega)$ we know that the solution $p$ of
 problem $H^2(\Omega)$, and so $\bu\in H^1(\Omega)^3$. In this case, using the 
-interpolation error estimates we proved in Propositions 
-\ref{propErrorInterpolacionPrismas} and 
-\eqref{propErrorInterpolacionPiramidesTetraedros}, the result of 
-Proposition \ref{propupi}, and a standard estimate for $L^2$-projection error, 
-we obtain from Theorem \ref{estimacionError} the following Corollary.
-
+interpolation error estimates we proved in Propositions~\ref{aux_label46}
+and~\ref{propErrorInterpolacionPiramidesTetraedros}, the result of 
+Proposition~\ref{propupi}, and a standard estimate for $L^2$-projection error, 
+we obtain from Theorem~\ref{aux_label47} the following Corollary.
 \begin{corollary}
 \begin{eqnarray*}
 \|\bu-\bu_h\|_{L^2(\Omega)}&\leqslant& C\textit{h}|p|_{H^2(\Omega)}\\ 

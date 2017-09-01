@@ -64,13 +64,13 @@ In any macro--element, in order to bound the regular part,
 Given an element $E$, let $\boldsymbol{h}=(h_{1},h_{2},h_{3})'=(h_{E,1},h_{E,2},h_{E,3})'$.
 \begin{IEEEeqnarray*}{rCl}
   \|\bu_r - \br_0\bu_r\|_{L^2(\Omega)}^2 & = &
-  \sum_{E\in\mathcal{T}_{\textit{h}}}
+  \sum_{E\in\Th}
   \|\bu_r - \br_0\bu_r\|_{L^2(E)}^2\\
-  &=&\sum_{E\in\mathcal{T}_{\textit{h}}}\left( \sum_{|\alpha| = 1} 
+  &=&\sum_{E\in\Th}\left( \sum_{|\alpha| = 1} 
   \boldsymbol{h}^\alpha \|D^\alpha\bu_r\|_{L^2(E)} + 
   h_E\|\dv\bu_r\|_{L^2(E)}
   \right)^2\\
-  &\leqslant&\sum_{E\in\mathcal{T}_{\textit{h}}}\left[\sum_{|\alpha| = 1}
+  &\leqslant&\sum_{E\in\Th}\left[\sum_{|\alpha| = 1}
   \boldsymbol{h}^{2\alpha} + h_E^{2} \right]
   \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(E)}^2 + 
   \|\dv\bu_r\|_{L^2(E)}^2\right].
@@ -78,7 +78,7 @@ Given an element $E$, let $\boldsymbol{h}=(h_{1},h_{2},h_{3})'=(h_{E,1},h_{E,2},
 Now $\boldsymbol{h}\leqslant C\,\textit{h}$ and $h_E \leqslant C\,h_3 \sim \textit{h}$ for all the elements of the
 mesh, so the last expression is bounded above by
 \begin{IEEEeqnarray*}{rCl}
-  C^2\sum_{E\in\mathcal{T}_{\textit{h}}}4\,\textit{h}^{2}
+  C^2\sum_{E\in\Th}4\,\textit{h}^{2}
   \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(E)}^2 + 
   \|\text{div}\bu_r\|_{L^2(E)}^2\right]
   &=&C\,\textit{h}^{2}
