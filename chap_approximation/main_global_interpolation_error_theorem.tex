@@ -93,7 +93,34 @@ Then, finally
 \end{IEEEeqnarray*}
 {\color{red} C\'omo pasamos a la norma de $f$?}
 
-Now the bound for the singular part in each type of macro--element.
+Now the bound for the error of the interpolation of the singular part,
+which will be performed in each type of macro--element.
+
+Now it is the time to make a remark of crucial importance. If we take the
+solution $(\bu, p)$ of Problem~\ref{mixedContinuous},
+the singular part of the vectorial variable, $\bu_s$, considered
+in~(\ref{splitting}) has a well defined $H(div, \Omega)$--conforming interpolate.
+This is implied by the next result, since the normal traces on faces
+of the elements in $W^{1,1}(\Lambda_\ell)$ are well defined.
+\begin{lemma}\label{well_defined_dofs}
+If $\beta,\delta\in[0,1)$ and $\beta + \delta\leqslant 1$ then 
+\[
+  V^{1,2}_{\beta,\delta}(\Lambda_\ell) \subset W^{1,1}(\Lambda_\ell)
+\]
+for all macroelement $\Lambda_{\ell}$.
+\end{lemma}
+\begin{proof}
+Every function ${\bv}\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$ has a finite
+$L^1(\Lambda_\ell)$ norm. On the other hand,
+\[
+  R^{-\beta}\theta^{-\delta}\leqslant\left(\max_{\bx
+  \in\Lambda_\ell}R(\bx)^\delta\right)
+  r^{-\beta-\delta}
+  \leqslant C r^{-\beta-\delta}\in L^2(\Lambda_\ell)
+\]
+which implies $\partial^\alpha{\bv}\in L^1(\Lambda_\ell)$ for all
+$\bv\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$.
+\end{proof}
 \subsection{prismatic macro--element, bound singular part} % (fold)
 \label{sub:bound_singular_part_prismatic_macroelement}
 Let $\Lambda_\ell$ be a prismatic element of $\mathcal{T}_{\textit{h}_0}$.
