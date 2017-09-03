@@ -20,30 +20,10 @@ for which
 whith $\textit{h}$ being smaller than  $C N^{\nicefrac{-1}{3}}$, where
 $N = N_{\textit{h}}$ is the  number of elements in $\Th$.
 \end{theorem}
-If we take the solution $(\bu, p)$ of Problem~\ref{mixedContinuous},
-the singular part of the vectorial variable, $\bu_s$, considered in~(\ref{splitting})
- has a well defined $H(div, \Omega)$--conforming interpolate.
-This is implied by the next result, since the normal traces on faces
-of the elements in $W^{1,1}(\Lambda_\ell)$ are well defined.
-\begin{lemma}\label{well_defined_dofs}
-If $\beta,\delta\in[0,1)$ and $\beta + \delta\leqslant 1$ then 
-\[
-  V^{1,2}_{\beta,\delta}(\Lambda_\ell) \subset W^{1,1}(\Lambda_\ell)
-\]
-for all macroelement $\Lambda_{\ell}$.
-\end{lemma}
-\begin{proof}
-Every function ${\bv}\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$ has a finite
-$L^1(\Lambda_\ell)$ norm. On the other hand,
-\[
-  R^{-\beta}\theta^{-\delta}\leqslant\left(\max_{\bx
-  \in\Lambda_\ell}R(\bx)^\delta\right)
-  r^{-\beta-\delta}
-  \leqslant C r^{-\beta-\delta}\in L^2(\Lambda_\ell)
-\]
-which implies $\partial^\alpha{\bv}\in L^1(\Lambda_\ell)$ for all
-$\bv\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$.
-\end{proof}
+The rest of the chapter contains the proof, which is summarized at the end of it.
+To avoid what would result in an illegible proof we decided to partition
+the proof in subsections, paragraphs and items. First we exhibit the meshes
+and then we prove the estimates.
 %=====================================================
 %{\color{BrickRed}\paragraph{TODO} % (fold)
 %\label{par:todo}
@@ -77,33 +57,6 @@ fulfill the following grading.
 with $\mu\le 1-\delta$ for $\delta>1-\lambda_{\be}$.\\
 with $\nu\le 1-\beta$ for $\beta>\frac12-\lambda_{\bv}$.
 %%==================================================================
-\begin{remark} \noindent{\color{BrickRed} ESto seguro que va, todavia no se
-bien adonde.} 
-We remark that if a mesh satisfies~(\ref{label_grading})
-for $\mu=\mu_0$ and $\nu=\nu_0$, then it satisfies the
-same for $\mu>\mu_0$ and $\nu>\nu_0$. Thus, the mesh can be overrefined by
-taking $\mu=\nu=\min\{1-\delta,1-\beta\}$, and it still
-verifies~(\ref{label_grading}) for
-$\min\{1-\delta,1-\beta\}\le\mu\le 1-\delta$ and
-$\min\{1-\delta,1-\beta\}\le\nu\le 1-\beta$. The possibility to use $\mu=\nu$
-for the construction of the mesh, allows to validate condition stating
-that Tetrahedra and pyramids in $\Th$ are not necessarily anisotropic.
-\end{remark}
-
-To avoid what would result in an illegible proof we decided to partition
-the proof in subsections, paragraphs and items.\\
-
-\begin{remark}
-\textbf{Obs}: If the diameter of $\Lambda$ were greater than $1$, then entonces
-\begin{IEEEeqnarray*}{rCl}
-  R_K(\bx) & \leqslant & \delta(\Lambda)\min\{ R_K(\bx), 1\}
-\end{IEEEeqnarray*}
-as\'i que asumimos $R_K(\bx)\leqslant 1$.
-\end{remark}
-\begin{remark}
-  $\mu < 1 \Rightarrow \mu \leqslant \nu$.
-\end{remark}
-
 \subsection{Meshes}\label{meshes}
 \noindent{\color{BrickRed}*** ver si las mallas hacen falta antes del caso convexo;
 ver si hace falta llegar hasta subsubseccion} 
@@ -133,8 +86,8 @@ be the point with barycentric coordinates, with respect to $P_0,P_1,P_2$,
 equal to      
 \begin{eqnarray*}
 &&\lambda_0(i,j)=1-\lambda_1(i,j)-\lambda_2(i,j),\\[5pt]
-&&\lambda_1(i,j)=\frac in\left(\frac{i+j}n\right)^{\gamma-1},\quad
-  \lambda_2(i,j)=\frac jn\left(\frac{i+j}n\right)^{\gamma-1},\quad
+&&\lambda_1(i,j)=\frac in\left(\frac{i+j}n\right)^{\nicefrac{1}{\mu}-1},\quad
+  \lambda_2(i,j)=\frac jn\left(\frac{i+j}n\right)^{\nicefrac{1}{\mu}-1},\quad
 \end{eqnarray*}
 Now let $\Tb$ the family of triangles with vertices  {\color{BrickRed}( controlar )}
 \begin{IEEEeqnarray*}{lllCLL}
@@ -180,9 +133,9 @@ to $P_0, P_1, P_2$ and $P_3$. %This case corresponds to Case 1 of \cite{AN}.
 Let $p_{i,j,k}$ be the points with barycentric coordinates
 \begin{eqnarray*}
 &&\lambda_0=1-\lambda_1-\lambda_2-\lambda_3,\\[5pt]
-&&\lambda_1=\frac in\left(\frac{i+j+k}n\right)^{\gamma-1},\quad
-  \lambda_2=\frac jn\left(\frac{i+j+k}n\right)^{\gamma-1},\quad
-  \lambda_3=\frac kn\left(\frac{i+j+k}n\right)^{\gamma-1},
+&&\lambda_1=\frac in\left(\frac{i+j+k}n\right)^{\nicefrac{1}{\mu}-1},\quad
+  \lambda_2=\frac jn\left(\frac{i+j+k}n\right)^{\nicefrac{1}{\mu}-1},\quad
+  \lambda_3=\frac kn\left(\frac{i+j+k}n\right)^{\nicefrac{1}{\mu}-1},
 \\[5pt] &&0\le i\le n, 0\le j\le n-i, 0\le k\le n-i-j.
 \end{eqnarray*}
 Then, the tetrahedra are the ones with vertices
@@ -199,31 +152,34 @@ Then, the tetrahedra are the ones with vertices
 \begin{proposition} Pyramids and tetrahedra are isotropic.
 \end{proposition}
 \begin{proof} We deal firstly with pyramids. Consider a pyramid with vertices $p_0, \ldots, p_4$ in a macro--element of vertices $P_0,P_1,P_2$ and $P_3$ as in Subsection \ref{caso4}. Note that the basis of the pyramid is the paralelogram $p_0p_1p_3p_2$ with
-\begin{eqnarray}\label{once}
-&&p_1-p_0=p_3-p_2=\frac1n\left(\frac{n-l-1}n\right)^{\gamma-1}(P_3-P_2)\\\label{doce} &&p_2-p_0=p_3-p_1=\left[\left(\frac{n-l}n\right)^\gamma-\left(\frac{n-l-1}n\right)^\gamma\right](P_0-P_1).
+\begin{eqnarray}
+\label{once}
+&&p_1-p_0=p_3-p_2=\frac1n\left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}(P_3-P_2)\\
+\label{doce}
+&&p_2-p_0=p_3-p_1=\left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}}-\left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right](P_0-P_1).
 \end{eqnarray}
 So 
 \[
-\frac{\gamma}{n}\left(\frac{n-l-1}n\right)^{\gamma-1}|P_0-P_1|\le |p_2-p_0|=|p_3-p_1|\le \frac{\gamma}{n}\left(\frac{n-l}n\right)^{\gamma-1}|P_0-P_1|,
+\frac{\nicefrac{1}{\mu}}{n}\left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}|P_0-P_1|\le |p_2-p_0|=|p_3-p_1|\le \frac{\nicefrac{1}{\mu}}{n}\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}-1}|P_0-P_1|,
 \]
 and 
 \[
-\frac1\gamma\left(\frac12\right)^{\gamma-1}\le\frac1\gamma\left(\frac{n-l-1}{n-l}\right)^{\gamma-1}\le\frac{|p_1-p_0|}{|p_2-p_0|}\le \frac1\gamma.
+\mu\left(\frac12\right)^{\nicefrac{1}{\mu}-1}\le\mu\left(\frac{n-l-1}{n-l}\right)^{\nicefrac{1}{\mu}-1}\le\frac{|p_1-p_0|}{|p_2-p_0|}\le \mu.
 \]
 Then the parallelogram $p_0p_1p_3p_2$ is shape-regular since the angle between $P_0-P_1$ and $P_3-P_2$ depends only on the macro--element, and so it is away from $0$ and $\pi$. 
 
-Now we prove that there exists constants $c_0$ and $c_1$ depending only on $\gamma$ and the macro--element's vertices such that
+Now we prove that there exists constants $c_0$ and $c_1$ depending only on $\nicefrac{1}{\mu}$ and the macro--element's vertices such that
 \begin{eqnarray}\label{diez}
 &c_0\le\frac{|p_4-p_2|}{|p_2-p_0|}\le c_1&\\ \label{trece}
 &c_0\le\frac{|p_4-p_3|}{|p_2-p_0|}\le c_1&.
 \end{eqnarray}
 After simple computations we obtain
 \begin{eqnarray*}
-p_4-p_2 &=& \left[\left(\frac{n-l}n\right)^\gamma - \left(\frac{n-l-1}n\right)^\gamma\right](P_3-P_0) \\ &&\qquad + \frac in \left[\left(\frac{n-l}n\right)^{\gamma-1} - \left(\frac{n-l-1}n\right)^{\gamma-1}\right](P_2-P_3)\\ &=& \left[\left(\frac{n-l}n\right)^\gamma - \left(\frac{n-l-1}n\right)^\gamma\right]\bigg\{P_3-P_0 +\\ &&\qquad + \frac{\frac in \left[\left(\frac{n-l}n\right)^{\gamma-1} - \left(\frac{n-l-1}n\right)^{\gamma-1}\right]}{\left[\left(\frac{n-l}n\right)^\gamma - \left(\frac{n-l-1}n\right)^\gamma\right]} (P_2-P_3)\bigg\}\\ &\sim& \left[\left(\frac{n-l}n\right)^\gamma - \left(\frac{n-l-1}n\right)^\gamma\right](P_3-P_0)\\ &\sim& p_3-p_1
+p_4-p_2 &=& \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right](P_3-P_0) \\ &&\qquad + \frac in \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}-1} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}\right](P_2-P_3)\\ &=& \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right]\bigg\{P_3-P_0 +\\ &&\qquad + \frac{\frac in \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}-1} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}\right]}{\left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right]} (P_2-P_3)\bigg\}\\ &\sim& \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right](P_3-P_0)\\ &\sim& p_3-p_1
 \end{eqnarray*}
 where we used that 
 \[
-\frac{\frac in \left[\left(\frac{n-l}n\right)^{\gamma-1} - \left(\frac{n-l-1}n\right)^{\gamma-1}\right]}{\left[\left(\frac{n-l}n\right)^\gamma - \left(\frac{n-l-1}n\right)^\gamma\right]}\le \frac{\gamma-1}{\gamma},
+  \frac{\frac in \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}-1} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}\right]}{\left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right]}\le \frac{\nicefrac{1}{\mu}-1}{\nicefrac{1}{\mu}},
 \]
 that the angle between $P_3-P_0$ and $P_2-P_3$ is fixed (and depends only on the macro--element) and equation \eqref{doce}. This prove \eqref{diez}, and \eqref{trece} follows analogously. In order to prove that the pyramid is isotropic now we have to note that the basis $p_0p_1p_3p_2$ is contained in a plane parallel to the one generated by the vectors $P_1-P_0$ and $P_3-P_2$, and the face $p_2p_3p_4$ is in a plane parallel to the plane (macro--element's face) $P_0P_2P_3$, and the angle between those planes depends only on the macro--element.      
 
@@ -232,56 +188,57 @@ COMPLETAR PRUEBA PARA LOS TETRAEDROS
 \end{proof}
 
 
-
-Another way, less formal but clearer, to look
-at the  mesh points in a tetrahedral macro--element
-with both kinds of singularities is the following.
-
-Fijamos:
-\begin{IEEEeqnarray*}{rCl}
-  T &=& \left[\textbf{p}_0,\textbf{p}_1,\textbf{p}_2,\textbf{p}_3\right]\\[7pt]
-  \textbf{p}_0 &=& 0\\[7pt]
-  \left[\textbf{p}_0,\textbf{p}_3\right] &=& 
-  \text{la arista singular}\\[7pt]
-  \textbf{p}_3 & = & \text{v\'ertice singular}\\[7pt]
-  \left[\textbf{p}_0, \textbf{p}_1, 
-  \textbf{p}_2\right]&\subseteq&\{z=0\}.
-\end{IEEEeqnarray*}
-  
-$\lambda_0,\lambda_1$ y $\lambda_2$: {\color{RedOrange}coordenadas  baric\'entricas} con respecto a
-$\textbf{p}_0,\textbf{p}_1$ y $\textbf{p}_2$.\\[10pt]
-$\textbf{p}_{i,j}$ es tal que\\[5pt]
-\begin{IEEEeqnarray*}{rCl}
-  \lambda_0(\textbf{p}_{i,j})  &=& 1-\lambda_1(\textbf{p}_{i,j}) - \lambda_2(\textbf{p}_{i,j}) \\[5pt]
-  \lambda_1(\textbf{p}_{i,j})  &=& \frac{i}{n}\left(\frac{i+j}{n}\right)^{\frac{1}{\mu}-1}\\[5pt]
-  \lambda_2(\textbf{p}_{i,j})  &=& \frac{j}{n}\left(\frac{i+j}{n}\right)^{\frac{1}{\mu}-1}.\\[15pt]
-  &&0\leqslant i\leqslant n\\[5pt]
-  &&0\leqslant j\leqslant n-i
-\end{IEEEeqnarray*}
-  
-Los puntos son la uni\'on de\\[5pt]
-\begin{IEEEeqnarray*}{lCl}
-  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n,\quad
-    0\leqslant j\leqslant n-i \right\}&&\\[7pt]
-  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n-1,\quad
-  0\leqslant j\leqslant n-1-i \right\} & \quad+\quad & 
-  [{\scriptstyle 1-\left(\frac{n-1}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[7pt]
-  \IEEEeqnarraymulticol{3}{c}{\vdots}\\[7pt]
-  \left\{\textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n-k,\quad
-  0\leqslant j\leqslant n-k-i \right\} & \quad+\quad &
-  [{\scriptstyle 1-\left(\frac{n-k}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[7pt]
-  \IEEEeqnarraymulticol{3}{c}{\vdots}\\[7pt]
-  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant 1,\quad
-  0\leqslant j\leqslant 1-i \right\} & \quad+\quad &
-  [{\scriptstyle 1-\left(\frac{1}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[10pt]
-  \IEEEeqnarraymulticol{3}{l}{\left\{\textbf{e}_3\right\}}\text{,}
-\end{IEEEeqnarray*}
-i.e.:
-\begin{IEEEeqnarray*}{rCl}
-  \mathcal{P} & = & \bigcup_{k=0}^n\;\left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n - k,\quad
-  0\leqslant j\leqslant n-k-i \right\}\\[8pt]
-  &&\quad+\,[{\scriptstyle1-\left(\frac{n-k}{n}\right)^{1/\mu}}]\,\textbf{e}_3.
-\end{IEEEeqnarray*}
+%===========================================================
+%Another way, less formal but clearer, to look
+%at the  mesh points in a tetrahedral macro--element
+%with both kinds of singularities is the following.
+%
+%Fijamos:
+%\begin{IEEEeqnarray*}{rCl}
+%  T &=& \left[\textbf{p}_0,\textbf{p}_1,\textbf{p}_2,\textbf{p}_3\right]\\[7pt]
+%  \textbf{p}_0 &=& 0\\[7pt]
+%  \left[\textbf{p}_0,\textbf{p}_3\right] &=& 
+%  \text{la arista singular}\\[7pt]
+%  \textbf{p}_3 & = & \text{v\'ertice singular}\\[7pt]
+%  \left[\textbf{p}_0, \textbf{p}_1, 
+%  \textbf{p}_2\right]&\subseteq&\{z=0\}.
+%\end{IEEEeqnarray*}
+  %
+%$\lambda_0,\lambda_1$ y $\lambda_2$: {\color{RedOrange}coordenadas  baric\'entricas} con respecto a
+%$\textbf{p}_0,\textbf{p}_1$ y $\textbf{p}_2$.\\[10pt]
+%$\textbf{p}_{i,j}$ es tal que\\[5pt]
+%\begin{IEEEeqnarray*}{rCl}
+%  \lambda_0(\textbf{p}_{i,j})  &=& 1-\lambda_1(\textbf{p}_{i,j}) - \lambda_2(\textbf{p}_{i,j}) \\[5pt]
+%  \lambda_1(\textbf{p}_{i,j})  &=& \frac{i}{n}\left(\frac{i+j}{n}\right)^{\frac{1}{\mu}-1}\\[5pt]
+%  \lambda_2(\textbf{p}_{i,j})  &=& \frac{j}{n}\left(\frac{i+j}{n}\right)^{\frac{1}{\mu}-1}.\\[15pt]
+%  &&0\leqslant i\leqslant n\\[5pt]
+%  &&0\leqslant j\leqslant n-i
+%\end{IEEEeqnarray*}
+  %
+%Los puntos son la uni\'on de\\[5pt]
+%\begin{IEEEeqnarray*}{lCl}
+%  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n,\quad
+%    0\leqslant j\leqslant n-i \right\}&&\\[7pt]
+%  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n-1,\quad
+%  0\leqslant j\leqslant n-1-i \right\} & \quad+\quad & 
+%  [{\scriptstyle 1-\left(\frac{n-1}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[7pt]
+%  \IEEEeqnarraymulticol{3}{c}{\vdots}\\[7pt]
+%  \left\{\textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n-k,\quad
+%  0\leqslant j\leqslant n-k-i \right\} & \quad+\quad &
+%  [{\scriptstyle 1-\left(\frac{n-k}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[7pt]
+%  \IEEEeqnarraymulticol{3}{c}{\vdots}\\[7pt]
+%  \left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant 1,\quad
+%  0\leqslant j\leqslant 1-i \right\} & \quad+\quad &
+%  [{\scriptstyle 1-\left(\frac{1}{n}\right)^{1/\mu}}]\,\textbf{e}_3\\[10pt]
+%  \IEEEeqnarraymulticol{3}{l}{\left\{\textbf{e}_3\right\}}\text{,}
+%\end{IEEEeqnarray*}
+%i.e.:
+%\begin{IEEEeqnarray*}{rCl}
+%  \mathcal{P} & = & \bigcup_{k=0}^n\;\left\{ \textbf{p}_{i,j}\,:\,0\leqslant i\leqslant n - k,\quad
+%  0\leqslant j\leqslant n-k-i \right\}\\[8pt]
+%  &&\quad+\,[{\scriptstyle1-\left(\frac{n-k}{n}\right)^{1/\mu}}]\,\textbf{e}_3.
+%\end{IEEEeqnarray*}
+%===========================================================
 \begin{remark}
   Our meshes sastify the property that for each $\ell$ and each $\textit{h}$
   there exists an index set $I_{\textit{h},\ell}$ such that
@@ -290,4 +247,28 @@ i.e.:
   \end{IEEEeqnarray*}
   In this case we are denoting 
   $\Th = \{E_{\textit{h},i}\,:\,1\leqslant i\leqslant N_{\textit{h}}\}$.
+\end{remark}
+This means the refinement is done whithin the macro--elements of the 
+initial mesh.
+\begin{remark} \noindent{\color{BrickRed} ESto seguro que va, todavia no se
+bien adonde.} 
+We remark that if a mesh satisfies~(\ref{label_grading})
+for $\mu=\mu_0$ and $\nu=\nu_0$, then it satisfies the
+same for $\mu>\mu_0$ and $\nu>\nu_0$. Thus, the mesh can be overrefined by
+taking $\mu=\nu=\min\{1-\delta,1-\beta\}$, and it still
+verifies~(\ref{label_grading}) for
+$\min\{1-\delta,1-\beta\}\le\mu\le 1-\delta$ and
+$\min\{1-\delta,1-\beta\}\le\nu\le 1-\beta$. The possibility to use $\mu=\nu$
+for the construction of the mesh, allows to validate condition stating
+that Tetrahedra and pyramids in $\Th$ are not necessarily anisotropic.
+\end{remark}
+\begin{remark}
+\textbf{Obs}: If the diameter of $\Lambda$ were greater than $1$, then entonces
+\begin{IEEEeqnarray*}{rCl}
+  R_K(\bx) & \leqslant & \delta(\Lambda)\min\{ R_K(\bx), 1\}
+\end{IEEEeqnarray*}
+as\'i que asumimos $R_K(\bx)\leqslant 1$.
+\end{remark}
+\begin{remark}
+  $\mu < 1 \Rightarrow \mu \leqslant \nu$.
 \end{remark}
