@@ -2,12 +2,11 @@
 \label{sec:non_convex_case}
 {\color{Orange}\#\#\#\#\#\#\#\# continue here.}
 \begin{theorem}
-
-{\color{BrickRed} poner esto en la intro como objetivo de todo el texto que sigue y
-el enunciado este, entero, ponerlo al final, en donde digo lo de la $\bw_{\bu}$ \\
-
-no, ojo que las mallas las estoy queriendo poner antes ... pensarlo}
-
+%=============================================================================
+% {\color{BrickRed} poner esto en la intro como objetivo de todo el texto que sigue y
+% el enunciado este, entero, ponerlo al final, en donde digo lo de la $\bw_{\bu}$ \\
+% no, ojo que las mallas las estoy queriendo poner antes ... pensarlo}
+%=============================================================================
 There exists a family of anisotropic graded meshes
 $\{\Th\}_{{\textit{h}}\downarrow 0}\,$
 made up of
@@ -36,7 +35,7 @@ and then we prove the estimates.
 %}
 %=====================================================
 %%=========== GRADING ==============================================
-We proove that, in each prismatic or tetrahedral macro--element, our meshes
+We prove that, in each prismatic or tetrahedral macro--element, our meshes
 fulfill the following grading.
 \begin{equation}\label{label_grading}
 \begin{IEEEeqnarraybox*}{lCl}
@@ -58,8 +57,6 @@ with $\mu\le 1-\delta$ for $\delta>1-\lambda_{\be}$.\\
 with $\nu\le 1-\beta$ for $\beta>\frac12-\lambda_{\bv}$.
 %%==================================================================
 \subsection{Meshes}\label{meshes}
-\noindent{\color{BrickRed}*** ver si las mallas hacen falta antes del caso convexo;
-ver si hace falta llegar hasta subsubseccion} 
 \subsubsection{Macro--element with singular edge and vertex}\label{caso4}
 Let $T$ be a tetrahedral macro--element with vertices $P_0, P_1, P_2$ and $P_3$. We suppose that $P_0$ is the singular vertex and that the
 singular edge is $P_0P_1$. The mesh $\mathcal T_h$ on $T$ will contain tetrahedra, prisms and pyramids. 
@@ -79,8 +76,7 @@ of the barycentric coordinates of the vertices of each element corresponding to 
 \subsubsection{Macro--element with a singular edge}
 This case corresponds to the prismatic macro--element.
 A mesh is constructed as the cartesian product between a graded mesh
-in a triangle and a quasi--uniform mesh along the singular edge. Table~\ref{prisms_product}
-shows the points
+in a triangle and a quasi--uniform mesh along the singular edge. % Table~\ref{prisms_product} shows the points
 For $0\leqslant i\leqslant n$ and $0\leqslant j\leqslant n-1$ let $p_{i,j}$
 be the point with barycentric coordinates, with respect to $P_0,P_1,P_2$,
 equal to      
@@ -89,7 +85,7 @@ equal to
 &&\lambda_1(i,j)=\frac in\left(\frac{i+j}n\right)^{\nicefrac{1}{\mu}-1},\quad
   \lambda_2(i,j)=\frac jn\left(\frac{i+j}n\right)^{\nicefrac{1}{\mu}-1},\quad
 \end{eqnarray*}
-Now let $\Tb$ the family of triangles with vertices  {\color{BrickRed}( controlar )}
+Now let $\Tb$ the family of triangles with vertices
 \begin{IEEEeqnarray*}{lllCLL}
 p_{i,j} & p_{i+1,j} & p_{i,j+1} & \quad & 0\leqslant i  < n\mbox{,\quad}&0\leqslant j < n - i\\
 p_{i,j} & p_{i+1,j-1} & p_{i+1,j} & \quad & 0\leqslant i  < n-1\mbox{,\quad}&1\leqslant j < n - i.
@@ -250,8 +246,7 @@ COMPLETAR PRUEBA PARA LOS TETRAEDROS
 \end{remark}
 This means the refinement is done whithin the macro--elements of the 
 initial mesh.
-\begin{remark} \noindent{\color{BrickRed} ESto seguro que va, todavia no se
-bien adonde.} 
+\begin{remark} 
 We remark that if a mesh satisfies~(\ref{label_grading})
 for $\mu=\mu_0$ and $\nu=\nu_0$, then it satisfies the
 same for $\mu>\mu_0$ and $\nu>\nu_0$. Thus, the mesh can be overrefined by

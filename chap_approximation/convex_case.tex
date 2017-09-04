@@ -1,18 +1,5 @@
 \section{convex Case} % (fold)
 \label{sec:convex Case}
-\noindent{\color{Orange}\#\#\#\#\#\#\# poner el I(u) de manera partida.} 
-\begin{theorem}\label{aux_label47} solution $(\bu_{\textit{h}},p_{\textit{h}})$
-to~(\ref{mixedDiscrete}) satisfies,
-for every approximation $\pi(\bu)$ of $\bu$ in
-$W(\Th)$,
-  \begin{IEEEeqnarray*}{rCl}
-    \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\} \\[5pt]
-    \|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant&
-    C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\}\\[5pt]
-  \end{IEEEeqnarray*} 
-\end{theorem}
-\begin{proof} Cfr. proof of Theorem 5.1 in~\cite{bfm}.
-\end{proof}
 %% ============================================================================
 % {\color{brown}
 % esta version de intercalado se usa?? Dur\'an Mixed lemma 3.9 es la segunda de estas
@@ -29,11 +16,8 @@ $W(\Th)$,
 % \end{proof}
 % }
 %% ============================================================================
-If $\Omega$ were convex and $f\in L^2(\Omega)$ we know that the solution $p$ of
-problem $H^2(\Omega)$, and so $\bu\in H^1(\Omega)^3$. In this case, using the 
-interpolation error estimates we proved in Propositions~\ref{aux_label46}
-and~\ref{propErrorInterpolacionPiramidesTetraedros}, the result of 
-Proposition~\ref{propupi}, and a standard estimate for $L^2$-projection error, 
+
+If $\Omega$ were convex and $f\in L^2(\Omega)$ 
 we obtain from Theorem~\ref{aux_label47} the following Corollary.
 \begin{corollary}
 \begin{eqnarray*}
@@ -43,7 +27,24 @@ we obtain from Theorem~\ref{aux_label47} the following Corollary.
 where the constant $C$ depends only on the aspect ratios of tetrahedra 
 and pyramids and the triangular bases of the right prisms on the mesh. 
 \end{corollary}
+\begin{proof}
+If $\Omega$ were convex and $f\in L^2(\Omega)$ we know that the solution $p$ of
+problem $H^2(\Omega)$, and so $\bu\in H^1(\Omega)^3$. In this case, using the 
+interpolation error estimates we proved in Propositions~\ref{aux_label46}
+and~\ref{propErrorInterpolacionPiramidesTetraedros}, the result of 
 
+we have 
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-I(\bu)\|_{L^2(\Omega)^3} &\leqslant & C\textit{h}|p|_{H^2(\Omega)}.
+\end{IEEEeqnarray*}
+Next
+Proposition~\ref{propupi}, and a 
+%%%% standard estimate for $L^2$-projection error,  --- > bramble hilbert?
+yield
+
+
+
+\end{proof}
 Arbitrarily narrow right prisms can be used in the mesh without 
 affecting this estimate. This fact can be further exploited when the
 domain $\Omega$ is not convex or $f$ is not in $L^2(\Omega)$. This is what follows!

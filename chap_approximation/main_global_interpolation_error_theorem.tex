@@ -1,22 +1,9 @@
 \section{main global interpolation error theorem}
-Given a positive parameter $\textit{h}\downarrow 0$ and the mesh $\Th$ of
-Subsection~\ref{meshes} let $\rZerou$  be the \emph{global interpolation operator}
-\begin{IEEEeqnarray}{rCl}\label{global_interpolator}
-  \rZerou & : & W^{1,1}(\Omega) \to V_{\textit{h}}
-\end{IEEEeqnarray}
-such that, for each $\{\overline{E}:E\in\Th\}$,
-\begin{equation*}
-  (\rZerou)|_{E} = 
-    \left\{
-    \begin{array}{rll}
-      \br_E\,[\bu|_E] & \mbox{\,as in Definition~\ref{defi_face_element}} & \mbox{if $E$ is a prism}\\[5pt]
-                         I\bu    & \mbox{\,as in Corollary~\ref{interpolant}} & \mbox{if $E$ is a pyramid}\\[5pt]
-      \br_E\,[\bu|_E] & \mbox{\,as in Definition~\ref{defi_face_element_tetra}} & \mbox{if $E$ is a tetrahedron,}
-    \end{array}
-    \right.
-\end{equation*}
-in all cases with the lowest interpolation degree $k=0$ and
-with consistent normal components for interelementary faces.
+Now, to estimate the error, we start with inequality~(\ref{aux_label47}) of
+Theorem~\ref{aux_label48} and work with each term in the right--hand side
+in the non--convex case.
+
+
 The following is the main interpolation error theorem.
 \begin{theorem}\label{interpolation_theorem} Let $\Omega$ and $f$ be the data and $(\bu,p)$ be the 
 solution
@@ -750,19 +737,7 @@ Now
       \sum_{pyr} \|\bu-\bw\|^2_{0,E_\ell}
     \right\} 
 \end{IEEEeqnarray*}
-so it suggests to do: 
-let $P_{0,E_{\ell}}$ be the projection onto the constants over $E_{\ell}$;
-take a $\bw_{\bu}$ such that, for every $E_\ell$
-\begin{equation*}
-  (\bw_{\bu})|_{E_\ell} = 
-    \left\{
-    \begin{array}{rll}
-      \br_{E_\ell}\,[\bu|_{E_\ell}] & \mbox{if $E_\ell$ is a prism or a tetrahedron}\\[5pt]
-                         P_{0,E_{\ell}}\bu    & \mbox{if $E_{\ell}$ is a pyramid}\\[5pt]
-    \end{array}
-    \right.
-\end{equation*}
-then, we able to do:
+then, we able to do, for $\bw_{\bu}$ defined as in 
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bw_{\bu}\|^2_{0,\Omega}
     &=& \sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
