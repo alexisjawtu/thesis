@@ -1,22 +1,5 @@
 \section{convex Case} % (fold)
 \label{sec:convex Case}
-%% ============================================================================
-% {\color{brown}
-% esta version de intercalado se usa?? Dur\'an Mixed lemma 3.9 es la segunda de estas
-% \begin{proof}
-% \begin{IEEEeqnarray*}{lCl}
-%   \|\boldsymbol{u} - \boldsymbol{u}_{\textit{h}}\|_{L^2(\Omega)^3}
-%   &\leqslant& 
-%   C\,\inf_{v\in\mathbb{V}_h}\|\boldsymbol{u} - \textbf{v}\|_{\mathbb{V}}\\[7pt]
-%   &\leqslant& 
-%   C\,\|\boldsymbol{u} - \pi\boldsymbol{u}\|_{\mathbb{V}}\\[10pt]
-%   \|p-p_{\textit{h}}\|_{\mathbb{Q}}&\leqslant&
-%   C\,[\|\boldsymbol{u} - \pi\boldsymbol{u}\|_{L2(\Omega)}+\|p - \pi_{\textit{h}}^{\bot} p \|_{\mathbb{Q}}].
-% \end{IEEEeqnarray*}
-% \end{proof}
-% }
-%% ============================================================================
-
 If $\Omega$ were convex and $f\in L^2(\Omega)$ 
 we obtain from Theorem~\ref{aux_label47} the following Corollary.
 \begin{corollary}
@@ -30,20 +13,29 @@ and pyramids and the triangular bases of the right prisms on the mesh.
 \begin{proof}
 If $\Omega$ were convex and $f\in L^2(\Omega)$ we know that the solution $p$ of
 problem $H^2(\Omega)$, and so $\bu\in H^1(\Omega)^3$. In this case, using the 
-interpolation error estimates we proved in Propositions~\ref{aux_label46}
-and~\ref{propErrorInterpolacionPiramidesTetraedros}, the result of 
-
-we have 
+interpolation error estimates we proved in Theorem~\ref{aux_label46} for general
+prisms
+and Proposition~\ref{propErrorInterpolacionPiramidesTetraedros}, for 
+pyramids and tetrahedra,
+we have for $\br_0\bu$ as in Definition~\ref{aux_label52} 
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu-I(\bu)\|_{L^2(\Omega)^3} &\leqslant & C\textit{h}|p|_{H^2(\Omega)}.
+  \|\bu-\br_0\bu\|_{L^2(\Omega)^3} &\leqslant & C\textit{h}|p|_{H^2(\Omega)}.
 \end{IEEEeqnarray*}
 Next
-Proposition~\ref{propupi}, and a 
-%%%% standard estimate for $L^2$-projection error,  --- > bramble hilbert?
-yield
-
-
-
+again~\ref{aux_label46}
+and~\ref{propErrorInterpolacionPiramidesTetraedros}, and Proposition~\ref{propupi}
+for pyramids
+yield, for $\bw_{\bu}$ as in Definition~\ref{aux_label51},
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\bw_{\bu}\|_{L^2(\Omega)^3} & \leqslant & C\textit{h}|p|_{H^2(\Omega)}.
+\end{IEEEeqnarray*}
+So joining, from~\ref{aux_label48} in Theorem~\ref{aux_label47},
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\bu_h\|_{L^2(\Omega)^3} & \leqslant &
+  C\{\|\bu-\bw_{\bu}\|_{L^2(\Omega)^3} + \|\bu-\br_0\bu\|_{L^2(\Omega)^3}\}\\[5pt]
+  &\leqslant & C\textit{h}|p|_{H^2(\Omega)}.
+\end{IEEEeqnarray*}
+{\color{Orange}\#\#\#\#\#\#\#\# continue here with the scalar var for convex case.}
 \end{proof}
 Arbitrarily narrow right prisms can be used in the mesh without 
 affecting this estimate. This fact can be further exploited when the

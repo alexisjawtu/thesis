@@ -129,37 +129,40 @@ $W(\Th)$,
 \end{theorem}
 \begin{proof} Cfr. proof of Theorem 5.1 in~\cite{bfm}.
 \end{proof}
-We introduce the following global interpolation operator. Given a positive
-parameter $\textit{h}\downarrow 0$ and an admissible mesh $\Th$ 
-made up of prisms, pyramids and tetrahedra,
-let $\rZerou$  be the \emph{global interpolation operator}
-\begin{IEEEeqnarray}{rCl}\label{global_interpolator}
-  \rZerou & : & W^{1,1}(\Omega) \to V_{\textit{h}}
-\end{IEEEeqnarray}
-such that, for each $\{\overline{E}:E\in\Th\}$,
-\begin{equation*}
-  (\rZerou)|_{E} = 
-    \left\{
-    \begin{array}{rll}
-      \br_E\,[\bu|_E] & \mbox{\,as in Definition~\ref{defi_face_element}} & \mbox{if $E$ is a prism}\\[5pt]
-                         I\bu    & \mbox{\,as in Corollary~\ref{interpolant}} & \mbox{if $E$ is a pyramid}\\[5pt]
-      \br_E\,[\bu|_E] & \mbox{\,as in Definition~\ref{defi_face_element_tetra}} & \mbox{if $E$ is a tetrahedron,}
-    \end{array}
-    \right.
-\end{equation*}
-in all cases with the lowest interpolation degree $k=0$ and
-with consistent normal components for interelementary faces.
+We introduce the following global interpolation operator.
+\begin{defi}\label{aux_label52}
+  Given a positive
+  parameter $\textit{h}\downarrow 0$ and an admissible mesh $\Th$ 
+  made up of prisms, pyramids and tetrahedra,
+  let $\rZerou$  be the \emph{global interpolation operator}
+  \begin{IEEEeqnarray}{rCl}\label{global_interpolator}
+    \rZerou & : & W^{1,1}(\Omega) \to V_{\textit{h}}
+  \end{IEEEeqnarray}
+  such that, for each $\{\overline{E}:E\in\Th\}$,
+  \begin{equation*}
+    (\rZerou)|_{E} = 
+      \left\{
+      \begin{array}{rll}
+        \br_E\,[\bu|_E] & \mbox{\,as in Definition~\ref{defi_face_element}} & \mbox{if $E$ is a prism}\\[5pt]
+                           I\bu    & \mbox{\,as in Corollary~\ref{interpolant}} & \mbox{if $E$ is a pyramid}\\[5pt]
+        \br_E\,[\bu|_E] & \mbox{\,as in Definition~\ref{defi_face_element_tetra}} & \mbox{if $E$ is a tetrahedron,}
+      \end{array}
+      \right.
+  \end{equation*}
+  in all cases with the lowest interpolation degree $k=0$ and
+  with consistent normal components for interelementary faces.
+\end{defi}
 \begin{defi}\label{aux_label51}
-let $P_{0,E_{\ell}}$ be the projection onto the constants over $E_{\ell}$;
-take a $\bw_{\bu}$ such that, for every $E_\ell$
-\begin{equation*}
-  (\bw_{\bu})|_{E_\ell} = 
-    \left\{
-    \begin{array}{rll}
-      \br_{E_\ell}\,[\bu|_{E_\ell}] & \mbox{if $E_\ell$ is a prism or a tetrahedron}\\[5pt]
-                         P_{0,E_{\ell}}\bu    & \mbox{if $E_{\ell}$ is a pyramid}\\[5pt]
-    \end{array}
-    \right.
-\end{equation*}
+  let $P_{0,E_{\ell}}$ be the projection onto the constants over $E_{\ell}$;
+  take a $\bw_{\bu}$ such that, for every $E_\ell$
+  \begin{equation*}
+    (\bw_{\bu})|_{E_\ell} = 
+      \left\{
+      \begin{array}{rll}
+        \br_{E_\ell}\,[\bu|_{E_\ell}] & \mbox{if $E_\ell$ is a prism or a tetrahedron}\\[5pt]
+                           P_{0,E_{\ell}}\bu    & \mbox{if $E_{\ell}$ is a pyramid}\\[5pt]
+      \end{array}
+      \right.
+  \end{equation*}
 \end{defi}
 % section well_posedness (end)
