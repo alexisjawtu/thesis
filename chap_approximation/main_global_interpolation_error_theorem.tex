@@ -737,7 +737,8 @@ Now
       \sum_{pyr} \|\bu-\bw\|^2_{0,E_\ell}
     \right\} 
 \end{IEEEeqnarray*}
-then, we able to do, for $\bw_{\bu}$ defined as in 
+then, we able to do, for $\bw_{\bu}$ defined as in Defiition~\ref{aux_label51}, 
+(remember pyramids do not touch singularities)
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bw_{\bu}\|^2_{0,\Omega}
     &=& \sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
@@ -746,17 +747,17 @@ then, we able to do, for $\bw_{\bu}$ defined as in
       \sum_{pyr} \|\bu-P_{0,E_{\ell}}\|^2_{0,E_\ell}
     \right\}\\[5pt]
     &\leqslant& \sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
-      \sum_{pri} \textit{h} \|f\|^2_{0,E_\ell} +
-      \sum_{tet} \textit{h} \|f\|^2_{0,E_\ell} +
-      \sum_{pyr} h_{E_\ell}|\bu|^2_{1,E_\ell}
+      \sum_{pri} \textit{h}^2 \|f\|^2_{0,E_\ell} +
+      \sum_{tet} \textit{h}^2 \|f\|^2_{0,E_\ell} +
+      \sum_{pyr} h^2_{E_\ell}|\bu|^2_{1,E_\ell}
     \right\}\\[5pt]
-    &\leqslant& \textit{h} \sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
+    &\leqslant& \textit{h}^2 \sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
       \sum_{pri}  \|f\|^2_{0,E_\ell} +
       \sum_{tet}  \|f\|^2_{0,E_\ell} +
       \sum_{pyr} |\bu|^2_{1,E_\ell} {\color{red}\mbox{$\leftarrow$ esta parte? $\|f\|?$}}
     \right\}\\[5pt]
     \IEEEeqnarraymulticol{3}{c}{{\color{red} \mbox{Tomar las distancias
         a la arista y al vertice para el termino piramidal:}}}\\
-    &\leqslant& \textit{h} \sum_{\ell=1}^{N_{\textit{h}_0}} \|f\|^2_{0,\Lambda_\ell} \,=\,
-      \textit{h}\,\|f\|^2_{0,\Omega}.
+    &\leqslant& \textit{h}^2 \sum_{\ell=1}^{N_{\textit{h}_0}} \|f\|^2_{0,\Lambda_\ell} \,=\,
+      \textit{h}^2\,\|f\|^2_{0,\Omega}.
 \end{IEEEeqnarray*}
