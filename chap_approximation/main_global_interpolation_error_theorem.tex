@@ -3,6 +3,14 @@ Now, to estimate the error, we start with inequality~(\ref{aux_label47}) of
 Theorem~\ref{aux_label48} and work with each term in the right--hand side
 in the non--convex case.
 
+As in the meshing algorithm we proposed, the pyramids turned out to be isotropic,
+we may use Proposition~\ref{propErrorInterpolacionPiramidesTetraedros} as the
+local interpolation estimate.
+Nevertheless, starting with the anisotropic Finite Element stability estimates
+we proved in Theorem~\ref{aux_label53}  and in Theorem~\ref{aux_label54}   
+
+
+ At the end of this proof we include weighted
 
 The following is the main interpolation error theorem.
 \begin{theorem}\label{interpolation_theorem} Let $\Omega$ and $f$ be the data and $(\bu,p)$ be the 
@@ -62,6 +70,8 @@ Given an element $E$, let $\boldsymbol{h}=(h_{1},h_{2},h_{3})'=(h_{E,1},h_{E,2},
   \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(E)}^2 + 
   \|\dv\bu_r\|_{L^2(E)}^2\right].
 \end{IEEEeqnarray*}
+\noindent{\color{Orange}\#\#\#\#\#\#\# aca hay que poner la interpolacion en piramides
+aparte tambien.} 
 Now $\boldsymbol{h}\leqslant C\,\textit{h}$ and $h_E \leqslant C\,h_3 \sim \textit{h}$ for all the elements of the
 mesh, so the last expression is bounded above by
 \begin{IEEEeqnarray*}{rCl}
@@ -729,7 +739,7 @@ For every $\bw\in W(\Th)$:
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\bw\|_{L^2(\Omega)^3}\}.
 \end{IEEEeqnarray*}
-Now
+For each $\bw$ we decompose the norm with the macro--elements as follows
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bw\|^2_{0,\Omega} &=& \sum_1^{N_{\textit{h}_0}} \|\bu-\bw\|^2_{0,\Lambda_\ell}\\
     &=& \sum_1^{N_{\textit{h}_0}} \left\{
@@ -738,11 +748,9 @@ Now
       \sum_{pyr} \|\bu-\bw\|^2_{0,E_\ell}
     \right\} 
 \end{IEEEeqnarray*}
-
-{\color{Orange} continue here y despues al continue here2\\\\
-$K$ es una pir\'amide
+For each macro--element $\Lambda_\ell$, for each pyramid $E_\ell\in\Lambda_\ell$,
 \begin{IEEEeqnarray*}{rCl}
-  \|\textbf{u}_s - \pi\textbf{u}_s\|^2_{\ss L^2(E)}&\leqslant&
+  \|\bu_s - \pi\textbf{u}_s\|^2_{\ss L^2(E)}&\leqslant&
   h_1^2\|\gancho_{\eta_1}\textbf{u}_s\|^2+
   h_2^2\|\gancho_{\eta_2}\textbf{u}_s\|^2+
   h_3^2\|\gancho_{\eta_3}\textbf{u}_s\|^2+
@@ -770,7 +778,6 @@ $K$ es una pir\'amide
     \left(\sum_{i=1}^2 \|\textbf{u}_{s,i}\|_{\scriptscriptstyle \beta,\delta}+
          \|\textbf{u}_{s,3}\|_{\scriptscriptstyle \beta,0}\right).
 \end{IEEEeqnarray*}
-}
 then, we able to do, for $\bw_{\bu}$ defined as in Defiition~\ref{aux_label51}, 
 (remember pyramids do not touch singularities)
 \begin{IEEEeqnarray*}{rCl}
