@@ -444,7 +444,7 @@ Parte singular:
   \sum_{d(E,\be) > 0}
   \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}\\[7pt]
 \end{IEEEeqnarray*}
-Parte con $d(E,\be)>0$. 
+Terms such that $d(E,\be)>0$. 
 \begin{enumerate}
   \item 
 Pyramids.
@@ -522,112 +522,124 @@ we use Theorem 6.2 of~\cite{aadl}  to get
   \right\}
 \end{IEEEeqnarray*}
 Now the treatment is a slight variation of the previous item including a few small
-tricks.
-\noindent{\color{Orange}\#\#\#\#\#\#\# continue here3}  
+tricks. In fact,
 \begin{IEEEeqnarray*}{rCl}
-  h_1\|\gancho_{\eta_1}\bu_s\|&=&
-  h_1\sum_{i=1}^3 \|\gancho_{\eta_1}\bu_{s,i}\|\\
+  h_1^2\|\gancho_{\xi_1}\bu_s\|^2_{L^2(E)^3}&=&
+  h_1^2\sum_{i=1}^3 \|\gancho_{\xi_1}u_{s,i}\|^2_{L^2(E)}\,\leqslant\,
+    \textit{h}^2\sum_{i=1}^3 \|r^{1-\mu}\gancho_{\xi_1}u_{s,i}\|^2_{L^2(E)}\\
   &\leqslant&
-    \textit{h}\sum_{i=1}^3 \|r^{1-\mu}\gancho_{\eta_1}\bu_{s,i}\|\\
+    \textit{h}^2\left(
+     \sum_{i=1}^2 \|R^{1-\mu}\theta^{1-\mu}\gancho_{\xi_1}u_{s,i}\|^2_{L^2(E)}+
+     \|R^{1-\mu}\gancho_{\xi_1}u_{s,3}\|^2_{L^2(E)}\right)\\[7pt]
   &\leqslant&
-    \textit{h}\left(
-     \sum_{i=1}^2 \|R^{1-\mu}\theta^{1-\mu}\gancho_{\eta_1}\bu_{s,i}\|+
-     \|R^{1-\mu}\gancho_{\eta_1}\bu_{s,3}\|\right)\\[7pt]
+    \textit{h}^2\left(
+     \sum_{i=1}^2 \|R^{1-\nu}\theta^{1-\mu}\gancho_{\xi_1}u_{s,i}\|^2_{L^2(E)}+
+     \|R^{1-\nu}\gancho_{\xi_1}u_{s,3}\|^2_{L^2(E)}\right)\\[7pt]
   &\leqslant&
-    \textit{h}\left(
-     \sum_{i=1}^2 \|R^{1-\nu}\theta^{1-\mu}\gancho_{\eta_1}\bu_{s,i}\|+
-     \|R^{1-\nu}\gancho_{\eta_1}\bu_{s,3}\|\right)\\[7pt]
+    \textit{h}^2\left(
+    \sum_{i=1}^2 \|R^{\beta}\theta^{\delta}\gancho_{\xi_1}u_{s,i}\|^2_{L^2(E)}+
+     \|R^{\beta}\gancho_{\xi_1}u_{s,3}\|^2_{L^2(E)}\right)\\[7pt]
   &\leqslant&
-    \textit{h}\left(
-    \sum_{i=1}^2 \|R^{\beta}\theta^{\delta}\gancho_{\eta_1}\bu_{s,i}\|+
-     \|R^{\beta}\gancho_{\eta_1}\bu_{s,3}\|\right)\\[7pt]
-  &\leqslant&
-    \textit{h}
-    \left(\sum_{i=1}^2 \|\bu_{s,i}\|_{\scriptscriptstyle \beta,\delta}+
-         \|\bu_{s,3}\|_{\scriptscriptstyle \beta,0}\right).
+    \textit{h}^2
+    \left(\sum_{i=1}^2 \|u_{s,i}\|^2_{\scriptscriptstyle V^{1,2}_{\beta,\delta}}+
+         \|u_{s,3}\|_{\scriptscriptstyle V^{1,2}_{\beta,0}}\right).
 \end{IEEEeqnarray*}
-Now, since $h_2\sim h_1$:
+Now, since $h_2\sim h_1$, with the same argument,
 \begin{IEEEeqnarray*}{rCl}
-  h_2\|\gancho_{\eta_2}\bu_s\|&=&
-  h_2\sum_{i=1}^3 \|\gancho_{\eta_2}\bu_{s,i}\|\\
-  &\leqslant&
+  h_2\|\gancho_{\xi_2}\bu_s\|_{L^2(E)^3}&=&
+  h_2\sum_{i=1}^3 \|\gancho_{\xi_2}u_{s,i}\|\,\leqslant\,
     \textit{h}
-    \left(\sum_{i=1}^2 \|\bu_{s,i}\|_{\scriptscriptstyle \beta,\delta}+
-         \|\bu_{s,3}\|_{\scriptscriptstyle \beta,0}\right).
+    \left(\sum_{i=1}^2 \|u_{s,i}\|_{\scriptscriptstyle \beta,\delta}+
+         \|u_{s,3}\|_{\scriptscriptstyle \beta,0}\right).
 \end{IEEEeqnarray*}
+For the derivative with respect to $\xi_3$,
 \begin{IEEEeqnarray*}{rCl}
-  h_3\|\gancho_{\eta_3}\bu_s\|&=&
-  h_3\sum_{i=1}^3 \|\gancho_{\eta_3}\bu_{s,i}\|\\[7pt]
-  &=&h_3\left(\sum_{i=1}^2\|\gancho_{\eta_i}\bu_{s,3}\|+
-    \|\gancho_{\eta_3}\bu_{s,3}\|\right)\\[7pt]
-  &\leqslant&\textit{h}\left(\sum_{i=1}^2\|d(K,v)^{1-\nu}\gancho_{\eta_i}\bu_{s,3}\|+
-    \|d(K,v)^{1-\nu}\gancho_{\eta_3}\bu_{s,3}\|\right)\\[7pt]
+  h_3^2\|\gancho_{\xi_3}\bu_s\|^2_{L^2(E)^3}&=&
+  h_3^2\sum_{i=1}^3 \|\gancho_{\xi_3}u_{s,i}\|^2_{L^2(E)}\\
+  &=&h_3^2\left(\sum_{i=1}^2\|\gancho_{\xi_i}u_{s,3}\|^2_{L^2(E)}+
+    \|\gancho_{\xi_3}u_{s,3}\|^2_{L^2(E)}\right)\\[7pt]
+  &\leqslant&\textit{h}^2\left(\sum_{i=1}^2\|d(K,v)^{1-\nu}\gancho_{\xi_i}u_{s,3}\|^2_{L^2(E)}
+  \right.\\
+  \IEEEeqnarraymulticol{3}{r}{\left.
+    +\|d(K,v)^{1-\nu}\gancho_{\xi_3}u_{s,3}\|^2_{L^2(E)}\right)}\\[7pt]
   &\leqslant&
-  \textit{h}\left(\sum_{i=1}^2\|R^{\beta}\gancho_{\eta_i}\bu_{s,3}\|+
-    \|R^{\beta}\gancho_{\eta_3}\bu_{s,3}\|\right)\\[7pt]
+  \textit{h}^2\left(\sum_{i=1}^2\|R^{\beta}\gancho_{\xi_i}u_{s,3}\|^2_{L^2(E)}+
+    \|R^{\beta}\gancho_{\xi_3}u_{s,3}\|^2_{L^2(E)}\right)\\[7pt]
   &=&
-  \textit{h}\sum_{i=1}^3\|R^{\beta}\gancho_{\eta_i}\bu_{s,3}\|\\[7pt]
-  &\lesssim&
-  \textit{h}\|\bu_{s,3}\|_{\scriptscriptstyle \beta,0}
+  \textit{h}^2\sum_{i=1}^3\|R^{\beta}\gancho_{\xi_i}u_{s,3}\|^2_{L^2(E)}\\[7pt]
+  &\leqslant&
+  3\textit{h}^2\|u_{s,3}\|^2_{\scriptscriptstyle V^{1,2}_{\beta,0}}.
 \end{IEEEeqnarray*}
+Now, the divergence term
 \begin{IEEEeqnarray*}{rCl}
-  h_K\|\dvg\bu_s\|&\leqslant&
-  h_K\|\dvg\bu_s+\dvg\bu_r\|+h_K\|\dvg\bu_r\|\\[7pt]
-  &\lesssim&h_K\|f\|\sim \textit{h}\|f\|.
+  h_E\|\dvg\bu_s\|&\leqslant&
+  h_E\|\dvg\bu_s+\dvg\bu_r\|+h_E\|\dvg\bu_r\|\\[7pt]
+  &\lesssim&h_E\|f\|\sim \textit{h}\|f\|.
 \end{IEEEeqnarray*}
 \end{enumerate}
-Parte con ${\color{red} d(E,\be)=0}$.
-\begin{IEEEeqnarray}{rCl}
-  \label{distancia_cero_arista}\sum_{d(E,\be) = 0}
-  \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}
-  &\lesssim&
-  {\color{green} \|\bu_s\|^2} + 
-    {\color{blue}\|\pi\bu_s\|^2_{\scriptscriptstyle L^2(Tetra)^3}}\\[5pt]
-  &&\,+\sum_{
-  \substack{\text{ prisms }K\\
-        d(E,\be) = 0}
-    }
-  {\color{green} \|\bu_s\|^2} + {\color{olive} \|\pi\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}}.
+Terms such that $d(E,\be)=0$. We have just prisms and one isotropic tetrahedron
+to be considered separately as $T$ for the interpolation term after 
+triangle inequality. In fact,
+\begin{IEEEeqnarray}{rCl} %
+  \IEEEeqnarraymulticol{3}{L}{\nonumber
+    \sum_{d(E,\be) = 0}
+    \|\bu_s - \br_0\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}
+    \,\lesssim\,}
+  \\
+  \IEEEeqnarraymulticol{3}{R}{
+  \label{distancia_cero_arista}
+  \,\lesssim\,\|\br_0\bu_s\|^2_{\scriptscriptstyle L^2(T)^3}
+  \,+\sum_{
+  \substack{{\small{\text{prisms\,}}P}\\
+          d(P,\be) = 0}} \|\br_0\bu_s\|^2_{\scriptscriptstyle L^2(P)^3}
+  \,+\sum_{d(E,\be) = 0} \|\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}}.
 \end{IEEEeqnarray}
-\\[10pt]
-Si $K$ es tanto el tetraedro con el v\'ertice singular como un prisma 
-($d(E,\be) = 0$, $d(E,v) > 0$):
+Now let us bound each term on the right of~(\ref{distancia_cero_arista}).
+\begin{enumerate}
+  \item 
+  For the last term on the right of~(\ref{distancia_cero_arista}), let
+$E$ be any of both the tetrahedron with the
+singular
+ vertex or a prism. If $E$ is a prism, recall in this case we have
+ $d(E,\be) = 0$ and $d(E,v) > 0$. 
 \begin{IEEEeqnarray*}{rCl}
-  {\color{green} \|\bu_s\|} &=&
-    \sum_{i=1}^2 \|R^\nu\theta^\mu R^{-\nu}\theta^{-\mu}\textbf{u}_{s,i}\|
-    + \|R^\nu\theta^{-1}R^{-\nu}\theta\textbf{u}_{s,3}\|\\[7pt]
-  &\leqslant&\max_{\bx}R(\bx)^\nu\theta(\bx)^\mu
-  \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}\textbf{u}_{s,i}\|
-    + \max_{\bx}R(\bx)^\nu\theta(\bx)
-    \|R^{-\nu}\theta^{-1}\textbf{u}_{s,3}\|.
+   \|\bu_s\|_E &=&
+    \sum_{i=1}^2 \|R^\nu\theta^\mu R^{-\nu}\theta^{-\mu} u_{s,i}\|
+    + \|R^\nu\theta^{-1}R^{-\nu}\theta u_{s,3}\|\\[7pt]
+  &\leqslant&\|R^\nu\theta^\mu\|_{L^\infty(E)}
+  \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu} u_{s,i}\|
+    + \|R^\nu\theta\|_{L^\infty(E)}
+    \|R^{-\nu}\theta^{-1} u_{s,3}\|.
 \end{IEEEeqnarray*}
-Pero es $\theta < 1$ y $\mu \leqslant \nu < 1$, entonces
+Since $\theta < 1$ and $\mu \leqslant \nu < 1$, then
 \begin{IEEEeqnarray}{rClClCr}
   \label{cota_pesos}
   R(\bx)^\nu\theta(\bx)&\leqslant&
   R(\bx)^\nu\theta(\bx)^\mu&\leqslant&R(\bx)^\mu\theta(\bx)^\mu&=&
   r(\bx)^\mu.
 \end{IEEEeqnarray}
-Volvemos y queda
+Using this we get
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu_s\|&\leqslant&\max_{\bx}r(\bx)^\mu
+  \|\bu_s\|&\leqslant&\|r^\mu\|_{\infty,E}
   \left(
-    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}\textbf{u}_{s,i}\|
-    + \|R^{-\nu}\theta^{-1}\textbf{u}_{s,3}\|
+    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}u_{s,i}\|
+    + \|R^{-\nu}\theta^{-1}u_{s,3}\|
   \right)\\[7pt]
   &\leqslant&\max\{h_1,h_2\}^\mu
   \left(
-    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}\textbf{u}_{s,i}\|
-    + \|R^{-\nu}\theta^{-1}\textbf{u}_{s,3}\|
+    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}u_{s,i}\|
+    + \|R^{-\nu}\theta^{-1}u_{s,3}\|
   \right)\\[7pt]
   &\lesssim&\textit{h}
   \left(
-    \sum_{i=1}^2 \|\textbf{u}_{s,i}\|_{\beta,\delta}
-    + \|\textbf{u}_{s,3}\|_{\beta,0}
-  \right) \lesssim \textit{h}\,\|f\|,
+    \sum_{i=1}^2 \|u_{s,i}\|_{\beta,\delta}
+    + \|u_{s,3}\|_{\beta,0}
+  \right) \lesssim \textit{h}\,\|f\|_{L^2(\Lambda_\ell)}\mbox{,}
 \end{IEEEeqnarray*}
-con tal de tomar $\beta\sim 1-\nu$ y $\delta\sim 1-\mu$.\\[10pt]
-${\color{blue}\|\pi\bu_s\|^2_{\scriptscriptstyle L^2(Tetra)^3}}$: First
+provided we take $\beta\sim 1-\nu$ and $\delta\sim 1-\mu$.
+\item ${\color{blue}\|\pi\bu_s\|^2_{\scriptscriptstyle L^2(Tetra)^3}}$.
+{\color{Orange}\#\#\#\#\#\#\#\# continue here3.}
+\end{enumerate}
 \begin{IEEEeqnarray*}{rCl}
   \|(\pi\bu_s)_1\|_{\scriptscriptstyle L^2(E)}
     & \leqslant & C|E|^{-1/2} \|(\pi\bu_s)_1\|_{\scriptscriptstyle L^1(E)}.
@@ -794,28 +806,28 @@ For each $\bw$ we decompose the norm with the macro--elements as follows
 %For each macro--element $\Lambda_\ell$, for each pyramid $E_\ell\in\Lambda_\ell$,
 %\begin{IEEEeqnarray*}{rCl}
 %  \|\bu_s - \pi\bu_s\|^2_{\sss L^2(E)}&\leqslant&
-%  h_1^2\|\gancho_{\eta_1}\bu_s\|^2+
+%  h_1^2\|\gancho_{\xi_1}\bu_s\|^2+
 %  h_2^2\|\gancho_{\eta_2}\bu_s\|^2+
-%  h_3^2\|\gancho_{\eta_3}\bu_s\|^2+
+%  h_3^2\|\gancho_{\xi_3}\bu_s\|^2+
 %  h_K^2\|\dvg\bu_s\|^2\\[7pt]
 %\end{IEEEeqnarray*}
 %\begin{IEEEeqnarray*}{rCl}
-%  h_1\|\gancho_{\eta_1}\bu_s\|&=&
-%  h_1\sum_{i=1}^3 \|\gancho_{\eta_1}\textbf{u}_{s,i}\|\\
+%  h_1\|\gancho_{\xi_1}\bu_s\|&=&
+%  h_1\sum_{i=1}^3 \|\gancho_{\xi_1}\textbf{u}_{s,i}\|\\
 %  &\leqslant&
-%    \textit{h}\sum_{i=1}^3 \|r^{1-\mu}\gancho_{\eta_1}\textbf{u}_{s,i}\|\\
-%  &\leqslant&
-%    \textit{h}\left(
-%     \sum_{i=1}^2 \|R^{1-\mu}\theta^{1-\mu}\gancho_{\eta_1}\textbf{u}_{s,i}\|+
-%     \|R^{1-\mu}\gancho_{\eta_1}\textbf{u}_{s,3}\|\right)\\[7pt]
+%    \textit{h}\sum_{i=1}^3 \|r^{1-\mu}\gancho_{\xi_1}\textbf{u}_{s,i}\|\\
 %  &\leqslant&
 %    \textit{h}\left(
-%     \sum_{i=1}^2 \|R^{1-\nu}\theta^{1-\mu}\gancho_{\eta_1}\textbf{u}_{s,i}\|+
-%     \|R^{1-\nu}\gancho_{\eta_1}\textbf{u}_{s,3}\|\right)\\[7pt]
+%     \sum_{i=1}^2 \|R^{1-\mu}\theta^{1-\mu}\gancho_{\xi_1}\textbf{u}_{s,i}\|+
+%     \|R^{1-\mu}\gancho_{\xi_1}\textbf{u}_{s,3}\|\right)\\[7pt]
 %  &\leqslant&
 %    \textit{h}\left(
-%    \sum_{i=1}^2 \|R^{\beta}\theta^{\delta}\gancho_{\eta_1}\textbf{u}_{s,i}\|+
-%     \|R^{\beta}\gancho_{\eta_1}\textbf{u}_{s,3}\|\right)\\[7pt]
+%     \sum_{i=1}^2 \|R^{1-\nu}\theta^{1-\mu}\gancho_{\xi_1}\textbf{u}_{s,i}\|+
+%     \|R^{1-\nu}\gancho_{\xi_1}\textbf{u}_{s,3}\|\right)\\[7pt]
+%  &\leqslant&
+%    \textit{h}\left(
+%    \sum_{i=1}^2 \|R^{\beta}\theta^{\delta}\gancho_{\xi_1}\textbf{u}_{s,i}\|+
+%     \|R^{\beta}\gancho_{\xi_1}\textbf{u}_{s,3}\|\right)\\[7pt]
 %  &\leqslant&
 %    \textit{h}
 %    \left(\sum_{i=1}^2 \|\textbf{u}_{s,i}\|_{\scriptscriptstyle \beta,\delta}+
