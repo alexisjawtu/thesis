@@ -1,3 +1,22 @@
+\def\rescaledTetraTikz
+{
+\begin{figure}[!ht]
+  \centering
+    \begin{tikzpicture}[scale=.4]
+      \draw[->] (0, 0, 0) -- node[label={above:$_{_{h_2}}$}] { } (3,0,0);
+      \draw[->] (0, 0, 0) -- node[label={left:$_{_{h_3}}$}] { } (0, 3, 0);
+      \draw (0, 0, 1) -- (2, 0, 0); 
+%      \draw (0, 3.5, 1) -- (2, 3.5, 0); 
+      \draw (2, 0, 0) -- (0, 3, 0);
+      \draw (0, 0, 1) -- (0, 3, 0); 
+      \draw (0,0,2) -- node[label={left:$_{_{h_1}}$}] { }  (0,0,0) ;
+      %\draw (0,3.5,0) -- (2,3.5,0);
+    \end{tikzpicture}
+  \caption{Rescaled Tetrahedron}
+  \label{rescaled_tetra}    
+\end{figure}
+}
+
 \def\referenceTriangleTikz
 {
 \begin{tikzpicture}[scale=2]
@@ -471,4 +490,3 @@ $0\leqslant l\leqslant n-1\qquad\mbox{and}\qquad 1\leqslant i\leqslant n-l-1$
 %      \IEEEeqnarrayrulerow
 %  \end{IEEEeqnarraybox*}
 %\end{table}}
-

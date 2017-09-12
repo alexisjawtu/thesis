@@ -651,24 +651,30 @@ this way
 \end{IEEEeqnarray*}
 Remember that by Lemma~\ref{well_defined_dofs} we know $\bu_s$ is in 
 $W^{1,1}(\Lambda_\ell)$.
+\rescaledTetraTikz
 We 
-start pulling back to $\tilde{T}$ and then use Proposition 3.4 of~\cite{aadl}.
+start pulling $\br_0\bu_s$ back to a rescaled reference tetrahedron $\tilde{T}$ 
+with the mapping 
+$F_{T_\ell}(\tilde{\bx}) = M_{T_\ell}\tilde{\bx} + \bx_{T_\ell}$
+(cfr. Figure~\ref{rescaled_tetra}). Using Lemma 5.22 in page 123 of~\cite{monk},
+which gives the analog of~(\ref{div_interp_commutes}) for 
+tetrahedra, and then using Proposition 3.4 of~\cite{aadl}, we get
 {\color{Orange}\#\#\#\#\#\#\#\# continue here3.}
 \begin{IEEEeqnarray*}{rCl}
-  \|(\br_0\bu_s)_1\|_{L^1(E)} &=& \int\limits_{\tilde{E}}|(A\tilde{\br}_0\tilde{\textbf{u}}_s)_1|\,d\tilde{x}\\[7pt]
-    &\lesssim&\sum_{1\leqslant i\leqslant 3} \left(\|\tilde{u}_{s,i}\|_{L^1(\tilde{E})} + 
-      \sum_{1\leqslant j\leqslant 3} h_j\|\partial_j\tilde{u}_{s,i}\|_{L^1(\tilde{E})} + 
-      h_i\|\dvg \tilde{\textbf{u}}_s\|_{L^1(\tilde{E})}
-    \right) \\[7pt]
-    & = & \ldots \text{paso al tetraedro f\'isico} \ldots \\[7pt] % VER BORRADOR INTERPOLACION PIRAMIDE
+  \|(\br_0\bu_s)_1\|_{L^1(T_\ell)} &=& \int_{\tilde{T}}|(M_{T_\ell}\tilde{\br}_0\tilde{\bu}_s)_1|\,d\tilde{\bx}\\[7pt]
+    &\leqslant& C \sum_{1\leqslant i\leqslant 3} \left(\|\tilde{u}_{s,i}\|_{L^1(\tilde{T})} + 
+      \sum_{1\leqslant j\leqslant 3} h_j\|\partial_j\tilde{u}_{s,i}\|_{L^1(\tilde{T})} + 
+      h_i\|\dvg \tilde{\bu}_s\|_{L^1(\tilde{T})}
+    \right) \\[7pt] %%% & = & \ldots \text{paso al tetraedro f\'isico} \ldots \\[7pt] % VER BORRADOR INTERPOLACION PIRAMIDE
     & \leqslant & C
-    \left({\color{orange} \|\textbf{u}_{s}\|_{L^1(E)^3}} + 
-    \sum_{1\leqslant j \leqslant 3} {\color{teal} h_j\|\partial_{\xi_j}\textbf{u}_{s}\|_{L^1(E)}} + 
-    {\color{purple} (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(E)}}\right).
+    \left({\color{orange} \|\bu_{s}\|_{L^1(T_\ell)^3}} + 
+    \sum_{1\leqslant j \leqslant 3} {\color{teal} h_j\|\partial_{\xi_j}\bu_{s}\|_{L^1(T_\ell)}} + 
+    {\color{purple} (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)}}\right)
 \end{IEEEeqnarray*}
+\noindent{\color{Orange}\#\#\#\#\#\#\# where $C$ depends only on the max angle?}. 
 PESOS
 \begin{IEEEeqnarray*}{rCl}
-  {\color{Orange} \|\textbf{u}_{s}\|_{L^1(E)^3}} & = &
+  {\color{Orange} \|\bu_{s}\|_{L^1(E)^3}} & = &
   \sum_{i=1,2}\|R^{\nu}\theta^{\mu}R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^1(E)} + 
   \|R^{\nu}\theta R^{-\nu}\theta^{-1}u_{s,3}\|_{L^1(E)} \\[7pt]
 \text{H\"older\quad}&\leqslant&
@@ -725,7 +731,7 @@ Divergence:
   {\color{purple} (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1}} & \leqslant &
     (2\textit{h}^{1/\mu} + \textit{h}^{1/\nu}) \|\dvg \bu_s\|_{L^1} \\[7pt]
     & \leqslant & 3 \textit{h}\,\sqrt{|E|}\,\|\dvg \bu_s\|_{L^2} \\[7pt]
-    & \leqslant & 3 \textit{h}\,\sqrt{|E|}\,\left(\|f\|_{L^2} + \|\dvg \textbf{u}_r\|_{L^2}\right) \\[7pt]
+    & \leqslant & 3 \textit{h}\,\sqrt{|E|}\,\left(\|f\|_{L^2} + \|\dvg \bu_r\|_{L^2}\right) \\[7pt]
     & \lesssim  & \textit{h}\,\sqrt{|E|}\,\|f\|_{L^2}. \\[7pt]
 \end{IEEEeqnarray*}
 \item
@@ -733,9 +739,9 @@ Now prisms, the middle term on the right of~(\ref{distancia_cero_arista}).
 By stability estimation
 \begin{IEEEeqnarray*}{rCl}
   {\color{olive} \|\br_0\bu_s\|_{\scriptscriptstyle L^1(P)^3}} & \leqslant & 
-    \|A\|_\infty \|\tilde{\pi}\tilde{\textbf{u}}_s\|_{L^1{\tilde{E}}} \\ [7pt]
-  &\lesssim& \left\| \tilde{\textbf{u}}_s \right\|_{L^1(\tilde{E})^3}
-    + \sum_{j=1}^3 h_j \left\| \partial_{\tilde{x}_j}\tilde{\textbf{u}}_s \right\|_{L^1(\tilde{E})^3}
+    \|A\|_\infty \|\tilde{\pi}\tilde{\bu}_s\|_{L^1{\tilde{E}}} \\ [7pt]
+  &\lesssim& \left\| \tilde{\bu}_s \right\|_{L^1(\tilde{E})^3}
+    + \sum_{j=1}^3 h_j \left\| \partial_{\tilde{x}_j}\tilde{\bu}_s \right\|_{L^1(\tilde{E})^3}
     + h_{\tilde{E}}\left\|\Div(\tilde{u}_1, \tilde{u}_2, 0) \,\right\|_{L^1(\tilde{E})}\\[7pt]
   &\lesssim& \left\| \bu_s \right\|_{L^1(E)^3}
     + \sum_{j=1}^3 h_j \left\| \partial_{\xi_j}\bu_s \right\|_{L^1(E)^3}
@@ -821,13 +827,13 @@ For each $\bw$ we decompose the norm with the macro--elements as follows
 %\end{IEEEeqnarray*}
 %\begin{IEEEeqnarray*}{rCl}
 %  h_1\|\gancho_{\xi_1}\bu_s\|&=&
-%  h_1\sum_{i=1}^3 \|\gancho_{\xi_1}\textbf{u}_{s,i}\|\\
+%  h_1\sum_{i=1}^3 \|\gancho_{\xi_1}\bu_{s,i}\|\\
 %  &\leqslant&
-%    \textit{h}\sum_{i=1}^3 \|r^{1-\mu}\gancho_{\xi_1}\textbf{u}_{s,i}\|\\
+%    \textit{h}\sum_{i=1}^3 \|r^{1-\mu}\gancho_{\xi_1}\bu_{s,i}\|\\
 %  &\leqslant&
 %    \textit{h}\left(
-%     \sum_{i=1}^2 \|R^{1-\mu}\theta^{1-\mu}\gancho_{\xi_1}\textbf{u}_{s,i}\|+
-%     \|R^{1-\mu}\gancho_{\xi_1}\textbf{u}_{s,3}\|\right)\\[7pt]
+%     \sum_{i=1}^2 \|R^{1-\mu}\theta^{1-\mu}\gancho_{\xi_1}\bu_{s,i}\|+
+%     \|R^{1-\mu}\gancho_{\xi_1}\bu_{s,3}\|\right)\\[7pt]
 %  &\leqslant&
 %    \textit{h}\left(
 %     \sum_{i=1}^2 \|R^{1-\nu}\theta^{1-\mu}\gancho_{\xi_1}\textbf{u}_{s,i}\|+
