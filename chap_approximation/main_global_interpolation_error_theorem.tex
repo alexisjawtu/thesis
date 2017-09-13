@@ -220,7 +220,7 @@ Take $\delta \sim 1-\mu$ in this paragraph again.
     + \textit{h}^2\|{u_{s,3}}\|^2_{V_0^{1,2}(\Lambda_\ell)}\right\} \\
   &\leqslant& C\,\textit{h}^2\,\|f\|^2_{L^2(\Lambda_\ell)}.
 \end{IEEEeqnarray*}
-\item {Bound for $\| \br_E \bu_s \|_{L^2(E)^3}$.} % (fold)
+\item \label{aux_label61} {Bound for $\| \br_E \bu_s \|_{L^2(E)^3}$.} % (fold)
 First, if $\phi$ is a scalar polynomial defined on a physical element $E$, then
 \begin{IEEEeqnarray}{rCl}\label{normaL2L1}
   \| \phi \|_{L^{2}(E)} & \leqslant & C\,|E|^{-1/2}\,\| \phi \|_{L^{1}(E)}.
@@ -643,8 +643,8 @@ y the present type of macro--element remain regular, we estimate with
 the weighted norms anisotropically for the sake of completeness. Let $T_\ell$
 be that tetrahedron touching the singular vertex and with an edge
 contained in the singular edge of $\Lambda_\ell$. %${\color{blue}\|\pi\bu_s\|^2_{\scriptscriptstyle L^2(Tetra)^3}}$.
-We work for the first component of the local interpolate in the $L^1(T_\ell)$ norm in
-this way
+We work for the first component of the local interpolate in the $L^1(T_\ell)$ norm
+using~(\ref{normaL2L1}).
 \begin{IEEEeqnarray*}{rCl}
   \|(\br_0\bu_s)_1\|_{\scriptscriptstyle L^2(T_\ell)}
     & \leqslant & C|T_\ell|^{-1/2} \|(\br_0\bu_s)_1\|_{\scriptscriptstyle L^1(T_\ell)}.
@@ -659,7 +659,6 @@ $F_{T_\ell}(\tilde{\bx}) = M_{T_\ell}\tilde{\bx} + \bx_{T_\ell}$
 (cfr. Figure~\ref{rescaled_tetra}). Using Lemma 5.22 in page 123 of~\cite{monk},
 which gives the analog of~(\ref{div_interp_commutes}) for 
 tetrahedra, and then using Proposition 3.4 of~\cite{aadl}, we get
-{\color{Orange}\#\#\#\#\#\#\#\# continue here3.}
 \begin{IEEEeqnarray*}{rCl}
   \|(\br_0\bu_s)_1\|_{L^1(T_\ell)} &=& \int_{\tilde{T}}|(M_{T_\ell}\tilde{\br}_0\tilde{\bu}_s)_1|\,d\tilde{\bx}\\[7pt]
     &\leqslant& C \sum_{1\leqslant i\leqslant 3} \left(\|\tilde{u}_{s,i}\|_{L^1(\tilde{T})} + 
@@ -728,8 +727,8 @@ and then
   (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)} & \leqslant &
     (2\textit{h}^{1/\mu} + \textit{h}^{1/\nu}) \|\dvg \bu_s\|_{L^1(T_\ell)} \\[7pt]
     & \leqslant & 3 \textit{h}\,\sqrt{|T_\ell|}\,\|\dvg \bu_s\|_{L^2(T_\ell)} \\[7pt]
-    & \leqslant & 3 \textit{h}\,\sqrt{|T_\ell|}\,\left(\|f\|_{L^2(T_\ell)} + \|\dvg \bu_r\|_{L^2(T_\ell)}\right) \\[7pt]
-    & \lesssim  & \textit{h}\,\sqrt{|T_\ell|}\,\|f\|_{L^2(T_\ell)}. \\[7pt]
+    & \leqslant & 3 \textit{h}\,\sqrt{|T_\ell|}\,\left(\|f\|_{L^2(\Lambda_\ell)} + \|\dvg \bu_r\|_{L^2(T_\ell)}\right) \\[7pt]
+    & \lesssim  & \textit{h}\,\sqrt{|T_\ell|}\,\|f\|_{L^2(\Lambda_\ell)}. \\[7pt]
 \end{IEEEeqnarray*}
 \end{enumerate}
 \item
@@ -739,71 +738,84 @@ We start pulling back from $P$ to the rescaled prism in Figure~\ref{rescaled_pri
 called here $\tilde P$.   
 By the stability estimate in Theorem~\ref{thmStabilityKtildeRT}, 
 \begin{IEEEeqnarray*}{rCl}
-  {\color{olive} \|\br_0\bu_s\|_{\scriptscriptstyle L^1(P)^3}} & \leqslant & 
-    \|A\|_\infty \|\tilde{\pi}\tilde{\bu}_s\|_{L^1{\tilde{E}}} \\ [7pt]
-  &\lesssim& \left\| \tilde{\bu}_s \right\|_{L^1(\tilde{E})^3}
-    + \sum_{j=1}^3 h_j \left\| \partial_{\tilde{x}_j}\tilde{\bu}_s \right\|_{L^1(\tilde{E})^3}
-    + h_{\tilde{E}}\left\|\Div(\tilde{u}_1, \tilde{u}_2, 0) \,\right\|_{L^1(\tilde{E})}\\[7pt]
-  &\lesssim& \left\| \bu_s \right\|_{L^1(E)^3}
-    + \sum_{j=1}^3 h_j \left\| \partial_{\xi_j}\bu_s \right\|_{L^1(E)^3}
-    + h_{E}\left\|\Div(u_1, u_2, 0) \,\right\|_{L^1(E)},    
+  \|\br_0\bu_s\|_{\scriptscriptstyle L^1(P)^3} & \leqslant & 
+    \|M_P\|_\infty \|\tilde{\br}_0\tilde{\bu}_s\|_{L^1{\tilde{P}}} \\ [7pt]
+  &\lesssim& \left\| \tilde{\bu}_s \right\|_{L^1(\tilde{P})^3}
+    + \sum_{j=1}^3 h_j \left\| \partial_{\tilde{x}_j}\tilde{\bu}_s \right\|_{L^1(\tilde{P})^3}
+    + h_{\tilde{P}}\left\|\dv(\tilde{u}_1, \tilde{u}_2, 0) \,\right\|_{L^1(\tilde{P})}\\[7pt]
+  &\lesssim& \left\| \bu_s \right\|_{L^1(P)^3}
+    + \sum_{j=1}^3 h_j \left\| \partial_{\xi_j}\bu_s \right\|_{L^1(P)^3}
+    + h_{P}\left\|\dv(u_1, u_2, 0) \,\right\|_{L^1(P)}\mbox{,}    
 \end{IEEEeqnarray*}
-by the same argument as in Theorem 5.1 in primas.pdf.\\
-\noindent Weights: again for $i=1$ or $2$
-\begin{IEEEeqnarray*}{rCl}
-  \|u_{s,i}\| & \leqslant & \|R^{\nu}\theta^{\mu}\| \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2} \\[7pt]
-  & \leqslant & \textit{h}\,|E|^{\nicefrac12} \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2}.
+by the same argument as in~(\ref{aux_label15}) for 
+elements touching the singular edge in the prismatic macroelement. Now
+to estimate each term, again for $i=1$ or $2$ we have
+\begin{IEEEeqnarray*}{rCcCl}
+  \|u_{s,i}\| & \leqslant & \|R^{\nu}\theta^{\mu}\| \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2}
+  & \leqslant & \textit{h}\,|P|^{\nicefrac12} \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2}
 \end{IEEEeqnarray*}
-\begin{IEEEeqnarray*}{rCl}
-  \|u_{s,3}\| & \leqslant & \|R^{\nu}\theta\| \|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2} \\[7pt]
-  & \leqslant & \textit{h}\,|E|^{\nicefrac12} \|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2}.
+and
+\begin{IEEEeqnarray*}{rCcCl}
+  \|u_{s,3}\| & \leqslant & \|R^{\nu}\theta\| \|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2}
+  & \leqslant & \textit{h}\,|P|^{\nicefrac12} \|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2}.
 \end{IEEEeqnarray*}
-\noindent DErivatives: $j = 1$ or $2$.\\
-If $i=1$ or $2$. With the same argument as in~(\ref{cuentita_integral})
+Next fix $j = 1$ or $2$.         %\noindent DErivatives: $j = 1$ or $2$.\\
+If $i=1$ or $2$, with the same argument as in~(\ref{cuentita_integral})
 \begin{IEEEeqnarray}{rCl}
   h_j\|\partial_{\xi_j} u_{s,i}\|_{L^1} & \lesssim &
-    \textit{h}\,\sqrt{|E|}\,\|R^{1-\nu}\theta^{1-\mu}\partial_{\xi_j} u_{s,i}\|_{L^2}.
+    \textit{h}\,\sqrt{|P|}\,\|R^{1-\nu}\theta^{1-\mu}\partial_{\xi_j} u_{s,i}\|_{L^2}.
 \end{IEEEeqnarray}
-For $\partial_{\xi_j}u_{s,3}$:
+For the derivatives of $u_{s,3}$ we write
 \begin{IEEEeqnarray*}{rCl}
   h_j\|\partial_{\xi_j}u_{s,3}\|_{L^1} &\leqslant&
     h_j \|R^{\nu-1}\|_{L^2}\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{L^2}\\[7pt]
   &\leqslant& h_j \|r^{\mu-1}\|_{L^2}\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{L^2}\\[7pt]
-  &\lesssim& \textit{h}\,\sqrt{|E|}\,\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{L^2}.
+  &\lesssim& \textit{h}\,\sqrt{|P|}\,\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{L^2}.
 \end{IEEEeqnarray*}
-For $\partial_{\xi_3}$ ($h_3\sim\textit{h}\,d(E,\textbf{v})^{1-\nu}$):\\
-First and second components:
+Now the case of the derivative along the direction of the singular edge 
+$\partial_{\xi_3}(\cdot)$. Remember in this case it is 
+$h_3\sim\textit{h}\,d(P,\bv)^{1-\nu}$. If we take first and second components,
 \begin{IEEEeqnarray*}{rCl}
   h_3\|\partial_{\xi_3}u_{s,i}\|_{L^1}& = & h_3\|\partial_{\xi_i}u_{s,3}\|_{L^1}\\[7pt]
   & \leqslant & C\textit{h}\|R^{1-\nu}\partial_{\xi_i}u_{s,3}\|_{L^1}\\[7pt]
-  & \leqslant & C\textit{h}|E|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_i}u_{s,3}\|_{L^2}.
+  & \leqslant & C\textit{h}|P|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_i}u_{s,3}\|_{L^2}.
 \end{IEEEeqnarray*}
 Third component:
 \begin{IEEEeqnarray*}{rCl}
-  h_3\|\partial_{\xi_3}u_{s,3}\|_{L^1}& \sim & \textit{h}\|d(E,\textbf{v})^{1-\nu}
+  h_3\|\partial_{\xi_3}u_{s,3}\|_{L^1}& \sim & \textit{h}\|d(P,\bv)^{1-\nu}
     \partial_{\xi_3}u_{s,3}\|_{L^1}\\[7pt]
   & \leqslant & C\textit{h}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L^1}\\[7pt]
-  & \leqslant & C\textit{h}|E|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L^2}.
+  & \leqslant & C\textit{h}|P|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L^2}.
 \end{IEEEeqnarray*}
-Divergence:
+For the divergence term,
 \begin{IEEEeqnarray*}{rCl}
-  h_K\|\dvg (u_{s,1},u_{s,1},0)\|_{L1}&\leqslant&h_K\|\dvg \bu_s\|_{L1}
-    +h_K\|\partial_{\xi_3}u_{s,3}\|_{L1}\\[7pt]
-    &\lesssim&h_K\|\dvg \bu_s\|_{L1} + h_3\|\partial_{\xi_3}u_{s,3}\|_{L1},
+  h_P\|\dv(u_{s,1},u_{s,1},0)\|_{L1}&\leqslant&h_P\|\dv\bu_s\|_{L1}
+    +h_P\|\partial_{\xi_3}u_{s,3}\|_{L1}\\[7pt]
+    &\lesssim&h_P\|\dv\bu_s\|_{L1} + h_3\|\partial_{\xi_3}u_{s,3}\|_{L1},
 \end{IEEEeqnarray*}
-and, as was done for these two terms, we have
+and, as was done for these two terms before, we have
 \begin{IEEEeqnarray*}{rCl}
-  h_K\|\dvg (u_{s,1},u_{s,1},0)\|_{L1}&\lesssim&\textit{h} |E|^{\nicefrac12}\|f\|_{L2} +
-  \textit{h} |E|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L2}. 
+  h_P\|\dv(u_{s,1},u_{s,1},0)\|_{L1}&\lesssim&\textit{h} |P|^{\nicefrac12}\|f\|_{L2(\Lambda_\ell)} +
+  \textit{h} |P|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L2} \\
+  &\lesssim&\textit{h} |P|^{\nicefrac12}\|f\|_{L2(\Lambda_\ell)} +
+  \textit{h} |P|^{\nicefrac12}\|u_{s,3}\|_{V_{\beta,0}}. \\
+  &\lesssim&\textit{h} |P|^{\nicefrac12}\|f\|_{L2(\Lambda_\ell)}. 
 \end{IEEEeqnarray*}
 \end{enumerate}
+Collecting all the estimates in items $2$ and $3$ above, using~(\ref{normaL2L1})
+we bound the first and second term in~(\ref{distancia_cero_arista}), 
+belonging to the case with zero distance
+to the edge, in the $L^2$ norm
+\noindent{\color{Orange}\#\#\#\#\#\#\# en los lugarcitos en donde
+llegu\'e hasta $\|f\|_{\Lambda_\ell}$ mejor para antes con la norma local de la
+div, as\'i puedo sumar sobre elementos en macroel.}
 
 \subsection{bound singular part tetrahedral macroelement with
 singular vertex and no singular edge.}
-
+\noindent{\color{Orange}\#\#\#\#\#\#\# ponemos este?}
 *****************************************************
-
-Now we establish the bound for the error in the statement of the Theorem.
+\subsection{main interpolation error theorem.}
+{\color{Orange}\#\#\#\#\#\#\#\# continue here3.}
 For every $\bw\in W(\Th)$:
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\bw\|_{L^2(\Omega)^3}\}.
