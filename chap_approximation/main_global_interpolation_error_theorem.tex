@@ -663,36 +663,32 @@ tetrahedra, and then using Proposition 3.4 of~\cite{aadl}, we get
 \begin{IEEEeqnarray*}{rCl}
   \|(\br_0\bu_s)_1\|_{L^1(T_\ell)} &=& \int_{\tilde{T}}|(M_{T_\ell}\tilde{\br}_0\tilde{\bu}_s)_1|\,d\tilde{\bx}\\[7pt]
     &\leqslant& C \sum_{1\leqslant i\leqslant 3} \left(\|\tilde{u}_{s,i}\|_{L^1(\tilde{T})} + 
-      \sum_{1\leqslant j\leqslant 3} h_j\|\partial_j\tilde{u}_{s,i}\|_{L^1(\tilde{T})} + 
-      h_i\|\dvg \tilde{\bu}_s\|_{L^1(\tilde{T})}
-    \right) \\[7pt] %%% & = & \ldots \text{paso al tetraedro f\'isico} \ldots \\[7pt] % VER BORRADOR INTERPOLACION PIRAMIDE
+      \sum_{1\leqslant j\leqslant 3} h_j\|\partial_j\tilde{u}_{s,i}\|_{L^1(\tilde{T})}\right.\\
+      \IEEEeqnarraymulticol{3}{r}{\left. + 
+             h_i\|\dvg \tilde{\bu}_s\|_{L^1(\tilde{T})}\right)} \\[7pt] %%% & = & \ldots \text{paso al tetraedro f\'isico} \ldots \\[7pt] % VER BORRADOR INTERPOLACION PIRAMIDE
     & \leqslant & C
     \left({\color{orange} \|\bu_{s}\|_{L^1(T_\ell)^3}} + 
-    \sum_{1\leqslant j \leqslant 3} {\color{teal} h_j\|\partial_{\xi_j}\bu_{s}\|_{L^1(T_\ell)}} + 
-    {\color{purple} (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)}}\right)
+    \sum_{1\leqslant j \leqslant 3} {\color{teal} h_j\|\partial_{\xi_j}\bu_{s}\|_{L^1(T_\ell)^3}}\right.\\
+    \IEEEeqnarraymulticol{3}{r}{\yesnumber\label{aux_label60}
+    \left. + 
+        {\color{purple} (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)}}\right)}
 \end{IEEEeqnarray*}
-\noindent{\color{Orange}\#\#\#\#\#\#\# where $C$ depends only on the max angle?}. 
-PESOS
+{\color{Orange}\#\#\#\#\#\#\# where $C$ depends only on the max angle?}. 
+Now we estimate each term in the right of~(\ref{aux_label60}).
+\begin{enumerate}
+  \item[(2a)] By H\"older's inequality
 \begin{IEEEeqnarray*}{rCl}
-  {\color{Orange} \|\bu_{s}\|_{L^1(E)^3}} & = &
-  \sum_{i=1,2}\|R^{\nu}\theta^{\mu}R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^1(E)} + 
-  \|R^{\nu}\theta R^{-\nu}\theta^{-1}u_{s,3}\|_{L^1(E)} \\[7pt]
-\text{H\"older\quad}&\leqslant&
-\sum_{i=1,2}\|R^{\nu}\theta^{\mu}\|_{L^2(E)}\|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2(E)} + 
-  \|R^{\nu}\theta\|_{L^2(E)}\|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2(E)}
- \\[7pt]
-&\leqslant&
-\max_{\bx}R(\bx)^\nu\theta(\bx)^{\mu}|E|^{\nicefrac12}
-\sum_{i=1,2}\|\ldots u_{s,i}\|_{L^2} + 
-\max_{\bx}R(\bx)^\nu\theta(\bx)|E|^{\nicefrac12}
-\|\ldots u_{s,3}\|_{L^2}\\[7pt]
-\text{por~(\ref{cota_pesos})\quad}&\leqslant&
-(\textit{h}^{1/\mu})^\mu|E|^{\nicefrac12}
-\sum_{i=1,2}\|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^{2}(E)} +
-\|\ldots u_{s,3}\|_{L^{2}(E)}\\[7pt]
-&\leqslant&\textit{h} |E|^{\nicefrac12}
-\|\bu_s\|_{V_{\beta,\delta}^{1,2}(E)^2\times V_{\beta,0}^{1,2}(E)}.
+  \|\bu_{s}\|_{L^1(T_\ell)^3} &\leqslant&
+\sum_{i=1,2}\|R^{\nu}\theta^{\mu}\|_{L^2(T_\ell)}\|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2(T_\ell)}\\ %%&\leqslant&\|R^\nu\theta^{\mu}\|_\infty|T_\ell|^{\nicefrac12}\sum_{i=1,2}\|\ldots u_{s,i}\|_{L^2(T\ell)} + \|R^\nu\theta\|_\infty|T_\ell|^{\nicefrac12}\|\ldots u_{s,3}\|_{L^2(T\ell)}\\[7pt]
+ & &\qquad+\,\|R^{\nu}\theta\|_{L^2(T_\ell)}\|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2(T_\ell)}
 \end{IEEEeqnarray*}
+and by~(\ref{cota_pesos}) and~(\ref{label_grading}) we have                                        %&\leqslant&(\textit{h}^{1/\mu})^\mu|T_\ell|^{\nicefrac12}\sum_{i=1,2}\|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^{2}(T_\ell)} +\|R^{-\nu}\theta^{-1} u_{s,3}\|_{L^{2}(T_\ell)}\\[7pt]
+\begin{IEEEeqnarray*}{rCl} 
+\|\bu_{s}\|_{L^1(T_\ell)^3} &\leqslant&(\textit{h}^{1/\mu})^\mu|T_\ell|^{\nicefrac12}
+\|\bu_s\|_{V_{\beta,\delta}^{1,2}(T_\ell)^2\times V_{\beta,0}^{1,2}(T_\ell)}\\
+&\leqslant&\textit{h} |T_\ell|^{\nicefrac12}\|f\|_{L^2(\Lambda_\ell)}.
+\end{IEEEeqnarray*}
+  \item[(2b)]
 Take $1\leqslant j,i \leqslant 3$ (HACER APARTE PARA $i=3$; creo que es un poco
 diferente, como pas\'o antes):
 \begin{IEEEeqnarray*}{rCl}
@@ -711,8 +707,7 @@ and
 \[
   \|R^{\nu-1}\theta^{\mu-1}\|_{L^2} \leqslant \|r^{\mu-1}\|_{L^2}.
 \]
-Now ({\color{red} $C$ es el pedazo de cilindro})\\
-{est\'a bien as\'i?}
+Now, integrating in a cylindrical section,
 \[
   \|r^{\mu-1}\|_{L^2} = \sqrt{\frac{\pi}{4\mu}}\sqrt{h_3}\,h_1^{\mu}\sim \sqrt{h_3}\,\textit{h}.
 \]
@@ -726,7 +721,7 @@ and then
   h_j\|\partial_{\xi_j} u_{s,i}\|_{L^1} & \lesssim &
     \textit{h}\,\sqrt{|E|}\,\|R^{1-\nu}\theta^{1-\mu}\partial_{\xi_j} u_{s,i}\|_{L^2}.
 \end{IEEEeqnarray}
-Divergence:
+\item[(2c)] Divergence:
 \begin{IEEEeqnarray*}{rClCr}
   {\color{purple} (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1}} & \leqslant &
     (2\textit{h}^{1/\mu} + \textit{h}^{1/\nu}) \|\dvg \bu_s\|_{L^1} \\[7pt]
@@ -734,6 +729,7 @@ Divergence:
     & \leqslant & 3 \textit{h}\,\sqrt{|E|}\,\left(\|f\|_{L^2} + \|\dvg \bu_r\|_{L^2}\right) \\[7pt]
     & \lesssim  & \textit{h}\,\sqrt{|E|}\,\|f\|_{L^2}. \\[7pt]
 \end{IEEEeqnarray*}
+\end{enumerate}
 \item
 Now prisms, the middle term on the right of~(\ref{distancia_cero_arista}).
 By stability estimation
