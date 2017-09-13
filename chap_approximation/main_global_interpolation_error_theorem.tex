@@ -667,11 +667,10 @@ tetrahedra, and then using Proposition 3.4 of~\cite{aadl}, we get
       \IEEEeqnarraymulticol{3}{r}{\left. + 
              h_i\|\dvg \tilde{\bu}_s\|_{L^1(\tilde{T})}\right)} \\[7pt] %%% & = & \ldots \text{paso al tetraedro f\'isico} \ldots \\[7pt] % VER BORRADOR INTERPOLACION PIRAMIDE
     & \leqslant & C
-    \left({\color{orange} \|\bu_{s}\|_{L^1(T_\ell)^3}} + 
-    \sum_{1\leqslant j \leqslant 3} {\color{teal} h_j\|\partial_{\xi_j}\bu_{s}\|_{L^1(T_\ell)^3}}\right.\\
+    \left(\|\bu_{s}\|_{L^1(T_\ell)^3} + 
+    \sum_{1\leqslant j \leqslant 3} h_j\|\partial_{\xi_j}\bu_{s}\|_{L^1(T_\ell)^3}\right.\\
     \IEEEeqnarraymulticol{3}{r}{\yesnumber\label{aux_label60}
-    \left. + 
-        {\color{purple} (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)}}\right)}
+    \left. + (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)}\right)}
 \end{IEEEeqnarray*}
 {\color{Orange}\#\#\#\#\#\#\# where $C$ depends only on the max angle?}. 
 Now we estimate each term in the right of~(\ref{aux_label60}).
@@ -689,11 +688,10 @@ and by~(\ref{cota_pesos}) and~(\ref{label_grading}) we have                     
 &\leqslant&\textit{h} |T_\ell|^{\nicefrac12}\|f\|_{L^2(\Lambda_\ell)}.
 \end{IEEEeqnarray*}
   \item[(2b)]
-Take $1\leqslant j,i \leqslant 3$ (HACER APARTE PARA $i=3$; creo que es un poco
-diferente, como pas\'o antes):
+Take $1\leqslant j,i \leqslant 3$ %%% TODO (HACER APARTE PARA $i=3$; creo que es un poco diferente, como pas\'o antes):
 \begin{IEEEeqnarray*}{rCl}
-  {\color{teal} h_j\|\partial_{\xi_j} u_{s,i}\|_{L^1}} & \leqslant &
-    h_j\|R^{\nu-1}\theta^{\mu-1}\|_{L^2}\|R^{1-\nu}\theta^{1-\mu}\partial_{\xi_j} u_{s,i}\|_{L^2}
+  h_j\|\partial_{\xi_j} u_{s,i}\|_{L^1(T_\ell)} & \leqslant &
+    h_j\|R^{\nu-1}\theta^{\mu-1}\|_{L^2(T_\ell)}\|R^{1-\nu}\theta^{1-\mu}\partial_{\xi_j} u_{s,i}\|_{L^2(T_\ell)}
 \end{IEEEeqnarray*}
 As $0\leqslant1-\nu\leqslant1-\mu<1$ we get 
 \[
@@ -702,37 +700,44 @@ As $0\leqslant1-\nu\leqslant1-\mu<1$ we get
 and
 \[
   R(\bx)^{\nu-1}\theta(\bx)^{\mu-1}\leqslant
-  R(\bx)^{\mu-1}\theta(\bx)^{\mu-1} = r(\bx)^{\mu-1},
+  R(\bx)^{\mu-1}\theta(\bx)^{\mu-1} = r(\bx)^{\mu-1}.
 \]
+From this we will use that
 \[
-  \|R^{\nu-1}\theta^{\mu-1}\|_{L^2} \leqslant \|r^{\mu-1}\|_{L^2}.
+  \|R^{\nu-1}\theta^{\mu-1}\|_{L^2(T_\ell)} \leqslant \|r^{\mu-1}\|_{L^2(T_\ell)}.
 \]
-Now, integrating in a cylindrical section,
+Now, calculating the right side integrating in a cylindrical section,
 \[
-  \|r^{\mu-1}\|_{L^2} = \sqrt{\frac{\pi}{4\mu}}\sqrt{h_3}\,h_1^{\mu}\sim \sqrt{h_3}\,\textit{h}.
+  \|r^{\mu-1}\|_{L^2(T_\ell)} = \sqrt{\frac{\pi}{4\mu}}\sqrt{h_3}\,h_1^{\mu}\sim \sqrt{h_3}\,\textit{h}.
 \]
 Then
 \begin{IEEEeqnarray*}{rCl}
   h_j\|r^{\mu-1}\|_{L^2} & \lesssim & \sqrt{h_1h_2h_3}\textit{h}\\[7pt]
-    & \sim & \sqrt{|E|}\,\textit{h}
+    & \sim & \sqrt{|T_\ell|}\,\textit{h}
 \end{IEEEeqnarray*}
 and then
-\begin{IEEEeqnarray}{rCl}\label{cuentita_integral}
-  h_j\|\partial_{\xi_j} u_{s,i}\|_{L^1} & \lesssim &
-    \textit{h}\,\sqrt{|E|}\,\|R^{1-\nu}\theta^{1-\mu}\partial_{\xi_j} u_{s,i}\|_{L^2}.
+\begin{IEEEeqnarray}{rCl}
+\nonumber
+  h_j\|\partial_{\xi_j} u_{s,i}\|_{L^1(T_\ell)} & \lesssim &
+    \textit{h}\,\sqrt{|T_\ell|}\,\|R^{1-\nu}\theta^{1-\mu}\partial_{\xi_j} u_{s,i}\|_{L^2(T_\ell)}\\
+\label{cuentita_integral}
+    &\leqslant& \textit{h}\,\sqrt{|T_\ell|}\,\|u_{s,i}\|_{\scriptscriptstyle V^{1,2}_{\beta,\delta}(T_\ell)}.
 \end{IEEEeqnarray}
-\item[(2c)] Divergence:
+\item[(2c)] The divergence term in~(\ref{aux_label60}):
 \begin{IEEEeqnarray*}{rClCr}
-  {\color{purple} (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1}} & \leqslant &
-    (2\textit{h}^{1/\mu} + \textit{h}^{1/\nu}) \|\dvg \bu_s\|_{L^1} \\[7pt]
-    & \leqslant & 3 \textit{h}\,\sqrt{|E|}\,\|\dvg \bu_s\|_{L^2} \\[7pt]
-    & \leqslant & 3 \textit{h}\,\sqrt{|E|}\,\left(\|f\|_{L^2} + \|\dvg \bu_r\|_{L^2}\right) \\[7pt]
-    & \lesssim  & \textit{h}\,\sqrt{|E|}\,\|f\|_{L^2}. \\[7pt]
+  (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)} & \leqslant &
+    (2\textit{h}^{1/\mu} + \textit{h}^{1/\nu}) \|\dvg \bu_s\|_{L^1(T_\ell)} \\[7pt]
+    & \leqslant & 3 \textit{h}\,\sqrt{|T_\ell|}\,\|\dvg \bu_s\|_{L^2(T_\ell)} \\[7pt]
+    & \leqslant & 3 \textit{h}\,\sqrt{|T_\ell|}\,\left(\|f\|_{L^2(T_\ell)} + \|\dvg \bu_r\|_{L^2(T_\ell)}\right) \\[7pt]
+    & \lesssim  & \textit{h}\,\sqrt{|T_\ell|}\,\|f\|_{L^2(T_\ell)}. \\[7pt]
 \end{IEEEeqnarray*}
 \end{enumerate}
 \item
-Now prisms, the middle term on the right of~(\ref{distancia_cero_arista}).
-By stability estimation
+Now prisms, the middle term on the right of~(\ref{distancia_cero_arista}). Remember
+the difference with the tetrahedron is that $d(P,\bv_\ell) \gtrsim h_1$.
+We start pulling back from $P$ to the rescaled prism in Figure~\ref{rescaled_prism}
+called here $\tilde P$.   
+By the stability estimate
 \begin{IEEEeqnarray*}{rCl}
   {\color{olive} \|\br_0\bu_s\|_{\scriptscriptstyle L^1(P)^3}} & \leqslant & 
     \|A\|_\infty \|\tilde{\pi}\tilde{\bu}_s\|_{L^1{\tilde{E}}} \\ [7pt]
