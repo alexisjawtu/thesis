@@ -114,21 +114,6 @@ since
   & \geqslant & c\|\bu\|_{V_h}.
 \end{IEEEeqnarray*}
 \end{proof}
-\begin{theorem}\label{aux_label47} solution $(\bu_{\textit{h}},p_{\textit{h}})$
-to~(\ref{mixedDiscrete}) satisfies,
-for every approximation $\pi(\bu)$ of $\bu$ in
-$W(\Th)$,
-\begin{IEEEeqnarray}{rCl}
-  \label{aux_label48}
-\|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant&
-  C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\} \\[5pt]
-  \label{aux_label49}
-\|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant&
-  C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\pi(\bu)\|_{L^2(\Omega)^3}\}
-\end{IEEEeqnarray} 
-\end{theorem}
-\begin{proof} Cfr. proof of Theorem 5.1 in~\cite{bfm}.
-\end{proof}
 We introduce the following global interpolation operator.
 \begin{defi}\label{aux_label52}
   Given a positive
@@ -152,9 +137,24 @@ We introduce the following global interpolation operator.
   in all cases with the lowest interpolation degree $k=0$ and
   with consistent normal components for interelementary faces.
 \end{defi}
+\begin{theorem}\label{aux_label47} solution $(\bu_{\textit{h}},p_{\textit{h}})$
+to~(\ref{mixedDiscrete}) satisfies,
+for every approximation $\bw$ of $\bu$ in
+$W(\Th)$,
+\begin{IEEEeqnarray}{rCl}
+  \label{aux_label48}
+\|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant&
+  C\{\|\bu-\br_0\bu\|_{L^2(\Omega)^3} + \|\bu-\bw\|_{L^2(\Omega)^3}\} \\[5pt]
+  \label{aux_label49}
+\|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant&
+  C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\bw\|_{L^2(\Omega)^3}\}
+\end{IEEEeqnarray} 
+\end{theorem}
+\begin{proof} Cfr. proof of Theorem 5.1 in~\cite{bfm}.
+\end{proof}
 \begin{defi}\label{aux_label51}
   let $P_{0,E_{\ell}}$ be the projection onto the constants over $E_{\ell}$;
-  take a $\bw_{\bu}$ such that, for every $E_\ell$
+  let a $\bw_{\bu}$ such that, for every $E_\ell$
   \begin{equation*}
     (\bw_{\bu})|_{E_\ell} = 
       \left\{
@@ -165,4 +165,9 @@ We introduce the following global interpolation operator.
       \right.
   \end{equation*}
 \end{defi}
+\begin{remark}
+The one in Definition~\ref{aux_label51} is is the approximation $\bw$ of $\bu$
+piecewise in $W(E)$ that we will use on the right of~(\ref{aux_label48})  and~(\ref{aux_label49}).
+Observe that $\bw_{\bu_r+\bu_s} = \bw_{\bu_r} + \bw_{\bu_s}.$
+\end{remark}
 % section well_posedness (end)

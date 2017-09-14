@@ -1,8 +1,7 @@
 \section{main error theorem.}
-{\color{Orange}\#\#\#\#\#\#\#\# continue here3. solo corregir la notacion y ya esta...}
-For every $\bw\in W(\Th)$:
+Recall from inequality~(\ref{aux_label48})  for every $\bw\in W(\Th)$ it holds
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-I(\bu)\|_{L^2(\Omega)^3} + \|\bu-\bw\|_{L^2(\Omega)^3}\}.
+  \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-\br_0\bu\|_{L^2(\Omega)^3} + \|\bu-\bw\|_{L^2(\Omega)^3}\}.
 \end{IEEEeqnarray*}
 For each $\bw$ we decompose the norm with the macro--elements as follows
 \begin{IEEEeqnarray*}{rCl}
@@ -45,36 +44,38 @@ For each $\bw$ we decompose the norm with the macro--elements as follows
 %         \|\textbf{u}_{s,3}\|_{\scriptscriptstyle \beta,0}\right).
 %\end{IEEEeqnarray*}
 %%=========================================================================
-Take $\bw_{\bu}$ as in Defiition~\ref{aux_label51},
+Take $\bw_{\bu}$ as in Definition~\ref{aux_label51}.
 For the sum term over the pyramids (remember pyramids do not touch singularities)
-we have, restricting $\bw_{\bu}$
+we have, restricting $\bw_{\bu}$, by the inequality we proved in~(\ref{aux_label63})  for pyramids
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu-\bw\|^2_{0,E_\ell} & = & \|\bu-P_{0,E_{\ell}}\|^2_{0,E_\ell}\\
-                           & \leqslant & C h_E|\bu|_{H^1(E)}\\
-                           &  &
+  \|\bu-\bw_{\bu}\|^2_{0,E_\ell} & = & \|\bu-P_{0,E_{\ell}}\bu\|^2_{0,E_\ell}\\
+                           & \leqslant & C \left\{h_E|\bu_r|_{H^1(E_\ell)} 
+                                + h_E|\bu_s|_{H^1(E_\ell)}\right\}\\
+                           & \leqslant & C\textit{h}\left\{ |\bu_r|_{H^1(E)} 
+                              + \|\bu_s\|_{V^{1,2}_{\beta,\delta}(E)}\right\}.
 \end{IEEEeqnarray*}
-
-
+With this all the others for prisms and tetrahedra whithin the proof of the
+interpolation Theorem~\ref{interpolation_theorem} we have
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bw_{\bu}\|^2_{0,\Omega}
     &=& \sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
-      \sum_{pri} \|\bu-I\bu\|^2_{0,E_\ell} +
-      \sum_{tet} \|\bu-I\bu\|^2_{0,E_\ell} +
-      \sum_{pyr} \|\bu-P_{0,E_{\ell}}\|^2_{0,E_\ell}
+      \sum_{pri} \|\bu-\br_0\bu\|^2_{0,E_\ell} +
+      \sum_{tet} \|\bu-\br_0\bu\|^2_{0,E_\ell} +
+      \sum_{pyr} \|\bu-P_{0,E_{\ell}}\bu\|^2_{0,E_\ell}
     \right\}\\[5pt]
-    &\leqslant& \sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
-      \sum_{pri} \textit{h}^2 \|f\|^2_{0,E_\ell} +
-      \sum_{tet} \textit{h}^2 \|f\|^2_{0,E_\ell} +
-      \sum_{pyr} h^2_{E_\ell}|\bu|^2_{1,E_\ell}
-    \right\}\\[5pt]
-    &\leqslant& \textit{h}^2 \sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
-      \sum_{pri}  \|f\|^2_{0,E_\ell} +
-      \sum_{tet}  \|f\|^2_{0,E_\ell} +
-      \sum_{pyr} |\bu|^2_{1,E_\ell} {\color{red}\mbox{$\leftarrow$ esta parte $\leqslant\|f\|$:
-      buscarlo un par de pags antes, creo que ya lo tengo}}
-    \right\}\\[5pt]
-    \IEEEeqnarraymulticol{3}{c}{{\color{red} \mbox{Tomar las distancias
-        a la arista y al vertice para el termino piramidal:}}}\\
-    &\leqslant& \textit{h}^2 \sum_{\ell=1}^{N_{\textit{h}_0}} \|f\|^2_{0,\Lambda_\ell} \,=\,
-      \textit{h}^2\,\|f\|^2_{0,\Omega}.
+    &\leqslant& C \sum_{\ell=1}^{N_{\textit{h}_0}}
+      \textit{h}^2 \|f\|^2_{0,\Omega}\\[5pt]
+\yesnumber\label{aux_label62}
+    & \leqslant &  C\,\textit{h}^2 \|f\|^2_{0,\Omega}.
 \end{IEEEeqnarray*}
+Note $C$ depends on the cardinal of the initial mesh.
+Now by Theorem~\ref{interpolation_theorem} and~(\ref{aux_label62}) we have, for 
+the vectorial variable, 
+$\|\bu-\bu_h\|_{L^2(\Omega)^3} \leqslant C\textit{h}\|f\|_{L^2(\Omega)}$.
+
+%    \IEEEeqnarraymulticol{3}{c}{{\color{red} \mbox{Tomar las distancias
+ %       a la arista y al vertice para el termino piramidal:}}}
+
+% {\color{red}\mbox{$\leftarrow$ esta parte $\leqslant\|f\|$:
+%  buscarlo un par de pags antes, creo que ya lo tengo}}
+      
