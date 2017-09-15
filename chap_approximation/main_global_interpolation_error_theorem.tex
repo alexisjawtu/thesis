@@ -45,7 +45,6 @@ and if $\bv$ is not singular, the condition turns $\beta > -\infty.$}
 
 \noindent{\color{Orange}\#\#\#\#\#\#\# **bound for the scalar variable: para todos igual,
 lo pongo una sola vez.} 
-
 %%======================================================================================= 
 % Recall that $\|\bw\|^2_{\mathbb{V}} = \|\bw\|^2_{0,\Omega} + \|\dv\,\bw\|^2_{0,\Omega}$ 
 % and that, 
@@ -166,7 +165,7 @@ we would have
   &\leqslant&\textit{h} \sum_{i=1,2} \|u_{s,i}\|_{V_\delta^{1,2}(E)} +
       \textit{h}\|u_{s,3}\|_{V_0^{1,2}(E)}\\
   \yesnumber\label{aux_label1}
-  &\leqslant&C\,\textit{h}\|f\|_{L^2(\Lambda_\ell)}.
+  &\leqslant&C\,\textit{h}\|\bu_s\|_{\pazocal{V}_{\beta,\delta}(E)}.
 \end{IEEEeqnarray*}
 Let's look for $\delta$. We have $r(\bx)\geqslant d(E,\be)$ so, according to the
 grading~(\ref{label_grading}) , in the 
@@ -189,18 +188,17 @@ If $i = 1$,$2$ or $3$, $\partial_{\xi_3}u_i$ equals $\partial_{\xi_i}u_3$, so
 \begin{IEEEeqnarray*}{rCl}
   h_3^2\|\partial_{\xi_3}\bu_s\|^2_{L^2(E)}& = & 
      h_3^2\sum_{i=1,2,3}\|\partial_{\xi_3}u_{s,i}\|^2_{L^2(E)}\\
-    &\lesssim&\textit{h}^2\,\| u_3 \|^2_{V_0^{1,2}(\Lambda_\ell)}
-    \leqslant\textit{h}^2\,\|f\|^2_{L^2(\Lambda_\ell)}.
+    &\lesssim&\textit{h}^2\,\| u_3 \|^2_{V_0^{1,2}(E)}.
 \end{IEEEeqnarray*}
 \item {Bound for the divergence.} By the grading in this macro--element and
 the triangle inequality we have
 \label{subp:bound_for_the_div}
 \begin{IEEEeqnarray*}{rCl}
-  h_K\,\| \dvg\bu_s \|_{L^2(E)} & \lesssim &
-  {h_3}\,\|\dvg\bu_s\|_{L^2(\Lambda_\ell)}\sim
-  \textit{h}\,\|\dvg\bu_s\|_{L^2(\Lambda_\ell)}\\[7pt]
-  &\leqslant&\textit{h}\,(\|f\|_{L^2(\Lambda_\ell)}+
-  \|\dvg\bu_r\|_{L^2(\Lambda_\ell)})\lesssim\textit{h}\,\|f\|_{L^2(\Lambda_\ell)}.
+  h_E\,\| \dv\bu_s \|_{L^2(E)} & \lesssim &
+  {h_3}\,\|\dv\bu_s\|_{L^2(E)}\sim
+  \textit{h}\,\|\dv\bu_s\|_{L^2(E)}\\[7pt]
+  \yesnumber\label{aux_label64}&\leqslant&\textit{h}\,\left\{\|\dv\bu\|_{L^2(E)}+
+  \|\dv\bu_r\|_{L^2(E)}\right\}.
 \end{IEEEeqnarray*}
 \end{enumerate}
 \paragraph{Elements with $d(E,\be) = 0$ \mbox{(cfr.~(\ref{aux_label2}))}.}
@@ -212,15 +210,14 @@ Take $\delta \sim 1-\mu$ in this paragraph again.
     \|{u_{s,3}}\|^2_{L^2(E)}\\
   &=&\sum_{i=1,2}\|r(\bx)^{1-\delta} r(\bx)^{\delta-1} {u_{s,i}}\|^2_{L^2(E)}
     + \|r\,r^{-1} {u_{s,3}}\|^2_{L^2(E)}\\
-  &\leqslant& \max r(\bx)^{2(1-\delta)}\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(\Lambda_\ell)}
-  + \max_{\bx\in E} r(\bx)^{2}\|{u_{s,3}}\|^2_{V_0^{1,2}(\Lambda_\ell)}\\
-  &\lesssim& h_1^{2(1-\delta)}\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(\Lambda_\ell)}
-  + h_1\|{u_{s,3}}\|^2_{V_0^{1,2}(\Lambda_\ell)}\\
-  &\sim&  (\textit{h}^{\nicefrac{2}{\mu}})^\mu\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(\Lambda_\ell)}
-  + (\textit{h}^{\nicefrac{1}{\mu}})^2\|{u_{s,3}}\|^2_{V_0^{1,2}(\Lambda_\ell)}\\
-  (\mbox{$\mu \leqslant 1$})&\leqslant& C\,\left\{\textit{h}^2\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(\Lambda_\ell)}
-    + \textit{h}^2\|{u_{s,3}}\|^2_{V_0^{1,2}(\Lambda_\ell)}\right\} \\
-  &\leqslant& C\,\textit{h}^2\,\|f\|^2_{L^2(\Lambda_\ell)}.
+  &\leqslant& 
+  \max r(\bx)^{2(1-\delta)}\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(E)}
+  + \max_{\bx\in E} r(\bx)^{2}\|{u_{s,3}}\|^2_{V_0^{1,2}(E)}\\
+  &\lesssim& h_1^{2(1-\delta)}\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(E)}
+  + h_1\|{u_{s,3}}\|^2_{V_0^{1,2}(E)}\\
+  &\sim&  (\textit{h}^{\nicefrac{2}{\mu}})^\mu\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(E)}
+  + (\textit{h}^{\nicefrac{1}{\mu}})^2\|{u_{s,3}}\|^2_{V_0^{1,2}(E)}\\
+  (\mbox{$\mu \leqslant 1$})&\leqslant& C\,\textit{h}^2\|\bu_{s}\|^2_{\pazocal{V}_\delta^{1,2}(E)}.
 \end{IEEEeqnarray*}
 \item \label{aux_label61} {Bound for $\| \br_E \bu_s \|_{L^2(E)^3}$.} % (fold)
 First, if $\phi$ is a scalar polynomial defined on a physical element $E$, then
@@ -239,7 +236,7 @@ edge $\be_\ell$, there is a matrix $M_E$ of the form
 for which an affine transform $F_E$ with matrix $M_E$ maps $\tilde{E}$ onto $E$.
 The infinity
 norm of $\left(\begin{array}{cc}a_{11}&a_{12}\\a_{21}&a_{22}\end{array}\right)$
-is bounded by a quantity $c_E$ depending only on the maximun angle of the projection
+is bounded by a quantity $c_E$ depending only on the maximum angle of the projection
 of $E$ onto the $(\xi_1,\xi_2)$ plane and the infinity norm of its inverse
 is bounded by one.
 So changing variables and pulling
@@ -377,25 +374,25 @@ by~(\ref{matrix_A}) and the considerations made there, the last is bounded by
   C\,(\,\|{u}_{s,3}\|_{L^1({E})} +
     \sum h_j\|\partial_{\xi_j}{u}_{s,3}\|_{L^1({E})}).
 \end{IEEEeqnarray*}
-
 Now
 \begin{IEEEeqnarray*}{rCl}
   \|u_{s,3}\|_{L^1(E)} &\leqslant& \|r\|_{L^2(E)} \,\|r^{-1}\,u_{s,3}\|_{L^2(E)}\\
-              &\leqslant&C\,h_1\,|E|^{\frac{1}{2}}\,\|u_{s,3}\|_{V_0^{1,2}(\Lambda_\ell)}\\
-              &\leqslant&C\,\textit{h}\,|E|^{\frac{1}{2}}\,\|u_{s,3}\|_{V_0^{1,2}(\Lambda_\ell)}. 
+              &\leqslant&C\,h_1\,|E|^{\frac{1}{2}}\,\|u_{s,3}\|_{V_0^{1,2}(E)}\\
+              &\leqslant&C\,\textit{h}\,|E|^{\frac{1}{2}}\,\|u_{s,3}\|_{V_0^{1,2}(E)}. 
 \end{IEEEeqnarray*}
-We have also {\color{red} (al final no va $(h_1 + h_2)$)}
+We have also                                   %% TODO {\color{red} (al final no va $(h_1 + h_2)$)}
 \begin{IEEEeqnarray*}{rCl}
   (h_1 + h_2)\sum_{i=1,2} \|\partial_{{x}_i}{u}_{s,3}\|_{L^1({E})} &\leqslant&
-  C\,|E|^{\nicefrac12}\,\textit{h}\,\|u_{s,3}\|_{V_0^{1,2}(\Lambda_\ell)}
+  C\,|E|^{\nicefrac12}\,\textit{h}\,\|u_{s,3}\|_{V_0^{1,2}(E)}
 \end{IEEEeqnarray*}
 and~(\ref{alongSingular})
 \begin{IEEEeqnarray*}{rCl}
-  h_3\,\|\partial_{\xi_3}u_{s,3}\|_{L^1(E)} &\leqslant& C\,|E|^{\nicefrac12}\,\textit{h}\,\|f\|_{L^2{(\Lambda_\ell)}}.
+  h_3\,\|\partial_{\xi_3}u_{s,3}\|_{L^1(E)} &\leqslant& C\,|E|^{\nicefrac12}\,
+  \textit{h}\,\|u_{s,3}\|_{V_{0}^{1,2}(E)}.
 \end{IEEEeqnarray*}
-At last, having the bound for each of the three components, by~(\ref{normaL2L1}), {\color{BrickRed}(redactar mejor)}
+At last, having the bound for each of the three components, by~(\ref{normaL2L1}),    %% TODO {\color{BrickRed}(redactar mejor)}
 \begin{IEEEeqnarray*}{rCl}
-  \|\br \bu_s\|_{L^{2}(E)} &\leqslant& C\,\textit{h}\,\|f\|_{L^2(\Lambda_\ell)}.
+  \|\br \bu_s\|_{L^{2}(E)} &\leqslant& C\,\textit{h}\,\|\bu_s\|_{\pazocal{V}_{\delta}(E)}.
 \end{IEEEeqnarray*}
 \end{enumerate}
 % paragraph elements_with_d0 (end)
@@ -572,12 +569,7 @@ For the derivative with respect to $\xi_3$,
   &\leqslant&
   3\textit{h}^2\|u_{s,3}\|^2_{\scriptscriptstyle V^{1,2}_{\beta,0}}.
 \end{IEEEeqnarray*}
-Now, the divergence term
-\begin{IEEEeqnarray*}{rCl}
-  h_E\|\dvg\bu_s\|&\leqslant&
-  h_E\|\dvg\bu_s+\dvg\bu_r\|+h_E\|\dvg\bu_r\|\\[7pt]
-  &\lesssim&h_E\|f\|\sim \textit{h}\|f\|.
-\end{IEEEeqnarray*}
+The divergence term goes like in~(\ref{aux_label64}).
 \end{enumerate}
 Terms such that $d(E,\be)=0$. We have just prisms and one isotropic tetrahedron
 to be considered separately as $T$ for the interpolation term after 
@@ -633,10 +625,7 @@ Using this we get
     + \|R^{-\nu}\theta^{-1}u_{s,3}\|
   \right)\\[7pt]
   &\lesssim&\textit{h}
-  \left(
-    \sum_{i=1}^2 \|u_{s,i}\|_{\beta,\delta}
-    + \|u_{s,3}\|_{\beta,0}
-  \right) \lesssim \textit{h}\,\|f\|_{L^2(\Lambda_\ell)}\mbox{,}
+    \|\bu_{s}\|_{\pazocal{V}_{\beta,\delta}(E)}
 \end{IEEEeqnarray*}
 provided we take $\beta\sim 1-\nu$ and $\delta\sim 1-\mu$.
 \item For the first term in~\ref{distancia_cero_arista},
@@ -686,7 +675,7 @@ and by~(\ref{cota_pesos}) and~(\ref{label_grading}) we have                     
 \begin{IEEEeqnarray*}{rCl} 
 \|\bu_{s}\|_{L^1(T_\ell)^3} &\leqslant&(\textit{h}^{1/\mu})^\mu|T_\ell|^{\nicefrac12}
 \|\bu_s\|_{V_{\beta,\delta}^{1,2}(T_\ell)^2\times V_{\beta,0}^{1,2}(T_\ell)}\\
-&\leqslant&\textit{h} |T_\ell|^{\nicefrac12}\|f\|_{L^2(\Lambda_\ell)}.
+&=&\textit{h}\,|T_\ell|^{\nicefrac12}\|\bu_s\|_{\pazocal{V}_{\beta,\delta}(T_\ell)}.
 \end{IEEEeqnarray*}
   \item[(2b)]
 Take $1\leqslant j,i \leqslant 3$ %%% TODO (HACER APARTE PARA $i=3$; creo que es un poco diferente, como pas\'o antes):
@@ -724,13 +713,14 @@ and then
 \label{cuentita_integral}
     &\leqslant& \textit{h}\,\sqrt{|T_\ell|}\,\|u_{s,i}\|_{\scriptscriptstyle V^{1,2}_{\beta,\delta}(T_\ell)}.
 \end{IEEEeqnarray}
-\item[(2c)] The divergence term in~(\ref{aux_label60}):
+\item[(2c)]\label{aux_label65} The divergence term in~(\ref{aux_label60}):
 \begin{IEEEeqnarray*}{rClCr}
   (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)} & \leqslant &
     (2\textit{h}^{1/\mu} + \textit{h}^{1/\nu}) \|\dvg \bu_s\|_{L^1(T_\ell)} \\[7pt]
-    & \leqslant & 3 \textit{h}\,\sqrt{|T_\ell|}\,\|\dvg \bu_s\|_{L^2(T_\ell)} \\[7pt]
-    & \leqslant & 3 \textit{h}\,\sqrt{|T_\ell|}\,\left(\|f\|_{L^2(\Lambda_\ell)} + \|\dvg \bu_r\|_{L^2(T_\ell)}\right) \\[7pt]
-    & \lesssim  & \textit{h}\,\sqrt{|T_\ell|}\,\|f\|_{L^2(\Lambda_\ell)}. \\[7pt]
+    & \leqslant & 3\,\textit{h}\,\sqrt{|T_\ell|}\,\|\dvg \bu_s\|_{L^2(T_\ell)} \\[7pt]
+    \yesnumber\label{aux_label66}
+    & \leqslant & 3\,\textit{h}\,\sqrt{|T_\ell|}\,\left\{\|\dv\bu\|_{L^2(T_\ell)}
+     + \|\dv\bu_r\|_{L^2(T_\ell)}\right\}.
 \end{IEEEeqnarray*}
 \end{enumerate}
 \item
@@ -793,26 +783,21 @@ For the divergence term,
 \begin{IEEEeqnarray*}{rCl}
   h_P\|\dv(u_{s,1},u_{s,1},0)\|_{L1}&\leqslant&h_P\|\dv\bu_s\|_{L1}
     +h_P\|\partial_{\xi_3}u_{s,3}\|_{L1}\\[7pt]
-    &\lesssim&h_P\|\dv\bu_s\|_{L1} + h_3\|\partial_{\xi_3}u_{s,3}\|_{L1},
+    &\lesssim&h_P\|\dv\bu_s\|_{L1} + h_3\|\partial_{\xi_3}u_{s,3}\|_{L1}\mbox{;}
 \end{IEEEeqnarray*}
-and, as was done for these two terms before, we have
+the estimate for $h_P\|\dv\bu_s\|_{L1}$ follows as in~(\ref{aux_label66}), 
+and the estimate for $h_3\|\partial_{\xi_3}u_{s,3}\|_{L1}$ should be
 \begin{IEEEeqnarray*}{rCl}
-  h_P\|\dv(u_{s,1},u_{s,1},0)\|_{L1}&\lesssim&\textit{h} |P|^{\nicefrac12}\|f\|_{L2(\Lambda_\ell)} +
+  h_3\|\partial_{\xi_3}u_{s,3}\|_{L1} & \lesssim &
   \textit{h} |P|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L2} \\
-  &\lesssim&\textit{h} |P|^{\nicefrac12}\|f\|_{L2(\Lambda_\ell)} +
-  \textit{h} |P|^{\nicefrac12}\|u_{s,3}\|_{V_{\beta,0}}. \\
-  &\lesssim&\textit{h} |P|^{\nicefrac12}\|f\|_{L2(\Lambda_\ell)}. 
+  &\lesssim& \textit{h} |P|^{\nicefrac12}\|u_{s,3}\|_{V_{\beta,0}}.
 \end{IEEEeqnarray*}
 \end{enumerate}
 Collecting all the estimates in items $2$ and $3$ above, using~(\ref{normaL2L1})
 we bound the first and second term in~(\ref{distancia_cero_arista}), 
 belonging to the case with zero distance
-to the edge, in the $L^2$ norm
-\noindent{\color{Orange}\#\#\#\#\#\#\# en los lugarcitos en donde
-llegu\'e hasta $\|f\|_{\Lambda_\ell}$ deber\'ia decir $\Omega$ as\'que hay que para antes con la norma local de la
-div, as\'i puedo sumar sobre elementos en macroel.}
+to the edge, in the $L^2$ norm.
 
 \subsection{bound singular part tetrahedral macroelement with
 singular vertex and no singular edge.}
 \noindent{\color{Orange}\#\#\#\#\#\#\# ponemos este?}
-*****************************************************
