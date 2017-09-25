@@ -1,20 +1,36 @@
 \chapter{Introduction}
-\section{Introducci\'on {\color{Orange}\#\#\#\#\#\#\#\# intro pending.}} % (fold)
+\section{Motivation of the Problems and Previous Results} % (fold)
 Input of using prisms combined with tetrahedra, with gaps filled with pyramids.
+We say that a tetrahedron $T$ satisfies the ``regular vertex property'' with a
+constant $c > 0$ (written RVP($c$)) if $T$ has a vertex $\bx_T$ such that,
+if $M_T$ is the matrix made up of the unitary vectors in the directions
+of the edges sharing $\bx_T$ as columns, then $|\det M_T| > c$.
+
+If we mesh using only tetrahedra we will incur in using sequences of tetrahedra
+wich do not fullfil uniformly the RVP($c$) for any positive constant $c$.
+
+{\color{Orange}\#\#\#\#\#\#\#\# seguir aca.}
+
+
 In other words, deficiency in using $\pazocal{F}_2$ class tetrahedra: we don't
 have $\textit{h}$ order with the asymptotic relation 
 $\textit{h}\sim N_{\Th}^{-\nicefrac13}$ preserved because we use strongly
 that
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu-\br_{k,T}\bu\|_{0,T}& \leqslant & \sum_i h_i \|\partial_{\xi_i}\bu\|_{0,T}
-  	+ h_T\|\dv \bu\|_{0,T}
+  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)}& \leqslant & \sum_{1\leqslant i\leqslant 3} h_i \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)}
+  	+ h_T\|\dv \bu\|_{\sss L^2(T)}
 \end{IEEEeqnarray*}
 for the family $\pazocal{F}_1$ while, for the family $\pazocal{F}_2$, the sharp
 estimation is
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu-\br_{k,T}\bu\|_{0,T}& \leqslant & h_T \sum_i \|\partial_{\xi_i}\bu\|_{0,T}.
+  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)}& \leqslant & h_T \sum_{1\leqslant i\leqslant 3}
+  \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)}.
 \end{IEEEeqnarray*}
 In the latter case, a big derivative in the direction $\xi_i$ will not be 
 compensated with a small $h_i$, so we necessarily have to make the diameter
 $h_T$ small and refine the meshes in all the directions.
+
+
+
+{\color{Orange}\#\#\#\#\#\#\#\# intro vems and Motivation}
 % section intro (end)

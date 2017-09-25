@@ -2,6 +2,22 @@
 We will adopt the convention that functions and variables 
 will have a hat ($\,\hat{}\,$) to be consistent with the notation
 of a physical element transformed to $\hat E$.
+
+As we are going to deal with vectorial Finite Elements and
+vectorial Virtual Elements, we are going to need to use the following notational convention.
+\begin{defi} If\hspace{7pt}$V$ denotes a functional space of vectorial
+fields in $\mathbb{R}^n$, whether finite dimensional
+or not, $(V)_i$ denotes the space of scalar functions in $i-$th
+coordinate projection
+of $V$, for $1\leqslant i\leqslant n$.
+\end{defi}
+In particular we will use the notation.
+\begin{notation}
+  \begin{itemize}
+    \item $P_{k,l} 		= P_{k}(x,y) 	 \otimes P_{l}(z)$,
+    \item $Q_{k,l,m} 	= P_k(\hat{x}_1) \otimes P_l(\hat{x}_2)\otimes P_m(\hat{x}_3)$.
+  \end{itemize}
+\end{notation}
 %=============================================================
 %\noindent---------------------------------------------------------
 %\input{./chap_vems/hdiv_basis_low_order}\\

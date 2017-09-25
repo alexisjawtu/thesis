@@ -1,6 +1,6 @@
 \section{Preliminaries} % (fold)
 \label{sec:preliminaries}
-\subsection{Definitions, notations} % (fold)
+\subsection{Definitions and Notations} % (fold)
 \label{sub:definitions_notations}
 \begin{defi}
 A Finite Element in $\mathbb{R}^n$ is defined by the following triple $(E, P_E, \Sigma) $:
@@ -9,7 +9,8 @@ A Finite Element in $\mathbb{R}^n$ is defined by the following triple $(E, P_E, 
 $E$ is an open non empty domain of $\mathbb{R}^n$ with Lipschitz--continuous 
 boundary.
   \item
-$P_E$ is a finite--dimensional space of real--valued functions defined over $E$.
+$P_E$ is a finite--dimensional space of real--valued scalar or vectorial 
+functions defined over $E$.
   \item
 $\Sigma$ is a finite set of linearly independent linear functionals acting 
 on a functional space containing $P_E$. The elements of $\Sigma$ are often
@@ -17,23 +18,14 @@ referred to as  \emph{degrees of freedom} or \emph{moments} of the Finite
 Element.
 \end{enumerate}
 \end{defi}
-\noindent As we are going to deal with vectorial Finite Elements and
-Virtual Elements, we are going to need to use the following notational convention.
-{\color{Orange}\#\#\#\#\#\#\#\# ver si esta convencion realmente se usa.}
-\begin{defi} If\hspace{7pt}$V$ denotes a functional space of vectorial
-fields in $\mathbb{R}^n$, whether finite dimensional
-or not, $(V)_i$ denotes the space of scalar functions in $i-$th
-coordinate projection
-of $V$, for $1\leqslant i\leqslant n$.
-\end{defi}
 \begin{defi} 
-Given  a Finite Elements $E$ set
+Given  a Finite Element $E$ set
 \begin{IEEEeqnarray*}{rCl}
   h_E & = & \mbox{ diameter of the element } E.\\
   \rho_E & = & \mbox{ supremum of the diameters of the spheres inscribed in } E.
 \end{IEEEeqnarray*}
 Consider a family of meshes $\{\mathcal{T}_n\}_{n\in\mathbb{N}}$ such that 
-{\color{Orange}\#\#\#\#\#\#\#\# la norma de la malla .}
+$\max_{E\in\mathcal{T}_{n}} h_E$
 tends to zero as $n$ tends to infinity.
 \begin{itemize}
 	\item [i)] The family of meshes is isotropic if 
@@ -56,17 +48,17 @@ two kinds amongst others.
 For that reason we state some handy notations here.
 \begin{defi}
 \begin{IEEEeqnarray*}{rCl}
-          P_k & = & \{\,\mbox{polynomials of degree less than or equal to k}\,\}\\[5pt]
-  \tilde{P}_k & = & \{\,\mbox{homogeneous polynomials of degree k}\,\}\\[5pt]
+          P_k & = & \{\,\mbox{polynomials of degree less than or equal to k}\,\}.\\[5pt]
+  \tilde{P}_k & = & \{\,\mbox{homogeneous polynomials of degree k}\,\}.\\[5pt]
 \end{IEEEeqnarray*}
 In the case of a line segment $\be$ or a subdomain $f$ of a plane (typically
 an edge or a face of a polyhedron) we will write interchangeably
 \begin{IEEEeqnarray*}{rCcCl}
-	P_k (\be) & = & P_k(\xi) & = & \{\,\mbox{polynomials of maximum degree k in arc length on e}\,\}\\[5pt]
-	P_k (f) & = & P_k(\xi_1,\xi_2) & = & \{\,\mbox{polynomials of maximum degree k in $\xi_1$,$\xi_2$ on f}\,\}
+	P_k (\be) & = & P_k(\xi) & = & \{\,\mbox{polynomials of maximum degree k in arc length on $\be$}\,\}\mbox{,}\\[5pt]
+	P_k (f) & = & P_k(\xi_1,\xi_2) & = & \{\,\mbox{polynomials of maximum degree k in ${\xi_1}$, ${\xi_2}$ on f}\,\}\mbox{,}
 \end{IEEEeqnarray*}
 where we have used an orthogonal coordinate system $(\xi_1,\xi_2)$ in the plane
-containing $f$.\\[5pt]
+containing $f$ and the variable $\xi$ along the edge $\be$.
 Moreover, we will make the identifications
 \begin{IEEEeqnarray*}{rClCrCl}
 	P_k(\be)  & = & \{p|_{\be}\,:\,p\in P_k\} &\quad\mbox{ and }\quad&P_k(f)
@@ -76,7 +68,7 @@ Moreover, we will make the identifications
 \noindent The tensor product of polynomials. % (fold)
 \begin{defi} \label{tensor_product} Given two polynomials 
 \begin{IEEEeqnarray*}{rClcrCl}
-	p(x)&=&\sum a_ix^i&\quad\mbox{ and }\quad&q(y)&=&\sum b_jy^j
+	p(x)&=&\sum_i a_ix^i&\quad\mbox{ and }\quad&q(y)&=&\sum_j b_jy^j
 \end{IEEEeqnarray*}
 the tensor product of $p$ and $q$ is the following
 polynomial of \emph{separate variables}
@@ -88,52 +80,41 @@ If $\mathbb{Q}_1$ and $\mathbb{Q}_2$ are two polynomial spaces
 	\mathbb{Q}_1\otimes \mathbb{Q}_2 & = &\{p\otimes q\,|\,p\in\mathbb{Q}_1, q\in\mathbb{Q}_2\}.
 \end{IEEEeqnarray}
 \end{defi}
-{\color{Orange} mandar al cap de FEs
-\noindent In particular we will use the notation.
-\begin{notation}
-  \begin{itemize}
-    \item $P_{k,l} = P_{k}(x,y) \otimes P_{l}(z)$
-    \item $Q_{k,l,m} = P_k(\hat{x}_1)\otimes P_l(\hat{x}_2)\otimes P_m(\hat{x}_3)$.
-  \end{itemize}
-\end{notation}}
-\begin{remark}\label{tensor_prod_dim} an observation that we will use several times is that,
-from the definition, $\dim \mathcal{P}\otimes \mathcal{Q} = \dim \mathcal{P} \dim \mathcal{Q}$.
+\begin{remark}\label{tensor_prod_dim} An observation that we will use several times is that,
+from the definition, $\dim \pazocal{P}\otimes \pazocal{Q} = \dim \pazocal{P} \dim \pazocal{Q}$.
 \end{remark}
 % subsubsection tensor_product (end)
 % subsection polynomials (end)
-\subsection{Functional Spaces. Trace Spaces.} % (fold)
+\subsection{Functional Spaces and Trace Spaces} % (fold)
 \label{sub:functional_spaces_trace_spaces}
-Let $\bx$, $\by$, \dots denote points in $\mathbb{R}^n$
+Let $\bx$, $\by$, \dots\, denote points in $\mathbb{R}^n$
 and let $d\bx$, $d\by$, \dots denote Lebesgue measure. If $\Omega$
 is a measurable set, $1\leqslant p\leqslant\infty$ and $f$ is a 
 real or complex valued measurable function, we say $f\in L^p(\Omega)$
 if
 \begin{IEEEeqnarray*}{rCcCl}
-    \|f\|_{L^p(\Omega)}\,=\,|f|_{0,\Omega}& := &(\int_\Omega |f(\bx)|^p\,d\bx)^{\nicefrac1p} 
+    \|f\|_{L^p(\Omega)}\,=\,\|f\|_{0,p,\Omega}& := &\left\{\int_\Omega |f(\bx)|^p\,d\bx\right\}^{\nicefrac1p} 
     & < & \infty
 \end{IEEEeqnarray*}
 with the usual modification when $p=\infty$.
 
 Let $\mathbb{Z}_{\geqslant 0}$ denote the set of nonnegative integers. A
-\emph{multi--index} $\alpha$ is an $n$--tuple of nonnegative integers:
-$\alpha = (\alpha_1,\ldots,\alpha_n)$, $\alpha_i\in\mathbb{Z}_{\geqslant 0}$,
-$i=1,\ldots,n$. With multi--indices we will establish the following
+\emph{multi--index} $\balpha$ is an $n$--tuple of nonnegative integers:
+$\balpha = (\alpha_1,\ldots,\alpha_n)$, $\alpha_i\in\mathbb{Z}_{\geqslant 0}$,
+${\s1\leqslant i\leqslant n}$. With multi--indices we will establish the following
 notations:
 \begin{IEEEeqnarray*}{rCl}
-    |\alpha|&=&\sum_i\alpha_i\mbox{,}\\[5pt]
-    \alpha&\leqslant&|\beta|\mbox{ iff } \alpha_i\leqslant\beta_i\mbox{,\,}
-    i=1,\ldots,n\mbox{,}\\[5pt]
-    \alpha+\beta&=&(\alpha_1+\beta_1,\ldots,\alpha_n+\beta_n)\mbox{,}\\[5pt]
-    \alpha-\beta&=&(\max\{\alpha_1-\beta_1,0\},\ldots,\max\{\alpha_n-\beta_n,0\})\mbox{,}\\[5pt]
-    \alpha!&=&\Pi_{i=1}^n \alpha_i!\mbox{,}\\[5pt]
-    \bx^\alpha&=&\Pi_{i=1}^n x_i^{\alpha_i}\mbox{\,and}\\[5pt]
-    (\frac{\partial}{\partial\bx})^\alpha&=&\frac{\partial^{|\alpha|}}{\partial x_1^{\alpha_1}
-    \ldots\partial x_n^{\alpha_n}}\\[5pt]
-    &=&\Pi_{i=1}^n (\frac{\partial}{\partial x_i})^{\alpha_i}.
-\end{IEEEeqnarray*}
-Given a function $f$
-\begin{IEEEeqnarray*}{rCcCl}
-    \partial^{\alpha}f&=&f^{(\alpha)}&=&(\frac{\partial}{\partial\bx})^{\alpha}f.
+    |\balpha|&=&\sum_i\alpha_i\mbox{,}\\[5pt]
+    \balpha&\leqslant&\boldsymbol{\beta}\mbox{\quad iff\quad} \alpha_i\leqslant\beta_i
+    \mbox{,\quad}
+    {\s 1\leqslant i\leqslant n}\mbox{,}\\[5pt]
+    \balpha+\boldsymbol{\beta}&=&(\alpha_1+\beta_1,\ldots,\alpha_n+\beta_n)\mbox{,}\\[5pt]
+    \balpha-\boldsymbol{\beta}&=&(\max\{\alpha_1-\beta_1,0\},\ldots,\max\{\alpha_n-\beta_n,0\})\mbox{,}\\[5pt]
+    \balpha!&=&\Pi_{i=1}^n \alpha_i!\mbox{,}\\[5pt]
+    \bx^{\balpha}&=&\Pi_{i=1}^n x_i^{\alpha_i}\mbox{\quad and}\\[5pt]
+    {\s\partial}^{\balpha}\,=\,\left(\frac{{\s\partial}}{{\s\partial}\bx}\right)^{\balpha}&=&\frac{{\s\partial}^{|\balpha|}}{{\s\partial} x_1^{\alpha_1}
+    \ldots{\s\partial} x_n^{\alpha_n}}\\[5pt]
+    &=&\Pi_{i=1}^n \left(\frac{{\s\partial}}{{\s\partial} x_i}\right)^{\alpha_i}.
 \end{IEEEeqnarray*}
 If $|\alpha| = 0$, $\partial^{\alpha}f=f$.\\
 
@@ -142,11 +123,11 @@ the space of infinitely differentiable functions in $\Omega$.
 For $f\in\mathcal{C}^\infty(\Omega)$
 Let $\mathcal{D}(\Omega)$ denote the vectorial subspace of $\mathcal{C}^\infty(\Omega)$
 functions that have compact support in $\Omega$, called the \emph{space of test functions}
-with the usual topology~(\cite{rudin}, page 136) 
+with the usual topology (cfr.~\cite{rudin}, page 136) 
 for which we say a sequence $\phi_n\to 0$ in the topology of $\mathcal{D}(\Omega)$
 if and only if there is a compact $K\subseteq\Omega$ which contains the support
 of every $\phi_n$, and $\partial^{\alpha}\phi_n\to 0$ uniformly on $K$, as $n\to\infty$,
-for every multi--index $\alpha$. The dual $\mathcal{D}'(\Omega)$ of $\mathcal{D}(\Omega)$
+for every multi--index $\balpha$. The dual $\mathcal{D}'(\Omega)$ of $\mathcal{D}(\Omega)$
 is called the space of \emph{distributions} on $\Omega$. If $\phi\in\mathcal{D}'(\Omega)$
 and $\alpha$ is a multi--index, $\partial^{\alpha}\phi$ is called a distributional
 or weak derivative of $\phi$, where $\partial^{\alpha}\phi$ is defined by
@@ -160,16 +141,17 @@ and $\phi(f) = \int_\Omega \psi f\,d\bx$. In this case we shall let
 $\phi$ denote the identified function, $\psi$, as well. 
 
 If $m\in\mathbb{Z}_{\geqslant 0}$ and if for each multi--index $\alpha$
-with $|\alpha|\leqslant m$, $\partial^{\alpha}\phi$ si  given by a function such that
+with $|\alpha|\leqslant m$, $\partial^{\alpha}\phi$ is  given by a function such that
 \begin{IEEEeqnarray*}{rCcccCl}
   \|\phi\|_{W^{m,p}(\Omega)} & = & 
-  \|\phi\|_{m,p,\Omega} & := & \sum_{|\alpha|\leqslant m}\|\partial^\alpha\phi\|_{L^{p}(\Omega)} 
+  \|\phi\|_{m,p,\Omega} & := & 
+  \left\{\sum_{|\alpha|\leqslant m}\|{\s\partial}^\alpha\phi\|^p_{L^{p}(\Omega)}\right\}^{\nicefrac1p} 
   & < & \infty\mbox{,}
 \end{IEEEeqnarray*}
-then $\phi\in W^{m,p}(\Omega)$. For $\phi\in W^{m,p}(\Omega)$ let
+then we will say $\phi\in W^{m,p}(\Omega)$. For $\phi\in W^{m,p}(\Omega)$ let
 \begin{IEEEeqnarray*}{rCcCl}
   |\phi|_{W^{m,p}(\Omega)} & = & |\phi|_{m,p,\Omega} 
-    & := & \sum_{|\alpha|=m}\|\partial\phi\|_{L^{p}(\Omega)}.
+    & := & \left\{\sum_{|\alpha|=m}\|\partial\phi\|_{L^{p}(\Omega)}\right\}^{\nicefrac1p}.
 \end{IEEEeqnarray*}
 In the previous notation we will skip the number $2$ for the special case $p=2$ and 
 write $\|\phi\|_{W^{m,2}(\Omega)}=\|\phi\|_{m,\Omega}$,
@@ -180,30 +162,31 @@ In the definitions of the following two functional spaces, the differential
 operators must be understood in the distributional sense.
 \begin{defi} As in page 26 of~\cite{giraultRaviart} we make the present definition.
   \begin{IEEEeqnarray*}{rCl}
-    H(div, \Omega) & := & \{\bu\in L^2(\Omega)^3\,:\,\dv \bu \in L^2(\Omega)\} \\[5pt]
-    \|\bu\|_{H(div, \Omega)} & := & \left(\|\bu\|^2_{L^2(\Omega)^3}+
-      \|\dv \bu\|^2_{L^2(\Omega)}\right)^{\nicefrac12}
+    H(\Div, \Omega) & := & \{\bu\in L^2(\Omega)^3\,:\,\dv \bu \in L^2(\Omega)\}\mbox{,}\\[5pt]
+    \|\bu\|_{H(\Div, \Omega)} & := & \left(\|\bu\|^2_{L^2(\Omega)^3}+
+      \|\dv \bu\|^2_{L^2(\Omega)}\right)^{\nicefrac12}.
   \end{IEEEeqnarray*}
 \end{defi}
 \begin{defi} As in page 32 of~\cite{giraultRaviart} we make the present definition.
   \begin{IEEEeqnarray*}{rCl}
-    H(\bcurl,\Omega) & := & \{\bu\in L^2(\Omega)^3\,:\,\curl \bu \in L^2(\Omega)^3\} \\[5pt]
+    H(\bcurl,\Omega) & := & \{\bu\in L^2(\Omega)^3\,:\,\curl \bu \in L^2(\Omega)^3\}\mbox{,} \\[5pt]
     \|\bu\|_{H(\bcurl,\Omega)} & := & \left(\|\bu\|^2_{L^2(\Omega)^3}+
       \|\curl\bu\|^2_{L^2(\Omega)^3}\right)^{\nicefrac12}.
   \end{IEEEeqnarray*}
 \end{defi}
 \begin{defi} As in page 4 of~\cite{ariel} we make the present definition.
 \begin{IEEEeqnarray*}{rCl}
-  W^p(\curl, E) & = & \{\bu\in W^{1,p}(E)^3\,:\,
-  \curl\bu\in W^{1,1}(E)^3\}\\
-  \label{normaWpcurl}\yesnumber \|\bu\|_{_{W^p(\curl, E)}} & = & 
-  \|\bu\|_{_{W^{1,p}(E)}} +
-  \| \curl\bu \|_{_{W^{1,1}(E)}}. 
+  W^p(\bcurl, \Omega) & = & \{\bu\in W^{1,p}(\Omega)^3\,:\,
+  \curl\bu\in W^{1,1}(\Omega)^3\}\mbox{,}\\
+  \label{normaWpcurl}\yesnumber \|\bu\|_{_{W^p(\bcurl, \Omega)}} & = & 
+  \|\bu\|_{_{W^{1,p}(\Omega)}} +
+  \| \curl\bu \|_{_{W^{1,1}(\Omega)}}. 
 \end{IEEEeqnarray*}
 \end{defi}
 The concept of a component that is normal to the boundary can be extended
-to $H(div,\Omega)$  by continuity using density. This is what we call \textsl{the
-normal trace}. For a function $\bv\in\mathcal{C}^\infty(\overline{\Omega})^3$
+to $H(\Div,\Omega)$  by continuity using density. This is what we call \textsl{the
+normal trace}. Let $\bnu$ be, in the following, the unit outward normal
+to $\partial\Omega$. For a function $\bv\in\mathcal{C}^\infty(\overline{\Omega})^3$
 the normal trace $\gamma_{\boldsymbol{\nu}}$ is defined simply by
 \begin{IEEEeqnarray}{rCl}\label{normal_trace}
   \gamma_{\boldsymbol{\nu}}(\bv) & := & \bv|_{\partial\Omega}\cdot\boldsymbol{\nu}.
@@ -218,9 +201,18 @@ With regard to trace properties in $H(\bcurl)$, we must verify that
 functions in this space have a well--defined tangential trace (cfr.
 page 34 of~\cite{giraultRaviart} and page 59 of~\cite{monk}). The next Definition
 and proof of the Theorem after it can be found in~\cite{chenDuZou} and gives the
-form that the surface degrees of freedom in $H(\bcurl)$ will take.
-{\color{Orange}\#\#\#\#\#\#\#\# poner que es $\gamma_t$ y $\gamma_T$ y que es el
-< , > par de dualidad.}
+form that the surface degrees of freedom in $H(\bcurl)$--Conforming
+Elements will take.
+
+For a smooth vector function $\bv\in\pazocal{C}^\infty(\overline{\Omega})^3$ we define
+the two traces
+\begin{IEEEeqnarray}{rCl}
+\label{aux_label80}\gamma_t(\bv)&=&\bnu\times\bv|_{\partial\Omega}\\
+\gamma_T(\bv)&=&(\bnu\times\bv|_{\partial\Omega})\times\bnu
+\end{IEEEeqnarray}
+Theorem $3.29$ in~\cite{monk} states that~(\ref{aux_label80}) can be extended
+by continuity to a continuous linear map from $H(\bcurl,\Omega)$ into 
+$(H^{\nicefrac12}(\partial\Omega)')^3$
 \begin{defi}
   \begin{IEEEeqnarray}{rCl}
   \nonumber
@@ -235,15 +227,18 @@ form that the surface degrees of freedom in $H(\bcurl)$ will take.
     \|\bu\|_{H(\bcurl,\Omega)}.
   \end{IEEEeqnarray*}
 \end{defi}
-\begin{theorem} The trace mapping $\gamma_t\,:\,H(\bcurl,\Omega)\rightarrow
-Y(\partial\Omega)$ is an epimorphism. The map 
+So we can consider the epimorphism $\gamma_t\,:\,H(\bcurl,\Omega)\rightarrow
+Y(\partial\Omega)$ with which we have the following Theorem (cfr. Theorem 3.31
+in~\cite{monk}).
+\begin{theorem} The map 
 $\gamma_T\,:\,H(\bcurl,\Omega)\rightarrow
 Y(\partial\Omega)'$ is well--defined. For any $\bv$, $\bphi$ in $H(\bcurl,\Omega)$
 \begin{IEEEeqnarray}{rCl}\label{aux_label5}
    \int_\Omega \curl\bv\cdot\bphi\,d\bx 
     - \int_\Omega \bv\cdot\curl\bphi\,d\bx & = & 
-    \langle\gamma_t(\bv), \gamma_T(\bphi)\rangle_{\partial\Omega}.
- \end{IEEEeqnarray}     
+    \langle\gamma_t(\bv), \gamma_T(\bphi)\rangle_{\partial\Omega}
+ \end{IEEEeqnarray}
+($\langle\cdot,\cdot\rangle$ denotes a duality pairing).
 \end{theorem}
 %%=============================================================================
 % {\color{blue}\#\#\#\#\#\#\#\# es el de pag. 51 Adams?.}

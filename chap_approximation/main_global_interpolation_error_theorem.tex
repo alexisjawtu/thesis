@@ -1,4 +1,4 @@
-\section{main global interpolation error theorem}
+\section{Main Global Interpolation Error Theorem}
 Now, to estimate the error, we start with inequality~(\ref{aux_label47}) of
 Theorem~\ref{aux_label48} and work with each term in the right--hand side
 in the non--convex case.
@@ -59,6 +59,9 @@ lo pongo una sola vez.}
 %   &=&\textit{h}^2\,\|f\|^2_{0,\Omega}.|
 % \end{IEEEeqnarray*}
 %%======================================================================================= 
+\subsection{Bound for the Regular Part} % (fold)
+\label{sub:bound_for_the_regular_part}
+
 In any macro--element, in order to bound the regular part,
 
 Given an element $E$, let $\boldsymbol{h}=(h_{1},h_{2},h_{3})'=(h_{E,1},h_{E,2},h_{E,3})'$.
@@ -93,8 +96,12 @@ Then, finally
   C\,\textit{h}\,|\bu_r|_{1,\Omega}\\
   \mbox{by~(\ref{aux_label11})}&\leqslant&C\,\textit{h}\,\|f\|_{0,\Omega}.
 \end{IEEEeqnarray*}
-Now the bound for the error of the interpolation of the singular part,
-which will be performed in each type of macro--element.
+% subsection bound_for_the_regular_part (end)
+\subsection{Bound for the Singular Part in a Prismatic Macro--Element with
+a singular Edge} % (fold)
+\label{sub:bound_singular_part_prismatic_macroelement}
+The bound for the error of the interpolation of the singular part will be 
+performed in each type of macro--element.
 
 Now it is the time to make a remark of crucial importance. If we take the
 solution $(\bu, p)$ of Problem~\ref{mixedContinuous},
@@ -121,8 +128,6 @@ $L^1(\Lambda_\ell)$ norm. On the other hand,
 which implies $\partial^\alpha{\bv}\in L^1(\Lambda_\ell)$ for all
 $\bv\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$.
 \end{proof}
-\subsection{prismatic macro--element, bound singular part} % (fold)
-\label{sub:bound_singular_part_prismatic_macroelement}
 Let $\Lambda_\ell$ be a prismatic element of $\mathcal{T}_{\textit{h}_0}$.
 Let $\be$ be the singular edge of $\Lambda_\ell$ and let 
 $\bxi = (\xi_1,\xi_2,\xi_3)$ be it's local coordinates satisfying the hypotheses
@@ -397,8 +402,8 @@ At last, having the bound for each of the three components, by~(\ref{normaL2L1})
 \end{enumerate}
 % paragraph elements_with_d0 (end)
 % subsection bound_singular_part_prismatic_macroelement (end)
-\subsection{bound singular part tetrahedral macroelement
-with vertex and edge singularities} % (fold)
+\subsection{Bound for the Singular Part in a Tetrahedral Macro--Element
+with Singular Edge and Vertex} % (fold)
 Again we organize separating cases in terms of distance to the singular edge 
 and then, for this type of macro--element, the terms with $d(E,\be) = 0$
 will be separated in terms of distance to the singular vertex.
@@ -798,6 +803,6 @@ we bound the first and second term in~(\ref{distancia_cero_arista}),
 belonging to the case with zero distance
 to the edge, in the $L^2$ norm.
 
-\subsection{bound singular part tetrahedral macroelement with
-singular vertex and no singular edge.}
+\subsection{Bound for the Singular Part in a Tetrahedral Macro--Element
+with Singular Vertex and no Singular Edge}
 \noindent{\color{Orange}\#\#\#\#\#\#\# ponemos este?}
