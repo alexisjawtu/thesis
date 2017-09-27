@@ -104,24 +104,24 @@ $\balpha = (\alpha_1,\ldots,\alpha_n)$, $\alpha_i\in\mathbb{Z}_{\geqslant 0}$,
 ${\s1\leqslant i\leqslant n}$. With multi--indices we will establish the following
 notations:
 \begin{IEEEeqnarray*}{rCl}
-    |\balpha|&=&\sum_i\alpha_i\mbox{,}\\[5pt]
-    \balpha&\leqslant&\boldsymbol{\beta}\mbox{\quad iff\quad} \alpha_i\leqslant\beta_i
-    \mbox{,\quad}
-    {\s 1\leqslant i\leqslant n}\mbox{,}\\[5pt]
-    \balpha+\boldsymbol{\beta}&=&(\alpha_1+\beta_1,\ldots,\alpha_n+\beta_n)\mbox{,}\\[5pt]
-    \balpha-\boldsymbol{\beta}&=&(\max\{\alpha_1-\beta_1,0\},\ldots,\max\{\alpha_n-\beta_n,0\})\mbox{,}\\[5pt]
-    \balpha!&=&\Pi_{i=1}^n \alpha_i!\mbox{,}\\[5pt]
-    \bx^{\balpha}&=&\Pi_{i=1}^n x_i^{\alpha_i}\mbox{\quad and}\\[5pt]
-    {\s\partial}^{\balpha}\,=\,\left(\frac{{\s\partial}}{{\s\partial}\bx}\right)^{\balpha}&=&\frac{{\s\partial}^{|\balpha|}}{{\s\partial} x_1^{\alpha_1}
-    \ldots{\s\partial} x_n^{\alpha_n}}\\[5pt]
-    &=&\Pi_{i=1}^n \left(\frac{{\s\partial}}{{\s\partial} x_i}\right)^{\alpha_i}.
+  |\balpha|&=&\sum_i\alpha_i\mbox{,}\\[5pt]
+  \balpha&\leqslant&\boldsymbol{\beta}\mbox{\quad iff\quad} \alpha_i\leqslant\beta_i
+  \mbox{,\quad}
+  {\s 1\leqslant i\leqslant n}\mbox{,}\\[5pt]
+  \balpha+\boldsymbol{\beta}&=&(\alpha_1+\beta_1,\ldots,\alpha_n+\beta_n)\mbox{,}\\[5pt]
+  \balpha-\boldsymbol{\beta}&=&(\max\{\alpha_1-\beta_1,0\},\ldots,\max\{\alpha_n-\beta_n,0\})\mbox{,}\\[5pt]
+  \balpha!&=&\Pi_{i=1}^n \alpha_i!\mbox{,}\\[5pt]
+  \bx^{\balpha}&=&\Pi_{i=1}^n x_i^{\alpha_i}\mbox{\quad and}\\[5pt]
+  {\s\partial}^{\balpha}\,=\,\left(\frac{{\s\partial}}{{\s\partial}\bx}\right)^{\balpha}&=&\frac{{\s\partial}^{|\balpha|}}{{\s\partial} x_1^{\alpha_1}
+  \ldots{\s\partial} x_n^{\alpha_n}}\\[5pt]
+  &=&\Pi_{i=1}^n \left(\frac{{\s\partial}}{{\s\partial} x_i}\right)^{\alpha_i}.
 \end{IEEEeqnarray*}
 If $|\alpha| = 0$, $\partial^{\alpha}f=f$.\\
 
-Let $\Omega$ be an open set with Lipschitz boundary, let $\mathcal{C}^\infty(\Omega)$ denote
+Let $\Omega$ be an open set with Lipschitz boundary, let $\pazocal{C}^\infty(\Omega)$ denote
 the space of infinitely differentiable functions in $\Omega$.
-For $f\in\mathcal{C}^\infty(\Omega)$
-Let $\mathcal{D}(\Omega)$ denote the vectorial subspace of $\mathcal{C}^\infty(\Omega)$
+For $f\in\pazocal{C}^\infty(\Omega)$
+Let $\mathcal{D}(\Omega)$ denote the vectorial subspace of $\pazocal{C}^\infty(\Omega)$
 functions that have compact support in $\Omega$, called the \emph{space of test functions}
 with the usual topology (cfr.~\cite{rudin}, page 136) 
 for which we say a sequence $\phi_n\to 0$ in the topology of $\mathcal{D}(\Omega)$
@@ -186,13 +186,13 @@ operators must be understood in the distributional sense.
 The concept of a component that is normal to the boundary can be extended
 to $H(\Div,\Omega)$  by continuity using density. This is what we call \textsl{the
 normal trace}. Let $\bnu$ be, in the following, the unit outward normal
-to $\partial\Omega$. For a function $\bv\in\mathcal{C}^\infty(\overline{\Omega})^3$
+to $\partial\Omega$. For a function $\bv\in\pazocal{C}^\infty(\overline{\Omega})^3$
 the normal trace $\gamma_{\boldsymbol{\nu}}$ is defined simply by
 \begin{IEEEeqnarray}{rCl}\label{normal_trace}
   \gamma_{\boldsymbol{\nu}}(\bv) & := & \bv|_{\partial\Omega}\cdot\boldsymbol{\nu}.
 \end{IEEEeqnarray}
 The proof of next Theorem can be found in~\cite{monk}, page $53$ and uses merely
-the density of $\mathcal{C}^\infty(\overline{\Omega})^3$ in $H(\dv,\Omega)$.
+the density of $\pazocal{C}^\infty(\overline{\Omega})^3$ in $H(\dv,\Omega)$.
 \begin{theorem} The operator $\gamma_{\boldsymbol{\nu}}$ defined in~(\ref{normal_trace})
 can be extended by continuity to a continuous linear map $\gamma_{\boldsymbol{\nu}}$ from
 $H(\dv,\Omega)$ onto $(H^{\nicefrac12}(\partial\Omega))'.$
@@ -252,17 +252,16 @@ Y(\partial\Omega)'$ is well--defined. For any $\bv$, $\bphi$ in $H(\bcurl,\Omega
   $U_x$ and a nonzero vector $y_x$ such that $x\in U_x$ and if 
   $z\in\overline{\Omega}\cap U_x$, then $z+ty_x \in \Omega$ for $0<t<1$.
 \end{defi}
-  A domain having this property must have $(n-1)$--dimensional boundary
-  and cannot simultaneously lie on both sides of any given part of its
-  boundary.
-
-  Since the polyhedra we will consider to build finite elements are
+A domain having this property must have $(n-1)$--dimensional boundary
+and cannot simultaneously lie on both sides of any given part of its
+boundary.  Since the polyhedra we will consider to build finite elements are
   convex and obviously satisfy the segment property,
   with techniques that can be learned from Chapter $3$
-  in the book~\cite{adams} we can prove the following Proposition.
+  in the book~\cite{adams} we can prove the following Proposition for our 
+  elements.
 \begin{proposition}\label{density_wpcurl}
-  The space $\mathcal{C}^\infty(\bar{E})^3$ is dense in
-  $W^p(\curl,{E})$ with its norm defined in~(\ref{normaWpcurl}).
+  The space $\pazocal{C}^\infty(\bar{E})^3$ is dense in
+  $W^p(\bcurl,{E})$ with its norm defined in~(\ref{normaWpcurl}).
 \end{proposition}
 
 With elementary applications of integration by parts for distributional
@@ -270,8 +269,8 @@ derivatives we get the following two Lemata.
 \begin{lemma} Let two disjoint Lipschitz domains $\Omega_1$ and $\Omega_2$
 be given  in $\mathbb{R}^n$, such that $\overline{\Omega_1}\cap\overline{\Omega_2}$ is an
 $(n-1)$--dimensional surface $f$ of positive measure. Take
-$\Omega = \Omega_1\cup \Omega_2\cup f$. Let $\bu_1 \in H(\text{div},\Omega_1)$ 
-and $\bu_2 \in H(\text{div},\Omega_2)$. Consider 
+$\Omega = \Omega_1\cup \Omega_2\cup f$. Let $\bu_1 \in H(\Div,\Omega_1)$ 
+and $\bu_2 \in H(\Div,\Omega_2)$. Consider 
 \begin{IEEEeqnarray*}{rCl}
   \bu & = &
     \begin{cases}
@@ -279,7 +278,7 @@ and $\bu_2 \in H(\text{div},\Omega_2)$. Consider
       \bu_2, &\text{ on }\Omega_2     
     \end{cases}.
 \end{IEEEeqnarray*}
-Then $\bu$ is in $H(\text{div},\Omega)$ if and only if
+Then $\bu$ is in $H(\Div,\Omega)$ if and only if
 the normal traces of $\boldsymbol{u}_1$ and $\boldsymbol{u}_2$ coincide on $f$.
 \end{lemma}
 \begin{lemma} Let two disjoint Lipschitz domains $\Omega_1$ and $\Omega_2$
@@ -295,7 +294,8 @@ and $\bu_2 \in H(\bcurl,\Omega_2)$. Consider
 	  \end{cases}.
 \end{IEEEeqnarray*}
 Then $\bu$ is in $H(\bcurl,\Omega)$ if and only if
-the tangential traces of $\bu_1$ and $\bu_2$ coincide on $f$.
+the tangential traces $\gamma_T(\cdot)$
+of $\bu_1$ and $\bu_2$, as defined in~(\ref{aux_label5}), coincide on $f$.
 \end{lemma}
 %=================
 %\begin{proof}
@@ -317,7 +317,7 @@ with vertices at $(0,0,0)'$,
 $(1,0,0)'$, $(0,1,0)'$, $(1,1,0)'$ and $(0,0,1)'$ (cfr. Figure~\ref{refpyr}).
 \end{defi}
 \begin{defi}\label{def_of_ref_elems}
-The reference Tetrahedron is (cfr. Figure~\ref{reftetr})
+The reference tetrahedron is (cfr. Figure~\ref{reftetr})
 $\{\bx\in\mathbb{R}^3\,:\,x_1 > 0, x_2 > 0, x_3 > 0, x_1+x_2+x_3 < 1\}$.
 \end{defi}
 
@@ -328,6 +328,7 @@ $\{\bx\in\mathbb{R}^3\,:\,x_1 > 0, x_2 > 0, x_3 > 0, x_1+x_2+x_3 < 1\}$.
     \label{refpyr}
     \referencePyramidTikz{1.5}
   }
+  \hspace{1cm}
   \subfloat[Prism]
   {
     \label{reference_prism}
@@ -335,15 +336,14 @@ $\{\bx\in\mathbb{R}^3\,:\,x_1 > 0, x_2 > 0, x_3 > 0, x_1+x_2+x_3 < 1\}$.
   }\\
   \subfloat[Tetrahedron]
   {
-		\label{reftetr}
-		\referenceTetrahedronTikz{2}
-	}
+    \label{reftetr}
+    \referenceTetrahedronTikz{1.5}
+  }
+  \hspace{1cm}
   \subfloat[Triangle]
   {
     \label{reference_triangle}
-    \referenceTriangleTikz
+    \referenceTriangleTikz{1.3}
   }
 	\caption{Reference Elements}
 \end{figure}
-
-

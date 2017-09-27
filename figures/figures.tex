@@ -17,9 +17,9 @@
 \end{figure}
 }
 
-\def\referenceTriangleTikz
+\newcommand{\referenceTriangleTikz}[1]
 {
-\begin{tikzpicture}[scale=2]
+\begin{tikzpicture}[scale={#1}]
   \draw (0,0,0) -- (1.2,0,0);
 	\draw (0,0,0) -- (0,1.2,0); 
   \draw (1,0,0) -- (0,1,0);
@@ -31,15 +31,15 @@
 \newcommand{\referencePrismTikz}[1]
 {
 \begin{tikzpicture}[scale={#1}]
-  \draw (0, 0, 0) -- (0, 0, 2); 
-  \draw (0, 0, 0) -- (2, 0, 0);
-  \draw (0, 0, 0) -- (0, 2, 0);
-	\draw (0, 0, 2) -- (2, 0, 0);
-	\draw (0, 2, 2) -- (2, 2, 0);
-	\draw (2, 0, 0) -- (2, 2, 0);
-	\draw (0, 0, 2) -- (0, 2, 2);
-	\draw (0, 2, 2) -- (0,2,0);
-	\draw (0, 2, 0) -- (2,2,0);
+  \draw (0, 0, 0) -- (0, 0, 1); 
+  \draw (0, 0, 0) -- (1, 0, 0);
+  \draw (0, 0, 0) -- (0, 1, 0);
+	\draw (0, 0, 1) -- (1, 0, 0);
+	\draw (0, 1, 1) -- (1, 1, 0);
+	\draw (1, 0, 0) -- (1, 1, 0);
+	\draw (0, 0, 1) -- (0, 1, 1);
+	\draw (0, 1, 1) -- (0,1,0);
+	\draw (0, 1, 0) -- (1,1,0);
 \end{tikzpicture}
 }
 
@@ -77,11 +77,12 @@
 \def\macroRegularity{  
 \begin{figure}
   \centering
-  \caption{Macroelements.}
-  \subfloat[Prismatic Macro\-ele\-ment.]
+  \subfloat[Prismatic Macroelement.]
   {
     \label{macro_prism_reg}
     \begin{tikzpicture}[scale=1.5]
+      \draw[white] (0,0,0) -- (-.7,0,0);
+      \draw[white] (1,0,0) -- (1.4,0,0);
       \fill[black] (0,0,0) circle (1pt);
       \draw (0,0,0) -- node[midway] {\tiny{\color{black}$\xi_1$}} (0,1,0);
       \draw (0,0,0) -- node[midway] {\tiny{\color{black}$\xi_2$}} (1,0,0);
@@ -109,6 +110,7 @@
       \fill[red] (0,0,1) circle (1pt);
     \end{tikzpicture}
   }  
+  \caption{Macroelements.}
 \end{figure}
 }
 

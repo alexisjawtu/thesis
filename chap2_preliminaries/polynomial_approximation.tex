@@ -2,10 +2,11 @@
 \label{sec:polynomial_approximation}
 
 \begin{defi}
-  Given $f\in\mathcal{C}^{k}(\Omega)$ the $k$--th degree
+  Given $f\in\pazocal{C}^{k}(\Omega)$ the $k$--th degree
   Taylor polynomial of $f$ centered at ${\by}\in\Omega$, $T_{\by}^kf$, is defined by
   \begin{IEEEeqnarray}{rCl}\label{taylor}
-      (T_{\by}^kf)({\bx})&=&\sum_{|\alpha|\leqslant k} \frac{f^{(\alpha)}({\by})}{\alpha!}(\bx-{\by})^{\alpha}.
+      (T_{\by}^kf)({\bx})&=&\sum_{|{\balpha}|\leqslant k} 
+      \frac{f^{({\balpha})}({\by})}{{\balpha}!}(\bx-{\by})^{{\balpha}}.
   \end{IEEEeqnarray}
 \end{defi}
 
@@ -34,10 +35,10 @@ componentwise as
 \end{IEEEeqnarray*}
 \end{defi}
 \begin{lemma}\label{avg_taylor_commutes}
-Let $\beta$ be a multi--index such that  $|\beta| \leqslant m$,
+Let ${\bbeta}$ be a multi--index such that  $|{\bbeta}| \leqslant m$,
 then 
 \begin{IEEEeqnarray}{rCl}
-  \partial^\beta \Qb_{m,B} f & = & \Qb_{m-|\beta|,B} \partial^\beta f.
+  \partial^{\bbeta} \Qb_{m,B} f & = & \Qb_{m-|{\bbeta}|,B} \partial^{\bbeta} f.
 \end{IEEEeqnarray}
 \end{lemma}
 \begin{lemma} \label{aux_label40}
@@ -46,78 +47,87 @@ then
   set $B\subseteq\Omega$ of positive measure. Given $p\geqslant 1$
   and an integer
   $k\geqslant 0$ and $f\in W^{k+1,p}(\Omega)$ there exists a 
-  positive $C=C(k,n)$ such that, for $|\beta|\geqslant k+1$,
+  positive $C=C(k,n)$ such that, for $|{\bbeta}|\geqslant k+1$,
   \begin{IEEEeqnarray*}{rCl}
-      \|\partial^{\beta}(f-\Qb_{k,B}f)\|_{L^p(\Omega)}
+      \|\partial^{{\bbeta}}(f-\Qb_{k,B}f)\|_{L^p(\Omega)}
         &\leqslant&C\frac{|\Omega|^{\nicefrac1p}}{|B|^{\nicefrac1p}}
-          d^{k-|\beta|+1}|f|_{k+1,p,\Omega}.
+          d^{k-|{\bbeta}|+1}|f|_{k+1,p,\Omega}.
   \end{IEEEeqnarray*}
   In particular, if $\Omega$ is convex,
   \begin{IEEEeqnarray*}{rCl}
-    \|\partial^{\beta}(f-\Qb_{k,\Omega}f)\|_{L^p(\Omega)}
-        &\leqslant&Cd^{k-|\beta|+1}|f|_{k+1,p,\Omega}.
+    \|\partial^{{\bbeta}}(f-\Qb_{k,\Omega}f)\|_{L^p(\Omega)}
+        &\leqslant&Cd^{k-|{\bbeta}|+1}|f|_{k+1,p,\Omega}.
   \end{IEEEeqnarray*}
 \end{lemma} 
 \begin{proof} In view of Lemma~\ref{avg_taylor_commutes} we may only prove
-the estimate for the case $|\beta| = 0$ and, for $|\beta|>0$, apply it to
-$\partial^{\beta}f-\Qb_{k-|\beta|,B}\partial^{\beta}f$.
+the estimate for the case $|{\bbeta}| = 0$ and, for $|{\bbeta}|>0$, apply it to
+$\partial^{{\bbeta}}f-\Qb_{k-|{\bbeta}|,B}\partial^{{\bbeta}}f$.
 
-Consider $|\beta| = 0$ and take $q$ as the H\"older conjugate of $p\geqslant 1$.
-By density we may assume $f\in \mathcal{C}^\infty(\Omega)$.
+Consider $|{\bbeta}| = 0$ and take $q$ as the H\"older conjugate of $p\geqslant 1$.
+By density we may assume $f\in \pazocal{C}^\infty(\Omega)$.
 Firt use Taylor's Theorem
 \begin{IEEEeqnarray*}{rCl}
-  f(\bx)-(T_{\by}^kf)(\bx) & = & {k+1}
-    \sum_{|\alpha|=k+1} \frac{(\bx-\by)^\alpha}{\alpha!}
-    \int_0^1 \partial^\alpha f(t\by+(1-t)\bx)\,t^k\,dt
+  f(\bx)-(T_{\by}^kf)(\bx) & = & {(k+1)}
+    \sum_{|{\balpha}|=k+1} \frac{(\bx-\by)^{\balpha}}{{\balpha}!}
+    \int_0^1 \partial^{\balpha} f(t\by+(1-t)\bx)\,t^k\,dt
 \end{IEEEeqnarray*}
 which implies
 \begin{IEEEeqnarray*}{rCl}
   f(\bx)-\Qb_{k,B}f(\bx) & = & \frac{k+1}{B}
-    \sum_{|\alpha|=k+1} \int_B\int_0^1 \frac{(\bx-\by)^\alpha}{\alpha!}
-      \partial^\alpha f(t\by+(1-t)\bx)\,t^k\,dtd\by.
+    \sum_{|{\balpha}|=k+1} \int_B\int_0^1 \frac{(\bx-\by)^{\balpha}}{{\balpha}!}
+      \partial^{\balpha} f(t\by+(1-t)\bx)\,t^k\,dt\,d\by.
 \end{IEEEeqnarray*}
 By H\"older's inequality twice (once in a finite dimensional version) we have
 \begin{IEEEeqnarray*}{rCl}
-  \int_{\Omega}|f(\bx)-\Qb_{k,B}f(\bx)|^p\,d\bx&\leqslant& C\frac{d^{p(k+1)}}{|B|^p}
-    \sum_{|\alpha|=k+1}\int_{\Omega}
-      (\int_B\int_0^1|\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by)
-      (\frac{|B|}{qk+1})^{\nicefrac{p}{q}}
-    \\[5pt]
-&=& \frac{C}{(qk+1)^{\nicefrac{p}{q}}}\frac{d^{p(k+1)}}{|B|}
-    \sum_{|\alpha|=k+1} \int_{\Omega}\int_B\int_0^1
-      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx.
+  \IEEEeqnarraymulticol{3}{l}{\int_{\Omega}|f(\bx)-\Qb_{k,B}f(\bx)|^p\,d\bx\,\leqslant\,} \\
+  \IEEEeqnarraymulticol{3}{r}{
+\begin{IEEEeqnarraybox}{rCl}
+  &\leqslant&
+    C\dfrac{d^{\,p(k+1)}}{|B|^p}
+      \sum_{|{\balpha}|=k+1}\int_{\Omega}
+        \left(\int_B\int_0^1|\partial^{\balpha} f(t\by+(1-t)\bx)|^p\,dt\,d\by\right)
+        \left(\frac{|B|}{qk+1}\right)^{\nicefrac{p}{q}}
+        \\[5pt]
+  &=&\frac{C}{(qk+1)^{\nicefrac{p}{q}}}\frac{d^{\,p(k+1)}}{|B|}
+    \sum_{|{\balpha}|=k+1} \int_{\Omega}\int_B\int_0^1
+      |\partial^{\balpha} f(t\by+(1-t)\bx)|^p\,dt\,d\by d\bx.
+\end{IEEEeqnarraybox}}
 \end{IEEEeqnarray*}
-For any multi--index $\alpha$ we split
+For any multi--index ${\balpha}$ we split
 \begin{IEEEeqnarray}{rCl}
+\IEEEeqnarraymulticol{3}{l}{\nonumber
+\int_{\Omega}\int_B\int_0^1
+  |\partial^{\balpha} f(t\by+(1-t)\bx)|^p\,dt\,d\by d\bx\, = \,}\\[5pt]
+\IEEEeqnarraymulticol{3}{r}{
+\begin{IEEEeqnarraybox}{rCl}
+\hspace{2.7cm}& = & \int_{\Omega}\int_B\int_0^{\nicefrac12}
+      |\partial^{\balpha} f(t\by+(1-t)\bx)|^p\,dt\,d\by d\bx\\[5pt]
 \label{first_auxiliary}
-  \int_{\Omega}\int_B\int_0^1
-      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx
-   & = & 
- \int_{\Omega}\int_B\int_0^{\nicefrac12}
-      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx\\
-\label{second_auxiliary}
    &  &\, +  
 \int_{\Omega}\int_B\int_{\nicefrac12}^1
-      |\partial^\alpha f(t\by+(1-t)\bx)|^p\,dtd\by d\bx.
+      |\partial^{\balpha} f(t\by+(1-t)\bx)|^p\,dt\,d\by d\bx.\hspace{.3cm}
+\end{IEEEeqnarraybox}} 
 \end{IEEEeqnarray}
-Let $\phi_\alpha$ be the extension by zero of $\partial^\alpha f$ to $\mathbb{R}^n$.
-By Fubini's Theorem and change of variables,
+Let $\phi_{\balpha}$ be the extension by zero of $\partial^{\balpha} f$ to $\mathbb{R}^n$.
+By Fubini's Theorem and change of variables, the first term in~(\ref{first_auxiliary})
+is less than or equal to
 \begin{IEEEeqnarray*}{rCl}
-  (\ref{first_auxiliary}) &\leqslant& \int_{B}\int_0^{\nicefrac12}\int_{\mathbb{R}^n}
-      |\phi_\alpha(\bz)|^p(1-t)^{-n}\,d\bz dt d\by\\
-      &\leqslant& 2^{n-1} |B|\|\partial^\alpha f\|^p_{p,\Omega}.
+  \int_{B}\int_0^{\nicefrac12}\int_{\mathbb{R}^n}
+      |\phi_{\balpha}(\bz)|^p(1-t)^{-n}\,d\bz\,dt\, d\by
+      &\leqslant& 2^{n-1} |B|\|\partial^{\balpha} f\|^p_{p,\Omega}.
 \end{IEEEeqnarray*}
+The second term in~(\ref{first_auxiliary}) is less than or equal to
 \begin{IEEEeqnarray*}{rCl}
-  (\ref{second_auxiliary}) &\leqslant& \int_{\Omega}\int_{\nicefrac12}^1\int_{\mathbb{R}^n}
-      |\phi_\alpha(t\by)|^p\,d\by dt d\bx\\
+  \int_{\Omega}\int_{\nicefrac12}^1\int_{\mathbb{R}^n}
+      |\phi_{\balpha}(t\by)|^p\,d\by\,dt\, d\bx
   &=& \int_{\Omega}\int_{\nicefrac12}^1\int_{\mathbb{R}^n}
-      |\phi_\alpha(\bz)|^pt^{-n}\,d\bz dt d\bx\\
-      &\leqslant& 2^{n-1} |\Omega|\|\partial^\alpha f\|^p_{p,\Omega}.
+      |\phi_{\balpha}(\bz)|^pt^{-n}\,d\bz\,dt\, d\bx\\
+      &\leqslant& 2^{n-1} |\Omega|\|\partial^{\balpha} f\|^p_{p,\Omega}.
 \end{IEEEeqnarray*}
-Summing theese up for any $\alpha$ of order $k+1$ we obtain
+Summing theese up for any ${\balpha}$ of order $k+1$ we obtain
 \begin{IEEEeqnarray*}{rCl}
   \|f-\Qb_{k,B}f\|_p^p & \leqslant & 
-  \frac{C}{(qk+1)^{\nicefrac{p}{q}}}d^{p(k+1)}\frac{|\Omega|}{|B|} |f|^p_{p,k+1,\Omega}.
+  \frac{C}{(qk+1)^{\nicefrac{p}{q}}}d^{\,p(k+1)}\frac{|\Omega|}{|B|} |f|^p_{p,k+1,\Omega}.
 \end{IEEEeqnarray*}
 \end{proof}
 For the following paragraphs we refer to the exposition in
@@ -140,8 +150,8 @@ and that there exists $\sigma$ with
 then there is a positive $C$ depending only on $m$,$\sigma$ and $\Omega$ such
 that, for all $g\in W^{m+1,p}(\Omega)$
 \begin{IEEEeqnarray}{rCl} \label{aux_label19}
-  \|\partial^{\beta}(g-\Qb_m g)\|_{L^{\bar{p}}(\Omega)} & \leqslant & C|g|_{W^{m+1,p}(\Omega)}
+  \|\partial^{{\bbeta}}(g-\Qb_m g)\|_{L^{\bar{p}}(\Omega)} & \leqslant & C|g|_{W^{m+1,p}(\Omega)}
 \end{IEEEeqnarray}
-whenever $0 \geqslant |\beta| \geqslant m+1$.
+whenever $0 \geqslant |{\bbeta}| \geqslant m+1$.
 \end{theorem}
 % section polynomial_approximation (end)

@@ -7,31 +7,31 @@ the following problem.
 \begin{problem}\label{mixedContinuous}
 Suppose we have a simply connected Lipschitz polyhedron
 $\Omega\subseteq\mathbb{R}^3$ which is not convex. Given $f\in L^2(\Omega)$
-we look for a $\bu\in H(\dv,\Omega)$ such that 
+we look for a $\bu\in H(\Div,\Omega)$ such that 
 \begin{IEEEeqnarray*}{rCl}
   \boldsymbol{u}              & = & \nabla p \\
   -\text{div\,}\boldsymbol{u} & = & f \\
    p|_{\partial\Omega}
   & = & 0.
 \end{IEEEeqnarray*}
-\mbox{\color{Orange}la cond de borde VA?\quad COMO LO PONGO? \quad (ver apunte de FEM2012 talvez)}
+\mbox{\color{Orange}la cond de borde VA?}
 \end{problem}
 \begin{problem}[Weak formulation.]\label{weakMixedContinuous}
 Suppose we have a simply connected Lipschitz polyhedron
 $\Omega\subseteq\mathbb{R}^3$ which is not convex. Given $f\in L^2(\Omega)$,
-find       $(\bu, p)  \in  H(\dv, \Omega) \times L^2(\Omega)$ 
-    such that for all   $(\bv, q)  \in  H(\dv, \Omega) \times L^2(\Omega)$
+find       $(\bu, p)  \in  H(\Div, \Omega) \times L^2(\Omega)$ 
+    such that for all   $(\bv, q)  \in  H(\Div, \Omega) \times L^2(\Omega)$
   \begin{IEEEeqnarray*}{rCl}
     \int_{\Omega} \bu\cdot\bv\,d\bx + 
     \int_{\Omega} p\,\dv\bv\,d\bx                     & = & 0\\
-     -\int_{\Omega} q\dv\bu\,d\bx     & = & 
-    \int_{\Omega} f\,q\,d\bx.    
+     -\int_{\Omega} q\,\dv\bu\,d\bx     & = & 
+    \int_{\Omega} fq\,d\bx.    
   \end{IEEEeqnarray*}
 \end{problem}
 Due to the polyhedron not being convex there will be ingoing
 vertices and edges whose interior angles are obtuse. In the following
 we are going to recall how to formalize the singularities in a polyhedron
-and how to classify the regularity of the solution of problem~(\ref{mixedContinuous}).\\
+and how to classify the regularity of the solution of Problem~\ref{mixedContinuous}.\\
 
 Recall the description in page 522 of~\cite{apelNicaise} for the following 
 definition. 
@@ -52,14 +52,14 @@ the faces sharing  $\be$.
 We say that
   \begin{enumerate}
     \item $\be$ is singular if $\lambda_{\be} < 1.$ 
-    \item $\bv$ is singular if $\lambda_{\bv} < \dfrac12$
+    \item $\bv$ is singular if $\lambda_{\bv} < \dfrac12$.
   \end{enumerate}
 \end{defi}
-The motivation of calling \textsl{singular} an edge or a vertex is that
+The reason why we call \textsl{singular} an edge or a vertex is that
 the solutions of elliptic problems in non--convex domains have singularities
 at those vertices or approaching those edges.
 
-To talk about the regularity of a solution in a \emph{non--convex} domain
+To talk about the regularity of a solution in these \emph{non--convex} domains
 we will make use of the following weighted Sobolev spaces.
 \begin{defi} Suppose $\Omega$ is a non--convex polihedron where $\Lambda \subseteq \Omega$ is
 a subdomain such that 
@@ -74,14 +74,14 @@ the \textsl{angular distance} $\theta(\bx)=\frac{r(\bx)}{R(\bx)}$. With these we
 given two 
 positive parameters $\beta$ and $\delta$ we define the norm
 \begin{IEEEeqnarray}{rCl}\label{weighted_norm}
-  \|v\|^{1,2}_{\beta,\delta} & := & \left\{\sum_{|\alpha|\leqslant 1}
-  \|R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}\,\partial^\alpha v\|_{L^2(\Lambda)}^2\right\}^{1/2}.
+  \|v\|^{1,2}_{\beta,\delta} & := & \left\{\sum_{|\balpha|\leqslant 1}
+  \|R^{\beta-1+|\balpha|}\theta^{\delta-1+|\balpha|}\,{D}^{\balpha} v\|_{L^2(\Lambda)}^2\right\}^{1/2}.
 \end{IEEEeqnarray}
 %\left\{v\in \mathcal D'(\Lambda):
-%      R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}\partial^\alpha v\in L^2(\Lambda),
-%      \alpha\in \mathbb N_0^3, |\alpha|\leqslant 1
+%      R^{\beta-1+|\balpha|}\theta^{\delta-1+|\balpha|}\partial^{\balpha} v\in L^2(\Lambda),
+%      \balpha\in \mathbb N_0^3, |\balpha|\leqslant 1
 %\right\}
-And the symbol $V_{\beta,\delta}^{1,2}(\Lambda)$ will
+The symbol $V_{\beta,\delta}^{1,2}(\Lambda)$ will
 denote the space
 \begin{IEEEeqnarray}{rCl}\label{weighted_sobolev}
   V_{\beta,\delta}^{1,2}(\Lambda) & = &
@@ -94,8 +94,8 @@ case of just an edge singularity, then we would write
 $V_{\delta, \delta}^{1,2}(\Lambda)  = V_{\delta}^{1,2}(\Lambda)$
 and, consistently, 
 \begin{IEEEeqnarray*}{rCl}
-\|v\|_{\delta}^{1,2} & := & \left\{\sum_{|\alpha|\leqslant 1}
-\|r^{\delta-1+|\alpha|}\partial^\alpha v\|_{L^2(\Lambda)}^2\right\}^{1/2}.
+\|v\|_{\delta}^{1,2} & := & \left\{\sum_{|\balpha|\leqslant 1}
+\|r^{\delta-1+|\balpha|}{D}^{\balpha} v\|_{L^2(\Lambda)}^2\right\}^{1/2}.
 \end{IEEEeqnarray*}
 \end{remark}
 %========
@@ -113,7 +113,7 @@ and tetrahedra.
 We have the following regularity result, for which we refer again
 to~\cite{apelNicaise}.
 \begin{theorem}\label{thm_regularity}
-The solutions $\bu$ and $p$ of problem \eqref{weakMixedContinuous} satisfy
+The solutions $\bu$ and $p$ of Problem~\ref{weakMixedContinuous} satisfy
 \[
   p\in H^1(\Omega)
 \] 
@@ -121,16 +121,15 @@ and for each $\ell$
 \begin{IEEEeqnarray}{rCl} \label{splitting}
   \bu& = &\bu_r + \bu_s
 \end{IEEEeqnarray}
-with $\bu_r\in H^1(\Omega)$ and
+with $\bu_r\in H^1(\Omega)$ and, for any $\beta_{\ell}>\frac12-\lambda_{\bv}^{(\ell)}$,
+$\delta_{\ell}>1-\lambda_{\be}^{(\ell)}$,
 \[
   \bu_s\cdot \xi_i\in V^{1,2}_{\beta_{\ell},\delta_{\ell}}(\Lambda_\ell), \quad i=1,2, \qquad
   \bu_s\cdot\xi_3\in V^{1,2}_{\beta_{\ell},0}(\Lambda_\ell)
 \]
-where $\xi_i$, $i=1,2,3$, are the directions of three edges of $\Lambda_\ell$ 
-concurrent to $\bv$ with $\xi_3$ being the direction of the
-singular edge, and $\beta_{\ell},\delta_{\ell}\geqslant 0$
-satisfying $\beta_{\ell}>\frac12-\lambda_{\bv}^{(\ell)}$ and
-$\delta_{\ell}>1-\lambda_{\be}^{(\ell)}$.
+where $\{{\s\xi_i\,|\,i=1,2,3}\}$ are the directions of three edges of $\Lambda_\ell$ 
+concurrent to $\bv_\ell$ and $\xi_3$ is the direction of the
+singular edge $\be_\ell$.
 Furthermore, the following estimates hold:
 %provided
 %\begin{IEEEeqnarray*}{rCl}
@@ -139,15 +138,15 @@ Furthermore, the following estimates hold:
 %\end{IEEEeqnarray*}
 \begin{IEEEeqnarray}{rCl}
   \label{aux_label11}
-  \| \bu_r \|_{H^1(\Omega)} & \leqslant & c\,\|f\|_{L^2(\Omega)}\\[5pt]
-  \| \bu_s\cdot\xi_i \|_{V_{\beta_{\ell},\delta_{\ell}}^{1,2}(\Lambda_\ell)} & \leqslant & c\,\| f \|_{L^2(\Omega)}\\[5pt]
-  \| \bu_s\cdot\xi_3 \|_{V_{\beta_{\ell},0}^{1,2}(\Lambda_\ell)}      & \leqslant & c\,\| f \|_{L^2(\Omega)}
+  \| \bu_r \|_{H^1(\Omega)} & \leqslant & C\,\|f\|_{L^2(\Omega)}\\[5pt]
+  \| \bu_s\cdot\xi_i \|_{V_{\beta_{\ell},\delta_{\ell}}^{1,2}(\Lambda_\ell)} & \leqslant & C\,\| f \|_{L^2(\Omega)}\\[5pt]
+  \| \bu_s\cdot\xi_3 \|_{V_{\beta_{\ell},0}^{1,2}(\Lambda_\ell)}      & \leqslant & C\,\| f \|_{L^2(\Omega)}.
 \end{IEEEeqnarray}
 \end{theorem}
 \begin{remark}\label{sobreBetaYDelta}
 Note that it is always possible to take $0<\beta_{\ell}=\delta_{\ell}<1$ in the previous Theorem
 and note the dependence of $\beta$ and $\delta$ on the macro--element, which
-we made explicit by putting the subindex $\ell$, meaning the result is ahout
+we made explicit by putting the subindex $\ell$, meaning the result is about
 local regularity.
 \end{remark}
 \begin{defi} For a subdomain $\Lambda$ the vectorial weighted space we are 
