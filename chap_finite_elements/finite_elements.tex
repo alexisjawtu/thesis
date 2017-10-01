@@ -1,22 +1,25 @@
-\chapter{Finite Elements}\label{aux_label43}
-We will adopt the convention that functions and variables 
-will have a hat ($\,\hat{}\,$) to be consistent with the notation
-of a physical element transformed to $\hat E$.
+\chapter{Vectorial Finite Elements}\label{aux_label43}
+We will adopt the convention that objects like functions, variables, normals 
+in the reference
+prism $\hat{E}$ will have a hat as in $\hat{\bu}, \hat{\bx}, \hat{\bn},\ldots$
+and then also the hat will denote a pullback transformation corresponding
+to a mapping from $\hat{E}$ onto  a physical element $E$.
 
 As we are going to deal with vectorial Finite Elements and
 vectorial Virtual Elements, we are going to need to use the following notational convention.
-\begin{defi} If\hspace{7pt}$V$ denotes a functional space of vectorial
+\begin{notation} If\hspace{5pt}$V$ denotes a functional space of vectorial
 fields in $\mathbb{R}^n$, whether finite dimensional
-or not, $(V)_i$ denotes the space of scalar functions in $i-$th
+or not, $(V)_i$ denotes the space of scalar functions in the $i-$th
 coordinate projection
 of $V$, for $1\leqslant i\leqslant n$.
-\end{defi}
-In particular we will use the notation.
+\end{notation}
+For tensor product polynomial spaces involved in the construction
+of $H(\bcurl)$ or $H(\Div)$ elements we will need the following notation.
 \begin{notation}
-  \begin{itemize}
-    \item $P_{k,l} 		= P_{k}(x,y) 	 \otimes P_{l}(z)$,
-    \item $Q_{k,l,m} 	= P_k(\hat{x}_1) \otimes P_l(\hat{x}_2)\otimes P_m(\hat{x}_3)$.
-  \end{itemize}
+  \begin{IEEEeqnarray*}{rCl}
+    P_{k,l} 		&=& P_{k}(\hat x_1,\hat x_2) 	 \otimes P_{l}(\hat x_3)\mbox{,} \\
+    Q_{k,l,m} 	&=& P_k(\hat{x}_1) \otimes P_l(\hat{x}_2)\otimes P_m(\hat{x}_3).
+  \end{IEEEeqnarray*}
 \end{notation}
 %=============================================================
 %\noindent---------------------------------------------------------
