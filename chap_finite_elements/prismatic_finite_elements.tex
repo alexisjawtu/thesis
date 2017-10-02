@@ -16,7 +16,7 @@ triangle $\hat{T}$, given by
 where
 \begin{IEEEeqnarray}{rClCrCl}
     \label{defSk}
-    S_k(\hat{T}) & := & \{ \bp\in \tilde{P}_k^2 \,:\;\bp\cdot\hat\bx =
+    S_k(\hat{T}) & := & \{ \bp\in \widetilde{P}_k^2 \,:\;\bp\cdot\hat\bx =
     0\}\mbox{,}\quad\hat\bx & = & (\hat x_1, \hat x_2)'.
 \end{IEEEeqnarray}
 \end{defi}
@@ -116,7 +116,8 @@ $\hat s_2 = \sum_{i+j=k} b_{i, j}\,\hat x_1^i\hat x_2^j$.
 By definition is 
 \begin{IEEEeqnarray*}{rCl}
     0&=&\hat x_1\hat s_1 + \hat x_2\hat s_2\\[4pt]
-     &=&a_{k,0}\hat x_1^{k+1} + b_{0,k}\hat x_2^{k+1}+\sum_{i+j=k}(a_{i-1,j+1} + b_{i, j})\hat x_1^i\hat x_2^{j+1}
+     &=&a_{k,0}\,\hat x_1^{k+1} + b_{0,k}\,\hat x_2^{k+1}+\sum_{i+j=k}(a_{i-1,j+1} + b_{i, j})\,
+     \hat x_1^i\hat x_2^{j+1}
 \end{IEEEeqnarray*}
 so $a_{k,0} = b_{0,k} = 0$ and for all pair $(i,j)$ with $i+j=k$ and
 $i\geqslant 1$ it holds the relation $a_{i-1, j+1} = -b_{i, j}$.
@@ -127,127 +128,140 @@ Then
     \hat s_2 & = & -\sum_{i+j = k,\,j \geqslant 1} a_{i, j}\,\hat x_1^{i+1}\hat x_2^{j-1}
         & = & -\hat x_1\sum_{i+j = k,\,j \geqslant 1} a_{i, j}\,\hat x_1^{i}\hat x_2^{j-1}.
 \end{IEEEeqnarray*}
-So any $\boldsymbol{p} \in P_{\hat E}$ may be written as
+So any $\hat{\bp} \in P_{\hat E}$ may be written as
 \begin{IEEEeqnarray*}{rCl}
-  \boldsymbol{p} & =   & (p_1, p_2, p_3)'\\
-  \yesnumber\label{elemento_P_k} & =   & (\xi_1 + x_2\,h, \xi_2 - x_1\,h, \xi_3), \\[6pt]
-  \xi_1, \xi_2   & \in & P_{k-1}(x_1,x_2) \otimes P_k(x_3),\\
-         \xi_3   & \in & P_{k}(x_1,x_2) \otimes P_{k-1}(x_3),\\
-             h   & \in & \tilde{P}_{k-1}(x_1,x_2) \otimes P_k(x_3).\\
+  \hat{\bp} & =  & (\hat p_1, \hat p_2, \hat p_3)'\\
+  \yesnumber\label{elemento_P_k} 
+            & =  & (\hat \xi_1 + \hat x_2\,\hat h, \hat\xi_2 - \hat x_1\,\hat h, \hat \xi_3), \\[6pt]
+  \hat\xi_1, \hat\xi_2   & \in & P_{k-1,k}\mbox{,}\\
+             \hat\xi_3   & \in & P_{k,k-1}\mbox{,}\\
+                \hat h   & \in & \widetilde{P}_{k-1}(\hat x_1,\hat x_2) \otimes P_k(\hat x_3).\\
 \end{IEEEeqnarray*}
 \end{remark}
 An illustrative example.
 \begin{example}[edge elements of degree 1]
 \begin{IEEEeqnarray*}{rCl}
-\hat{\textbf{u}}\,\xyz &=& 
+\hat{\bu}\,\xyz &=& 
 \left(
     \begin{array}{c}
-        a_1 + a_3\hat{y} + a_4\hat{z} + a_6\hat{y}\hat{z} \\[8pt]
-        a_2 - a_3\hat{x} + a_5\hat{z} - a_6\hat{x}\hat{z} \\[8pt]
-        a_7 + a_8\hat{x} + a_9\hat{y}
+        a_1 + a_3\hat{x}_2 + a_4\hat{x}_3 + a_6\hat{x}_2\hat{x}_3 \\[8pt]
+        a_2 - a_3\hat{x}_1 + a_5\hat{x}_3 - a_6\hat{x}_1\hat{x}_3 \\[8pt]
+        a_7 + a_8\hat{x}_1 + a_9\hat{x}_2
     \end{array}
 \right)\mbox{,}\\[10pt]
-(\hat{\textbf{u}}\cdot\hat{\boldsymbol{\tau}})|_{\hat{\be}}
-    &\in&\mathbb{P}_0(\hat{\be}).
+(\hat{\bu}\cdot\hat{\btau})|_{\hat{\be}}
+    &\in& {P}_0(\hat{\be}).
 \end{IEEEeqnarray*}
 \end{example}
-\begin{defi} the interpolator is well defined and bounded... ver
-como dice monk o pensar y poner espacios.
-
-Given $p>2$
-$\boldsymbol{w}_{\hat{E}}\,:\,W^{1,p}(\hat{E})\to P_{\hat E}$
-  \begin{IEEEeqnarray}{lClc}
-    \label{aux_label45}\varphi_{\hat\be,\hat p}\,(\hat{\bu} - \wku) & = & 0 
-      &\quad\mbox{for $\hat\be$ and $\hat p$ as in ~(\ref{momentos1hcurl}).}  \\
-    \varphi_{f,\bq}\,(\hat{\bu} - \wku) & = & 0 &\quad\mbox{for $f$ and $\bq$ as in}  \\
-    \varphi_{\boldsymbol{r}}\,(\hat{\bu} - \wku) & = & 0 &\quad\mbox{for $\br$ as in  }.
-  \end{IEEEeqnarray}
-\end{defi}
-Because of the presence of degrees of freedom~(\ref{aux_label45})
-no se puede definir
-el interpolador para un campo arbitrario
-en $H(\bcurl, \hat E)$, así que por eso to\-ma\-mos co\-mo hi\-pó\-te\-sis
-que sea $p>2$ (ver~\cite{monk}, página 134,
-~\cite{adams}, Theorem 5.4).
-\begin{remark}[Dimesion of the space~(\ref{spaceFEprismHcurl}).]
-$\dim R_k(\hat{T}) \otimes P_k(\hat{I})$.
+The following can be proved exactly as in~\cite{monk}, Lemma 5.38.
+\begin{remark}
+Given $p>2$, the degrees of freedom~(\ref{momentos1hcurl}),~(\ref{momentos2hcurl}),~(\ref{momentos3hcurl}),~(\ref{momentos4hcurl}),~(\ref{momentos5hcurl}) and~(\ref{momentos6hcurl}) 
+are well defined and bounded as linear functionals from
+$W^{1,p}(\hat{E})$ to $\mathbb{R}$.
+\end{remark}
+\begin{remark}[dimension of the space~(\ref{spaceFEprismHcurl})]
+%%=============
+%% $\dim R_k(\hat{T}) \otimes P_k(\hat{I})$.
+%% \begin{IEEEeqnarray*}{rCl}
+%%     \dim\left(R_k(\hat{T}) \otimes P_k(\hat{I})\right) 
+%%     & = & \dim\left(R_k(\hat{T})\right) \dim\left(P_k(\hat{I})\right) \\
+%%     & = & \dim\left(R_k(\hat{T})\right) (k+1).
+%% \end{IEEEeqnarray*}
+%% \begin{IEEEeqnarray*}{rCl}
+%%     \dim\left(R_k(\hat{T})\right) 
+%%     & = & \dim\left(P_{k-1}(\hat{T})^2 \oplus S_k(\hat{T}) \right)\\
+%%     & = & 2\dim\left(P_{k-1}(\hat{T})\right) + \dim\left(S_k(\hat{T}) \right)\\
+%%     & = & k(k+1) + \dim\left(S_k(\hat{T}) \right).
+%% \end{IEEEeqnarray*}
+%%=============
+Recall the space $S_k$ as 
 \begin{IEEEeqnarray*}{rCl}
-    \dim\left(R_k(\hat{T}) \otimes P_k(\hat{I})\right) 
-    & = & \dim\left(R_k(\hat{T})\right) \dim\left(P_k(\hat{I})\right) \\
-    & = & \dim\left(R_k(\hat{T})\right) (k+1).
+S_k(\hat{T}) = \{ \bp \in \widetilde{P}_k^2 \, : \, \bp\cdot\bx = 0 \}.
 \end{IEEEeqnarray*}
-\begin{IEEEeqnarray*}{rCl}
-    \dim\left(R_k(\hat{T})\right) 
-    & = & \dim\left(P_{k-1}(\hat{T})^2 \oplus S_k(\hat{T}) \right)\\
-    & = & 2\dim\left(P_{k-1}(\hat{T})\right) + \dim\left(S_k(\hat{T}) \right)\\
-    & = & k(k+1) + \dim\left(S_k(\hat{T}) \right).
-\end{IEEEeqnarray*}
-Para la dimensi\'on de $S_k(\hat{T})$:
-\begin{IEEEeqnarray*}{rCl}
-S_k(\hat{T}) = \{ \textbf{p} \in \widetilde{P}_k^2 \, : \, \textbf{p}\cdot\textbf{x} = 0 \}.
-\end{IEEEeqnarray*}
-Consid\'erese
+To know its dimension consider
 \begin{IEEEeqnarray*}{lll}
     \phi\,:\,\widetilde{P}_k^2 & \longrightarrow & \widetilde{P}_{k+1}\\
-    \phi(\textbf{p})    & := & \textbf{p}\cdot\textbf{x}\\
-                        & := & x_1p_1 + x_2p_2.
+    \phi(\bp)    & := & \bp\cdot\bx\\
+                        & := & \hat x_1\hat p_1 + \hat x_2\hat p_2.
 \end{IEEEeqnarray*}
-Resulta
+It results
 \begin{IEEEeqnarray*}{rCl}
     S_k(\hat{T})        & = & \ker(\phi)\\
     \dim(S_k(\hat{T}))  & = & \dim(\widetilde{P}_k^2) - \dim(\img(\phi)).
 \end{IEEEeqnarray*}
-cualquier $p \in \widetilde{P}_{k+1}$ es
+Now, any $\hat p \in \widetilde{P}_{k+1}$ is
 \begin{IEEEeqnarray*}{rCl}
-    x_1(a_{k+1,0} x_1^k + a_{k,1} x_1^{k-1}x_2 + \ldots + a_{1,k} x_2^k) + x_2(a_{0,k+1} x_2^k)
-        & = & x_1p_1 + x_2p_2
+    \hat x_1(a_{k+1,0} \hat x_1^k + a_{k,1} \hat x_1^{k-1}\hat x_2 + \ldots + a_{1,k} \hat x_2^k) + \hat x_2(a_{0,k+1} \hat x_2^k)
+        & = & \hat x_1\hat p_1 + \hat x_2\hat p_2
 \end{IEEEeqnarray*}
-en donde precisamente $p_1$ y $p_2$ pertenecen a $\widetilde{P}_k$, es decir que $\phi$ es
-sobreyectiva. Volviendo:
+where precisely $\hat p_1$ y $\hat p_2$ belong to $\widetilde{P}_k$, so $\phi$ 
+is onto. So it holds
 \begin{IEEEeqnarray*}{rCl}
-    \dim(S_k(\hat{T}))  & = & \dim(\widetilde{P}_k^2) - \dim(\widetilde{P}_{k+1})\\
-                            & = & 2 \dim(\widetilde{P}_k) - \dim(\widetilde{P}_{k+1})\\
-                            & = & 2 (k+1) - (k+2)\\
-                            & = & k,
+    \dim S_k(\hat{T})  & = & \dim(\widetilde{P}_k^2) - \dim(\widetilde{P}_{k+1})\\
+                        & = & 2 \dim(\widetilde{P}_k) - \dim(\widetilde{P}_{k+1})\\
+                        & = & 2 (k+1) - (k+2)\\
+                        & = & k,
 \end{IEEEeqnarray*}
-entonces
+so
 \begin{IEEEeqnarray*}{rCl}
-    \dim\left(R_k(\hat{T})\right)   & = & k(k+1) + k\\
+    \dim R_k(\hat{T})   & = & k(k+1) + k\\
                                         & = & k(k+2)
 \end{IEEEeqnarray*}
-y finalmente
+and finally
 \begin{IEEEeqnarray*}{rCl}
-    \dim\left(R_k(\hat{T}) \otimes P_k(\hat{I})\right) 
+    \dim R_k(\hat{T}) \otimes P_k(\hat{I}) 
         & = & k(k+1)(k+2).
 \end{IEEEeqnarray*}
-($\dim\left(P_K\right) = 3\frac{k(k+1)(k+2)}{2}$).
+Immediately we arrive at $\dim P_{\hat E} = 3\frac{k(k+1)(k+2)}{2}$.
 \end{remark}
-The following result can be found in~\cite[page 75]{nedelec2}
+The following result can be found in~\cite[page 75]{nedelec2} only for the reference
+element.
 \begin{lemma}
-  The Finite Element in Definition~\ref{edgeelement} is unisolvent in $E$.
+  The Finite Element in Definition~\ref{edgeelement} is unisolvent in $\hat E$.
 \end{lemma}
 Later we will establish the unisolvence of a general finite element of
-this family on an arbitrary physical prism.
+this family on an arbitrary physical prism. The most important consequence of
+unisolvence is the existence of an interpolation operator defined in terms of
+the set of degrees of freedom.
+\begin{defi}\label{aux_label90}
+Given $p>2$, we define the $H(\bcurl)$--conforming interpolation operator on the reference
+prism $\bw_{\hat{E}}\,:\,W^{1,p}(\hat{E})\to P_{\hat E}$ on each $\hat\bu$
+as the unique element $\wku$ such that 
+  \begin{IEEEeqnarray}{lCll}
+    \label{aux_label45}
+    \hat\varphi_{\hat\be,\hat p}\,(\hat{\bu} - \wku) & = & 0 
+      &\quad\quad\mbox{for all $\hat\varphi_{\hat\be,\hat p}$ as in ~(\ref{momentos1hcurl}).}  \\
+    \hat\varphi_{\hat f,\hat \bq}\,(\hat{\bu} - \wku) & = & 0 
+      &\quad\quad\mbox{for all $\hat\varphi_{\hat f,\hat \bq}$ as in~(\ref{momentos2hcurl})--(\ref{momentos5hcurl})}  \\
+    \hat\varphi_{\br}\,(\hat{\bu} - \wku) & = & 0 
+      &\quad\quad\mbox{for all $\hat\varphi_{\br}$ 
+    as in~(\ref{momentos6hcurl})}.
+  \end{IEEEeqnarray}
+\end{defi}
+\begin{remark}
+The interpolator in Definition~\ref{aux_label90} is well defined and bounded. 
+Because of the presence of degrees of freedom~(\ref{momentos1hcurl})
+we can't define the operator for an arbitrary field in $H(\bcurl, \hat E)$, 
+which is why we put the hypothesis $p>2$ (cfr.~\cite{monk}, page 134, 
+and~\cite{adams}, Theorem 5.4).
+\end{remark}
 \begin{remark} The interpolation operator
 can be written 
-{\color{Orange}\#\#\#\#\# poner una basecita de 
-polinomios para cada dof para después usarla
-en la suma.}
 \begin{IEEEeqnarray}{rCl}\label{edge_interp_explicit}  
   \wku & = & 
-  \sum_{\be,p} \varphi_{\be,p}(\hat{\bu})\,\hat{\bv}_{\be,p} +
-  \sum_{f,\bq} \varphi_{f,\bq}(\hat{\bu})\,\hat{\bv}_{f,\bq} +
-  \sum_{\boldsymbol{r}}   \varphi_{\boldsymbol{r}}  (\hat{\bu})\,\hat{\bv}_{\boldsymbol{r}}
+  \sum_{\hat\be,\hat p} \hat\varphi_{\hat\be,\hat p}(\hat{\bu})\,\hat{\bv}_{\hat\be,\hat p} +
+  \sum_{\hat f,\hat\bq} \hat\varphi_{\hat f,\hat\bq}(\hat{\bu})\,\hat{\bv}_{\hat f,\hat\bq} +
+  \sum_{\hat\br}        \hat\varphi_{\hat\br}       (\hat{\bu})\,\hat{\bv}_{\hat\br}\mbox{,}
 \end{IEEEeqnarray}
+where we chose suitable dual bases to the bases of degrees of freedom.
 \end{remark}
-
 \subsection{$H(\Div)$--Conforming Element on Prisms} % (fold)
 \label{sub:definition_of_the_h_div_element_on_prisms}
 With the notation introduced in Subsection~\ref{sub:polynomials} we consider
 the polynomial space
 \begin{IEEEeqnarray*}{rCl}
     \yesnumber\label{dk}
-    D_k & = & P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y) \bx,\\
+    D_k & = & P_{k-1}^2(x,y) \oplus \widetilde{P}_{k-1}(x,y) \bx,\\
     \bx & = & (x,y).
 \end{IEEEeqnarray*}
 \begin{defi}\label{defi_h_div_conforme} The $RT$ element
@@ -289,7 +303,7 @@ the polynomial space
 %   \nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
 %   \label{momentos2hdiv} \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
 %       && \mbox{for } q \in Q_{k-1, k-1, k-1}\mbox{,}\\
-%   \nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{y}=0\}$
+%   \nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{x}_2=0\}$
 %    or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
 %   \label{momentos3hdiv} \int\limits_{\hat{E}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
 %       &\quad& {q_1\mbox{, } q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z);}\\
@@ -332,7 +346,7 @@ which is, at the same time, equal to the number of its independent degrees of fr
 \begin{proof}
     From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
     \begin{IEEEeqnarray*}{rCl}
-        \dim (P_{k-1}^2(x,y) \oplus \tilde{P}_{k-1}(x,y)) \otimes P_{k-1}(z) + \dim P_{k-1}(x,y)\otimes P_k(z) & = &\\[5pt]
+        \dim (P_{k-1}^2(x,y) \oplus \widetilde{P}_{k-1}(x,y)) \otimes P_{k-1}(z) + \dim P_{k-1}(x,y)\otimes P_k(z) & = &\\[5pt]
         \IEEEeqnarraymulticol{3}{r}{=\,(k(k+1)+k)k+\dfrac{k(k+1)}{2}(k+1)} 
     \end{IEEEeqnarray*}
     and the same quantity is obtained by summing up the dimensions of all the
