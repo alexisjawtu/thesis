@@ -65,3 +65,154 @@
     \end{IEEEeqnarraybox*}
 \end{table}
 }
+
+\def\edgeShapeTable{\begin{table}[!h]
+    \centering  
+    \caption{{Edge shape functions} on the reference pyramid}
+    \label{shape_edge_table}
+    \begin{IEEEeqnarraybox*}
+    [\IEEEeqnarraystrutmode
+    \IEEEeqnarraystrutsizeadd{2pt}{25pt}]{x/c/x/c/x/c/x}
+        \IEEEeqnarrayseprow[5pt]\\
+        &\IEEEeqnarraymulticol{6}{c}{
+                {%\tiny
+                {\scriptstyle\hat\bgamma_1} = 
+                \left(
+                    \begin{array}{c}
+                        {1-z-y} \\[5pt]             
+                        0 \\[5pt]
+                        x-\frac{xy}{1-z}               
+                    \end{array}
+                \right)}\;\;
+                {%\tiny
+                {\scriptstyle\hat\bgamma_2} = 
+                \left(
+                    \begin{array}{c}
+                        0 \\[5pt]
+                        x \\[5pt]                
+                        \frac{xy}{1-z}               
+                    \end{array}
+                \right)}\;\;
+                {%\tiny
+                {\scriptstyle\hat\bgamma_3} = 
+                \left(
+                    \begin{array}{c}
+                        y \\[5pt]
+                        0 \\[5pt]                
+                        \frac{xy}{1-z}               
+                    \end{array}
+                \right)}\;\;
+        {%\tiny
+        {\scriptstyle\hat\bgamma_4} = 
+        \left(
+                    \begin{array}{c}
+                        0 \\[8pt]                
+                        {1-z-x} \\[8pt]
+                        y-\frac{xy}{1-z}  
+                    \end{array}
+                \right)}}\\
+        \IEEEeqnarrayseprow[5pt]\\
+        &\IEEEeqnarraymulticol{6}{c}{
+        {%\tiny
+        {\scriptstyle\hat\bgamma_5} = 
+                \left(
+                        \begin{array}{c}
+                            z-\frac{yz}{1-z} \\[8pt]               
+                            z-\frac{xz}{1-z} \\[8pt]               
+                            1-x-y+\frac{xy}{1-z}-\frac{xyz}{(1-z)^2}               
+                        \end{array}
+               \right)}\;\;
+                {%\tiny
+                {\scriptstyle\hat\bgamma_6} = 
+                \left(
+                    \begin{array}{c}
+                        -z+\frac{yz}{1-z} \\[8pt]               
+                        \frac{xz}{1-z} \\[8pt]               
+                        x-\frac{xy}{1-z}+\frac{xyz}{(1-z)^2}               
+                    \end{array}
+                        \right)}}\\
+        \IEEEeqnarrayseprow[5pt]\\
+        &\IEEEeqnarraymulticol{6}{c}{
+        {%\tiny
+        {\scriptstyle\hat\bgamma_7} = 
+                \left(
+                        \begin{array}{c}
+                            \frac{yz}{1-z} \\[8pt]               
+                            -z+\frac{xz}{1-z} \\[8pt]               
+                            y-\frac{xy}{1-z}+\frac{xyz}{(1-z)^2}               
+                        \end{array}
+               \right)}\;\;
+        {%\tiny
+                {\scriptstyle\hat\bgamma_8} = 
+                \left(
+                    \begin{array}{c}
+                        -\frac{yz}{1-z} \\[8pt]               
+                        -\frac{xz}{1-z} \\[8pt]               
+                        \frac{xy}{1-z}-\frac{xyz}{(1-z)^2}               
+                    \end{array}
+                        \right)}}
+    \end{IEEEeqnarraybox*}
+\end{table}}
+
+\def\faceShapeTable{
+ \begin{table}[!h]
+    \centering  
+    \caption{{Face shape functions} on the reference pyramid}
+    \label{shape_face_table}
+    \begin{IEEEeqnarraybox*}
+    [\IEEEeqnarraystrutmode
+    \IEEEeqnarraystrutsizeadd{2pt}{25pt}]{x/c/x/c/x/c/x}
+        \IEEEeqnarrayseprow[5pt]\\
+        &\IEEEeqnarraymulticol{5}{c}{
+                \raisebox{-15pt}{}\;\;
+                {%\tiny
+                {\scriptstyle\hat\bz_1} = 
+                \left(
+                        \begin{array}{c}
+                            -\frac{xz}{1-z} \\[8pt]             
+                            y-2+\frac{y}{1-z} \\[8pt]
+                            z               
+                        \end{array}
+                        \right)}\;\;
+                {%\tiny
+                {\scriptstyle\hat\bz_2} = 
+                \left(
+                            \begin{array}{c}
+                                x-2+\frac{x}{1-z} \\[8pt]
+                                -\frac{yz}{1-z} \\[8pt]                
+                                z               
+                            \end{array}
+                        \right)}}&\\
+        \IEEEeqnarrayseprow[10pt]\\
+        &
+        {%\tiny
+        {\scriptstyle\hat\bz_3} = 
+        \left(
+                    \begin{array}{c}
+                        x+\frac{x}{1-z} \\[8pt]
+                        -\frac{yz}{1-z} \\[8pt]                
+                        z               
+                    \end{array}
+                \right)}&&
+        {%\tiny
+        {\scriptstyle\hat\bz_4} = 
+        \left(
+                    \begin{array}{c}
+                        -\frac{xz}{1-z} \\[8pt]                
+                        y+\frac{y}{1-z} \\[8pt]
+                        z               
+                    \end{array}
+                \right)}&&
+        {%\tiny
+        {\scriptstyle\hat\bz_5} = 
+        \left(
+                    \begin{array}{c}
+                        x \\[8pt]               
+                        y \\[8pt]
+                        z-1                 
+                    \end{array}
+                \right)}&\\
+        \IEEEeqnarrayseprow[10pt]
+    \end{IEEEeqnarraybox*}
+\end{table}}
+
