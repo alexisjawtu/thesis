@@ -255,22 +255,25 @@ can be written
 \end{IEEEeqnarray}
 where we chose suitable dual bases to the bases of degrees of freedom.
 \end{remark}
-\subsection{$H(\Div)$--Conforming Element on Prisms} % (fold)
+\subsection{$H(\textrm{div})$--Conforming Element on Prisms} % (fold)
 \label{sub:definition_of_the_h_div_element_on_prisms}
 With the notation introduced in Subsection~\ref{sub:polynomials} we consider
 the polynomial space
 \begin{IEEEeqnarray*}{rCl}
     \yesnumber\label{dk}
-    D_k & = & P_{k-1}^2(x,y) \oplus \widetilde{P}_{k-1}(x,y) \bx,\\
-    \bx & = & (x,y).
+    D_k & = & P_{k-1}^2(\hat x_1,\hat x_2) \oplus \widetilde{P}_{k-1}(\hat x_1,\hat x_2) \hat\bx,\\
+    \hat\bx & = & (\hat x_1,\hat x_2).
 \end{IEEEeqnarray*}
-\begin{defi}\label{defi_h_div_conforme} The $RT$ element
+\begin{defi}\label{defi_h_div_conforme} Given a non--negative integer $k$, the 
+$H(\Div)$--Conforming 
+Finite Element of degree $k$ is defined by the following triple.
 \begin{enumerate}
-  \item $\hat{E}$ is the reference prism (Figure~\ref{reference_prism}).
+  \item $\hat{E}$ is the reference prism in Figure~\ref{reference_prism}.
   \item The polynomial space $P_{\hat{E}}$ is
     \begin{IEEEeqnarray*}{rCl}
-      P_{\hat{E}} & = & \{ \bv = (v_1,v_2,v_3):\,(v_1,v_2)\in D_k\otimes P_{k-1}(z),\\ 
-      \yesnumber\label{prismaticSpace}&   & v_3\in P_{k-1}(x,y)\otimes P_k(z) \}.
+      P_{\hat{E}} & = & \{ \hat\bv = (\hat v_1,\hat v_2,\hat v_3)':\,
+      (\hat v_1,\hat v_2)'\in D_k\otimes P_{k-1}(\hat x_3),\\ 
+      \yesnumber\label{prismaticSpace}&   & \hat v_3\in P_{k-1, k} \}.
     \end{IEEEeqnarray*} 
   \item The degrees of freedom are of two types, surface and volumen integrals:
 \begin{IEEEeqnarray}{cCccl}
