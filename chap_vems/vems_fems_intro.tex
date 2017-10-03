@@ -55,7 +55,7 @@ with $V_h$ we consider the $H(\dv,\Omega)$ norm,
 $\|\bv\|^2_{V_h} = \|\bv\|^2_{L^2(\Omega)} + \|\dv\bv\|^2_{L^2(\Omega)}$,
 and with $Q_h$ we consider the $L^2(\Omega)$ norm.
 As Problem~\ref{weakMixedContinuous}  has solution in $H(\Div,\Omega)$
-it suggests to use a face--like  operator as virtual interpolator. That is,
+it suggests to use a face--like  operator as virtual interpolator. For that reason,
 let the degrees of freedom be
 \begin{IEEEeqnarray}{rCl}\label{dofs}
   \iint_f \bv\cdot\bn\,dS & \qquad\mbox{ for all face $f$ of } & \Th.
@@ -71,14 +71,14 @@ Chapter~\ref{aux_label43} must be proved for our Virtual Elements.
   in $V_h(E)$.
 \end{lemma}
 \begin{proof} \emph{Existence.} Let $n_{f,E}$ be the number of faces of $E$ and
-take real numbers $\{\alpha_i\}_{i=1}^{n_{f,E}}$. Let $g$ the  piecewise constant
-function on $\partial E$ satisfying, for all $i$, %face $f$ of $E$
+take real numbers $\{\alpha_i\}_{i=1}^{n_{f,E}}$. Let $g$ be the  piecewise constant
+function on $\partial E$ satisfying, for all $1\leqslant i\leqslant n_{f,E}$, %face $f$ of $E$
 \[
-  \int\limits_{f_i} g = \alpha_i
+  \iint_{f_i} g\,dS = \alpha_i
 \]
 and let $d$ be the constant function in $E$ such that
 \[
- \int\limits_E d\,d\textbf{x} = \sum \alpha_i.
+ \int_E d\,d\bx = \sum_i \alpha_i.
 \]
 Then we consider the auxiliary problem of seeking a solution of
 \begin{IEEEeqnarray}{rClrCl}
@@ -87,8 +87,8 @@ Then we consider the auxiliary problem of seeking a solution of
   \frac{\partial \phi}{\partial \bn}& = &g \quad \mbox{on }\partial E.
 \end{IEEEeqnarray}
 By definition we obtain the compatibility condition
-\begin{IEEEeqnarray*}{rCl}
-  \int\limits_E d\,d\textbf{x}& = & \int\limits_{\partial E} g\,d\gamma    
+egin{IEEEeqnarray*}{rCl}
+   \int_E d\,d\bx& = & \int\limits_{\partial E} g\,d\gamma    
 \end{IEEEeqnarray*}
 so the solution $\phi$ to the problem~(\ref{aux_prob}) exists. Now
 we take $\bu:=\nabla \phi$ and  it holds immediately that $\dv\bu$ is constant in $E$,
@@ -99,8 +99,8 @@ degrees of freedom. Condition $\curl\bv=0$ implies
 $\bv=\nabla\phi$ for certain $\phi$. Now, since $\dv\bv$ is constant on $E$, the
 relation
 \begin{IEEEeqnarray*}{rCl}
-   0 & = & \int\limits_{\partial P}\bv\cdot\bn\,d\gamma 
-\end{IEEEeqnarray*} %& = & \int\limits_P\dv\bv\,d\textbf{x}
+   0 & = & \int\limits_{\partial P}\\cdot\bn\,d\gamma 
+\end{IEEEeqnarray*} %& = & \int\limit s_P\dv\bv\,d\bx
 imply $\dv\bv=0$ by Green Theorem. Then, the potential $\phi$ satisfies
 \begin{IEEEeqnarray*}{rClrCl}
   \Delta \phi & = & 0 \quad \mbox{in $E$,} \qquad & 
@@ -226,9 +226,7 @@ so in the case of the form $b_h(\bv,q)$ we put simply
   b_h(\bv,q) & = & b(\bv,q) & = &
   \sum_{E\in\Th}b^E(\bv,q)\mbox{,}
 \end{IEEEeqnarray}
-
-
-where $b^E(\bv,q) = \int_Eq\,\dv\bv\,d\textbf{x}$.
+where $b^E(\bv,q) = \int_E q\,\dv\bv\,d\bx$.
 For the bilinear form $a(,)$, we can decompose it as
 \[
   a(\bv,\bw)=\sum_{E\in\Th}\int_E\bv\cdot\bw\,d\bx
