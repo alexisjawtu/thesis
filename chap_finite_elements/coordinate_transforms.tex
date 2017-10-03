@@ -338,28 +338,31 @@ then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfHcurl}).
 %=======================================================================
 \begin{lemma}\label{aux_label14}
 Let a physical prism $E = F_E(\hat{E})$ for $F_E$ as in~(\ref{aux_label8}).
-Given $\hat\bu$ defined in $\hat{E}$ let $\bu$ in $E$ dtermined by~(\ref{transfHcurl}), and
-let $\hat\btau$, $\btau$, $\hat\bn$ and $\bn$ be tangents and normals in
-$\hat E$ and $E$ related by~(\ref{aux_label10}) and~(\ref{aux_label9}). Suppose
+Given $\hat\bu$ defined in $\hat{E}$ let $\bu$ in $E$ be determined by~(\ref{transfHcurl}), and
+let $\hat\btau$, $\btau$, $\hat\bn$ and $\bn$ be tangents and normals to edges and
+faces satisfying $F_E(\hat\be) = \be$ and $F_E(\hat{f}) = f$
+in $\hat E$ and $E$, and 
+related with each other by~(\ref{aux_label10}) and~(\ref{aux_label9}). Suppose
 we define degrees of freedom of $\bu$ on $E$ as
 \begin{IEEEeqnarray}{ll}
+  \nonumber\varphi_{\be_i,p}\,(\bu) = 
+  \int_{\be} q\,\bu \cdot d\balpha  
+    &\quad  q\in P_{k-1}\mbox{,} \\
     \label{momentos1hcurlPhys}  
-    \varphi_{\be_i,p}\,(\bu) = 
-    \int_{\be} q\,\bu \cdot d\balpha  
-        &\quad  q\in P_{k-1}\mbox{,} \\
-        &\quad  \nonumber\mbox{ for each edge $\be$; }\\[8pt]
-    \label{momentos2hcurlPhys} 
-    \varphi_{f,\bq}\,(\bu) =  
-    \int_{f} \bu \cdot \bq_0\,
-    dS\mbox{, } &\quad \bq_0 = (\det M_E\|M_E^{-t}\hat\bn\|)^{-1} M_E\,\hat{\bq}_T\\
-    &\quad \hat{\bq}_T := (\hat\bn\times\hat\bq)\times\hat\bn\\
-    &\quad \mbox{$\hat\bq$ as in~(\ref{momentos2hcurl})--(\ref{momentos5hcurl})}.\\[8pt]
-    \label{momentos3hcurlPhys}
-    \varphi_{\br}(\bu) = 
-    \int_{E} \bu \cdot \br \, d\bx\mbox{, }&\quad \br = (\det M_E)^{-1} M_E\,\hat\br \circ F_E^{-1}\\
-    &\quad {\nonumber\hat\br \in P_{k-2,k-2} \times P_{k-3,k-1}.}
+    &\quad  \mbox{ for each edge $\be$; }\\[8pt]
+  \nonumber\varphi_{f,\bq}\,(\bu) =  
+  \int_{f} \bu \cdot \bq_0\,
+  dS\mbox{, } &\quad \bq_0 = (\det M_E\|M_E^{-t}\hat\bn\|)^{-1} M_E\,\hat{\bq}_T\\
+  \nonumber&\quad \hat{\bq}_T := (\hat\bn\times\hat\bq)\times\hat\bn\\
+  \label{momentos2hcurlPhys} 
+  &\quad \mbox{$\hat\bq$ as in~(\ref{momentos2hcurl})--(\ref{momentos5hcurl})}.\\[8pt]
+  \nonumber\varphi_{\br}(\bu) = 
+  \int_{E} \bu \cdot \br \, d\bx\mbox{, }&\quad \br = (\det M_E)^{-1} M_E\,\hat\br \circ F_E^{-1}\\
+  \label{momentos3hcurlPhys}
+  &\quad \hat\br \in P_{k-2,k-2} \times P_{k-3,k-1}.
 \end{IEEEeqnarray}
-Provided $\det M_E > 0$, the degrees of freedom are identical.
+Provided $\det M_E > 0$, the degrees of freedom~(\ref{momentos1hcurlPhys})--(\ref{momentos3hcurlPhys})
+are identical to the referential degrees of freedom~(\ref{momentos1hcurl})--(\ref{momentos6hcurl}).
 \end{lemma}
 \begin{proof}
   For the degrees of freedom over the edges take a parameterization
@@ -401,7 +404,9 @@ Provided $\det M_E > 0$, the degrees of freedom are identical.
 In the following corollary we complete Theorem 8 in page $75$ of~\cite{nedelec2}
 which has only the case of the reference element.
 \begin{corollary} The finite element in Definition~\ref{edgeelement} determines a family
-of $H(\bcurl)$--conforming and unisolvent finite elements.
+of $H(\bcurl)$--conforming and unisolvent finite elements provided we use the degrees
+of freedom transformations~(\ref{momentos1hcurlPhys}),~(\ref{momentos2hcurlPhys})
+and~(\ref{momentos3hcurlPhys}).
 \end{corollary}
 \begin{proof}
   Transform the degrees of freedom from Lemma~\ref{aux_label14} back to $\hat E$
@@ -410,7 +415,7 @@ of $H(\bcurl)$--conforming and unisolvent finite elements.
 \begin{corollary}
  \label{aux_label26} 
   For any $\bu\in W^{1,p}(E)$ expressions~(\ref{momentos1hcurlPhys})--(\ref{momentos3hcurlPhys}) 
-  determine a well defined local interpolate
+  determine a well defined $k$--th order local interpolate
   $\bw_E\,\bu$ defined as the unique finite element function in $P_E$ such that
   \begin{IEEEeqnarray}{lClc}
     \varphi_{\be,q}\,(\bu - \bw_E\,\bu) & = & 0 &
@@ -421,8 +426,6 @@ of $H(\bcurl)$--conforming and unisolvent finite elements.
     \quad\mbox{for $\varphi_{\br}$ as in~(\ref{momentos3hcurlPhys})}.
   \end{IEEEeqnarray}
 \end{corollary}
-
-
 This will be used in the proof of local interpolation estimates.
 \begin{lemma} Provided $\det M^{t} > 0$, the edge element interpolators satisfy
 \begin{IEEEeqnarray}{rCl}\label{piTransformado}
@@ -431,83 +434,100 @@ This will be used in the proof of local interpolation estimates.
 That is, the interpolator commutes with the coordinate change~(\ref{transfHcurl}).
 \end{lemma}
 \begin{proof} 
-  By definition, for all dof $\varphi$ in (poner refs)
-  $\varphi(\bu - \bw_E\bu) = 0$. By dofs identity in Lemma~\ref{aux_label14}
+  By definition, for all degree of freeom 
+  $\varphi$ in~(\ref{momentos1hcurlPhys})--(\ref{momentos3hcurlPhys}) it holds
   \[
-  \hat{\varphi}\left((\bu - \bw_E\bu)^{\hat{}\,}\right) = \hat{\varphi}\left(\hat{\bu} - (\bw_E\bu)^{\displaystyle\hat{}\,}\right) = 0
+    \varphi(\bu - \bw_E\bu) = 0.
   \]
-  which implies $\wku = \hat{\bw}_E(\bw_E\bu)^{\hat{}}$.
+  By the invariance of degrees of freedom
+  proved in Lemma~\ref{aux_label14}, it follows
+  \[
+  \hat{\varphi}\left((\bu - \bw_E\bu){\,\hat{}\,}\right) = 
+  \hat{\varphi}\left(\hat{\bu} - (\bw_E\bu){\,\hat{}\,}\right) = 0
+  \]
+  which implies $\wku = \hat{\bw}_E(\bw_E\bu){\,\hat{}}$\,.
   The space $P_{\hat E}$ was proven to be invariant under~(\ref{transfCurl}), so
-  $\wku = (\bw_E\bu)^{\hat{}}$.
+  $\wku = (\bw_E\bu){\,\hat{}}$\,.
 \end{proof}
+In the following paragraph we make all the present exposition 
+for the divergence finite elements.  
 \begin{lemma}\label{aux_label13} Let $\hat E$ be the reference prism~(\ref{defi_of_ref_prism}) and
 let $P_{\hat E}$ be the space in~(\ref{prismaticSpace}).
 Provided the matrix $M_E$ is block--diagonal as in Lemma~\ref{aux_label7},
 then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfDiv}).
 \end{lemma}
 \begin{proof} The proof uses the same straightforward approach as the proof of 
-Lemma~\ref{aux_label7} and in a much simpler case. \noindent{\color{BrickRed}pensar esto}   
+Lemma~\ref{aux_label7} and in a much simpler case.
 \end{proof}
-
 \begin{lemma} \label{aux_label12}
-The degrees of freedom are identical, surface and volumen integrals:
-in which the faces are related by $F\hat{f} = f$.
+Let a physical prism $E = F_E(\hat{E})$ for $F_E$ as in~(\ref{aux_label8}).
+Given $\hat\bu\in W^{1,1}(\hat E)$ let $\bu$ in $E$ be determined by~(\ref{transfDiv}), and
+let $\hat\bn$ and $\bn$ be normals to faces satisfying $F_E(\hat{f}) = f$
+in $\hat E$ and $E$, and 
+related with each other by~(\ref{aux_label9}). Suppose
+we define degrees of freedom of $\bu$ on $E$ as
 \begin{IEEEeqnarray}{cCccl}
+    \nonumber\rho_{ f,q}(\bv) & = & \int_{f} (\bv\cdot\bn)q\,dS 
+        &\quad & \mbox{for } q = \hat{q}\circ F_E^{-1}, \hat{q} \in P_{k-1}(\hat{f})\mbox{,}\\
     \label{momentos1hdivPhys} 
+    &&&\quad&\mbox{if $ \hat{f} =  \hat{f}_3$ or $ \hat{f}_4$;}\\[5pt]
+    \nonumber
     \rho_{ f,q}(\bv) & = & \int_{f} (\bv\cdot\bn)q\,dS 
-        &\quad & \mbox{for } q = \hat{q}\circ F_E^-1, \hat{q} \in P_{k-1}(\hat{f})\mbox{,}\\
-    \nonumber&&&\quad&\mbox{if $ \hat{f} =  \hat{f}_3$ or $ \hat{f}_4$;}\\[5pt]
+        &\quad & \mbox{for } q = \hat{q}\circ F_E^{-1}, \hat{q} \in Q_{k-1, k-1}(\hat f)\mbox{,}\\
     \label{momentos2hdivPhys}
-    \rho_{ f,q}(\bv) & = & \int_{f} (\bv\cdot\bn)q\,dS 
-        &\quad & \mbox{for } q = \hat{q}\circ F_E^-1, \hat{q} \in Q_{k-1, k-1}(\hat f)\mbox{,}\\
-    \nonumber&&&\quad&\mbox{ if $ \hat{f} =  \hat{f}_1$, $ \hat{f}_2$ or $ \hat{f}_5$;}\\[5pt]
-    \label{momentos3hdivPhys}
+    &&&\quad&\mbox{ if $ \hat{f} =  \hat{f}_1$, $ \hat{f}_2$ or $ \hat{f}_5$;}\\[5pt]
+    \nonumber
     \rho_{ \br}(\bv) & = & \int_{{E}} \bv\cdot\br\,d\bx 
-        &\quad& \mbox{for }\br = M_E^{-t}\hat\br\circ F_E^{-1}, \hat\br\in (P_{k-2,k-1})^2 \times P_{k-1,k-2};
+        &\quad& \mbox{for }\br = M_E^{-t}\hat\br\circ F_E^{-1}, \\
+    \label{momentos3hdivPhys}
+        &&&&\hat\br\in (P_{k-2,k-1})^2 \times P_{k-1,k-2}.
 \end{IEEEeqnarray}
+Provided $\det M_E > 0$, the degrees of freedom~(\ref{momentos1hdivPhys})--(\ref{momentos3hdivPhys})
+are identical to the referential degrees of freedom~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
 \end{lemma}
 \begin{proof}
-  Face dofs, by~(\ref{transfDiv}) and~(\ref{surface_diffs}) 
+  On one hand, by~(\ref{transfDiv}) and~(\ref{surface_diffs}),
   \begin{IEEEeqnarray*}{rCl}
     \int_{f} \bv\cdot\bn\bq\,d S & = & 
     \int_{f} (\det M_E)^{-1} \hat\bv(F_E^{-1}\bx)\cdot\|M_E^{-t}\hat\bn\|^{-1}\hat\bn\hat\bq(F_E^{-1}\bx)\,d S \\
-    & = &\int_{\hat f} \hat\bv(\hat\bx)\cdot\hat\bn\hat\bq(\hat\bx)\,d\hat S 
+    & = &\int_{\hat f} \hat\bv(\hat\bx)\cdot\hat\bn\hat\bq(\hat\bx)\,d\hat S.
   \end{IEEEeqnarray*}    
-Vol dofs
+On the other hand,
   \begin{IEEEeqnarray}{rCcCl}
     \int_{E}\bv\cdot\br\,d\bx
     & = & 
-    \int_{\hat E}M_E\hat\bv\cdot M_E^{-t}\hat\br\,d\hat\bx.
+    \int_{\hat E}M_E\hat\bv\cdot M_E^{-t}\hat\br\,d\hat\bx
     & = & 
     \int_{\hat E}\hat\bv\cdot\hat\br\,d\hat\bx.
   \end{IEEEeqnarray}
 \end{proof}
-
 \begin{lemma}
   If $\bu\in P_{E}$ is such that all the
-  dofs~(\ref{momentos1hdivPhys}) or~(\ref{momentos2hdivPhys}) vanish
+  degrees of freedom~(\ref{momentos1hdivPhys}) or~(\ref{momentos2hdivPhys}) vanish
   on the respective face $f$, then the normal component of $\bu$ 
   vanishes identically on $f$.
 \end{lemma}
 \begin{proof}
-  This fact is stated in the proof of Theorem 4, page $66$ of~\cite{nedelec2} 
+  This fact is stated in the proof of Theorem 4, page 66 of~\cite{nedelec2} 
   only for the reference prism. By transforming the degrees of freedom to 
   the faces of $\hat E$ and back to the faces of $E$ using Lemma~\ref{aux_label12}
   we get the result.
 \end{proof}
 \begin{lemma}
   If $\bu\in P_{E}$ is such that all the
-  dofs~(\ref{momentos1hdivPhys})--(\ref{momentos3hdivPhys}) vanish, 
+  degrees of freedom~(\ref{momentos1hdivPhys})--(\ref{momentos3hdivPhys}) vanish, 
   then $\bu$ vanishes identically on $E$.
 \end{lemma}
 \begin{proof}
   In the case of the reference prism $\hat E$, we refer to the proof of 
-  Theorem 4 in page $66$ of~\cite{nedelec2}.
-  by the invariance of the finite element space under
-  the change~(\ref{transfDiv}) (Lemma~\ref{aux_label13}) we have our result.
+  Theorem 4 in page 66 of~\cite{nedelec2}. For the general case,
+  by the invariance of the finite element space $P_{E}$ under
+  the transformation~(\ref{transfDiv}) (see Lemma~\ref{aux_label13}) we have our result.
 \end{proof}
 \begin{corollary}
-  Finite Element on $E$ is $H(\Div)$--conforming and unisolvent.
+The finite element in Definition~\ref{defi_h_div_conforme} determines a family
+of $H(\Div)$--conforming and unisolvent finite elements provided we use the degrees
+of freedom transformations~(\ref{momentos1hdivPhys}),~(\ref{momentos2hdivPhys}) and~(\ref{momentos3hdivPhys}).
 \end{corollary}
 \begin{corollary}
   For any $\bv\in W^{1,1}(E)$ expressions 
@@ -532,9 +552,9 @@ And the most important, whose proof is like the one of~(\ref{piTransformado}).
   change~(\ref{transfDiv}).
 \end{corollary}
 \begin{remark}
-  Unisolvence and conformity of the finite elements on tetrahedra in
+  Unisolvence and conformity of the finite elements on tetrahedra mentioned in
   Section~\ref{sec:tetrahedralFEs}
-  is proved in~\cite{monk}, Sections 5.4 and 5.5.
+  is proved in Sections 5.4 and 5.5 of~\cite{monk}.
 \end{remark}
 %===========================
 % See Lemmas 5.32 and 5.34 in pages 130 and 131 of~\cite{monk}, where
