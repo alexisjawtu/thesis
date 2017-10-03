@@ -7,7 +7,8 @@ finite element in an arbitrary mesh pyramid is obtained by pushing forward
 the vector proxies of those discrete forms.
 \begin{table}[!h]
     \centering  
-    \caption{Notation for the faces and positive normals of $\partial\hat{E}$.}
+    \caption{Notation for the faces and positive normals of the
+    reference pyramid.}
     \label{pyramidNotationTableFaces}
     \begin{IEEEeqnarraybox*}
       [\IEEEeqnarraystrutmode
@@ -32,7 +33,8 @@ the vector proxies of those discrete forms.
 \end{table}
 \begin{table}[!h]
     \centering  
-    \caption{Notation for the edges and positive tangents of $\partial\hat{E}$.}
+    \caption{Notation for the edges and positive tangents of the
+    reference pyramid.}
     \label{pyramidNotationTableEdges}
     \begin{IEEEeqnarraybox*}
       [\IEEEeqnarraystrutmode
@@ -73,7 +75,6 @@ the vector proxies of those discrete forms.
 
 \subsection{$H(\bcurl)$--Conforming Element on Pyramids} % (fold)
 \label{sub:edge}
-\input{./figures/shape_table_edge}
 \begin{defi}\label{aux_label50}
   The following items define a least order $\bcurl$--conforming finite element
   on the reference Pyramid.
@@ -89,35 +90,38 @@ the vector proxies of those discrete forms.
       for every edge $\hat\be_j$ of $\hat E$, $1\leqslant j\leqslant 8$.
   \end{enumerate}
 \end{defi}
-\begin{remark}
-  These rational funtions satisfy $\int_{e_j}\bgamma_i\cdot\btau = \delta_{ij}$.   
-\end{remark}
+\edgeShapeTable
+A direct computation yields the following Lemma.
 \begin{lemma}
-  The finite element in Definition~(\ref{aux_label50})  is $H(\bcurl)$--conforming and 
-  unisolvent.
+  For $1\leqslant i,j\leqslant 8$,
+  $\int_{\hat\be_j}\hat\bgamma_i\cdot d\hat\balpha = \delta_{ij}$ which
+  implies immediately that the finite element in Definition~\ref{aux_label50}
+  is unisolvent in $\hat E$. %$H(\bcurl)$--conforming and 
 \end{lemma}
 % subsection edge (end)
 \subsection{$H(\Div)$--Conforming Element on Pyramids} % (fold)
 \label{sub:face}
-\input{./figures/shape_table}
-\begin{defi}\label{defi_h_div_conforme_pyramid} Pyramidal $H\dv$--conforming 
-Finite Element.
+\begin{defi}\label{aux_label71}
+The following items define a least order $\Div$--conforming finite element
+  on the reference Pyramid.
 \begin{enumerate}
-    \item $\hat{E}$ is the reference Pyramid (Figure~\ref{reference_pyramid}).
-    \item El espacio $Q_{\hat{E}}$ is $\mbox{span}\{\hat{\bz}_1,\,\ldots,\,\hat{\bz}_5\}$ with $\hat{\bz}_i$
-    as in Table~\ref{shape_face_table}
-    \item The degrees of freedom are:
-\begin{IEEEeqnarray}{lcl}
-    \label{dofsdivpyramid} \int\limits_{\hat{f}} \bv\cdot\boldsymbol{\nu}\,d\hat{\gamma}
-        && 
-\end{IEEEeqnarray}
+  \item $\hat{E}$ is the reference pyramid of Figure~\ref{reference_pyramid}.
+  \item The space $P_{\hat{E}}$ is the span of 
+  $\{\hat{\bz}_1,\,\ldots,\,\hat{\bz}_5\}$ with $\hat{\bz}_i$
+    as in Table~\ref{shape_face_table}.
+  \item The degrees of freedom are the surface integrals
+  \begin{IEEEeqnarray*}{c}
+    \label{dofsdivpyramid} \iint_{\hat{f}_j} \hat\bv\cdot\hat\bn\,d\hat S
+  \end{IEEEeqnarray*}
+  for every face $\hat{f}_j$ of $\hat E$, $1\leqslant j\leqslant 5$.
 \end{enumerate}
 \end{defi}
-\begin{remark}
-  These rational funtions satisfy $\iint_{f_j}\bz_i\cdot\bn = \delta_{ij}$   
-\end{remark}
+\faceShapeTable
+A direct computation yields the following Lemma.
 \begin{lemma}
-  The finite element~(\ref{aux_label50})  is $H(div)$--conforming and 
-  unisolvent.
+  For $1\leqslant i,j\leqslant 5$,
+  $\iint_{f_j}\hat\bz_i\cdot\hat\bn\,d\hat S = \delta_{ij}$ which
+  implies immediately that the finite element in Definition~\ref{aux_label71}
+  is unisolvent in $\hat E$. %$H(\bcurl)$--conforming and 
 \end{lemma}
 % subsection face (end)

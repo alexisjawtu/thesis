@@ -224,7 +224,8 @@ this family on an arbitrary physical prism. The most important consequence of
 unisolvence is the existence of an interpolation operator defined in terms of
 the set of degrees of freedom.
 \begin{defi}\label{aux_label90}
-Given $p>2$, we define the $H(\bcurl)$--conforming interpolation operator on the reference
+Given $p>2$, we define the $H(\bcurl)$--conforming interpolation operator on 
+the reference
 prism $\bw_{\hat{E}}\,:\,W^{1,p}(\hat{E})\to P_{\hat E}$ on each $\hat\bu$
 as the unique element $\wku$ such that 
   \begin{IEEEeqnarray}{lCll}
@@ -273,25 +274,24 @@ Finite Element of degree $k$ is defined by the following triple.
     \begin{IEEEeqnarray*}{rCl}
       P_{\hat{E}} & = & \{ \hat\bv = (\hat v_1,\hat v_2,\hat v_3)':\,
       (\hat v_1,\hat v_2)'\in D_k\otimes P_{k-1}(\hat x_3),\\ 
-      \yesnumber\label{prismaticSpace}&   & \hat v_3\in P_{k-1, k} \}.
+      \yesnumber\label{prismaticSpace}&   &\,\hat v_3\in P_{k-1, k} \}.
     \end{IEEEeqnarray*} 
-  \item The degrees of freedom are of two types, surface and volumen integrals:
+  \item The degrees of freedom are of two types, surface and volumen integrals.
 \begin{IEEEeqnarray}{cCccl}
     \label{momentos1hdiv} 
-    \rho_{\hat f,q}(\bv) & = & \int_{\hat f} (\hat\bv\cdot\hat{\boldsymbol{\nu}})\hat{q}\,d\hat{S} 
+    \hat\rho_{\hat f,\hat q}(\hat\bv) & = & \int_{\hat f} (\hat\bv\cdot\hat{\bn})\hat{q}\,d\hat{S} 
         &\quad & \mbox{for } \hat{q} \in P_{k-1}(\hat{f})\mbox{,}\\
     \nonumber&&&\quad&\mbox{if $\hat f = \hat f_3$ or $\hat f_4$;}\\[5pt]
     \label{momentos2hdiv}
-    \rho_{\hat f,q}(\bv) & = & \int_{\hat f} (\hat\bv\cdot\hat{\boldsymbol{\nu}})\hat{q}\,d\hat{S} 
+    \hat\rho_{\hat f,\hat q}(\hat\bv) & = & \int_{\hat f} (\hat\bv\cdot\hat{\bn})\hat{q}\,d\hat{S} 
         &\quad & \mbox{for } \hat{q} \in Q_{k-1, k-1}(\hat f)\mbox{,}\\
     \nonumber&&&\quad&\mbox{ if $\hat f = \hat f_1$, $\hat f_2$ or $\hat f_5$;}\\[5pt]
-    \nonumber
-    \rho_{\hat \br}(\bv) & = & \int\limits_{\hat{E}} (v_1\,r_1 + v_2\,r_2)\,d\bx 
-        &\quad& \mbox{for }r_1\mbox{, }r_2\in P_{k-2}(x,y) \otimes P_{k-1}(z);\\
-    \label{momentos3hdiv}&&&&\\
+    \hat\rho_{\hat \br}(\hat\bv) & = & \int_{\hat{E}} (\hat v_1\,\hat r_1 + \hat v_2\,\hat r_2)\,d\hat\bx 
+        &\quad& \mbox{for }\hat r_1\mbox{, }\hat r_2\in P_{k-2,k-1};
+    \label{momentos3hdiv}\\
     \label{momentos4hdiv}
-    \rho_{\hat \br}(\bv) & = & \int\limits_{\hat{E}} v_3\,r_3\,d\bx 
-        &\quad& \mbox{for }r_3\in P_{k-1}(\hat{f}_3) \otimes P_{k-2}(\hat{x}_3). 
+    \hat\rho_{\hat \br}(\hat\bv) & = & \int_{\hat{E}} \hat v_3\,\hat r_3\,d\hat\bx 
+        &\quad& \mbox{for }\hat r_3\in P_{k-1,k-2}. 
 \end{IEEEeqnarray}
 \end{enumerate}
 %%========
@@ -315,7 +315,7 @@ Finite Element of degree $k$ is defined by the following triple.
 %\end{IEEEeqnarray}
 %%=======================================================
 \end{defi}
-The following result can be found in~\cite[page 66]{nedelec2}.
+The following result can be found in page 66 of~\cite{nedelec2}.
 \begin{lemma} The Finite Element in Definition~\ref{defi_h_div_conforme} is
   unisolvent in $\hat E$.
 \end{lemma}
@@ -325,16 +325,16 @@ is defined as the operator such that,
 for each $\hat\bu\in W^{1,1}(\hat E)$, $\rku$ is
 defined as the unique element in $P_{\hat E}$ satisfying
   \begin{IEEEeqnarray}{lClc}
-    \rho_{f,\bq}\,(\hat{\bu} - \rku) & = & 0 &
-    \quad\mbox{for $\rho_{\hat f,q}$ as in~(\ref{momentos1hdiv})
+    \hat\rho_{\hat f,\hat\bq}\,(\hat{\bu} - \rku) & = & 0 &
+    \quad\mbox{for $\hat\rho_{\hat f, \hat q}$ as in~(\ref{momentos1hdiv})
       and~(\ref{momentos2hdiv})}\\
-    \rho_{\br}\,(\hat{\bu} - \rku) & = & 0 &
-    \quad\mbox{for $\rho_{\br}$ as in~(\ref{momentos3hdiv})
+    \hat\rho_{\hat\br}\,(\hat\bu - \rku) & = & 0 &
+    \quad\mbox{for $\hat\rho_{\hat\br}$ as in~(\ref{momentos3hdiv})
       and~(\ref{momentos4hdiv})}.
   \end{IEEEeqnarray}
 \end{defi}
 Because of the degrees of freedom~(\ref{momentos1hdiv}) and~(\ref{momentos2hdiv})
-we had to restrict the condition $\hat\bu\in H(div, \hat E)$
+we had to restrict the condition $\hat\bu\in H(\Div, \hat E)$
 to the one of $\hat\bu\in W^{1,1}(\hat E)$ in order to define the 
 interpolation operator. The proof of the following Lemma follows
 from Trace Theorems in Sobolev spaces.
@@ -347,26 +347,25 @@ $\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
 which is, at the same time, equal to the number of its independent degrees of freedom.
 \end{proposition}
 \begin{proof}
-    From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
-    \begin{IEEEeqnarray*}{rCl}
-        \dim (P_{k-1}^2(x,y) \oplus \widetilde{P}_{k-1}(x,y)) \otimes P_{k-1}(z) + \dim P_{k-1}(x,y)\otimes P_k(z) & = &\\[5pt]
-        \IEEEeqnarraymulticol{3}{r}{=\,(k(k+1)+k)k+\dfrac{k(k+1)}{2}(k+1)} 
-    \end{IEEEeqnarray*}
-    and the same quantity is obtained by summing up the dimensions of all the
-    polynomial spaces on the right--hand sides of~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
+  From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
+  \begin{IEEEeqnarray*}{rCl}
+    \dim (P_{k-1}^2(\hat x_1,\hat x_2) \oplus \widetilde{P}_{k-1}(\hat x_1,\hat x_2))
+    \otimes P_{k-1}(\hat x_3) + \dim P_{k-1,k} & = &\\[5pt]
+    \IEEEeqnarraymulticol{3}{r}{=\,(k(k+1)+k)k+\dfrac{k(k+1)}{2}(k+1)} 
+  \end{IEEEeqnarray*}
+  and the same quantity is obtained by summing up the dimensions of all the
+  polynomial spaces on the right--hand sides of~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
 \end{proof}
 
 \begin{remark} The interpolation operator
 can be written
-{\color{Orange}\#\#\#\#\#\# poner bases para después usarlas
-en la suma.}\\[5pt]
-we take a basis...
-\begin{IEEEeqnarray*}{rCl}
-  \int\limits_{\hat f}(\bv_{f,\hat{p}}\cdot\boldsymbol{\nu})\hat{q}\,d\gamma  & = & \delta_{\hat{p},\hat{q}}
-  \,\,etc\,\,etc
-\end{IEEEeqnarray*}
+%% \begin{IEEEeqnarray*}{rCl}
+%%   \int\limits_{\hat f}(\bv_{f,\hat{p}}\cdot\boldsymbol{\nu})\hat{q}\,d\gamma  & = & \delta_{\hat{p},\hat{q}}
+%%   \,\,etc\,\,etc
+%% \end{IEEEeqnarray*}
 \begin{IEEEeqnarray}{rCl}\label{face_interp_explicit}  
-  \hat{\boldsymbol{r}}_k\hat{\bu} & = & \sum_{f,\bq} \rho_{f,\bq}(\hat{\bu})\,\hat{\bv}_{f,\bq} +
-                                        \sum_{r}   \rho_{r}  (\hat{\bu})\,\hat{\bv}_{r}
+  \hat{\br}_k\hat{\bu} & = & \sum_{\hat f,\hat\bq} \hat\rho_{\hat f,\hat\bq}(\hat{\bu})\,\hat{\bv}_{\hat f,\hat\bq} +
+    \sum_{\hat r} \hat\rho_{\hat r} (\hat{\bu})\,\hat{\bv}_{\hat r}
 \end{IEEEeqnarray}
+where we chose suitable dual bases to the bases of degrees of freedom.
 \end{remark}
