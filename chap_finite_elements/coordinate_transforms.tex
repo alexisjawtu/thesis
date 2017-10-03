@@ -50,7 +50,7 @@ equality~(\ref{aux_label4}) suggests the following transformation.
 \end{IEEEeqnarray} 
 With this definition we have $\bu\in H(\bcurl, E)$ and also
 \begin{IEEEeqnarray}{rCl}
-    \label{transfCurl} (\textbf{curl}\,\bu)\circ F_E & = & 
+    \label{transfCurl} (\curl\bu)\circ F_E & = & 
     \frac{1}{\det M_E} M_E (\curl\hat{\bu})\mbox{,}
 \end{IEEEeqnarray}
 (cfr. Lemma 3.57, page 77 and Corollary 3.58 in~\cite{monk}). Additionally
@@ -135,27 +135,27 @@ Surface differentials are changed in the following way.
 First a key result that establishes a relation between the interpolation
 operators. It will used as an important step in the proof of the stability of the
 edge element as well as in the proof of the stability of the face elements.
-\begin{remark} Lemma 5.40 in page 135 and the first Paragraph of Section 5.7 
-in page 149 of~\cite{monk} state the following facts.
+\begin{remark} In the reference~\cite{monk}, Lemma 5.40 in page 135 and the first Paragraph of Section 5.7 
+in page 149 state the following facts.
   
-Take $\bw_E$ es el operador de interpolaci\'on determinado por el elemento en
-la Definici\'on~\ref{edgeelement}, $\br_E$ es el operador de interpolaci\'on determinado por el elemento en la
-Definici\'on~(\ref{defi_h_div_conforme}) and $\pi^{\perp}_E$ is
-the $L^2$--orthogonal projection onto $P_k(E)$, then 
+Take the interpolation operator $\bw_{\hat E}$ of Definition~\ref{aux_label90}, 
+the operator $\br_{\hat E}$ of Definition~\ref{defi_face_element}
+and set $\pi^{\perp}_{\hat E}$ as
+the $L^2$--orthogonal projection onto $P_k(\hat{E})$, then 
 \begin{enumerate}
   \item 
-For all sufficiently smooth $\bu$ such that both the interpolants
-$\bw_E\bu$ and $\br_E\curl\bu$ are defined, then
+For all sufficiently smooth $\hat\bu$ such that the interpolants
+$\wku$ and $\br_{\hat E}\,\curl\hat\bu$ are both defined, then
 \begin{IEEEeqnarray}{rCl}
 \label{curl_commutativity}
-  \curl\bw_E\bu &=& \br_E\curl\bu.
+  \curl\bw_{\hat E}\hat\bu &=& \br_{\hat E}\,\curl\hat\bu.
 \end{IEEEeqnarray}
   \item 
-For all sufficiently smooth $\bu$ such that both the interpolants
-$\br_E\bu$ and $\pi^{\perp}_E\dv\bu$ are defined, then
+For all sufficiently smooth $\hat\bu$ such that the interpolants
+$\br_{\hat E}\hat\bu$ and $\pi^{\perp}_{\hat E}\,\dv\hat\bu$ are both  defined, then
 \begin{IEEEeqnarray}{rCl}
 \label{div_commutativity}
-  \dv\,\br_E\bu & = & \pi^{\perp}_E\dv\,\bu.
+  \dv\,\rku & = & \pi^{\perp}_{\hat E}\,\dv\,\hat\bu.
 \end{IEEEeqnarray}
 \end{enumerate}
 \end{remark}
@@ -173,17 +173,17 @@ $\br_E\bu$ and $\pi^{\perp}_E\dv\bu$ are defined, then
 \begin{center}
         \begin{tikzpicture}[point/.style={circle, inner sep=0pt, minimum size=2pt,fill=red}]
             \matrix[column sep = 1.82mm, row sep = 1.1mm, ampersand replacement = \&] {
-             \node {$\text{H}(\textbf{curl},E)$};  
+             \node {$\text{H}(\bcurl,\hat E)$};  
               \& \node (n0) {};
               \& \node      {};
               \& \node (n1) {};
               \& \node (n2) {};
-              \& \node {$\text{H}(\Div, E)$}; 
+              \& \node {$\text{H}(\Div, \hat E)$}; 
               \& \node (r1c7) {};
               \& \node {};
               \& \node {};
               \& \node (r1c10) {};
-              \& \node {$L^2(E)$};\\
+              \& \node {$L^2(\hat E)$};\\
              \node (n3) {}; \&\&\&\&\& \node (n5)   {};
               \& \node (r2c7) {};
               \& \node {};
@@ -238,22 +238,23 @@ $\br_E\bu$ and $\pi^{\perp}_E\dv\bu$ are defined, then
               \& \node (r9c10) {};
               \& \node {$Q_{\hat E}$};\\
              };
-            \draw[->] (n0) to node[above] {$\textbf{curl}$} (n2); 
-            \draw[->] (fromV) to node[above] {$\textbf{curl}$} (toW); 
+            \draw[->] (n0) to node[above] {$\bcurl$} (n2); 
+            \draw[->] (fromV) to node[above] {$\bcurl$} (toW); 
             \draw[white] (n3) to node {{\color{black}$\cup$}} (n4);
             \draw[white] (n5) to node {{\color{black}$\cup$}} (n6);
             \draw[->] (n7) to node[left] {$\bw_{\hat E}$} (n11); 
-            \draw[->] (n8) to node[left] {$\boldsymbol{r}_k$} (n12); 
-            \draw[->] (n13) to node[above] {$\textbf{curl}$} (n15); 
+            \draw[->] (n8) to node[left] {$\br_{\hat E}$} (n12); 
+            \draw[->] (n13) to node[above] {$\bcurl$} (n15); 
             \draw[->] (r1c7) to node[above] {$\text{div}$} (r1c10);
             \draw[->] (r4c7) to node[above] {$\text{div}$} (r4c10);
             \draw[->] (r9c7) to node[above] {$\text{div}$} (r9c10);
             %\draw[white] (r2c7) to node {{\color{black}$\cup$}} (r3c7);
             \draw[white] (r2c11) to node {{\color{black}$\cup$}} (r3c11);
-            \draw[->] (r5c11) to node[left] {$\pi^{\perp}$} (r8c11);
+            \draw[->] (r5c11) to node[left] {$\pi^{\perp}_{\hat E}$} (r8c11);
         \end{tikzpicture}
     \end{center}
-where $V_{\hat E}$, $W_{\hat E}$ and $P_{\hat E}$ are~(\ref{spaceFEprismHcurl}),~(\ref{prismaticSpace})
+where $V_{\hat E}$, $W_{\hat E}$ and $Q_{\hat E}$ are the 
+spaces~(\ref{spaceFEprismHcurl}),~(\ref{prismaticSpace})
 and $P_0(\hat E)$ respectively.
 \begin{defi} 
 Suppose $\Omega$ is the union of two elements $E_1$ and $E_2$ with a common face $f$, 
@@ -278,7 +279,7 @@ let $P_{\hat E}$ be the space in~(\ref{spaceFEprismHcurl}), that is,
   P_{\hat{E}} & = & R_k(\hat{x}_1,\hat{x}_2) \otimes P_k(\hat{x}_3) \times 
             P_k(\hat{x}_1,\hat{x}_2) \otimes P_{k-1}(\hat{x}_3).
 \end{IEEEeqnarray*}
-Provided the matrix $M_E$ is block--diagonal in this manner
+Provided the matrix $M_E$ is block--diagonal in the following manner
 \begin{IEEEeqnarray*}{rCl}
   M_E & = & \blockdiag{m_{1,1}}{m_{1,2}}{m_{2,1}}{m_{2,2}}{m_{3,3}}\mbox{,}
 \end{IEEEeqnarray*}
@@ -300,20 +301,20 @@ then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfHcurl}).
   and let $m_{i,j}^{(-1)}$ denote the coefficients of the inverse.
   By definition, 
   $(\hat u_1,\hat u_2)' = \hat{q}(\hat\bp + \hat{\boldsymbol{s}})$ for some
-  $\hat\bp$, $\hat{\boldsymbol{s}}$ as in~(\ref{defSk}) and~(\ref{defRk}) and
+  $\hat\bp$, $\hat{\boldsymbol{s}}$ as in the spaces~(\ref{defSk}) and~(\ref{defRk}) and
   $\hat{q}\in P_{k}(\hat x_3).$ Using the blocks of $M_E$ and the tensor nature of
   $P_{\hat E}$,
   \begin{IEEEeqnarray*}{rCl}
-    (\hat u_1(\bx),\hat u_2(\bx))' & = & (\hat{q}M_2^{-t}(\hat\bp + 
+    (u_1(\bx),u_2(\bx))' & = & (\hat{q}M_2^{-t}(\hat\bp + 
       \hat{\boldsymbol{s}}))(M_E^{-1}\bx - M_E^{-1}\bx_E)\\
     & = & \hat{q}(m_{3,3}^{(-1)}(x_3-x_{E,3}))(M_2^{-t}(\hat\bp + 
       \hat{\boldsymbol{s}}))(M_2^{-1}\bx - M_2^{-1}\bx_E).
   \end{IEEEeqnarray*}
   Now, $\hat{q}(m_{3,3}^{(-1)}(x_3-x_{E,3}))$ is a polynomial $q(x_3)$ with the
   same 
-  degree as $\hat{q}$ is qith respect to $\hat x_3$. Furthermore,
-  as by Remark~(\ref{aux_label6}) $\hat{\boldsymbol{s}}$ has degree $\leqslant k-1$,
-  $(M_2^{-t}(\hat\bp + \hat{\boldsymbol{s}}))(M_2^{-1}\bx - M_2^{-1}\bx_E)$
+  degree as $\hat{q}$ is with respect to $\hat x_3$. Furthermore,
+  as by Remark~\ref{aux_label6} $\hat{\boldsymbol{s}}$ has degree $\leqslant k-1$,
+  expression $(M_2^{-t}(\hat\bp + \hat{\boldsymbol{s}}))(M_2^{-1}\bx - M_2^{-1}\bx_E)$
   can be seen as
   $M_2^{-t}(\bp(x_1,x_2) + \hat{\boldsymbol{s}}(M_2^{-1}\bx))$ with $\bp$
   having the expected degrees. And now
@@ -344,47 +345,50 @@ we define degrees of freedom of $\bu$ on $E$ as
 \begin{IEEEeqnarray}{ll}
     \label{momentos1hcurlPhys}  
     \varphi_{\be_i,p}\,(\bu) = 
-    \int_{\be} \bu \cdot \boldsymbol{\tau} \,q\, ds  
-        & q\in P_{k-1}\mbox{,} \\
-    \IEEEeqnarraymulticol{2}{l}{\nonumber\mbox{ for each edge $\be$ with unit tangent } \boldsymbol{\tau} \mbox{;}}\\[8pt]
+    \int_{\be} q\,\bu \cdot d\balpha  
+        &\quad  q\in P_{k-1}\mbox{,} \\
+        &\quad  \nonumber\mbox{ for each edge $\be$; }\\[8pt]
     \label{momentos2hcurlPhys} 
     \varphi_{f,\bq}\,(\bu) =  
     \int_{f} \bu \cdot \bq_0\,
-    dS\mbox{, } &\bq_0 = (\det M_E\|M_E^{-t}\hat\bn\|)^{-1} M_E\hat{\bq}_T\\
-    &\hat{\bq}_T := (\hat\bn\times\hat\bq)\times\hat\bn\\
-    &\mbox{$\hat\bq$ as in~(\ref{momentos2hcurl})--(\ref{momentos5hcurl})}.\\[8pt]
+    dS\mbox{, } &\quad \bq_0 = (\det M_E\|M_E^{-t}\hat\bn\|)^{-1} M_E\,\hat{\bq}_T\\
+    &\quad \hat{\bq}_T := (\hat\bn\times\hat\bq)\times\hat\bn\\
+    &\quad \mbox{$\hat\bq$ as in~(\ref{momentos2hcurl})--(\ref{momentos5hcurl})}.\\[8pt]
     \label{momentos3hcurlPhys}
     \varphi_{\br}(\bu) = 
-    \int_{E} \bu \cdot \br \, d\bx\mbox{, }&\br = (\det M_E)^{-1} M_E\hat\br \circ F_E^{-1}\\
-    &{\nonumber\hat\br \in P_{k-2,k-2} \times P_{k-3,k-1}.}
+    \int_{E} \bu \cdot \br \, d\bx\mbox{, }&\quad \br = (\det M_E)^{-1} M_E\,\hat\br \circ F_E^{-1}\\
+    &\quad {\nonumber\hat\br \in P_{k-2,k-2} \times P_{k-3,k-1}.}
 \end{IEEEeqnarray}
-Provided $\det > 0$, the degrees of freedom are identical
+Provided $\det M_E > 0$, the degrees of freedom are identical.
 \end{lemma}
 \begin{proof}
-  Edge dofs\\
-  Take a Parametrization $\hat{\boldsymbol{\alpha}}(t):I=[0,1]\to \hat\be$ such that
-  $\hat\btau = \stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)/\|\stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)\|$.
+  For the degrees of freedom over the edges take a parameterization
+  $\hat{\boldsymbol{\alpha}}(t):I=[0,1]\to \hat\be$ such that
+  \[
+    \hat\btau = \frac{\stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)}
+    {\|\stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)\,\|}.
+  \]
   As a jacobian maps tangents into tangents,
-  $\boldsymbol{\alpha}(t) = M_E\hat{\boldsymbol{\alpha}}(t) + \bx_E$ parameterizes
+  $\balpha(t) = M_E\,\hat{\balpha}(t) + \bx_E$ parameterizes
   $\be$. Then
   \begin{IEEEeqnarray*}{rCl}
     \int_{\be}(q\bu)\cdot d\boldsymbol{\alpha}
     &=&\int_{I}
     q\bu(F\hat{\boldsymbol{\alpha}}(t)))\cdot M_E
-    \stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)dt  \\[5pt]
+    \stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)\,dt  \\[5pt]
     &=&\int_{I}
     \hat q(\hat{\boldsymbol{\alpha}}(t)) M_E^{-t}
-    \hat\bu(\hat{\boldsymbol{\alpha}}(t))\cdot M_E\stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)dt\\[5pt]
+    \hat\bu(\hat{\boldsymbol{\alpha}}(t))\cdot M_E\stackrel{.}{\hat{\boldsymbol{\alpha}}}(t)\,dt\\[5pt]
     &=&\int_{\hat\be}(\hat q\hat\bu)\cdot d\boldsymbol{\hat\alpha}.
   \end{IEEEeqnarray*}
-  Face dofs: 
+  Continuing with the surface degrees of freedom, 
   \begin{IEEEeqnarray*}{rCl}
     \int_{\hat f} \hat\bv\times\hat\bn\cdot\hat\bq\times\hat\bn\,d\hat S 
     & = & \int_{\hat f} (\hat\bn\times\hat\bq)\times\hat\bn\cdot\hat\bu\,d\hat S \\
     & = & \int_{\hat f} \det M_E\|M_E^{-t}\hat\bn\| \bq_0 (F\hat\bx) \cdot \bu(F\hat \bx) d\hat S \\
     & = & \int_{ f} \bq_0 (\bx) \cdot \bu( \bx) d S
   \end{IEEEeqnarray*}
-  Vol dofs:
+  Finally, for the volume degrees of freedom,
   \begin{IEEEeqnarray}{rCl}
     \int_{E}\bv\cdot\br\,d\bx
     & = & 
@@ -394,21 +398,18 @@ Provided $\det > 0$, the degrees of freedom are identical
     \int_{\hat E}\hat\bv(\hat\bx)\cdot\hat\br(\hat\bx)\,d\hat\bx.
   \end{IEEEeqnarray} 
 \end{proof}
-
-\begin{corollary} The finite element in Definition~\ref{edgeelement}  is conforming
-in $H\curl$ and unisolvent.
-  theorem 8 page 75 in~\cite{nedelec2} is incomplete, because it is only on
-  the reference element.
+In the following corollary we complete Theorem 8 in page $75$ of~\cite{nedelec2}
+which has only the case of the reference element.
+\begin{corollary} The finite element in Definition~\ref{edgeelement} determines a family
+of $H(\bcurl)$--conforming and unisolvent finite elements.
 \end{corollary}
 \begin{proof}
-  Transform the dofs to $\hat E$ and use proof of Theorem 8, page 75 of
-  ~\cite{nedelec2}. 
+  Transform the degrees of freedom from Lemma~\ref{aux_label14} back to $\hat E$
+  and use unisolvence over the reference element.
 \end{proof}
-
 \begin{corollary}
  \label{aux_label26} 
-  For any $\bu\in W^{1,p}(E)$ expressions 
-  ~(\ref{momentos1hcurlPhys})--(\ref{momentos3hcurlPhys}) 
+  For any $\bu\in W^{1,p}(E)$ expressions~(\ref{momentos1hcurlPhys})--(\ref{momentos3hcurlPhys}) 
   determine a well defined local interpolate
   $\bw_E\,\bu$ defined as the unique finite element function in $P_E$ such that
   \begin{IEEEeqnarray}{lClc}
