@@ -1,42 +1,39 @@
 \begin{chapter}[Virtual Elements]{Virtual Elements}
-
-The vems are customarly defined in terms of a given problem.
-
-It is our intention to propose a Virtual Elements Method (VEM) scheme
+The Virtual Elements are customarly defined in terms of a given problem. Our
+intention 
+is to propose a hybrid Finite/Virtual Elements Method scheme
 as a generalization of $H(div)$--conforming Finite Elements
-in meshes consisting of polyhedra of arbitrary kind.
+in meshes consisting of polyhedra of arbitrary kind. In this Chapter we develop
+the spaces, bilinear forms and properties concerning 
+virtual elements.
 We deal with tetrahedra, triangular prisms and pyramids and, in the presence of
-the latter, our VEM scheme is put in the framework of non-polynomial Finite Elements.\\[5pt]
+the latter, our FEM/VEM scheme is put in the framework of 
+non--polynomial Finite Elements.
 \section{Definition and Construction}
-Recall Problem~\ref{weakMixedContinuous} and add some notation on
+First we recall Problem~\ref{weakMixedContinuous} and add some notation for the 
 bilinear forms.
-Let  $V:=H(div, \Omega)$, $Q:=L^2(\Omega)$ and
+Let  $V:=H(\Div, \Omega)$, $Q:=L^2(\Omega)$ and
 \begin{IEEEeqnarray*}{rClCrCl}
-  a(\bv,\bw) & = & \forma{v}{w} &\quad\mbox{and}\quad& b(\bv,q) & = & \formb{v}{q}
+  a(\bv,\bw) & = & \forma{v}{w} &\quad\mbox{and}\quad& b(\bv,q) & = & \formb{v}{q}.
 \end{IEEEeqnarray*}
 Then Problem~\ref{weakMixedContinuous} reads to
 find $\bu\in V$ and $p\in Q$ such that for every $\bv\in V$ and every $q\in Q$
-\begin{equation}\label{mixedContinuousWeak}
-  \makebox[0pt]{
-    \begin{minipage}{\linewidth}                            %===========
-  	  \begin{IEEEeqnarray*}{rCCCl}                          % Let be given an open \emph{non--convex} domain $\Omega\subseteq\mathbb{R}^3$ with
-  		a(\bu,\bv) &+ &b(\bv,p) & = & 0\\[5pt]                % Lipschitz--continuous boundary
-  				   & - &b(\bu,q) & = & (f,q).                     % consisting of planar faces and define 
-  	  \end{IEEEeqnarray*}                                   % Let us consider the following continuous problem.\\[5pt]
-    \end{minipage}}                                         %===========
-  %\tag{MC}
-\end{equation}
-We start with a polihedral triangulation $\Th$ of $\Omega$ to define the 
-virtual spaces $V_h$ and $Q_h$ as discretizations of $V$ and $Q$ respectively.
+\begin{IEEEeqnarray*}{rCcCl}                          % Let be given an open \emph{non--convex} domain $\Omega\subseteq\mathbb{R}^3$ with
+  a(\bu,\bv) & + &b(\bv,p) & = & 0\\[5pt]                % Lipschitz--continuous boundary
+	       	   & - &b(\bu,q) & = & (f,q).                     % consisting of planar faces and define 
+\end{IEEEeqnarray*}                                   % Let us consider the following continuous problem.\\[5pt]
+We start supposing we are given with a polihedral triangulation $\Th$ of $\Omega$ to define the 
+virtual spaces $V_h$ and $Q_h$ as discretizations of $V$ and $Q$ respectively. In Chapter~\ref{auxLabel100}
+we will construct a mesh using the three types of polihedra mentioned before.
 We will assume a strictly decreasing parameter $\textit{h}$ tending to zero 
 to mitigate the abuse of notation present in expressions like 
-``$\bu_{\textit{h}}$''
-and ``$\Th$''. Then we are able to write, for example, $\bu_{\textit{h}}$ or 
+``$\bu_{\textit{h}}$'' and ``$\Th$''.
+Then we are able to write, for example, $\bu_{\textit{h}}$ or 
 $\bu_{\Th}$ indistinctly.
 
-For $E\in\Th$ the local space of vector fields will be
+For $E\in\Th$ the local space of virtual vector fields will be
 \begin{IEEEeqnarray*}{rCl}
-  V_h(E)& = &\Big\{\bv\in H(\mbox{div},E)\cap H(\bcurl,E)\,:\,\\
+  V_h(E)& = &\Big\{\bv\in H(\Div,E)\cap H(\bcurl,E)\,:\,\\
   \yesnumber\label{vhE}
    & & \qquad \bv\cdot\bn|_f\in P_0(f) \,\,\mbox{for all face $f$ of }E, \\
    & & \qquad \dv\bv  \in P_0(E) \mbox{ and } \curl\bv = 0 \Big\}
@@ -47,8 +44,9 @@ local spaces:
   V_h & = & V_h(\Th) & := & \Big\{\bv\in H(\dv,\Omega): \bv|_E\in V_h(E),
   \mbox{for all element } E\in\Th\Big\}.
 \end{IEEEeqnarray*}
-{\color{BrickRed} The  condition on the $\curl$ is put because we are
-considering gradients.} The scalar discrete space we will consider is
+The  condition on the $\curl$ is put because we are
+considering gradients, as we will see later.
+The scalar discrete space we will consider is
 \begin{IEEEeqnarray}{rCl}
   Q_h & = & {P}_0(\Th)
 \end{IEEEeqnarray}
@@ -56,7 +54,7 @@ meaning the functions that are constant on each element of $\Th$. As expected,
 with $V_h$ we consider the $H(\dv,\Omega)$ norm, 
 $\|\bv\|^2_{V_h} = \|\bv\|^2_{L^2(\Omega)} + \|\dv\bv\|^2_{L^2(\Omega)}$,
 and with $Q_h$ we consider the $L^2(\Omega)$ norm.
-As Problem~\ref{weakMixedContinuous}  has solution in $H(\mbox{div},\Omega)$
+As Problem~\ref{weakMixedContinuous}  has solution in $H(\Div,\Omega)$
 it suggests to use a face--like  operator as virtual interpolator. That is,
 let the degrees of freedom be
 \begin{IEEEeqnarray}{rCl}\label{dofs}
