@@ -297,7 +297,7 @@ The discrete global form $a_h$ is defined by the following equation.
 \end{defi}
 One fact to note
 about the projection $\pi^E$ in~(\ref{projection}) is that, by
-Remark~\ref{vem_equal_fem},
+Proposition~\ref{vem_equal_fem},
 it coincides with the identity $I:W(E)\to W(E)$ whenever the element $E\in\Th$
 is a Prism or a Tetrahedron so that, immediately, we have the following
 property.
@@ -307,39 +307,32 @@ property.
 Now we state a key result concerning the stability of the
 discrete form $a^E_{\textit{h}}$ and which explains the form of the
 term $h_E^{-1}\langle\,\cdot\,,\cdot\,\rangle$ in~(\ref{discreteLocal_a}).
-\\{\color{blue}\#\#\#\#\#\#\#\# prop 3.2...}
-
-In what follows we analyse the second term in expression~(\ref{discreteLocal_a})
-for $a_h^E$ when $E$ is a pyramid.
-In this case, denote by $\{\bv_i\}$ the dual basis of the degrees of freedom \eqref{dofs}, that is,
-\[
-\bv_i\in V_h(E), \qquad \mbox{and}\qquad \int_{f_j}\bv_i\cdot\bn =\delta_{i,j}, \quad 1\le i,j\le 5,
-\]
-if $f_i$, $i=1,\ldots,5$, denote the faces of $E$. Then $\bv\in V_h(E)$ can be uniquely written as
+In what follows we analyse this term in expression~(\ref{discreteLocal_a})
+when $E$ is a pyramid.
+Let $\{\bv_i\,1\leqslant i\leqslant 5\}$  denote  the dual basis of the degrees of freedom \eqref{dofs}
+%, that is,
+%\[
+%\bv_i\in V_h(E), \qquad \mbox{and}\qquad \int_{f_j}\bv_i\cdot\bn =\delta_{i,j}, \quad 1\leqslant i,j\leqslant 5,
+%\]
+and let $f_j$, $1\leqslant j\leqslant 5$, denote the faces of $E$. Then 
+$\bv\in V_h(E)$ has a unique expression as
 \[
 \bv=\sum_{i=1}^5 a_i \bv_i,
-\]
-with
-\[
-a_i=\int_{f_i}\bv\cdot\bn.
+=
+\sum_{i=1}^5\left\{\iint_{f_i}\bv\cdot\bn\,dS\right\}\bv_i.
 \]
 By setting
 \[
-\vertiii{\bv}_E^2=\frac1{h_E}\sum_{i=1}^5 a_i^2
+\vertiii{\bv}_E^2:=\frac1{h_E}\sum_{i=1}^5 a_i^2
 \]
-$\vertiii{\cdot}_E$ defines a norm on $V_h(E)$, and since it has a finite
-dimension, we know that for constants $c_E$ and $C_E$, which depend on $E$, we have
+then $\vertiii{\cdot}_E$ defines a norm on $V_h(E)$. Since the space has finite
+dimension, for certain constants $c_E$ and $C_E$ we have
 \begin{equation}\label{equiv0}
-c_E\|\bv\|_{L^2(E)}\le \vertiii{\bv}_E\le C_E\|\bv\|_{L^2(E)}, \qquad \forall \bv\in V_h(E).
+c_E\|\bv\|_{L^2(E)}\leqslant \vertiii{\bv}_E\leqslant C_E\|\bv\|_{L^2(E)}\mbox{,} 
 \end{equation}
-The purpose of the next Proposition is to prove that $C_E$ and $c_E$ can be
-taken depending only on the aspect ratio of $E$.
-
-
-% \textcolor{red}{
-% {\bf Assumption (A).} We assume that if $\mbox{diam\,}E=1$, constants $c$ and $C$ above depends only on the shape-regularity of $E$.
-% }
-
+for all $\bv\in V_h(E)$. Now the purpose of the next Proposition is to prove that $C_E$ and $c_E$ can be
+taken depending only on the aspect ratio of $E$.% \textcolor{red}{% {\bf Assumption (A).} We assume that if $\mbox{diam\,}E=1$, constants $c$ and $C$ above depends only on the shape-regularity of $E$.% }
+\noindent{\color{BrickRed}\#\#\#\#\#\#\# seguir aca} 
 \begin{proposition}
 \label{stabilizing_term}
 Let $E$ be a pyramid, and consider the basis $\{\bv_i, i=1,\ldots,5\}$ of
@@ -362,7 +355,7 @@ g\qquad\mbox{on }\partial E\nonumber\\ \int_E\phi&=&0\nonumber
 \end{eqnarray}
 for
 \begin{equation}\label{ai}
-g|_{f_i}=\frac{a_i}{|f_i|},\quad 1\le i\le5, \qquad |E|d=\sum_{i=1}^5a_i.
+g|_{f_i}=\frac{a_i}{|f_i|},\quad 1\leqslant i\le5, \qquad |E|d=\sum_{i=1}^5a_i.
 \end{equation}
 Given $q\in H^1(E)$, we multiply  the first equation of \eqref{a0} by $q$
 and integrate on $E$, integrate by parts on the left hand side, and use the
@@ -395,7 +388,7 @@ Given $q\in H^1(E)$ we define $\hat q$ by
 and we observe that there exists constants $c_0$ and $c_1$ depending on the
 aspect ratio of $E$ such that
 \begin{equation}\label{a1}
-\frac{c_0}{h_E}\|\nabla q\|_{L^2(E)}^2\le \|\nabla\hat q\|_{L^2(\hat E)}^2\le
+\frac{c_0}{h_E}\|\nabla q\|_{L^2(E)}^2\leqslant \|\nabla\hat q\|_{L^2(\hat E)}^2\le
 \frac{c_1}{h_E}\|\nabla q\|_{L^2(E)}^2,
 \end{equation}
 and, on the other hand,
@@ -417,10 +410,10 @@ with $\left|J(\hat{\bf x})\right|_{f_i}|= |f_i|/|\hat f_i|\sim h_E^2$. It follow
 \end{multline*}
 and taking \eqref{a1} into account we obtain
 % \begin{multline*}
-% \|\bv\|_{L^2(E)}\le \sup\Bigg\{\|\hat \nabla q\|_{L^2(\hat E)}\left(-\int_{\hat E}d|B|\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} + \int_{\partial \hat E}g|J|\frac{\hat q}{\|\nabla \hat q\|_{L^2(\hat E)}} \right):\\ \quad \hat q\in H^1(\hat E),\frac{c_0}{h_E^\frac12}\le\|\nabla \hat q\|_{L^2(\hat E)}\le\frac{c_1}{h_E^\frac12},\int_{\hat E}\hat q=0\quad\Bigg\}
+% \|\bv\|_{L^2(E)}\leqslant \sup\Bigg\{\|\hat \nabla q\|_{L^2(\hat E)}\left(-\int_{\hat E}d|B|\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} + \int_{\partial \hat E}g|J|\frac{\hat q}{\|\nabla \hat q\|_{L^2(\hat E)}} \right):\\ \quad \hat q\in H^1(\hat E),\frac{c_0}{h_E^\frac12}\le\|\nabla \hat q\|_{L^2(\hat E)}\le\frac{c_1}{h_E^\frac12},\int_{\hat E}\hat q=0\quad\Bigg\}
 % \end{multline*}
 \begin{equation}\label{mult1}
-\|\bv\|_{L^2(E)}\le  \frac{c_1^\frac12}{h_E^\frac12}\sup\Bigg\{
+\|\bv\|_{L^2(E)}\leqslant  \frac{c_1^\frac12}{h_E^\frac12}\sup\Bigg\{
 \left(-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q \right): 
 \quad \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\quad\Bigg\}
 \end{equation}
@@ -432,7 +425,7 @@ and
 \end{equation}
 % and so
 % \begin{multline*}
-% \|\bv\|_{L^2(E)}\le \frac{c_1}{h_E^\frac12}\sup\Bigg\{-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q:\\ \quad \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\quad\Bigg\}.
+% \|\bv\|_{L^2(E)}\leqslant \frac{c_1}{h_E^\frac12}\sup\Bigg\{-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q:\\ \quad \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\quad\Bigg\}.
 % \end{multline*}
 We remark that
 \[
@@ -449,8 +442,8 @@ and
 \]
 Then, from \eqref{equiv0} for $\hat E$ we know that
 \begin{equation}\label{equiv1}
-c_{\hat E}^2\|\hat\bv\|_{L^2(\hat E)}^2\le \frac1{h_{\hat E}}\sum_{i=1}^5
-\hat a_i^2\le C_{\hat E}^2\|\hat\bv\|_{L^2(\hat E)}^2 
+c_{\hat E}^2\|\hat\bv\|_{L^2(\hat E)}^2\leqslant \frac1{h_{\hat E}}\sum_{i=1}^5
+\hat a_i^2\leqslant C_{\hat E}^2\|\hat\bv\|_{L^2(\hat E)}^2 
 \end{equation}
 and using \eqref{equi0} for $\hat E$ instead of $E$ we have %(with constants in the equivalence depending only on $\hat E$) %from our previous reasoning %(with $h_{\hat E}\sim 1$)
 \[
