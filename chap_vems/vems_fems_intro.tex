@@ -41,7 +41,7 @@ For $E\in\Th$ the local space of virtual vector fields will be
 and the  global space $V_h$ will consist of functions defined piecewise with the former
 local spaces:
 \begin{IEEEeqnarray*}{ccrCl}
-  V_h & = & V_h(\Th) & := & \Big\{\bv\in H(\dv,\Omega): \bv|_E\in V_h(E),
+  V_h & = & V_h(\Th) & := & \Big\{\bv\in H(\Div,\Omega): \bv|_E\in V_h(E),
   \mbox{for all element } E\in\Th\Big\}.
 \end{IEEEeqnarray*}
 The  condition on the $\curl$ is put because we are
@@ -51,7 +51,7 @@ The scalar discrete space we will consider is
   Q_h & = & {P}_0(\Th)
 \end{IEEEeqnarray}
 meaning the functions that are constant on each element of $\Th$. As expected,
-with $V_h$ we consider the $H(\dv,\Omega)$ norm, 
+with $V_h$ we consider the $H(\Div,\Omega)$ norm, 
 $\|\bv\|^2_{V_h} = \|\bv\|^2_{L^2(\Omega)} + \|\dv\bv\|^2_{L^2(\Omega)}$,
 and with $Q_h$ we consider the $L^2(\Omega)$ norm.
 As Problem~\ref{weakMixedContinuous}  has solution in $H(\Div,\Omega)$
@@ -88,20 +88,21 @@ Then we consider the auxiliary problem of seeking a solution of
 \end{IEEEeqnarray}
 By definition we obtain the compatibility condition
 \begin{IEEEeqnarray*}{rCl}
-   \int_E d\,d\bx& = & \int\limits_{\partial E} g\,d\gamma    
+   \int_E d\,d\bx& = & \iint_{\partial E} g\,dS
 \end{IEEEeqnarray*}
 so the solution $\phi$ to the problem~(\ref{aux_prob}) exists. Now
 we take $\bu:=\nabla \phi$ and  it holds immediately that $\dv\bu$ is constant in $E$,
 $\bu\cdot\bn$ is constant on each face of $\partial E$ and $\curl\bu = 0$. So
-$\bu$ lies in $V_h(E)$ and also for all $1\leqslant i\leqslant n_{f,E}$ $\int_{f_i} \bu\cdot\bn\,d\gamma = \alpha_i$.\\[4pt]
+$\bu$ lies in $V_h(E)$ and also for all $1\leqslant i\leqslant n_{f,E}$ 
+$\iint_{f_i} \bu\cdot\bn\,dS = \alpha_i$.\\[4pt]
 \emph{Uniqueness.} Suppose that $\bv\in V_h(E)$ has vanishing
 degrees of freedom. Condition $\curl\bv=0$ implies
 $\bv=\nabla\phi$ for certain $\phi$. Now, since $\dv\bv$ is constant on $E$, the
 relation
 \begin{IEEEeqnarray*}{rCl}
-   0 & = & \int\limits_{\partial P}\\cdot\bn\,d\gamma 
+   0 & = & \int_{\partial P}\bv\cdot\bn\,dS
 \end{IEEEeqnarray*} %& = & \int\limit s_P\dv\bv\,d\bx
-imply $\dv\bv=0$ by Green Theorem. Then, the potential $\phi$ satisfies
+implies $\dv\bv=0$ by Green Theorem. Then, the potential $\phi$ satisfies
 \begin{IEEEeqnarray*}{rClrCl}
   \Delta \phi & = & 0 \quad \mbox{in $E$,} \qquad & 
   \frac{\partial \phi}{\partial \bn}& = &0 \quad \mbox{on }\partial E
@@ -109,17 +110,17 @@ imply $\dv\bv=0$ by Green Theorem. Then, the potential $\phi$ satisfies
 which means it is a constant, and it follows $\bv=0$.
 \end{proof}
 With this Lemma already demonstrated we are able to consider
-an $H(div)$--like local interpolation operator well defined.
+an $H(\Div)$--like local interpolation operator well defined.
 \begin{corollary} \label{interpolant}
   For every $\bv\in H^1(E)^3$ there exists a $V_h(E)$--interpolant $I\bv$
   defined as the unique element in $V_h(E)$ such that for every face $f$ of $E$
     \begin{IEEEeqnarray*}{rCl}
-      \iint_f I\bv\cdot\bn\,dS & = & \int\limits_f \bv\cdot\bn\,d\gamma.       
+      \iint_f I\bv\cdot\bn\,dS & = & \iint_f \bv\cdot\bn\,dS.       
     \end{IEEEeqnarray*}
 \end{corollary}
 \begin{lemma} \label{p0_projection} Consider the projection $P_0$ onto the constants on $E$. It holds
 \begin{IEEEeqnarray*}{rCl}
-  \dv I(\bv) & = & P_0\,\dv\bv.
+  \dv I\bv & = & P_0\,\dv\bv.
 \end{IEEEeqnarray*}
 \end{lemma}
 \begin{proposition}\label{vem_equal_fem}
@@ -137,7 +138,7 @@ If $E$ is a tetrahedron, we have
 \begin{IEEEeqnarray}{rCl}\label{p03}
   V_{\textit{h}}(E) & = & P_0^3(\bx) + P_0\bx\mbox{,}
 \end{IEEEeqnarray}
-with $\bx = (x,y,z)$ being the vector of variables in a cartesian system of
+with $\bx = (x,y,z)'$ being the vector of variables in a cartesian system of
 coordinates.
 \end{enumerate}
 \end{proposition}
@@ -147,10 +148,11 @@ coordinates.
     \{\bv \in P_1(E)\,:\, \bv=(a+\gamma x,b+\gamma y,c+d z),
         a,b,c,d,\gamma\in\mathbb{R})\}
   \]
-  and then it is inmediately seen that it has the same dimension five
-  as $V_{\textit{h}}(E)$. Finally, recalling that the $\dv$ and $\curl$ operators
+  and then we see immediately that it has the same dimension 
+  as $V_{\textit{h}}(E)$ which has dimension five. Finally, recalling that 
+  the $\dv$ and $\curl$ operators
   can be computed in the chosen local variables, given $\bv\in D_1(x,y)\otimes P_1(z)$
-  we can compute $\bv|_{f}\cdot\bn_f$ on each face of $E$, $\dv\bv$ and $\curl\bv$
+  we can compute $\bv|_{f}\cdot\bn_f$ (on each face $f$ of $E$), $\dv\bv$ and $\curl\bv$
   to verify explicitly that the space on the right side of~(\ref{d1p1}) fulfills the 
   definition of $V_h(E)$ given in~(\ref{vhE}).
   Exactlty the same argument works for the case of a tetrahedron $E$, in which we
@@ -158,25 +160,27 @@ coordinates.
   every element in
   \[
     P_0^3(\bx) + P_0\bx=\{\bv \in P_1(E)\,:\,
-    \bv=(a+\gamma x,b+\gamma y,c+\gamma z,
-    a,b,c,\gamma\in\mathbb{R})\}
+    \bv=(a+\gamma x,b+\gamma y,c+\gamma z)',
+    a,b,c,\gamma\in\mathbb{R}\}
   \]
   fulfills the conditions defining $V_{\textit{h}}(E)$.
 \end{proof}
 \begin{remark}
-  By Proposition~\ref{vem_equal_fem} the spaces $V_h(E)$ conicide with the
-  lowest order $H(\dv)$--conforming local Finite Element spaces
+  By Proposition~\ref{vem_equal_fem} the spaces $V_h(E)$ coincide with the
+  lowest order $H(\Div)$--conforming local Finite Element spaces
   introduced in~(\ref{prismaticSpace})
   for the prismatic case and in~(\ref{tetrahedralSpace}) for the tetrahedral case.
 \end{remark}
 \begin{lemma}
-  The definition of the lowest order $H(\dv)$ Finite Elements on
+  The definition of the lowest order $H(\Div)$ Finite Elements on
   right prisms or tetrahedra is independent of
 the choice of the cartesian axes (as long as the $z$-axis is
 perpendicular to the trianguar faces in case of prisms).
 \end{lemma}
 \begin{proof}
-  This can be prooved by hand. Let us proove the case of a Prism $E$. Let $(x,y,z)$ and $(x',y',z')$ be two cartesian coordinate systems satisfying the required properties. Then we can write
+  This can be proved by hand. Let us prove the case of a prism $E$. Let 
+  $(x,y,z)'$ and $(x',y',z')'$ be two cartesian coordinate systems satisfying the
+  required properties. For them there is a change of coordinates such as
   \begin{IEEEeqnarray*}{rCl}
     x & = & p+\alpha x'-\beta  y' \\
     y & = & q+\beta x' -\alpha y' \\
@@ -186,23 +190,27 @@ for $\alpha$ and $\beta$ satisfying $\alpha^2+\beta^2 = 1$.
 Let 
 $\bv$ be an element in $V_{\textit{h}}(E)$. So
 \begin{IEEEeqnarray*}{rCl}
-\bv(x,y,z) & = & (a+\gamma x,b+\gamma y,c+d z)^{\scriptstyle t}\\
-&=&\left((a+\gamma p) + \gamma(\alpha x' - \beta y'),
-         (b+\gamma q) + \gamma(\beta x'+\alpha y'),
-         (c+dr)+dz'\right)^{\scriptstyle t}.
+\bv(x,y,z) & = & (a+\gamma x,b+\gamma y,c+d z)'\\
+&=&((a+\gamma p) + \gamma(\alpha x' - \beta y'),\\
+&& \,\,        (b+\gamma q) + \gamma(\beta x'+\alpha y'),\\
+ && \,\,       (c+dr)+dz')'.
 \end{IEEEeqnarray*}
 Then, the components of $\bv$ in the new coordinate versors are
-\begin{IEEEeqnarray*}{rCcCl}
-  \bv\cdot(\alpha,\beta,0)^{\scriptstyle t} & = &
-   (\alpha a + \beta b + \gamma(\alpha p + \beta q )) +\gamma x' & =: & a' + \gamma x' \\
-  \bv\cdot(-\beta,\alpha,0)^{\scriptstyle t} & = &
-   (-\beta a + \alpha b + \gamma(-\beta p + \alpha q )) +\gamma y' & =: & b' + \gamma y' \\
-  \bv\cdot(0,0,1)^{\scriptstyle t} & = &
-   (c+dr)+d z' & =: & c' + dz'.
+\begin{IEEEeqnarray*}{c}
+ \begin{cases}
+  \begin{IEEEeqnarraybox*}{lClCl}
+    \bv\cdot(\alpha,\beta,0)' & = &
+     (\alpha a + \beta b + \gamma(\alpha p + \beta q )) +\gamma x' & =: & a' + \gamma x' \\
+    \bv\cdot(-\beta,\alpha,0)' & = &
+     (-\beta a + \alpha b + \gamma(-\beta p + \alpha q )) +\gamma y' & =: & b' + \gamma y' \\
+    \bv\cdot(0,0,1)' & = &
+     (c+dr)+d z' & =: & c' + dz'.
+  \end{IEEEeqnarraybox*}
+ \end{cases}
 \end{IEEEeqnarray*}
-Is follows that, in the $x'y'z'$ system,
+It follows that, in the $x'y'z'$ system,
 \[
-  \bv(x',y',z') = (a' + \gamma x', b' + \gamma y', c' + dz')^{\scriptstyle t}
+  \bv(x',y',z') = (a' + \gamma x', b' + \gamma y', c' + dz')'
   \in D_1(x',y')\otimes P_1(z').
 \]
 \end{proof}
@@ -214,49 +222,49 @@ Is follows that, in the $x'y'z'$ system,
 %  b(\bv,q)=\sum_{E\in\Th}b^E(\bv,q).
 %\]
 Next, together with the finite dimensional spaces already defined,
-discretized version of the bilinear forms.\\
-The evaluation of the form $b(\cdot,\cdot)$ in $(\bv,q)\in V_h\times Q_h$ can
+we present discretized version of the bilinear forms. The evaluation of
+the form $b(\cdot,\cdot)$ at a pair $(\bv,q)\in V_h\times Q_h$ can
 be computed using the degrees of freedom~(\ref{dofs}) applied to $\bv$. For if $q\in Q_h$, then
 \[
-  b(\bv,q)=\int_\Omega q\,\dv\bv = \sum_{E\in\Th}
-  \int_Eq\,\dv\bv = \sum_{E\in\Th}\int_{\partial E}q \bv\cdot\bn.
+  b(\bv,q)=\int_\Omega q\,\dv\bv\,d\bx = \sum_{E\in\Th}
+  \int_E q\,\dv\bv\,d\bx = \sum_{E\in\Th}\iint_{\partial E}q \bv\cdot\bn\,dS.
 \]
-so in the case of the form $b_h(\bv,q)$ we put simply
+So in the case of the form $b_h(\cdot,\cdot)$ we put simply
 \begin{IEEEeqnarray}{rCcCl}\label{aux_label44}
   b_h(\bv,q) & = & b(\bv,q) & = &
   \sum_{E\in\Th}b^E(\bv,q)\mbox{,}
 \end{IEEEeqnarray}
 where $b^E(\bv,q) = \int_E q\,\dv\bv\,d\bx$.
-For the bilinear form $a(,)$, we can decompose it as
+For the bilinear form $a(\cdot,\cdot)$, we can decompose it as
 \[
   a(\bv,\bw)=\sum_{E\in\Th}\int_E\bv\cdot\bw\,d\bx
 \]
-but this is not computable from the 
-degres of freedom. The following construction
+but this is not computable in terms of the 
+degrees of freedom. The following construction
 is done in order to get a calculable discrete form and
 also we will introduce a term for the
 stability.\\[4pt]
-For each element $E\in\mathcal{T}_{\textit{h}}$, let the space $W(E)$
+For each element $E\in\Th$, let the space $W(E)$
 be defined by
 \begin{IEEEeqnarray*}{rCl}
   W(E) & = & \left\{ \bw\in V_h(E):  \bw = \nabla  q_2,
 \mbox{ for some }  q_2\in P_2(E)\right\}\\[5pt]
        & = & V_h(E)\cap\nabla {P}_2(E)\mbox{,}
 \end{IEEEeqnarray*}
-and with these we consider $W(\mathcal{T}_{\textit{h}}) = \{{\bw} : {\bw}|_{E} \in W(E)
-\mbox{ for each }E\in\mathcal{\textit{h}}\}$. Integrating arbitrary elements
+and with these we consider $W(\Th) = \{{\bw} : {\bw}|_{E} \in W(E)
+\mbox{ for each }E\in\Th\}$. Integrating arbitrary elements
 in~(\ref{d1p1}) and~(\ref{p03}) yields the following result.
-\begin{lemma} When $E\in\mathcal{T}_{\textit{h}}$ is a tetrahedron or 
+\begin{lemma} When $E\in\Th$ is a tetrahedron or 
 a prism, then $W(E) = V_{\textit{h}}(E)$.  
 \end{lemma}
-Again, observe that if $\bv\in V_h(E)$ and $\hat\bu\in\hat V(E)$, $a^E(\hat\bu,\bv)$ can be 
+Again, observe that if $\bv\in V_h(E)$ and $\bw\in W(E)$, $a^E(\bw,\bv)$ can be 
 computed using the degrees of freedom of $\bv$, because it holds
 \begin{IEEEeqnarray*}{rCCCl}
-a^E(\hat\bu,\bv) &:=& \int_E\hat\bu\cdot\bv &=& \int_E\nabla \hat q_2\cdot\bv\\
-                 &=&-\int_E\hat q_2 \dv\bv &+& \int_{\partial E}\hat q_2\bv\cdot\bn.
+a^E(\bw,\bv) &:=& \int_E\bw\cdot\bv\,d\bx &=& \int_E\nabla q_2\cdot\bv\,d\bx\\
+                 &=&-\int_E q_2 \dv\bv\,d\bx &+& \iint_{\partial E} q_2\bv\cdot\bn\,dS.
 \end{IEEEeqnarray*}
 This means we can consider an auxiliary projection  operator $\pi^E$
-from $H(\dv,E)$ onto $W(E)$ defined by
+from $H(\Div,E)$ onto $W(E)$ defined by
 \begin{IEEEeqnarray}{rCl}\label{projection}
   a^E(\bv-\pi^E\bv,\bw) = 0 &\qquad& \mbox{for all }\bw\in W(E)
 \end{IEEEeqnarray}
@@ -319,11 +327,13 @@ By setting
 \[
 \vertiii{\bv}_E^2=\frac1{h_E}\sum_{i=1}^5 a_i^2
 \]
-$\vertiii{\cdot}_E$ defines a norm on $V_h(E)$, and since it has a finite dimension, we know that for constants $c_E$ and $C_E$, which depend on $E$, we have
+$\vertiii{\cdot}_E$ defines a norm on $V_h(E)$, and since it has a finite
+dimension, we know that for constants $c_E$ and $C_E$, which depend on $E$, we have
 \begin{equation}\label{equiv0}
 c_E\|\bv\|_{L^2(E)}\le \vertiii{\bv}_E\le C_E\|\bv\|_{L^2(E)}, \qquad \forall \bv\in V_h(E).
 \end{equation}
-The purpose of the next Proposition is to prove that $C_E$ and $c_E$ can be taken depending only on the aspect ratio of $E$.
+The purpose of the next Proposition is to prove that $C_E$ and $c_E$ can be
+taken depending only on the aspect ratio of $E$.
 
 
 % \textcolor{red}{
@@ -332,7 +342,10 @@ The purpose of the next Proposition is to prove that $C_E$ and $c_E$ can be take
 
 \begin{proposition}
 \label{stabilizing_term}
-Let $E$ be a pyramid, and consider the basis $\{\bv_i, i=1,\ldots,5\}$ of $V_h(E)$, and the associated discrete norm $\vertiii{\cdot}_E$ introduced above. Then there exist constants $C_E$ and $c_E$ depending only on the aspect ratio of $E$ such that \eqref{equiv0} holds true for all $\bv\in V_h$.
+Let $E$ be a pyramid, and consider the basis $\{\bv_i, i=1,\ldots,5\}$ of
+$V_h(E)$, and the associated discrete norm $\vertiii{\cdot}_E$ introduced
+above. Then there exist constants $C_E$ and $c_E$ depending only on the aspect
+ratio of $E$ such that \eqref{equiv0} holds true for all $\bv\in V_h$.
 \end{proposition}
 \begin{proof} First we note that if $\bv\in V_h(E)$ is given by
 \[
@@ -344,26 +357,34 @@ then it satisfies
 \]
 with 
 \begin{eqnarray}\label{a0}
-\Delta\phi &=& d\qquad \mbox{in }E\\ \frac{\partial\phi}{\partial\bn}&=& g\qquad\mbox{on }\partial E\nonumber\\ \int_E\phi&=&0\nonumber
+\Delta\phi &=& d\qquad \mbox{in }E\\ \frac{\partial\phi}{\partial\bn}&=&
+g\qquad\mbox{on }\partial E\nonumber\\ \int_E\phi&=&0\nonumber
 \end{eqnarray}
 for
 \begin{equation}\label{ai}
 g|_{f_i}=\frac{a_i}{|f_i|},\quad 1\le i\le5, \qquad |E|d=\sum_{i=1}^5a_i.
 \end{equation}
-Given $q\in H^1(E)$, we multiply  the first equation of \eqref{a0} by $q$ and integrate on $E$, integrate by parts on the left hand side, and use the Neumann boundary conditions to have
+Given $q\in H^1(E)$, we multiply  the first equation of \eqref{a0} by $q$
+and integrate on $E$, integrate by parts on the left hand side, and use the
+Neumann boundary conditions to have
 \[
 \int_E\nabla\phi\cdot\nabla q = -\int_Edq + \int_{\partial E}gq.
 \]
 Since 
 \[
-\|\bv\|_{L^2(E)}=\|\nabla\phi\|_{L^2(E)}=\sup\left\{\int_{E}\nabla\phi\cdot\nabla q: \,\, q\in H^1(E),\|\nabla q\|_{L^2(E)}=1,\int_Eq=0\right\}
+\|\bv\|_{L^2(E)}=\|\nabla\phi\|_{L^2(E)}=\sup\left\{\int_{E}\nabla\phi\cdot\nabla q:
+\,\, q\in H^1(E),\|\nabla q\|_{L^2(E)}=1,\int_Eq=0\right\}
 \]
 we conclude that
 \begin{equation}\label{equi0}
-\|\bv\|_{L^2(E)}=\sup\left\{-\int_Edq + \int_{\partial E}gq: \,\, q\in H^1(E),\|\nabla q\|_{L^2(E)}=1,\int_Eq=0\right\}.
+\|\bv\|_{L^2(E)}=\sup\left\{-\int_Edq + \int_{\partial E}gq: \,\,
+q\in H^1(E),\|\nabla q\|_{L^2(E)}=1,\int_Eq=0\right\}.
 \end{equation}
-Since $d$ and $g$ can be written in terms of $a_i$, we have obtained an expression of the norm $\|\bv\|_{L^2(E)}$ in terms of the coefficients of $\bv$ in the basis.
-Now, let $\hat E$ be a reference pyramid, and $F:\hat E\to E$ a affine transformation mapping $\hat E$ onto $E$ (remember that only pyramids with parallelogram basis are considered), which can be written as
+Since $d$ and $g$ can be written in terms of $a_i$, we have obtained an
+expression of the norm $\|\bv\|_{L^2(E)}$ in terms of the coefficients of $\bv$ in the basis.
+Now, let $\hat E$ be a reference pyramid, and $F:\hat E\to E$ a affine
+transformation mapping $\hat E$ onto $E$ (remember that only pyramids with
+parallelogram basis are considered), which can be written as
 \[
 {\bf x}=F(\hat{\bf x})=B\hat{\bf x}+{\bf c}.
 \] 
@@ -371,9 +392,11 @@ Given $q\in H^1(E)$ we define $\hat q$ by
 \[
 \hat q(\hat{\bf x}) = q({\bf x}),\qquad \forall \hat{\bf x}\in \hat E
 \] 
-and we observe that there exists constants $c_0$ and $c_1$ depending on the aspect ratio of $E$ such that
+and we observe that there exists constants $c_0$ and $c_1$ depending on the
+aspect ratio of $E$ such that
 \begin{equation}\label{a1}
-\frac{c_0}{h_E}\|\nabla q\|_{L^2(E)}^2\le \|\nabla\hat q\|_{L^2(\hat E)}^2\le \frac{c_1}{h_E}\|\nabla q\|_{L^2(E)}^2,
+\frac{c_0}{h_E}\|\nabla q\|_{L^2(E)}^2\le \|\nabla\hat q\|_{L^2(\hat E)}^2\le
+\frac{c_1}{h_E}\|\nabla q\|_{L^2(E)}^2,
 \end{equation}
 and, on the other hand,
 \[
@@ -381,22 +404,31 @@ and, on the other hand,
 \]
 We have
 \[
--\int_Edq + \int_{\partial E}gq = \|\nabla \hat q\|_{L^2(\hat E)}\left(-\int_{\hat E}d\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}}|B| + \int_{\partial \hat E}\hat g\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} |J|\right)
+-\int_Edq + \int_{\partial E}gq = \|\nabla \hat q\|_{L^2(\hat E)}
+\left(-\int_{\hat E}d\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}}|B| + 
+\int_{\partial \hat E}\hat g\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} |J|\right)
 \]
 with $\left|J(\hat{\bf x})\right|_{f_i}|= |f_i|/|\hat f_i|\sim h_E^2$. It follows that
 \begin{multline*}
-\|\bv\|_{L^2(E)}=\sup\Bigg\{\|\nabla \hat q\|_{L^2(\hat E)}\left(-\int_{\hat E}d|B|\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} + \int_{\partial \hat E}g|J|\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} \right):\\ \quad q\in H^1(E),\|\nabla q\|_{L^2(E)}=1,\int_Eq=0\quad\Bigg\},
+\|\bv\|_{L^2(E)}=\sup\Bigg\{\|\nabla \hat q\|_{L^2(\hat E)}
+\left(-\int_{\hat E}d|B|\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} + 
+\int_{\partial \hat E}g|J|\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} 
+\right):\\ \quad q\in H^1(E),\|\nabla q\|_{L^2(E)}=1,\int_Eq=0\quad\Bigg\},
 \end{multline*}
 and taking \eqref{a1} into account we obtain
 % \begin{multline*}
 % \|\bv\|_{L^2(E)}\le \sup\Bigg\{\|\hat \nabla q\|_{L^2(\hat E)}\left(-\int_{\hat E}d|B|\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} + \int_{\partial \hat E}g|J|\frac{\hat q}{\|\nabla \hat q\|_{L^2(\hat E)}} \right):\\ \quad \hat q\in H^1(\hat E),\frac{c_0}{h_E^\frac12}\le\|\nabla \hat q\|_{L^2(\hat E)}\le\frac{c_1}{h_E^\frac12},\int_{\hat E}\hat q=0\quad\Bigg\}
 % \end{multline*}
 \begin{equation}\label{mult1}
-\|\bv\|_{L^2(E)}\le  \frac{c_1^\frac12}{h_E^\frac12}\sup\Bigg\{\left(-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q \right): \quad \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\quad\Bigg\}
+\|\bv\|_{L^2(E)}\le  \frac{c_1^\frac12}{h_E^\frac12}\sup\Bigg\{
+\left(-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q \right): 
+\quad \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\quad\Bigg\}
 \end{equation}
 and 
 \begin{equation}\label{mult2}
-\|\bv\|_{L^2(E)}\ge  \frac{c_0^\frac12}{h_E^\frac12}\sup\Bigg\{\left(-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q \right): \quad \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\quad\Bigg\}.
+\|\bv\|_{L^2(E)}\ge  \frac{c_0^\frac12}{h_E^\frac12}\sup\Bigg\{
+\left(-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q \right):
+\quad \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\quad\Bigg\}.
 \end{equation}
 % and so
 % \begin{multline*}
@@ -406,7 +438,8 @@ We remark that
 \[
 \int_{\hat E}d|B|=\int_{\partial\hat E}g|J|,
 \]
-Now, let $\{\hat\bv_i\}$ be the dual basis of $V_h(\hat E)$ to the degrees of freedom, and let
+Now, let $\{\hat\bv_i\}$ be the dual basis of $V_h(\hat E)$ to the degrees of
+freedom, and let
 \begin{equation}\label{hatai}
 \hat a_i=g|_{f_i}|J|_{f_i}|\hat f_i|, \qquad i=1,\ldots,5.
 \end{equation}
@@ -416,17 +449,22 @@ and
 \]
 Then, from \eqref{equiv0} for $\hat E$ we know that
 \begin{equation}\label{equiv1}
-c_{\hat E}^2\|\hat\bv\|_{L^2(\hat E)}^2\le \frac1{h_{\hat E}}\sum_{i=1}^5 \hat a_i^2\le C_{\hat E}^2\|\hat\bv\|_{L^2(\hat E)}^2 
+c_{\hat E}^2\|\hat\bv\|_{L^2(\hat E)}^2\le \frac1{h_{\hat E}}\sum_{i=1}^5
+\hat a_i^2\le C_{\hat E}^2\|\hat\bv\|_{L^2(\hat E)}^2 
 \end{equation}
 and using \eqref{equi0} for $\hat E$ instead of $E$ we have %(with constants in the equivalence depending only on $\hat E$) %from our previous reasoning %(with $h_{\hat E}\sim 1$)
 \[
-\|\hat\bv\|_{L^2(\hat E)}= \sup\Bigg\{\left(-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q \right): \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\Bigg\}.
+\|\hat\bv\|_{L^2(\hat E)}= \sup\Bigg\{\left(-\int_{\hat E}d|B|\hat q +
+\int_{\partial \hat E}g|J|\hat q \right): \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\Bigg\}.
 \]
 It follows from \eqref{equiv1} that
 \[
-\left(\frac1{h_{\hat E}}\sum_{i=1}^5 \hat a_i^2\right)^\frac12\sim \sup\Bigg\{\left(-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q \right): \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\Bigg\},
+\left(\frac1{h_{\hat E}}\sum_{i=1}^5 \hat a_i^2\right)^\frac12\sim
+\sup\Bigg\{\left(-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q \right): \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\Bigg\},
 \]
-where the constants in this equivalence depend on the aspect ratio of $E$, and so, since $h_{\hat E}\sim 1$, this equation together with \eqref{mult1} and \eqref{mult2} gives
+where the constants in this equivalence depend on the aspect ratio of $E$,
+and so, since $h_{\hat E}\sim 1$, this equation together with
+\eqref{mult1} and \eqref{mult2} gives
 \[
 \frac1{h_E}\sum_{i=1}^5\hat a_i^2\sim \|\bv\|_{L^2(E)}^2.
 \]
