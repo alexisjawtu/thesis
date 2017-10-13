@@ -3,12 +3,14 @@ Since it holds clearly that $W(E)=V_h(E)$ when $E$ is a tetrahedron or a prism,
 the purpose of this Section is to characterize $W(E)$ only when $E$ is a pyramid.
 The Section finishes with some computational insights. 
 \begin{lemma}\label{L3}
-Let $\hat P$ be the reference pyramid 
-of Definition~\ref{defi_of_ref_pyr}.
-Then if $\bv \in\mathcal P_1(\hat P)^3$ verifies $\bv \cdot \bn =0$ on $\hat f_1$, $\hat f_2$, $\hat f_3$ and
-$\hat f_5$, then $\bv({\bf x})=(0,cx_2,0)$ with $c$ constant.
+Let $\hat E$ be the reference pyramid 
+of Definition~\ref{defi_of_ref_pyr} and recall the notation for the faces
+in Table~\ref{pyramidNotationTableFaces}.
+If $\hat\bv\in P_1(\hat E)^3$ verifies $\hat\bv \cdot \hat\bn =0$ on
+$\hat f_1$, $\hat f_2$, $\hat f_3$ and
+$\hat f_5$, then $\hat\bv(\hat\bx)=(0,c\hat x_2,0)$ for a constant $c$.
 \end{lemma}
-\begin{proof}
+\begin{proof}{\color{Orange}\#\#\#\#\#\#\#\# seguir aca.}
 Using that $\bv\cdot\bn$ is constant on $\hat f_1$, $\hat f_2$ and
 $\hat f_5$ we obtain that $\bv$ is of the form
 \[
@@ -30,9 +32,9 @@ $\bv=\nabla q_2$ with $q_2\in \mathcal P_2(P)$ with normal
 component vanishing on four faces of $P$ and being constant different from $0$ on
 the another face.
 
-Let $\hat P$ be the reference pyramid of Lemma \ref{L3} and
+Let $\hat E$ be the reference pyramid of Lemma \ref{L3} and
 use the same notation for the faces. Let $F(\hat {\bf x})=B\hat
-{\bf x} + {\bf b}$ be an affine map from $\hat P$ onto $P$ and we denote
+{\bf x} + {\bf b}$ be an affine map from $\hat E$ onto $P$ and we denote
 $f_i=F(\hat f_i)$. Suppose
 that $\bv=\nabla q_2\in \mathcal P_2(P)$ is such that
 $\bv\cdot\bn=0$ on $f_1$, $f_2$, $f_3$ and $f_5$, while
@@ -41,7 +43,7 @@ obtained via the Piola trasform from $\bv$, that is
 \begin{equation}\label{piola}
 \bv({\bf x}) = \frac1{|B|}B\hat\bv(\hat{\bf x}), \qquad {\bf x}=F(\hat {\bf x}),
 \end{equation}
-which is in $\mathcal P_1(\hat P)^3$. Using properties of the Piola transform
+which is in $\mathcal P_1(\hat E)^3$. Using properties of the Piola transform
 \cite[pages 12--14]{ricardoMixed} we have for $i=1,2,3,5$,
 \[
 \int_{\hat f_i}\hat \bv\cdot {\bf n}\hat\phi = \int_{f_i}\bv\cdot {\bf n}\phi =0\qquad \forall \phi\in\mathcal P_1(f_i).
