@@ -309,167 +309,162 @@ discrete form $a^E_{\textit{h}}$ and which explains the form of the
 term $h_E^{-1}\langle\,\cdot\,,\cdot\,\rangle$ in~(\ref{discreteLocal_a}).
 In what follows we analyse this term in expression~(\ref{discreteLocal_a})
 when $E$ is a pyramid.
-Let $\{\bv_i\,1\leqslant i\leqslant 5\}$  denote  the dual basis of the degrees of freedom \eqref{dofs}
+Let $B_E=\{\bv_i\,:\,\,1\leqslant i\leqslant 5\}$  denote the dual basis of the degrees of freedom~\eqref{dofs}
 %, that is,
 %\[
 %\bv_i\in V_h(E), \qquad \mbox{and}\qquad \int_{f_j}\bv_i\cdot\bn =\delta_{i,j}, \quad 1\leqslant i,j\leqslant 5,
 %\]
 and let $f_j$, $1\leqslant j\leqslant 5$, denote the faces of $E$. Then 
 $\bv\in V_h(E)$ has a unique expression as
-\[
-\bv=\sum_{i=1}^5 a_i \bv_i,
-=
+\begin{IEEEeqnarray}{rCcCl}\label{auxlabel2}
+\bv & = & \sum_{i=1}^5 a_i \bv_i
+& = &
 \sum_{i=1}^5\left\{\iint_{f_i}\bv\cdot\bn\,dS\right\}\bv_i.
-\]
-By setting
-\[
-\vertiii{\bv}_E^2:=\frac1{h_E}\sum_{i=1}^5 a_i^2
-\]
-then $\vertiii{\cdot}_E$ defines a norm on $V_h(E)$. Since the space has finite
-dimension, for certain constants $c_E$ and $C_E$ we have
+\end{IEEEeqnarray}
+Let $\vertiii{\cdot}_E$ denote the following norm on $V_h(E)$
+\begin{IEEEeqnarray}{rCl}\label{auxlabel}
+  \vertiii{\bv}_E^2 & := & \frac1{h_E}\sum_{i=1}^5 a_i^2.
+\end{IEEEeqnarray}
+Since the space is finite dimensional, for certain constants $c_E$ and $C_E$ we have
 \begin{equation}\label{equiv0}
 c_E\|\bv\|_{L^2(E)}\leqslant \vertiii{\bv}_E\leqslant C_E\|\bv\|_{L^2(E)}\mbox{,} 
 \end{equation}
 for all $\bv\in V_h(E)$. Now the purpose of the next Proposition is to prove that $C_E$ and $c_E$ can be
 taken depending only on the aspect ratio of $E$.% \textcolor{red}{% {\bf Assumption (A).} We assume that if $\mbox{diam\,}E=1$, constants $c$ and $C$ above depends only on the shape-regularity of $E$.% }
-\noindent{\color{BrickRed}\#\#\#\#\#\#\# seguir aca} 
 \begin{proposition}
 \label{stabilizing_term}
-Let $E$ be a pyramid, and consider the basis $\{\bv_i, i=1,\ldots,5\}$ of
-$V_h(E)$, and the associated discrete norm $\vertiii{\cdot}_E$ introduced
-above. Then there exist constants $C_E$ and $c_E$ depending only on the aspect
-ratio of $E$ such that \eqref{equiv0} holds true for all $\bv\in V_h$.
+Let $E$ be a pyramid, and consider the basis $B_E$ of
+$V_h(E)$ in~(\ref{auxlabel2}), and the associated discrete norm $\vertiii{\cdot}_E$ introduced
+in~(\ref{auxlabel}). Then there exist constants $C_E$ and $c_E$ depending only on the aspect
+ratio of $E$ such that~\eqref{equiv0} holds true for all $\bv\in V_h$.
 \end{proposition}
-\begin{proof} First we note that if $\bv\in V_h(E)$ is given by
-\[
-\bv = \sum_{i=1}^5a_i\bv_i
-\]
-then it satisfies
-\[
-\bv = \nabla\phi
-\]
-with 
-\begin{eqnarray}\label{a0}
-\Delta\phi &=& d\qquad \mbox{in }E\\ \frac{\partial\phi}{\partial\bn}&=&
-g\qquad\mbox{on }\partial E\nonumber\\ \int_E\phi&=&0\nonumber
-\end{eqnarray}
+\begin{proof} First we note that if $\bv\in V_h(E)$ is given by $\bv = \sum_{i=1}^5 a_i\bv_i$
+then there is a function $\phi$ of zero mean over $E$ for which $\bv = \nabla\phi$ and also
+$\Delta\phi = d$ on $E$, $\frac{\partial\phi}{\partial\bn}=g$ on $\partial E$
 for
 \begin{equation}\label{ai}
-g|_{f_i}=\frac{a_i}{|f_i|},\quad 1\leqslant i\le5, \qquad |E|d=\sum_{i=1}^5a_i.
+g|_{f_i}=\frac{a_i}{|f_i|},\quad 1\leqslant i\leqslant 5, \qquad |E|\,d=\sum_{i=1}^5a_i.
 \end{equation}
-Given $q\in H^1(E)$, we multiply  the first equation of \eqref{a0} by $q$
-and integrate on $E$, integrate by parts on the left hand side, and use the
-Neumann boundary conditions to have
+Given $q\in H^1(E)$, integrating by parts $\Delta\phi$ times $q$ gives
 \[
-\int_E\nabla\phi\cdot\nabla q = -\int_Edq + \int_{\partial E}gq.
+\int_E\nabla\phi\cdot\nabla q\,d\bx = 
+-\int_Edq\,d\bx + 
+\int_{\partial E}gq\,dS.
 \]
-Since 
-\[
-\|\bv\|_{L^2(E)}=\|\nabla\phi\|_{L^2(E)}=\sup\left\{\int_{E}\nabla\phi\cdot\nabla q:
-\,\, q\in H^1(E),\|\nabla q\|_{L^2(E)}=1,\int_Eq=0\right\}
-\]
-we conclude that
-\begin{equation}\label{equi0}
-\|\bv\|_{L^2(E)}=\sup\left\{-\int_Edq + \int_{\partial E}gq: \,\,
-q\in H^1(E),\|\nabla q\|_{L^2(E)}=1,\int_Eq=0\right\}.
-\end{equation}
-Since $d$ and $g$ can be written in terms of $a_i$, we have obtained an
-expression of the norm $\|\bv\|_{L^2(E)}$ in terms of the coefficients of $\bv$ in the basis.
-Now, let $\hat E$ be a reference pyramid, and $F:\hat E\to E$ a affine
-transformation mapping $\hat E$ onto $E$ (remember that only pyramids with
+Let $\overline{q}$ denote the mean of $q$ over $E$. We have
+\begin{IEEEeqnarray*}{rCcCl}
+\|\bv\|_{L^2(E)} & = & \|\nabla\phi\|_{L^2(E)}  & = &  
+\sup_{\stackrel{q\in H^1(E),\|\nabla q\|_{0,E}=1\,}{\overline{q}=0}}
+\int_{E}\nabla\phi\cdot\nabla q\,d\bx \\[5pt]
+\yesnumber\label{equi0}
+&&&=&\sup_{\stackrel{q\in H^1(E),\|\nabla q\|_{0,E}=1}{\overline{q}=0}}
+-\int_E d\,q\,d\bx + \int_{\partial E}gq\,dS.\quad
+\end{IEEEeqnarray*}
+As a consequence of the definition of $d$ and $g$ in~(\ref{ai}), we have 
+obtained an
+expression of the norm $\|\bv\|_{L^2(E)}$ in terms of the coefficients of $\bv$
+with respecto to basis $B_E$.
+Now let $\hat E$ be a fixed reference pyramid, and let $F:\hat E\to E$ be an
+affine mapping from $\hat E$ onto $E$ (remember that only pyramids with
 parallelogram basis are considered), which can be written as
 \[
-{\bf x}=F(\hat{\bf x})=B\hat{\bf x}+{\bf c}.
+{\bx}=F(\hat{\bx})=M_E\,\hat{\bx}+{\bf c}.
 \] 
-Given $q\in H^1(E)$ we define $\hat q$ by
-\[
-\hat q(\hat{\bf x}) = q({\bf x}),\qquad \forall \hat{\bf x}\in \hat E
-\] 
-and we observe that there exists constants $c_0$ and $c_1$ depending on the
+Given $q\in H^1(E)$ let $\hat q := q \circ F$. There 
+exists constants $c_0$ and $c_1$ depending only on the
 aspect ratio of $E$ such that
 \begin{equation}\label{a1}
-\frac{c_0}{h_E}\|\nabla q\|_{L^2(E)}^2\leqslant \|\nabla\hat q\|_{L^2(\hat E)}^2\le
+\frac{c_0}{h_E}\|\nabla q\|_{L^2(E)}^2\leqslant \|\nabla\hat q\|_{L^2(\hat E)}^2\leqslant
 \frac{c_1}{h_E}\|\nabla q\|_{L^2(E)}^2,
 \end{equation}
-and, on the other hand,
+and, on the other hand, it holds
 \[
-\int_{\hat E}\hat q =0\quad \Longleftrightarrow \quad\int_Eq=0.
+\int_{\hat E}\hat q\,d\hat\bx = 0 \quad \Longleftrightarrow \quad \int_Eq\,d\bx=0.
 \]
-We have
+Now setting $\left|J(\hat{\bx})\right|_{f_i}|= |f_i|/|\hat f_i|\sim h_E^2$
+we have
 \[
--\int_Edq + \int_{\partial E}gq = \|\nabla \hat q\|_{L^2(\hat E)}
-\left(-\int_{\hat E}d\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}}|B| + 
-\int_{\partial \hat E}\hat g\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} |J|\right)
+\int_{\partial E}gq\,dS - \int_Edq\,d\bx = \|\nabla \hat q\|_{0,E}
+\left(\int_{\partial \hat E}\frac{\hat g\,\hat q\,|J|}{\|\nabla\hat q\|_{0,\hat E}}\,d\hat S
+-\int_{\hat E}\frac{d\,\hat q\,|\det M_E|}{\|\nabla\hat q\|_{0,\hat E}}\,d\hat\bx\right).
 \]
-with $\left|J(\hat{\bf x})\right|_{f_i}|= |f_i|/|\hat f_i|\sim h_E^2$. It follows that
+It follows that
 \begin{multline*}
 \|\bv\|_{L^2(E)}=\sup\Bigg\{\|\nabla \hat q\|_{L^2(\hat E)}
-\left(-\int_{\hat E}d|B|\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} + 
-\int_{\partial \hat E}g|J|\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} 
-\right):\\ \quad q\in H^1(E),\|\nabla q\|_{L^2(E)}=1,\int_Eq=0\quad\Bigg\},
+\left(-\int_{\hat E}\frac{d|\det M_E|\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} + 
+\int_{\partial \hat E}\frac{g|J|\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} 
+\right):\\ \quad q\in H^1(E),\,\|\nabla q\|_{L^2(E)}=1,\,\overline{q}=0\Bigg\},
 \end{multline*}
-and taking \eqref{a1} into account we obtain
+and taking~\eqref{a1} into account we obtain
 % \begin{multline*}
-% \|\bv\|_{L^2(E)}\leqslant \sup\Bigg\{\|\hat \nabla q\|_{L^2(\hat E)}\left(-\int_{\hat E}d|B|\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} + \int_{\partial \hat E}g|J|\frac{\hat q}{\|\nabla \hat q\|_{L^2(\hat E)}} \right):\\ \quad \hat q\in H^1(\hat E),\frac{c_0}{h_E^\frac12}\le\|\nabla \hat q\|_{L^2(\hat E)}\le\frac{c_1}{h_E^\frac12},\int_{\hat E}\hat q=0\quad\Bigg\}
+% \|\bv\|_{L^2(E)}\leqslant \sup\Bigg\{\|\hat \nabla q\|_{L^2(\hat E)}\left(-\int_{\hat E}d|\det M_E|\frac{\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} + \int_{\partial \hat E}g|J|\frac{\hat q}{\|\nabla \hat q\|_{L^2(\hat E)}} \right):\\ \quad \hat q\in H^1(\hat E),\frac{c_0}{h_E^\frac12}\le\|\nabla \hat q\|_{L^2(\hat E)}\le\frac{c_1}{h_E^\frac12},\int_{\hat E}\hat q=0\quad\Bigg\}
 % \end{multline*}
-\begin{equation}\label{mult1}
-\|\bv\|_{L^2(E)}\leqslant  \frac{c_1^\frac12}{h_E^\frac12}\sup\Bigg\{
-\left(-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q \right): 
-\quad \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\quad\Bigg\}
-\end{equation}
+\begin{IEEEeqnarray*}{rCCl}
+\|\bv\|_{L^2(E)} & \leqslant & c_1^{\nicefrac12}h_E^{-\nicefrac12}\sup&\Bigg\{
+-\int_{\hat E}d|\det M_E|\hat q\,d\hat\bx + \int_{\partial \hat E}g|J|\hat q\,d\hat S:\\ 
+\yesnumber\label{mult1}
+&&&\quad\quad\hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\overline{q}=0\Bigg\}\quad
+\end{IEEEeqnarray*}
 and 
-\begin{equation}\label{mult2}
-\|\bv\|_{L^2(E)}\ge  \frac{c_0^\frac12}{h_E^\frac12}\sup\Bigg\{
-\left(-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q \right):
-\quad \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\quad\Bigg\}.
-\end{equation}
+\begin{IEEEeqnarray*}{rCCl}
+\|\bv\|_{L^2(E)} & \geqslant & c_0^{\nicefrac12}h_E^{-\nicefrac12} \sup&\Bigg\{
+-\int_{\hat E}d|\det M_E|\hat q \,d\hat\bx+ \int_{\partial \hat E}g|J|\hat q \,d\hat S:\\
+\yesnumber\label{mult2}
+&&&\,\hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E} \hat q\,d\hat\bx=0\Bigg\}.\quad
+\end{IEEEeqnarray*}
 % and so
 % \begin{multline*}
-% \|\bv\|_{L^2(E)}\leqslant \frac{c_1}{h_E^\frac12}\sup\Bigg\{-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q:\\ \quad \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\quad\Bigg\}.
+% \|\bv\|_{L^2(E)}\leqslant \frac{c_1}{h_E^\frac12}\sup\Bigg\{-\int_{\hat E}d|\det M_E|\hat q + \int_{\partial \hat E}g|J|\hat q:\\ \quad \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\quad\Bigg\}.
 % \end{multline*}
 We remark that
 \[
-\int_{\hat E}d|B|=\int_{\partial\hat E}g|J|,
+\int_{\hat E}d|\det M_E|\,d\hat\bx=\int_{\partial\hat E}g|J|\,d\hat S.
 \]
-Now, let $\{\hat\bv_i\}$ be the dual basis of $V_h(\hat E)$ to the degrees of
-freedom, and let
+Now, let $\{\hat\bv_i\}$ be the basis of $V_h(\hat E)$ which is dual to the degrees of
+freedom over the faces of $\hat{E}$, and let
 \begin{equation}\label{hatai}
-\hat a_i=g|_{f_i}|J|_{f_i}|\hat f_i|, \qquad i=1,\ldots,5.
+\hat a_i=g|_{f_i}\,|J|_{f_i}|\,|\hat f_i|, \qquad 1\leqslant i\leqslant 5.
 \end{equation}
-and
-\[
-\hat\bv = \sum_{i=1}^5 \hat a_i\hat\bv_i.
-\]
-Then, from \eqref{equiv0} for $\hat E$ we know that
+Take $\hat\bv = \sum_{i=1}^5 \hat a_i\hat\bv_i$.
+From~\eqref{equiv0} applied to the pyramid $\hat E$ we know that
 \begin{equation}\label{equiv1}
 c_{\hat E}^2\|\hat\bv\|_{L^2(\hat E)}^2\leqslant \frac1{h_{\hat E}}\sum_{i=1}^5
-\hat a_i^2\leqslant C_{\hat E}^2\|\hat\bv\|_{L^2(\hat E)}^2 
+\hat a_i^2\leqslant C_{\hat E}^2\|\hat\bv\|_{L^2(\hat E)}^2\mbox{,}
 \end{equation}
-and using \eqref{equi0} for $\hat E$ instead of $E$ we have %(with constants in the equivalence depending only on $\hat E$) %from our previous reasoning %(with $h_{\hat E}\sim 1$)
-\[
-\|\hat\bv\|_{L^2(\hat E)}= \sup\Bigg\{\left(-\int_{\hat E}d|B|\hat q +
-\int_{\partial \hat E}g|J|\hat q \right): \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\Bigg\}.
-\]
-It follows from \eqref{equiv1} that
-\[
-\left(\frac1{h_{\hat E}}\sum_{i=1}^5 \hat a_i^2\right)^\frac12\sim
-\sup\Bigg\{\left(-\int_{\hat E}d|B|\hat q + \int_{\partial \hat E}g|J|\hat q \right): \hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E}\hat q=0\Bigg\},
-\]
-where the constants in this equivalence depend on the aspect ratio of $E$,
-and so, since $h_{\hat E}\sim 1$, this equation together with
-\eqref{mult1} and \eqref{mult2} gives
+and using~\eqref{equi0} for $\hat E$ instead of $E$ we have %(with constants in the equivalence depending only on $\hat E$) %from our previous reasoning %(with $h_{\hat E}\sim 1$)
+\begin{IEEEeqnarray*}{rCl}
+\|\hat\bv\|_{L^2(\hat E)} & = & 
+\sup_{\stackrel{\hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1}{\int_{\hat E}\hat q\,=\,0}}
+-\int_{\hat E}d\,|\det M_E|\hat q\,d\hat\bx +
+\int_{\partial \hat E}g|J|\hat q\,d\hat S.
+\end{IEEEeqnarray*}
+It follows from~\eqref{equiv1} that
+\begin{IEEEeqnarray}{rCl}
+  \nonumber
+  \left(\frac1{h_{\hat E}}\sum_{i=1}^5 \hat a_i^2\right)^\frac12 & \sim &
+  \sup_{\stackrel{\hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1}
+  {\int_{\hat E}\hat q\,=\,0}} 
+  -\int_{\hat E}d\,|\det M_E|\hat q\,d\hat\bx + \int_{\partial \hat E}g|J|\hat q\,d\hat S
+  \mbox{,}
+  \\
+  &&
+\label{auxlabel3}
+\end{IEEEeqnarray}
+where the constants in this equivalence depend only on the aspect ratio of $E$
+and so, since $\hat E$ can be considered with $h_{\hat E}\sim 1$, equation~\eqref{auxlabel3} together
+with~\eqref{mult1} and~\eqref{mult2} give
 \[
 \frac1{h_E}\sum_{i=1}^5\hat a_i^2\sim \|\bv\|_{L^2(E)}^2.
 \]
-But, from \eqref{ai} and \eqref{hatai}
+Using~\eqref{ai} and~\eqref{hatai},
 \[
-\hat a_i = a_i\frac{|J|_{f_i}|}{|f_i|}|\hat f_i|\sim a_i, \qquad i=1,\ldots,5,
+\hat a_i = a_i\frac{|J|_{f_i}|}{|f_i|}|\hat f_i|\sim a_i, \qquad 1\leqslant i\leqslant 5,
 \]
-and then we obtain
+and then
 \[
 \frac1{h_E}\sum_{i=1}^5a_i^2\sim \|\bv\|_{L^2(E)}^2
 \]
-as we wanted, since the constants in this equivalence depend only on the aspect ratio of $E$.
+as we wanted, since the constants in this equivalence also depend only on the aspect ratio of $E$.
 \end{proof}
 Proposition~(\ref{stabilizing_term}) yields the next corollary.
 \begin{corollary}\label{equivalence} For all $\bv\in V_h(E)$ and all pyramidal
@@ -480,7 +475,6 @@ $E\in\Th$ it holds
 \end{IEEEeqnarray*}
 where $c_E$ and $C_E$ depend only on the shape regularity of $E$.
 \end{corollary}
-
 \section{Discrete Problem}
 The discrete problem in the Finite--Virtual Element scheme is stated as follows.
 \begin{problem}\label{mixedDiscrete}
@@ -489,45 +483,43 @@ $\forall \bv\in V_{\Th} \forall q\in Q_{\Th}$
   \begin{IEEEeqnarray*}{rCCCl}
     a_{\scriptscriptstyle\Th}(\bu_{\scriptscriptstyle\Th},\bv) & + &
       b_{\scriptscriptstyle\Th}(\bv,p_{\scriptscriptstyle\Th}) & = & 0 \\[5pt]
-                    & - & b_{\scriptscriptstyle\Th}(\bu_{\scriptscriptstyle\Th},q) & = & (f,q)
+                    & - & b_{\scriptscriptstyle\Th}(\bu_{\scriptscriptstyle\Th},q) & = & (f,q).
   \end{IEEEeqnarray*}
 \end{problem}
 In Section~\ref{sec:well_posedness} we will be concerned in proving existence
 and uniqueness for Problem~(\ref{mixedDiscrete}). It will be done
 showing coercivity for one of the bilinear forms and a
 discrete version of the $\inf$--$\sup$ condition for the other.
-\begin{lemma}\label{lemma_for_coercivity} For all $E\in\Th$, all $\bu\in W(E)$ and all $\bv\in V_h(E)$
+\begin{lemma}\label{lemma_for_coercivity} For all $E\in\Th$, all $\bw\in W(E)$ and all $\bv\in V_h(E)$
 \begin{IEEEeqnarray}{rCcCl} 
-a_h^E(\bu,\bv) & = & a^E(\bu,\bv)       & &\label{L1}\\
+a_h^E(\bw,\bv) & = & a^E(\bw,\bv)       & &\label{L1}\\
 c_E\,a^E(\bv,\bv)      & \leqslant & a_h^E(\bv,\bv) & \leqslant & C_E\,a^E(\bv,\bv)\label{L2}
 \end{IEEEeqnarray}
 with $c_E = C_E = 1$ when $E$ is tetrahedral or prismatic and $c_E,C_E$ depending
 only on the shape regularity of $E$ when $E$ is pyramidal.
 \end{lemma}
-\begin{proof} The relation $\hat\bu=\hat\pi^E\bu$, condition~(\ref{projection})
+\begin{proof} The relation $\bw = \pi^E\bw$ for all $\bw\in W(E)$,
+condition~\eqref{projection}
 and the symmetry of $a^E$ imply
 \[
-  a_h^E(\hat\bu,\bv)=a^E(\hat\pi^E\hat\bu,\hat\pi^E\bv)=a^E(\hat\pi^E\hat\bu,\bv)=a^E(\hat\bu,\bv)
+  a_h^E(\bw,\bv)=a^E(\pi^E\bw,\pi^E\bv)=a^E(\pi^E\bw,\bv)=a^E(\bu,\bv)
 \]
-which proves~(\ref{L1}).
+which proves~\eqref{L1}.
 To prove~(\ref{L2}), if $E$ is not a Pyramid this property is already a consequence
-of~(\ref{ah_equal_a}). In the case of a Pyramid, firstly a simple computation yields
+of Remark~\ref{ah_equal_a}. In the case of a Pyramid, firstly a simple computation yields
 \begin{IEEEeqnarray}{rCcCl}
   \label{comput}
-  a^E(\bv,\bv)&=&a^E(\bv-\hat\pi^E\bv,\bv-\hat\pi^E\bv)&+&a^E(\hat\pi^E\bv,\hat\pi^E\bv).
+  a^E(\bv,\bv)&=&a^E(\bv-\pi^E\bv,\bv-\pi^E\bv)&+&a^E(\pi^E\bv,\pi^E\bv).
 \end{IEEEeqnarray}
 Corollary~\ref{equivalence} and~(\ref{comput}) give
 \begin{IEEEeqnarray*}{rCl}
-a_h^E(\bv,\bv) &\leqslant& a^E(\hat\pi\bv,\hat\pi\bv) + C_E\,a^E(\bv-\hat\pi\bv,\bv-\hat\pi\bv) \\[5pt]
+a_h^E(\bv,\bv) &\leqslant& a^E(\pi^E\bv,\pi^E\bv) + C_E\,a^E(\bv-\pi^E\bv,\bv-\pi^E\bv) \\[5pt]
                &\leqslant& \max\{1,C_E\}\,a^E(\bv,\bv).
 \end{IEEEeqnarray*}
 In a similar manner, it holds
 \[
-  a_h^E(\bv,\bv)\geqslant \min{1,c_E}\,a^E(\bv,\bv).
+  a_h^E(\bv,\bv)\geqslant \min\{1,c_E\}\,a^E(\bv,\bv).
 \]
 \end{proof}
-
-
-
 \input{./chap_vems/spaceWE}
 \end{chapter}
