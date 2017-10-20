@@ -10,110 +10,95 @@ If $\hat\bv\in P_1(\hat E)^3$ verifies $\hat\bv \cdot \hat\bn =0$ on
 $\hat f_1$, $\hat f_2$, $\hat f_3$ and
 $\hat f_5$, then $\hat\bv(\hat\bx)=(0,c\hat x_2,0)$ for a constant $c$.
 \end{lemma}
-\begin{proof}{\color{Orange}\#\#\#\#\#\#\#\# seguir aca.}
-Using that $\bv\cdot\bn$ is constant on $\hat f_1$, $\hat f_2$ and
-$\hat f_5$ we obtain that $\bv$ is of the form
+\begin{proof}
+The conditions of $\hat\bv\cdot\hat\bn$ over the faces $\hat f_1$, $\hat f_2$ and
+$\hat f_5$ yield
 \[
-\bv({\bf x}) = (a_1+b_1x_1, a_2+c_2x_2,a_3+d_3x_3),
+\hat\bv(\hat\bx) = (b_1\hat x_1, c_2\hat x_2,d_3\hat x_3)'.
 \]
-and since $\bv\cdot\bn=0$ on those faces it result
-$a_1=a_2=a_3=0$. Now, using that $\bv\cdot\bn=0$ on
-$\hat f_3$  we have that $b_1x_1+d_3x_3|_{\hat f_3}=d_3+(b_1-d_3)x_1|_{\hat f_3}=0$,
-so $b_1=d_3=0$. Then $\bv=(0,c_2x_2,0)$ as we wanted to prove.
+Using that $\hat\bv\cdot\hat\bn=0$ on
+$\hat f_3$  we have $b_1=d_3=0$. Then $\hat \bv=(0,c_2\hat x_2,0)'$ as we wanted to prove.
 \end{proof}
-
 \begin{lemma}\label{L4}
-Let $P$ be a pyramid. Then $\mbox{dim\,}W(P)\le4$.
+Let $P$ be any pyramid on a physical mesh. Then $\mbox{dim\,}W(P)\leqslant 4$.
 \end{lemma}
 \begin{proof}
-We have $W(P)\subseteq V(P)$ and $\mbox{dim\,}V(P)=5$. In order to prove that $W(P)\ne
-V(P)$ we will show that there exists no field
-$\bv=\nabla q_2$ with $q_2\in \mathcal P_2(P)$ with normal
-component vanishing on four faces of $P$ and being constant different from $0$ on
-the another face.
+As $W(P)\subseteq V_{\textit{h}}(P)$, we have $\mbox{dim\,}W(P)\leqslant 5$. 
+We will prove that $W(P)\ne V_{\textit{h}}(P)$ by showing that there exists no field
+$\bv=\nabla q_2$ for $q_2\in P_2(P)$ if we impose the restriccion that the normal
+component of $\bv$ vanishes on four different faces of $P$ while is different from zero on
+the remaining face.
 
-Let $\hat E$ be the reference pyramid of Lemma \ref{L3} and
-use the same notation for the faces. Let $F(\hat {\bf x})=B\hat
-{\bf x} + {\bf b}$ be an affine map from $\hat E$ onto $P$ and we denote
-$f_i=F(\hat f_i)$. Suppose
-that $\bv=\nabla q_2\in \mathcal P_2(P)$ is such that
+Let $\hat E$ be the reference pyramid of Definition~\ref{defi_of_ref_pyr}  and
+let us use the same notation for the faces. Let $F(\hat {\bx}) = M_P \hat{\bx} + \bx_P$
+be an affine map from $\hat E$ onto $P$ and let
+$f_i=F(\hat f_i)$ denote the faces of $\hat E$ and $P$. Suppose
+that $\bv=\nabla q_2$ for a $q_2 \in \mathcal P_2(P)$ and that
 $\bv\cdot\bn=0$ on $f_1$, $f_2$, $f_3$ and $f_5$, while
-$\bv\cdot\bn=1$ on $f_4$. Now we consider $\hat\bv$
-obtained via the Piola trasform from $\bv$, that is
+$\bv\cdot\bn=1$ on $f_4$. Now we transform it with~(\ref{transfDiv}) to get
 \begin{equation}\label{piola}
-\bv({\bf x}) = \frac1{|B|}B\hat\bv(\hat{\bf x}), \qquad {\bf x}=F(\hat {\bf x}),
+\bv({\bx}) = \frac1{|M_P|}M_P\hat\bv(\hat{\bx}), \qquad {\bx}=F(\hat {\bx}),
 \end{equation}
-which is in $\mathcal P_1(\hat E)^3$. Using properties of the Piola transform
-\cite[pages 12--14]{ricardoMixed} we have for $i=1,2,3,5$,
+where $\hat\bv$ is in $P_1(\hat E)^3$. If $\phi\in P_1(f_i)$, put $\hat\phi = \phi\circ F$.
+Using the properties of the transformed
+degrees of freedom we explained in Section~\ref{auxlabel110} we have, for $i=1,2,3,5$,
 \[
-\int_{\hat f_i}\hat \bv\cdot {\bf n}\hat\phi = \int_{f_i}\bv\cdot {\bf n}\phi =0\qquad \forall \phi\in\mathcal P_1(f_i).
+\iint_{\hat f_i}\hat\bv\cdot {\hat\bn}\,\hat\phi\,d\hat S = \iint_{f_i}\bv\cdot {\bn}\,\phi\,dS =0
 \]
-with $\hat \phi = \phi\circ F$. Since $\hat\bv|_{\hat f_i}\cdot {\bf n}\in\mathcal P_1(\hat f_i)$, this implies $\hat\bv|_{\hat f_i}\cdot {\bf n}=0$ for $i=1,2,3,5$. From the previous Lemma we obtain that
+for all $\phi\in P_1(f_i)$.
+Since $\hat\bv|_{\hat f_i}\cdot {\hat\bn}$ is itself a $P_1(\hat f_i)$ polynomial, 
+this implies $\hat\bv|_{\hat f_i}\cdot {\hat\bn}$ vanishes identically over $\hat f_i$.
+By Lemma~\ref{L3} we have $\hat\bv(\hat{\bx})=(0,c\hat x_2,0)'$. Then
 \[
-\hat\bv(\hat{\bf x})=(0,c\hat x_2,0).
+  \bv({\bx})=\frac1{|M_P|}M_P(0,c\hat x_2,0)' = \frac {c\,\hat x_2}{|M_P|}\boldsymbol{m}_2 
 \]
-Then
+where we write $M_P=[\boldsymbol{m}_1\,\,\boldsymbol{m}_2\,\,\boldsymbol{m}_3]$ 
+columnwise. So on $f_4$ we have 
 \[
-\bv({\bf x})=\frac1{|B|}B(0,c\hat x_2,0)^t = \frac c{|B|}{\bf b}_2 \hat x_2
+	\bv({\bx})\cdot {\bn}=\frac {c\,\hat x_2}{|M_P|}\boldsymbol{m}_2\cdot {\bn} 
 \]
-if $B=[{\bf b}_1\,\,{\bf b}_2\,\,{\bf b}_3]$ (that s, ${\bf b}_i$, $i=1,2,3$,  are the columns of $B$). Then, on $f_4$ we have 
-\[
-\bv({\bf x})\cdot {\bf n}=\frac c{|B|}\hat x_2{\bf b}_2\cdot {\bf n} 
-\]
-and we note that $\hat x_2$ is not constant on $f_4$, it varies from $0$ to $1$,
-and ${\bf b}_2\cdot {\bf n}\ne 0$, since ${\bf b}_2$ is a 
-{\color{Orange}***************** transversal} 
-vector to
-the face $f_4$. Then, $\bv({\bf x})\cdot {\bf n}$ is not constant on $f_4$,
-which contradicts our definition of $\bf v$.  
+but $\hat x_2$ is not a constant on $f_4$ since it ranges from $0$ to $1$. Moreover,
+$\boldsymbol{m}_2\cdot {\bn}$ is not zero because $\boldsymbol{m}_2$ is a 
+vector {\color{Orange}\#\#\#\#\#\#\#\# quiere decir no perpend? transversal} to $f_4$.
+Then $\bv({\bx})\cdot {\bn}$ is not a constant on $f_4$, which contradicts our 
+definition of $\bv$.  
 \end{proof}
-
+Now we explicit the pyramidal projection space.
 \begin{proposition}
-Let $P$ be a pyramid. Then $W(P)=\mathcal
-P_0^3(P)+{\bf x}\mathcal P_0(P)$.
+Let $P$ be a pyramid in the mesh. Then $W(P)=P_0^3(P)+{\bx} P_0(P)$.
 \end{proposition}
 \begin{proof}
-We have
-\[
-\mathcal P_0^3(P)+{\bf x}\mathcal P_0(P)\subseteq \hat
-V(P).
-\]
-Since
-\[
-\mbox{dim\,}\left(\mathcal P_0^3(P)+{\bf x}\mathcal
-P_0(P)\right)=4
-\]
-and that from Lemma \ref{L4}, $\mbox{dim\,}\hat
-V(P)\le4$, we conclude the assertion.
+First $P_0^3(P)+{\bx} P_0(P)\subseteq W(P).$
+Since by Lemma~\ref{L4} both spaces have the same dimension the assertion concludes.
 \end{proof}
-
-Given a field $\bv \in V_h(E)$, we can construct $\Pi_w^E\bv$
-as follows. We choose a basis $\{\bw_i\}$ of $W(E)$, for
+If $P$ is a physical pyramid, given a field $\bv \in V_h(P)$ we can construct $\pi^P\bv$
+as follows. We choose a basis $\{\bw_i\}$ of $W(P)$, for
 example,
 \[
-\left\{ (1,0,0), (0,1,0), (0,0,1), (x,y,z) \right\} =: \{
+\left\{ (1,0,0)', (0,1,0)', (0,0,1)', (x,y,z)' \right\} =: \{
 \bw_i: 1\leqslant i\leqslant 4\}
 \]
-with $\bw_i=\nabla q_i$, $i=1,2,3,4$. Then $a^E(\bv,\bw_i)$ is calculable from $\bv$'s degrees of freedom
+with $\bw_i=\nabla q_i$, $i=1,2,3,4$. Then $a^P(\bv,\bw_i)$ is 
+calculable from the degrees of freedom of $\bv$ by
 \[
-a^E(\bv,\bw_i) = \int_E\bv\cdot\nabla q_i =
--\int_E\mbox{div\,}\bv\,q_i + \int_{\partial E}\bv\cdot\bn\,q_i.
+a^P(\bv,\bw_i) = \int_P\bv\cdot\nabla q_i\,d\bx =
+-\int_P\mbox{div\,}\bv\,q_i\,d\bx + \iint_{\partial P}\bv\cdot\bn\,q_i\,dS.
 \]
-Then if $\Pi_w^E\bv=\sum_{j=1}^4\alpha_j\bw_j$ we can
+Then, if $\pi^P\bv=\sum_{j=1}^4\alpha_j\bw_j$ we can
 compute the coefficients $\alpha_j$ by solving the linear system
 \[
-\sum_{j=1}^4\alpha_j a^E(\bw_j,\bw_i) =
-a^E(\bv,\bw_i), \qquad i=1,2,3,4.
+\sum_{j=1}^4\alpha_j a^P(\bw_j,\bw_i) =
+a^P(\bv,\bw_i), \qquad 1\leqslant i\leqslant 4.
 \]
 In order to compute the stabilization part of the discrete
-bilinear form we need to write $\Pi_w^E\bv$ as a linear
-combination of the basis $\{\bv_i\}$ of $V_h(E)$ associated with
-the degrees of freedom, this is (always in the pyramidal case)
+bilinear form $a_\textit{h}^P$ we need to write $\pi^P\bv$ in terms
+of the basis $\{\bv_i\}$ of $V_h(E)$ associated with
+the degrees of freedom. That is (always in the pyramidal case)
 \[
-\int_{f_i}\bv_j\cdot\bn =\delta_{ij}, \qquad 1\leqslant i,j\leqslant 5.
+\iint_{f_i}\bv_j\cdot\bn\,dS =\delta_{ij}, \qquad 1\leqslant i,j\leqslant 5.
 \]
-In this case, we have $\Pi_w^E\bv = \sum_{i=1}^5\beta_i\bv_i$,
+In this case, we have $\pi^P\bv = \sum_{i=1}^5\beta_i\bv_i$,
 with
 \[
-\beta_i=\sum_{j=1}^4\alpha_j\int_{f_i}\bw_j\cdot\bn.
+\beta_i=\sum_{j=1}^4\alpha_j\iint_{f_i}\bw_j\cdot\bn\,dS.
 \]
