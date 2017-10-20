@@ -3,20 +3,25 @@ behavior of the interpolation operator, mostly related to the preservation of
 null components of the fields, and whose proofs consist in a smart use of the
 degrees of freedom and the very definition of the operator. These Lemmas, 
 although just with technical purpose, exhibit
-nice properties of the interpolators.\\
-\noindent In the present subsection $\hat\bu$ is an element
+nice properties of the interpolators.
+
+In the present subsection $\hat\bu$ is an element
 in $W^{1,p}(\hat{E})$ for $p>2$ which is a space whose elements have well
 defined tangential traces on each edge of the prism $\hat{E}$.
-Another possibility, as stated in~\cite{monk}, Lemma $5.38$, page $134$,
-is to 
-assume there are 
+Another possibility, as stated in Lemma $5.38$ in the page $134$ of~\cite{monk},
+is to assume there are 
 a positive $\delta$ and a $p>2$ such that 
 $\hat\bu$ belongs to $H^{1/2+\delta}(\hat{E})^3$ and
 ${\bf curl}\,\bu$ belongs to $L^p(\hat{E})^3$.
-$\hat\bw_k$ will be, for the whole section, the $k$--th order edge 
+For the whole section, $\hat\bw_k$ will be the $k$--th order edge 
 interpolation operator on the reference
 Prism determined by the element of
 \emph{Definition}~\ref{edgeelement}.
+\\
+
+We will stick to the notation and indices of Tables~\ref{prismNotationTableFaces}
+and~\ref{prismNotationTableEdges}.
+
 \begin{lemma}\label{lema_PIu3_k_cualquiera} 
 $(\wku)_3$ is linearly and univocally 
 determined by $\hat{u}_3$.
@@ -27,11 +32,15 @@ we realize that
 the degrees of freedom which involve $(\wku)_3$ give rise only to the 
 following linear equations
 \begin{IEEEeqnarray}{rCrc}
-\varphi_{\hat{\be}_i,p}\,(\wku) & = & \varphi_{\hat{\be}_i,p}\,(\hat{\bu}) &\quad\mbox{for $i$ = 3, 6, 7 and }p\in\mathcal{}  \\
-\varphi_{f_j,\bq}\,(\wku) & = & \varphi_{f_j,\boldsymbol{q}}\,(\hat{\bu})
-  &\quad\mbox{for $j$ = 1, 2, 4 and }\boldsymbol{q}\in\mathcal{}  \\
+\varphi_{\hat{\be}_i,p}\,(\wku) & = & \varphi_{\hat{\be}_i,p}\,(\hat{\bu}) &\quad\mbox{as in~(\ref{momentos1hcurl}) for $i$ = 3, 6, 7,}\\
+\varphi_{f_1,\bq}\,(\wku) & = & \varphi_{f_1,\boldsymbol{q}}\,(\hat{\bu})
+  &\quad\mbox{as in~(\ref{momentos3hcurl})}\\
+\varphi_{f_2,\bq}\,(\wku) & = & \varphi_{f_2,\boldsymbol{q}}\,(\hat{\bu})
+  &\quad\mbox{as in~(\ref{momentos4hcurl})}  \\
+\varphi_{f_5,\bq}\,(\wku) & = & \varphi_{f_5,\boldsymbol{q}}\,(\hat{\bu})
+  &\quad\mbox{as in~(\ref{momentos5hcurl})}  \\
 \varphi_{\boldsymbol{r}}\,(\wku) & = & \varphi_{\boldsymbol{r}}\,(\hat{\bu})
-  &\quad\mbox{for }\boldsymbol{r}\in\mathcal{}.
+  &\quad\mbox{as in~(\ref{momentos6hcurl})}.
 \end{IEEEeqnarray}
 These are 
 $3k$+$3k(k-1)$+$k(k-1)(k-2)/2 = k(k+1)(k+2)/2$ equations,
@@ -39,34 +48,34 @@ just the dimension of $P_k(\hat{T})\otimes P_{k-1}(\hat{I})$,
 which is the space $(\wku)_3$ belongs to by definition.
 %$\frac{k(k+1)(k+2)}{2}$. 
 %libertad en los que no des\-a\-pa\-re\-ce $(\wku)_3$ son \'unicamente:
-Now set all those equations equal to zero (that is, pick $u_3 = 0$) and see that the unique solution is $(\wku)_3 = 0$.
+Now set all those equations equal to zero (that is, pick $u_3 = 0$) and see that
+the unique solution is $(\wku)_3 = 0$.
 A little more explicitly, we have:
-\noindent{\color{blue}\#\#\#\#\#\#\# poner
-	algo que haga quedar finitas ecs de caras, como una base, etc...}
 \begin{IEEEeqnarray}{lCll}
-  \label{aristas} \int\limits_{\be_i} (\wku)_3\,q \, ds 
-  & = & 0 &\qquad \mbox{for $i$ = 3, 6, 7 and } q\in \mathcal{B}_{\hat\be_i}\\[5pt]
-  \label{caras} \int\limits_{\hat f_j} (\wku)_3\,q \, d\gamma
-  & = & 0 &\qquad \mbox{for $j$ = 1, 2, 5 and } \hat q\in Q_{k-2,k-1}(\hat f_j)\\[5pt]
-  \label{enK} \int\limits_{\hat{E}} (\wku)_3\,q_3 \, d\textbf{x} 
-  & = & 0 &\qquad \mbox{for }\bq\in \mathcal{B}_{\hat E}.
+  \label{aristas} \int_{\hat\be_i} (\wku)_3\,\hat q \, d\alpha 
+  & = & 0 &\qquad \mbox{for $i$ = 3, 6 and 7, }q\in P_{k-1}(\hat\be_i)\\[5pt]
+  \label{caras} \iint_{\hat f_j} (\wku)_3\,\hat q \,d\hat S
+  & = & 0 &\qquad \mbox{for $j$ = 1, 2, and 5, } \hat q\in Q_{k-2,k-1}(\hat f_j)\\[5pt]
+  \label{enK} \int_{\hat{E}} (\wku)_3\,\hat q_3 \, d\bx 
+  & = & 0 &\qquad \mbox{for }\hat q_3\in P_{k-3,k-1}.
 \end{IEEEeqnarray}
 Start considering the face $\hat f_2$.
 The restriction of $(\wku)_3$ to $\be_3$
 is itself 
-an element in $\mathcal P_{\be_3}$, 
+an element in $P_{k-1}({\be_3})$, 
 and the same holds for $\be_6$,  
-so equations~(\ref{aristas}), for $i = 3, 6$, say that $(\wku)_3$
+so equations~(\ref{aristas}), for $i = 3$, $6$, say that $(\wku)_3$
 is identically null on those edges by which
 the restriction 
 $(\wku)_3|_{f_2}$, which is an element of $P_k(\hat x_1)\otimes P_{k-1}(\hat x_3)$
 may be se factorized
 as
 $(\wku)_3|_{f_2}(\hat x_1,0,\hat x_3) = \hat x_1\,(1-\hat x_1)\,w_0(\hat x_1,\hat x_3)$,
-with $w_0$ equal to some polynomial in $P_{k-2}(\hat x) \otimes P_{k-1}(\hat z)$.
-Now choose $\hat q = w_0$ in the degrees of freedom~(\ref{caras}) for the face $\hat f_2$ and it holds
+with $w_0$ equal to some polynomial in $P_{k-2}(\hat x_1) \otimes P_{k-1}(\hat x_3)$.
+Now choose $\hat q = w_0$ in the degrees of freedom~(\ref{caras}) for the face
+$\hat f_2$ and it holds
 \begin{IEEEeqnarray}{lClc}
-	\int\limits_{f_2} \hat{x}_1(1-\hat{x}_1)w_0(\hat{x}_1,\hat{x}_3)^2\,d\gamma & = & 0.
+	\iint_{\hat f_2} \hat{x}_1(1-\hat{x}_1)w_0(\hat{x}_1,\hat{x}_3)^2\,d\hat S & = & 0.
 \end{IEEEeqnarray}
 But $\hat{x}_1\,(1-\hat{x}_1)$ is almost everywhere positive over the closure
 of $\hat f_2$, so 
@@ -80,24 +89,32 @@ $w_1 \in P_{k-2}(\hat x_1)\otimes P_{k-1}(\hat x_3)$ for which
 $(\wku)_3|_{\hat f_5}(\hat x_1, \hat x_2, \hat x_3) = \hat{x}_1\,\displaystyle{(1-\hat{x}_1)}\,w_1(\hat{x}_1,\hat{x}_3)$.
 Now equality~(\ref{caras}) for $j = 5$ implies
 $(\wku)_3|_{f_5} \equiv 0$.\\
-\noindent Next, since $(\wku)_3$ vanishes when restricted $\hat f_1$, $\hat f_2$ and $\hat f_5$
+Next, since $(\wku)_3$ vanishes when restricted $\hat f_1$, $\hat f_2$ and $\hat f_5$
 we get to factorize it on $\hat E$ as 
 \begin{IEEEeqnarray*}{rCl}
 	(\wku)_3(\hat x_1, \hat x_2, \hat x_3) 	& = 	& \hat{x}_1\,\hat{x}_2\,(1-\hat{x}_1-\hat{x}_2)\,w_3(\hat{x}_1,\hat{x}_2,\hat{x}_3),\\
 									w_3		& \in 	& P_{k-3}(\hat x_1)\otimes P_{k-1}(\hat x_3).
 \end{IEEEeqnarray*}
 And now we evaluate the degrees of freedom~(\ref{enK}) choosing
-$q_3 \equiv w_3$ and conclude immediately
+$\hat q_3 \equiv w_3$ and conclude immediately
 $(\wku)_3 \equiv 0$ on $\hat E$. 
 \end{proof}
 \begin{lemma}\label{lemma_PIu2_k_in_N}
 \begin{itemize}
 	\item []
-	\item [(a)]\label{piu2_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat y,\hat z), 0)^t$,
-	then $\wku\xyz = (0, \hat\xi_2(y,z) ,0)^t$ for some 
+	\item [(a)]\label{piu2_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (0, \hat u_2(\hat x_2,\hat x_3), 0)'$,
+	then 
+  \[
+  \wku\xyz = (0, \hat\xi_2(\hat x_2,\hat x_3) ,0)'
+  \]
+  for some 
 	$\hat\xi_2 \in P_{k-1}(\hat{x}_2) \otimes P_k(\hat{x}_3)$.
-	\item [(b)]\label{piu1_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (\hat u_1(\hat x,\hat z), 0, 0)^t$
-	then $\wku\xyz = (\hat\xi_1(x,z), 0 ,0)^t$ for some
+	\item [(b)]\label{piu1_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = (\hat u_1(\hat x_1,\hat x_3), 0, 0)'$
+	then
+  \[
+  \wku\xyz = (\hat\xi_1(\hat x_1,\hat x_3), 0 ,0)'
+  \]
+  for some
     $\hat\xi_1\in P_{k-1}(\hat{x}_1) \otimes P_k(\hat{x}_3)$.
 \end{itemize}
 \end{lemma}
@@ -113,8 +130,8 @@ expression~(\ref{elemento_P_k}) which states
   				        \end{pmatrix}
 \end{IEEEeqnarray*}
 for
-$\xi_1$ and $\xi_2$ in $P_{k-1}(\hat{f}_3) \otimes P_k(\hat{z})$,
-$\xi_3$ in $P_{k}(\hat{f}_3) \otimes P_{k-1}(\hat{z})$,
+$\xi_1$ and $\xi_2$ in $P_{k-1}(\hat{f}_3) \otimes P_k(\hat{x}_3)$,
+$\xi_3$ in $P_{k}(\hat{f}_3) \otimes P_{k-1}(\hat{x}_3)$,
 and $h$ in $\tilde{P}_{k-1}(\hat{f}_3) \otimes P_k(\hat{x}_3)$.
 Thanks to Lemma~\ref{lema_PIu3_k_cualquiera} we already know that $\xi_3 \equiv 0$,
 so we are going to show
@@ -122,15 +139,16 @@ that $h \equiv 0$, $\xi_1 \equiv 0$ and that $\xi_2$ does not depend
 on $\hat{x}_1$. First, if $\hat{f}$ is either $\hat{f}_3$ o $\hat{f}_4$, then
 with a direct calculation we see that $({\bf curl}\,\wku)_3 |_{\hat f}$ belongs to
 $P_{k-1}(\hat{f})$. By the commutative diagram property expressed
-in~(\ref{curl_commutativity}), the degrees of freedom~(\ref{momentos1hdiv})
-and the very definition of the interpolation operator $\boldsymbol{r}_k$
-in~(\ref{defi_face_element}) it holds that, if $\hat{f}$ is 
+in~(\ref{curl_commutativity}), the definition of the degrees of freedom~(\ref{momentos1hdiv})
+and the interpolation operator $\br_{\hat E}$
+in Definition~\ref{defi_face_element}, it holds that, if $\hat{f}$ is 
 either $\hat{f}_3$ or $\hat{f}_4$, then for every $q \in P_{k-1}(\hat{f})$,
 \begin{IEEEeqnarray*}{rCCCl}
   \rho_{\hat{f},q}\,({\bf curl\,}\wku)
-  & = & \rho_{\hat{f},q} (\boldsymbol{r}_k\,{\bf curl\,}\boldsymbol{u}) &&\\[5pt]
-  & = & \int\limits_{f} ({\bf curl\,}\bu)_3\,q \,d\gamma & = & 0.	
+  & = & \rho_{\hat{f},q} (\br_{\hat E}\,{\bf curl\,}\hat\bu) &&\\[5pt]
+  & = & \iint_{\hat f} ({\bf curl\,}\hat \bu)_3\,q \,d\hat S & = & 0.	
 \end{IEEEeqnarray*}
+{\color{Orange}\#\#\#\#\#\#\#\# seguir aca.}
 As is for time being expected, the choice $q = ({\bf curl}\,\wku)_3 |_{\hat{f}}$
 yields $({\bf curl}\,\wku)_3 |_{\hat{f}} \equiv 0$
 so we may write again $({\bf curl}\,\wku)_3 = z\,(z-1)\,\psi$ for
@@ -197,7 +215,7 @@ Next choose $\hat{f} = \hat{f}_2$ and $\boldsymbol{q}=(0,0,\hat{p})'$ in~(\ref{m
     & = & \int\limits_{\hat{f}_2} \hat{x}_3\,(\hat{x}_3-1)\hat{p}^2\,d\gamma.
 \end{IEEEeqnarray*}
 It follows that $\hat\xi_1|_{\hat f_2}\equiv 0$, by which we know it exists
-certain \noindent{\color{blue}\#\#\#\#\#\#\# otra letra para ro} $\hat\rho \in P_{k-2}(\hat{f}_3)\otimes P_k(\hat{x}_3)$ satisfying
+certain {\color{blue}\#\#\#\#\#\#\# otra letra para ro} $\hat\rho \in P_{k-2}(\hat{f}_3)\otimes P_k(\hat{x}_3)$ satisfying
 $\hat\xi_1\xyz = \hat{x}_2\,\hat\rho\xyz$.
 Now we switch to the faces $\hat{f} = \hat{f}_3$ or $\hat{f}_4$. 
 Take $\hat{\boldsymbol{q}} = (\hat\rho|_{\hat f},0,0)'$ in~(\ref{momentos2hcurl})
@@ -510,7 +528,7 @@ and one more time H\"older's and traces inequalities,
 \end{IEEEeqnarray*}
 which is the bound we wanted to prove. The same procedure applies for 
 inequality~(\ref{teorema_2}).\\[7pt]
-\noindent For inequality~(\ref{teorema_3}) given $\hat{\bu} \in W^{1,p}(\hat{E})^3$, define
+For inequality~(\ref{teorema_3}) given $\hat{\bu} \in W^{1,p}(\hat{E})^3$, define
 $\hat{\bv}  =  (0,0, \hat{u}_3).$
 Thanks to Lemma~\ref{lema_PIu3_k_cualquiera} we have 
 $\hat{\bw}_k(\hat{\bv})_3 = (\hat{\bw}_k\hat{\bu})_3 - (\hat{\bw}_k(\hat{u}_1, \hat{u}_2, 0))_3 = (\hat{\bw}_k\hat{\bu})_3.$
@@ -524,7 +542,7 @@ faces, we have
   \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
   \int\limits_{\hat f_i} \hat{u}_3 q\,d\gamma \,(\hat{\bv}_{\hat{f}_i,q})_3\\
   &&\,+\sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
-  \int\limits_{\hat E} \hat{u}_3 r_3\,d\textbf{x}\,(\hat{\bv}_{\boldsymbol{r}})_3.
+  \int\limits_{\hat E} \hat{u}_3 r_3\,d\bx\,(\hat{\bv}_{\boldsymbol{r}})_3.
 \end{IEEEeqnarray*}
 This implies, by traces inequalities and~(\ref{edgeTrace}), that
 \begin{IEEEeqnarray*}{rCl}
@@ -534,7 +552,7 @@ This implies, by traces inequalities and~(\ref{edgeTrace}), that
   \left|\int\limits_{\hat e_j} \hat{u}_3\,\hat{p}_3\,ds\right| +
   \sum_{i=1,2,4}
   \int\limits_{\hat f_i} |\hat{u}_3|^p\,d\gamma\\
-  &&\,+ \int\limits_{\hat E} |\hat{u}_3|^p\,d\textbf{x}\\
+  &&\,+ \int\limits_{\hat E} |\hat{u}_3|^p\,d\bx\\
   &\leqslant& c(\hat{E}) \|\hat{u}_3\|_{W^{1,p}(\hat{E})}.\\[5pt]
 \end{IEEEeqnarray*}
 The constants in the three inequalities of this Theorem depend,
