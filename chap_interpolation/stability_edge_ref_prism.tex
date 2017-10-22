@@ -153,7 +153,7 @@ yields
 \[
   ({\bf curl}\,\wku)_3 |_{\hat{f}} \equiv 0
 \]
-so we may write again $({\bf curl}\,\wku)_3 = \hat{x}_3\,(\hat{x}_3-1)\,\hat\psi$ for
+so we may write again $(\curl \wku)_3 = \hat{x}_3\,(\hat{x}_3-1)\,\hat\psi$ for
 a $\hat\psi\in P_{k-1}(\hat{f}) \otimes P_{k-2}(\hat{x}_3)$.
 We choose now $q=\hat\psi$ in the degrees of freedom~(\ref{momentos4hdiv}).
 By the commutative diagram property
@@ -161,17 +161,17 @@ and the definition of $\br_{\hat E}$, we have
 \begin{IEEEeqnarray*}{rCCCl}
 	\int_{\hat{E}} \hat{x}_3\,(\hat{x}_3-1)\,\hat\psi^2\,d\hat{\bx}
   & = &\int_{\hat{E}} (\curl\wku)_3\,\hat\psi\,d\hat{\bx}&&\\
-  & = &\int_{\hat{E}} (\br_k\curl\hat{\bu})_3\,\hat{\psi}\,d\hat{\bx}&&\\
+  & = &\int_{\hat{E}} (\br_{\hat E}\curl\hat{\bu})_3\,\hat{\psi}\,d\hat{\bx}&&\\
   & = &\int_{\hat{E}} (\curl\hat{\bu})_3\,\hat{\psi}\,d\hat{\bx} & = & 0\\
 \end{IEEEeqnarray*}
 and it follows that
 \begin{IEEEeqnarray}{rCl}
-	\label{rot_3_es_0} ({\bf curl}\,\wku)_3 &\equiv& 0.
+	\label{rot_3_es_0} (\curl\wku)_3 &\equiv& 0.
 \end{IEEEeqnarray}
 Now if we explore $({\bf curl}\,\wku)_3$ taking derivatives in  
 expression~(\ref{expr_wku}) we get 
 \begin{IEEEeqnarray*}{rCl}
-  (\textbf{curl}\,\wku)_3 & = & 
+  (\curl\wku)_3 & = & 
   \dfrac{\partial}{\partial \hat x_1}(\wku)_2 - \dfrac{\partial}{\partial \hat x_2}(\wku)_1\\[5pt]
   \label{expre_h} \yesnumber & = & -(2\,h + \hat{x}_2\,\dfrac{\partial h}{\partial \hat{x}_2} + 
 	\hat{x}_1\,\dfrac{\partial h}{\partial \hat{x}_1}) + 
@@ -188,23 +188,28 @@ Following the degrees in each terms, it holds
 \end{IEEEeqnarray*}
 but from this it follows necessarily that $g \equiv 0$. Now, how do the terms
 of $g$ look like? Let us put
-\[
-	h\xyz = \sum_{\stackrel{i+j\,=\,k-1}{l\,\leqslant\,k}} \alpha_{_{i,j,l}}\,\hat{x}_1^i \hat{x}_2^j \hat{x}_3^l.
-\]
+\begin{IEEEeqnarray*}{rCl}
+	h\xyz &=& \sum_{\stackrel{i+j\,=\,k-1}{l\,\leqslant\,k}} \alpha_{_{i,j,l}}\,\hat{x}_1^i \hat{x}_2^j \hat{x}_3^l.
+\end{IEEEeqnarray*}
+Then
 \begin{IEEEeqnarray*}{rCl}
   g\xyz & = & \sum_{\stackrel{i+j\,=\,k-1}{l\,\leqslant\,k}} 
   (2\alpha_{_{i,j,l}} + j\,\alpha_{_{i,j,l}} + i\,\alpha_{_{i,j,l}}) \hat{x}_1^i \hat{x}_2^j \hat{x}_3^l\\
   \yesnumber\label{h_is_zero} & = &(k+1)\,h\xyz\,=\,0,
 \end{IEEEeqnarray*}
-so $h \equiv 0$ too and, for now, $\wku\xyz = 
-(\xi_1\xyz, \xi_2\xyz, 0)^t$. The second--to--last task is to see that $\hat\xi_1$ vanishes identically.
+so $h \equiv 0$ too and, for now, 
+\begin{IEEEeqnarray*}{rCl}
+\wku\xyz &=& 
+(\hat\xi_1\xyz, \hat\xi_2\xyz, 0)'. 
+\end{IEEEeqnarray*}
+The second--to--last task is to see that $\hat\xi_1$ vanishes identically.
 We turn back to de edge degrees of freedom.
-Set $\be$ equal to $\be_1$ or $\be_4$. Then the restriction
+Set $\be$ equal to $\hat\be_1$ or $\hat\be_4$. Then the restriction
 $\hat\xi_1|_{\be}$ belongs to $P_{k-1}(\be)$, so letting $\hat q = \hat\xi_1|_{\be}$ in
 ~(\ref{momentos1hcurl}) we obtain
 \begin{IEEEeqnarray*}{rCCCCCl}
-	0 &=& \varphi_{\be,\,\hat\xi_1}\,(\hat\bu) &=&
-	\varphi_{\be,\,\hat\xi_1}\,(\wku) &=& \int\limits_{\be} (\hat\xi_1)^2\,ds\textrm{,}
+	0 &=& \hat\varphi_{\be,\,\hat\xi_1}\,(\hat\bu) &=&
+	\hat\varphi_{\be,\,\hat\xi_1}\,(\wku) &=& \int_{\be} (\hat\xi_1)^2\,d\alpha\textrm{,}
 \end{IEEEeqnarray*}
 so, for some $\hat{p} \in P_{k-1}(\hat x_1)\otimes P_{k-2}(\hat x_3)$ we have
 \[
@@ -212,33 +217,35 @@ so, for some $\hat{p} \in P_{k-1}(\hat x_1)\otimes P_{k-2}(\hat x_3)$ we have
 \]
 Next choose $\hat{f} = \hat{f}_2$ and $\boldsymbol{q}=(0,0,\hat{p})'$ in~(\ref{momentos4hcurl}).
 \begin{IEEEeqnarray*}{rCCCCCl} 
-  0 & = & \varphi_{\hat{f}_2,\boldsymbol{q}}\,(\hat\bu) 
-    & = & \varphi_{\hat{f}_2,\boldsymbol{q}}\,(\wku) 
-    & = & \int\limits_{\hat{f}_2} \hat{x}_3\,(\hat{x}_3-1)\hat{p}^2\,d\gamma.
+  0 & = & \hat\varphi_{\hat{f}_2,\bq}\,(\hat\bu) 
+    & = & \hat\varphi_{\hat{f}_2,\bq}\,(\wku) 
+    & = & \iint_{\hat{f}_2} \hat{x}_3\,(\hat{x}_3-1)\hat{p}^2\,d\hat S.
 \end{IEEEeqnarray*}
 It follows that $\hat\xi_1|_{\hat f_2}\equiv 0$, by which we know it exists
-certain {\color{blue}\#\#\#\#\#\#\# otra letra para ro} $\hat\rho \in P_{k-2}(\hat{f}_3)\otimes P_k(\hat{x}_3)$ satisfying
-$\hat\xi_1\xyz = \hat{x}_2\,\hat\rho\xyz$.
+certain $\zeta \in P_{k-2}(\hat{f}_3)\otimes P_k(\hat{x}_3)$ satisfying
+\[
+\hat\xi_1\xyz = \hat{x}_2\,\zeta\xyz.
+\]
 Now we switch to the faces $\hat{f} = \hat{f}_3$ or $\hat{f}_4$. 
-Take $\hat{\boldsymbol{q}} = (\hat\rho|_{\hat f},0,0)'$ in~(\ref{momentos2hcurl})
+Take $\hat{\boldsymbol{q}} = (\zeta|_{\hat f},0,0)'$ in~(\ref{momentos2hcurl})
 \begin{IEEEeqnarray*}{rCCCCCl}
   0 & = & \varphi_{\hat f,\hat{\boldsymbol{q}}}\,(\hat\bu) 
     & = & \varphi_{\hat f,\hat{\boldsymbol{q}}}\,(\wku) 
-    & = & \int\limits_{\hat f} \hat{x}_2\hat\rho^2\,d\gamma\textrm{,}
+    & = & \iint_{\hat f} \hat{x}_2\zeta^2\,d\hat S\textrm{,}
 \end{IEEEeqnarray*}
 and it follows that
-$\hat{x}_3\,(\hat{x}_3-1)$ divides $\hat\rho$. So putting this together
+$\hat{x}_3\,(\hat{x}_3-1)$ divides $\zeta$. So putting this together
 with the previous factorization, there is some
 $r \in P_{k-2}(\hat{f}_3)\otimes P_{k-2}(\hat{x}_3)$ which satisfies.
 \begin{IEEEeqnarray*}{rCl}
     \hat\xi_1\xyz &=& \hat{x}_2\,\hat{x}_3\,(\hat{x}_3-1)\,r\xyz.
 \end{IEEEeqnarray*}
-It remains to use the volume degrees of freedom. One more time, 
-we could choose $\br = (r,0,0)'$ in~(\ref{momentos6hcurl})
+It remains to use the volume degrees of freedom. We could choose
+ $\hat\br := (r,0,0)'$ in degree of freedom~(\ref{momentos6hcurl})
 to get
 \begin{IEEEeqnarray*}{rCCCCCl}
-  0 & = & \varphi_{\br}\,(\hat{\bu}) & = & \varphi_{\br}\,(\wku)
-    & = & \int\limits_{\hat{E}} \hat{x}_2\,\hat{x}_3\,(\hat{x}_3-1)\,r\xyz^2\,d\bx\textrm{,} 
+  0 & = & \hat\varphi_{\hat\br}\,(\hat{\bu}) & = & \hat\varphi_{\hat\br}\,(\wku)
+    & = & \int_{\hat{E}} \hat{x}_2\,\hat{x}_3\,(\hat{x}_3-1)\,r\xyz^2\,d\hat\bx\textrm{,} 
 \end{IEEEeqnarray*}
 which yields, over all $\hat{E}$, $\hat\xi_1  \equiv  0$. Finally, if we
 combine this last property with~(\ref{rot_3_es_0}) we prove that $\hat{\xi}_2$
@@ -247,58 +254,59 @@ does not depend on $\hat{x}_2$.
 \begin{lemma}\label{pi00u3} 
 If $\hat{\bu}\xyz=(0,0, \hat{u}_3\xyz)^t$, then
 $\wku\xyz = (0,0,\hat\xi_3\xyz)^t$ for some
-$\hat\xi_3 \in \mathcal{P}_k(\hat{f}_3)\otimes
-\mathcal{P}_{k-1}(\hat{x}_3)$.
+$\hat\xi_3 \in {P}_k(\hat{f}_3)\otimes
+{P}_{k-1}(\hat{x}_3)$.
 \end{lemma}
 \begin{proof} We will work again with
 expression~(\ref{expr_wku}).
 %but we will write with less details than in the previous two Lemmas
-By expression~(\ref{expre_h}) for $(\textbf{curl}\,\wku)_3$
-and Lemma~\ref{curl_commutativity},
+By expression~(\ref{expre_h}) for $(\curl\wku)_3$
+and the commutativity in equation~(\ref{curl_commutativity}),
 if we apply degrees of freedom~(\ref{momentos1hdiv})
-to $(\textbf{curl}\,\hat\bu)$ we obtain that
-$(\textbf{curl}\,\wku)_3$ vanishes on any of the horizontal faces $\hat{f}_3$ or $\hat{f}_4$ in
+to $\curl\hat\bu$ we obtain that
+$(\curl\wku)_3$ vanishes on any of the horizontal faces $\hat{f}_3$ or $\hat{f}_4$ in
 Table~\ref{prismNotationTableFaces}.
-In other words, $(\textbf{curl}\,\wku)_3
-= \hat{x}_3\,(\hat{x}_3-1)\,\psi$, 
+In other words, $(\curl\wku)_3
+= \hat{x}_3\,(\hat{x}_3-1)\,\hat\psi$, 
 ($\hat\psi\in P_{k-1}(\hat{f}_3)\otimes P_{k-2}(\hat{x}_3)$)
-and if we set $ \hat{\boldsymbol{r}} = (0,0,\hat\psi)'$ in the
+and if we set $\hat{\br} := (0,0,\hat\psi)'$ in the
 $H(\mbox{div})$ degrees of freedom~(\ref{momentos4hdiv})
 we have
 \begin{IEEEeqnarray*}{rCCCCCCCl}
-0 & = & \int\limits_{\hat{E}} (\curl\hat{\bu})_3\,\hat{\psi}
-  & = & \rho_{\boldsymbol{r}} (\curl\hat{\bu})
-  & = & \rho_{\boldsymbol{r}} (\hat{\boldsymbol{r}}_k\curl\hat{\bu})
-  & = & \rho_{\boldsymbol{r}} (\curl\wku)\\[4pt]
-  &&&&&&& = & \int\limits_{\hat{E}} \hat{x}_3(1-\hat{x}_3)\hat{\psi}^2\,d\boldsymbol{x}
+0 & = & \int_{\hat{E}} (\curl\hat{\bu})_3\,\hat{\psi}
+  & = & \hat\rho_{\br} (\curl\hat{\bu})
+  & = & \hat\rho_{\br} (\hat{\br}_k\curl\hat{\bu})
+  & = & \hat\rho_{\br} (\curl\wku)\\[4pt]
+  &&&&&&& = & \int_{\hat{E}} \hat{x}_3(1-\hat{x}_3)\hat{\psi}^2\,d\bx
 \end{IEEEeqnarray*}
 yielding that $\hat\psi$ is identically zero, and also
-$(\textbf{curl}\,\wku)_3$.
+$(\curl\wku)_3$ is identically zero.
 
 From this point, if
 we copy the argument in the proof of
 Lemma~\ref{lemma_PIu2_k_in_N} starting with equation~(\ref{expre_h}) we arrive at
-$h\equiv 0$, so we may rewrite~(\ref{expr_wku}) as
+$h\equiv 0$, so we may rewrite~(\ref{expr_wku}) for the present case as
 \begin{IEEEeqnarray}{rCl}
   \label{expre_pi00u3_} \wku &=&
   (\hat\xi_1,\hat\xi_2,\hat\xi_3)^t.
 \end{IEEEeqnarray}
 We claim that $\hat{\xi}_1\equiv\hat{\xi}_2\equiv0$.
 To see this, first observe that the evaluation of the degrees of freedom
-for the edges $\be_1$ and $\be_2$ yields
-$\hat\xi_1|_{\be_1} \equiv \hat\xi_2|_{\be_2} \equiv 0$,
+for the edges $\hat\be_1$ and $\hat\be_2$ yields
+$\hat\xi_1|_{\hat\be_1} \equiv \hat\xi_2|_{\hat\be_2} \equiv 0$,
 hence, evaluating the degree of freedom~(\ref{momentos2hcurl})
 tangent to the face $\hat{f}_3$ two times we have
 $\hat\xi_1|_{\hat{f}_3}  \equiv  \hat\xi_2|_{\hat{f}_3}  \equiv  0$.
-In equal manner, if we pick $\be_4$ and $\be_5$, and then the 
+In equal manner, if we pick $\hat\be_4$ and $\hat\be_5$, and then the 
 degree of freedom tangent to $\hat{f}_4$ we obtain
 $\hat\xi_1|_{\hat{f}_3} \equiv \hat\xi_2|_{\hat{f}_3} \equiv  0$.
 So we proved there are polynomials $p_1$ and $p_2$ in
 $P_{k-1}(\hat{f}_3)\otimes P_{k-2}(\hat{x}_3)$ which allow us to write
 \begin{IEEEeqnarray*}{rCl}
-  \hat\xi_1\xyz & = & \hat{x}_3(1-\hat{x}_3)p_1\xyz\\
+  \hat\xi_1\xyz & = & \hat{x}_3(1-\hat{x}_3)p_1\xyz\\[4pt]
   \hat\xi_2\xyz & = & \hat{x}_3(1-\hat{x}_3)p_2\xyz.
 \end{IEEEeqnarray*}
+***************************************************************
 Take $\hat\bq = (0,0, \hat{q}_2|_{\hat{f}_2})^t$ and 
 evaluate the degree of freedom~(\ref{momentos3hcurl}). We have
 \begin{IEEEeqnarray*}{rCCCCCl}
