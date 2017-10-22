@@ -144,23 +144,25 @@ and the interpolation operator $\br_{\hat E}$
 in Definition~\ref{defi_face_element}, it holds that, if $\hat{f}$ is 
 either $\hat{f}_3$ or $\hat{f}_4$, then for every $q \in P_{k-1}(\hat{f})$,
 \begin{IEEEeqnarray*}{rCCCl}
-  \rho_{\hat{f},q}\,({\bf curl\,}\wku)
-  & = & \rho_{\hat{f},q} (\br_{\hat E}\,{\bf curl\,}\hat\bu) &&\\[5pt]
+  \hat\rho_{\hat{f},q}\,({\bf curl\,}\wku)
+  & = & \hat\rho_{\hat{f},q} (\br_{\hat E}\,{\bf curl\,}\hat\bu) &&\\[5pt]
   & = & \iint_{\hat f} ({\bf curl\,}\hat \bu)_3\,q \,d\hat S & = & 0.	
 \end{IEEEeqnarray*}
-{\color{Orange}\#\#\#\#\#\#\#\# seguir aca.}
 As is for time being expected, the choice $q = ({\bf curl}\,\wku)_3 |_{\hat{f}}$
-yields $({\bf curl}\,\wku)_3 |_{\hat{f}} \equiv 0$
-so we may write again $({\bf curl}\,\wku)_3 = z\,(z-1)\,\psi$ for
-a $\psi\in P_{k-1}(\hat{f}) \otimes P_{k-2}(\hat{z})$.
-We choose now $q$ equal to this $\psi$ in the degrees of
-reedom~(\ref{momentos4hdiv}). Again, by the commutative diagram property
-and the definition of $br_k$, we have 
+yields 
+\[
+  ({\bf curl}\,\wku)_3 |_{\hat{f}} \equiv 0
+\]
+so we may write again $({\bf curl}\,\wku)_3 = \hat{x}_3\,(\hat{x}_3-1)\,\hat\psi$ for
+a $\hat\psi\in P_{k-1}(\hat{f}) \otimes P_{k-2}(\hat{x}_3)$.
+We choose now $q=\hat\psi$ in the degrees of freedom~(\ref{momentos4hdiv}).
+By the commutative diagram property
+and the definition of $\br_{\hat E}$, we have 
 \begin{IEEEeqnarray*}{rCCCl}
-	\int\limits_{\hat{E}} \hat{x}_3\,(\hat{x}_3-1)\,\hat\psi^2\,d\hat{\boldsymbol{x}}
-  & = &\int\limits_{\hat{E}} (\curl\wku)_3\,\hat\psi\,d\hat{\boldsymbol{x}}&&\\
-  & = &\int\limits_{\hat{E}} (\br_k\curl\hat{\bu})_3\,\hat{\psi}\,d\hat{\boldsymbol{x}}&&\\
-  & = &\int\limits_{\hat{E}} (\curl\hat{\bu})_3\,\hat{\psi}\,d\hat{\boldsymbol{x}} & = & 0\\
+	\int_{\hat{E}} \hat{x}_3\,(\hat{x}_3-1)\,\hat\psi^2\,d\hat{\bx}
+  & = &\int_{\hat{E}} (\curl\wku)_3\,\hat\psi\,d\hat{\bx}&&\\
+  & = &\int_{\hat{E}} (\br_k\curl\hat{\bu})_3\,\hat{\psi}\,d\hat{\bx}&&\\
+  & = &\int_{\hat{E}} (\curl\hat{\bu})_3\,\hat{\psi}\,d\hat{\bx} & = & 0\\
 \end{IEEEeqnarray*}
 and it follows that
 \begin{IEEEeqnarray}{rCl}
