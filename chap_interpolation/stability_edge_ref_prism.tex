@@ -17,10 +17,6 @@ For the whole section, $\hat\bw_k$ will be the $k$--th order edge
 interpolation operator on the reference
 Prism determined by the element of
 \emph{Definition}~\ref{edgeelement}.
-\\
-
-We will stick to the notation and indices of Tables~\ref{prismNotationTableFaces}
-and~\ref{prismNotationTableEdges}.
 
 \begin{lemma}\label{lema_PIu3_k_cualquiera} 
 $(\wku)_3$ is linearly and univocally 
@@ -424,36 +420,43 @@ Take $\hat{q}_1$, $\hat{q}_2 \in P_{k-2}(\hat{f}_3)$ and consider $\hat{\bq} := 
     \iint_{\hat f_3} \hat{v}_2\,\hat q_1\,d\hat{S}.
 \end{IEEEeqnarray}
 Observe that $\hat{v}_2$ vanishes over the face $\hat{f}_1\subseteq\{\hat{x}_1=0\}$.
-Now we need a polynomial $\varphi \in P_{k-1}(\hat{f}_3) $ such that 
-$\partial_{\hat{x}_1} \varphi = \hat{q}_1$ and
-$\varphi |_{\hat{\be}_9} = 0$; take for instance
-$\varphi(\hat{x}_1,\hat{x}_2) = -\int_{\hat{x}_1}^{1-\hat{x}_2} \phi_1(t,\hat{x}_2)\,dt$. Then
+Now we need a polynomial $\hat\zeta \in P_{k-1}(\hat{f}_3) $ such that 
+$\partial_{\hat{x}_1} \hat\zeta = \hat{q}_1$ and
+$\hat\zeta |_{\hat{\be}_9} = 0$; take for instance
+$\hat\zeta(\hat{x}_1,\hat{x}_2) = -\int_{\hat{x}_1}^{1-\hat{x}_2} \hat q_1(t,\hat{x}_2)\,dt$. Then
 \noindent{\color{BrickRed}\#\#\#\#\#\#\# seguir aca} 
 \begin{IEEEeqnarray*}{rCl}
-	\iint_{\hat{f}_3} (\curl\hat{\bv})_3\,\varphi\,d\hat{S} & = & -\iint_{\hat{f}_3} \left(\hat{v}_2\,\phi_1 - \hat{v}_1\,\partial_{\hat{x}_2}\varphi\right)\,d\hat{S}
-		- \int_{\hat{\be}_1} \hat{v}_1\,\nu_y\,\varphi\,ds,
+	\iint_{\hat{f}_3} (\curl\hat{\bv})_3\,\hat\zeta\,d\hat{S} & = & 
+ -\iint_{\hat{f}_3} \left(\hat{v}_2\,\hat q_1 - 
+  \hat{v}_1\,\partial_{\hat{x}_2}\hat\zeta\right)\,d\hat{S}
+		-\int_{\hat{\be}_1} \hat{v}_1\,\hat n_2\,\hat\zeta\,d\hat\alpha,
 \end{IEEEeqnarray*}
 which, together with~(\ref{cotaf3}) implies
-\begin{IEEEeqnarray}{rCl}\label{momentosWcaras}
-  \varphi_{\hat{f}_3,\,\hat{\bq}}(\hat{\bv})
- 		& = & \iint_{\hat{f}_3} \hat{u}_1\,\phi_2\,d\hat{S} +
-    \iint_{\hat{f}_3} (\curl\hat{\bu})_3\,\varphi\,d\hat{S} - 
-    \iint_{\hat{f}_3} u_1\,\partial_{\hat{x}_2}\varphi\,d\hat{S}	+
-    \int_{\hat{\be}_1} \hat{u}_1\,\nu_2\,\varphi\,ds.
+\begin{IEEEeqnarray}{rCl}
+  \nonumber  
+  \hat\varphi_{\hat{f}_3,\,\hat{\bq}}(\hat{\bv})
+    & = & \iint_{\hat{f}_3} \hat{u}_1\,\hat q_2\,d\hat{S} +
+    \iint_{\hat{f}_3} (\curl\hat{\bu})_3\,\hat\zeta\,d\hat{S}\\[4pt]
+\label{momentosWcaras}
+  &&\,- \iint_{\hat{f}_3} \hat u_1\,\partial_{\hat{x}_2}\hat\zeta\,d\hat{S} +
+        \int_{\hat{\be}_1} \hat{u}_1\,\hat n_2\,\hat\zeta\,d\hat\alpha.
 \end{IEEEeqnarray}
 If we repeated the procedure for the degree of freedom on $\hat{f}_4$, for a given 
-$\bp = (p_1,p_2,0) \in P_{k-2}(\hat{f})^2\times \{0\}$ we would set 
-$\psi (\hat{x}_1,\hat{x}_2) = \int_{1-\hat{x}_2}^{\hat{x}_1} p_1 (t,\hat{x}_2)\,dt$
+$\hat\bp = (\hat p_1, \hat p_2, 0) \in P_{k-2}(\hat{f}_4)^2\times \{0\}$ we would set 
+$\hat\psi (\hat{x}_1,\hat{x}_2) = \int_{1-\hat{x}_2}^{\hat{x}_1} 
+\hat p_1 (t,\hat{x}_2)\,dt$
 and had
-\begin{IEEEeqnarray}{rCl}\label{momentosWcaras2}
- 	\varphi_{\hat{f}_4,\,\hat{\bp}}(\hat{\bv})
- 		& = & - \iint_{\hat{f}_4} \hat{u}_1\,\hat{p}_2\,d\hat{S} -
-    \iint_{\hat{f}_4} (\curl\hat{\bu})_3\,\psi\,d\hat{S}
-    + \iint_{\hat{f}_4} \hat{u}_1\,\partial_{\hat{x}_2}\psi\,d\hat{S}	-
-    \int_{\hat{\be}_4} \hat{u}_1\,\hat{\nu}_2\,\psi\,d\hat{s}.
+\begin{IEEEeqnarray}{rCl}
+\nonumber
+  \hat\varphi_{\hat{f}_4,\,\hat{\bp}}(\hat{\bv})
+    & = & - \iint_{\hat{f}_4} \hat{u}_1\,\hat{p}_2\,d\hat{S} -
+    \iint_{\hat{f}_4} (\curl\hat{\bu})_3\,\hat\psi\,d\hat{S} \\[4pt]
+\label{momentosWcaras2} && \,+ 
+    \iint_{\hat{f}_4} \hat{u}_1\,\partial_{\hat{x}_2}\hat\psi\,d\hat{S}	-
+    \int_{\hat{\be}_4} \hat{u}_1\,\hat{n}_2\,\hat\psi\,d\hat{\alpha}.
 \end{IEEEeqnarray}
-For~(\ref{momentos5hcurl}) on $\hat{f}_5$, given
-$\bq = (0,q_3,q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times Q_{k-1,k-2}$ 
+For the degree of freedom~(\ref{momentos5hcurl}) corresponding to $\hat{f}_5$, given
+$\hat\bq = (0, \hat q_3, \hat q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times Q_{k-1,k-2}$ 
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras3}
   \iint_{\hat{f}_5} \hat{\bv} \times \boldsymbol{\nu} \cdot \hat{\bq}\,d\hat{S}
     & = & \iint_{\hat{f}_5} (\hat{v}_1 - \hat{v}_2)\,\hat{q}_1\,d\hat{S}
