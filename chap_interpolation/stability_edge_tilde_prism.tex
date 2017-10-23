@@ -1,31 +1,35 @@
-\noindent the next step is to estimate the stability in 
+The next step is to estimate the stability in 
 an anisotropically rescaled prism. Given three positive numbers
 $h_1$, $h_2$ and $h_3$ we denote
 \begin{IEEEeqnarray*}{CCl}
     \yesnumber\label{tilde_prism}
-    \tilde{E}   &   =   &   \tilde{T} \times \tilde{I}\\
+    \tilde{E}   &   =   &   \tilde{T} \times \tilde{I}
+\end{IEEEeqnarray*}
+where
+\begin{IEEEeqnarray*}{rCl}
     \tilde{T}   &   =   &   \{ 0 < \nicefrac{\tilde{x}_1}{h_1} + \nicefrac{\tilde{x}_2  }{h_2} < 1 \}\\
     \tilde{I}   &   =   &   \{ 0 < \nicefrac{\tilde{x}_3}{h_3} < 1 \}.
 \end{IEEEeqnarray*}
 \rescaledPrismTikz
 Of course $\tilde{E} = F(\hat{E})$ where $F$ is the linear
-$\mathbb{R}^3 \rightarrow \mathbb{R}^3$ transformation such as
+$\mathbb{R}^3 \rightarrow \mathbb{R}^3$ transformation such that
 \begin{IEEEeqnarray}{rClCl}
   \label{change_var}
-  F\hat{\bx} & = & \diag{h_1}{h_2}{h_3} \hat{\bx} & = & \tilde{\bx}
+  F\hat{\bx} & = & \diag{h_1}{h_2}{h_3} \hat{\bx} & = & \tilde{\bx}.
 \end{IEEEeqnarray}
-Denote with $\tilde{\bw}_k$ the $k$--th order curl--conforming interpolation
-operator over $\tilde{E}$ defined as in~(\ref{push-forward}) via the \emph{push--forward}
-$F^*$. for the rest of the subsection $\tilde\bu$ will be an element
-with a well defined curl--conforming interpolate.
+Given a natural number $k$, denote with ${\bw}_{\tilde{E}}$ the $k$--th order 
+$\bcurl$--conforming interpolation
+operator over $\tilde{E}$ defined as in Corollary~\ref{aux_label26}. 
+For the rest of the Subsection, $\tilde\bu$ will be an element
+with a well defined $\bcurl$--conforming interpolate.
 %, namely of
 %$H({\bf curl},\tilde{E})\cap H^{1/2+\delta}(\tilde{E})^3$ for 
 %a positive $\delta$ with 
 %${\bf curl}\,\tilde{\bu}\in L^p(\tilde{E})^3$
 %for some
 %$p>2$.
-Write the diameter of $\tilde{E}$ as $\textit{h}_{\tilde{E}}$ and as
-$\tilde{x}_i,\,1\leqslant i\leqslant 3$, the coordinates along the axis
+Write the diameter of $\tilde{E}$ as $h_{\tilde{E}}$ and as
+$\tilde{x}_i,\,1\leqslant i\leqslant 3$, the coordinates along the axes
 in $\mathbb{R}^3$.
 \begin{lemma}\label{estabLinf} There exists a positive $C$, independent
 of $h_i,\,1\leqslant i\leqslant 3$ such that for all $p > 2$ and 
@@ -36,11 +40,12 @@ $\tilde{\bu}\in\wpcurl{\tilde{E}}$
     \right\|_{L^p(\tilde{E})^3} +
         \sum_{i=1}^3 h_i \left\| \partial_{\tilde{x}_i}\tilde{\bu} 
         \right\|_{L^p(\tilde{E})^3} \right)\right.\\
-    &   & \left.\:+\; (h_1+h_2)\, |\tilde{E}|^{-1} \left( \left\|(\curl\,\tilde{\bu})_3 
+\IEEEeqnarraymulticol{3}{c}
+{\left.\:+\; (h_1+h_2)\, |\tilde{E}|^{-1} \left( \left\|(\curl\,\tilde{\bu})_3 
     \right\|_{L^1(\tilde{E})} + 
     \sum_{i=1}^3 h_i \left\| \partial_{\tilde{x}_i}(\curl\,\tilde{\bu})_3 
     \right\|_{L^1(\tilde{E})}\right)
-    \right].
+    \right].}
 \end{IEEEeqnarray*}
 {\color{BrickRed} ver las cuentas donde dice $h_1 + h_2$}
 %============
@@ -62,8 +67,8 @@ Bounds for $(\wkutilde)_1$ and $(\wkutilde)_3$
 will be established, as the bounding for $(\wkutilde)_2$ is the same as the first one.
 Pulling $\wkutilde$ back to $\hat{E}$ we get by
 ~(\ref{piTransformado}) that $(\wkutilde)_i = 
-\nicefrac{1}{h_i} (\wku)_i,\,1\leqslant i\leqslant 3$. By~(\ref{teorema_1}) and a suitable, though elementary,
-change of variables dictated by~(\ref{change_var})
+\nicefrac{1}{h_i} (\wku)_i,\,1\leqslant i\leqslant 3$. By inequality~(\ref{teorema_1}) and a suitable, though elementary,
+change of variables dictated by~(\ref{change_var}) we do
 \begin{IEEEeqnarray*}{rCl}
   \left\| (\wkutilde)_1 \right\|_{L^\infty(\tilde{E})} & = &
     \frac{1}{h_1} \left\| (\wku)_1 \right\|_{L^\infty(\hat{E})}\\
@@ -72,21 +77,22 @@ change of variables dictated by~(\ref{change_var})
     & \leqslant & c(\hat{E})
   \left[
     |\tilde{E}|^{\nicefrac{-1}{p}}
-    \left(
-    \|\tilde{u}_1\|_{L^p(\tilde{E})} + \sum_{i=1}^3 h_i \left\|\frac{\partial\tilde{u}_1}{\partial\tilde{x}_i}
-    \right\|_{L^p(\tilde{E})}
-    \right)
+    \big\{
+    \|\tilde{u}_1\|_{L^p(\tilde{E})} + \sum_{i=1}^3 h_i
+    \|\tfrac{\partial\tilde{u}_1}{\partial\tilde{x}_i}\|_{L^p(\tilde{E})}
+    \big\}
   \right.\\
-\yesnumber\label{number1}      & & \:\:+
+\IEEEeqnarraymulticol{3}{r}{+
   \left.
     h_2|\tilde{E}|^{-1}
     \left(
     \|(\curl\,\tilde{\bu})_3\|_{L^1(\tilde{E})} + 
         \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}(\curl\,\tilde{\bu})_3\|_{L^1(\tilde{E})}
     \right)
-  \right].
+  \right].}
+  \\&&\yesnumber\label{number1}
 \end{IEEEeqnarray*}
-With respect to component number three, from~(\ref{teorema_3})
+With respect to component number three, from~(\ref{teorema_3}) we write
 \begin{IEEEeqnarray}{rCl}\label{number2}
   \left\| (\wkutilde)_3 \right\|_{L^\infty(\tilde{E})}
   & \leqslant & C|\tilde{E}|^{-\nicefrac{1}{p}}
@@ -96,47 +102,49 @@ With respect to component number three, from~(\ref{teorema_3})
 \end{IEEEeqnarray}
 \end{proof}
 \noindent With the previous bound we deduce the following
-anisotropic stability estimate for the rescaled element $\tilde{E}$.
+anisotropic stability estimate for the rescaled prismatic element $\tilde{E}$.
 \begin{theorem} \label{aux_label27}
-There is a $c > 0$ independent of $h_i$ such that for all
-$\tilde{\bu}\in\wpcurl{\tilde{E}}$
+There is a $C > 0$ independent of $h_i$ such that for all
+$\tilde{\bu}\in\wpcurl{\tilde{E}}$ and $p>2$.
 \begin{IEEEeqnarray*}{rCl}
-    \left\| \wkutilde \right\|_{L^p(\tilde{E})}
+    \|\wkutilde\|_{L^p(\tilde{E})}
     & \leqslant & C \left[ \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
-    + \sum_{i=1}^3 h_i \left\| \partial_{\tilde{x}_i}\tilde{\bu} \right\|_{L^p(\tilde{E})}\right.\\
-    & & \left.
+    + \sum_{i=1}^3 h_i \left\| \partial_{\tilde{x}_i}\tilde{\bu} \right\|_{L^p(\tilde{E})}\right.
+\\\IEEEeqnarraymulticol{3}{r}{
+\left.
     \:+\;(h_1+h_2)\left(\left\|(\curl\,\tilde{\bu})_3 \right\|_{L^p(\tilde{E})}
      + \sum_{i=1}^3 h_i
      \left\| \partial_{\tilde{x}_i}(\curl\,\tilde{\bu})_3 \right\|_{L^p(\tilde{E})}\right)
   \right].
+}
 \end{IEEEeqnarray*}
 \end{theorem}
 \begin{proof}
     \noindent From Lemma~\ref{estabLinf}, since $|\tilde{E}|$ is finite measured,
     the H\"older inequality tells us that, for any real $q \geqslant 1$,
     \begin{IEEEeqnarray*}{rCl}
-        \|(\curl\,\tilde{\textbf{u}})_3\|_{L^1(\tilde{E})} &\leqslant&
-         |\tilde{E}|^{1-\frac{1}{q}}\,\|(\curl\,\tilde{\textbf{u}})_3\|_{L^q(\tilde{E})}\\
-        \|\partial_{\tilde{x}_i}(\curl\,\tilde{\textbf{u}})_3\|_{L^1(\tilde{E})} &\leqslant&
-         |\tilde{E}|^{1-\frac{1}{q}}\,\|\partial_{\tilde{x}_i}(\curl\,\tilde{\textbf{u}})_3\|_{L^q(\tilde{E})}.
+        \|(\curl\tilde{\bu})_3\|_{L^1(\tilde{E})} &\leqslant&
+         |\tilde{E}|^{1-\frac{1}{q}}\,\|(\curl\,\tilde{\bu})_3\|_{L^q(\tilde{E})}\\
+        \|\partial_{\tilde{x}_i}(\curl\,\tilde{\bu})_3\|_{L^1(\tilde{E})} &\leqslant&
+         |\tilde{E}|^{1-\frac{1}{q}}\,\|\partial_{\tilde{x}_i}(\curl\,\tilde{\bu})_3\|_{L^q(\tilde{E})}.
     \end{IEEEeqnarray*}
     So we get to
     \begin{IEEEeqnarray*}{rCl}
-    \left\| (\tilde{\bw}_k\tilde{{\textbf{u}}})_1 \right\|_{L^p(\tilde{E})}
-        & \leqslant & |\tilde{E}|^{\nicefrac{1}{p}}\left\| (\tilde{\bw}_k\tilde{{\textbf{u}}})_1 \right\|_{L^\infty(\tilde{E})}\\
-     \mbox{(by~(\ref{number1}))\hspace{.6cm}}   & \leqslant & C
-        \left[
-            \|\tilde{u}_1\|_{L^p(\tilde{E})} + \sum_{i=1}^3 h_i \|\frac{\partial\tilde{u}_1}{\partial\tilde{x}_i}\|_{L^p(\tilde{E})}
+    \left\| (\tilde{\bw}_{\tilde E}\tilde{{\bu}})_1 \right\|_{L^p(\tilde{E})}
+      & \leqslant & |\tilde{E}|^{\nicefrac{1}{p}}\left\| (\tilde{\bw}_{\tilde E}\tilde{{\bu}})_1 \right\|_{L^\infty(\tilde{E})}\\
+      \mbox{(by~(\ref{number1}))\hspace{.6cm}}   & \leqslant & C
+      \left[
+        \|\tilde{u}_1\|_{L^p(\tilde{E})} + \sum_{i=1}^3 h_i \|\tfrac{\partial\tilde{u}_1}{\partial\tilde{x}_i}\|_{L^p(\tilde{E})}
         \right.\\
-            & & \:\:+
+          & & \:\:+
         \left.
             h_2
             \left(
-            \|(\curl\,\tilde{\textbf{u}})_3\|_{L^p(\tilde{E})} + 
-                \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}(\curl\,\tilde{\textbf{u}})_3\|_{L^p(\tilde{E})}
+            \|(\curl\tilde{\bu})_3\|_{L^p(\tilde{E})} + 
+                \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}(\curl\tilde{\bu})_3\|_{L^p(\tilde{E})}
             \right)
         \right].
     \end{IEEEeqnarray*}
-    Now combine this with an entirely analogous argument for component $2$ and with~(\ref{number2}) and
+    Now combine this with an entirely analogous argument for component two and with~(\ref{number2}) and
     the Theorem follows.
 \end{proof}

@@ -354,19 +354,19 @@ more easily bounded in terms of $\hat{u}_1$ and $\curl(\hat{\bu})_3$.
 
 Let us define, for a given $\hat{\bu} \in C^\infty(\bar{\hat{E}})^3$,
 $\hat{\bv}\,:\,\hat{E}\to\mathbb{R}^3$ with
-\[
-  \hat{\bv}\xyz = (\hat{u}_1\xyz, \hat{u}_2\xyz - \hat{u}_2(0,\hat{x}_2,\hat{x}_3), 0)'.
-\]
+\begin{IEEEeqnarray}{rCl} \label{auxlabel201}
+  \hat{\bv}\xyz &=& (\hat{u}_1\xyz, \hat{u}_2\xyz - \hat{u}_2(0,\hat{x}_2,\hat{x}_3), 0)'.
+\end{IEEEeqnarray}
 Thanks to the Lemmas~\ref{lemma_PIu2_k_in_N} and~\ref{pi00u3} it holds
 \begin{IEEEeqnarray*}{rCl}
-	(\hat{\bw}_k\hat{\bv})_1 & = & (\wku)_1 - 
-	\hat{\bw}_k(0, \hat{u}_2(0,\hat{x}_2,\hat{x}_3), 0)_1 -
-	\hat{\bw}_k(0, 0, \hat{u}_3)_1\\
+	(\hat{\bw}_{\hat E}\hat{\bv})_1 & = & (\wku)_1 - 
+	\hat{\bw}_{\hat E}(0, \hat{u}_2(0,\hat{x}_2,\hat{x}_3), 0)_1 -
+	\hat{\bw}_{\hat E}(0, 0, \hat{u}_3)_1\\
 						& = & (\wku)_1\mbox{,}
 \end{IEEEeqnarray*}
 and we also have $(\curl\hat{\bu})_3 = (\curl\hat{\bv})_3$.
 Now let us explore one by one the degrees of freedom that define
-$\hat{\bw}_k\hat{\bv}$. The only edge degrees
+$\hat{\bw}_{\hat E}\hat{\bv}$. The only edge degrees
 that do not vanish directly or depend explicitly just on 
 $\hat{u}_1$ are
 \begin{IEEEeqnarray*}{rCl}
@@ -406,10 +406,11 @@ we get
 \begin{IEEEeqnarray*}{rCl}
 	\hat\varphi_{\hat{\be}_9,\,q}(\hat\bv) & = & \tfrac{1}{\sqrt{2}} 
   \int_{\hat{\be}_9} (\hat{v}_1 - \hat{v}_2)\,q\,d\hat\alpha \\
+     &=&\tfrac{1}{\sqrt{2}} \int_{\hat{\be}_1} \hat u_1\,q\,d\hat\alpha -
+     \tfrac{1}{\sqrt{2}} \iint_{\hat{f}_3} (\curl\hat{\bu})_3\,q\,d\hat{S}
+     + \iint_{\hat{f}_3} \hat{u}_1\,\partial_{\hat{x}_2}q\,d\hat{S}.\\
 	\yesnumber\label{momentosWaristas2}
-  	 &=&\tfrac{1}{\sqrt{2}} \int_{\hat{\be}_1} \hat u_1\,q\,d\hat\alpha -
-		 \tfrac{1}{\sqrt{2}} \iint_{\hat{f}_3} (\curl\hat{\bu})_3\,q\,d\hat{S}
-		 + \iint_{\hat{f}_3} \hat{u}_1\,\partial_{\hat{x}_2}q\,d\hat{S}.
+     &&
 \end{IEEEeqnarray*}
 If we evaluate now the face degrees of freedom, we only have to bound
 those corresponding to $\hat{f}_3$, $\hat{f}_4$ and $\hat{f}_5$.
@@ -456,9 +457,10 @@ and had
     \int_{\hat{\be}_4} \hat{u}_1\,\hat{n}_2\,\hat\psi\,d\hat{\alpha}.
 \end{IEEEeqnarray}
 For the degree of freedom~(\ref{momentos5hcurl}) corresponding to $\hat{f}_5$, given
-$\hat\bq = (0, \hat q_3, \hat q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times Q_{k-1,k-2}$ 
+$\hat\bq = (0, \hat q_3, \hat q_1) \in \{ 0 \} \times Q_{k-2,k-1} \times Q_{k-1,k-2}$
+observe
 \begin{IEEEeqnarray}{rCl}\label{momentosWcaras3}
-  \iint_{\hat{f}_5} \hat{\bv} \times \boldsymbol{\nu} \cdot \hat{\bq}\,d\hat{S}
+  \iint_{\hat{f}_5} \hat{\bv} \times \bn \cdot \hat{\bq}\,d\hat{S}
     & = & \iint_{\hat{f}_5} (\hat{v}_1 - \hat{v}_2)\,\hat{q}_1\,d\hat{S}
 \end{IEEEeqnarray}
 Now, if $\hat{q}$ is the extension of $\hat{q}_1$ to the whole prism, then
@@ -468,22 +470,28 @@ Now, if $\hat{q}$ is the extension of $\hat{q}_1$ to the whole prism, then
   &=&\sqrt{2} \iint\limits_{[0,1]^2}\int_{0}^{1-\hat{x}_2}\tfrac{\partial\hat{v}_2}{\partial{\hat{x}_1}}
   (\hat{t},\hat{x}_2,\hat{x}_3)\hat{q}(\hat{t}, \hat{x}_2,\hat{x}_3)\,d\hat{t}d\hat{x}_2d\hat{x}_3\\[5pt]
   \yesnumber\label{momentosWcaras3_}
-  &=&\sqrt{2}\int_{\hat{E}} (\curl\bv)_3\hat{q}\,d\hat{\bx} + 
+  &=&\sqrt{2}\int_{\hat{E}} (\curl\hat\bv)_3\hat{q}\,d\hat{\bx} + 
   \sqrt{2}\int_{\hat{E}} \tfrac{\partial\hat{v}_1}{\partial{\hat{x}_2}}\hat{q}\,d\hat{\bx}.
 \end{IEEEeqnarray*}
 Joining~(\ref{momentosWcaras3}) and~(\ref{momentosWcaras3_}) and using the
-expression for $\hat{\bv}$ we get 
-\begin{IEEEeqnarray}{rCl}\label{momentosWcaras3}
+expression for $\hat{\bv}$ in~(\ref{auxlabel201}) we get 
+\begin{IEEEeqnarray}{rCl}
+  \nonumber
   \varphi_{\hat{f}_5,\,\hat{\bq}}(\hat{\bv})
   & = & \iint_{\hat{f}_5} \hat{u}_1\,\hat{q}_1\,d\hat{S}
   -\sqrt{2}\int_{\hat{E}} \tfrac{\partial\hat{u}_1}{\partial{\hat{x}_2}}\hat{q}\,d\hat{\bx}
-  -\sqrt{2}\int_{\hat{E}} (\curl\bu)_3\hat{q}\,d\hat{\bx}. 
+  -\sqrt{2}\int_{\hat{E}} (\curl\hat\bu)_3\,\hat{q}\,d\hat{\bx}. \\
+  & & \label{momentosWcaras3__}
 \end{IEEEeqnarray}
 At last, we study the volume degrees of freedom. Pick
-$\br = (r_1, r_2, r_3) \in (P_{k-2}(\hat{f}_3) \otimes P_{k-2}(\hat{x}_3))^{2}
+$\hat\br = (\hat r_1, \hat r_2, \hat r_3)'$ belonging to the space
+\[
+ (P_{k-2}(\hat{f}_3) \otimes P_{k-2}(\hat{x}_3))^{2}
 \times P_{k-3}(\hat{f}_3) \otimes
-P_{k-1}(\hat{x}_3)$ (cfr.~(\ref{momentos6hcurl})) 
-and let $\varphi_2$ be defined in such a way that
+P_{k-1}(\hat{x}_3)
+\]
+(cfr. degree of freedom~(\ref{momentos6hcurl}))
+and let $\hat\varphi_2$ be defined in such a way that
 $\varphi_2\xyz = \int_{1-\hat{x}_2}^{\hat{x}_1} 
 \hat{r}_2(\hat{t},\hat{x}_2,\hat{x}_3)\,d\hat{t}$.
 %, para el cual
@@ -492,14 +500,16 @@ $\varphi_2\xyz = \int_{1-\hat{x}_2}^{\hat{x}_1}
 %y $\varphi_2|_{\hat{f}_5} \equiv 0$.
 Green's Theorem and the fact that $\varphi_2|_{\hat{f}_5} \equiv 0$
 give 
-\begin{IEEEeqnarray}{rCl}\label{momentosWvolumen}
- 	\int_{\hat{E}} \hat{\bv} \cdot \br\,d\bx
- 	& = & \int_{\hat{E}} \hat{u}_1\,\hat{r}_1\,d\bx 
+\begin{IEEEeqnarray}{rCl}
+  \nonumber\int_{\hat{E}} \hat{\bv} \cdot \hat\br\,d\hat\bx
+  & = & \int_{\hat{E}} \hat{u}_1\,\hat{r}_1\,d\hat\bx 
   - \int_{\hat{E}} (\curl\hat{\bu})_3\,
- 	\varphi_2\,d\bx
+  \hat\varphi_2\,d\hat\bx
   - \int_{\hat{E}}
-  \dfrac{\partial\hat{u}_1}{\partial\hat{x}_2}\,
-  \varphi_2\,d\bx.
+  \tfrac{\partial\hat{u}_1}{\partial\hat{x}_2}\,
+  \hat\varphi_2\,d\hat\bx.\\
+\label{momentosWvolumen}
+  &&
 \end{IEEEeqnarray}
 %,~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3})
 Now we collect what has been said so far.
@@ -511,9 +521,9 @@ in the proof of Lemma 5.38, which states, for $\bu$ in the present conditions,
   & \leqslant & C(q) \,\{\, \|\curl\bu\|_{L^p(\hat{E})^3}
     + \|\mbox{Tr}\,\bu\|_{L^p(\partial\hat{E})^3} \}.
 \end{IEEEeqnarray}
-If we put the field $(\hat{u}_1,0,0)^t$ in inequality~(\ref{edgeTrace}) then
+If we put the field $(\hat{u}_1,0,0)'$ in inequality~(\ref{edgeTrace}) then
 by, H\"older's Inequality and standard traces inequalities, equation~(\ref{momentosWaristas})
-and~(\ref{momentosWaristas2}) yield, for $i=8,9$,
+and~(\ref{momentosWaristas2}) yield, for $i=8$ and $9$,
 \begin{IEEEeqnarray*}{rCl}
   \left|\varphi_{\hat{\be}_i,\,\hat{q}}(\hat\bv)\right| & \leqslant & c(\hat{q})\,
   \{\,\|\hat{u}_1\|_{W^{1,p}(\hat{E})} + \|\mbox{Tr}\,(\curl{\hat{\bu}})_3\|_{L^1(\partial\hat{E})}
@@ -522,58 +532,63 @@ and~(\ref{momentosWaristas2}) yield, for $i=8,9$,
   & \leqslant & c(\hat{q})\,\{\,\|\hat{u}_1\|_{W^{1,p}(\hat{E})} + 
   \|(\curl\hat{\bu})_3\|_{W^{1,1}(\hat{E})}\,\}.
 \end{IEEEeqnarray*}
-If we repeat the trick for the line integral
-terms in~(\ref{momentosWcaras}) and~(\ref{momentosWcaras2}) we get, for $j=3,4$,
-\begin{IEEEeqnarray}{rCl}\label{traceF3}
+If we repeat the argument for the line integral
+terms in~(\ref{momentosWcaras}) and~(\ref{momentosWcaras2}) we get, for $j=3$ and $4$,
+\begin{IEEEeqnarray}{rCl}
+\nonumber
   \left|\varphi_{\hat{f}_j,\,\hat{\bq}}(\hat\bv)\right| & \leqslant &
   c(\hat{\bq})\,\{\,
     \|\mbox{Tr}\,\hat{u}_1\|_{L^p(\partial\hat{E})} +
     \|\mbox{Tr}\,(\curl{\hat{\bu}})_3\|_{L^1(\partial\hat{E})} +
-    |\hat{u}_1|_{W^{1,p}(\hat{E})}\,\}.
+    |\hat{u}_1|_{W^{1,p}(\hat{E})}\,\}.\\
+\label{traceF3}&&
 \end{IEEEeqnarray}
 And finally, by estimates~(\ref{momentosWcaras3})--(\ref{traceF3})
 and one more time H\"older's and traces inequalities,
 \begin{IEEEeqnarray*}{rCCCl}
-	\|(\wku)_1\|_{L^\infty(\hat{E})} & = & \|(\hat{\bw}_k\hat{\bv})_1\|_{L^\infty(\hat{E})}
-  &\lesssim&\\
-  \IEEEeqnarraymulticol{5}{C}{
-  \sum_{i=8,9,\,p} |\varphi_{\hat{\be}_i,p}(\hat{\bv})|\,\|(\hat{\bv}_{\hat{\be}_i,p})_1\|_{L^\infty(\hat{E})} +
-  \sum_{j=3,4,\,\bq} |\varphi_{\hat{f}_j,\bq}(\hat{\bv})|\,\|(\hat{\bv}_{f_j,\bq})_1\|_{L^\infty(\hat{E})} +
-  \sum_{\br} |\varphi_{\br}(\hat{\bv})|\,\|(\hat{\bv}_{\br})_1\|_{L^\infty(\hat{E})}
-  }\\
+	\|(\wku)_1\|_{L^\infty(\hat{E})} & = & \|(\hat{\bw}_{\hat E}\hat{\bv})_1\|_{L^\infty(\hat{E})}
+  &\lesssim&
+  \sum_{i=8,9,\,\hat p} |\hat\varphi_{\hat{\be}_i,\hat p}(\hat{\bv})|\,\|(\hat{\bv}_{\hat{\be}_i,\hat p})_1\|_{L^\infty(\hat{E})}
+  \\[4pt]\IEEEeqnarraymulticol{5}{C}{\,+
+  \sum_{j=3,4,\,\hat\bq} |\hat\varphi_{\hat{f}_j,\hat\bq}(\hat{\bv})|\,
+  \|(\hat{\bv}_{\hat f_j,\hat\bq})_1\|_{L^\infty(\hat{E})} +
+  \sum_{\hat\br} |\hat\varphi_{\hat\br}(\hat{\bv})|\,\|(\hat{\bv}_{\hat\br})_1\|_{L^\infty(\hat{E})}
+  }\\[4pt]
 	& \leqslant & c(\hat{E})\,\{\,\|\hat{u}_1\|_{W^{1,p}(\hat{E})} & + &
 		\|(\curl\hat{\bu})_3\|_{W^{1,1}(\hat{E})}\,\}
 \end{IEEEeqnarray*}
-which is the bound we wanted to prove. The same procedure applies for 
+which is the bound we wanted to prove. The summation indices with polynomials
+$\hat p$, $\hat\bq$ and $\hat\br$ mean that we use the way of writing
+the interpolator stated in~(\ref{edge_interp_explicit}). The same proving procedure applies to 
 inequality~(\ref{teorema_2}).\\[7pt]
-For inequality~(\ref{teorema_3}) given $\hat{\bu} \in W^{1,p}(\hat{E})^3$, define
-$\hat{\bv}  =  (0,0, \hat{u}_3).$
+For inequality~(\ref{teorema_3}), given $\hat{\bu} \in W^{1,p}(\hat{E})^3$, define
+$\hat{\bv}  =  (0,0, \hat{u}_3)'.$
 Thanks to Lemma~\ref{lema_PIu3_k_cualquiera} we have 
-$\hat{\bw}_k(\hat{\bv})_3 = (\hat{\bw}_k\hat{\bu})_3 - (\hat{\bw}_k(\hat{u}_1, \hat{u}_2, 0))_3 = (\hat{\bw}_k\hat{\bu})_3.$
+$(\hat{\bw}_{\hat E}\hat{\bv})_3 = (\hat{\bw}_{\hat E}\hat{\bu})_3 - (\hat{\bw}_{\hat E}(\hat{u}_1, \hat{u}_2, 0))_3 = (\hat{\bw}_{\hat E}\hat{\bu})_3.$
 By expression~(\ref{edge_interp_explicit}), taking another look at 
 the unit tangent vector of the edges and unit normal vectors to the
 faces, we have
 \begin{IEEEeqnarray*}{rCl}
-  (\hat{\boldsymbol{w}}_k\hat{\bv})_3 & = &
-  \sum_{j=3,6,7\,\hat{\bp}\,\in\,\mathcal{B}_{\hat e_j}}
-  \int_{\hat e_j} \hat{u}_3 \hat{p}_3\,ds \,(\hat{\bv}_{\hat{\be}_j,\hat{\bp}})_3 +
-  \sum_{i=1,2,4\,q\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
-  \int_{\hat f_i} \hat{u}_3 q\,d\gamma \,(\hat{\bv}_{\hat{f}_i,q})_3\\
-  &&\,+\sum_{\boldsymbol{r}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
-  \int_{\hat E} \hat{u}_3 r_3\,d\bx\,(\hat{\bv}_{\boldsymbol{r}})_3.
+  (\hat{\bw}_{\hat E}\hat{\bv})_3 & = &
+  \sum_{j=3,6,7;\,\hat{\bp}}
+  \int_{\hat e_j} \hat{u}_3 \hat{p}_3\,d\alpha\,(\hat{\bv}_{\hat{\be}_j,\hat{\bp}})_3 +
+  \sum_{i=1,2,4;\,\hat q}
+  \int_{\hat f_i} \hat{u}_3 \hat q\,d\hat S \,(\hat{\bv}_{\hat{f}_i,\hat q})_3\\
+  &&\,+\sum_{\hat \br}
+  \int_{\hat E} \hat{u}_3 \hat r_3\,d\hat\bx\,(\hat{\bv}_{\hat\br})_3.
 \end{IEEEeqnarray*}
 This implies, by traces inequalities and~(\ref{edgeTrace}), that
 \begin{IEEEeqnarray*}{rCl}
-  \norm{(\hat{\boldsymbol{w}}_k\hat{\bu})_3}_{L^{\infty}(\hat{E})}
-  & \leqslant & c(\hat{E})
-  \sum_{j=3,6,7\,\hat{\bp}\,\in\,\mathcal{B}_{\hat e_j}}
-  \left|\int_{\hat e_j} \hat{u}_3\,\hat{p}_3\,ds\right| +
+  \norm{(\hat{\bw}_{\hat E}\hat{\bu})_3}_{L^{\infty}(\hat{E})}
+  & \leqslant & C(\hat{E}) \big\{
+  \sum_{j=3,6,7; \hat{\bp}}
+  \left|\int_{\hat e_j} \hat{u}_3\,\hat{p}_3\,d\alpha\right| \\[4pt]
+  &&\,+
   \sum_{i=1,2,4}
-  \int_{\hat f_i} |\hat{u}_3|^p\,d\gamma\\
-  &&\,+ \int_{\hat E} |\hat{u}_3|^p\,d\bx\\
-  &\leqslant& c(\hat{E}) \|\hat{u}_3\|_{W^{1,p}(\hat{E})}.\\[5pt]
+  \iint_{\hat f_i} |\hat{u}_3|^p\,d\hat S
+  + \int_{\hat E} |\hat{u}_3|^p\,d\hat\bx  \big\}\\[4pt]
+  &\leqslant& C(\hat{E}) \|\hat{u}_3\|_{W^{1,p}(\hat{E})}.
 \end{IEEEeqnarray*}
-The constants in the three inequalities of this Theorem depend,
-clearly, on the choice of the bases $\mathcal{B}_{\hat e_j},
-\mathcal{B}_{\hat f_i}, \mathcal{B}_{\hat E}$.
+The constants in the three inequalities of this Theorem depend only
+on the choice of the bases of the test polynomials for the degrees of freedom.
 \end{proof}
