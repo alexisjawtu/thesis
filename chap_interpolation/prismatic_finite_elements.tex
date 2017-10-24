@@ -251,24 +251,20 @@ There is $C > 0$, independent of $h_1$, $h_2$ and $h_3$, s.t. for all $p \geqsla
     &&\qquad+ \max\{h_1,h_2\}\|{\dv}(\tilde{u}_1, \tilde{u}_2, 0) \,\|_{L^p(\tilde{E})}\big).
   \end{IEEEeqnarray*}
 \end{theorem}
-\begin{remark}
-{\color{red}esto va en el cap. de approx tal vez, decidir, porque esta dos veces
-esto mismo.}  When it comes to estimate in terms of the data $f$ we
-  will assume $h_3 \geqslant C\max\{h_1,h_2\}$ to be able to do
+\begin{remark}\label{auxlabel4}
+When it comes to estimate in terms of the data $f$ of a problem we
+will assume $h_3 \geqslant C\max\{h_1,h_2\}$ so that 
+Theorem~\ref{thmStabilityKtildeRT} implies
   \begin{IEEEeqnarray*}{rCl}
     \left\| \rkutilde \right\|_{L^p(\tilde{E})}
-    & \leqslant & C \left( \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
-    + \sum_{i=1}^3 h_i \left\| \frac{\partial\tilde{\bu}}{\partial\tilde{x}_i} \right\|_{L^p(\tilde{E})}
-    + \max\{h_1,h_2\}\left\|{\dv}\hat\bu\right\|_{L^p(\tilde{E})}
-    + \max\{h_1,h_2\}\left\|\frac{\partial\hat u_3}{\partial\hat x_3}\right\|_{L^p(\tilde{E})}\right).\\[5pt]
     &\leqslant& C \left( \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
-    + \sum_{i=1}^3 h_i \left\| \frac{\partial\tilde{\bu}}{\partial\tilde{x}_i} \right\|_{L^p(\tilde{E})}
-    + \max\{h_1,h_2\}\left\|{\dv}\hat\bu\right\|_{L^p(\tilde{E})}\right).
+    + \sum_{i=1}^3 h_i \| \tfrac{\partial\tilde{\bu}}{\partial\tilde{x}_i} \|_{L^p(\tilde{E})}
+    + h_{\tilde E}\left\|{\dv}\hat\bu\right\|_{L^p(\tilde{E})}\right).
   \end{IEEEeqnarray*}
-  this is not a restriction since we needed the prisms to be 
+  This is not a restriction since we needed the prisms to be 
   elongated exactly along the direction paralell to the cuadrilateral faces.
 \end{remark}
-\begin{proof}
+\begin{proof}[Proof of Theorem~\ref{thmStabilityKtildeRT}]
 Pick $p\geqslant 1$. If we pull 
 $\tilde{\bu}$ back to $\hat{E}$ we get the relation
 \begin{IEEEeqnarray}{rCl}\label{pull1}
@@ -278,40 +274,44 @@ $\tilde{\bu}$ back to $\hat{E}$ we get the relation
   D\hat{\bu}(\hat{\bx}) & = & \diag{h_2\,h_3}{h_1\,h_3}{h_1\,h_2}\cdot
   D\tilde{\bu}(F\hat{\bx})\cdot\diag{h_1}{h_2}{h_3}
 \end{IEEEeqnarray}
-and by~(\ref{push-forward})
+and by~(\ref{div_interp_commutes})
 \begin{IEEEeqnarray}{rCl}\label{pull2}
   (\det DF)DF^{-1}\rkutilde(F(\hat{\bx})) & = & \rku(\hat{\bx}).
 \end{IEEEeqnarray}
-With~(\ref{pull1})~(\ref{pull2}) and 
+With expressions~(\ref{pull1}) and~(\ref{pull2}) and 
 stability inequality~(\ref{teoremaDiv_1}) 
 plus H\"older's inequality we obtain 
 \begin{IEEEeqnarray*}{rCl}
   \|(\rkutilde)_1\|_{L^{\infty}(\tilde{E})} & = &
   (h_2\,h_3)^{-1}
   \|(\rku)_1\|_{L^{\infty}(\hat{E})}\\[7pt]
-  &\leqslant&(h_2\,h_3)^{-1}\left(\|\hat{u}_1\|_{W^{1,1}(\hat{E})}
+\IEEEeqnarraymulticol{3}{r}{
+\begin{IEEEeqnarraybox*}{rcL}
+\qquad&\leqslant&(h_2\,h_3)^{-1}\left(\|\hat{u}_1\|_{W^{1,1}(\hat{E})}
   +\|\dvg(\hat{u}_1,\hat{u}_2,0)'\|_{L^{1}(\hat{E})}\right)\\[7pt]
   &=& 
   (h_2\,h_3)^{-1}
   \left(
-    \int\limits_{\hat{E}}\left|\hat{u}_1\right|\,d\hat{\bx}
-    +\sum_{i=1}^3\int\limits_{\hat{E}}\left|\frac{\partial\hat{u}_1}{\partial\hat{x}_i}\right|\,d\hat{\bx}
-    +\int\limits_{\hat{E}}\left|\frac{\partial\hat{u}_1}{\partial\hat{x}_1} + \frac{\partial\hat{u}_2}{\partial\hat{x}_2}\right|
+    \int_{\hat{E}}\left|\hat{u}_1\right|\,d\hat{\bx}
+    +\sum_{i=1}^3\int_{\hat{E}}\left|\tfrac{\partial\hat{u}_1}{\partial\hat{x}_i}\right|\,d\hat{\bx}
+    +\int_{\hat{E}}\left|\tfrac{\partial\hat{u}_1}{\partial\hat{x}_1} + \tfrac{\partial\hat{u}_2}{\partial\hat{x}_2}\right|
     \,d\hat{\bx}
   \right)\\[7pt]
   &=&(\det DF)^{-1}\left(
-  \int\limits_{\tilde{E}}|\tilde{u}_1|\,d\tilde{\bx}
-  +\sum_{i=1}^3h_i\int\limits_{\tilde{E}}|\frac{\partial\tilde{u}_1}{\partial\tilde{x}_i}|\,d\tilde{\textbf{x}}
-  +h_1\int\limits_{\tilde{E}}|\frac{\partial\tilde{u}_1}{\partial\tilde{x}_1} + \frac{\partial\tilde{u}_2}{\partial\tilde{x}_2}|
-  \,d\tilde{\textbf{x}}\right)\\[7pt]
+  \int_{\tilde{E}}|\tilde{u}_1|\,d\tilde{\bx}
+  +\sum_{i=1}^3h_i\int_{\tilde{E}}|\tfrac{\partial\tilde{u}_1}{\partial\tilde{x}_i}|\,d\tilde{\bx}
+  +h_1\int_{\tilde{E}}|\tfrac{\partial\tilde{u}_1}{\partial\tilde{x}_1} + \tfrac{\partial\tilde{u}_2}{\partial\tilde{x}_2}|
+  \,d\tilde{\bx}\right)\\[7pt]
   &=&(2|\tilde{E}|)^{-1}\left(
   \|\tilde{u}_1\|_{L^1(\tilde{E})}
-  +\sum_{i=1}^3h_i\|\frac{\partial\tilde{u}_1}{\partial\tilde{x}_i}\|_{L^1(\tilde{E})}
+  +\sum_{i=1}^3h_i\|\tfrac{\partial\tilde{u}_1}{\partial\tilde{x}_i}\|_{L^1(\tilde{E})}
   +h_1\|\dvg(\tilde{u}_1,\tilde{u}_2,0)\|_{L^1(\tilde{E})}\right)\\[7pt]
   &\leqslant&(2|\tilde{E}|^{\nicefrac{1}{p}})^{-1}\left(
   \|\tilde{u}_1\|_{L^p(\tilde{E})}
-  +\sum_{i=1}^3h_i\|\frac{\partial\tilde{u}_1}{\partial\tilde{x}_i}\|_{L^p(\tilde{E})}
+  +\sum_{i=1}^3h_i\|\tfrac{\partial\tilde{u}_1}{\partial\tilde{x}_i}\|_{L^p(\tilde{E})}
   +h_1\|\dvg(\tilde{u}_1,\tilde{u}_2,0)\|_{L^p(\tilde{E})}\right).
+\end{IEEEeqnarraybox*}
+}
 \end{IEEEeqnarray*}
 Now
 \begin{IEEEeqnarray*}{rCl}
@@ -319,29 +319,29 @@ Now
   &\leqslant&
   |\tilde{E}|^{1/p}\|(\tilde{\br}_k\tilde{\boldsymbol{u}})_1\|_{L^{\infty}(\tilde{E})}\\
   &\lesssim&\|\tilde{u}_1\|_{L^p(\tilde{E})}
-  +\sum_{i=1}^3h_i\|\frac{\partial\tilde{u}_1}{\partial\tilde{x}_i}\|_{L^p(\tilde{E})}
+  +\sum_{i=1}^3h_i\|\tfrac{\partial\tilde{u}_1}{\partial\tilde{x}_i}\|_{L^p(\tilde{E})}
   +h_1\|\dvg(\tilde{u}_1,\tilde{u}_2,0)\|_{L^p(\tilde{E})},
 \end{IEEEeqnarray*}
-and again, the symmetric inequality holds for component $2$. For component $3$,
+and again, the symmetric inequality holds for component two. For component three,
 stability inequality~(\ref{teoremaDiv_3}) gives us
 \begin{IEEEeqnarray*}{rCl}
   \|(\rkutilde)_3\|_{L^{\infty}(\tilde{E})} & = &({h_1h_2})^{-1}
   \|(\rku)_3\|_{L^{\infty}(\hat{E})}\\[6pt]
   &\leqslant&{C}({h_1h_2})^{-1}\,\|\hat{u}_3\|_{W^{1,1}(\hat{E})}\\[6pt]
   &=&C\,|\tilde{E}|^{-1}\,\left[\|\tilde{u}_3\|_{L^1(\tilde{E})} +
-    \sum_{i=1,2,3} h_i\,\left\|\frac{\partial\tilde{u}_3}{\partial\tilde{x}_i}\right\|_{L^1(\tilde{E})}\right]\\[6pt]
+    \sum_{i=1,2,3} h_i\,\|\tfrac{\partial\tilde{u}_3}{\partial\tilde{x}_i}\|_{L^1(\tilde{E})}\right]\\[6pt]
   &\leqslant& {C}\,|\tilde{E}|^{-\nicefrac{1}{p}}\,\left[\|\tilde{u}_3\|_{L^p(\tilde{E})} +
-    \sum_{i=1,2,3} h_i\,\left\|\frac{\partial\tilde{u}_3}{\partial\tilde{x}_i}\right\|_{L^p(\tilde{E})}\right]
+    \sum_{i=1,2,3} h_i\,\|\tfrac{\partial\tilde{u}_3}{\partial\tilde{x}_i}\|_{L^p(\tilde{E})}\right]
 \end{IEEEeqnarray*}
 so, immediately,
 \begin{IEEEeqnarray}{rCl} \label{aux_label18}
   \|(\rkutilde)_3\|_{L^{p}(\tilde{E})}
   &\leqslant& C\,\left(
   \|\tilde{u}_3\|_{L^p(\tilde{E})} +
-    \sum_{i=1,2,3} h_i\,\left\|\frac{\partial\tilde{u}_3}{\partial\tilde{x}_i}\right\|_{L^p(\tilde{E})}
+    \sum_{i=1,2,3} h_i\,\|\tfrac{\partial\tilde{u}_3}{\partial\tilde{x}_i}\|_{L^p(\tilde{E})}
   \right)
 \end{IEEEeqnarray}
-and the sum of the three estimates yields the theorem.
+and the sum of the three estimates yields the Theorem.
 \end{proof}
 %===============================================================================
 % \begin{lemma}\label{L6} Let $P$ be a right prism. There exists a constant $C$ depending only on $\alpha_P$ such that for all $\bu$ in $W^{1,1}(P)$ we have
@@ -368,30 +368,6 @@ and the sum of the three estimates yields the theorem.
 % \end{multline}
 % \end{remark}
 %===============================================================================
-\begin{corollary}\label{aux_label38}
-Under assumptions of Lemma \ref{L6}, and if $h_{P,3}\ge \max\{h_{P,1},h_{P,2}\}$ we obtain 
-\begin{equation}\label{estabLp}
-\|\br_E \bu\|_{L^p(E)} \leqslant \left(\|\bu\|_{L^p(E)} +
-\sum_{i=1}^3 h_{E,i}\|\partial_{\xi_i} \bu\|_{L^p(E)}+ h_E\|\mbox{div\,}\bu\|_{L^p(E)}\right)
-\end{equation}
-\end{corollary}
-\begin{remark}
-{\color{red}esto es del corolario aca arriba}  When it comes to estimate in terms of the data $f$ we
-  will assume $h_3 \geqslant C\max\{h_1,h_2\}$ to be able to do
-  \begin{IEEEeqnarray*}{rCl}
-    \left\| \rkutilde \right\|_{L^p(\tilde{E})}
-    & \leqslant & C \left( \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
-    + \sum_{i=1}^3 h_i \left\| \frac{\partial\tilde{\bu}}{\partial\tilde{x}_i} \right\|_{L^p(\tilde{E})}
-    + \max\{h_1,h_2\}\left\|{\dv}\hat\bu\right\|_{L^p(\tilde{E})}
-    + \max\{h_1,h_2\}\left\|\frac{\partial\hat u_3}{\partial\hat x_3}\right\|_{L^p(\tilde{E})}\right).\\[5pt]
-    &\leqslant& C \left( \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
-    + \sum_{i=1}^3 h_i \left\| \frac{\partial\tilde{\bu}}{\partial\tilde{x}_i} \right\|_{L^p(\tilde{E})}
-    + \max\{h_1,h_2\}\left\|{\dv}\hat\bu\right\|_{L^p(\tilde{E})}\right).
-  \end{IEEEeqnarray*}
-  this is not a restriction since we needed the prisms to be 
-  elongated exactly along the direction paralell to the cuadrilateral faces.
-\end{remark}
-
 \subsection{Local Interpolation Estimates for Prismatic Elements} % (fold)
 \label{sub:local_interpolation_estimates_for_prismatic_elements}
 We will state scaling consequences
@@ -686,7 +662,7 @@ with~(\ref{aux_label34}) and~(\ref{aux_label37}) to obtain the
 Theorem.
 \end{proof}
 Imitating the former proof and adding the information of~(\ref{aux_label23}),
-from Corollary~\ref{aux_label38} we deduce the following Theorem.
+from Remark~\ref{auxlabel4} we deduce the following Theorem.
 \begin{theorem}\label{aux_label46}
  $k\in\mathbb{N}_0, p \geqslant 1:$\quad$\exists$ $C > 0$\quad$\forall$ $\bu\in W^{m + 1,p}(E)$\quad and
 \quad$m\leqslant k$, 
@@ -700,7 +676,7 @@ from Corollary~\ref{aux_label38} we deduce the following Theorem.
 %Take a kernel $\hat{\phi}\in{C}_0^\infty(\mathbb{R}^n)$ such that
 %\begin{IEEEeqnarray*}{rCl}
   %\supp{\hat{\phi}}&\subseteq&\hat{B}\\[5pt]
-  %\int\limits_{\hat{B}} \hat{\phi}\,d\textbf{x} & = & 1
+  %\int\limits_{\hat{B}} \hat{\phi}\,d\bx & = & 1
 %\end{IEEEeqnarray*} 
 %Now define the kernel on B
 %\begin{IEEEeqnarray*}{rCl}
