@@ -125,7 +125,7 @@ constantly null over all $\hat{E}$.
 \end{itemize}
 \end{lemma}
 \begin{proof} Let us prove the first one of the two claims. The second one 
-  has an entirely analogous proof. By Lemma~\ref{lemmaRT3zero} we get
+  has an analogous proof. By Lemma~\ref{lemmaRT3zero} we get
   $(\rku)_3 = 0$.
   The nullity of $\dv\hat{\bu}$ and the commutative
   diagram property~(\ref{div_commutativity}) give us
@@ -135,7 +135,7 @@ constantly null over all $\hat{E}$.
   on the face $\hat f_1 \subseteq \{x_1=0\}$
   and~(\ref{momentos3hdiv}) over $\hat E$, implies, as we have seen in
   Lemma~\ref{lemma_u1_u2}, that $(\rku)_1 = 0$.
-  And if look again at 
+  And if we look again at 
   $\dv\rku = {\partial\rku}/{\partial\hat x_2} = 0$
   we have that $(\rku)_2$ does not depend on $\hat x_2$.
 \end{proof}
@@ -153,99 +153,102 @@ constantly null over all $\hat{E}$.
 \end{IEEEeqnarray}
 where the constants in the inequalities depend olny on $\hat{E}$.
 \end{theorem}
-\begin{proof}[Proof of Theorem~\ref{thm_stab_div}] The proof is based on the
-last three Lemmas. By Remark~\ref{density_wpcurl} we can state the estimate for
+\begin{proof}      %%[Proof of Theorem~\ref{thm_stab_div}]
+The proof is based on the
+last three Lemmas. By Proposition~\ref{density_wpcurl} we can state the estimate for
 a smooth field $\hat{\bu}$ and then finish the proof with a density argument.\\[4pt]
-Take again $\omega$ as the closure of $\hat{E}$ and 
-$\hat\bu\in\mathcal{C}^\infty(\omega)^3$. Let
-us prove the first inequality. Set
+Take %again $\omega$ as the closure of $\hat{E}$ and 
+$\hat\bu\in\pazocal{C}^\infty(\bar{\hat{E}})^3$. For 
+the first inequality. Set
 $\hat{\bv} = (\hat{u}_1, \hat{u}_2 - \hat{u}_2(\hat{x}_1,0,\hat{x}_3), 0)$.
-Then $(\hat{\br}_k\bv)_1 = (\rku)_1$.
-By evaluating the degrees of freedom to $\hat{\bv}$ we observe
+Then $({\br}_{\hat E}\hat\bv)_1 = (\rku)_1$.
+By evaluating the degrees of freedom of $\hat{\bv}$ we observe
 that some of them vanish or depend exclusively on $\hat{u}_1$ in the way
 we need them to depend on $\hat{u}_1$. As for the others,
-pick first 
-$\hat{q}_0 \in \mathcal{P}_{\hat{f}_5} = 
+pick first                                                %{P}_{\hat{f}_5} = 
+$\hat{q}_0 \in
 P_{k-1}(\hat{x}_1)\otimes P_{k-1}(\hat{x}_3)$
 and extend it as the same polynomial  
 $\hat{q}$ to $Q_{k-1,k-1,k-1}$.
 \begin{IEEEeqnarray*}{rCl}
-  \rho_{\hat{f}_5,\,\hat{q}_0} (\hat{\bv})
-  & = & \int\limits_{\hat{f}_5} \hat{u}_1\,\hat{q}_0\,d\hat{\gamma} + 
-  \sqrt{2}\iint\limits_{[0,1]^2} \hat{q}_0(\hat{x}_1,\hat{x}_3)
-  \int_0^{1-\hat{x}_1}\frac{\partial \hat{v}_2}{\partial\hat{x}_2}
+  \hat\rho_{\hat{f}_5,\,\hat{q}_0} (\hat{\bv})
+  & = & \iint_{\hat{f}_5} \hat{u}_1\,\hat{q}_0\,d\hat{S} + 
+  \sqrt{2}\iint_{[0,1]^2} \hat{q}_0(\hat{x}_1,\hat{x}_3)
+  \int_0^{1-\hat{x}_1}\tfrac{\partial \hat{v}_2}{\partial\hat{x}_2}
     (\hat{x}_1,\hat{t},\hat{x}_3)\,d\hat{t}d\hat{x}_1d\hat{x}_3\\[5pt]    
-  & = & \int\limits_{\hat{f}_5} \hat{u}_1\,\hat{q}_0\,d\hat{\gamma} + 
-  \sqrt{2}\int\limits_{\hat{E}} \hat{q}\frac{\partial \hat{v}_2}{\partial\hat{x}_2}\,d\hat{\bx}\\[5pt]    
-  & = & \int\limits_{\hat{f}_5} \hat{u}_1\,\hat{q}_0\,d\hat{\gamma} + 
-  \sqrt{2}\int\limits_{\hat{E}} \hat{q}\,\{\,\mbox{div} (\hat{u}_1,\hat{u}_2,0)' -
-    \frac{\partial \hat{u}_1}{\partial\hat{x}_1}\,\}\,d\hat{\bx}.
+  & = & \iint_{\hat{f}_5} \hat{u}_1\,\hat{q}_0\,d\hat{S} + 
+  \sqrt{2}\int_{\hat{E}} \hat{q}\tfrac{\partial \hat{v}_2}{\partial\hat{x}_2}\,d\hat{\bx}\\[5pt]    
+  & = & \iint_{\hat{f}_5} \hat{u}_1\,\hat{q}_0\,d\hat{S} + 
+  \sqrt{2}\int_{\hat{E}} \hat{q}\,\{\,\mbox{div} (\hat{u}_1,\hat{u}_2,0)' -
+    \tfrac{\partial \hat{u}_1}{\partial\hat{x}_1}\,\}\,d\hat{\bx}.
 \end{IEEEeqnarray*}
 For the volume degrees of freedom~(\ref{momentos3hdiv}) take $\hat{q}_2
-\in P_{k-2}(\hat{f}_3) \otimes P_{k-1}(\hat{x}_3)$. Write 
-$\hat{v}_2\xyz = \int_0^{\hat{x}_2} 
-\nicefrac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)\,d\hat{t}$ and do
-{\color{brown}\#\#\#\#\#\#\#\# partir este array para pasar de p'agina.}
+\in P_{k-2,k-1}$. Write 
+\[
+\hat{v}_2\xyz = \int_0^{\hat{x}_2} 
+\tfrac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)\,d\hat{t}
+\]
+and do
 \begin{IEEEeqnarray*}{rCl}
-  \int\limits_{\hat{E}} \hat{v}_2\,\hat{q}_2 
+  \int_{\hat{E}} \hat{v}_2\,\hat{q}_2 
   & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-\hat{x}_1}
   \int\limits_0^{\hat{x}_2}
-    \frac{\partial \hat{u}_2}{\partial \hat{x}_2} 
+    \tfrac{\partial \hat{u}_2}{\partial \hat{x}_2} 
     (\hat{x}_1,\hat{t},\hat{x}_3)\,d\hat{t}\,\hat{q}_2\xyz\,d\hat{x}_2\,d\hat{x}_1\,d\hat{x}_3\\
   & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-\hat{x}_1}\int\limits_0^{\hat{x}_2}
-        \frac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)
+        \tfrac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)
         \,\hat{q}_2 \xyz\,d\hat{t}\,d\hat{x}_2\,d\hat{x}_1\,d\hat{x}_3\\
   & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-\hat{x}_1}\int\limits_{\hat{t}}^{1-\hat{x}_1}
-        \frac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)\,\hat{q}_2\xyz\,
+        \tfrac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)\,\hat{q}_2\xyz\,
         d\hat{x}_2\,d\hat{t}\,d\hat{x}_1\,d\hat{x}_3\\
   & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-\hat{x}_1}
-        \frac{\partial \hat{u}_2}{\partial \hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)
+        \tfrac{\partial \hat{u}_2}{\partial \hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)
         \int\limits_{\hat{t}}^{1-\hat{x}_1}\,\hat{q}_2\xyz\,d\hat{x}_2\,d\hat{t}\,d\hat{x}_1\,d\hat{x}_3\\
   & = &\int\limits_0^1\int\limits_0^1\int\limits_0^{1-\hat{x}_1}
-  \frac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)\,
+  \tfrac{\partial\hat{u}_2}{\partial\hat{x}_2}(\hat{x}_1,\hat{t},\hat{x}_3)\,
        \hat{\phi} (\hat{x}_1,\hat{t},\hat{x}_3)\,d\hat{t}\,d\hat{x}_1\,d\hat{x}_3\\
-& = &\int\limits_{\hat{E}} \mbox{div} (\hat{u}_1,\hat{u}_2,0)'\,\hat{\phi}\,d\hat{\bx}
-    - \int\limits_{\hat{E}}\frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,\hat{\phi}\,d\hat{\bx}
+& = &\int_{\hat{E}} \mbox{div} (\hat{u}_1,\hat{u}_2,0)'\,\hat{\phi}\,d\hat{\bx}
+    - \int_{\hat{E}}\tfrac{\partial\hat{u}_1}{\partial\hat{x}_1}\,\hat{\phi}\,d\hat{\bx}
 \end{IEEEeqnarray*}
 (for some $\hat{\phi} \in  P_{k-1}(\hat{f}_3)\otimes P_{k-1}(\hat{x}_3)$),
 which is what we needed. The inequality~(\ref{teoremaDiv_2}) is proved in the same way.
-For inequality~(\ref{teoremaDiv_3})
+For inequality~(\ref{teoremaDiv_3}) we can do
 \begin{IEEEeqnarray*}{rCl}
-  (\rku)_3 & = & (\hat{\br}_k(0,0,\hat{u}_3)')_3\\
-  & = & \sum_{i=3,4\,\hat{\bq}\,\in\,{\color{red}\mathcal{B}_{\hat f_i}}}
-  \int\limits_{\hat f_i} \hat{u}_3 \hat{q}_3\,d\hat{\gamma} \,(\hat{\bv}_{\hat{f}_i,\hat{\bq}})_3
-    +\sum_{\hat{\br}\,\in\,{\color{red}\mathcal{B}_{\hat E}}}
-  \int\limits_{\hat E} \hat{u}_3 \hat{r}_3\,d\hat{\bx}\,(\hat{\bv}_{\hat{\br}})_3.
+  (\rku)_3 & = & (\hat{\br}_k(0,0,\hat{u}_3)')_3\\[4pt]
+  & = & \sum_{i=3,4;\,\hat{\bq}}
+  \iint_{\hat f_i} \hat{u}_3 \hat{q}_3\,d\hat{S} \,(\hat{\bv}_{\hat{f}_i,\hat{\bq}})_3
+    +\sum_{\hat{\br}}
+  \int_{\hat E} \hat{u}_3\,\hat{r}_3\,d\hat{\bx}\,(\hat{\bv}_{\hat{\br}})_3.
 \end{IEEEeqnarray*}
-Then, by standard result for traces in Sobolev spaces,
+Then, by standard results for traces in Sobolev spaces,
 \begin{IEEEeqnarray*}{rCl}
   \|(\rku)_3\|_{L^\infty(\hat{E})} 
-  & \leqslant & c(\hat{E}) \left\{
+  & \leqslant & C(\hat{E}) \left\{
    \sum_{i=3,4}
      \int\limits_{\hat f_i} |\hat{u}_3|\,d\hat{\gamma}
    + \int\limits_{\hat E} |\hat{u}_3|\,d\hat{\bx}
   \right\}\\
-  &\leqslant& c(\hat{E}) (\|\hat{u}_3|_{\partial\hat{E}}\|_{L^1(\partial\hat{E})} + 
+  &\leqslant& C(\hat{E}) (\|\hat{u}_3|_{\partial\hat{E}}\|_{L^1(\partial\hat{E})} + 
     \|\hat{u}_3\|_{L^1(\hat{E})})\\
-  &\leqslant& c(\hat{E}) \|\hat{u}_3\|_{W^{1,1}(\hat{E})}
+  &\leqslant& C(\hat{E}) \|\hat{u}_3\|_{W^{1,1}(\hat{E})}.
 \end{IEEEeqnarray*}
 \end{proof}
 Theorems~\ref{thm_stab_edge} and~\ref{thm_stab_div} show that the interpolations
-determined by the Finite Elements~(\ref{edgeelement}) and~(\ref{defi_h_div_conforme})
+determined by the finite elements in Definitions~\ref{edgeelement} and~\ref{defi_h_div_conforme}
 are anisotropically stable, in the sense that the image of a field $\hat\bu$ under
 the linear operator depends not only continously on $\hat\bu$, but also with a
 \emph{componentwise} bound, with perhaps and additional
 curl or divergence term, respectively.\\
 
-\noindent Consider again the element $\tilde{E}$ defined in~(\ref{tilde_prism}).
+Consider again the element $\tilde{E}$ defined in~(\ref{tilde_prism}).
 \begin{theorem} \label{thmStabilityKtildeRT}
 There is $C > 0$, independent of $h_1$, $h_2$ and $h_3$, s.t. for all $p \geqslant 1$ and 
   $\tilde{\bu}\in W^{1,p}(\tilde{E})$
   \begin{IEEEeqnarray*}{rCl}
     \left\| \rkutilde \right\|_{L^p(\tilde{E})}
-    & \leqslant & C \left( \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
-    + \sum_{i=1}^3 h_i \left\| \frac{\partial\tilde{\bu}}{\partial\tilde{x}_i} \right\|_{L^p(\tilde{E})}
-    + \max\{h_1,h_2\}\left\|{\dv}(\tilde{u}_1, \tilde{u}_2, 0) \,\right\|_{L^p(\tilde{E})}\right).
+    & \leqslant & C \big( \left\| \tilde{\bu} \right\|_{L^p(\tilde{E})}
+    + \sum_{i=1}^3 h_i \| \tfrac{\partial\tilde{\bu}}{\partial\tilde{x}_i} \|_{L^p(\tilde{E})}\\
+    &&\qquad+ \max\{h_1,h_2\}\|{\dv}(\tilde{u}_1, \tilde{u}_2, 0) \,\|_{L^p(\tilde{E})}\big).
   \end{IEEEeqnarray*}
 \end{theorem}
 \begin{remark}
@@ -694,7 +697,7 @@ from Corollary~\ref{aux_label38} we deduce the following Theorem.
 \end{IEEEeqnarray}
 \end{theorem}
 %
-%Take a kernel $\hat{\phi}\in\mathcal{C}_0^\infty(\mathbb{R}^n)$ such that
+%Take a kernel $\hat{\phi}\in{C}_0^\infty(\mathbb{R}^n)$ such that
 %\begin{IEEEeqnarray*}{rCl}
   %\supp{\hat{\phi}}&\subseteq&\hat{B}\\[5pt]
   %\int\limits_{\hat{B}} \hat{\phi}\,d\textbf{x} & = & 1

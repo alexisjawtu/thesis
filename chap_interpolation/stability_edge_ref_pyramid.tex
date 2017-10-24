@@ -32,23 +32,21 @@ computations, we may write, by Stokes' Theorem,
 \begin{IEEEeqnarray*}{rCl}
   (\alpha_1+\alpha_6)(\hat\bu)
   	& = & \int_{\hat{\be}_1}\hat\bu\cdot d\hat{\balpha}_1 \\
-    &&\mbox{\color{brown}cambiar a una notacion como la de aca arriba. simil apostol o marsden.}\\
-    &&\mbox{\color{brown}ver, por ejemplo, apostol pag 319 expresion 37)}\\
-    &&      +	\int_{\hat{\be}_6}\hat\bu\cdot\hat\btau_6\, ds -
-  			\int_{\hat{\be}_5}\hat\bu\cdot\hat\btau_5\, ds \\[5pt]
+    &&      +	\int_{\hat{\be}_6}\hat\bu\cdot d\hat\balpha_6 -
+  			\int_{\hat{\be}_5}\hat\bu\cdot d\hat\balpha_5 \\[5pt]
   	& = & \iint_{\hat{f}_1} \nabla\times\hat\bu\cdot\hat\bn\,dS \\[5pt]
-  	& = & -\iint_{\hat{f}_1} \frac{{\s\partial} u_1}{{\s\partial} x_3}\,dS.
+  	& = & -\iint_{\hat{f}_1} \tfrac{{\partial} \hat u_1}{{\partial}\hat x_3}\,d\hat S.
 \end{IEEEeqnarray*}
 Next,
 \begin{IEEEeqnarray*}{rCl}
 	(\alpha_3-\alpha_1)(\hat\bu) & = & (\alpha_3-\alpha_2-\alpha_1+\alpha_4)(\hat\bu)\\
-	& = & - \int_{\partial\hat{f}_5}\hat{\bu}\cdot\hat\btau\,d\hat{s}\\
-	&=& -\iint_{\hat{f}_5}\nabla\times\hat{\bu}\cdot\hat{\bn}_5\,d\gamma\\
-	&=&	 \iint_{\hat{f}_5}\frac{{\s\partial} \hat{u}_1}{{\s\partial} \hat{x}_2}\,d\gamma.
+	& = & - \int_{\partial\hat{f}_5}\hat{\bu}\cdot d\hat{\balpha}\\[4pt]
+	&=& -\iint_{\hat{f}_5}\nabla\times\hat{\bu}\cdot\hat{\bn}_5\,d\hat S\\
+	&=&	 \iint_{\hat{f}_5}\tfrac{{\partial} \hat{u}_1}{{\partial} \hat{x}_2}\,d\hat S.
 \end{IEEEeqnarray*}
 And
 \begin{IEEEeqnarray*}{rCl}
-  (\alpha_6-\alpha_8)(\hat\bu) & = & \int_{\hat\be_6}\hat\bu\cdot\hat\btau_6\,ds-
+  (\alpha_6-\alpha_8)(\hat\bu) & = & \int_{\hat\be_6}\hat\bu\cdot d\hat\balpha_6 -
     \int_{\hat\be_8}\hat\bu\cdot\hat\btau_6\,ds-
 	\int_{\hat\be_2}\hat\bu\cdot\hat\btau_6\,ds\\[5pt]
 	& = &-\int_{\partial\hat{f}_3}\hat\bu\cdot\hat\btau\,ds  
@@ -83,8 +81,8 @@ As $\hat\bu$ has zero tangential component along $\be_5$ and $\be_7$,
   (\alpha_3-\alpha_7+\alpha_8)(\hat\bu)+(\alpha_5-\alpha_6-\alpha_1)(\hat\bu)\\[8pt]
   &=&-\int_{\partial\hat{f}_4}\hat\bu\cdot\hat\btau\,ds
    -\int_{\partial\hat{f}_1}\hat\bu\cdot\hat\btau\,ds\\[8pt]
-  &=&-\iint_{\hat{f}_1}\nabla\times\hat\bu\cdot\hat\bn\,d\gamma
-   -\iint_{\hat{f}_4}\nabla\times\hat\bu\cdot\hat\bn\,d\gamma\\[8pt]
+  &=&-\iint_{\hat{f}_1}\nabla\times\hat\bu\cdot\hat\bn\,d\hat S
+   -\iint_{\hat{f}_4}\nabla\times\hat\bu\cdot\hat\bn\,d\hat S\\[8pt]
 %\yesnumber\label{pyr_edge_one}
   &=&\iint_{\hat{f}_1}(\nabla\times\hat\bu)_2\,d\gamma\\[8pt]
   & &\quad-2^{-\nicefrac{1}{2}}\iint_{\hat{f}_4}[(\nabla\times\hat\bu)_2 + (\nabla\times\hat\bu)_3]\,d\gamma.\\[8pt]
