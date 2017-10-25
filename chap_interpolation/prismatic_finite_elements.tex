@@ -390,30 +390,31 @@ and~(\ref{transfDiv}) then
 Let $\tilde E$ be the rescaled reference prism in Figure~\ref{rescaled_prism}
 and denote its diameter by $h$.
 Given $p\geqslant 1$, $m\geqslant 0$ and
-$\tilde\bu \in W^{m+1,p}(\tilde E)$,  Then
-If $m \geqslant 0$ and $p \geqslant 1$.
+$\tilde\bu \in W^{m+1,p}(\tilde E)$,  then
+for $m \geqslant 0$ and $p \geqslant 1$ the following items hold.
 \begin{enumerate}
   \item 
   For any component $1\leqslant i\leqslant 3$
   \begin{IEEEeqnarray}{rCl}\label{aux_label30}
     \|\tilde  u_i - \tilde\Qb_{m,\tilde E}\,\tilde u_i \|_{L^p(\tilde E)}& \leqslant &
-      C \sum_{j+k+l=m+1} h_1^jh_2^kh_3^l \left\| \frac{\tilde\partial^{m+1}\tilde u_i}
+      C \sum_{j+k+l=m+1} h_1^jh_2^kh_3^l 
+      \left\|\tfrac{\tilde\partial^{m+1}\tilde u_i}
       {\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l}
       \right\|_{L^p(\tilde E)}
   \end{IEEEeqnarray}
   \item 
   For any component $1\leqslant l\leqslant 3$
   \begin{IEEEeqnarray}{rCl}\label{aux_label31}
-    \left\|\frac{\partial}{\partial \tilde x_i}(\tilde u_l-\tilde q_l)\right\|_{L^p(\tilde E)}
+    \left\|\tfrac{\partial}{\partial \tilde x_i}(\tilde u_l-\tilde q_l)\right\|_{L^p(\tilde E)}
     &\leqslant&C\sum_{|\alpha| = m} \bh^\alpha 
-    \left\|\frac{\partial}{\partial\tilde x_i} (\partial^{\alpha}\tilde u_l)
+    \left\|\tfrac{\partial}{\partial\tilde x_i} (\partial^{\alpha}\tilde u_l)
     \right\|_{L^p(\tilde E)}
   \end{IEEEeqnarray}
   %%%===========================================================================
   % \begin{IEEEeqnarray}{rCl}\label{aux_label31}
-  %   \left \|\frac{\partial}{\partial \tilde x_i}(\tilde\bu-\tilde\bq)\right\|_{L^p(\tilde E)}
+  %   \left \|\tfrac{\partial}{\partial \tilde x_i}(\tilde\bu-\tilde\bq)\right\|_{L^p(\tilde E)}
   %   &\leqslant&C\sum_{|\alpha| = m} \bh^\alpha 
-  %   \left \|\frac{\partial}{\partial\tilde x_i} (\partial^{\alpha}\tilde\bu)
+  %   \left \|\tfrac{\partial}{\partial\tilde x_i} (\partial^{\alpha}\tilde\bu)
   %   \right\|_{L^p(\tilde E)}
   % \end{IEEEeqnarray} 
   %%%===========================================================================
@@ -426,7 +427,7 @@ If $m \geqslant 0$ and $p \geqslant 1$.
   %  C\,h^m
   %  \|\partial^m\curl\tilde\bu\|_{L^p(\tilde E)}\\[5pt]
   %  \label{aux_label25__}
-  %  \|\frac{\partial}{\partial_{\tilde x_i}}\curl(\tilde\bu-\tilde\bq)\|_{L^p(\tilde E)}&\leqslant&
+  %  \|\tfrac{\partial}{\partial_{\tilde x_i}}\curl(\tilde\bu-\tilde\bq)\|_{L^p(\tilde E)}&\leqslant&
   %  C\,h^{m-1}
   %  \|\partial^m\curl\tilde\bu\|_{L^p(\tilde E)}
   %\end{IEEEeqnarray}
@@ -435,87 +436,91 @@ If $m \geqslant 0$ and $p \geqslant 1$.
     \label{aux_label24}
     \|\curl(\tilde\bu-\tilde\bq)_i\|_{L^p(\tilde E)}&\leqslant&
     C\,\sum_{j+k+l=m}  h_1^jh_2^kh_3^l
-    \left\|\frac{\tilde\partial^m(\curl\tilde\bu)_i}{\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l}
+    \left\|\tfrac{\tilde\partial^m(\curl\tilde\bu)_i}{\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l}
     \right\|_{L^p(\tilde E)}
   \end{IEEEeqnarray}
   \item 
   \begin{IEEEeqnarray}{rCl}
     \label{aux_label25}
-    \|\frac{\partial\curl(\tilde\bu-\tilde\bq)_i}{\partial\tilde x_j}\|_{L^p(\tilde E)}
+    \left\|\tfrac{\partial\curl(\tilde\bu-\tilde\bq)_i}{\partial\tilde x_j}
+    \right\|_{L^p(\tilde E)}
       &\leqslant& 
         C\,\sum_{j+k+l=m-1}  h_1^jh_2^kh_3^l
-          \|\frac{\tilde\partial^{m-1}\tilde\partial(\tilde\curl\tilde\bu)_i}
+          \left\|\tfrac{\tilde\partial^{m-1}\tilde\partial(\tilde\curl\tilde\bu)_i}
                  {\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l\partial\tilde x_j}
-          \|_{L^p(\tilde E)}
+          \right\|_{L^p(\tilde E)}
   \end{IEEEeqnarray}
 \end{enumerate}
 where C depends only on $m$, $\sigma$ (cfr. Theorem~\ref{aux_label21})
 and the reference element.
 \end{lemma}
-{\color{BrickRed} REFINAR esta de manera anisotropa y
-despues el teorema correspondiente.
+{\color{BrickRed} REFINAR esta y
+despues el teorema correspondiente.}
 As a corollary of these inequalities we have immediately that
-let $\tilde \bq\in P_m(\tilde E)^3$ be the
+if $\tilde \bq\in P_m(\tilde E)^3$ is the
 vector averaged Taylor polynomial 
-of $\tilde \bu$ as in  Remark~\ref{aux_label28}.
+of $\tilde \bu$, then                        %% as in  Remark~\ref{aux_label28}.
 \begin{IEEEeqnarray}{rCl}\label{aux_label23}
   \|\tilde{\dv}(\tilde\bu-\tilde\bq)\|_{L^p(\tilde E)}&\leqslant&Ch^m\|\tilde \partial^m\tilde\dv\tilde\bu\|_{L^p(\tilde E)}
 \end{IEEEeqnarray}
-where $C$ depends only on $m$ and \noindent{\color{BrickRed} ????}.}
+where $C$ depends only on $m$ and {\noindent{\color{BrickRed} ????}.}
 \begin{proof}[Proof of Lemma~\ref{aux_label20}]
-  Lemma~\ref{aux_label40} rescaling $\hat{E}$ so that $d = 1$ and then
-  pushing forward to $\tilde E$. In fact, for any $\alpha$ 
+We will use  Lemma~\ref{aux_label40} rescaling $\hat{E}$ so that $d = 1$ and then
+pushing forward to $\tilde E$. In fact, for any multi--index 
+$\balpha$ we have
   \begin{IEEEeqnarray}{rCl}\label{aux_label41}
     h_1^{\alpha_1}h_2^{\alpha_2}h_3^{\alpha_3}\tilde\partial^\alpha\tilde u_i (\tilde\bx)
     & = & (\nicefrac{1}{h_i}\hat\partial^{\alpha}\hat u_i)(F_{\tilde E}^{-1}\tilde\bx)
   \end{IEEEeqnarray}
   so
-  \begin{IEEEeqnarray}{rCl}\label{aux_label30}
+  \begin{IEEEeqnarray*}{rCl}
   \|\tilde  u_i - \tilde\Qb_{m,\tilde E}\,\tilde u_i \|^p_{L^p(\tilde E)}
-  & = & \|\frac{1}{h_i}(u_i - \Qb_{m, E}\,u_i)\circ F_{\tilde E}^{-1}\|^p_{L^p(\tilde E)} \\
-  & = & \frac{|\det M_E|}{h_i^p} \|  u_i - \Qb_{m, E}\, u_i\|^p_{L^p(\hat E)} \\
-  & \leqslant & \frac{C|\det M_E|}{h_i^p} |  u_i|^p_{m+1,p,\hat E} \\
+  & = & \|\frac{1}{h_i}(u_i - \Qb_{m, E}\,u_i)\circ F_{\tilde E}^{-1}\|^p_{L^p(\tilde E)} \\[4pt]
+  & = & \frac{|\det M_E|}{h_i^p} \|  u_i - \Qb_{m, E}\, u_i\|^p_{L^p(\hat E)} \\[4pt]
+  & \leqslant & \frac{C|\det M_E|}{h_i^p} |  u_i|^p_{m+1,p,\hat E} \\[4pt]
   & = & C|\det M_E| \sum_{j+k+l=m+1} \left\|
-   \frac{\partial^{m+1}}{\partial^jx_1\partial^kx_2\partial^lx_3} ( \frac{1}{h_i} u_i)\right\|^p_{L^p(\hat{E})} \\
-  (\mbox{by~(\ref{aux_label41}) })& = & C \sum_{j+k+l=m+1} \left\|
+   \frac{\partial^{m+1}}{\partial^jx_1\partial^kx_2\partial^lx_3} \{\nicefrac{1}{h_i} u_i\}\right\|^p_{L^p(\hat{E})} \\[4pt]
+  (\mbox{by~(\ref{aux_label41})})\qquad& = & C \sum_{j+k+l=m+1} \left\|
    h_1^jh_2^kh_3^l
    \frac{\tilde\partial^{m+1}}{\partial^j\tilde x_1\partial^k\tilde x_2\partial^l\tilde x_3}
-   (\tilde u_i)\right\|^p_{L^p(\tilde{E})} \\
+   (\tilde u_i)\right\|^p_{L^p(\tilde{E})} \\[4pt]
+   \yesnumber\label{aux_label30}
   & = & C \sum_{j+k+l=m+1} (h_1^jh_2^kh_3^l)^p \left\| \frac{\tilde\partial^{m+1}\tilde u_i}
     {\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l}
     \right\|^p_{L^p(\tilde E)}.
-\end{IEEEeqnarray}
+\end{IEEEeqnarray*}
 To prove~(\ref{aux_label24}), by a straightforward manipulation we have
 \begin{IEEEeqnarray*}{rCl}
   \tilde\curl \tilde \Qbb_{m,\tilde E}\tilde\bu & = & 
-  \tilde \Qbb_{m-1,\tilde E} \tilde\curl \tilde\bu 
+  \tilde \Qbb_{m-1,\tilde E} \tilde\curl \tilde\bu.
 \end{IEEEeqnarray*}
-then, componentwise, by~(\ref{aux_label30}), 
+Then, componentwise, by~(\ref{aux_label30}), 
 \begin{IEEEeqnarray*}{rCl}
   \|\tilde\curl(\tilde\bu-\tilde \Qbb_{m,\tilde E}\tilde\bu)_i\|_{L^p(\tilde E)}& = &
-    \|(\tilde\curl\tilde\bu)_i - \tilde\Qb_{m-1}(\tilde\curl\tilde\bu)_i\|_{L^p(\tilde E)}\\
+    \|(\tilde\curl\tilde\bu)_i - \tilde\Qb_{m-1}(\tilde\curl\tilde\bu)_i\|_{L^p(\tilde E)}\\[4pt]
   &\leqslant& C \sum_{j+k+l=m} h_1^jh_2^kh_3^l 
-  \|\frac{\tilde\partial^m(\tilde\curl\tilde\bu)_3}
-         {\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l}\|_{L^p(\tilde E)}
+  \left\|\frac{\tilde\partial^m(\tilde\curl\tilde\bu)_3}
+         {\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l}\right\|_{L^p(\tilde E)}.
 \end{IEEEeqnarray*}
 Now~(\ref{aux_label25}) is an easy consecuence because
 \begin{IEEEeqnarray*}{rCl}
-\|\frac{\partial\curl(\tilde\bu-\tilde\bq)_i}{\partial\tilde x_j}\|_{L^p(\tilde E)}
+\left\|\frac{\partial\curl(\tilde\bu-\tilde\bq)_i}{\partial\tilde x_j}\right\|_{L^p(\tilde E)}
     & = & 
-\|\frac{\partial(\tilde\curl\tilde\bu)_i}{\partial\tilde x_j} - 
+\left\|\frac{\partial(\tilde\curl\tilde\bu)_i}{\partial\tilde x_j} - 
   \frac{\partial\tilde\Qb_{m-1,\tilde E}(\tilde\curl\tilde\bu)_i}{\partial\tilde x_j}
-\|_{L^p(\tilde E)} \\
+\right\|_{L^p(\tilde E)} \\
 & = & 
-\|\frac{\partial(\tilde\curl\tilde\bu)_i}{\partial\tilde x_j} - 
+\left\|\frac{\partial(\tilde\curl\tilde\bu)_i}{\partial\tilde x_j} - 
   \tilde\Qb_{m-2,\tilde E}\frac{\partial(\tilde\curl\tilde\bu)_i}{\partial\tilde x_j}
-\|_{L^p(\tilde E)} \\
+\right\|_{L^p(\tilde E)} \\
     &\leqslant& 
       C\,\sum_{j+k+l=m-1}  h_1^jh_2^kh_3^l
-        \|\frac{\tilde\partial^{m-1}\tilde\partial(\tilde\curl\tilde\bu)_i}
+        \left\|\frac{\tilde\partial^{m-1}\tilde\partial(\tilde\curl\tilde\bu)_i}
                {\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l\partial\tilde x_j}
-        \|_{L^p(\tilde E)}
+        \right\|_{L^p(\tilde E)}.
 \end{IEEEeqnarray*}
 \end{proof}
+\noindent{\color{BrickRed}\#\#\#\#\#\#\# seguir aca} 
 ======================================================\\
 One of the main results in this thesis. 
 Sean un prisma obl\'{\i}cuo irregular $E$, $k\in\mathbb{N}$, el operador de interpolaci\'on 
