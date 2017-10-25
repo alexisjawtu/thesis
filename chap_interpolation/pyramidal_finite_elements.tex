@@ -8,12 +8,11 @@ Elements on Pyramids} % (fold)
 \label{sub:edge_elements}
 \input{./chap_interpolation/stability_edge_ref_pyramid}
 % subsection edge_elements (end)
-\subsection{Anisotropic Stability Estimates for $H(\Div)$--Conforming 
+\subsection{Anisotropic Stability Estimates for $H(\text{div})$--Conforming 
 Elements on Pyramids} % (fold)
 \label{sub:face_elements}
-
-\paragraph{Stability $\hat{E}$} 
-\label{par:stability_hat}
+Here we will work on the div--conforming analogue of
+Theorem~\ref{aux_label53}.
 \begin{theorem} \label{aux_label54}
 \noindent{\color{Orange}\#\#\#\#\#\#\# cambiar H1 por W1p a la derecha.
 corregir en las estimaciones de la demostración porque
@@ -21,47 +20,52 @@ está todo con H1}
 \begin{IEEEeqnarray*}{rCl}
   \|(\rku)_1\|_{\scriptscriptstyle{L^p(\hat{E})}}
   &\lesssim& \|\hat u_1\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
-    \|\dv \bu\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
-    \left\|\hat{u}_3\right\|_{\scriptscriptstyle{H^1}(\hat{E})}\\[12pt]
+    \|\dv \hat\bu\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
+    \left\|\hat{u}_3\right\|_{\scriptscriptstyle{W^{1,p}}(\hat{E})}\\[12pt]
   \|(\rku)_2\|_{\scriptscriptstyle{L^p(\hat{E})}}
   &\lesssim& \|\hat u_2\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
-    \|\dv \bu\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
-    \left\|\hat{u}_3\right\|_{\scriptscriptstyle{H^1}(\hat{E})}\\[12pt]
+    \|\dv \hat\bu\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
+    \left\|\hat{u}_3\right\|_{\scriptscriptstyle{W^{1,p}}(\hat{E})}\\[12pt]
   \|(\rku)_3\|_{\scriptscriptstyle{L^p(\hat{E})}} & \lesssim & 
-    \|u_3\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
-    \|\dv \bu\|_{\scriptscriptstyle{L^p}(\hat{E})}.
+    \|\hat u_3\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
+    \|\dv \hat\bu\|_{\scriptscriptstyle{L^p}(\hat{E})}.
 \end{IEEEeqnarray*}
 \end{theorem}
 
 \begin{proof}
-We will use the notation of Table~\ref{shape_edge_table} for the 
-shape functions and Tables~\ref{pyramidNotationTableFaces} and
-~\ref{pyramidNotationTableEdges} for the border of the pyramid. The variables 
-in the local coordinate system of $\hat E$ are $x,y$ and $z$.\\[5pt]
-Consider the case $\hat{\bu} = (\hat{u}_1,0,0)'$ and compute it's interpolate. 
+We will use the notation of Table~\ref{shape_face_table} for the 
+shape functions and Tables~\ref{pyramidNotationTableFaces} and~\ref{pyramidNotationTableEdges}
+for the boundary of the reference pyramid. This proof is based on explicit computation as well.
+The variables 
+in the local coordinate system of $\hat E$ for the shape functions $\bz_i$ 
+are $x$, $y$ and $z$ instead
+of $\hat x_1$, $\hat x_2$ and $\hat x_3$.\\[5pt]
+Consider the case $\hat{\bu} = (\hat{u}_1,0,0)'$ to start with and compute it's 
+interpolate. 
+{\color{Orange}\#\#\#\#\#\#\#\# seguir aca.}
 \begin{IEEEeqnarray*}{rCl}
-  \rku & = & ({\scriptstyle\iint_{\hat{f}_2} \bu \cdot \hat\bn_2\,d\gamma})\,\bz_2 + 
-         \iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\gamma\,\bz_3\\[4pt]
-       & = & \alpha_2(\hat\bu)\,\bz_2 + \alpha_3(\hat\bu)\,\bz_3.
+  \rku & = & \{{\scriptstyle\iint_{\hat{f}_2} \hat\bu \cdot \hat\bn_2\,d\hat S}\}\,\bz_2 + 
+         \{{\scriptstyle\iint_{\hat{f}_3} \hat\bu \cdot \hat\bn_3\,d\hat S}\}\,\bz_3\\[4pt]
+       & =: & \alpha_2(\hat\bu)\,\bz_2 + \alpha_3(\hat\bu)\,\bz_3.
 \end{IEEEeqnarray*}
 Then 
 \begin{IEEEeqnarray*}{rCl}
   (\rku)_1\xyz & = & -2\alpha_2(\hat\bu) + 
     (\alpha_2(\hat\bu)+\alpha_3(\hat\bu))\,\frac{2x-xz}{1-z}\\[4pt]
-    & = & -2{\iint_{\hat{f}_2} \hat{\bu} \cdot \hat\bn_2\,d\gamma} + 
-          ({\iint_{\hat{f}_2} \hat{\bu} \cdot \hat\bn_2\,d\gamma}+
-                  {\iint_{\hat{f}_3} \hat{\bu} \cdot \hat\bn_3\,d\gamma})\frac{2x-xz}{1-z}\\[4pt]
-    & = & -2{\iint_{\hat{f}_2} \hat{\bu} \cdot \hat\bn_2\,d\gamma} + 
-          {\iint_{\partial\hat{E}} \hat{\bu} \cdot \hat\bn\,d\gamma}\frac{2x-xz}{1-z}\\[4pt]
-    & = & -2{\iint_{\hat{f}_2} \hat{\bu} \cdot \hat\bn_2\,d\gamma} + 
+    & = & -2{\iint_{\hat{f}_2} \hat{\bu} \cdot \hat\bn_2\,d\hat S} + 
+          ({\iint_{\hat{f}_2} \hat{\bu} \cdot \hat\bn_2\,d\hat S}+
+                  {\iint_{\hat{f}_3} \hat{\bu} \cdot \hat\bn_3\,d\hat S})\frac{2x-xz}{1-z}\\[4pt]
+    & = & -2{\iint_{\hat{f}_2} \hat{\bu} \cdot \hat\bn_2\,d\hat S} + 
+          {\iint_{\partial\hat{E}} \hat{\bu} \cdot \hat\bn\,d\hat S}\frac{2x-xz}{1-z}\\[4pt]
+    & = & -2{\iint_{\hat{f}_2} \hat{\bu} \cdot \hat\bn_2\,d\hat S} + 
             {\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}}\frac{2x-xz}{1-z}.\\[8pt]
   (\rku)_2\xyz & = & -(\alpha_2(\hat\bu)+\alpha_3(\hat\bu))\,\frac{yz}{1-z}\\[4pt]
     & = & -{\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}}\frac{yz}{1-z}.
 \end{IEEEeqnarray*}
 Switch to $\hat{\bu} = (0,\hat{u}_2,0)'$.
 \begin{IEEEeqnarray*}{rCl}
-  \rku & = & ({\scriptstyle\iint_{\hat{f}_1} \bu \cdot \hat\bn_1\,d\gamma})\,\bz_1 + 
-         \iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\gamma\,\bz_4\\[4pt]
+  \rku & = & ({\scriptstyle\iint_{\hat{f}_1} \bu \cdot \hat\bn_1\,d\hat S})\,\bz_1 + 
+         \iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\hat S\,\bz_4\\[4pt]
        & = & \alpha_1(\hat\bu)\,\bz_1 + \alpha_4(\hat\bu)\,\bz_4.
 \end{IEEEeqnarray*}
 Then
@@ -70,16 +74,16 @@ Then
     & = & -{\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}}\frac{xz}{1-z}.\\[8pt]
   (\rku)_2\xyz & = & -2\alpha_1(\hat\bu) + 
   (\alpha_1(\hat\bu)+\alpha_4(\hat\bu))\,\frac{2y-yz}{1-z}\\[4pt]
-    & = & -2{\iint_{\hat{f}_1} \hat{\bu} \cdot \hat\bn_1\,d\gamma} + 
-            {\iint_{\partial\hat{E}} \hat{\bu} \cdot \hat\bn\,d\gamma}\frac{2y-yz}{1-z}\\[4pt]
-    & = & -2{\iint_{\hat{f}_1} \hat{\bu} \cdot \hat\bn_1\,d\gamma} + 
+    & = & -2{\iint_{\hat{f}_1} \hat{\bu} \cdot \hat\bn_1\,d\hat S} + 
+            {\iint_{\partial\hat{E}} \hat{\bu} \cdot \hat\bn\,d\hat S}\frac{2y-yz}{1-z}\\[4pt]
+    & = & -2{\iint_{\hat{f}_1} \hat{\bu} \cdot \hat\bn_1\,d\hat S} + 
             {\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}}\frac{2y-yz}{1-z}.\\[8pt]
 \end{IEEEeqnarray*}
 Switch to $\hat{\bu} = (0,0,\hat{u}_3)'$.
 \begin{IEEEeqnarray*}{rCl}
-  \rku & = & ({\scriptstyle\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\gamma})\,\bz_3 + 
-         \iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\gamma\,\bz_4 + 
-         \iint_{\hat{f}_5} \bu \cdot \hat\bn_5\,d\gamma\,\bz_5\\[4pt]
+  \rku & = & ({\scriptstyle\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\hat S})\,\bz_3 + 
+         \iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\hat S\,\bz_4 + 
+         \iint_{\hat{f}_5} \bu \cdot \hat\bn_5\,d\hat S\,\bz_5\\[4pt]
        & = & \alpha_3(\hat\bu)\,\bz_3 + \alpha_4(\hat\bu)\,\bz_4
        + \alpha_5(\hat\bu)\,\bz_5.
 \end{IEEEeqnarray*}
@@ -91,16 +95,16 @@ Then
 Now observe
 \begin{IEEEeqnarray*}{rCl}
   (\alpha_3(\hat\bu)+\alpha_5(\hat\bu)) & = & 
-    {\iint_{\partial\hat{E}} \hat{\bu} \cdot \hat\bn\,d\gamma} - 
-      {\iint_{\hat{f}_4} \hat{\bu} \cdot \hat\bn_4\,d\gamma} \\[4pt]
+    {\iint_{\partial\hat{E}} \hat{\bu} \cdot \hat\bn\,d\hat S} - 
+      {\iint_{\hat{f}_4} \hat{\bu} \cdot \hat\bn_4\,d\hat S} \\[4pt]
   & = & {\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}} - 
         \alpha_4(\hat{\bu})
 \end{IEEEeqnarray*}
 and
 \begin{IEEEeqnarray*}{rCl}
   \alpha_3(\hat\bu)-\alpha_4(\hat\bu) & = & 
-  {\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\gamma} - 
-  {\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\gamma} \\[4pt]
+  {\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\hat S} - 
+  {\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\hat S} \\[4pt]
   & = & \int_{0}^{1}\int_{0}^{x} \hat{u}_3(x,y,1-x)\,dydx - 
         \int_{0}^{1}\int_{0}^{y} \hat{u}_3(x,y,1-y)\,dxdy\mbox{,}
 \end{IEEEeqnarray*}
@@ -114,8 +118,8 @@ so
 In a completely similar fashion
 \begin{IEEEeqnarray*}{rCl}
   (\rku)_2\xyz & = & {\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}}\,y\,+
-  ({\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\gamma} - 
-   {\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\gamma})\frac{y}{1-z}.\\[4pt]
+  ({\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\hat S} - 
+   {\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\hat S})\frac{y}{1-z}.\\[4pt]
                & = & {\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}}\,y\,+\\[4pt]
   \IEEEeqnarraymulticol{3}{r}{\qquad(\int_{0}^{1}\int_{0}^{x} \hat{u}_3(x,y,1-x)\,dydx - 
                           \int_{0}^{1}\int_{0}^{y} \hat{u}_3(x,y,1-y)\,dxdy)
@@ -137,7 +141,7 @@ Table~\ref{terms_table}.
         \IEEEeqnarrayseprow[5pt]\\
         & (\hat{u}_1,0,0)' & &
           \begin{IEEEeqnarraybox*}{l}
-            -2{\iint_{\hat{f}_2} \hat{\bu} \cdot \hat\bn_2\,d\gamma}\\ + 
+            -2{\iint_{\hat{f}_2} \hat{\bu} \cdot \hat\bn_2\,d\hat S}\\ + 
             {q(x,z)\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}}
           \end{IEEEeqnarraybox*}
         & &
@@ -148,7 +152,7 @@ Table~\ref{terms_table}.
           -r(x,z){\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}} 
         & & 
           \begin{IEEEeqnarraybox*}{l}
-            -2{\iint_{\hat{f}_1} \hat{\bu} \cdot \hat\bn_1\,d\gamma}\\ + 
+            -2{\iint_{\hat{f}_1} \hat{\bu} \cdot \hat\bn_1\,d\hat S}\\ + 
             {q(x,z)\int_{\hat{E}} \dv\hat{\bu} \,d\hat{\boldsymbol{x}}}
           \end{IEEEeqnarraybox*}
         &\\
@@ -157,54 +161,54 @@ Table~\ref{terms_table}.
         & (0,0,\hat{u}_3)' & & 
           \begin{IEEEeqnarraybox*}{l}
             x\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}} \\[5pt] +\, 
-            ({\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\gamma}
+            ({\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\hat S}
              \\[5pt] 
-             -{\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\gamma})r(x,z)
+             -{\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\hat S})r(x,z)
           \end{IEEEeqnarraybox*}
          & & 
           \begin{IEEEeqnarraybox*}{l}
             y\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}\\[5pt] +\, 
-              ({\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\gamma}
+              ({\iint_{\hat{f}_4} \bu \cdot \hat\bn_4\,d\hat S}
              \\[5pt] 
-             -{\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\gamma})r(y,z)
+             -{\iint_{\hat{f}_3} \bu \cdot \hat\bn_3\,d\hat S})r(y,z)
           \end{IEEEeqnarraybox*}
         &\\\IEEEeqnarrayrulerow
     \end{IEEEeqnarraybox*}
 \end{table}
 Lastly, for any $\hat\bu$
 \begin{IEEEeqnarray*}{rCl}
-    (\rku)_3\xyz & = &   z\sum_{i=1}^4\iint_{\hat{f}_i} \hat{\bu}\cdot\hat{\bn}_i\,d\gamma
-                      + (z-1) \iint_{\hat{f}_5}\hat{\bu}\cdot\hat{\bn}_5\,d\gamma\\[5pt]
+    (\rku)_3\xyz & = &   z\sum_{i=1}^4\iint_{\hat{f}_i} \hat{\bu}\cdot\hat{\bn}_i\,d\hat S
+                      + (z-1) \iint_{\hat{f}_5}\hat{\bu}\cdot\hat{\bn}_5\,d\hat S\\[5pt]
                  & = & z\iint_{\partial\hat{E}} \hat{\bu}\cdot\hat{\bn} - \iint_{f_5}
-                 \hat{\bu}\cdot\hat{\bn}_5\,d\gamma\\[5pt]
+                 \hat{\bu}\cdot\hat{\bn}_5\,d\hat S\\[5pt]
    \yesnumber\label{term_rk3}
                  & = &\hat{x}_3\int\limits_{\hat{E}} \mbox{div}\,\hat{\bu}\,d\hat{\bx} 
-     + \iint\limits_{\hat{f}_5} \hat{u}_3\,d\hat{\gamma}
+     + \iint\limits_{\hat{f}_5} \hat{u}_3\,d\hat{S}
 \end{IEEEeqnarray*}
 Now we bound each term 
 \begin{IEEEeqnarray*}{rCl}
   (\rku)_1 & = & (\br_{\hat{E}}(\hat{u}_1,0,0)')_1 + 
                  (\br_{\hat{E}}(0,\hat{u}_2,0)')_1 + 
                  (\br_{\hat{E}}(0,0,\hat{u}_3)')_1\\[5pt]
-  & = & -2\iint_{\hat{f}_2}\hat{u}_1\,d\gamma +
+  & = & -2\iint_{\hat{f}_2}\hat{u}_1\,d\hat S +
   \frac{2x}{1-z}\int_{\hat{E}} \frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} -
   \frac{xz}{1-z}\int_{\hat{E}} \frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} \\[5pt]
   & & \,- \frac{xz}{1-z}\int_{\hat{E}} \frac{\partial\hat{u}_2}{\partial\hat{x}_2}\,d\hat{\bx}
   + \left( x + \frac{xz}{1-z}-\frac{xz}{1-z} \right)
   \int_{\hat{E}} \frac{\partial\hat{u}_3}{\partial\hat{x}_3}\,d\hat{\bx}\\[5pt]
-  &   &\, + \left({\iint_{\hat{f}_3} \hat{u}_3\,d\gamma}
-        - {\iint_{\hat{f}_4} \hat{u}_3\,d\gamma}\right)\frac{xz}{1-z}\\[5pt]
-  & = & -2\iint_{\hat{f}_2}\hat{u}_1\,d\gamma +
+  &   &\, + \left({\iint_{\hat{f}_3} \hat{u}_3\,d\hat S}
+        - {\iint_{\hat{f}_4} \hat{u}_3\,d\hat S}\right)\frac{xz}{1-z}\\[5pt]
+  & = & -2\iint_{\hat{f}_2}\hat{u}_1\,d\hat S +
   \frac{2x}{1-z}\int_{\hat{E}}\frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} -
   \frac{xz}{1-z}\int_{\hat{E}}\dv\hat{\bu}\,d\hat{\bx}\\[5pt]
   \yesnumber\label{face_integrals}
   &  & \,+\frac{x}{1-z}\int_{\hat{E}}\frac{\partial\hat{u}_3}{\partial\hat{x}_3}\,d\hat{\bx}
-  + \left({\iint_{\hat{f}_3} \hat{u}_3\,d\gamma}
-        - {\iint_{\hat{f}_4} \hat{u}_3\,d\gamma}\right)\frac{xz}{1-z}
+  + \left({\iint_{\hat{f}_3} \hat{u}_3\,d\hat S}
+        - {\iint_{\hat{f}_4} \hat{u}_3\,d\hat S}\right)\frac{xz}{1-z}
 \end{IEEEeqnarray*}
 For the surface integrals in~(\ref{face_integrals}), by Theorem 3.9 in~\cite{monk}, page 43,
 \begin{IEEEeqnarray*}{rCl}
-  \left|\iint_{\hat{f}_2} \hat{u}_1\,d\gamma\right| 
+  \left|\iint_{\hat{f}_2} \hat{u}_1\,d\hat S\right| 
   & \leqslant & 2^{-1/4}\,\|\mbox{Tr}_{\hat{f}_2}\hat{u}_1\|_{L^2(\hat{f}_3)} \\[5pt]
   & \leqslant & C\,\|\mbox{Tr\,}\hat{u}_1\|_{H^{\delta}(\partial\hat{E})} \\[5pt]
   & \leqslant & C\,\|\hat{u}_1\|_{H^{1/2+\delta}(\hat{E})}. \\[5pt]
@@ -212,7 +216,7 @@ For the surface integrals in~(\ref{face_integrals}), by Theorem 3.9 in~\cite{mon
 \end{IEEEeqnarray*}
 and similarly
 \begin{IEEEeqnarray*}{rCl}
-  \left|\iint_{\hat{f}_3} \hat{u}_3\,d\gamma - \iint_{\hat{f}_4} \hat{u}_3\,d\gamma\right| 
+  \left|\iint_{\hat{f}_3} \hat{u}_3\,d\hat S - \iint_{\hat{f}_4} \hat{u}_3\,d\hat S\right| 
   & \leqslant & C\,\|\hat{u}_3\|_{H^{1}(\hat{E})}
 \end{IEEEeqnarray*}
 all of which leads to
@@ -236,8 +240,8 @@ Copying the argument for the second component
 From~(\ref{term_rk3}) we deduce
 \begin{IEEEeqnarray*}{rCl}
   \|(\rku)_3\|_{\scriptscriptstyle{L^\infty(\hat{E})}} & \leqslant & C_{\hat{E}}
-    \left[\|u_3\|_{\scriptscriptstyle{H^{1}(\hat{E})}} +
-    \|\dv \bu\|_{\scriptscriptstyle{L^2}(\hat{E})}\right].
+    \left[\|\hat u_3\|_{\scriptscriptstyle{H^{1}(\hat{E})}} +
+    \|\dv \hat\bu\|_{\scriptscriptstyle{L^2}(\hat{E})}\right].
 \end{IEEEeqnarray*}
 The quantity $C_{\hat{E}}$ depends only on the supremum of the (fixed)
 basis shape functions of Table~\ref{shape_face_table} over the pyramid.
