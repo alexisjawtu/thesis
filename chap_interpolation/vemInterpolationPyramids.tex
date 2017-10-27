@@ -1,7 +1,5 @@
 \section{Local Interpolation Estimates for Pyramidal Virtual Elements}
-{\color{blue}\#\#\#\#\#\#\#\# seguir aca. al momento de usar tetra para
-malla, citar del articulo aadl\\.}
-\begin{theorem}
+\begin{theorem}\label{auxlabel6}
 If $E$ is a pyramidal element, $\bu$ is an element of $W^{1,p}(E)$ with 
 $1\leqslant p\leqslant 2$
 and $(I\bu)$ is its low order $H(\text{div})$ interpolant defined in Corollary~\ref{interpolant},
@@ -29,10 +27,12 @@ the auxiliary problem
 \end{IEEEeqnarray*}
 where $g$ and $d$ were defined as
 \[
-g|_{f_j}=\left\{\begin{array}{cl}\frac1{|f_i|}&\mbox{if }i=j\\0&\mbox{if }i\ne j\end{array}\right., \qquad d=\frac1{|E|}.
+g|_{f_j}=\left\{\begin{array}{cl}\frac1{|f_i|}&\mbox{if }i=j\\
+0&\mbox{if }i\ne j\end{array}\right.,
+\qquad d=\frac1{|E|}.
 \]
-Fix $\int_E\psi d\bx = 0$
-
+Fix a solution requiring that $\int_E\psi\,d\bx = 0$.
+\noindent{\color{BrickRed}\#\#\#\#\#\#\# seguir aca} 
 Multiplying the first equation defining $\psi$ by $\psi$, and integrating by parts, we obtain
 \begin{eqnarray*}
 \|\nabla\psi\|_{L^2(E)}^2 &=& -\int_Ed\psi + \int_{\partial E}g\psi\\ &\leqslant & 
