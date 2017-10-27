@@ -1,17 +1,17 @@
 \section{Local Interpolation Estimates for Pyramidal Virtual Elements}
-
+{\color{blue}\#\#\#\#\#\#\#\# seguir aca. al momento de usar tetra para
+malla, citar del articulo aadl\\.}
 \begin{theorem}
-If $E$ is an isotropic tetrahedron or pyramid, then  
+If $E$ is a pyramidal element, $\bu$ is an element of $W^{1,p}(E)$ with 
+$1\leqslant p\leqslant 2$
+and $(I\bu)$ is its low order $H(\text{div})$ interpolant defined in {\color{Orange}\#\#\#\#\#\#\#\# (poner lugar).}, 
+then
 \begin{equation}\label{estab2}
-\|\bu_I\|_{L^p(E)}\leqslant C\left(\|\bu\|_{L^p(E)}+ h_T|\bu|_{W^{1,p}(E)}\right), \qquad \forall \bu\in W^{1,p}(E),
+\|(I\bu)\|_{L^p(E)}\leqslant C\left(\|\bu\|_{L^p(E)}+ h|\bu|_{W^{1,p}(E)}\right)
 \end{equation}
-with the constant $C$ depending on the shape regularity of $E$, and $1\leqslant p$ if $E$ is a tetrahedron and $1\leqslant p\leqslant 2$ if $E$ is a pyramid.
+with $h$ being the diameter of $E$ and the constant $C$ depending only on the shape regularity of $E$.
 \end{theorem}
 \begin{proof}
-{\color{blue}\#\#\#\#\#\#\#\# esto no ponerlo, al momento de usar tetra para
-malla, citar del articulo\\.}
-When $E$ is a tetrahedron, this result is contained in \cite{aadl}. So we assume that $E$ is a pyramid.\\ 
-{\color{blue}\#\#\#\#\#\#\#\#\\}
 We note that 
 \begin{equation}\label{estab2:eq1}
 \bu_I=\sum_{i=1}^5 \left(\int_{f_i}\bu\cdot \bn\right)\bv_i
