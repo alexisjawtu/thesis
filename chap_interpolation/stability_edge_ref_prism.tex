@@ -514,13 +514,16 @@ give
 Now we collect what has been said so far.
 %%%%%%%%%%%%%%%%%%%%%%%%% equalities,,~(\ref{momentosWcaras}),~(\ref{momentosWcaras2}),~(\ref{momentosWcaras3}) and~(\ref{momentosWvolumen}).
 For the edge degrees of freedom we use an inequality in page $135$ of~\cite{monk},
-in the proof of Lemma 5.38, which states, for $\bu$ in the present conditions,
+in the proof of Lemma 5.38, which states, for $\hat\bu$ in the present conditions,
 \begin{IEEEeqnarray}{rCl}\label{edgeTrace}
-  \left|\int_{\be} \bu\cdot\boldsymbol{\tau}\,q\,d\sigma\right| 
-  & \leqslant & C(q) \,\{\, \|\curl\bu\|_{L^p(\hat{E})^3}
-    + \|\mbox{Tr}\,\bu\|_{L^p(\partial\hat{E})^3} \}.
+  \left|\int_{\hat\be} \hat\bu\cdot\hat\btau\,q\,d\hat\alpha\right| 
+  & \leqslant & C(q) \,\{\, \|\curl\hat\bu\|_{L^p(\hat{E})^3}
+    + \|\mbox{Tr}\,\hat\bu\|_{L^p(\partial\hat{E})^3} \}.
 \end{IEEEeqnarray}
-If we put the field $(\hat{u}_1,0,0)'$ in inequality~(\ref{edgeTrace}) then
+The details needed to the proof of inequality~(\ref{edgeTrace}) can be completed
+from Theorem 3.14 of~\cite{A-2001}.
+
+Now if we put the field $(\hat{u}_1,0,0)'$ in inequality~(\ref{edgeTrace}) then
 by, H\"older's Inequality and standard traces inequalities, equation~(\ref{momentosWaristas})
 and~(\ref{momentosWaristas2}) yield, for $i=8$ and $9$,
 \begin{IEEEeqnarray*}{rCl}

@@ -39,7 +39,6 @@ are $x$, $y$ and $z$ instead
 of $\hat x_1$, $\hat x_2$ and $\hat x_3$.\\[5pt]
 Consider the case $\hat{\bu} = (\hat{u}_1,0,0)'$ to start with and compute it's 
 interpolate. 
-{\color{Orange}\#\#\#\#\#\#\#\# seguir aca.}
 \begin{IEEEeqnarray*}{rCl}
   \rku & = & \{{\scriptstyle\iint_{\hat{f}_2} \hat\bu \cdot \hat\bn_2\,d\hat S}\}\,\hat\bz_2 + 
              \{{\scriptstyle\iint_{\hat{f}_3} \hat\bu \cdot \hat\bn_3\,d\hat S}\}\,\hat\bz_3\\[4pt]
@@ -129,12 +128,11 @@ In a completely similar fashion we arrive at
     \int_{0}^{1}\int_{0}^{y} \hat{u}_3(x,y,1-y)\,dxdy\right\}
     \tfrac{y}{1-z}.}
 \end{IEEEeqnarray*}
-{\color{Orange}\#\#\#\#\#\#\#\# continue here seguir aca.}
 We collect every term obtained so far for the first and second components in
 Table~\ref{terms_table}.
 \begin{table}[!h]
     \centering  
-    \caption{Terms\\[4pt]$q(s,t) = \frac{2s-st}{1-t},\,r(s,t) = \frac{st}{1-t}$}
+    \caption{Terms\\[4pt]$q(s,t) = \tfrac{2s-st}{1-t},\,r(s,t) = \tfrac{st}{1-t}$}
     \label{terms_table}
     \begin{IEEEeqnarraybox*}
     [\IEEEeqnarraystrutmode
@@ -166,58 +164,57 @@ Table~\ref{terms_table}.
         & (0,0,\hat{u}_3)' & & 
           \begin{IEEEeqnarraybox*}{l}
             x\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}} \\[5pt] +\, 
-            ({\iint_{\hat{f}_3} \hat\bu \cdot \hat\bn_3\,d\hat S}
+            \left\{\iint_{\hat{f}_3} \hat\bu \cdot \hat\bn_3\,d\hat S\right.
              \\[5pt] 
-             -{\iint_{\hat{f}_4} \hat\bu \cdot \hat\bn_4\,d\hat S})r(x,z)
+            \left. -\iint_{\hat{f}_4} \hat\bu \cdot \hat\bn_4\,d\hat S\right\}r(x,z)
           \end{IEEEeqnarraybox*}
          & & 
           \begin{IEEEeqnarraybox*}{l}
             y\int_{\hat{E}} \dv\hat{\bu}\,d\hat{\boldsymbol{x}}\\[5pt] +\, 
-              ({\iint_{\hat{f}_4} \hat\bu \cdot \hat\bn_4\,d\hat S}
+              \left\{\iint_{\hat{f}_4} \hat\bu \cdot \hat\bn_4\,d\hat S\right.
              \\[5pt] 
-             -{\iint_{\hat{f}_3} \hat\bu \cdot \hat\bn_3\,d\hat S})r(y,z)
+             \left.-\iint_{\hat{f}_3} \hat\bu \cdot \hat\bn_3\,d\hat S\right\}r(y,z)
           \end{IEEEeqnarraybox*}
         &\\\IEEEeqnarrayrulerow
     \end{IEEEeqnarraybox*}
 \end{table}
-Lastly, for any $\hat\bu$
+
+Lastly, the third component of $\rku$ can be treated at once for any 
+field $\hat\bu$ as follows:
 \begin{IEEEeqnarray*}{rCl}
-    (\rku)_3\xyz & = &   z\sum_{i=1}^4\iint_{\hat{f}_i} \hat{\bu}\cdot\hat{\bn}_i\,d\hat S
+    (\rku)_3(x,y,z) & = &   z\sum_{i=1}^4\iint_{\hat{f}_i} \hat{\bu}\cdot\hat{\bn}_i\,d\hat S
                       + (z-1) \iint_{\hat{f}_5}\hat{\bu}\cdot\hat{\bn}_5\,d\hat S\\[5pt]
-                 & = & z\iint_{\partial\hat{E}} \hat{\bu}\cdot\hat{\bn} - \iint_{f_5}
+                    & = & z\iint_{\partial\hat{E}} \hat{\bu}\cdot\hat{\bn} - \iint_{f_5}
                  \hat{\bu}\cdot\hat{\bn}_5\,d\hat S\\[5pt]
-   \yesnumber\label{term_rk3}
-                 & = &\hat{x}_3\int\limits_{\hat{E}} \mbox{div}\,\hat{\bu}\,d\hat{\bx} 
-     + \iint\limits_{\hat{f}_5} \hat{u}_3\,d\hat{S}
+    \yesnumber\label{term_rk3}
+                    & = &\hat{x}_3\int_{\hat{E}} \mbox{div}\,\hat{\bu}\,d\hat{\bx} 
+     + \iint_{\hat{f}_5} \hat{u}_3\,d\hat{S}.
 \end{IEEEeqnarray*}
-Now we bound each term 
+Now we bound each term in Table~\ref{terms_table} and in expression~(\ref{term_rk3}).
 \begin{IEEEeqnarray*}{rCl}
   (\rku)_1 & = & (\br_{\hat{E}}(\hat{u}_1,0,0)')_1 + 
                  (\br_{\hat{E}}(0,\hat{u}_2,0)')_1 + 
                  (\br_{\hat{E}}(0,0,\hat{u}_3)')_1\\[5pt]
-  & = & -2\iint_{\hat{f}_2}\hat{u}_1\,d\hat S +
-  \frac{2x}{1-z}\int_{\hat{E}} \frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} -
-  \frac{xz}{1-z}\int_{\hat{E}} \frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} \\[5pt]
-  & & \,- \frac{xz}{1-z}\int_{\hat{E}} \frac{\partial\hat{u}_2}{\partial\hat{x}_2}\,d\hat{\bx}
-  + \left( x + \frac{xz}{1-z}-\frac{xz}{1-z} \right)
-  \int_{\hat{E}} \frac{\partial\hat{u}_3}{\partial\hat{x}_3}\,d\hat{\bx}\\[5pt]
+           & = & -2\iint_{\hat{f}_2}\hat{u}_1\,d\hat S +
+  \tfrac{2x}{1-z}\int_{\hat{E}} \tfrac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} -
+  \tfrac{xz}{1-z}\int_{\hat{E}} \tfrac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} \\[5pt]
+  & & \,- \tfrac{xz}{1-z}\int_{\hat{E}} \tfrac{\partial\hat{u}_2}{\partial\hat{x}_2}\,d\hat{\bx}
+  + \left( x + \tfrac{xz}{1-z}-\tfrac{xz}{1-z} \right)
+  \int_{\hat{E}} \tfrac{\partial\hat{u}_3}{\partial\hat{x}_3}\,d\hat{\bx}\\[5pt]
   &   &\, + \left({\iint_{\hat{f}_3} \hat{u}_3\,d\hat S}
-        - {\iint_{\hat{f}_4} \hat{u}_3\,d\hat S}\right)\frac{xz}{1-z}\\[5pt]
-  & = & -2\iint_{\hat{f}_2}\hat{u}_1\,d\hat S +
-  \frac{2x}{1-z}\int_{\hat{E}}\frac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} -
-  \frac{xz}{1-z}\int_{\hat{E}}\dv\hat{\bu}\,d\hat{\bx}\\[5pt]
+        - {\iint_{\hat{f}_4} \hat{u}_3\,d\hat S}\right)\tfrac{xz}{1-z}\\[5pt]
+           & = & -2\iint_{\hat{f}_2}\hat{u}_1\,d\hat S +
+  \tfrac{2x}{1-z}\int_{\hat{E}}\tfrac{\partial\hat{u}_1}{\partial\hat{x}_1}\,d\hat{\bx} -
+  \tfrac{xz}{1-z}\int_{\hat{E}}\dv\hat{\bu}\,d\hat{\bx}\\[5pt]
   \yesnumber\label{face_integrals}
-  &  & \,+\frac{x}{1-z}\int_{\hat{E}}\frac{\partial\hat{u}_3}{\partial\hat{x}_3}\,d\hat{\bx}
+  &  & \,+\tfrac{x}{1-z}\int_{\hat{E}}\tfrac{\partial\hat{u}_3}{\partial\hat{x}_3}\,d\hat{\bx}
   + \left({\iint_{\hat{f}_3} \hat{u}_3\,d\hat S}
-        - {\iint_{\hat{f}_4} \hat{u}_3\,d\hat S}\right)\frac{xz}{1-z}
+        - {\iint_{\hat{f}_4} \hat{u}_3\,d\hat S}\right)\tfrac{xz}{1-z}.
 \end{IEEEeqnarray*}
-For the surface integrals in~(\ref{face_integrals}), by Theorem 3.9 in~\cite{monk}, page 43,
+For the surface integrals in~(\ref{face_integrals}), by Lemma 5.15 in~\cite{monk}, page 120,
 \begin{IEEEeqnarray*}{rCl}
-  \left|\iint_{\hat{f}_2} \hat{u}_1\,d\hat S\right| 
-  & \leqslant & 2^{-1/4}\,\|\mbox{Tr}_{\hat{f}_2}\hat{u}_1\|_{L^2(\hat{f}_3)} \\[5pt]
-  & \leqslant & C\,\|\mbox{Tr\,}\hat{u}_1\|_{H^{\delta}(\partial\hat{E})} \\[5pt]
-  & \leqslant & C\,\|\hat{u}_1\|_{H^{1/2+\delta}(\hat{E})}. \\[5pt]
-  & \leqslant & C\,\|\hat{u}_1\|_{H^{1}(\hat{E})}.
+\left|\iint_{\hat{f}_2} \hat{u}_1\,d\hat S\right| 
+  & \leqslant & C\,\|\hat{u}_1\|_{H^{1}(\hat{E})}
 \end{IEEEeqnarray*}
 and similarly
 \begin{IEEEeqnarray*}{rCl}
@@ -235,14 +232,14 @@ all of which leads to
 \end{IEEEeqnarray*}
 Copying the argument for the second component
 \begin{IEEEeqnarray*}{rCl}
-  \|(\rku)_1\|_{L^{\infty}(\hat{E})} & \leqslant & C_{\hat{E}} 
+  \|(\rku)_2\|_{L^{\infty}(\hat{E})} & \leqslant & C_{\hat{E}} 
   \left[ 
-    \|\hat{u}_1\|_{H^{1}(\hat{E})} + 
+    \|\hat{u}_2\|_{H^{1}(\hat{E})} + 
     \|\dv\hat{\bu}\|_{L^{2}(\hat{E})} + 
     \|\hat{u}_3\|_{H^{1}(\hat{E})}
   \right].
 \end{IEEEeqnarray*}
-From~(\ref{term_rk3}) we deduce
+Finally from~(\ref{term_rk3}) we deduce
 \begin{IEEEeqnarray*}{rCl}
   \|(\rku)_3\|_{\scriptscriptstyle{L^\infty(\hat{E})}} & \leqslant & C_{\hat{E}}
     \left[\|\hat u_3\|_{\scriptscriptstyle{H^{1}(\hat{E})}} +
