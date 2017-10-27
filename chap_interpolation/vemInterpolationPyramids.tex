@@ -4,27 +4,36 @@ malla, citar del articulo aadl\\.}
 \begin{theorem}
 If $E$ is a pyramidal element, $\bu$ is an element of $W^{1,p}(E)$ with 
 $1\leqslant p\leqslant 2$
-and $(I\bu)$ is its low order $H(\text{div})$ interpolant defined in {\color{Orange}\#\#\#\#\#\#\#\# (poner lugar).}, 
+and $(I\bu)$ is its low order $H(\text{div})$ interpolant defined in Corollary~\ref{interpolant},
 then
 \begin{equation}\label{estab2}
 \|(I\bu)\|_{L^p(E)}\leqslant C\left(\|\bu\|_{L^p(E)}+ h|\bu|_{W^{1,p}(E)}\right)
 \end{equation}
 with $h$ being the diameter of $E$ and the constant $C$ depending only on the shape regularity of $E$.
 \end{theorem}
-\begin{proof}
-We note that 
-\begin{equation}\label{estab2:eq1}
-\bu_I=\sum_{i=1}^5 \left(\int_{f_i}\bu\cdot \bn\right)\bv_i
-\end{equation}
-where $\{\bv_i\}_{i=1}^5$ is the basis of $V_h(E)$ dual to the degrees of freedom
-\ref{dofs}. Denote by $f_j$, $j=1,\ldots,5$ the faces of $E$. First of all we need to estimate the $L^2$-norm of the basis functions $\bv_i$. Fixed $1\leqslant i\leqslant 5$, it follows from the proof of Lemma \ref{existenciaInterpolante} that $\bv_i=\nabla \psi$ where $\psi$ is the solution of
-\begin{eqnarray*}
-\Delta\psi&=&d\qquad\mbox{in }\Omega\\ \frac{\partial\psi}{\partial\bn}&=&g\qquad\mbox{on }\partial E\\ \int_E\psi&=&0
-\end{eqnarray*}
-with
+\begin{proof} Denote by $f_j$, $1\leqslant j\leqslant 5$ the faces of $E$
+and by 
+$\{\bv_i\}_{i=1}^5$ the basis of $V_h(E)$ which is dual to the degrees of freedom
+\eqref{dofs}. 
+%We note that 
+%\begin{equation}\label{estab2:eq1}
+%\bu_I=\sum_{i=1}^5 \left(\int_{f_i}\bu\cdot \bn\right)\bv_i
+%\end{equation}
+We start with the estimate of the $L^2$-norm of any $\bv_i$. Pick 
+$1\leqslant i\leqslant 5$. We saw in the proof of 
+Lemm~\ref{unisolvence} that $\bv_i=\nabla \psi$ where $\psi$ is the solution of
+the auxiliary problem
+\begin{IEEEeqnarray*}{rCl}
+\Delta\psi&=&d\qquad\mbox{in }E\\
+\tfrac{\partial\psi}{\partial\bn}&=&g\qquad\mbox{on }\partial E
+\end{IEEEeqnarray*}
+where $g$ and $d$ were defined as
 \[
 g|_{f_j}=\left\{\begin{array}{cl}\frac1{|f_i|}&\mbox{if }i=j\\0&\mbox{if }i\ne j\end{array}\right., \qquad d=\frac1{|E|}.
 \]
+
+ \int_E\psi&=&0
+
 Multiplying the first equation defining $\psi$ by $\psi$, and integrating by parts, we obtain
 \begin{eqnarray*}
 \|\nabla\psi\|_{L^2(E)}^2 &=& -\int_Ed\psi + \int_{\partial E}g\psi\\ &\leqslant & 
