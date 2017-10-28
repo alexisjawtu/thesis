@@ -15,71 +15,80 @@ $\{\bv_i\}_{i=1}^5$ the basis of $V_h(E)$ which is dual to the degrees of freedo
 \eqref{dofs}. 
 %We note that 
 %\begin{equation}\label{estab2:eq1}
-%\bu_I=\sum_{i=1}^5 \left(\int_{f_i}\bu\cdot \bn\right)\bv_i
+%(I\bu)=\sum_{i=1}^5 \left(\int_{f_i}\bu\cdot \bn\right)\bv_i
 %\end{equation}
 We start with the estimate of the $L^2$-norm of any $\bv_i$. Pick 
 $1\leqslant i\leqslant 5$. We saw in the proof of 
 Lemm~\ref{unisolvence} that $\bv_i=\nabla \psi$ where $\psi$ is the solution of
 the auxiliary problem
 \begin{IEEEeqnarray*}{rCl}
-\Delta\psi&=&d\qquad\mbox{in }E\\
+\Delta\psi&=&\tfrac{1}{|E|}\qquad\mbox{in }E\\
 \tfrac{\partial\psi}{\partial\bn}&=&g\qquad\mbox{on }\partial E
 \end{IEEEeqnarray*}
-where $g$ and $d$ were defined as
-\[
-g|_{f_j}=\left\{\begin{array}{cl}\frac1{|f_i|}&\mbox{if }i=j\\
-0&\mbox{if }i\ne j\end{array}\right.,
-\qquad d=\frac1{|E|}.
-\]
+where $g$ was defined as
+\begin{IEEEeqnarray}{rCl}
+\label{auxlabel7}
+g|_{f_j}& = &
+  \left\{
+    \begin{array}{cl}
+        \frac1{|f_i|}&\mbox{if }i=j\\
+                    0&\mbox{if }i\ne j
+    \end{array}\right..
+\end{IEEEeqnarray}
 Fix a solution requiring that $\int_E\psi\,d\bx = 0$.
-\noindent{\color{BrickRed}\#\#\#\#\#\#\# seguir aca} 
-Multiplying the first equation defining $\psi$ by $\psi$, and integrating by parts, we obtain
+Integration by parts gives
 \begin{eqnarray*}
-\|\nabla\psi\|_{L^2(E)}^2 &=& -\int_Ed\psi + \int_{\partial E}g\psi\\ &\leqslant & 
-\|d\|_{L^2(E)}\|\psi\|_{L^2(E)} + \|g\|_{L^2(\partial E)}\|\psi\|_{L^2(\partial E)}.
+\|\nabla\psi\|_{L^2(E)}^2 &=& -\tfrac{1}{|E|}\int_E\psi\,d\bx + \iint_{\partial E}g\psi\,dS\\
+&\leqslant & 
+|E|^{-\nicefrac12}\|\psi\|_{L^2(E)} + \|g\|_{L^2(\partial E)}\|\psi\|_{L^2(\partial E)}.
 \end{eqnarray*}
-Using Poincare's and trace inequalities we have for, a constant $C$ depending on the aspect ratio of $E$ 
+Using Poincare's and traces inequalities we have, for a positive constant $C$
+depending only on the aspect ratio of $E$, 
 \begin{equation}\label{estab2:eq2}
-\|\nabla\psi\|_{L^2(E)}^2\leqslant  C\left(h_E\|d\|_{L^2(E)} + h_E^\frac12 \|g\|_{L^2(\partial E)}\right) \|\nabla\psi\|_{L^2(E)}.
+\|\nabla\psi\|_{L^2(E)}^2\leqslant  C\left(h_E|E|^{-\nicefrac12} + h_E^{\nicefrac12} \|g\|_{L^2(\partial E)}\right) \|\nabla\psi\|_{L^2(E)}.
 \end{equation}
-Taking into account the definitions of $d$ and $g$ we have
-\[
-\|d\|_{L^2(E)}\leqslant Ch_E^{-\frac32}, \qquad \|g\|_{L^2(\partial E)}\leqslant Ch_E^{-1}
-\]
+But, by~(\ref{auxlabel7}), it holds $\|g\|_{L^2(\partial E)}\leqslant Ch_E^{-1}$
 and so from \eqref{estab2:eq2} we obtain
 \begin{equation}\label{estab2:eq3}
-\|\bv_i\|_{L^2(E)}=\|\nabla\psi\|_{L^2(E)}\leqslant Ch_E^{-\frac12}.
+\|\bv_i\|_{L^2(E)}=\|\nabla\psi\|_{L^2(E)}\leqslant Ch_E^{-{\nicefrac12}}.
 \end{equation}
-
-Now, for $1\leqslant p\leqslant 2$ using H\"older's inequality and the expression \eqref{estab2:eq1} we have
+Now, for $1\leqslant p\leqslant 2$, using H\"older's inequality we have
 \begin{eqnarray*}
-\|\bu_I\|_{L^p(E)}&\le& |E|^{\frac1p-\frac12}\|\bu_I\|_{L^2(T)}\\&\le&|E|^{\frac1p-\frac12} \sum_{i=1}^5  \left|\int_{f_i}\bu\cdot\bn\right|\|\bv_i\|_{L^2(E)}.
+\|(I\bu)\|_{L^p(E)}
+&\leqslant& |E|^{{\nicefrac1p}-{\nicefrac12}}\|(I\bu)\|_{L^2(E)}\\
+&\leqslant& |E|^{{\nicefrac1p}-{\nicefrac12}} \sum_{i=1}^5 
+  \left|\iint_{f_i}\bu\cdot\bn\,dS\right|\|\bv_i\|_{L^2(E)}.
 \end{eqnarray*}
-By using \eqref{estab2:eq3}, H\"older's inequality, trace inequalities and taking into account the shape-regularity of $E$ we obtain
+By using \eqref{estab2:eq3} and traces inequalities %and taking into account the shape-regularity of $E$
+we obtain
 \begin{eqnarray*}
-\|\bu_I\|_{L^p(E)}&\le& C |E|^{\frac1p-\frac12} h_E^{-\frac1p}\left(\|\bu\|_{L^p(\Omega)}+h_E\|\nabla\bu\|_{L^p(E)}\right)|\partial E|^{1-\frac1p} \|\bv_i\|_{L^2(E)}\\&\le& C h_E^{3\left(\frac1p-\frac12\right)}h_E^{-\frac1p}h_E^{2\left(1-\frac1p\right)} h_E^{-\frac12}\left(\|\bu\|_{L^p(\Omega)}+h_E\|\nabla\bu\|_{L^p(E)}\right)\\&=& C \left(\|\bu\|_{L^p(\Omega)}+h_E\|\nabla\bu\|_{L^p(E)}\right)
+\|(I\bu)\|_{L^p(E)} &\leqslant& C |E|^{{\nicefrac1p}-{\nicefrac12}} 
+  h_E^{-{\nicefrac1p}}\left(\|\bu\|_{L^p(E)}+h_E\|\nabla\bu\|_{L^p(E)}\right)|\partial E|^{1-{\nicefrac1p}} \|\bv_i\|_{L^2(E)}\\
+&\leqslant& C h_E^{3\left({\nicefrac1p}-{\nicefrac12}\right)}\,h_E^{-{\nicefrac1p}}\,
+  h_E^{2\left(1-{\nicefrac1p}\right)}\,h_E^{-{\nicefrac12}}
+    \left(\|\bu\|_{L^p(E)} + h_E\|\nabla\bu\|_{L^p(E)}\right)\\
+& = & C \left(\|\bu\|_{L^p(E)} + h_E\|\nabla\bu\|_{L^p(E)}\right)
 \end{eqnarray*}
 
 
-%\sum_{i=1}^5 \left|\int_{f_i}\bu\cdot\bn\right|\|\bv_i\|_{L^2(E)}\\&\le& \sum_{i=1}^5 |f_i|^\frac12\|\bu\|_{L^2(f_i)}\|\bv_i\|_{L^2(E)}\\ &\le& C|f_i|^\frac12\left(h_e^{-\frac12}\|\bu\|_{L^2(E)}+h_E^\frac12\|\nabla\bu\|_{L^2(E)}\right)\|\bv_i\|_{L^2(E)}\\ &\le& C\left(\|\bu\|_{L^2(E)}+h_E\|\nabla\bu\|_{L^2(E)}\right)
+%\sum_{i=1}^5 \left|\int_{f_i}\bu\cdot\bn\right|\|\bv_i\|_{L^2(E)}\\&\leqslant& \sum_{i=1}^5 |f_i|^{\nicefrac12}\|\bu\|_{L^2(f_i)}\|\bv_i\|_{L^2(E)}\\ &\le& C|f_i|^\frac12\left(h_e^{-\frac12}\|\bu\|_{L^2(E)}+h_E^\frac12\|\nabla\bu\|_{L^2(E)}\right)\|\bv_i\|_{L^2(E)}\\ &\le& C\left(\|\bu\|_{L^2(E)}+h_E\|\nabla\bu\|_{L^2(E)}\right)
 
-where $C$ depends on the shape regularity of $E$.
 \end{proof}
 
 \begin{proposition}\label{propErrorInterpolacionPiramidesTetraedros}
 Let $E$ be a pyramid satisfying the shape-regularity property with constant $\sigma$.
 Then there exists a constant $C$ depending only on $\sigma$ such that 
 \[
-\|\bu-\bu_I\|_{L^2(E)}\leqslant C h_E|\bu|_{H^1(E)} \qquad \forall \bu\in H^1(E).
+\|\bu-(I\bu)\|_{L^2(E)}\leqslant C h_E|\bu|_{H^1(E)} \qquad \forall \bu\in H^1(E).
 \]
 \end{proposition}
 \begin{proof} Let $Q\bu$ be the $L^2(E)$-projection of $u$ onto the constant fields. Then we have
 \[
-\bu-\bu_I = (\bu - Q\bu) + (Q\bu-\bu)_I
+\bu-(I\bu) = (\bu - Q\bu) + (Q\bu-\bu)_I
 \]
 and using the previous Lemma and a clasical estimate for the $L^2(E)$-projection error we have
 \begin{eqnarray*}
-\|\bu-\bu_I\|_{L^2(E)} &\le& \|\bu - Q\bu\|_{L^2(E)} + \|(\bu-Q\bu)_I\|_{L^2(E)}\\ &\le& \|\bu - Q\bu\|_{L^2(E)} + C \left(\|\bu-Q\bu\|_{L^2(E)} + h_E\|\nabla(\bu-Q\bu)\|_{L^2(E)}\right)\\ &=& C\left(\|\bu-Q\bu\|_{L^2(E)} + h_E\|\nabla\bu\|_{L^2(E)}\right)\\&\le& Ch_E\|\nabla\bu\|_{L^2(E)}
+\|\bu-(I\bu)\|_{L^2(E)} &\le& \|\bu - Q\bu\|_{L^2(E)} + \|(\bu-Q\bu)_I\|_{L^2(E)}\\ &\le& \|\bu - Q\bu\|_{L^2(E)} + C \left(\|\bu-Q\bu\|_{L^2(E)} + h_E\|\nabla(\bu-Q\bu)\|_{L^2(E)}\right)\\ &=& C\left(\|\bu-Q\bu\|_{L^2(E)} + h_E\|\nabla\bu\|_{L^2(E)}\right)\\&\le& Ch_E\|\nabla\bu\|_{L^2(E)}
 \end{eqnarray*}
 as we wnated to prove.
 \end{proof}
@@ -98,7 +107,6 @@ Then there exists a field $\bu_\pi\in W(E)$ such that
 \end{proposition}
 \begin{proof}
 We can define $\bu_\pi$ on $E$ as the $L^2(E)$-projection of $\bu$ on the space
-of constant fields $P_0(E)^3\subset W(E)$. The error estimate follows from 
 Lemma~\ref{aux_label40}	
 by noticing that, at low order, the averaged Taylor is the orthogonal projection
 onto de constants.
