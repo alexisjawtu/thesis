@@ -12,9 +12,9 @@ then Lemma~\ref{lemma_for_coercivity} implies the following Proposition.
   and the coercivity constant
   depends only on the shape regularity of the pyramids of the mesh.
 \end{proposition}
-\begin{proposition} \label{cont} For every $E\in\Th$The local discrete bilinear form $a_h^E$
+\begin{proposition} \label{cont} For every $E\in\Th$ the local discrete bilinear form $a_h^E$
 in~(\ref{discreteLocal_a})
-is continuous en $L^2(E)$. That is,  forall $\bu$,$\bv\in V_h(E)$
+is continuous en $L^2(E)$. That is,  for all $\bu$,$\bv\in V_h(E)$
 \[
   a_h^E(\bu,\bv) \leqslant C \|\bu\|_{L^2(E)}\|\bv\|_{L^2(E)}\mbox{,}
 \]
@@ -22,15 +22,19 @@ where $C$ equals $1$ when $E$ is a right prism or tetrahedron, and
 depends only on the aspect ratio of $E$ in the case of pyramids.
 \end{proposition}
 \begin{proof}
-  When $E$ is a prism or tetrahedron, $a_h^E(\bu,\bv)=a^E(\bu,\bv)$ for $\bu$ and $\bv$ in $V_h(E)$, and the result is clear from the definition of $a^E$. When $E$ is a pyramid, we observe that $a_h^E$ is symmetric and coercive in $L^2(E)$ because of \eqref{L2}, and then it defines an inner product. Hence, from Cauchy-Schwarz inequality and again \eqref{L2} we have
-\begin{multline*}
-\left|a_h^E(\bu,\bv)\right|\leqslant a_h^E(\bu,\bu)^\frac12 a_h^E(\bv,\bv)^\frac12 \le\\ C_E a^E(\bu,\bu)^\frac12 a^E(\bv,\bv)^\frac12 \leqslant C_E\|\bu\|_{L^2(E)}\|\bv\|_{L^2(E)}.
-\end{multline*}
-The constant $C_E$ depends on the aspect ratio of $E$. This concludes the proof.
+When $E$ is a prism or tetrahedron, $a_h^E(\bu,\bv)=a^E(\bu,\bv)$ for $\bu$ 
+and $\bv$ in $V_h(E)$, and the result is immediate. 
+If $E$ is a pyramid, as $a_h^E$ is symmetric, the coercivity arising from~\eqref{L2}
+implies that $a_h^E$ defines an inner product. 
+Hence we have
+\begin{IEEEeqnarray*}{rClCr}
+  \left|a_h^E(\bu,\bv)\right| & \leqslant &      a_h^E(\bu,\bu)^\frac12 a_h^E(\bv,\bv)^\frac12 & \leqslant &\\ 
+                              & \leqslant & C_E\,a^E(\bu,\bu)^\frac12 a^E(\bv,\bv)^\frac12     & \leqslant & C_E\|\bu\|_{L^2(E)}\|\bv\|_{L^2(E)}.
+\end{IEEEeqnarray*}
 \end{proof}
 \begin{lemma} \label{lemma_inf_sup_bh} There exists a constant
-$\beta^*>0$ depending only on $\Omega$ {\color{brown} and the maximum aspect
-ratio of the pyramids of $\Th$ (is this necessary?)}
+$\beta^*>0$ depending only on $\Omega$  and the maximum aspect
+ratio of the pyramids of $\Th$ 
 such that for all $q^*\in Q_h$ there exists $\bw_h^*\in V_h$ such
 that
 \[
@@ -51,10 +55,12 @@ in every $E\in\Th$, $\bw_h^*|_E := I(\bw^*|_E)$, as defined in
 Corollary~\ref{interpolant}. As a consequence of Proposition~\ref{vem_equal_fem}
 and because we are considering the exact same degrees of freedom, this
 interpolation operator coincides, in the lowest order case, with the
-$H(\Div)$--conforming operators~(\ref{sub:definition_of_the_h_div_element_on_prisms})
-on prisms and~(\ref{sub:definition_of_the_h_div_element_on_tetrahedra}) on tetrahedra,
-respectively. For prismatic elements we use the estimate in~(\ref{estabLp}), which is the 
-analog of the statement in Theorem $3.1$ in page $149$ of~\cite{aadl}.
+$H(\Div)$--conforming operators in Definitions~\ref{sub:definition_of_the_h_div_element_on_prisms}
+and~\ref{defi_face_element_tetra}. 
+
+For prismatic elements we use the estimate in Remark~\ref{auxlabel4} which, together
+with the anisotropic rescalings  used in Theorem~\ref{aux_label46}, applies 
+to any right prism, and Theorem $3.1$ in page $149$ of~\cite{aadl} for tetrahedral elements.
 In the case of a pyramidal element we draw upon estimate~(\ref{estab2}). With
 all these together and~(\ref{bound_w}) for all cases we get
 \[
@@ -68,9 +74,10 @@ Besides, since $q^*\in Q_h$, by~(\ref{p0_projection}) we have
   \dv I\bw^*=P_0\,\dv\bw^*=P_0\,q^*=q^*.
 \]
 \end{proof}
-Now we can prove the discrete inf-sup condition. 
-\begin{theorem}[Discrete $\inf-\sup$ condition for $b_h$] \label{inf_sup_b_h}
-Consider the bilinear form $b_{\Th}$ in~(\ref{aux_label44}).  
+Now we can prove the discrete inf-sup condition for the $b_{\textit h}$ form 
+in~(\ref{aux_label44}).
+\begin{theorem}\label{inf_sup_b_h}
+Consider the bilinear form $b_{\textit{h}}$ in~(\ref{aux_label44}).  
 There exists $\beta > 0$ such that for all $q^*\in Q_h$ 
 \begin{IEEEeqnarray}{rCl}\label{discrete_inf_sup_b} 
   \sup_{0\ne\bv\in V_h} \frac{b_h(\bv,q^*)}{\|\bv\|_{V_h}} &\geqslant& \beta\|q^*\|_{Q_h}.
@@ -93,7 +100,7 @@ and
 \frac1{\sqrt{\dfrac1{(\beta^*)^2}+1}}\,\|q^*\|_{Q_h}.
 \end{IEEEeqnarray*}
 \end{proof}
-\begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution
+\begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution.
 \end{theorem}
 \begin{proof}
   Theorem 5.2 of~\cite{ricardoMixed} states that 
@@ -123,7 +130,7 @@ We introduce the following global interpolation operator.
   \begin{IEEEeqnarray}{rCl}\label{global_interpolator}
     \rZerou & : & W^{1,1}(\Omega) \to V_{\textit{h}}
   \end{IEEEeqnarray}
-  such that, for each $\{\overline{E}:E\in\Th\}$,
+  such that, for each $\{{E}:E\in\Th\}$,
   \begin{equation*}
     (\rZerou)|_{E} = 
       \left\{
@@ -137,8 +144,8 @@ We introduce the following global interpolation operator.
   in all cases with the lowest interpolation degree $k=0$ and
   with consistent normal components for interelementary faces.
 \end{defi}
-\begin{theorem}\label{aux_label47} solution $(\bu_{\textit{h}},p_{\textit{h}})$
-to~(\ref{mixedDiscrete}) satisfies,
+\begin{theorem}\label{aux_label47} The solution $(\bu_{\textit{h}},p_{\textit{h}})$
+of~(\ref{mixedDiscrete}) satisfies,
 for every approximation $\bw$ of $\bu$ in
 $W(\Th)$,
 \begin{IEEEeqnarray}{rCl}
@@ -167,7 +174,7 @@ $W(\Th)$,
 \end{defi}
 \begin{remark}
 The one in Definition~\ref{aux_label51} is is the approximation $\bw$ of $\bu$
-piecewise in $W(E)$ that we will use on the right of~(\ref{aux_label48})  and~(\ref{aux_label49}).
+piecewise in $W(E)$ that we will use on the right hand side of~(\ref{aux_label48})  and~(\ref{aux_label49}).
 Observe that $\bw_{\bu_r+\bu_s} = \bw_{\bu_r} + \bw_{\bu_s}.$
 \end{remark}
 % section well_posedness (end)
