@@ -11,8 +11,8 @@ where the constant $C$ depends only on the aspect ratios of tetrahedra
 and pyramids and the triangular bases of the right prisms on the mesh. 
 \end{corollary}
 \begin{proof}
-If $\Omega$ were convex and $f\in L^2(\Omega)$ we know that the solution $p$ of
-problem $H^2(\Omega)$, and so $\bu\in H^1(\Omega)^3$. In this case, using the 
+If $\Omega$ were convex and $f\in L^2(\Omega)$ the solution $p$ of the
+problem belongs to $H^2(\Omega)$ and so $\bu\in H^1(\Omega)^3$. In this case, using the 
 interpolation error estimates we proved in Theorem~\ref{aux_label46} for general
 prisms
 and Proposition~\ref{propErrorInterpolacionPiramidesTetraedros}, for 
@@ -22,26 +22,33 @@ we have for $\br_0\bu$ as in Definition~\ref{aux_label52}
   \|\bu-\br_0\bu\|_{L^2(\Omega)^3} &\leqslant & C\textit{h}|p|_{H^2(\Omega)}.
 \end{IEEEeqnarray*}
 Next
-again~\ref{aux_label46}
-and~\ref{propErrorInterpolacionPiramidesTetraedros}, and Proposition~\ref{propupi}
+again Theorem~\ref{aux_label46},
+Proposition~\ref{propErrorInterpolacionPiramidesTetraedros}, and Proposition~\ref{propupi}
 for pyramids
 yield, for $\bw_{\bu}$ as in Definition~\ref{aux_label51},
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bw_{\bu}\|_{L^2(\Omega)^3} & \leqslant & C\textit{h}|p|_{H^2(\Omega)}.
 \end{IEEEeqnarray*}
-So joining, from~\ref{aux_label48} in Theorem~\ref{aux_label47},
+So joining the last two inequalities,  from~\eqref{aux_label48} in Theorem~\ref{aux_label47},
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bu_h\|_{L^2(\Omega)^3} & \leqslant &
   C\{\|\bu-\bw_{\bu}\|_{L^2(\Omega)^3} + \|\bu-\br_0\bu\|_{L^2(\Omega)^3}\}\\[5pt]
   &\leqslant & C\textit{h}|p|_{H^2(\Omega)}\\[5pt]
   &\leqslant & C\textit{h}\,\|f\|_{L^2(\Omega)}
 \end{IEEEeqnarray*}
-{\color{red}as stated in~\cite{alw}	in expression after $(3.42)$ on page $19$.}
-{\color{Orange}\#\#\#\#\#\#\#\# bound scalar var for convex case:
+as stated in~\cite{alw}	in expression after $(3.42)$ on page $19$.
+{\color{Orange}\#\#\#\#\#\#\#\# The bound for the scalar variable error
+in the convex case
 no recuerdo c\'omo, si $\|u - uh\|$ queda con seminorma H2, entonces 
 $\|p - ph\|$ va a 
 quedar con seminorma H1}
 \end{proof}
-Arbitrarily narrow right prisms can be used in the mesh without 
+Arbitrarily narrow right prisms or tetrahedra can be used in the mesh without 
 affecting this estimate. This fact can be further exploited when the
-domain $\Omega$ is not convex or $f$ is not in $L^2(\Omega)$. This is what follows!
+domain $\Omega$ is not convex or $f$ is not in $L^2(\Omega)$. Besides, we could
+also allow arbitrary narrow pyramids in the mesh (as long as they are not \textit{flat},
+that is, at least one side of the basis must be smaller that the height) and
+follow from Theorems~\ref{aux_label53} and~\ref{aux_label54}, but in the meshes we 
+designed which appear in what follows pyramids happened to be regular. 
+
+The non--convex case with anisotropic elements is what follows.

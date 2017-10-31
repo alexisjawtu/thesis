@@ -9,19 +9,19 @@
 There exists a family of anisotropic graded meshes
 $\{\Th\}_{{\textit{h}}\downarrow 0}\,$
 made up of
-Prisms, tetrahedra and pyramids 
+prisms, tetrahedra and pyramids 
 for which 
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bu_{\textit{h}}\|_{0,\Omega}&\leqslant &C {\textit{h}} \|f\|_{0,\Omega}\\[5pt]
   \|p-p_{\textit{h}}\|_{0,\Omega}&\leqslant &C \textit{h} \|f\|_{0,\Omega}
 \end{IEEEeqnarray*}
-whith $\textit{h}$ being smaller than  $C N^{\nicefrac{-1}{3}}$, where
-$N = N_{\textit{h}}$ is the  number of elements in $\Th$.
+with $\textit{h}$ being smaller than  $C N_{\textit{h}}^{\nicefrac{-1}{3}}$, where
+$N_{\textit{h}}$ is the  number of elements in $\Th$.
 \end{theorem}
 The rest of the chapter contains the proof, which is summarized at the end of it.
-To avoid what would result in an illegible proof we decided to partition
-the proof in subsections, paragraphs and items. First we exhibit the meshes
-and then we prove the estimates.
+To avoid what would result in a proof causing weariness we decided to partition
+the proof in subsections, paragraphs and items. The first part of the proof
+will be the exhibition of the meshes and after that we will prove the estimates.
 %=====================================================
 %{\color{BrickRed}\paragraph{TODO} % (fold)
 %\label{par:todo}
@@ -33,8 +33,15 @@ and then we prove the estimates.
 %distancias al \'unico v\'ertice o arista de cada macroelemento, etc...
 %}
 %=====================================================
+\subsection{Meshes and Meshing Algorithm in Dimension $3$}\label{meshes}
 %%=========== GRADING ==============================================
-We prove that, in each prismatic or tetrahedral macro--element, our meshes
+Our algorithm starts taking a first mesh of macro--elements, which may be
+prismatic or tetrahedral, according to the main regularity result, 
+Theorem~\ref{thm_regularity}.
+Read Section~\ref{sec:regularity} again and recall Figures~\ref{macro_prism_reg}  
+and~\ref{macro_tetra_reg}.
+
+We show that, in each prismatic or tetrahedral macro--element, our meshes
 fulfill the following grading.
 \begin{equation}\label{label_grading}
 \begin{IEEEeqnarraybox*}{lCl}
@@ -52,12 +59,12 @@ fulfill the following grading.
     \end{cases}
 \end{IEEEeqnarraybox*}
 \end{equation}
-with $\mu\le 1-\delta$ for $\delta>1-\lambda_{\be}$.\\
-with $\nu\le 1-\beta$ for $\beta>\frac12-\lambda_{\bv}$.
+with $\mu\leqslant 1-\delta$ for $\delta>1-\lambda_{\be}$.\\
+with $\nu\leqslant 1-\beta$ for $\beta>\frac12-\lambda_{\bv}$.
 %%==================================================================
-\subsection{Meshes and Meshing Algorithm in Dimension $3$}\label{meshes}
 \subsubsection{Macro--element with singular edge and singular vertex}\label{caso4}
-Let $T$ be a tetrahedral macro--element with vertices $P_0, P_1, P_2$ and $P_3$. We suppose that $P_0$ is the singular vertex and that the
+Let $T$ be a tetrahedral macro--element with vertices $P_0, P_1, P_2$ and $P_3$.
+We suppose that $P_0$ is the singular vertex and that the
 singular edge is $P_0P_1$. The mesh $\mathcal T_h$ on $T$ will contain tetrahedra, prisms and pyramids. 
 In Tables~\ref{prisms_barycentric_a}--\ref{tetrahedral_barycentric}
 we explicit the elements in terms
@@ -158,61 +165,76 @@ to $P_0, P_1, P_2$ and $P_3$. %This case corresponds to Case 1 of \cite{AN}.
 Let $p_{i,j,k}$ be the points with barycentric coordinates
 \begin{eqnarray*}
 &&\lambda_0=1-\lambda_1-\lambda_2-\lambda_3,\\[5pt]
-&&\lambda_1=\frac in\left(\frac{i+j+k}n\right)^{\nicefrac{1}{\mu}-1},\quad
-  \lambda_2=\frac jn\left(\frac{i+j+k}n\right)^{\nicefrac{1}{\mu}-1},\quad
-  \lambda_3=\frac kn\left(\frac{i+j+k}n\right)^{\nicefrac{1}{\mu}-1},
-\\[5pt] &&0\le i\le n, 0\le j\le n-i, 0\le k\le n-i-j.
+&&\lambda_1=\tfrac in\left(\tfrac{i+j+k}n\right)^{\nicefrac{1}{\mu}-1},\quad
+  \lambda_2=\tfrac jn\left(\tfrac{i+j+k}n\right)^{\nicefrac{1}{\mu}-1},\quad
+  \lambda_3=\tfrac kn\left(\tfrac{i+j+k}n\right)^{\nicefrac{1}{\mu}-1}
 \end{eqnarray*}
+for $0\leqslant i\leqslant n$, $0\leqslant j\leqslant n-i$, $0\leqslant k\leqslant n-i-j$.
 Then, the tetrahedra are the ones with vertices
-\begin{eqnarray*}
-&& p_{i,j,k}, p_{i+1,j,k}, p_{i,j+1,k}, p_{i,j,k+1}, \qquad 0\le i+j+k\le n-1\\
-&& p_{i+1,j,k}, p_{i,j+1,k}, p_{i,j,k+1}, p_{i+1,j,k+1}, \qquad 0\le i+j+k\le n-2\\
-&& p_{i,j+1,k}, p_{i,j,k+1}, p_{i+1,j,k+1}, p_{i,j+1,k+1}, \qquad 0\le i+j+k\le n-2\\
-&& p_{i+1,j,k}, p_{i,j+1,k}, p_{i+1,j+1,k}, p_{i+1,j,k+1}, \qquad 0\le i+j+k\le n-2\\
-&& p_{i,j+1,k}, p_{i+1,j+1,k}, p_{i+1,j,k+1}, p_{i,j+1,k+1}, \qquad 0\le i+j+k\le n-2\\
-&& p_{i+1,j+1,k}, p_{i+1,j,k+1}, p_{i,j+1,k+1}, p_{i+1,j+1,k+1}, \qquad 0\le i+j+k\le n-3
-\end{eqnarray*}
+\begin{IEEEeqnarray*}{lcl}
+p_{i,j,k}, p_{i+1,j,k}, p_{i,j+1,k}, p_{i,j,k+1}, &\quad& 0\leqslant i+j+k\leqslant n-1\mbox{,}\\
+p_{i+1,j,k}, p_{i,j+1,k}, p_{i,j,k+1}, p_{i+1,j,k+1}, &\quad& 0\leqslant i+j+k\leqslant n-2\mbox{,}\\
+p_{i,j+1,k}, p_{i,j,k+1}, p_{i+1,j,k+1}, p_{i,j+1,k+1}, &\quad& 0\leqslant i+j+k\leqslant n-2\mbox{,}\\
+p_{i+1,j,k}, p_{i,j+1,k}, p_{i+1,j+1,k}, p_{i+1,j,k+1}, &\quad& 0\leqslant i+j+k\leqslant n-2\mbox{,}\\
+p_{i,j+1,k}, p_{i+1,j+1,k}, p_{i+1,j,k+1}, p_{i,j+1,k+1}, &\quad& 0\leqslant i+j+k\leqslant n-2\mbox{,}\\
+p_{i+1,j+1,k}, p_{i+1,j,k+1}, p_{i,j+1,k+1}, p_{i+1,j+1,k+1}, &\quad& 0\leqslant i+j+k\leqslant n-3.
+\end{IEEEeqnarray*}
 
 
-\begin{proposition} Pyramids and tetrahedra are isotropic.
+\begin{proposition} Pyramids and tetrahedra in the meshes in Subsection~\ref{meshes}  are isotropic.
 \end{proposition}
-\begin{proof} We deal firstly with pyramids. Consider a pyramid with vertices $p_0, \ldots, p_4$ in a macro--element of vertices $P_0,P_1,P_2$ and $P_3$ as in Subsection \ref{caso4}. Note that the basis of the pyramid is the paralelogram $p_0p_1p_3p_2$ with
+\begin{proof} Consider a pyramid with vertices $p_0, \ldots, p_4$ in a 
+macro--element of vertices $P_0,P_1,P_2$ and $P_3$ as in Subsection~\ref{caso4}.
+With $|p_i-p_j|$ or $|P_i-P_j|$ we mean euclidean distance.
+Note that the basis of the pyramid is the paralelogram $p_0p_1p_3p_2$ with
 \begin{eqnarray}
 \label{once}
-&&p_1-p_0=p_3-p_2=\frac1n\left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}(P_3-P_2)\\
+&&p_1-p_0=p_3-p_2=\tfrac1n\left(\tfrac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}(P_3-P_2)\\
 \label{doce}
-&&p_2-p_0=p_3-p_1=\left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}}-\left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right](P_0-P_1).
+&&p_2-p_0=p_3-p_1=\left[\left(\tfrac{n-l}n\right)^{\nicefrac{1}{\mu}}-\left(\tfrac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right](P_0-P_1).
 \end{eqnarray}
-So 
-\[
-\frac{\nicefrac{1}{\mu}}{n}\left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}|P_0-P_1|\le |p_2-p_0|=|p_3-p_1|\le \frac{\nicefrac{1}{\mu}}{n}\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}-1}|P_0-P_1|,
-\]
+So there hold
+\begin{IEEEeqnarray*}{rCl}
+  \tfrac{\nicefrac{1}{\mu}}{n}\left(\tfrac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}|P_0-P_1|
+  & \leqslant & |p_2-p_0|=|p_3-p_1| \\[4pt]
+  & \leqslant &
+  \tfrac{\nicefrac{1}{\mu}}{n}\left(\tfrac{n-l}n\right)^{\nicefrac{1}{\mu}-1}|P_0-P_1|\mbox{,}
+\end{IEEEeqnarray*}
 and 
 \[
-\mu\left(\frac12\right)^{\nicefrac{1}{\mu}-1}\le\mu\left(\frac{n-l-1}{n-l}\right)^{\nicefrac{1}{\mu}-1}\le\frac{|p_1-p_0|}{|p_2-p_0|}\le \mu.
+\mu\left(\tfrac12\right)^{\nicefrac{1}{\mu}-1}\leqslant\mu\left(\tfrac{n-l-1}{n-l}\right)^{\nicefrac{1}{\mu}-1}\leqslant\tfrac{|p_1-p_0|}{|p_2-p_0|}\leqslant \mu.
 \]
 Then the parallelogram $p_0p_1p_3p_2$ is shape-regular since the angle between $P_0-P_1$ and $P_3-P_2$ depends only on the macro--element, and so it is away from $0$ and $\pi$. 
 
-Now we prove that there exists constants $c_0$ and $c_1$ depending only on $\nicefrac{1}{\mu}$ and the macro--element's vertices such that
-\begin{eqnarray}\label{diez}
-&c_0\le\frac{|p_4-p_2|}{|p_2-p_0|}\le c_1&\\ \label{trece}
-&c_0\le\frac{|p_4-p_3|}{|p_2-p_0|}\le c_1&.
-\end{eqnarray}
+Now we prove that there exists constants $c_0$ and $c_1$ depending only on
+ $\nicefrac{1}{\mu}$ and the vertices of the macro--element such that
+\begin{IEEEeqnarray}{rCcCl}
+\label{diez}
+c_0&\leqslant&\tfrac{|p_4-p_2|}{|p_2-p_0|}&\leqslant& c_1
+\end{IEEEeqnarray}
+and  
+\begin{IEEEeqnarray}{rCcCl}
+\label{trece}
+c_0&\leqslant&\tfrac{|p_4-p_3|}{|p_2-p_0|}&\leqslant& c_1.
+\end{IEEEeqnarray}
 After simple computations we obtain
 \begin{eqnarray*}
-p_4-p_2 &=& \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right](P_3-P_0) \\ &&\qquad + \frac in \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}-1} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}\right](P_2-P_3)\\ &=& \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right]\bigg\{P_3-P_0 +\\ &&\qquad + \frac{\frac in \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}-1} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}\right]}{\left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right]} (P_2-P_3)\bigg\}\\ &\sim& \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right](P_3-P_0)\\ &\sim& p_3-p_1
+p_4-p_2 &=& \left[\left(\tfrac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\tfrac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right](P_3-P_0) \\ &&\qquad + \tfrac in \left[\left(\tfrac{n-l}n\right)^{\nicefrac{1}{\mu}-1} - \left(\tfrac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}\right](P_2-P_3)\\ &=& \left[\left(\tfrac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\tfrac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right]\bigg\{P_3-P_0 +\\ &&\qquad + \tfrac{\tfrac in \left[\left(\tfrac{n-l}n\right)^{\nicefrac{1}{\mu}-1} - \left(\tfrac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}\right]}{\left[\left(\tfrac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\tfrac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right]} (P_2-P_3)\bigg\}\\ &\sim& \left[\left(\tfrac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\tfrac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right](P_3-P_0)\\ &\sim& p_3-p_1
 \end{eqnarray*}
-where we used that 
+where we used the following relation 
 \[
-  \frac{\frac in \left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}-1} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}\right]}{\left[\left(\frac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\frac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right]}\le \frac{\nicefrac{1}{\mu}-1}{\nicefrac{1}{\mu}},
+  \tfrac{\tfrac in \left[\left(\tfrac{n-l}n\right)^{\nicefrac{1}{\mu}-1} - \left(\tfrac{n-l-1}n\right)^{\nicefrac{1}{\mu}-1}\right]}{\left[\left(\tfrac{n-l}n\right)^{\nicefrac{1}{\mu}} - \left(\tfrac{n-l-1}n\right)^{\nicefrac{1}{\mu}}\right]}\leqslant \tfrac{\nicefrac{1}{\mu}-1}{\nicefrac{1}{\mu}},
 \]
-that the angle between $P_3-P_0$ and $P_2-P_3$ is fixed (and depends only on the macro--element) and equation \eqref{doce}. This prove \eqref{diez}, and \eqref{trece} follows analogously. In order to prove that the pyramid is isotropic now we have to note that the basis $p_0p_1p_3p_2$ is contained in a plane parallel to the one generated by the vectors $P_1-P_0$ and $P_3-P_2$, and the face $p_2p_3p_4$ is in a plane parallel to the plane (macro--element's face) $P_0P_2P_3$, and the angle between those planes depends only on the macro--element.      
-
-
-{\color{Orange} COMPLETAR PRUEBA PARA LOS TETRAEDROS}
+and also that the angle between $P_3-P_0$ and $P_2-P_3$ is fixed
+(and depends only on the macro--element) and equation~\eqref{doce}. 
+This proves~\eqref{diez}. Inequalities in~\eqref{trece} follow analogously. 
+To finish the proof of the isotropy of the pyramids we have to observe that the 
+basis $p_0p_1p_3p_2$ is contained in a plane ${\Pi}_1$ that is parallel to the one generated 
+by the directions $P_1-P_0$ and $P_3-P_2$, and the face $p_2p_3p_4$ is in a 
+plane parallel to the plane ${\Pi}_2$ in which lies the triangle $P_0P_2P_3$ 
+(this is a face of the macro--element), 
+and the angle between  planes ${\Pi}_1$ and ${\Pi}_2$ depends only on the macro--element.      
 \end{proof}
-
-
 %===========================================================
 %Another way, less formal but clearer, to look
 %at the  mesh points in a tetrahedral macro--element
@@ -273,7 +295,8 @@ that the angle between $P_3-P_0$ and $P_2-P_3$ is fixed (and depends only on the
   In this case we are denoting 
   $\Th = \{E_{\textit{h},i}\,:\,1\leqslant i\leqslant N_{\textit{h}}\}$.
 \end{remark}
-This means the refinement is done whithin the macro--elements of the 
+This means the meshes resolve the macro--elements in a conforming way and
+refinement is done whithin the macro--elements of the 
 initial mesh.
 \begin{remark} 
 We remark that if a mesh satisfies~(\ref{label_grading})
@@ -281,17 +304,18 @@ for $\mu=\mu_0$ and $\nu=\nu_0$, then it satisfies the
 same for $\mu>\mu_0$ and $\nu>\nu_0$. Thus, the mesh can be overrefined by
 taking $\mu=\nu=\min\{1-\delta,1-\beta\}$, and it still
 verifies~(\ref{label_grading}) for
-$\min\{1-\delta,1-\beta\}\le\mu\le 1-\delta$ and
-$\min\{1-\delta,1-\beta\}\le\nu\le 1-\beta$. The possibility to use $\mu=\nu$
+$\min\{1-\delta,1-\beta\}\leqslant\mu\leqslant 1-\delta$ and
+$\min\{1-\delta,1-\beta\}\leqslant\nu\leqslant 1-\beta$. The possibility to use $\mu=\nu$
 for the construction of the mesh, allows to validate condition stating
-that Tetrahedra and pyramids in $\Th$ are not necessarily anisotropic.
+that tetrahedra and pyramids in $\Th$ are not necessarily anisotropic.
 \end{remark}
 \begin{remark}
-\textbf{Obs}: If the diameter of $\Lambda$ were greater than $1$, then entonces
+If the diameter $\delta(\Lambda)$ of a macro--element $\Lambda$ were greater than $1$, 
+then
 \begin{IEEEeqnarray*}{rCl}
   R_K(\bx) & \leqslant & \delta(\Lambda)\min\{ R_K(\bx), 1\}
 \end{IEEEeqnarray*}
-as\'i que asumimos $R_K(\bx)\leqslant 1$.
+so we will assume $R_K(\bx)\leqslant 1$.
 \end{remark}
 \begin{remark}
   $\mu < 1 \Rightarrow \mu \leqslant \nu$.
