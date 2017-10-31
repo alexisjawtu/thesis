@@ -37,11 +37,19 @@ will be the exhibition of the meshes and after that we will prove the estimates.
 %%=========== GRADING ==============================================
 Our algorithm starts taking a first mesh of macro--elements, which may be
 prismatic or tetrahedral, according to the main regularity result, 
-Theorem~\ref{thm_regularity}.
-Read Section~\ref{sec:regularity} again and recall Figures~\ref{macro_prism_reg}  
-and~\ref{macro_tetra_reg}.
+Theorem~\ref{thm_regularity}. Read Section~\ref{sec:regularity} again and recall Figures~\ref{macro_prism_reg}  and~\ref{macro_tetra_reg}.
+Here we recall it.
 
-We show that, in each prismatic or tetrahedral macro--element, our meshes
+Let $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ be 
+a decomposition in
+macro--elements having, each one of them,
+at most a singular edge $\lambda_{\be}^{(\ell)}$ and a singular vertex
+$\lambda_{\bv}^{(\ell)}$. 
+
+Please recall also the notation for the distance  $R(\bx)$ to the singular vertex 
+and the angular distance $\theta(\bx)$ to the singular edge in Definition~\ref{auxlabel300}.
+
+We will show that, in each prismatic or tetrahedral macro--element, our meshes
 fulfill the following grading.
 \begin{equation}\label{label_grading}
 \begin{IEEEeqnarraybox*}{lCl}
@@ -108,7 +116,7 @@ In Figure~\ref{aux_label70} there are a couple of examples.
   \caption{Tetrahedral macro--elements with singularities of both types.}
   \label{aux_label70}
 \end{figure}
-
+\newpage
 \subsubsection{Macro--element with a singular edge}
 This case corresponds to the prismatic macro--element.
 A mesh is constructed as the cartesian product between a graded mesh
