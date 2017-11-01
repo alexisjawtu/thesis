@@ -45,88 +45,32 @@ Start splitting the field $\bu$ as in~(\ref{splitting}).
 By Lemma~\ref{well_defined_dofs}, the field $\rZerou = \br_0\bu_s + \br_0\bu_r$ 
 is well defined, so we will work 
 with the regular part $\bu_r - \br_0\bu_r$ and the singular part $\bu_s - \br_0\bu_s$
-separately.
-
-
-First we'd like to remark that, for a given macro--element in $\pazocal{T}_{\textit{h}_0}$ the case when there is no weight with respect to the distance $R(\bx)$
-to the vertex is also available by simply putting 
-$R\equiv 1$ in the computations we show. The case when there is no weight with respect to the angular distance
-$\theta(\bx)$ is also available by simply putting 
-$\theta\equiv 1.$ Additionally, if $\be$ is not singular, the condition for $\delta$ in~(\ref{label_grading}) 
-turns $\delta > -\infty$ and if $\bv$ is not singular, the condition for it
-turns $\beta > -\infty.$
-
-\noindent{\color{Orange}\#\#\#\#\#\#\# **bound for the scalar variable: para todos igual,
-lo pongo una sola vez. c\'omo lo ponemos?} 
-%%======================================================================================= 
-% Recall that $\|\bw\|^2_{\mathbb{V}} = \|\bw\|^2_{0,\Omega} + \|\dv\,\bw\|^2_{0,\Omega}$ 
-% and that, 
-% First, for the divergence term,
-% Primero usar el lemma de taylor promediado aplicado al caso sin derivar. Despu'es:
-% If we apply this after the commutative diagram property~(\ref{div_commutativity})
-% \begin{IEEEeqnarray*}{rCl}
-% \|\dv(\bu - \rZerou)\|^2_{0,\Omega} & = &
-%   \|\dv\,\bu - \dv\,\rZerou\|^2_{0,\Omega}\\
-%     & = &\|\dv\,\bu - \boldsymbol{P}_{\mathcal{T}_h}\dv\,\bu\|^2_{0,\Omega}\\
-%   &\leqslant&\textit{h}^2\,\|\dv\,\bu\|^2_{0,\Omega}\\
-%   &=&\textit{h}^2\,\|f\|^2_{0,\Omega}.|
-% \end{IEEEeqnarray*}
-%%======================================================================================= 
-\subsection{Bound for the Regular Part in~(\ref{auxlabel75})} % (fold)
-\label{sub:bound_for_the_regular_part}
-
-Take any macro--element $\Lambda_\ell$. Given an element $E\subset\Lambda_\ell$, 
-let $\boldsymbol{h}=(h_{1},h_{2},h_{3})'=(h_{E,1},h_{E,2},h_{E,3})'$. By Theorem~\ref{aux_label46}
-\begin{IEEEeqnarray*}{rCl}
-  \|\bu_r - \br_0\bu_r\|_{L^2(\Omega)}^2 & = &
-  \sum_{E\in\Th}
-  \|\bu_r - \br_0\bu_r\|_{L^2(E)}^2\\
-  &\leqslant&C\,\sum_{E\in\Th}\left( \sum_{|\alpha| = 1} 
-  \boldsymbol{h}^\alpha \|D^\alpha\bu_r\|_{L^2(E)} + 
-  h_E\|\dv\bu_r\|_{L^2(E)}
-  \right)^2\\
-  &\leqslant&\sum_{E\in\Th}\left[\sum_{|\alpha| = 1}
-  \boldsymbol{h}^{2\alpha} + h_E^{2} \right]
-  \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(E)}^2 + 
-  \|\dv\bu_r\|_{L^2(E)}^2\right].
-\end{IEEEeqnarray*}
-\noindent{\color{Orange}\#\#\#\#\#\#\# aca hay que poner la interpolacion en piramides
-aparte tambien.} 
-Now $\boldsymbol{h}\leqslant C\,\textit{h}$ and $h_E \leqslant C\,h_3 \sim \textit{h}$ for all the elements of the
-mesh, so the last expression is bounded above by
-\begin{IEEEeqnarray*}{rCl}
-  C^2\sum_{E\in\Th}4\,\textit{h}^{2}
-  \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(E)}^2 + 
-  \|\text{div}\bu_r\|_{L^2(E)}^2\right]
-  &=&C\,\textit{h}^{2}
-  \left[\sum_{|\alpha| = 1}\|D^\alpha\bu_r\|_{L^2(\Omega)}^2 + 
-  \|\text{div}\bu_r\|_{L^2(\Omega)}^2\right].
-\end{IEEEeqnarray*}
-Then, finally
-\begin{IEEEeqnarray*}{rCl}
-  \|\bu_r - \br_0\bu_r\|_{L^2(\Omega)}&\leqslant&
-  C\,\textit{h}\,|\bu_r|_{1,\Omega}\\
-  \mbox{by~(\ref{aux_label11})}&\leqslant&C\,\textit{h}\,\|f\|_{0,\Omega}.
-\end{IEEEeqnarray*}
-% subsection bound_for_the_regular_part (end)
-\subsection{Bound for the Singular Part in a Prismatic Macro--Element with
-a singular Edge} % (fold)
-\label{sub:bound_singular_part_prismatic_macroelement}
-The bound for the error of the interpolation of the singular part will be 
+separately. The bound for the error of the interpolation of the singular part will be 
 performed in each type of macro--element.
+
+First we'd like to remark that, for a given macro--element in 
+$\pazocal{T}_{\textit{h}_0}$ the case when there is no weight with respect to 
+the distance $R(\bx)$
+to the vertex is also available by simply putting 
+$R\equiv 1$ in the computations we show. The case when there is no weight with 
+respect to the angular distance
+$\theta(\bx)$ is also available by simply putting 
+$\theta\equiv 1.$ Additionally, if $\be$ is not singular, the condition for 
+$\delta$ in~(\ref{label_grading}) 
+turns $\delta > -\infty$ and if $\bv$ is not singular, the condition for $\beta$
+turns $\beta > -\infty.$
 
 Now it is the time to make a remark of crucial importance. If we take the
 solution $(\bu, p)$ of Problem~\ref{mixedContinuous},
-the singular part of the vectorial variable, $\bu_s$, considered
-in~(\ref{splitting}) has a well defined $H(div, \Omega)$--conforming interpolate.
+the singular part of the vectorial variable, $\bu_s$, has a well defined $H(div, \Omega)$--conforming interpolate.
 This is implied by the next result, since the normal traces on faces
 of the elements in $W^{1,1}(\Lambda_\ell)$ are well defined.
 \begin{lemma}\label{well_defined_dofs}
 If $\beta,\delta\in[0,1)$ and $\beta + \delta\leqslant 1$ then 
 \[
-  V^{1,2}_{\beta,\delta}(\Lambda_\ell) \subset W^{1,1}(\Lambda_\ell)
+  V^{1,2}_{\beta,\delta}(\Lambda_\ell) \subseteq W^{1,1}(\Lambda_\ell)
 \]
-for all macroelement $\Lambda_{\ell}$.
+for all macro--element $\Lambda_{\ell}$.
 \end{lemma}
 \begin{proof}
 Every function ${\bv}\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$ has a finite
@@ -140,32 +84,100 @@ $L^1(\Lambda_\ell)$ norm. On the other hand,
 which implies $\partial^\alpha{\bv}\in L^1(\Lambda_\ell)$ for all
 $\bv\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$.
 \end{proof}
-Let $\Lambda_\ell$ be a prismatic element of $\mathcal{T}_{\textit{h}_0}$.
+
+
+\noindent{\color{Orange}\#\#\#\#\#\#\# **bound for the scalar variable: para todos igual,
+lo pongo una sola vez. c\'omo lo ponemos?} 
+%%======================================================================================= 
+% Recall that $\|\bw\|^2_{\mathbb{V}} = \|\bw\|^2_{0,\Omega} + \|\dv\,\bw\|^2_{0,\Omega}$ 
+% and that, 
+% First, for the divergence term,
+% Primero usar el lemma de taylor promediado aplicado al caso sin derivar. Despu'es:
+% If we apply this after the commutative diagram property~(\ref{div_commutativity})
+% \begin{IEEEeqnarray*}{rCl}
+% \|\dv(\bu - \rZerou)\|^2_{0,\Omega} & = &
+%   \|\dv\,\bu - \dv\,\rZerou\|^2_{0,\Omega}\\
+%     & = &\|\dv\,\bu - \boldsymbol{P}_{\pazocal{T}_h}\dv\,\bu\|^2_{0,\Omega}\\
+%   &\leqslant&\textit{h}^2\,\|\dv\,\bu\|^2_{0,\Omega}\\
+%   &=&\textit{h}^2\,\|f\|^2_{0,\Omega}.|
+% \end{IEEEeqnarray*}
+%%======================================================================================= 
+\subsection{Bound for the Regular Part in~(\ref{auxlabel75})} % (fold)
+\label{sub:bound_for_the_regular_part}
+
+Take any macro--element $\Lambda_\ell$. Given an element $E\subset\Lambda_\ell$, 
+let $\boldsymbol{h}=(h_{1},h_{2},h_{3})'$. By Theorem~\ref{aux_label46}
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu_r - \br_0\bu_r\|_{L^2(\Omega)}^2 & = &
+  \sum_{E\in\Th}
+  \|\bu_r - \br_0\bu_r\|_{L^2(E)}^2\\
+\IEEEeqnarraymulticol{3}{l}{\qquad
+  \leqslant\,C\,\sum_{E\in\Th}\left( \sum_{|{\balpha}| = 1} 
+  \boldsymbol{h}^{\balpha} \|\partial^{\balpha}\bu_r\|_{L^2(E)} + 
+  h_E\|\dv\bu_r\|_{L^2(E)}
+  \right)^2
+}
+  \\[5pt]
+\IEEEeqnarraymulticol{3}{l}{\qquad
+  \leqslant\,\sum_{E\in\Th}\left\{\sum_{|{\balpha}| = 1}
+  \boldsymbol{h}^{2{\balpha}} + h_E^{2} \right\}
+  \left\{\sum_{|{\balpha}| = 1}\|\partial^{\balpha}\bu_r\|_{L^2(E)}^2 + 
+  \|\dv\bu_r\|_{L^2(E)}^2\right\}.
+}
+\end{IEEEeqnarray*}
+\noindent{\color{Orange}\#\#\#\#\#\#\# aca hay que poner la interpolacion en piramides
+aparte tambien.} 
+Now following the grading~(\ref{label_grading}) it holds
+$\boldsymbol{h}^{\balpha}\leqslant C\,\textit{h}$ and $h_E \leqslant C\,h_3 \sim \textit{h}$ 
+for all the elements of the
+  mesh, so the last expression is bounded above by
+\begin{IEEEeqnarray*}{lCl}
+  C^2\sum_{E\in\Th}4\,\textit{h}^{2}
+  \left\{\sum_{|{\balpha}| = 1}\|\partial^{\balpha}\bu_r\|_{L^2(E)}^2 + 
+  \|\text{div}\bu_r\|_{L^2(E)}^2\right\}
+  &=&\qquad\\[5pt]
+\IEEEeqnarraymulticol{3}{R}{
+  =\,C\,\textit{h}^{2}
+  \left\{\sum_{|{\balpha}| = 1}\|\partial^{\balpha}\bu_r\|_{L^2(\Omega)}^2 + 
+  \|\text{div}\bu_r\|_{L^2(\Omega)}^2\right\}.
+}
+\end{IEEEeqnarray*}
+Then, finally
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu_r - \br_0\bu_r\|_{L^2(\Omega)}&\leqslant&
+  C\,\textit{h}\,|\bu_r|_{1,\Omega}\\
+  \mbox{by~(\ref{aux_label11})\qquad}&\leqslant&C\,\textit{h}\,\|f\|_{0,\Omega}.
+\end{IEEEeqnarray*}
+% subsection bound_for_the_regular_part (end)
+\subsection{Bound for the Singular Part in~(\ref{auxlabel75}) in a 
+prismatic macro--element with
+a singular Edge} % (fold)
+\label{sub:bound_singular_part_prismatic_macroelement}
+
+Let $\Lambda_\ell$ be a prismatic element of $\pazocal{T}_{\textit{h}_0}$.
 Let $\be$ be the singular edge of $\Lambda_\ell$ and let 
-$\bxi = (\xi_1,\xi_2,\xi_3)$ be it's local coordinates satisfying the hypotheses
+$\bxi = (\xi_1,\xi_2,\xi_3)'$ be it's local coordinates, all as in the hypotheses
 of Theorem~\ref{thm_regularity}. In this case we need to
-distinguish between the elements $E$ with $d(E,\be) > 0$ and
+distinguish between the elements $E$ with $d(E,\be) > 0$ and those with
 $d(E,\be) = 0$.
-\begin{IEEEeqnarray}{rCl}
-  \label{aux_label2}
+\begin{IEEEeqnarray*}{rCl}
   \| \bu_s - \br_0\bu _s\|_{L^2(\Lambda_\ell)}^2 &\leqslant&
   \sum_{d(E,\be) = 0} \left(\| \bu_s\|_{L^2(E)} + 
-  \|\br_E\bu_s\|_{L^2(E)}\right)^2\\
-  \nonumber
-  & &\:+\sum_{d(E,\be) > 0} \left( \sum_{|\alpha| = 1} 
-  \boldsymbol{h}^\alpha \|D^\alpha\bu_s\|_{L^2(E)} + 
+  \|\br_0\bu_s\|_{L^2(E)}\right)^2\\
+  & &\:+\sum_{d(E,\be) > 0} \left( \sum_{|{\balpha}| = 1} 
+  \boldsymbol{h}^{\balpha} \|\partial^{\balpha}\bu_s\|_{L^2(E)} + 
   h_E\|\text{div}\bu_s\|_{L^2(E)}
   \right)^2.\\
-  \label{aux_label}&&
-\end{IEEEeqnarray}
+  \yesnumber\label{aux_label}&&
+\end{IEEEeqnarray*}
 The objective of the following paragraphs and items is to bound each one of the
-terms involved in the right hand side of~(\ref{aux_label2}) and~(\ref{aux_label})
+terms involved in the right hand side of~(\ref{aux_label})
 by a constant times
 $\textit{h}$ times the norm of $f$, to sum everything up afterwards.
-\paragraph{Elements with $d(E,\be) > 0$ (cfr.~(\ref{aux_label})).} % (fold)
+\paragraph{Elements with $d(E,\be) > 0$ in~(\ref{aux_label}).} % (fold)
 \label{par:elements_with_d_pos}
 \begin{enumerate}
-\item {Bound for $\|\partial_{\xi_1}\bu_s\|_{L^2(E)}$, $\alpha = (1,0,1).$} % (fold)
+\item Bound for $\|\partial_{\xi_1}\bu_s\|_{L^2(E)}$.                    %%, $\alpha = (1,0,1).$ % (fold)
 \label{subp:bound_for_100} Pick any weight $w(\bx)\geqslant h_1$.
 \begin{IEEEeqnarray*}{rCl}
   h_1\|\partial_{\xi_1}\bu_s\|_{L^2(E)}& = & 
@@ -197,8 +209,7 @@ case $d(E,\be) \sim 1$
 \end{IEEEeqnarray*}
 In both cases we have to take $\delta \sim 1-\mu > 1 - \frac{\pi}{\omega_\ell}$
 to get the estimate~(\ref{aux_label1}).
-The bound for the term with
-$\alpha = (0,1,0)$ is done similarly.
+The bound for the term $\|\partial_{\xi_22}\bu_s\|$ is done similarly.
 \item Bound for $\|\partial_{\xi_3}\bu_s\|_{L^2(E)}$. % (fold)
 \label{subp:bound_for_001}
 If $i = 1$,$2$ or $3$, $\partial_{\xi_3}u_i$ equals $\partial_{\xi_i}u_3$, so
@@ -207,7 +218,7 @@ If $i = 1$,$2$ or $3$, $\partial_{\xi_3}u_i$ equals $\partial_{\xi_i}u_3$, so
      h_3^2\sum_{i=1,2,3}\|\partial_{\xi_3}u_{s,i}\|^2_{L^2(E)}\\
     &\lesssim&\textit{h}^2\,\| u_3 \|^2_{V_0^{1,2}(E)}.
 \end{IEEEeqnarray*}
-\item {Bound for the divergence.} By the grading in this macro--element and
+\item {Bound for the divergence.} By the grading in the present macro--element and
 the triangle inequality we have
 \label{subp:bound_for_the_div}
 \begin{IEEEeqnarray*}{rCl}
@@ -218,14 +229,16 @@ the triangle inequality we have
   \|\dv\bu_r\|_{L^2(E)}\right\}.
 \end{IEEEeqnarray*}
 \end{enumerate}
-\paragraph{Elements with $d(E,\be) = 0$ \mbox{(cfr.~(\ref{aux_label2}))}.}
+\paragraph{Elements with $d(E,\be) = 0$ in~(\ref{aux_label}).}
 Take $\delta \sim 1-\mu$ in this paragraph again.
 \begin{enumerate}
   \item Bound for $\| \bu_s\|_{L^2(E)}$. % (fold)
 \begin{IEEEeqnarray*}{rCl}
   \|\bu_s\|^2_{L^2(E)}& = & \sum_{i=1,2}\|{u_{s,i}}\|^2_{L^2(E)} + 
     \|{u_{s,3}}\|^2_{L^2(E)}\\
-  &=&\sum_{i=1,2}\|r(\bx)^{1-\delta} r(\bx)^{\delta-1} {u_{s,i}}\|^2_{L^2(E)}
+\IEEEeqnarraymulticol{3}{r}{
+\begin{IEEEeqnarraybox*}{rCl}
+\qquad&=&\sum_{i=1,2}\|r(\bx)^{1-\delta} r(\bx)^{\delta-1} {u_{s,i}}\|^2_{L^2(E)}
     + \|r\,r^{-1} {u_{s,3}}\|^2_{L^2(E)}\\
   &\leqslant& 
   \max r(\bx)^{2(1-\delta)}\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(E)}
@@ -234,8 +247,11 @@ Take $\delta \sim 1-\mu$ in this paragraph again.
   + h_1\|{u_{s,3}}\|^2_{V_0^{1,2}(E)}\\
   &\sim&  (\textit{h}^{\nicefrac{2}{\mu}})^\mu\sum_{i=1,2}\|{u_{s,i}}\|^2_{V_\delta^{1,2}(E)}
   + (\textit{h}^{\nicefrac{1}{\mu}})^2\|{u_{s,3}}\|^2_{V_0^{1,2}(E)}\\
-  (\mbox{$\mu \leqslant 1$})&\leqslant& C\,\textit{h}^2\|\bu_{s}\|^2_{\pazocal{V}_\delta^{1,2}(E)}.
+  &\leqslant& C\,\textit{h}^2\|\bu_{s}\|^2_{\pazocal{V}_\delta^{1,2}(E)}
+\end{IEEEeqnarraybox*}
+}    
 \end{IEEEeqnarray*}
+(because $\mu \leqslant 1$).
 \item \label{aux_label61} {Bound for $\| \br_E \bu_s \|_{L^2(E)^3}$.} % (fold)
 First, if $\phi$ is a scalar polynomial defined on a physical element $E$, then
 \begin{IEEEeqnarray}{rCl}\label{normaL2L1}
@@ -757,7 +773,7 @@ By the stability estimate in Theorem~\ref{thmStabilityKtildeRT},
     + h_{P}\left\|\dv(u_1, u_2, 0) \,\right\|_{L^1(P)}\mbox{,}    
 \end{IEEEeqnarray*}
 by the same argument as in~(\ref{aux_label15}) for 
-elements touching the singular edge in the prismatic macroelement. Now
+elements touching the singular edge in the prismatic macro--element. Now
 to estimate each term, again for $i=1$ or $2$ we have
 \begin{IEEEeqnarray*}{rCcCl}
   \|u_{s,i}\| & \leqslant & \|R^{\nu}\theta^{\mu}\| \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2}
