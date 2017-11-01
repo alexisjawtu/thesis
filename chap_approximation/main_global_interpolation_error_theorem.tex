@@ -21,11 +21,13 @@ The following is the main interpolation error theorem.
 \begin{theorem}\label{interpolation_theorem} Let $\Omega$ and $f$ be the data and $(\bu,p)$ be the 
 solution
 of Problem~\ref{weakMixedContinuous}. Let  $\br_0$ be the operator~(\ref{global_interpolator}), then
-  \begin{IEEEeqnarray*}{rCl}
+  \begin{IEEEeqnarray}{rCl}
+  \label{auxlabel75}
     \|\bu-\rZerou\|_{0,\Omega} &\leqslant& C \textit{h}\|f\|_{0,\Omega}\\[5pt]
+  \label{auxlabel76}
     \|p-P_{\scriptscriptstyle \Th}p\|_{0,\Omega} &\leqslant& 
     {\color{Orange}\mbox{>}C \textit{h}\|f\|_{0,\Omega}\mbox{ o bien }C \textit{h}\|p\|_{1,\Omega}\mbox{?}}.
-  \end{IEEEeqnarray*}
+  \end{IEEEeqnarray}
 \end{theorem}
 
 \begin{remark}
@@ -37,26 +39,25 @@ of Problem~\ref{weakMixedContinuous}. Let  $\br_0$ be the operator~(\ref{global_
   of $\bv$ to that face vanishes identically.
 \end{remark}
 
-\begin{proof}[Proof of Theorem~\ref{interpolation_theorem}]
-By Lemma~\ref{well_defined_dofs}, the field $\rZerou = r_0u_s + r_0u_r$ is well defined.
+\section{Proof of Theorem~\ref{interpolation_theorem}}
+Start splitting the field $\bu$ as in~(\ref{splitting}).
+
+By Lemma~\ref{well_defined_dofs}, the field $\rZerou = \br_0\bu_s + \br_0\bu_r$ 
+is well defined, so we will work 
+with the regular part $\bu_r - \br_0\bu_r$ and the singular part $\bu_s - \br_0\bu_s$
+separately.
+
 
 First we'd like to remark that, for a given macro--element in $\pazocal{T}_{\textit{h}_0}$ the case when there is no weight with respect to the distance $R(\bx)$
 to the vertex is also available by simply putting 
 $R\equiv 1$ in the computations we show. The case when there is no weight with respect to the angular distance
 $\theta(\bx)$ is also available by simply putting 
-$\theta\equiv 1.$
-
-{\color{Orange}\#\#\#\#\#\#\#\# seguir aca.}
-{\color{blue}\#\#\#\#\#\#\#\# al momento de usar
-teorema~\ref{auxlabel6}  en   tetra para
-malla, citar del articulo aadl\\.}
-
-Additionally, if $\be$ is not singular, the condition turns $\delta > -\infty$
-and if $\bv$ is not singular, the condition turns $\beta > -\infty.$
-\end{proof} 
+$\theta\equiv 1.$ Additionally, if $\be$ is not singular, the condition for $\delta$ in~(\ref{label_grading}) 
+turns $\delta > -\infty$ and if $\bv$ is not singular, the condition for it
+turns $\beta > -\infty.$
 
 \noindent{\color{Orange}\#\#\#\#\#\#\# **bound for the scalar variable: para todos igual,
-lo pongo una sola vez.} 
+lo pongo una sola vez. c\'omo lo ponemos?} 
 %%======================================================================================= 
 % Recall that $\|\bw\|^2_{\mathbb{V}} = \|\bw\|^2_{0,\Omega} + \|\dv\,\bw\|^2_{0,\Omega}$ 
 % and that, 
@@ -71,17 +72,16 @@ lo pongo una sola vez.}
 %   &=&\textit{h}^2\,\|f\|^2_{0,\Omega}.|
 % \end{IEEEeqnarray*}
 %%======================================================================================= 
-\subsection{Bound for the Regular Part} % (fold)
+\subsection{Bound for the Regular Part in~(\ref{auxlabel75})} % (fold)
 \label{sub:bound_for_the_regular_part}
 
-In any macro--element, in order to bound the regular part,
-
-Given an element $E$, let $\boldsymbol{h}=(h_{1},h_{2},h_{3})'=(h_{E,1},h_{E,2},h_{E,3})'$.
+Take any macro--element $\Lambda_\ell$. Given an element $E\subset\Lambda_\ell$, 
+let $\boldsymbol{h}=(h_{1},h_{2},h_{3})'=(h_{E,1},h_{E,2},h_{E,3})'$. By Theorem~\ref{aux_label46}
 \begin{IEEEeqnarray*}{rCl}
   \|\bu_r - \br_0\bu_r\|_{L^2(\Omega)}^2 & = &
   \sum_{E\in\Th}
   \|\bu_r - \br_0\bu_r\|_{L^2(E)}^2\\
-  &=&\sum_{E\in\Th}\left( \sum_{|\alpha| = 1} 
+  &\leqslant&C\,\sum_{E\in\Th}\left( \sum_{|\alpha| = 1} 
   \boldsymbol{h}^\alpha \|D^\alpha\bu_r\|_{L^2(E)} + 
   h_E\|\dv\bu_r\|_{L^2(E)}
   \right)^2\\
