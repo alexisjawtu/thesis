@@ -337,13 +337,13 @@ Finally joining everything,
 Now we enumerate the bound for each term on the right of~(\ref{aux_label15}).
 \begin{enumerate}
     \item
-  for $\|u_{s,i}\|$,
+  For $\|u_{s,i}\|$ we have
   \begin{IEEEeqnarray*}{rCl}
     \|u_{s,i}\|_{L^1(E)} & = & 
     \| r(\bx)^{1-\delta} r(\bx)^{\delta-1} u_{s,i}\|_{L^1(E)}\\
     &\leqslant& \|r^{1-\delta}\|_{L^2(E)} \|u_{s,i}\|_{V_\delta^{1,2}(E)}\\
     &\leqslant& C\,h_1^{1-\delta}\,|E|^{\nicefrac12}\,\|u_{s,i}\|_{V_\delta^{1,2}(E)}\\
-    &\leqslant& C\,\textit{h}\,|E|^{\nicefrac12}\,\|u_{s,i}\|_{V_\delta^{1,2}(E)}
+    &\leqslant& C\,\textit{h}\,|E|^{\nicefrac12}\,\|u_{s,i}\|_{V_\delta^{1,2}(E)}.
   \end{IEEEeqnarray*}
     \item
   With respect to the derivatives orthogonal to the singular edge, take $i$,$j = 1$,$2$ and,
@@ -359,7 +359,7 @@ Now we enumerate the bound for each term on the right of~(\ref{aux_label15}).
     &\leqslant& C\, h_1^{-\delta} |E|^{\nicefrac12},
   \end{IEEEeqnarray*}
   (where we used $h_1 \sim h_2$ and the minimun angle condition to bound the
-  area of a triangular face from below with $h_1h_2$). So in~(\ref{aux_label16})
+  area of a triangular face from below with $h_1h_2$), so in~(\ref{aux_label16})
   we have
   \begin{IEEEeqnarray*}{rCl}
     h_1\|\partial_{\xi_j}u_{s,i}\|_{L^1(E)} & \leqslant & C\,h_1^{1-\delta} |E|^{\nicefrac12}
@@ -377,16 +377,17 @@ Now we enumerate the bound for each term on the right of~(\ref{aux_label15}).
     \yesnumber\label{alongSingular}&\leqslant& C\,|E|^{\nicefrac12}\,\textit{h}\,\| u_{s,3} \|_{V_0^{1,2}(E)}.
   \end{IEEEeqnarray*}
     \item
-  For the divergence we can recall the grading condition $h_1\sim h_2$, observe that
+  For the divergence we can recall the grading condition $h_1\sim h_2$ and 
+  observe that
   \begin{IEEEeqnarray*}{rCl}
     h_1 \|\text{div}(u_{s,1}, u_{s,2}, 0)\|_{L^{1}(E)} & \leqslant &
-    h_1 \|\partial_{\xi_1} u_{s,1}\|_{L^{1}(E)} + h_1\|\partial_{\xi_2} u_{s,2}\|_{L^{1}(E)}
+    h_1 \sum_{j=1,2} \|\partial_{\xi_j} u_{s,j}\|_{L^{1}(E)}
   \end{IEEEeqnarray*}
   and reuse the estimates~(\ref{derivOrtog}). 
 \end{enumerate}
 The estimate for 
-$\| (\br \bu_s)_2 \|_{L^{2}(E)}$ is the same. The estimate for 
-$\| (\br \bu_s)_3 \|_{L^{2}(E)}$ is as follows. By the commutativity of the
+$\| (\br_0\bu_s)_2 \|_{L^{2}(E)}$ is the same. The estimate for 
+component $(\br_0\bu_s)_3$ is as follows. By the commutativity of the
 local interpolator and the coordinate change in Corollary~\ref{aux_label17} and
 the estimate~(\ref{aux_label18}) in the proof Theorem~\ref{thmStabilityKtildeRT} we have
 \begin{IEEEeqnarray*}{rCl}
@@ -396,39 +397,38 @@ the estimate~(\ref{aux_label18}) in the proof Theorem~\ref{thmStabilityKtildeRT}
   & \leqslant & C\,\big{\{}\,\|\tilde{u}_{s,3}\|_{L^1(\tilde{E})} +
     \sum_{j=1}^3 h_j\,\|\partial_{\tilde{x}_j}\tilde{u}_{s,3}\|_{L^1(\tilde{E})}\,\big{\}}
 \end{IEEEeqnarray*}
-{\color{blue}\#\#\#\#\#\#\#\# continue here; chequear con cuadernoen  "(*) Deriv."
-y anotar para seguir 
-en el remark del caso de macroel. que me marcó ariel que faltar'ia (ver mi cuaderno) }
-by~(\ref{matrix_A}) and the considerations made there, the last is bounded by
+which by~(\ref{matrix_A}) and the considerations made there is bounded by
 \begin{IEEEeqnarray*}{rCl}
   C\,(\,\|{u}_{s,3}\|_{L^1({E})} +
-    \sum h_j\|\partial_{\xi_j}{u}_{s,3}\|_{L^1({E})}).
+    \sum_{j=1}^3 h_j\|\partial_{\xi_j}{u}_{s,3}\|_{L^1({E})}).
 \end{IEEEeqnarray*}
 Now
 \begin{IEEEeqnarray*}{rCl}
   \|u_{s,3}\|_{L^1(E)} &\leqslant& \|r\|_{L^2(E)} \,\|r^{-1}\,u_{s,3}\|_{L^2(E)}\\
-              &\leqslant&C\,h_1\,|E|^{\frac{1}{2}}\,\|u_{s,3}\|_{V_0^{1,2}(E)}\\
-              &\leqslant&C\,\textit{h}\,|E|^{\frac{1}{2}}\,\|u_{s,3}\|_{V_0^{1,2}(E)}. 
+              &\leqslant&C\,h_1\,|E|^{\nicefrac12}\,\|u_{s,3}\|_{V_0^{1,2}(E)}\\
+              &\leqslant&C\,\textit{h}\,|E|^{\nicefrac12}\,\|u_{s,3}\|_{V_0^{1,2}(E)}. 
 \end{IEEEeqnarray*}
 We have also                                   %% TODO {\color{red} (al final no va $(h_1 + h_2)$)}
 \begin{IEEEeqnarray*}{rCl}
   (h_1 + h_2)\sum_{i=1,2} \|\partial_{{x}_i}{u}_{s,3}\|_{L^1({E})} &\leqslant&
   C\,|E|^{\nicefrac12}\,\textit{h}\,\|u_{s,3}\|_{V_0^{1,2}(E)}
 \end{IEEEeqnarray*}
-and~(\ref{alongSingular})
+and by~(\ref{alongSingular})
 \begin{IEEEeqnarray*}{rCl}
   h_3\,\|\partial_{\xi_3}u_{s,3}\|_{L^1(E)} &\leqslant& C\,|E|^{\nicefrac12}\,
   \textit{h}\,\|u_{s,3}\|_{V_{0}^{1,2}(E)}.
 \end{IEEEeqnarray*}
-At last, having the bound for each of the three components, by~(\ref{normaL2L1}),    %% TODO {\color{BrickRed}(redactar mejor)}
+
+At last, having the bound for each of the three terms in 
+$\|\br_E \bu_s\|_{L^2(E)^3}$, (\ref{normaL2L1}) yields    %% TODO {\color{BrickRed}(redactar mejor)}
 \begin{IEEEeqnarray*}{rCl}
-  \|\br \bu_s\|_{L^{2}(E)} &\leqslant& C\,\textit{h}\,\|\bu_s\|_{\pazocal{V}_{\delta}(E)}.
+  \|\br_E\bu_s\|_{L^{2}(E)^3} &\leqslant& C\,\textit{h}\,\|\bu_s\|_{\pazocal{V}_{\delta}(E)}.
 \end{IEEEeqnarray*}
 \end{enumerate}
 % paragraph elements_with_d0 (end)
 % subsection bound_singular_part_prismatic_macroelement (end)
-\subsection{Bound for the Singular Part in a Tetrahedral Macro--Element
-with Singular Edge and Vertex} % (fold)
+\subsection{Bound for the Singular Part  of~(\ref{auxlabel75})
+in a Tetrahedral Macro--Element with Singular Edge and Vertex} % (fold)
 Again we organize separating cases in terms of distance to the singular edge 
 and then, for this type of macro--element, the terms with $d(E,\be) = 0$
 will be separated in terms of distance to the singular vertex.
@@ -436,9 +436,9 @@ will be separated in terms of distance to the singular vertex.
 Table~\ref{element_classification} shows what has to be done for each type of
 element. The rest of the needed estimates are contained in the proof of
 the former case.
-\begin{table}
+\begin{table}[!h]
 \centering
-\caption{Parte singular.}
+\caption{Singular Part.}
 \label{element_classification}
   \begin{IEEEeqnarraybox}
   [\IEEEeqnarraystrutmode
@@ -446,18 +446,18 @@ the former case.
     \IEEEeqnarrayrulerow\\
     \IEEEeqnarrayseprow[5pt]\\
     &\hfill\raisebox{22pt}[0pt][0pt]{$d(E,\be)>0$}\hfill
-                & & \referencePrismTikz{.5} 
+                & & \referencePrismTikz{.9} 
               & & \referencePyramidTikz{0.9}
                 & & \referenceTetrahedronTikz{.94}&\\
     \IEEEeqnarrayrulerow\\
     \IEEEeqnarrayseprow[5pt]\\
     &\hfill\raisebox{30pt}[0pt][0pt]{$d(E,\be)=0$}\hfill& &
       \begin{IEEEeqnarraybox}{c}
-      \referencePrismTikz{.5}\\d(E,\bv) > 0
+      \referencePrismTikz{.9}\\{\scriptstyle d(E,\bv) > 0}
       \end{IEEEeqnarraybox}
     &&&&
       \begin{IEEEeqnarraybox}{c}
-        \referenceTetrahedronTikz{.94}\\d(E,\bv) = 0
+        \referenceTetrahedronTikz{.94}\\{\scriptstyle d(E,\bv) = 0}
       \end{IEEEeqnarraybox}
     &\\
     \IEEEeqnarrayseprow[3pt]\\
@@ -465,13 +465,14 @@ the former case.
   \end{IEEEeqnarraybox}
 \end{table}
 
-Parte singular:
+Take a tetrahedral macro--element $\Lambda_\ell$ in $\pazocal{T}_{\textit{h}_0}$ as
+in the title of the subsection. Let us start with
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(\Lambda_\ell)^3}
+  \|\bu_s - \br_0\bu_s\|^2_{\scriptscriptstyle L^2(\Lambda_\ell)^3}
   &=&\sum_{d(E,\be) = 0}
-  \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}+
+  \|\bu_s - \br_0\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}+
   \sum_{d(E,\be) > 0}
-  \|\bu_s - \pi\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}\\[7pt]
+  \|\bu_s - \br_0\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}.
 \end{IEEEeqnarray*}
 Terms such that $d(E,\be)>0$. 
 \begin{enumerate}
@@ -543,7 +544,7 @@ and are regular
 the result of Theorem~\ref{aux_label46} and in the case of tetrahedra
 we use Theorem 6.2 of~\cite{aadl}  to get
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu_s - \pi\bu_s\|^2_{\sss L^2(K)}&\leqslant& C\left\{
+  \|\bu_s - \br_0\bu_s\|^2_{\sss L^2(K)}&\leqslant& C\left\{
     h_1^2\|\gancho_{\xi_1}\bu_s\|^2+
     h_2^2\|\gancho_{\xi_2}\bu_s\|^2+
     h_3^2\|\gancho_{\xi_3}\bu_s\|^2+
@@ -663,7 +664,7 @@ although the family of tetrahedra touching the singular vertex
 y the present type of macro--element remain regular, we estimate with 
 the weighted norms anisotropically for the sake of completeness. Let $T_\ell$
 be that tetrahedron touching the singular vertex and with an edge
-contained in the singular edge of $\Lambda_\ell$. %${\color{blue}\|\pi\bu_s\|^2_{\scriptscriptstyle L^2(Tetra)^3}}$.
+contained in the singular edge of $\Lambda_\ell$. %${\color{blue}\|\br_0\bu_s\|^2_{\scriptscriptstyle L^2(Tetra)^3}}$.
 We work for the first component of the local interpolate in the $L^1(T_\ell)$ norm
 using~(\ref{normaL2L1}).
 \begin{IEEEeqnarray*}{rCl}
@@ -831,3 +832,6 @@ to the edge, in the $L^2$ norm.
 \subsection{Bound for the Singular Part in a Tetrahedral Macro--Element
 with Singular Vertex and no Singular Edge}
 \noindent{\color{Orange}\#\#\#\#\#\#\# ponemos este?}
+{\color{blue}\# continue here; anotar para seguir 
+en el remark del caso de macroel. que me marcó ariel que faltar'ia 
+(ver mi cuaderno)}
