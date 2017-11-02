@@ -1,16 +1,21 @@
-\section{Statement of the Main Approximation Error Theorem}
+\section{Proof of the inequalities of the Main Approximation Error Theorem~\ref{auxlabel11}}
 Recall from inequality~(\ref{aux_label48})  for every $\bw\in W(\Th)$ it holds
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant& C\{\|\bu-\br_0\bu\|_{L^2(\Omega)^3} + \|\bu-\bw\|_{L^2(\Omega)^3}\}.
 \end{IEEEeqnarray*}
 For each $\bw$ we decompose the norm with the macro--elements as follows
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu-\bw\|^2_{0,\Omega} &=& \sum_1^{N_{\textit{h}_0}} \|\bu-\bw\|^2_{0,\Lambda_\ell}\\
-    &=& \sum_1^{N_{\textit{h}_0}} \left\{
-      \sum_{pri} \|\bu-\bw\|^2_{0,E_\ell} +
-      \sum_{tet} \|\bu-\bw\|^2_{0,E_\ell} +
-      \sum_{pyr} \|\bu-\bw\|^2_{0,E_\ell}
+  \|\bu-\bw\|^2_{0,\Omega} &=& \sum_{\ell=1}^{N_{\textit{h}_0}} \|\bu-\bw\|^2_{0,\Lambda_\ell}\\
+\IEEEeqnarraymulticol{3}{r}{
+    =\,\sum_{\ell=1}^{N_{\textit{h}_0}} \left\{
+\sum_{\substack{{\scriptscriptstyle{\text{prisms\,}}E_\ell}\\E_\ell\subseteq\Lambda_\ell}}
+      \|\bu-\bw\|^2_{\scriptscriptstyle 0,E_\ell} +
+\sum_{\substack{{\scriptscriptstyle{\text{tetrahedra\,}}E_\ell}\\E_\ell\subseteq\Lambda_\ell}}
+      \|\bu-\bw\|^2_{\scriptscriptstyle 0,E_\ell} +
+\sum_{\substack{{\scriptscriptstyle{\text{pyramids\,}}E_\ell}\\E_\ell\subseteq\Lambda_\ell}}
+      \|\bu-\bw\|^2_{\scriptscriptstyle 0,E_\ell}
     \right\} 
+}
 \end{IEEEeqnarray*}
 %%=========================================================================
 %For each macro--element $\Lambda_\ell$, for each pyramid $E_\ell\in\Lambda_\ell$,
@@ -44,17 +49,18 @@ For each $\bw$ we decompose the norm with the macro--elements as follows
 %         \|\textbf{u}_{s,3}\|_{\scriptscriptstyle \beta,0}\right).
 %\end{IEEEeqnarray*}
 %%=========================================================================
-Take $\bw_{\bu}$ as in Definition~\ref{aux_label51}.
-For the sum term over the pyramids (remember pyramids do not touch singularities)
-we have, restricting $\bw_{\bu}$, by the inequality we proved in~(\ref{aux_label63})  for pyramids
+and then take $\bw_{\bu}$ as in Definition~\ref{aux_label51}.
+For the sum term over the pyr\-amids (remember pyr\-amids do not touch singularities)
+we have, restricting $\bw_{\bu}$, by the inequality we proved
+in~(\ref{aux_label63})  for pyramids,
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu-\bw_{\bu}\|^2_{0,E_\ell} & = & \|\bu-P_{0,E_{\ell}}\bu\|^2_{0,E_\ell}\\
-                           & \leqslant & C \left\{h_E|\bu_r|_{H^1(E_\ell)} 
-                                + h_E|\bu_s|_{H^1(E_\ell)}\right\}\\
-                           & \leqslant & C\textit{h}\left\{ |\bu_r|_{H^1(E)} 
-                              + \|\bu_s\|_{V^{1,2}_{\beta,\delta}(E)}\right\}.
+  \|\bu-\bw_{\bu}\|^2_{0,E_\ell} & = & \|\bu-P_{0,E_{\ell}}\bu\|^2_{0,E_\ell}\\[4pt]
+                           & \leqslant & C \left\{h_E|\bu_r|_{H^1(E_\ell)^3} 
+                                + h_E|\bu_s|_{H^1(E_\ell)^3}\right\}\\[4pt]
+                           & \leqslant & C\textit{h}\left\{ |\bu_r|_{H^1(E_\ell)^3} 
+                              + \|\bu_s\|_{\pazocal{V}_{\beta,\delta}(E)}\right\}.
 \end{IEEEeqnarray*}
-With this all the others for prisms and tetrahedra whithin the proof of the
+With this and all the others for prisms and tetrahedra whithin the proof of the
 interpolation Theorem~\ref{interpolation_theorem} we have
 \begin{IEEEeqnarray*}{rCl}
   \|\bu-\bw_{\bu}\|^2_{0,\Omega}
@@ -63,10 +69,9 @@ interpolation Theorem~\ref{interpolation_theorem} we have
       \sum_{tet} \|\bu-\br_0\bu\|^2_{0,E_\ell} +
       \sum_{pyr} \|\bu-P_{0,E_{\ell}}\bu\|^2_{0,E_\ell}
     \right\}\\[5pt]
-    &\leqslant& C \sum_{\ell=1}^{N_{\textit{h}_0}}
-      \textit{h}^2 \|f\|^2_{0,\Omega}\\[5pt]
 \yesnumber\label{aux_label62}
-    & \leqslant &  C\,\textit{h}^2 \|f\|^2_{0,\Omega}.
+    &\leqslant& C \sum_{\ell=1}^{N_{\textit{h}_0}}
+      \textit{h}^2 \|f\|^2_{0,\Omega} \, \leqslant \,  C\,\textit{h}^2 \|f\|^2_{0,\Omega}.
 \end{IEEEeqnarray*}
 Note $C$ depends on the cardinal of the initial mesh.
 Now by Theorem~\ref{interpolation_theorem} and~(\ref{aux_label62}) we have, for 
