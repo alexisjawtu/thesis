@@ -476,12 +476,9 @@ in the title of the subsection. Let us start with
 \label{auxlabel350}
 \end{IEEEeqnarray}
 \paragraph{Terms in~\eqref{auxlabel350} such that $d(E,\be)>0$. }
-\begin{enumerate}
-  \item 
-Case $E$ is a pyramid.  {\color{Orange}\#\#\#\#\#\#\#\# seguir continue.}
-Remember the local $h_1,h_2,h_3$ for pyramids in our setting.
 %% (y,z,x)
-\begin{center}
+\begin{figure}[!h]
+  \centering
 \begin{tikzpicture}[rotate=0,scale=1,shape border uses incircle,shape border rotate=-30]
   \node [name=t,shape=trapezium,draw,minimum width=2cm,
       trapezium left angle=120] at (0,0,0) {};
@@ -510,55 +507,63 @@ Remember the local $h_1,h_2,h_3$ for pyramids in our setting.
   \draw [->,thick] (tl) -- (k2);
   \draw [->,thick] (tl) -- (k3);
 \end{tikzpicture}
-\end{center}
-For a pyramid $E$, as pyramids don't touch singularities
-and are regular  
-\begin{IEEEeqnarray*}{rCl}
+\caption{Macro--element directions in a pyramid}
+\label{auxlabel8}
+\end{figure}
+\begin{enumerate}
+  \item 
+Case $E$ is a pyramid.  
+Remember the local ordering for the directions
+of the edges of sizes $h_1$, $h_2$ and $h_3$ for pyramids in our setting
+(cfr. Figure~\ref{auxlabel8}).
+
+As pyramids in $\Th$ don't touch singularities
+and are regular, and $1-\mu\geqslant 1-\nu$, we have
+\begin{IEEEeqnarray*}{rCcCl}
   \|\bu_s - \br_0\bu_s\|^2_{\sss L^2(E)} & \leqslant & h_E^2|\bu_s|_{1,E}^2
-  \,\,\leqslant\,\,
+  &\leqslant&
   \textit{h}^2d(E,\be)^{2(1-\mu)}\sum_{i=1}^3 |u_{s,i}|^2_{1,E}\\
-  &\leqslant&
+\IEEEeqnarraymulticol{5}{R}{
+\begin{IEEEeqnarraybox*}{rCl}
+  \qquad&\leqslant&  
     \textit{h}^2\sum_{i=1}^3\sum_{j=1}^3 \|r^{1-\mu}\gancho_{\eta_j}u_{s,i}\|_{\sss L^2(E)}^2\\
-  &\leqslant&
+       &\leqslant&
     \textit{h}^2\left(
      \sum_{i=1}^2 \sum_{j=1}^3\|R^{1-\mu}\theta^{1-\mu}\gancho_{\eta_j}u_{s,i}\|_{\sss L^2(E)}^2
-     \right.\\
-     \IEEEeqnarraymulticol{3}{R}{\left.+
-          \sum_{j=1}^3\|R^{1-\mu}\gancho_{\eta_j}u_{s,3}\|_{\sss L^2(E)}^2\right)}\\[7pt]
-  (1-\mu\geqslant 1-\nu)\quad&\leqslant&
+     + \sum_{j=1}^3\|R^{1-\mu}\gancho_{\eta_j}u_{s,3}\|_{\sss L^2(E)}^2\right)\\[7pt]
+       &\leqslant&
     \textit{h}^2\left(
      \sum_{i=1}^2 \sum_{j=1}^3\|R^{1-\nu}\theta^{1-\mu}\gancho_{\eta_j}u_{s,i}\|_{\sss L^2(E)}^2
-     \right.\\
-     \IEEEeqnarraymulticol{3}{R}{\left.+
-          \sum_{j=1}^3\|R^{1-\nu}\gancho_{\eta_j}u_{s,3}\|_{\sss L^2(E)}^2\right)}\\[7pt]
-  &\leqslant&
+    + \sum_{j=1}^3\|R^{1-\nu}\gancho_{\eta_j}u_{s,3}\|_{\sss L^2(E)}^2\right)\\[7pt]
+       &\leqslant&
     \textit{h}^2\left(
     \sum_{i=1}^2 \sum_{j=1}^3\|R^{\beta}\theta^{\delta}\gancho_{\eta_j}u_{s,i}\|_{\sss L^2(E)}^2+
      \sum_{j=1}^3\|R^{\beta}\gancho_{\eta_j}u_{s,3}\|_{\sss L^2(E)}^2\right)\\[7pt]
-  \yesnumber\label{aux_label63} &\leqslant&
+  \yesnumber\label{aux_label63} 
+       &\leqslant&
     \textit{h}^2
-    \left(\|u_{s,1}\|_{\sss V^{1,2}_{\beta,\delta}}+
-          \|u_{s,2}\|_{\scriptscriptstyle V^{1,2}_{\beta,\delta}}+
-          \|u_{s,3}\|_{\scriptscriptstyle V^{1,2}_{\beta,0}}\right).
+    \|\bu_{s}\|^2_{\pazocal{V}_{\beta,\delta}(E)}.
+\end{IEEEeqnarraybox*}
+}
 \end{IEEEeqnarray*}
-\item For prisms with $d(E,\be)>0$ or tetrahedra: in the case of prisms we use 
+\item Case $E$ is a prism (with $d(E,\be)>0$) or a tetrahedron. In the case of prisms we use 
 the result of Theorem~\ref{aux_label46} and in the case of tetrahedra
 we use Theorem 6.2 of~\cite{aadl}  to get
-\begin{IEEEeqnarray*}{rCl}
+\begin{IEEEeqnarray}{rCl}\label{auxlabel9}
   \|\bu_s - \br_0\bu_s\|^2_{\sss L^2(K)}&\leqslant& C\left\{
-    h_1^2\|\gancho_{\xi_1}\bu_s\|^2+
-    h_2^2\|\gancho_{\xi_2}\bu_s\|^2+
-    h_3^2\|\gancho_{\xi_3}\bu_s\|^2+
+    \sum_{i=1}^3 h_i^2\|\gancho_{\xi_i}\bu_s\|^2+
     h_K^2\|\dv\bu_s\|^2
-  \right\}
-\end{IEEEeqnarray*}
+  \right\}.
+\end{IEEEeqnarray}
 Now the treatment is a slight variation of the previous item including a few small
 tricks. In fact,
-\begin{IEEEeqnarray*}{rCl}
+\begin{IEEEeqnarray*}{rCcCl}
   h_1^2\|\gancho_{\xi_1}\bu_s\|^2_{L^2(E)^3}&=&
-  h_1^2\sum_{i=1}^3 \|\gancho_{\xi_1}u_{s,i}\|^2_{L^2(E)}\,\leqslant\,
+  h_1^2\sum_{i=1}^3 \|\gancho_{\xi_1}u_{s,i}\|^2_{L^2(E)}&\leqslant&
     \textit{h}^2\sum_{i=1}^3 \|r^{1-\mu}\gancho_{\xi_1}u_{s,i}\|^2_{L^2(E)}\\
-  &\leqslant&
+\IEEEeqnarraymulticol{5}{r}{
+\begin{IEEEeqnarraybox}{rCl}
+\qquad&\leqslant&
     \textit{h}^2\left(
      \sum_{i=1}^2 \|R^{1-\mu}\theta^{1-\mu}\gancho_{\xi_1}u_{s,i}\|^2_{L^2(E)}+
      \|R^{1-\mu}\gancho_{\xi_1}u_{s,3}\|^2_{L^2(E)}\right)\\[7pt]
@@ -571,37 +576,38 @@ tricks. In fact,
     \sum_{i=1}^2 \|R^{\beta}\theta^{\delta}\gancho_{\xi_1}u_{s,i}\|^2_{L^2(E)}+
      \|R^{\beta}\gancho_{\xi_1}u_{s,3}\|^2_{L^2(E)}\right)\\[7pt]
   &\leqslant&
-    \textit{h}^2
-    \left(\sum_{i=1}^2 \|u_{s,i}\|^2_{\scriptscriptstyle V^{1,2}_{\beta,\delta}}+
-         \|u_{s,3}\|_{\scriptscriptstyle V^{1,2}_{\beta,0}}\right).
+    \textit{h}^2 \|\bu_{s}\|^2_{\pazocal{V}_{\beta,\delta}(E)}.
+\end{IEEEeqnarraybox}
+}
 \end{IEEEeqnarray*}
 Now, since $h_2\sim h_1$, with the same argument,
 \begin{IEEEeqnarray*}{rCl}
   h_2\|\gancho_{\xi_2}\bu_s\|_{L^2(E)^3}&=&
   h_2\sum_{i=1}^3 \|\gancho_{\xi_2}u_{s,i}\|\,\leqslant\,
     \textit{h}
-    \left(\sum_{i=1}^2 \|u_{s,i}\|_{\scriptscriptstyle \beta,\delta}+
-         \|u_{s,3}\|_{\scriptscriptstyle \beta,0}\right).
+    \|\bu_{s}\|_{\pazocal{V}_{\beta,\delta}(E)}.
 \end{IEEEeqnarray*}
-For the derivative with respect to $\xi_3$,
+For the derivative with respect to $\xi_3$ in~\eqref{auxlabel9},
 \begin{IEEEeqnarray*}{rCl}
   h_3^2\|\gancho_{\xi_3}\bu_s\|^2_{L^2(E)^3}&=&
   h_3^2\sum_{i=1}^3 \|\gancho_{\xi_3}u_{s,i}\|^2_{L^2(E)}\\
-  &=&h_3^2\left(\sum_{i=1}^2\|\gancho_{\xi_i}u_{s,3}\|^2_{L^2(E)}+
+\IEEEeqnarraymulticol{3}{R}{
+\begin{IEEEeqnarraybox*}{rCl}
+\qquad&=&h_3^2\left(\sum_{i=1}^2\|\gancho_{\xi_i}u_{s,3}\|^2_{L^2(E)}+
     \|\gancho_{\xi_3}u_{s,3}\|^2_{L^2(E)}\right)\\[7pt]
-  &\leqslant&\textit{h}^2\left(\sum_{i=1}^2\|d(K,v)^{1-\nu}\gancho_{\xi_i}u_{s,3}\|^2_{L^2(E)}
-  \right.\\
-  \IEEEeqnarraymulticol{3}{r}{\left.
-    +\|d(K,v)^{1-\nu}\gancho_{\xi_3}u_{s,3}\|^2_{L^2(E)}\right)}\\[7pt]
+  &\leqslant&\textit{h}^2\left(\sum_{i=1}^2\|d(E,v)^{1-\nu}\gancho_{\xi_i}u_{s,3}\|^2_{L^2(E)}
+      +\|d(E,v)^{1-\nu}\gancho_{\xi_3}u_{s,3}\|^2_{L^2(E)}\right)\\[7pt]
   &\leqslant&
   \textit{h}^2\left(\sum_{i=1}^2\|R^{\beta}\gancho_{\xi_i}u_{s,3}\|^2_{L^2(E)}+
     \|R^{\beta}\gancho_{\xi_3}u_{s,3}\|^2_{L^2(E)}\right)\\[7pt]
   &=&
   \textit{h}^2\sum_{i=1}^3\|R^{\beta}\gancho_{\xi_i}u_{s,3}\|^2_{L^2(E)}\\[7pt]
   &\leqslant&
-  3\textit{h}^2\|u_{s,3}\|^2_{\scriptscriptstyle V^{1,2}_{\beta,0}}.
+  3\textit{h}^2\|u_{s,3}\|^2_{\scriptscriptstyle V^{1,2}_{\beta,0}(E)}.
+\end{IEEEeqnarraybox*} 
+}
 \end{IEEEeqnarray*}
-The divergence term goes like in~(\ref{aux_label64}).
+The divergence term in~\eqref{auxlabel9} goes like in~(\ref{aux_label64}).
 \end{enumerate}
 Terms such that $d(E,\be)=0$. We have just prisms and one isotropic tetrahedron
 to be considered separately as $T$ for the interpolation term after 
