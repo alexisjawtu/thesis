@@ -774,7 +774,7 @@ and then
 \yesnumber\label{aux_label66}
 \end{IEEEeqnarray*}
 \end{enumerate}
-\item {\color{Orange}\#\#\#\#\#\#\#\# here.}
+\item 
 Now prisms, the middle term on the right of~(\ref{distancia_cero_arista}). Remember
 the difference with the tetrahedron is that $d(P,\bv_\ell) \gtrsim h_1$.
 We start pulling back from $P$ to the rescaled prism in Figure~\ref{rescaled_prism}
@@ -782,66 +782,72 @@ called here $\tilde P$.
 By the stability estimate in Theorem~\ref{thmStabilityKtildeRT}, 
 \begin{IEEEeqnarray*}{rCl}
   \|\br_0\bu_s\|_{\scriptscriptstyle L^1(P)^3} & \leqslant & 
-    \|M_P\|_\infty \|\tilde{\br}_0\tilde{\bu}_s\|_{L^1{\tilde{P}}} \\ [7pt]
-  &\lesssim& \left\| \tilde{\bu}_s \right\|_{L^1(\tilde{P})^3}
+    \|M_P\|_\infty \|\tilde{\br}_0\tilde{\bu}_s\|_{L^1({\tilde{P}})^3} \\ [7pt]
+\IEEEeqnarraymulticol{3}{r}{
+\begin{IEEEeqnarraybox*}{rCl}
+ \qquad&\lesssim& \left\| \tilde{\bu}_s \right\|_{L^1(\tilde{P})^3}
     + \sum_{j=1}^3 h_j \left\| \partial_{\tilde{x}_j}\tilde{\bu}_s \right\|_{L^1(\tilde{P})^3}
-    + h_{\tilde{P}}\left\|\dv(\tilde{u}_1, \tilde{u}_2, 0) \,\right\|_{L^1(\tilde{P})}\\[7pt]
+    + h_{\tilde{P}}\left\|\dv(\tilde{u}_{s,1}, \tilde{u}_{s,2}, 0) \,\right\|_{L^1(\tilde{P})}\\[7pt]
   &\lesssim& \left\| \bu_s \right\|_{L^1(P)^3}
     + \sum_{j=1}^3 h_j \left\| \partial_{\xi_j}\bu_s \right\|_{L^1(P)^3}
-    + h_{P}\left\|\dv(u_1, u_2, 0) \,\right\|_{L^1(P)}\mbox{,}    
+    + h_{P}\left\|\dv(u_{s,1}, u_{s,2}, 0) \,\right\|_{L^1(P)}\mbox{,}    
+\end{IEEEeqnarraybox*}
+}\\[4pt]
+&&\yesnumber\label{auxlabel10}
 \end{IEEEeqnarray*}
 by the same argument as in~(\ref{aux_label15}) for 
 elements touching the singular edge in the prismatic macro--element. Now
 to estimate each term, again for $i=1$ or $2$ we have
 \begin{IEEEeqnarray*}{rCcCl}
-  \|u_{s,i}\| & \leqslant & \|R^{\nu}\theta^{\mu}\| \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2}
-  & \leqslant & \textit{h}\,|P|^{\nicefrac12} \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2}
+  \|u_{s,i}\|_{L^1(P)} & \leqslant & 
+    \|R^{\nu}\theta^{\mu}\|_{0,P} \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{0,P}
+      & \leqslant & \textit{h}\,|P|^{\nicefrac12} \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{0,P}
 \end{IEEEeqnarray*}
 and
 \begin{IEEEeqnarray*}{rCcCl}
-  \|u_{s,3}\| & \leqslant & \|R^{\nu}\theta\| \|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2}
-  & \leqslant & \textit{h}\,|P|^{\nicefrac12} \|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2}.
+  \|u_{s,3}\|_{L^1(P)} & \leqslant & \|R^{\nu}\theta\|_{0,P} \|R^{-\nu}\theta^{-1}u_{s,3}\|_{0,P}
+  & \leqslant & \textit{h}\,|P|^{\nicefrac12} \|R^{-\nu}\theta^{-1}u_{s,3}\|_{0,P}.
 \end{IEEEeqnarray*}
 Next fix $j = 1$ or $2$.         %\noindent DErivatives: $j = 1$ or $2$.\\
-If $i=1$ or $2$, with the same argument as in~(\ref{cuentita_integral})
+If $i=1$ or $2$, with the same argument as in~(\ref{cuentita_integral}), we state that
 \begin{IEEEeqnarray}{rCl}
-  h_j\|\partial_{\xi_j} u_{s,i}\|_{L^1} & \lesssim &
-    \textit{h}\,\sqrt{|P|}\,\|R^{1-\nu}\theta^{1-\mu}\partial_{\xi_j} u_{s,i}\|_{L^2}.
+  h_j\|\partial_{\xi_j} u_{s,i}\|_{L^1(P)} & \lesssim &
+    \textit{h}\,\sqrt{|P|}\,\|R^{1-\nu}\theta^{1-\mu}\partial_{\xi_j} u_{s,i}\|_{0,P}.
 \end{IEEEeqnarray}
-For the derivatives of $u_{s,3}$ we write
+For the derivatives of $u_{s,3}$ it holds that 
 \begin{IEEEeqnarray*}{rCl}
-  h_j\|\partial_{\xi_j}u_{s,3}\|_{L^1} &\leqslant&
-    h_j \|R^{\nu-1}\|_{L^2}\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{L^2}\\[7pt]
-  &\leqslant& h_j \|r^{\mu-1}\|_{L^2}\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{L^2}\\[7pt]
-  &\lesssim& \textit{h}\,\sqrt{|P|}\,\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{L^2}.
+  h_j\|\partial_{\xi_j}u_{s,3}\|_{L^1(P)} &\leqslant&
+    h_j \|R^{\nu-1}\|_{0,P}\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{0,P}\\[7pt]
+  &\leqslant& h_j \|r^{\mu-1}\|_{0,P}\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{0,P}\\[7pt]
+  &\lesssim& \textit{h}\,\sqrt{|P|}\,\|R^{1-\nu}\partial_{\xi_j}u_{s,3}\|_{0,P}.
 \end{IEEEeqnarray*}
-Now the case of the derivative along the direction of the singular edge 
-$\partial_{\xi_3}(\cdot)$. Remember in this case it is 
+Now, for the  derivative along the direction of the singular edge 
+$\partial_{\xi_3}(\cdot)$, remember in this case it is 
 $h_3\sim\textit{h}\,d(P,\bv)^{1-\nu}$. If we take first and second components,
 \begin{IEEEeqnarray*}{rCl}
-  h_3\|\partial_{\xi_3}u_{s,i}\|_{L^1}& = & h_3\|\partial_{\xi_i}u_{s,3}\|_{L^1}\\[7pt]
-  & \leqslant & C\textit{h}\|R^{1-\nu}\partial_{\xi_i}u_{s,3}\|_{L^1}\\[7pt]
-  & \leqslant & C\textit{h}|P|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_i}u_{s,3}\|_{L^2}.
+  h_3\|\partial_{\xi_3}u_{s,i}\|_{L^1(P)}& = & h_3\|\partial_{\xi_i}u_{s,3}\|_{L^1(P)}\\[7pt]
+  & \leqslant & C\textit{h}\|R^{1-\nu}\partial_{\xi_i}u_{s,3}\|_{L^1(P)}\\[7pt]
+  & \leqslant & C\textit{h}|P|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_i}u_{s,3}\|_{L^2(P)}.
 \end{IEEEeqnarray*}
-Third component:
+And if we take the third component,
 \begin{IEEEeqnarray*}{rCl}
-  h_3\|\partial_{\xi_3}u_{s,3}\|_{L^1}& \sim & \textit{h}\|d(P,\bv)^{1-\nu}
-    \partial_{\xi_3}u_{s,3}\|_{L^1}\\[7pt]
-  & \leqslant & C\textit{h}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L^1}\\[7pt]
-  & \leqslant & C\textit{h}|P|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L^2}.
+  h_3\|\partial_{\xi_3}u_{s,3}\|_{L^1(P)}& \sim & \textit{h}\|d(P,\bv)^{1-\nu}
+    \partial_{\xi_3}u_{s,3}\|_{L^1(P)}\\[7pt]
+  & \leqslant & C\textit{h}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L^1(P)}\\[7pt]
+  & \leqslant & C\textit{h}|P|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L^2(P)}.
 \end{IEEEeqnarray*}
-For the divergence term,
+For the divergence term in~\eqref{auxlabel10},
 \begin{IEEEeqnarray*}{rCl}
-  h_P\|\dv(u_{s,1},u_{s,1},0)\|_{L1}&\leqslant&h_P\|\dv\bu_s\|_{L1}
-    +h_P\|\partial_{\xi_3}u_{s,3}\|_{L1}\\[7pt]
-    &\lesssim&h_P\|\dv\bu_s\|_{L1} + h_3\|\partial_{\xi_3}u_{s,3}\|_{L1}\mbox{;}
+  h_P\|\dv(u_{s,1},u_{s,1},0)\|_{L^1(P)}&\leqslant&h_P\|\dv\bu_s\|_{L^1(P)}
+    +h_P\|\partial_{\xi_3}u_{s,3}\|_{L^1(P)}\\[7pt]
+    &\lesssim&h_P\|\dv\bu_s\|_{L^1(P)} + h_3\|\partial_{\xi_3}u_{s,3}\|_{L^1(P)}\mbox{;}
 \end{IEEEeqnarray*}
-the estimate for $h_P\|\dv\bu_s\|_{L1}$ follows as in~(\ref{aux_label66}), 
-and the estimate for $h_3\|\partial_{\xi_3}u_{s,3}\|_{L1}$ should be
+the estimate for $h_P\|\dv\bu_s\|_{L^1(P)}$ follows as in~(\ref{aux_label66}), 
+and the estimate for $h_3\|\partial_{\xi_3}u_{s,3}\|_{L^1(P)}$ should be
 \begin{IEEEeqnarray*}{rCl}
-  h_3\|\partial_{\xi_3}u_{s,3}\|_{L1} & \lesssim &
-  \textit{h} |P|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L2} \\
-  &\lesssim& \textit{h} |P|^{\nicefrac12}\|u_{s,3}\|_{V_{\beta,0}}.
+  h_3\|\partial_{\xi_3}u_{s,3}\|_{L^1(P)} & \lesssim &
+  \textit{h} |P|^{\nicefrac12}\|R^{1-\nu}\partial_{\xi_3}u_{s,3}\|_{L^2(P)} \\
+  &\lesssim& \textit{h} |P|^{\nicefrac12}\|u_{s,3}\|_{V_{\beta,0}(P)}.
 \end{IEEEeqnarray*}
 \end{enumerate}
 Collecting all the estimates in items $2$ and $3$ above, using~(\ref{normaL2L1})
@@ -852,6 +858,6 @@ to the edge, in the $L^2$ norm.
 \subsection{Bound for the Singular Part in a Tetrahedral Macro--Element
 with Singular Vertex and no Singular Edge}
 \noindent{\color{Orange}\#\#\#\#\#\#\# ponemos este?}
-{\color{blue}\# continue here; anotar para seguir 
-en el remark del caso de macroel. que me marcó ariel que faltar'ia 
-(ver mi cuaderno)}
+%% {\color{blue}\# continue here; anotar para seguir 
+%% en el remark del caso de macroel. que me marcó ariel que faltar'ia 
+%% (ver mi cuaderno)}
