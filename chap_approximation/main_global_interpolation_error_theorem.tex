@@ -609,9 +609,11 @@ For the derivative with respect to $\xi_3$ in~\eqref{auxlabel9},
 \end{IEEEeqnarray*}
 The divergence term in~\eqref{auxlabel9} goes like in~(\ref{aux_label64}).
 \end{enumerate}
-Terms such that $d(E,\be)=0$. We have just prisms and one isotropic tetrahedron
-to be considered separately as $T$ for the interpolation term after 
-triangle inequality. In fact,
+\paragraph{Terms in~\eqref{auxlabel350} such that $d(E,\be_\ell)=0$.}
+In this case we have anisotropic prisms and tetrahedra from an isotropic 
+subfamily, one in each tetrahedral macro--element of the present type.
+
+From~\eqref{auxlabel350}, after triangle inequality, we write
 \begin{IEEEeqnarray}{rCl} %
   \IEEEeqnarraymulticol{3}{L}{\nonumber
     \sum_{d(E,\be) = 0}
@@ -620,28 +622,32 @@ triangle inequality. In fact,
   \\
   \IEEEeqnarraymulticol{3}{R}{
   \label{distancia_cero_arista}
-  \,\lesssim\,\|\br_0\bu_s\|^2_{\scriptscriptstyle L^2(T)^3}
+  \,\lesssim\,\|\br_0\bu_s\|^2_{\scriptscriptstyle L^2(T_\ell)^3}
   \,+\sum_{
   \substack{{\small{\text{prisms\,}}P}\\
           d(P,\be) = 0}} \|\br_0\bu_s\|^2_{\scriptscriptstyle L^2(P)^3}
   \,+\sum_{d(E,\be) = 0} \|\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}}.
 \end{IEEEeqnarray}
-Now let us bound each term on the right of~(\ref{distancia_cero_arista}).
+Here we put $T_\ell$ for the mentioned tetrahedron and
+$E$ for generic elements in $\Lambda_\ell$.
+Now let us bound each term.%% on the right of~(\ref{distancia_cero_arista}).
 \begin{enumerate}
   \item 
   For the last term on the right of~(\ref{distancia_cero_arista}), let
 $E$ be any of both the tetrahedron with the
 singular
  vertex or a prism. If $E$ is a prism, recall in this case we have
- $d(E,\be) = 0$ and $d(E,v) > 0$. 
+ $d(E,\be) = 0$ and $d(E,\bv) > 0$. So
 \begin{IEEEeqnarray*}{rCl}
-   \|\bu_s\|_E &=&
-    \sum_{i=1}^2 \|R^\nu\theta^\mu R^{-\nu}\theta^{-\mu} u_{s,i}\|
-    + \|R^\nu\theta^{-1}R^{-\nu}\theta u_{s,3}\|\\[7pt]
+   \|\bu_s\|_{L^2(E)^3} &=&
+    \sum_{i=1}^2 \|R^\nu\theta^\mu R^{-\nu}\theta^{-\mu} u_{s,i}\|_{0,E}
+    + \|R^\nu\theta^{-1}R^{-\nu}\theta u_{s,3}\|_{0,E}\\[7pt]
   &\leqslant&\|R^\nu\theta^\mu\|_{L^\infty(E)}
-  \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu} u_{s,i}\|
-    + \|R^\nu\theta\|_{L^\infty(E)}
-    \|R^{-\nu}\theta^{-1} u_{s,3}\|.
+  \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu} u_{s,i}\|_{0,E}\\[4pt]
+\IEEEeqnarraymulticol{3}{r}{
+    +\,\|R^\nu\theta\|_{\infty,E}
+    \|R^{-\nu}\theta^{-1} u_{s,3}\|_{0,E}.
+}
 \end{IEEEeqnarray*}
 Since $\theta < 1$ and $\mu \leqslant \nu < 1$, then
 \begin{IEEEeqnarray}{rClClCr}
@@ -652,25 +658,25 @@ Since $\theta < 1$ and $\mu \leqslant \nu < 1$, then
 \end{IEEEeqnarray}
 Using this we get
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu_s\|&\leqslant&\|r^\mu\|_{\infty,E}
+  \|\bu_s\|_{0,E}&\leqslant&\|r^\mu\|_{\infty,E}
   \left(
-    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}u_{s,i}\|
-    + \|R^{-\nu}\theta^{-1}u_{s,3}\|
+    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{0,E}
+    + \|R^{-\nu}\theta^{-1}u_{s,3}\|_{0,E}
   \right)\\[7pt]
   &\leqslant&\max\{h_1,h_2\}^\mu
   \left(
-    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}u_{s,i}\|
-    + \|R^{-\nu}\theta^{-1}u_{s,3}\|
+    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{0,E}
+    + \|R^{-\nu}\theta^{-1}u_{s,3}\|_{0,E}
   \right)\\[7pt]
   &\lesssim&\textit{h}
     \|\bu_{s}\|_{\pazocal{V}_{\beta,\delta}(E)}
 \end{IEEEeqnarray*}
 provided we take $\beta\sim 1-\nu$ and $\delta\sim 1-\mu$.
-\item For the first term in~\ref{distancia_cero_arista},
-although the family of tetrahedra touching the singular vertex
-y the present type of macro--element remain regular, we estimate with 
-the weighted norms anisotropically for the sake of completeness. Let $T_\ell$
-be that tetrahedron touching the singular vertex and with an edge
+\item For the first term in~\eqref{distancia_cero_arista},
+although, as we said, the tetrahedra touching the vertex remain regular, 
+we estimate with 
+the weighted norms anisotropically for the sake of completeness and generality.
+Recall $T_\ell$ also has an edge
 contained in the singular edge of $\Lambda_\ell$. %${\color{blue}\|\br_0\bu_s\|^2_{\scriptscriptstyle L^2(Tetra)^3}}$.
 We work for the first component of the local interpolate in the $L^1(T_\ell)$ norm
 using~(\ref{normaL2L1}).
@@ -679,29 +685,31 @@ using~(\ref{normaL2L1}).
     & \leqslant & C|T_\ell|^{-1/2} \|(\br_0\bu_s)_1\|_{\scriptscriptstyle L^1(T_\ell)}.
 \end{IEEEeqnarray*}
 Remember that by Lemma~\ref{well_defined_dofs} we know $\bu_s$ is in 
-$W^{1,1}(\Lambda_\ell)$.
-\rescaledTetraTikz
-We 
-start pulling $\br_0\bu_s$ back to a rescaled reference tetrahedron $\tilde{T}$ 
+$W^{1,1}(\Lambda_\ell)^3$. We start pulling $\br_0\bu_s$ back to a rescaled
+reference tetrahedron $\tilde{T}$ 
 with the mapping 
 $F_{T_\ell}(\tilde{\bx}) = M_{T_\ell}\tilde{\bx} + \bx_{T_\ell}$
-(cfr. Figure~\ref{rescaled_tetra}). Using Lemma 5.22 in page 123 of~\cite{monk},
-which gives the analog of~(\ref{div_interp_commutes}) for 
+(cfr. Figure~\ref{rescaled_tetra}). 
+\rescaledTetraTikz
+
+Using Lemma 5.22 in page 123 of~\cite{monk},
+which gives the analog of our statement in~(\ref{div_interp_commutes}) for 
 tetrahedra, and then using Proposition 3.4 of~\cite{aadl}, we get
 \begin{IEEEeqnarray*}{rCl}
   \|(\br_0\bu_s)_1\|_{L^1(T_\ell)} &=& \int_{\tilde{T}}|(M_{T_\ell}\tilde{\br}_0\tilde{\bu}_s)_1|\,d\tilde{\bx}\\[7pt]
-    &\leqslant& C \sum_{1\leqslant i\leqslant 3} \left(\|\tilde{u}_{s,i}\|_{L^1(\tilde{T})} + 
-      \sum_{1\leqslant j\leqslant 3} h_j\|\partial_j\tilde{u}_{s,i}\|_{L^1(\tilde{T})}\right.\\
-      \IEEEeqnarraymulticol{3}{r}{\left. + 
-             h_i\|\dvg \tilde{\bu}_s\|_{L^1(\tilde{T})}\right)} \\[7pt] %%% & = & \ldots \text{paso al tetraedro f\'isico} \ldots \\[7pt] % VER BORRADOR INTERPOLACION PIRAMIDE
-    & \leqslant & C
-    \left(\|\bu_{s}\|_{L^1(T_\ell)^3} + 
-    \sum_{1\leqslant j \leqslant 3} h_j\|\partial_{\xi_j}\bu_{s}\|_{L^1(T_\ell)^3}\right.\\
-    \IEEEeqnarraymulticol{3}{r}{\yesnumber\label{aux_label60}
-    \left. + (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)}\right)}
+    &\leqslant& C\,\bigg\{ \sum_{1\leqslant i\leqslant 3} \|\tilde{u}_{s,i}\|_{L^1(\tilde{T})} + 
+      \sum_{1\leqslant j\leqslant 3} h_j\|\partial_j\tilde{u}_{s,i}\|_{L^1(\tilde{T})}\\
+      \IEEEeqnarraymulticol{3}{r}{ + \,
+             h_i\|\dvg \tilde{\bu}_s\|_{L^1(\tilde{T})}\bigg\}} \\[7pt] %%% & = & \ldots \text{paso al tetraedro f\'isico} \ldots \\[7pt] % VER BORRADOR INTERPOLACION PIRAMIDE
+    & \leqslant & C\,
+    \bigg\{\|\bu_{s}\|_{L^1(T_\ell)^3} + 
+    \sum_{1\leqslant j \leqslant 3} h_j\|\partial_{\xi_j}\bu_{s}\|_{L^1(T_\ell)^3}\\
+    \IEEEeqnarraymulticol{3}{r}{
+    + (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)}\bigg\}}\\[3pt]
+&&\yesnumber\label{aux_label60}
 \end{IEEEeqnarray*}
 {\color{Orange}\#\#\#\#\#\#\# where $C$ depends only on the max angle?}. 
-Now we estimate each term in the right of~(\ref{aux_label60}).
+Now we estimate each term on the right side of~(\ref{aux_label60}).
 \begin{enumerate}
   \item[(2a)] By H\"older's inequality
 \begin{IEEEeqnarray*}{rCl}
@@ -709,19 +717,19 @@ Now we estimate each term in the right of~(\ref{aux_label60}).
 \sum_{i=1,2}\|R^{\nu}\theta^{\mu}\|_{L^2(T_\ell)}\|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^2(T_\ell)}\\ %%&\leqslant&\|R^\nu\theta^{\mu}\|_\infty|T_\ell|^{\nicefrac12}\sum_{i=1,2}\|\ldots u_{s,i}\|_{L^2(T\ell)} + \|R^\nu\theta\|_\infty|T_\ell|^{\nicefrac12}\|\ldots u_{s,3}\|_{L^2(T\ell)}\\[7pt]
  & &\qquad+\,\|R^{\nu}\theta\|_{L^2(T_\ell)}\|R^{-\nu}\theta^{-1}u_{s,3}\|_{L^2(T_\ell)}
 \end{IEEEeqnarray*}
-and by~(\ref{cota_pesos}) and~(\ref{label_grading}) we have                                        %&\leqslant&(\textit{h}^{1/\mu})^\mu|T_\ell|^{\nicefrac12}\sum_{i=1,2}\|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^{2}(T_\ell)} +\|R^{-\nu}\theta^{-1} u_{s,3}\|_{L^{2}(T_\ell)}\\[7pt]
+and by~(\ref{cota_pesos}) and the grading criterion~(\ref{label_grading}) we have                                        %&\leqslant&(\textit{h}^{1/\mu})^\mu|T_\ell|^{\nicefrac12}\sum_{i=1,2}\|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{L^{2}(T_\ell)} +\|R^{-\nu}\theta^{-1} u_{s,3}\|_{L^{2}(T_\ell)}\\[7pt]
 \begin{IEEEeqnarray*}{rCl} 
 \|\bu_{s}\|_{L^1(T_\ell)^3} &\leqslant&(\textit{h}^{1/\mu})^\mu|T_\ell|^{\nicefrac12}
 \|\bu_s\|_{V_{\beta,\delta}^{1,2}(T_\ell)^2\times V_{\beta,0}^{1,2}(T_\ell)}\\
 &=&\textit{h}\,|T_\ell|^{\nicefrac12}\|\bu_s\|_{\pazocal{V}_{\beta,\delta}(T_\ell)}.
 \end{IEEEeqnarray*}
   \item[(2b)]
-Take $1\leqslant j,i \leqslant 3$ %%% TODO (HACER APARTE PARA $i=3$; creo que es un poco diferente, como pas\'o antes):
+Take $1\leqslant j,i \leqslant 3$. Then %%% TODO (HACER APARTE PARA $i=3$; creo que es un poco diferente, como pas\'o antes):
 \begin{IEEEeqnarray*}{rCl}
   h_j\|\partial_{\xi_j} u_{s,i}\|_{L^1(T_\ell)} & \leqslant &
-    h_j\|R^{\nu-1}\theta^{\mu-1}\|_{L^2(T_\ell)}\|R^{1-\nu}\theta^{1-\mu}\partial_{\xi_j} u_{s,i}\|_{L^2(T_\ell)}
+    h_j\|R^{\nu-1}\theta^{\mu-1}\|_{0,T_\ell}\|R^{1-\nu}\theta^{1-\mu}\partial_{\xi_j} u_{s,i}\|_{0,T_\ell}.
 \end{IEEEeqnarray*}
-As $0\leqslant1-\nu\leqslant1-\mu<1$ we get 
+As it holds $0\leqslant1-\nu\leqslant1-\mu<1$, we get 
 \[
   R(\bx)^{1-\nu}\geqslant R(\bx)^{1-\mu}
 \]
@@ -736,11 +744,11 @@ From this we will use that
 \]
 Now, calculating the right side integrating in a cylindrical section,
 \[
-  \|r^{\mu-1}\|_{L^2(T_\ell)} = \sqrt{\frac{\pi}{4\mu}}\sqrt{h_3}\,h_1^{\mu}\sim \sqrt{h_3}\,\textit{h}.
+  \|r^{\mu-1}\|_{L^2(T_\ell)} = \sqrt{\tfrac{\pi}{4\mu}}\sqrt{h_3}\,h_1^{\mu}\sim \sqrt{h_3}\,\textit{h}.
 \]
 Then
 \begin{IEEEeqnarray*}{rCl}
-  h_j\|r^{\mu-1}\|_{L^2} & \lesssim & \sqrt{h_1h_2h_3}\textit{h}\\[7pt]
+  h_j\|r^{\mu-1}\|_{L^2} & \lesssim & \sqrt{h_1h_2h_3}\,\textit{h}\\[7pt]
     & \sim & \sqrt{|T_\ell|}\,\textit{h}
 \end{IEEEeqnarray*}
 and then
@@ -751,17 +759,22 @@ and then
 \label{cuentita_integral}
     &\leqslant& \textit{h}\,\sqrt{|T_\ell|}\,\|u_{s,i}\|_{\scriptscriptstyle V^{1,2}_{\beta,\delta}(T_\ell)}.
 \end{IEEEeqnarray}
-\item[(2c)]\label{aux_label65} The divergence term in~(\ref{aux_label60}):
+\item[(2c)]\label{aux_label65} For the divergence term in~(\ref{aux_label60}):
 \begin{IEEEeqnarray*}{rClCr}
   (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)} & \leqslant &
     (2\textit{h}^{1/\mu} + \textit{h}^{1/\nu}) \|\dvg \bu_s\|_{L^1(T_\ell)} \\[7pt]
-    & \leqslant & 3\,\textit{h}\,\sqrt{|T_\ell|}\,\|\dvg \bu_s\|_{L^2(T_\ell)} \\[7pt]
-    \yesnumber\label{aux_label66}
+\IEEEeqnarraymulticol{3}{r}{
+  \begin{IEEEeqnarraybox*}{rCl}
+    & \leqslant & 3\,\textit{h}\,\sqrt{|T_\ell|}\,\|\dvg \bu_s\|_{L^2(T_\ell)} 
+    \\[7pt]
     & \leqslant & 3\,\textit{h}\,\sqrt{|T_\ell|}\,\left\{\|\dv\bu\|_{L^2(T_\ell)}
      + \|\dv\bu_r\|_{L^2(T_\ell)}\right\}.
+  \end{IEEEeqnarraybox*}
+}\\&&
+\yesnumber\label{aux_label66}
 \end{IEEEeqnarray*}
 \end{enumerate}
-\item
+\item {\color{Orange}\#\#\#\#\#\#\#\# here.}
 Now prisms, the middle term on the right of~(\ref{distancia_cero_arista}). Remember
 the difference with the tetrahedron is that $d(P,\bv_\ell) \gtrsim h_1$.
 We start pulling back from $P$ to the rescaled prism in Figure~\ref{rescaled_prism}
