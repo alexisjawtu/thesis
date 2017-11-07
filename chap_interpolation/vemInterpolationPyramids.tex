@@ -60,15 +60,15 @@ Now, for $1\leqslant p\leqslant 2$, using H\"older's inequality we have
   \left|\iint_{f_i}\bu\cdot\bn\,dS\right|\|\bv_i\|_{L^2(E)}.
 \end{eqnarray*}
 By using \eqref{estab2:eq3} and traces inequalities %and taking into account the shape-regularity of $E$
-we obtain
-\begin{eqnarray*}
+we obtain ****
+\begin{IEEEeqnarray*}{rCl}
 \|(I\bu)\|_{L^p(E)} &\leqslant& C |E|^{{\nicefrac1p}-{\nicefrac12}} 
-  h_E^{-{\nicefrac1p}}\left(\|\bu\|_{L^p(E)}+h_E\|\nabla\bu\|_{L^p(E)}\right)|\partial E|^{1-{\nicefrac1p}} \|\bv_i\|_{L^2(E)}\\
-&\leqslant& C h_E^{3\left({\nicefrac1p}-{\nicefrac12}\right)}\,h_E^{-{\nicefrac1p}}\,
-  h_E^{2\left(1-{\nicefrac1p}\right)}\,h_E^{-{\nicefrac12}}
-    \left(\|\bu\|_{L^p(E)} + h_E\|\nabla\bu\|_{L^p(E)}\right)\\
-& = & C \left(\|\bu\|_{L^p(E)} + h_E\|\nabla\bu\|_{L^p(E)}\right).
-\end{eqnarray*}
+  h_E^{-{\nicefrac1p}}\left(\|\bu\|_{L^p(E)}+h_E\|\nabla\bu\|_{L^p(E)}\right)\cdot\\
+\IEEEeqnarraymulticol{3}{r}
+{|\partial E|^{1-{\nicefrac1p}} \|\bv_i\|_{L^2(E)}}\\
+& \leqslant & C \left(\|\bu\|_{L^p(E)} + h_E\|\nabla\bu\|_{L^p(E)}\right).
+\end{IEEEeqnarray*}
+%%&\leqslant& C h_E^{3\left({\nicefrac1p}-{\nicefrac12}\right)}\,h_E^{-{\nicefrac1p}}\,%  h_E^{2\left(1-{\nicefrac1p}\right)}\,h_E^{-{\nicefrac12}}%    \left(\|\bu\|_{L^p(E)} + h_E\|\nabla\bu\|_{L^p(E)}\right)\\
 
 
 %\sum_{i=1}^5 \left|\int_{f_i}\bu\cdot\bn\right|\|\bv_i\|_{L^2(E)}\\&\leqslant& \sum_{i=1}^5 |f_i|^{\nicefrac12}\|\bu\|_{L^2(f_i)}\|\bv_i\|_{L^2(E)}\\ &\le& C|f_i|^\frac12\left(h_e^{-\frac12}\|\bu\|_{L^2(E)}+h_E^\frac12\|\nabla\bu\|_{L^2(E)}\right)\|\bv_i\|_{L^2(E)}\\ &\le& C\left(\|\bu\|_{L^2(E)}+h_E\|\nabla\bu\|_{L^2(E)}\right)
