@@ -6,7 +6,7 @@
 the following problem.
 \begin{problem}\label{mixedContinuous}
 Suppose we have a simply connected Lipschitz polyhedron
-$\Omega\subseteq\mathbb{R}^3$ which is not convex. Given $f\in L^2(\Omega)$
+$\Omega\subseteq\mathbb{R}^3$. Given $f\in L^2(\Omega)$
 we look for a $\bu\in H(\Div,\Omega)$ such that 
 \begin{IEEEeqnarray*}{rCl}
   \boldsymbol{u}              & = & \nabla p \\
@@ -17,7 +17,7 @@ we look for a $\bu\in H(\Div,\Omega)$ such that
 \end{problem}
 \begin{problem}[Weak formulation.]\label{weakMixedContinuous}
 Suppose we have a simply connected Lipschitz polyhedron
-$\Omega\subseteq\mathbb{R}^3$ which is not convex. Given $f\in L^2(\Omega)$,
+$\Omega\subseteq\mathbb{R}^3$. Given $f\in L^2(\Omega)$,
 find       $(\bu, p)  \in  H(\Div, \Omega) \times L^2(\Omega)$ 
     such that for all   $(\bv, q)  \in  H(\Div, \Omega) \times L^2(\Omega)$
   \begin{IEEEeqnarray*}{rCl}
@@ -27,7 +27,7 @@ find       $(\bu, p)  \in  H(\Div, \Omega) \times L^2(\Omega)$
     \int_{\Omega} fq\,d\bx.    
   \end{IEEEeqnarray*}
 \end{problem}
-Due to the polyhedron not being convex there will be ingoing
+In the case in which the polyhedron is not convex there will be ingoing
 vertices and edges whose interior angles are obtuse. In the following
 we are going to recall how to formalize the singularities in a polyhedron
 and how to classify the regularity of the solution of Problem~\ref{mixedContinuous}.\\
@@ -69,8 +69,7 @@ of coordinates in $\Lambda$ with origin at $\bv$ (in case we had a singular
 edge and no singular vertex, the origin is at one end of the edge).
 $R(\bx)$ will be the distance from $\bx$ to $\bv$,
 $r(\bx)$ will be the distance from $\bx$ to $\be$ and $\theta(\bx)$ will be
-the \textsl{angular distance} $\theta(\bx)=\frac{r(\bx)}{R(\bx)}$. With these weights,
-given two 
+the \textsl{angular distance} $\theta(\bx)=\frac{r(\bx)}{R(\bx)}$. Given two 
 positive parameters $\beta$ and $\delta$ we define the norm
 \begin{IEEEeqnarray}{rCl}\label{weighted_norm}
   \|v\|^{1,2}_{\beta,\delta} & := & \left\{\sum_{|\balpha|\leqslant 1}
