@@ -5,7 +5,7 @@ we obtain from Theorem~\ref{aux_label47} the following Corollary.
 \begin{corollary}
 \begin{eqnarray*}
 \|\bu-\bu_h\|_{L^2(\Omega)}&\leqslant& C\textit{h}|p|_{H^2(\Omega)}\\ 
-\|p-p_h\|_{L^2(\Omega)}&\leqslant& C\textit{h}|p|_{H^1(\Omega)}
+\|p-p_h\|_{L^2(\Omega)}&\leqslant& C\textit{h}\|p\|_{H^2(\Omega)}
 \end{eqnarray*}
 where the constant $C$ depends only on the aspect ratios of tetrahedra 
 and pyramids and the triangular bases of the right prisms on the mesh. 
@@ -37,11 +37,10 @@ So joining the last two inequalities,  from~\eqref{aux_label48} in Theorem~\ref{
   &\leqslant & C\textit{h}\,\|f\|_{L^2(\Omega)}
 \end{IEEEeqnarray*}
 as stated in~\cite{alw}	in expression after $(3.42)$ on page $19$.
-{\color{Orange}\#\#\#\#\#\#\#\# The bound for the scalar variable error
-in the convex case
-no recuerdo c\'omo, si $\|u - uh\|$ queda con seminorma H2, entonces 
-$\|p - ph\|$ va a 
-quedar con seminorma H1}
+The bound for the scalar variable error
+in the convex case follows using~\eqref{aux_label49} and the estimate
+$\|p-P_{0,\tau_{\textit{h}}}\,p\|\leqslant C\,h_{E}\,|p|_{1,E}$ for the orthogonal
+projection.
 \end{proof}
 Arbitrarily narrow right prisms or tetrahedra can be used in the mesh without 
 affecting this estimate. This fact can be further exploited when the
