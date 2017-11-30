@@ -20,7 +20,7 @@ Then Problem~\ref{weakMixedContinuous} reads to
 find $\bu\in V$ and $p\in Q$ such that for every $\bv\in V$ and every $q\in Q$
 \begin{IEEEeqnarray*}{rCcCl}                          % Let be given an open \emph{non--convex} domain $\Omega\subseteq\mathbb{R}^3$ with
   a(\bu,\bv) & + &b(\bv,p) & = & 0\\[5pt]                % Lipschitz--continuous boundary
-	       	   & - &b(\bu,q) & = & (f,q).                     % consisting of planar faces and define 
+	       	   &   &b(\bu,q) & = & (-f,q).                     % consisting of planar faces and define 
 \end{IEEEeqnarray*}                                   % Let us consider the following continuous problem.\\[5pt]
 We start supposing we are given with a polihedral triangulation $\Th$ of $\Omega$ to define the 
 virtual spaces $V_h$ and $Q_h$ as discretizations of $V$ and $Q$ respectively. In Chapter~\ref{auxLabel100}
@@ -61,8 +61,9 @@ let the degrees of freedom be
   \iint_f \bv\cdot\bn\,dS & \qquad\mbox{ for all face $f$ of } & \Th.
 \end{IEEEeqnarray}
 With \emph{faces of $\Th$} we mean the family of all faces forming the boundary
-of the elements, with the unit normals consistently taken in the case of
-neighbour elements. 
+of the elements, with $\bn$ being a unit normal vector, chosen for each face among the
+two possibilities in the case of
+neighboring elements. 
 
 Something that has been already established for Finite Elements in
 Chapter~\ref{aux_label43} must be proved for our Virtual Elements.
@@ -80,6 +81,8 @@ and let $d$ be the constant function in $E$ such that
 \[
  \int_E d\,d\bx = \sum_i \alpha_i.
 \]
+As this proof is performed locally on a fixed element $E$, we can fix the degrees
+of freedom in~\eqref{dofs} so that the normal vector points outward.
 Then we consider the auxiliary problem of seeking a solution of
 \begin{IEEEeqnarray}{rClrCl}
   \label{aux_prob}
@@ -122,6 +125,13 @@ an $H(\Div)$--like local interpolation operator well defined.
 \begin{IEEEeqnarray*}{rCl}
   \dv I\bv & = & P_0\,\dv\bv.
 \end{IEEEeqnarray*}
+\begin{proof}
+  \begin{IEEEeqnarray*}{rCl}
+    \int_E(\dv I\bv - \dv\bv)\,d\bx& = & \int_E\dv (I\bv - \bv)\,d\bx\\
+    & = & \iint_{\partial E}(I\bv - \bv)\cdot\bn\,dS\\
+    & = & \sum_{f\subseteq \partial E} \iint_{f}(I\bv - \bv)\cdot\bn\,dS = 0
+  \end{IEEEeqnarray*}
+\end{proof}
 \end{lemma}
 \begin{proposition}\label{vem_equal_fem}
 Recall the space $D_k$ introduced in~(\ref{dk}). Then
@@ -252,7 +262,7 @@ be defined by
        & = & V_h(E)\cap\nabla {P}_2(E)\mbox{,}
 \end{IEEEeqnarray*}
 and with these we consider $W(\Th) = \{{\bw} : {\bw}|_{E} \in W(E)
-\mbox{ for each }E\in\Th\}$. Integrating arbitrary elements
+\mbox{ for each }E\in\Th\}$. Inspecting arbitrary elements
 in~(\ref{d1p1}) and~(\ref{p03}) yields the following result.
 \begin{lemma} When $E\in\Th$ is a tetrahedron or 
 a prism, then $W(E) = V_{\textit{h}}(E)$.  

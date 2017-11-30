@@ -244,7 +244,8 @@ The interpolator in Definition~\ref{aux_label90} is well defined and bounded.
 Because of the presence of degrees of freedom~(\ref{momentos1hcurl})
 we can't define the operator for an arbitrary field in $H(\bcurl, \hat E)$, 
 which is why we put the hypothesis $p>2$ (cfr.~\cite{monk}, page 134, 
-and~\cite{adams}, Theorem 5.4).
+and~\cite{adams}, Theorem 5.4). The reason is that the condition $\hat\bu\in H(\bcurl, \hat E)$
+is not sufficient to have tangential traces along the edges of a polyhedron.
 \end{remark}
 \begin{remark} The interpolation operator
 can be written 
@@ -337,7 +338,9 @@ defined as the unique element in $P_{\hat E}$ satisfying
 Because of the degrees of freedom~(\ref{momentos1hdiv}) and~(\ref{momentos2hdiv})
 we had to restrict the condition $\hat\bu\in H(\Div, \hat E)$
 to the one of $\hat\bu\in W^{1,1}(\hat E)$ in order to define the 
-interpolation operator. The proof of the following Lemma follows
+interpolation operator. The reason is that condition $\hat\bu\in H(\Div, \hat E)$
+does not suffice to have normal traces over the faces of a polyhedron.
+The proof of the following Lemma follows
 from Trace Theorems in Sobolev spaces.
 \begin{lemma}
   The operator of Definition~\ref{defi_face_element} is well defined and
