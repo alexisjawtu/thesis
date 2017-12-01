@@ -30,8 +30,9 @@ will be the exhibition of the meshes and after that we will prove the estimates.
 %=====================================================
 \subsection{Meshes and Meshing Algorithm in Dimension $3$}\label{meshes}
 %%=========== GRADING ==============================================
-Our algorithm starts taking a first mesh of macro--elements, which may be
-prismatic or tetrahedral, according to the main regularity result, 
+Our algorithm starts taking a first partition of $\Omega$
+into macro--elements, which may be
+prisms or tetrahedra, according to the main regularity result, 
 Theorem~\ref{thm_regularity}. Read Section~\ref{sec:regularity} again and recall Figures~\ref{macro_prism_reg}  and~\ref{macro_tetra_reg}.
 Here we recall it.
 
@@ -45,16 +46,46 @@ Please recall also the notation for the distance  $R(\bx)$ to the singular verte
 and the angular distance $\theta(\bx)$ to the singular edge in Definition~\ref{auxlabel300}.
 
 We will show that, in each prismatic or tetrahedral macro--element, our meshes
-fulfill the following grading.
+fulfill the following grading. Given a macro--element $\Lambda_\ell$ with
+just a singular edge $\be$, for
+any element $E\subseteq\Lambda_\ell$ it holds
 \begin{equation}\label{label_grading}
 \begin{IEEEeqnarraybox*}{lCl}
-  h_1, h_2 &\sim&
+  h_{E,1}, h_{E,2} &\sim&
     \begin{cases}
       \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(E,\be)=0\\
       \textit{h}\,d(E,\be)^{1-\mu}  & \text{ if\, }0<d(E,\be)\lesssim1\\
       \textit{h}          & \text{ if\, }d(E,\be)\sim1
     \end{cases}\\[5pt]
-  h_3   &\sim& 
+  h_{E,3}   &\sim&\textit{h}
+\end{IEEEeqnarraybox*}
+\end{equation}
+Given a macro--element $\Lambda_\ell$ with
+just a singular vertex $\bv$, for
+any element $E\subseteq\Lambda_\ell$ it holds
+\begin{equation}\label{label_grading}
+\begin{IEEEeqnarraybox*}{lCl}
+  h_{E,1}, h_{E,2}, h_{E,3}   &\sim& 
+    \begin{cases}
+      \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(E,v)=0\\
+      \textit{h}\,d(E,\bv)^{1-\nu}  & \text{ if\, }0<d(E,v)\lesssim1\\
+      \textit{h}          & \text{ if\, }d(E,v)\sim1.
+    \end{cases}
+\end{IEEEeqnarraybox*}
+\end{equation}
+Given a macro--element $\Lambda_\ell$ with
+a singular edge $\be$ and a singular vertex $\bv$ at an
+endpoint of $\be$, for
+any element $E\subseteq\Lambda_\ell$ it holds
+\begin{equation}\label{label_grading}
+\begin{IEEEeqnarraybox*}{lCl}
+  h_{E,1}, h_{E,2} &\sim&
+    \begin{cases}
+      \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(E,\be)=0\\
+      \textit{h}\,d(E,\be)^{1-\mu}  & \text{ if\, }0<d(E,\be)\lesssim1\\
+      \textit{h}          & \text{ if\, }d(E,\be)\sim1
+    \end{cases}\\[5pt]
+  h_{E,3}   &\sim& 
     \begin{cases}
       \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(E,v)=0\\
       \textit{h}\,d(E,\bv)^{1-\nu}  & \text{ if\, }0<d(E,v)\lesssim1\\
@@ -62,8 +93,9 @@ fulfill the following grading.
     \end{cases}
 \end{IEEEeqnarraybox*}
 \end{equation}
-with $\mu\leqslant 1-\delta$ for $\delta>1-\lambda_{\be}$.\\
-with $\nu\leqslant 1-\beta$ for $\beta>\frac12-\lambda_{\bv}$.
+with $\mu\leqslant 1-\delta$ for $\delta>1-\lambda_{\be}$ and 
+$\nu\leqslant 1-\beta$ for $\beta>\frac12-\lambda_{\bv}$ for all cases, 
+respectively.
 %%==================================================================
 \subsubsection{Macro--element with singular edge and singular vertex}\label{caso4}
 Let $\Lambda$ be a tetrahedral macro--element with vertices $P_0, P_1, P_2$ and $P_3$.

@@ -10,7 +10,7 @@ then Lemma~\ref{lemma_for_coercivity} implies the following Proposition.
 \begin{proposition}
   The form $a_h$ in~(\ref{discreteGlobal_a})  is coercive over $\Kb_{\Th}$
   and the coercivity constant
-  depends only on the shape regularity of the pyramids of the mesh.
+  depends only on the aspect ratio of the pyramids of the mesh.
 \end{proposition}
 \begin{proposition} \label{cont} For every $E\in\Th$ the local discrete bilinear form $a_h^E$
 in~(\ref{discreteLocal_a})
@@ -50,6 +50,7 @@ $\bw^*\in H^1_0(\Omega)^3$ with $\dv\bw^*=q^*$ such that
   \beta^*\|\bw^*\|_{H^1(\Omega)} & \leqslant &
   \|q^*\|_{Q}.
 \end{IEEEeqnarray}
+We refer the reader to~\cite{ricardoMixed}.
 Now, for each $q^*\in Q_h$ take $\bw_h^*$ such that,
 in every $E\in\Th$, $\bw_h^*|_E := I(\bw^*|_E)$, as defined in
 Corollary~\ref{interpolant}. As a consequence of Proposition~\ref{vem_equal_fem}
@@ -124,7 +125,8 @@ since
 We introduce the following global interpolation operator.
 \begin{defi}\label{aux_label52}
   Given a positive
-  parameter $\textit{h}\downarrow 0$ and an admissible mesh $\Th$ 
+  parameter $\textit{h}$ which tends to zero and is strictly decreasing
+  and an admissible mesh $\Th$ 
   made up of prisms, pyramids and tetrahedra,
   let $\rZerou$  be the \emph{global interpolation operator}
   \begin{IEEEeqnarray}{rCl}\label{global_interpolator}
@@ -141,9 +143,12 @@ We introduce the following global interpolation operator.
       \end{array}
       \right.
   \end{equation*}
-  in all cases with the lowest interpolation degree $k=0$ and
-  with consistent normal components for interelementary faces.
+  in all cases with the lowest interpolation order $k=0$. % and with consistent normal components for interelementary faces.
 \end{defi}
+With regard to the pyarmids we remark here that we could perform an 
+analysis similar to the one based on virtual elements using the finite elements 
+on pyramids 
+treated in Theorems~\ref{aux_label53} and~\ref{aux_label54}. 
 \begin{theorem}\label{aux_label47} The solution $(\bu_{\textit{h}},p_{\textit{h}})$
 of~(\ref{mixedDiscrete}) satisfies,
 for every approximation $\bw$ of $\bu$ in
@@ -153,15 +158,15 @@ $W(\Th)$,
 \|\bu-\bu_h\|_{L^2(\Omega)^3} &\leqslant&
   C\{\|\bu-\br_0\bu\|_{L^2(\Omega)^3} + \|\bu-\bw\|_{L^2(\Omega)^3}\} \\[5pt]
   \label{aux_label49}
-\|P_{0,{\tau_{\textit{h}}}}p-p_h\|_{L^2(\Omega )} &\leqslant&
+\|P_{0}\,p-p_h\|_{L^2(\Omega )} &\leqslant&
   C\{\|\bu-\bu_h\|_{L^2(\Omega)^3} + \|\bu-\bw\|_{L^2(\Omega)^3}\}
 \end{IEEEeqnarray} 
 \end{theorem}
 \begin{proof} Cfr. proof of Theorem 5.1 in~\cite{bfm}.
 \end{proof}
 \begin{defi}\label{aux_label51}
-  let $P_{0,E_{\ell}}$ be the projection onto the constants over $E_{\ell}$;
-  let a $\bw_{\bu}$ such that, for every $E_\ell$
+  Let $P_{0,E_{\ell}}$ be the projection onto the constants over $E_{\ell}$ and
+  let $\bw_{\bu}$ be defined piecewise as 
   \begin{equation*}
     (\bw_{\bu})|_{E_\ell} = 
       \left\{
@@ -171,6 +176,7 @@ $W(\Th)$,
       \end{array}
       \right.
   \end{equation*}
+  for every $E_\ell$
 \end{defi}
 \begin{remark}
 The one in Definition~\ref{aux_label51} is is the approximation $\bw$ of $\bu$
