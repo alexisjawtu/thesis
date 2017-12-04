@@ -169,20 +169,19 @@ for each $\tau\in\Tb$ and each $0\leqslant k<n$. See Figure~\ref{prismatic_macro
 %borrar ---->>>  \prismsProductCoord
 
 \def\col{black}
-\def\height{0}
-\def\twoPi{360}
+\def\singCol{red}
 \begin{figure}[!h]\centering
   \subfloat
   {
     \begin{tikzpicture}[scale=2]
-      \prismaticMacroelement{8}{2}{.63}{4}{\col}
+      \prismaticMacroelement{8}{2}{.63}{4}{\col}{\singCol}
     \end{tikzpicture}\hspace{1cm}
     \begin{tikzpicture}[scale=2]
-      \prismaticMacroelement{8}{3}{.63}{4}{\col}
+      \prismaticMacroelement{8}{3}{.63}{4}{\col}{\singCol}
       \draw[red] (0,0,0) -- (0,-1.5,0);
     \end{tikzpicture}\hspace{1cm}
     \begin{tikzpicture}[scale=2]
-      \prismaticMacroelement{8}{4}{.63}{4}{\col}
+      \prismaticMacroelement{8}{4}{.63}{4}{\col}{\singCol}
       \draw[red] (0,0,0) -- (0,-1.5,0);
     \end{tikzpicture}
   }

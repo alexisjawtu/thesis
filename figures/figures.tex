@@ -188,7 +188,7 @@
 \end{tikzpicture}
 }
 
-\newcommand{\prismaticMacroelement}[5]{
+\newcommand{\prismaticMacroelement}[6]{
 \def\m{#1} % piso y tapa como m-'agonos
 \def\n{#2} % (n + 1) puntos en cada arista del tri'angulo
 \def\mu{#3} % graduaci'on
@@ -239,7 +239,7 @@
         ($\alfa*(point1)+ \beta*(point2) + (0,-2,0)$); 
    };
   };
-  \draw[red] (0,0,0) -- (0,-2,0);
+  \draw[color=#6] (0,0,0) -- (0,-2,0);
 }
 
 \def\prismsBaryCoordA{

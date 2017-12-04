@@ -36,9 +36,28 @@ tends to zero as $n$ tends to infinity.
 		h_E \leqslant \sigma\rho_E.
 	\]
 	\item [ii)] The family of meshes is anisotropic if it is not
-	isotropic.
+	isotropic (cfr. Figure~\ref{auxlabel12}).
 \end{itemize}
 \end{defi}
+\begin{figure}[!h]\centering
+  \subfloat
+  {
+    \begin{tikzpicture}[scale=2]
+      \prismaticMacroelement{8}{2}{.63}{4}{black}{black}
+    \end{tikzpicture}\hspace{1cm}
+    \begin{tikzpicture}[scale=2]
+      \prismaticMacroelement{8}{3}{.63}{4}{black}{black}
+    \end{tikzpicture}\hspace{1cm}
+    \begin{tikzpicture}[scale=2]
+      \prismaticMacroelement{8}{4}{.63}{4}{black}{black}
+    \end{tikzpicture}\hspace{1cm}
+    \begin{tikzpicture}[scale=2]
+      \prismaticMacroelement{8}{5}{.63}{4}{black}{black}
+    \end{tikzpicture}
+  }
+  \caption{Elements of an anisotropic family of meshes.}
+  \label{auxlabel12}
+\end{figure}
 \begin{defi}
   If $V(E)$ denotes a functional space over an element $E$ from a 
   mesh $\pazocal{T}_n$ for a domain $\Omega$, the symbol $V(\pazocal{T}_n)$
