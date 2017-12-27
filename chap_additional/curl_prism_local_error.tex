@@ -1,0 +1,132 @@
+\section{Local Interpolation Estimates for $H(\bcurl)$ Conforming Prismatic Elements}
+\begin{theorem} \label{aux_label32} Let $k\in\mathbb{N}$ and $p>2$ and let $E$ be a prism whose triangular
+faces have greatest angle less than $c_0$.
+There exists $C > 0$ and three edges $\be_i$ of $E$ incident to a common vertex
+$\bx_E$ such that for all $\bu\in W^{m + 1,p}(E)^3$
+and $m\leqslant k-1$, %with $\bcurl \bu\in W^{m,p}(E)^3$
+\begin{IEEEeqnarray*}{rCl}\label{aux_label55}
+  \|\bu-\bw_E \bu\|_{L^p(E)} & \leqslant & C
+  \left\{
+    \sum_{|{\balpha}|=m+1}\bh^{\balpha} \|\partial^{\balpha} \bu\|_{L^p(E)} +\right.\\[4pt]
+  \yesnumber\label{auxlabel5}
+   &&\qquad\left. h_E\sum_{|{\balpha}|=m}\bh^{\balpha}\|\partial^{\balpha} 
+    (\curl \bu)_3 \|_{L^p(E)}
+  \right\}.
+\end{IEEEeqnarray*} 
+$C$ depends only on $c_0$.
+$C$ can be chosen so that, if $M_E$ is the matrix made with
+$\xi_i$ as columns, then $\|M\|_\infty\leqslant C$ and $\|M^{-1}\|_\infty\leqslant C$ 
+and $\det M_E \geqslant C$
+\end{theorem}
+Notice the an\-iso\-tropic character of the inequality in~\eqref{auxlabel5}. Notice only the component
+of the $\curl$ corresponding to the direction that is orthogonal to the 
+triangular faces.
+%[Proof of Theorem~\ref{aux_label32}]
+\begin{proof}[Proof of Theorem~\ref{aux_label32}]
+{\color{BrickRed}\#\#\#\#\#\#\#\# Ariel, por favor mirar si es correcta
+la manera en que lo digo.}\\\\
+Since $W^{m+1,p}(E)\hookrightarrow W^{1,p}(E)$ and $p$ is greater than $2$,
+the edge interpolator $\bw_E$ is well--defined via Corollary~\ref{aux_label26}.
+Consider the prism $\tilde E$ as in~(\ref{tilde_prism}). There is an affine map
+$\tilde \bx \mapsto \bx = M_E\,\tilde\bx+\bx_E = F_E\,\tilde\bx$ from $\tilde E$ onto $E$, such that 
+$\|M_E\|$, $\|M_E\|^{-1}\leqslant C$. The matrix $M_E$ is made up of vectors 
+$\xi_i$, $i = 1$, $2$, $3$ as its columns. First we take $\bq := \Qbb_{m,E}\,\bu$ and
+do%where $\xi_i$ are the unitary vectors in the directions of three edges $\ell_i$  of E of lengths $h_i$ sharing the vertex $\bx_E$.
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\bw_E\bu\|_{L^p(E)} & \leqslant & \|\bu-\bq\|_{L^p(E)}
+    +\|\bw_E(\bu-\bq)\|_{L^p(E)}
+\end{IEEEeqnarray*}
+For the first term we may simply do, by Remark~\ref{aux_label28} and the
+transformation~(\ref{transfHcurl}),
+\begin{IEEEeqnarray}{rCl}
+\nonumber
+  \|\bu-\bq\|_{L^p(E)} & = & \|M_E^{-t}(\tilde{\bu}-\tilde{\bq})\circ F_E^{-1}\|_{L^p(E)} \\[5pt]
+\label{aux_label37}
+  &\leqslant& \|M^{-1}\||\det M_E|^{\nicefrac1p}\|\tilde{\bu}-\tilde{\bq}\|_{L^p(\tilde E)}.
+\end{IEEEeqnarray}
+With regard to the second term, by the commutativity property~(\ref{piTransformado})
+and again the coordinate transformation,
+\begin{IEEEeqnarray*}{rCl}
+  \|\bw_E(\bu-\bq)\|_{L^p(E)}&\leqslant&
+    |M|^{\nicefrac1p}\|M_E^{-1}\|  
+      \|\tilde{\bw}_{\tilde E}(\tilde\bu-\tilde\bq)\|_{L^p(\tilde E)}.
+\end{IEEEeqnarray*}
+Theorem~\ref{aux_label27} implies
+\begin{IEEEeqnarray*}{rCl}
+    \|\bw_E(\bu-\bq)\|_{L^p(E)}
+    & \leqslant & \\
+\IEEEeqnarraymulticol{3}{r}{
+\begin{IEEEeqnarraybox*}{rl}
+  \qquad & C\|M^{-1}\||\det M_E|^{\nicefrac1p}
+\left[ \| \tilde\bu-\tilde\bq \|_{L^p(\tilde{E})}
+    + \sum_{i=1}^3 h_i \| \partial_{\tilde{x}_i}(\tilde\bu-\tilde\bq) \|_{L^p(\tilde{E})}\right.\\
+&
+    \left.
+    \:+\;h\left(\left\|(\curl(\tilde\bu-\tilde\bq))_3 \right\|_{L^p(\tilde{E})}
+     + \sum_{i=1}^3 h_i
+     \left\| \partial_{\tilde{x}_i}(\curl(\tilde\bu-\tilde\bq))_3 \right\|_{L^p(\tilde{E})}\right)
+  \right].
+\end{IEEEeqnarraybox*}
+}\\[4pt]
+&&\yesnumber\label{aux_label34}
+\end{IEEEeqnarray*}
+By expressions~(\ref{aux_label31}),~(\ref{aux_label24}),~(\ref{aux_label25}),~(\ref{aux_label30})
+the last expressions is bounded by a constant times
+$\|M_E^{-1}\||\det M_E|^{\nicefrac1p}$
+times the following sum
+\begin{IEEEeqnarray}{rCl}
+\nonumber
+\sum_{i+j+k=m+1} h_1^ih_2^jh_3^k \left\| \frac{\partial^{m+1}\tilde\bu}
+    {\partial\tilde x_1^i\partial\tilde x_2^j\partial\tilde x_3^k}
+    \right\|_{0,\tilde E} &+&
+h \sum_{j+k+l=m}  h_1^jh_2^kh_3^l
+  \left\|\frac{\tilde\partial^m(\curl\tilde\bu)_3}{\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l}
+  \right\|_{0,\tilde E}
+\\[7pt]
+\IEEEeqnarraymulticol{3}{r}{
+\nonumber
++\,h \sum_{i=1}^3 h_i\sum_{j+k+l=m-1}  h_1^jh_2^kh_3^l
+        \left\|\frac{\tilde\partial^{m-1}\tilde\partial(\tilde\curl\tilde\bu)_3}
+               {\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l\partial\tilde x_j}
+       \right\|_{0,\tilde E}
+}\\[7pt]
+\IEEEeqnarraymulticol{3}{r}{\nonumber
+\lesssim
+\sum_{i+j+k=m+1} h_1^ih_2^jh_3^k \left\| \frac{\partial^{m+1}\tilde\bu}
+    {\partial\tilde x_1^i\partial\tilde x_2^j\partial\tilde x_3^k}
+    \right\|_{0,\tilde E}
++  h \sum_{j+k+l=m}  h_1^jh_2^kh_3^l
+  \left\|\frac{\tilde\partial^m(\curl\tilde\bu)_3}{\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l}
+  \right\|_{0,\tilde E}.}\\[4pt]&&
+\label{aux_label33}
+\end{IEEEeqnarray}
+From equality~(\ref{aux_label29}), for every $\balpha$ of order
+$m+1$ it holds
+\begin{IEEEeqnarray}{rCl}\label{aux_label36}
+  \|\tilde{\partial}^{\balpha}\tilde\bu\|_{L^p(\tilde{E})} & \leqslant & 
+  \|M_E\|\,|\det M_E|^{-\nicefrac1p} \|\partial^{\balpha}\bu\|_{L^p(E)}.
+\end{IEEEeqnarray} %%{\color{BrickRed}\#\#\#\#\#\#\#\# esto de la matriz realmente hace falta?.}
+Lastly, adapting Lemma 3.57 in page 77 of~\cite{monk}, we observe
+\begin{IEEEeqnarray*}{rCl}
+  \begin{pmatrix}
+    0 & -(\tilde\curl\tilde\bu)_3 & 0 \\
+    (\tilde\curl\tilde\bu)_3 & 0 & 0 \\
+    0 & 0 & 0 
+  \end{pmatrix}M_E^{-1}
+  & = & M_E^{t}
+  \begin{pmatrix}
+    0 & -(\curl\bu)_3 & 0 \\
+    (\curl\bu)_3 & 0 & 0 \\
+    0 & 0 & 0 
+  \end{pmatrix}\circ F_E
+\end{IEEEeqnarray*}
+which implies, for every $\balpha$ of order $m$,
+\begin{IEEEeqnarray}{rCl} \label{aux_label35}
+  \|\tilde{\partial}^{\balpha}(\tilde{\curl}\tilde\bu)_3\|_{L^p(\tilde E)}
+  & \leqslant & C |\det M_E|^{-\nicefrac1p}\,\|M_E\|^{2} 
+  \|\partial^{\balpha}(\curl\bu)_3\|_{L^p(E)}.
+\end{IEEEeqnarray}   %%{\color{blue}\#\#\#\#\#\#\#\# De donde sale el $(2+m)$ de (6.15) en~\cite{ariel}?.}
+Now combine~(\ref{aux_label33}),~(\ref{aux_label36}) and~(\ref{aux_label35}) 
+with~(\ref{aux_label34}) and~(\ref{aux_label37}) to obtain the
+Theorem.
+\end{proof}
