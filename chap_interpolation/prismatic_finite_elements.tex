@@ -2,9 +2,7 @@
 \label{sec:prismatic_finite_elements}
 \subsection{An\-iso\-tropic Stability Estimates for $H(\Div)$--Conforming Finite Elements
 on Prisms} % (fold)
-The exposition in this section will be the $H(\mbox{div})$--conforming analogue
-of the exposition in the previous section.\\
-\noindent In present subsection $\hat\bu$ will be an element
+In the present subsection $\hat\bu$ will be an element
 of $W^{1,1}(\hat E)$ in which elements have well defined
 normal traces over the faces of $\hat{E}$, another possibility
 being, as mentioned in~\cite{monk}, Lemma $5.15$, page $120$, to assume
@@ -50,9 +48,8 @@ then $\rku\xyz = (0,0,\hat{\xi}_3\xyz)'$ for some $\hat{\xi}_3\in
 P_{k-1}(\hat{f}_3)\otimes P_k(\hat{x}_3)$.
 \end{lemma}
 \begin{proof}
-In a completely analogous way as was done in Section~\ref{sub:defEdgeElement}
-we can derive the following expressions for 
-$\rku = (\hat{p}_1, \hat{p}_2, \hat{p}_3)' \in  P_{\hat{E}}$: 
+First take an explicit expression for
+$\rku = (\hat{p}_1, \hat{p}_2, \hat{p}_3)' \in  P_{\hat{E}}$ as 
 \begin{IEEEeqnarray*}{rCl}
   \hat{p}_1\xyz & = & \hat{q}_1\xyz + \hat{x}_1\,\hat{h}\xyz\\
   \label{exprPrt}\yesnumber
@@ -64,9 +61,8 @@ for unique $\hat{q}_1, \hat{q}_2 \in {P}_{k-1}(\hat{f}_3)
 $\hat{q}_3 \in {P}_{k-1}(\hat{f}_3)\otimes{P}_{k}(\hat{x}_3)$,
 and
 $\hat{h} \in \tilde{{P}}_{k-1}(\hat{f}_3)\otimes{P}_{k-1}(\hat{x}_3)$.
-Take an arbitrary $\hat{q}\in{P}_{k-1}(\hat f_1)\otimes P_{k-1}(\hat z)$.
-Continuing with the technique developed for Section~\ref{stab_edge_prism}, 
-the trick will be to apply Green's Theorem to the field
+Next, take an arbitrary $\hat{q}\in{P}_{k-1}(\hat f_1)\otimes P_{k-1}(\hat z)$.
+The trick will be to apply Green's Theorem to the field
 $(\hat{p}_1, \hat{p}_2, 0)'$ and the scalar $\hat{q}$. By the surface degrees of
 freedom~(\ref{momentos2hdiv}) and the volume degrees of freedom~(\ref{momentos3hdiv}) we have
   \begin{IEEEeqnarray*}{rClCl}
@@ -83,9 +79,12 @@ freedom~(\ref{momentos2hdiv}) and the volume degrees of freedom~(\ref{momentos3h
       + \hat{u}_2\tfrac{\partial\hat{q}}{\partial{\hat{x}_2}}\,d\hat{\bx} & = & 0.
   \end{IEEEeqnarray*}
   And since $\mbox{div}(\hat{p}_1, \hat{p}_2, 0)'$ also belongs to
-  $P{k-1}{k-1}$, we just established it vanishes on all $\hat{E}$.\\[3pt]
-  In a similar way as done in the proof of Lemma~\ref{lemma_PIu2_k_in_N}, eq.~(\ref{h_is_zero}),
-  we get to prove $\hat{h} \equiv 0$ in expression~(\ref{exprPrt}). It means we may
+  $P_{k-1,k-1}$, we just established it vanishes on all $\hat{E}$.\\[3pt]
+  Now the nullity of $\mbox{div}(\hat{p}_1, \hat{p}_2, 0)'$ implies at once that
+  $\hat{h} \equiv 0$ in expression~(\ref{exprPrt}) (it can be deduced directly
+  derivating the polynomials and observing the degrees of the terms; cfr. 
+  proof of Lemma~\ref{lemma_PIu2_k_in_N} onwards). 
+  This means we may
   assume that $\hat{p}_1$ and $\hat{p}_2$ belong to 
   ${P}_{k-1}(\hat{f}_3)\otimes{P}_{k-1}(\hat{x}_3)$.
   Now it is convenient to use again the degrees of freedom on the
@@ -228,14 +227,34 @@ Then, by standard results for traces in Sobolev spaces,
   &\leqslant& C(\hat{E}) \|\hat{u}_3\|_{W^{1,1}(\hat{E})}.
 \end{IEEEeqnarray*}
 \end{proof}
-Theorems~\ref{thm_stab_edge} and~\ref{thm_stab_div} show that the interpolations
-determined by the finite elements in Definitions~\ref{edgeelement} and~\ref{defi_h_div_conforme}
-are anisotropically stable, in the sense that the image of a field $\hat\bu$ under
+Theorem~\ref{thm_stab_div} shows that the interpolation
+determined by the finite element in Definition~\ref{defi_h_div_conforme}
+is anisotropically stable, in the sense that the image of a field $\hat\bu$ under
 the linear operator depends not only continously on $\hat\bu$, but also with a
 \emph{componentwise} bound, with perhaps and additional
-curl or divergence term, respectively.\\
+divergence term. We refer the reader to Theorem~\ref{thm_stab_edge} onwards to
+note the same property for the $\bcurl$--conforming case.\\
 
-Consider again the element $\tilde{E}$ defined in~(\ref{tilde_prism}).
+The next step is to estimate the stability in 
+an anisotropically rescaled prism. 
+Given three positive numbers
+$h_1$, $h_2$ and $h_3$ we denote
+\begin{IEEEeqnarray*}{CCl}
+    \yesnumber\label{tilde_prism}
+    \tilde{E}   &   =   &   \tilde{T} \times \tilde{I}
+\end{IEEEeqnarray*}
+where
+\begin{IEEEeqnarray*}{rCl}
+    \tilde{T}   &   =   &   \{ 0 < \nicefrac{\tilde{x}_1}{h_1} + \nicefrac{\tilde{x}_2  }{h_2} < 1 \}\\
+    \tilde{I}   &   =   &   \{ 0 < \nicefrac{\tilde{x}_3}{h_3} < 1 \}.
+\end{IEEEeqnarray*}
+\rescaledPrismTikz
+Of course $\tilde{E} = F(\hat{E})$ where $F$ is the linear
+$\mathbb{R}^3 \rightarrow \mathbb{R}^3$ transformation such that
+\begin{IEEEeqnarray}{rClCl}
+  \label{change_var}
+  F\hat{\bx} & = & \diag{h_1}{h_2}{h_3} \hat{\bx} & = & \tilde{\bx}.
+\end{IEEEeqnarray}
 \begin{theorem} \label{thmStabilityKtildeRT}
 There is $C > 0$, independent of $h_1$, $h_2$ and $h_3$, s.t. for all $p \geqslant 1$ and 
   $\tilde{\bu}\in W^{1,p}(\tilde{E})$
@@ -366,15 +385,13 @@ and the sum of the three estimates yields the Theorem.
 \subsection{Local Interpolation Estimates for Prismatic Elements} % (fold)
 \label{sub:local_interpolation_estimates_for_prismatic_elements}
 We will state scaling consequences
-of inequalities~(\ref{aux_label19}).
+of inequalities~(\ref{aux_label19}). Some of them will be used here
+and the rest will be used in Chapter~\ref{auxlabel202}.
 %=========
 %For a non--negative integer $m$ let $\partial^m f$ denote the sum of the absolute values of all the derivatives of order $m$ of $f$.
 %=========
-\begin{remark}\label{aux_label28}
-Denote by $\Qbb_{m,E}\,\bw$ the vector averaged Taylor polynomial of $\bw$ over $E$
-\[
-  \Qbb_{m,E}\,\bw = (\Qb_{m,E}\,w_1,\Qb_{m,E}\,w_2,\Qb_{m,E}\,w_3)'.
-\]
+\begin{remark}\label{aux_label28} Recall the vector averaged Taylor polynomial $\Qbb_{m,E}(\cdot)$
+defined in~\eqref{auxlabel210}.
 If $(\,\cdot\,)\,\hat{}\,$ denotes any of transformations~(\ref{transfHcurl})
 and~(\ref{transfDiv}) then it holds
 \begin{IEEEeqnarray*}{rCl}
@@ -398,9 +415,9 @@ for $m \geqslant 0$ and $p \geqslant 1$ the following items hold.
       \right\|_{L^p(\tilde E)}
   \end{IEEEeqnarray}
   \item 
-  For any component $1\leqslant l\leqslant 3$
+  For any component $1\leqslant l\leqslant 3$ 
   \begin{IEEEeqnarray}{rCl}\label{aux_label31}
-    \left\|\tfrac{\partial}{\partial \tilde x_i}(\tilde u_l-\tilde q_l)\right\|_{L^p(\tilde E)}
+    \left\|\tfrac{\partial}{\partial \tilde x_i}(\tilde u_l-\tilde\Qb_{m,\tilde E}\,\tilde u_l)\right\|_{L^p(\tilde E)}
     &\leqslant&C\sum_{|\alpha| = m} \bh^\alpha 
     \left\|\tfrac{\partial}{\partial\tilde x_i} (\partial^{\alpha}\tilde u_l)
     \right\|_{L^p(\tilde E)}
@@ -413,8 +430,8 @@ for $m \geqslant 0$ and $p \geqslant 1$ the following items hold.
   %   \right\|_{L^p(\tilde E)}
   % \end{IEEEeqnarray} 
   %%%===========================================================================
-  \item 
-  If $m \geqslant 1$ and $p \geqslant 1$
+  \item For any component $1\leqslant i \leqslant 3$,
+  if $m \geqslant 1$ and $p \geqslant 1$
   %%=============================================================================
   %\begin{IEEEeqnarray}{rCl}
   %  \label{aux_label24__}
@@ -429,12 +446,12 @@ for $m \geqslant 0$ and $p \geqslant 1$ the following items hold.
   %%=============================================================================
   \begin{IEEEeqnarray}{rCl}
     \label{aux_label24}
-    \|\curl(\tilde\bu-\tilde\bq)_i\|_{L^p(\tilde E)}&\leqslant&
+    \|\curl(\tilde\bu- \tilde\Qbb_{m,\tilde{E}}\tilde{\bu})_i\|_{L^p(\tilde E)}&\leqslant&
     C\,\sum_{j+k+l=m}  h_1^jh_2^kh_3^l
     \left\|\tfrac{\tilde\partial^m(\curl\tilde\bu)_i}{\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l}
     \right\|_{L^p(\tilde E)}
   \end{IEEEeqnarray}
-  \item 
+  \item For any component $1\leqslant i \leqslant 3$ and any $1\leqslant j \leqslant 3$
   \begin{IEEEeqnarray}{rCl}
     \label{aux_label25}
     \left\|\tfrac{\partial\curl(\tilde\bu-\tilde\bq)_i}{\partial\tilde x_j}
@@ -445,20 +462,18 @@ for $m \geqslant 0$ and $p \geqslant 1$ the following items hold.
                  {\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l\partial\tilde x_j}
           \right\|_{L^p(\tilde E)}
   \end{IEEEeqnarray}
+  \item For the divergence it holds
+  \begin{IEEEeqnarray}{rCl}\label{aux_label23}
+   \|\tilde{\dv}(\tilde\bu-\tilde\Qbb_{m,\tilde{E}}\tilde{\bu})\|_{L^p(\tilde E)}&\leqslant&
+   C\sum_{j+k+l=m} h_1^jh_2^kh_3^l
+   \left\|
+    \tfrac{\tilde \partial^m\tilde{\text{div}}\tilde\bu}{\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l}
+   \right\|_{L^p(\tilde E)}
+  \end{IEEEeqnarray}
 \end{enumerate}
 where C depends only on $m$, $\sigma$ (cfr. Theorem~\ref{aux_label21})
 and the reference element.
 \end{lemma}
-{\color{BrickRed} REFINAR esta y
-despues el teorema correspondiente.}
-As a corollary of these inequalities we have immediately that
-if $\tilde \bq\in P_m(\tilde E)^3$ is the
-vector averaged Taylor polynomial 
-of $\tilde \bu$, then                        %% as in  Remark~\ref{aux_label28}.
-\begin{IEEEeqnarray}{rCl}\label{aux_label23}
-  \|\tilde{\dv}(\tilde\bu-\tilde\bq)\|_{L^p(\tilde E)}&\leqslant&Ch^m\|\tilde \partial^m\tilde\dv\tilde\bu\|_{L^p(\tilde E)}
-\end{IEEEeqnarray}
-where $C$ depends only on $m$ and {\noindent{\color{BrickRed} ????}.}
 \begin{proof}[Proof of Lemma~\ref{aux_label20}]
 We will use  Lemma~\ref{aux_label40} rescaling $\hat{E}$ so that $d = 1$ and then
 pushing forward to $\tilde E$. In fact, for any multi--index 
@@ -514,16 +529,19 @@ Now~(\ref{aux_label25}) is an easy consecuence because
                {\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l\partial\tilde x_j}
         \right\|_{L^p(\tilde E)}.
 \end{IEEEeqnarray*}
+Equality~\eqref{aux_label23} follows in a simpler way.
 \end{proof}
-We arrived at two of the main results in this thesis which are the an\-iso\-tropic
-local interpolation error estimates for $\bcurl$--conforming elements and
-div--conforming elements on prisms of any order.\\[5pt]
+We arrived at one of the main results in this Thesis which is the an\-iso\-tropic
+local interpolation error estimates for div--conforming elements on prisms of any order.
+As we said earlier, in Chapter~\ref{auxlabel202} we will arrive
+at the $\bcurl$--conforming analogue.
+\\[5pt]
 
 %% Sean un prisma obl\'{\i}cuo irregular $E$, $k\in\mathbb{N}$, el operador de interpolaci\'on 
 %% $\bw_E$ de grado $k$ determinado por el elemento en la Definición~(\ref{edgeelement}), y
 %% $p>2$. 
 %% such that (\noindent{\color{BrickRed}hip. prisma}).
-For these two Theorems we will adopt the following notations. For a prism $E$, 
+We will adopt the following notations. For a prism $E$, 
 $h$ will denote its diameter and, for $1\leqslant i \leqslant 3$ ,
 $\xi_i$ will denote unitary vectors with the directions
 of the three edges $\be_i$ sharing a vertex $\bx_E$ of $E$ whose lengths are

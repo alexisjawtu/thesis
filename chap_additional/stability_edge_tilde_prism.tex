@@ -1,22 +1,5 @@
-The next step is to estimate the stability in 
-an anisotropically rescaled prism. Given three positive numbers
-$h_1$, $h_2$ and $h_3$ we denote
-\begin{IEEEeqnarray*}{CCl}
-    \yesnumber\label{tilde_prism}
-    \tilde{E}   &   =   &   \tilde{T} \times \tilde{I}
-\end{IEEEeqnarray*}
-where
-\begin{IEEEeqnarray*}{rCl}
-    \tilde{T}   &   =   &   \{ 0 < \nicefrac{\tilde{x}_1}{h_1} + \nicefrac{\tilde{x}_2  }{h_2} < 1 \}\\
-    \tilde{I}   &   =   &   \{ 0 < \nicefrac{\tilde{x}_3}{h_3} < 1 \}.
-\end{IEEEeqnarray*}
-\rescaledPrismTikz
-Of course $\tilde{E} = F(\hat{E})$ where $F$ is the linear
-$\mathbb{R}^3 \rightarrow \mathbb{R}^3$ transformation such that
-\begin{IEEEeqnarray}{rClCl}
-  \label{change_var}
-  F\hat{\bx} & = & \diag{h_1}{h_2}{h_3} \hat{\bx} & = & \tilde{\bx}.
-\end{IEEEeqnarray}
+As in the div--conforming case, the next step is to estimate the stability in 
+an anisotropically rescaled prism. Consider again the element $\tilde{E}$ defined in~(\ref{tilde_prism}).
 Given a natural number $k$, denote with ${\bw}_{\tilde{E}}$ the $k$--th order 
 $\bcurl$--conforming interpolation
 operator over $\tilde{E}$ defined as in Corollary~\ref{aux_label26}. 
@@ -47,7 +30,8 @@ $\tilde{\bu}\in\wpcurl{\tilde{E}}$
     \right\|_{L^1(\tilde{E})}\right)
     \right].}
 \end{IEEEeqnarray*}
-{\color{BrickRed} ver las cuentas donde dice $h_1 + h_2$}
+%============
+%{\color{BrickRed} ver las cuentas donde dice $h_1 + h_2$}
 %============
 % tal vez esto no haga falta
 %para transformar $\hat{E} $ en $\tilde{E} $ v\'ia

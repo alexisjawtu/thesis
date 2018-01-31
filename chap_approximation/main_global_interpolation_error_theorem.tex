@@ -26,7 +26,7 @@ of Problem~\ref{weakMixedContinuous}. Let  $\br_0$ be the operator~(\ref{global_
     \|\bu-\rZerou\|_{0,\Omega} &\leqslant& C \textit{h}\|f\|_{0,\Omega}\\[5pt]
   \label{auxlabel76}
     \|p-P_{\scriptscriptstyle \Th}p\|_{0,\Omega} &\leqslant& 
-    {\color{Orange}\mbox{>}C \textit{h}\|f\|_{0,\Omega}\mbox{ o bien }C \textit{h}\|p\|_{1,\Omega}\mbox{?}}.
+    C \textit{h}\|\nabla p\|_{0,\Omega}.
   \end{IEEEeqnarray}
 \end{theorem}
 
@@ -40,9 +40,9 @@ of Problem~\ref{weakMixedContinuous}. Let  $\br_0$ be the operator~(\ref{global_
 \end{remark}
 
 \section{Proof of Theorem~\ref{interpolation_theorem}}
-Start splitting the field $\bu$ as in~(\ref{splitting}).
-
-By Lemma~\ref{well_defined_dofs}, the field $\rZerou = \br_0\bu_s + \br_0\bu_r$ 
+{\color{Orange}For the scalar variable the estimate follows from Lemma~\ref{aux_label40}}.
+For the vectorial variable start splitting the field $\bu$ as in~(\ref{splitting}). By 
+Lemma~\ref{well_defined_dofs}, the field $\rZerou = \br_0\bu_s + \br_0\bu_r$ 
 is well defined, so we will work 
 with the regular part $\bu_r - \br_0\bu_r$ and the singular part $\bu_s - \br_0\bu_s$
 separately. The bound for the error of the interpolation of the singular part will be 
@@ -84,10 +84,6 @@ $L^1(\Lambda_\ell)$ norm. On the other hand,
 which implies $\partial^\alpha{\bv}\in L^1(\Lambda_\ell)$ for all
 $\bv\in V^{1,2}_{\beta,\delta}(\Lambda_\ell)$.
 \end{proof}
-
-
-\noindent{\color{Orange}\#\#\#\#\#\#\# **bound for the scalar variable: para todos igual,
-lo pongo una sola vez. c\'omo lo ponemos?} 
 %%======================================================================================= 
 % Recall that $\|\bw\|^2_{\mathbb{V}} = \|\bw\|^2_{0,\Omega} + \|\dv\,\bw\|^2_{0,\Omega}$ 
 % and that, 
@@ -125,8 +121,10 @@ let $\boldsymbol{h}=(h_{1},h_{2},h_{3})'$. By Theorem~\ref{aux_label46}
   \|\dv\bu_r\|_{L^2(E)}^2\right\}.
 }
 \end{IEEEeqnarray*}
-\noindent{\color{Orange}\#\#\#\#\#\#\# aca hay que poner la interpolacion en piramides
-aparte tambien.} 
+%================= TODO
+%\noindent{\color{Orange}\#\#\#\#\#\#\# aca hay que poner la interpolacion en piramides
+%aparte tambien.} 
+%============================
 Now following the grading~(\ref{label_grading}) it holds
 $\boldsymbol{h}^{\balpha}\leqslant C\,\textit{h}$ and $h_E \leqslant C\,h_3 \sim \textit{h}$ 
 for all the elements of the
@@ -708,8 +706,8 @@ tetrahedra, and then using Proposition 3.4 of~\cite{aadl}, we get
     + (h_1+h_2+h_3) \|\dvg \bu_s\|_{L^1(T_\ell)}\bigg\}}\\[3pt]
 &&\yesnumber\label{aux_label60}
 \end{IEEEeqnarray*}
-{\color{Orange}\#\#\#\#\#\#\# where $C$ depends only on the max angle?}. 
-Now we estimate each term on the right side of~(\ref{aux_label60}).
+where $C$ depends only on the maximum angle of $T_\ell$. 
+Now we estimate each term on the right hand side of~(\ref{aux_label60}).
 \begin{enumerate}
   \item[(2a)] By H\"older's inequality
 \begin{IEEEeqnarray*}{rCl}
@@ -742,7 +740,7 @@ From this we will use that
 \[
   \|R^{\nu-1}\theta^{\mu-1}\|_{L^2(T_\ell)} \leqslant \|r^{\mu-1}\|_{L^2(T_\ell)}.
 \]
-Now, calculating the right side integrating in a cylindrical section,
+Now, calculating the right hand side integrating in a cylindrical section,
 \[
   \|r^{\mu-1}\|_{L^2(T_\ell)} = \sqrt{\tfrac{\pi}{4\mu}}\sqrt{h_3}\,h_1^{\mu}\sim \sqrt{h_3}\,\textit{h}.
 \]
@@ -775,7 +773,7 @@ and then
 \end{IEEEeqnarray*}
 \end{enumerate}
 \item 
-Now prisms, the middle term on the right of~(\ref{distancia_cero_arista}). Remember
+Now prisms, the middle term on the right hand of~(\ref{distancia_cero_arista}). Remember
 the difference with the tetrahedron is that $d(P,\bv_\ell) \gtrsim h_1$.
 We start pulling back from $P$ to the rescaled prism in Figure~\ref{rescaled_prism}
 called here $\tilde P$.   

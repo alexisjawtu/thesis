@@ -5,6 +5,7 @@
 *.png
 *.toc
 *.jpg
+*.jpeg
 borrar.sh
 mwe.*
 *.bbl

@@ -1,6 +1,123 @@
 \section{Prismatic Finite Elements}
 %>this intends to be an extension of the treatment
 %in~\cite{giraultRaviart} to prismatic elements?
+
+\subsection{$H(\Div)$--Conforming Element on Prisms} % (fold)
+\label{sub:definition_of_the_h_div_element_on_prisms}
+With the notation introduced in Subsection~\ref{sub:polynomials} we consider
+the polynomial space (see~\cite{nedelec2})
+\begin{IEEEeqnarray*}{rCl}
+    \yesnumber\label{dk}
+    D_k & = & P_{k-1}^2(\hat x_1,\hat x_2) \oplus \widetilde{P}_{k-1}(\hat x_1,\hat x_2) \hat\bx,\\
+    \hat\bx & = & (\hat x_1,\hat x_2).
+\end{IEEEeqnarray*}
+\begin{defi}\label{defi_h_div_conforme} Given a non--negative integer $k$, the 
+$H(\Div)$--Conforming 
+Finite Element of degree $k$  on a prism is defined by the following triple.
+\begin{enumerate}
+  \item $\hat{E}$ is the reference prism in Figure~\ref{reference_prism}.
+  \item The polynomial space $P_{\hat{E}}$ is
+    \begin{IEEEeqnarray*}{rCl}
+      P_{\hat{E}} & = & \{ \hat\bv = (\hat v_1,\hat v_2,\hat v_3)':\,
+      (\hat v_1,\hat v_2)'\in D_k\otimes P_{k-1}(\hat x_3),\\ 
+      \yesnumber\label{prismaticSpace}&   &\,\hat v_3\in P_{k-1, k} \}.
+    \end{IEEEeqnarray*} 
+  \item The degrees of freedom are of two types, surface and volumen integrals.
+\begin{IEEEeqnarray}{cCccl}
+    \label{momentos1hdiv} 
+    \hat\rho_{\hat f,\hat q}(\hat\bv) & = & \int_{\hat f} (\hat\bv\cdot\hat{\bn})\hat{q}\,d\hat{S} 
+        &\quad & \mbox{for } \hat{q} \in P_{k-1}(\hat{f})\mbox{,}\\
+    \nonumber&&&\quad&\mbox{if $\hat f = \hat f_3$ or $\hat f_4$;}\\[5pt]
+    \label{momentos2hdiv}
+    \hat\rho_{\hat f,\hat q}(\hat\bv) & = & \int_{\hat f} (\hat\bv\cdot\hat{\bn})\hat{q}\,d\hat{S} 
+        &\quad & \mbox{for } \hat{q} \in Q_{k-1, k-1}(\hat f)\mbox{,}\\
+    \nonumber&&&\quad&\mbox{ if $\hat f = \hat f_1$, $\hat f_2$ or $\hat f_5$;}\\[5pt]
+    \hat\rho_{\hat \br}(\hat\bv) & = & \int_{\hat{E}} (\hat v_1\,\hat r_1 + \hat v_2\,\hat r_2)\,d\hat\bx 
+        &\quad& \mbox{for }\hat r_1\mbox{, }\hat r_2\in P_{k-2,k-1};
+    \label{momentos3hdiv}\\
+    \label{momentos4hdiv}
+    \hat\rho_{\hat \br}(\hat\bv) & = & \int_{\hat{E}} \hat v_3\,\hat r_3\,d\hat\bx 
+        &\quad& \mbox{for }\hat r_3\in P_{k-1,k-2}. 
+\end{IEEEeqnarray}
+\end{enumerate}
+%%========
+% {\color{red}TODO: tal vez en los dofs (\ref{momentos2hdiv}) haya que separar los espacios test como hice
+% en pyramids}
+%%========
+%%=======================================================
+%% original version of dofs
+%\begin{IEEEeqnarray}{lcl}
+%   \label{momentos1hdiv} \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
+%       && \mbox{for } q \in P_{k-1}(x,y)\mbox{,}\\
+%   \nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
+%   \label{momentos2hdiv} \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
+%       && \mbox{for } q \in Q_{k-1, k-1, k-1}\mbox{,}\\
+%   \nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{x}_2=0\}$
+%    or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
+%   \label{momentos3hdiv} \int\limits_{\hat{E}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
+%       &\quad& {q_1\mbox{, } q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z);}\\
+%   \label{momentos4hdiv} \int\limits_{\hat{E}} v_3q_3\,d\textbf{x} 
+%       &\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
+%\end{IEEEeqnarray}
+%%=======================================================
+\end{defi}
+The following result can be found in page 66 of~\cite{nedelec2}.
+\begin{lemma} The Finite Element in Definition~\ref{defi_h_div_conforme} is
+  unisolvent in $\hat E$.
+\end{lemma}
+\begin{defi}\label{defi_face_element} Let $P_{\hat E}$ be as in~(\ref{prismaticSpace}).
+The interpolator $\boldsymbol{r}_{\hat{E}}\,:\,W^{1,1}(\hat{E})\to P_{\hat E}$
+is defined as the operator such that, 
+for each $\hat\bu\in W^{1,1}(\hat E)$, $\rku$ is
+defined as the unique element in $P_{\hat E}$ satisfying
+  \begin{IEEEeqnarray}{lClc}
+    \hat\rho_{\hat f,\hat\bq}\,(\hat{\bu} - \rku) & = & 0 &
+    \quad\mbox{for $\hat\rho_{\hat f, \hat q}$ as in~(\ref{momentos1hdiv})
+      and~(\ref{momentos2hdiv})}\\
+    \hat\rho_{\hat\br}\,(\hat\bu - \rku) & = & 0 &
+    \quad\mbox{for $\hat\rho_{\hat\br}$ as in~(\ref{momentos3hdiv})
+      and~(\ref{momentos4hdiv})}.
+  \end{IEEEeqnarray}
+\end{defi}
+Because of the degrees of freedom~(\ref{momentos1hdiv}) and~(\ref{momentos2hdiv})
+we had to restrict the condition $\hat\bu\in H(\Div, \hat E)$
+to the one of $\hat\bu\in W^{1,1}(\hat E)$ in order to define the 
+interpolation operator. The reason is that condition $\hat\bu\in H(\Div, \hat E)$
+does not suffice to have normal traces over the faces of a polyhedron.
+The proof of the following Lemma follows
+from Trace Theorems in Sobolev spaces as in~\cite{monk}.
+\begin{lemma}
+  The operator of Definition~\ref{defi_face_element} is well defined and
+  bounded.
+\end{lemma}
+\begin{proposition} On the Finite Element of Definition~\ref{defi_h_div_conforme}. 
+$\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
+which is, at the same time, equal to the number of its independent degrees of freedom.
+\end{proposition}
+\begin{proof}
+  From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
+  \begin{IEEEeqnarray*}{rCl}
+    \dim (P_{k-1}^2(\hat x_1,\hat x_2) \oplus \widetilde{P}_{k-1}(\hat x_1,\hat x_2))
+    \otimes P_{k-1}(\hat x_3) + \dim P_{k-1,k} & = &\\[5pt]
+    \IEEEeqnarraymulticol{3}{r}{=\,(k(k+1)+k)k+\dfrac{k(k+1)}{2}(k+1)} 
+  \end{IEEEeqnarray*}
+  and the same quantity is obtained by summing up the dimensions of all the
+  polynomial spaces on the right--hand sides of~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
+\end{proof}
+
+\begin{remark} The interpolation operator
+can be written
+%% \begin{IEEEeqnarray*}{rCl}
+%%   \int\limits_{\hat f}(\bv_{f,\hat{p}}\cdot\boldsymbol{\nu})\hat{q}\,d\gamma  & = & \delta_{\hat{p},\hat{q}}
+%%   \,\,etc\,\,etc
+%% \end{IEEEeqnarray*}
+\begin{IEEEeqnarray}{rCl}\label{face_interp_explicit}  
+  \hat{\br}_k\hat{\bu} & = & \sum_{\hat f,\hat\bq} \hat\rho_{\hat f,\hat\bq}(\hat{\bu})\,\hat{\bv}_{\hat f,\hat\bq} +
+    \sum_{\hat r} \hat\rho_{\hat r} (\hat{\bu})\,\hat{\bv}_{\hat r}
+\end{IEEEeqnarray}
+where we chose suitable dual bases to the bases of degrees of freedom.
+\end{remark}
+
 \subsection{$H(\bcurl)$--Conforming Element on Prisms} % (fold)
 \label{sub:defEdgeElement}
 First we introduce two more polynomial spaces on the reference prism of
@@ -42,9 +159,9 @@ Finite Element of degree $k$ is defined by the following triple.
          \end{IEEEeqnarray} 
   \item The degrees of freedom are (cfr. Tables~\ref{prismNotationTableFaces} 
 and~\ref{prismNotationTableEdges}):
-  {\color{Orange} ver si en~\ref{momentos2hcurl} y los otros de caras
-    hay que cambiar orden de componentes o signos por lo que acomod'e para definir el elemento
-    af'in; ver~(\ref{momentos2hcurlPhys})}.
+%  {\color{Orange} ver si en~\ref{momentos2hcurl} y los otros de caras
+%    hay que cambiar orden de componentes o signos por lo que acomod'e para definir el elemento
+%    af'in; ver~(\ref{momentos2hcurlPhys})}.
 \begin{IEEEeqnarray}{ll}
     \label{momentos1hcurl}  
     \hat\varphi_{\hat{\be},\hat{q}}\,(\hat\bu) = 
@@ -257,119 +374,4 @@ can be written
 \end{IEEEeqnarray}
 where we fixed bases of the tests spaces of polynomials defining the degrees of freedom
 and suitable bases of fields in $P_{\hat E}$ which are dual to the bases of degrees of freedom.
-\end{remark}
-\subsection{$H(\Div)$--Conforming Element on Prisms} % (fold)
-\label{sub:definition_of_the_h_div_element_on_prisms}
-With the notation introduced in Subsection~\ref{sub:polynomials} we consider
-the polynomial space (see~\cite{nedelec2})
-\begin{IEEEeqnarray*}{rCl}
-    \yesnumber\label{dk}
-    D_k & = & P_{k-1}^2(\hat x_1,\hat x_2) \oplus \widetilde{P}_{k-1}(\hat x_1,\hat x_2) \hat\bx,\\
-    \hat\bx & = & (\hat x_1,\hat x_2).
-\end{IEEEeqnarray*}
-\begin{defi}\label{defi_h_div_conforme} Given a non--negative integer $k$, the 
-$H(\Div)$--Conforming 
-Finite Element of degree $k$  on a prism is defined by the following triple.
-\begin{enumerate}
-  \item $\hat{E}$ is the reference prism in Figure~\ref{reference_prism}.
-  \item The polynomial space $P_{\hat{E}}$ is
-    \begin{IEEEeqnarray*}{rCl}
-      P_{\hat{E}} & = & \{ \hat\bv = (\hat v_1,\hat v_2,\hat v_3)':\,
-      (\hat v_1,\hat v_2)'\in D_k\otimes P_{k-1}(\hat x_3),\\ 
-      \yesnumber\label{prismaticSpace}&   &\,\hat v_3\in P_{k-1, k} \}.
-    \end{IEEEeqnarray*} 
-  \item The degrees of freedom are of two types, surface and volumen integrals.
-\begin{IEEEeqnarray}{cCccl}
-    \label{momentos1hdiv} 
-    \hat\rho_{\hat f,\hat q}(\hat\bv) & = & \int_{\hat f} (\hat\bv\cdot\hat{\bn})\hat{q}\,d\hat{S} 
-        &\quad & \mbox{for } \hat{q} \in P_{k-1}(\hat{f})\mbox{,}\\
-    \nonumber&&&\quad&\mbox{if $\hat f = \hat f_3$ or $\hat f_4$;}\\[5pt]
-    \label{momentos2hdiv}
-    \hat\rho_{\hat f,\hat q}(\hat\bv) & = & \int_{\hat f} (\hat\bv\cdot\hat{\bn})\hat{q}\,d\hat{S} 
-        &\quad & \mbox{for } \hat{q} \in Q_{k-1, k-1}(\hat f)\mbox{,}\\
-    \nonumber&&&\quad&\mbox{ if $\hat f = \hat f_1$, $\hat f_2$ or $\hat f_5$;}\\[5pt]
-    \hat\rho_{\hat \br}(\hat\bv) & = & \int_{\hat{E}} (\hat v_1\,\hat r_1 + \hat v_2\,\hat r_2)\,d\hat\bx 
-        &\quad& \mbox{for }\hat r_1\mbox{, }\hat r_2\in P_{k-2,k-1};
-    \label{momentos3hdiv}\\
-    \label{momentos4hdiv}
-    \hat\rho_{\hat \br}(\hat\bv) & = & \int_{\hat{E}} \hat v_3\,\hat r_3\,d\hat\bx 
-        &\quad& \mbox{for }\hat r_3\in P_{k-1,k-2}. 
-\end{IEEEeqnarray}
-\end{enumerate}
-%%========
-% {\color{red}TODO: tal vez en los dofs (\ref{momentos2hdiv}) haya que separar los espacios test como hice
-% en pyramids}
-%%========
-%%=======================================================
-%% original version of dofs
-%\begin{IEEEeqnarray}{lcl}
-%   \label{momentos1hdiv} \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
-%       && \mbox{for } q \in P_{k-1}(x,y)\mbox{,}\\
-%   \nonumber&& \mbox{ if $f\subseteq\{\hat{z}=0\}$ or $f\subseteq\{\hat{z}=1\}$; }\\
-%   \label{momentos2hdiv} \int\limits_{f} (\bv\cdot\boldsymbol{\nu})q\,d\gamma 
-%       && \mbox{for } q \in Q_{k-1, k-1, k-1}\mbox{,}\\
-%   \nonumber&& \mbox{ if $f\subseteq\{\hat{x}=0\}$ or $f\subseteq\{\hat{x}_2=0\}$
-%    or $f\subseteq\{\hat{x} + \hat{y} = 1\}$; } \\
-%   \label{momentos3hdiv} \int\limits_{\hat{E}} (v_1q_1 + v_2q_2)\,d\textbf{x} 
-%       &\quad& {q_1\mbox{, } q_2 \in P_{k-2}(x,y) \otimes P_{k-1}(z);}\\
-%   \label{momentos4hdiv} \int\limits_{\hat{E}} v_3q_3\,d\textbf{x} 
-%       &\quad& { q_3\in P_{k-1}(x,y) \otimes P_{k-2}(z).} 
-%\end{IEEEeqnarray}
-%%=======================================================
-\end{defi}
-The following result can be found in page 66 of~\cite{nedelec2}.
-\begin{lemma} The Finite Element in Definition~\ref{defi_h_div_conforme} is
-  unisolvent in $\hat E$.
-\end{lemma}
-\begin{defi}\label{defi_face_element} Let $P_{\hat E}$ be as in~(\ref{prismaticSpace}).
-The interpolator $\boldsymbol{r}_{\hat{E}}\,:\,W^{1,1}(\hat{E})\to P_{\hat E}$
-is defined as the operator such that, 
-for each $\hat\bu\in W^{1,1}(\hat E)$, $\rku$ is
-defined as the unique element in $P_{\hat E}$ satisfying
-  \begin{IEEEeqnarray}{lClc}
-    \hat\rho_{\hat f,\hat\bq}\,(\hat{\bu} - \rku) & = & 0 &
-    \quad\mbox{for $\hat\rho_{\hat f, \hat q}$ as in~(\ref{momentos1hdiv})
-      and~(\ref{momentos2hdiv})}\\
-    \hat\rho_{\hat\br}\,(\hat\bu - \rku) & = & 0 &
-    \quad\mbox{for $\hat\rho_{\hat\br}$ as in~(\ref{momentos3hdiv})
-      and~(\ref{momentos4hdiv})}.
-  \end{IEEEeqnarray}
-\end{defi}
-Because of the degrees of freedom~(\ref{momentos1hdiv}) and~(\ref{momentos2hdiv})
-we had to restrict the condition $\hat\bu\in H(\Div, \hat E)$
-to the one of $\hat\bu\in W^{1,1}(\hat E)$ in order to define the 
-interpolation operator. The reason is that condition $\hat\bu\in H(\Div, \hat E)$
-does not suffice to have normal traces over the faces of a polyhedron.
-The proof of the following Lemma follows
-from Trace Theorems in Sobolev spaces as in~\cite{monk}.
-\begin{lemma}
-  The operator of Definition~\ref{defi_face_element} is well defined and
-  bounded.
-\end{lemma}
-\begin{proposition} On the Finite Element of Definition~\ref{defi_h_div_conforme}. 
-$\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
-which is, at the same time, equal to the number of its independent degrees of freedom.
-\end{proposition}
-\begin{proof}
-  From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
-  \begin{IEEEeqnarray*}{rCl}
-    \dim (P_{k-1}^2(\hat x_1,\hat x_2) \oplus \widetilde{P}_{k-1}(\hat x_1,\hat x_2))
-    \otimes P_{k-1}(\hat x_3) + \dim P_{k-1,k} & = &\\[5pt]
-    \IEEEeqnarraymulticol{3}{r}{=\,(k(k+1)+k)k+\dfrac{k(k+1)}{2}(k+1)} 
-  \end{IEEEeqnarray*}
-  and the same quantity is obtained by summing up the dimensions of all the
-  polynomial spaces on the right--hand sides of~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}).
-\end{proof}
-
-\begin{remark} The interpolation operator
-can be written
-%% \begin{IEEEeqnarray*}{rCl}
-%%   \int\limits_{\hat f}(\bv_{f,\hat{p}}\cdot\boldsymbol{\nu})\hat{q}\,d\gamma  & = & \delta_{\hat{p},\hat{q}}
-%%   \,\,etc\,\,etc
-%% \end{IEEEeqnarray*}
-\begin{IEEEeqnarray}{rCl}\label{face_interp_explicit}  
-  \hat{\br}_k\hat{\bu} & = & \sum_{\hat f,\hat\bq} \hat\rho_{\hat f,\hat\bq}(\hat{\bu})\,\hat{\bv}_{\hat f,\hat\bq} +
-    \sum_{\hat r} \hat\rho_{\hat r} (\hat{\bu})\,\hat{\bv}_{\hat r}
-\end{IEEEeqnarray}
-where we chose suitable dual bases to the bases of degrees of freedom.
 \end{remark}
