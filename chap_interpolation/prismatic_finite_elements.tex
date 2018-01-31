@@ -108,11 +108,12 @@ constantly null over all $\hat{E}$.
 \begin{lemma}
 \begin{itemize}
   \item []
-  \item [(a)]\label{piu2_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) =
+  %\label{piu2_k_in_N}
+  \item [(a)] If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) =
   (0, \hat{u}_2(\hat x_1,\hat x_3), 0)'$,
   then $\rku\xyz = (0, \hat\xi_2(\hat x_1, \hat x_3) ,0)'$ for some 
   $\hat\xi_2 \in P_{k-1}(\hat{x}_2) \otimes P_k(\hat{x}_3)$.
-  \item [(b)]\label{piu1_k_in_N} If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = 
+  \item [(b)] If $\hat\bu(\hat x_1,\hat x_2,\hat x_3) = 
   (\hat{u}_1(\hat x_2,\hat x_3), 0, 0)'$
   then $\rku\xyz = (\hat\xi_1(\hat x_2,\hat x_3), 0 ,0)'$ for some
     $\hat\xi_1\in P_{k-1}(\hat{x}_1) \otimes P_k(\hat{x}_3)$.
@@ -407,7 +408,7 @@ for $m \geqslant 0$ and $p \geqslant 1$ the following items hold.
 \begin{enumerate}
   \item 
   For any component $1\leqslant i\leqslant 3$
-  \begin{IEEEeqnarray}{rCl}\label{aux_label30}
+  \begin{IEEEeqnarray}{rCl}\label{aux_label30} 
     \|\tilde  u_i - \tilde\Qb_{m,\tilde E}\,\tilde u_i \|_{L^p(\tilde E)}& \leqslant &
       C \sum_{j+k+l=m+1} h_1^jh_2^kh_3^l 
       \left\|\tfrac{\tilde\partial^{m+1}\tilde u_i}
@@ -493,8 +494,7 @@ $\balpha$ we have
   (\mbox{by~(\ref{aux_label41})})\qquad& = & C \sum_{j+k+l=m+1} \left\|
    h_1^jh_2^kh_3^l
    \frac{\tilde\partial^{m+1}}{\partial^j\tilde x_1\partial^k\tilde x_2\partial^l\tilde x_3}
-   (\tilde u_i)\right\|^p_{L^p(\tilde{E})} \\[4pt]
-   \yesnumber\label{aux_label30}
+   (\tilde u_i)\right\|^p_{L^p(\tilde{E})} \\[4pt] %\yesnumber\label{aux_label30}
   & = & C \sum_{j+k+l=m+1} (h_1^jh_2^kh_3^l)^p \left\| \frac{\tilde\partial^{m+1}\tilde u_i}
     {\partial\tilde x_1^j\partial\tilde x_2^k\partial\tilde x_3^l}
     \right\|^p_{L^p(\tilde E)}.
