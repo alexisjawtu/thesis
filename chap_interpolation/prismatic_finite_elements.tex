@@ -421,7 +421,7 @@ for $m \geqslant 0$ and $p \geqslant 1$ the following items hold.
   \begin{IEEEeqnarray}{rCl}\label{aux_label30} 
     \|\partial^{\bbeta}(\tilde  u_i - \tilde\Qb_{m,\tilde E}\,\tilde u_i)\|_{L^p(\tilde E)}
     & \leqslant & C 
-    \sum_{|\balpha|=m-|\bbeta|+1} \bh^{\balpha+\bbeta} 
+    \sum_{|\balpha|=m-|\bbeta|+1} \bh^{\balpha} 
       \left\|\partial^{\,\balpha + \bbeta}\tilde u_i\right\|_{L^p(\tilde E)}
   \end{IEEEeqnarray}
   \item 
@@ -495,14 +495,14 @@ $\balpha$ we have
   so, to prove~\eqref{aux_label30},
   \begin{IEEEeqnarray*}{rCl}
   \|\partial^{\bbeta}(\tilde  u_i - \tilde\Qb_{m,\tilde E}\,\tilde u_i)\|^p_{L^p(\tilde E)}
-  & = & \|\frac{1}{h_i}(\partial^{\bbeta} u_i - \Qb_{m-|\bbeta|, E}\,\partial^{\bbeta}u_i)\circ F_{\tilde E}^{-1}\|^p_{L^p(\tilde E)} \\[4pt]
-  & = & \frac{|\det M_E|}{h_i^p} \| \partial^{\bbeta}  u_i - \Qb_{m-|\bbeta|, E}\, \partial^{\bbeta} u_i\|^p_{L^p(\hat E)} \\[4pt]
-  & \leqslant & \frac{C|\det M_E|}{h_i^p} |\partial^{\bbeta} u_i|^p_{m-|\bbeta|+1,p,\hat E} \\[4pt]
-  & = & C|\det M_E| \sum_{|\balpha  |=m-|\bbeta|+1} \left\|
-   \nicefrac{1}{h_i} \partial^{\balpha+\bbeta} u_i\right\|^p_{L^p(\hat{E})} \\[4pt]
+  & = & \|\frac{1}{\bh^{\bbeta}}\frac{1}{h_i}(\partial^{\bbeta} u_i - \Qb_{m-|\bbeta|, E}\,\partial^{\bbeta}u_i)\circ F_{\tilde E}^{-1}\|^p_{L^p(\tilde E)} \\[4pt]
+  & = & \frac{|\det M_E|}{h_i^p}\frac{1}{(\bh^{\bbeta})^p} \| \partial^{\bbeta}  u_i - \Qb_{m-|\bbeta|, E}\, \partial^{\bbeta} u_i\|^p_{L^p(\hat E)} \\[4pt]
+  & \leqslant & \frac{C|\det M_E|}{h_i^p}\frac{1}{(\bh^{\bbeta})^p} |\partial^{\bbeta} u_i|^p_{m-|\bbeta|+1,p,\hat E} \\[4pt]
+  & \simeq & |\det M_E| \sum_{|\balpha  |=m-|\bbeta|+1} \tfrac{1}{(\bh^{\bbeta})^p} \left\|
+   \tfrac{1}{h_i} \partial^{\balpha+\bbeta} u_i\right\|^p_{L^p(\hat{E})} \\[4pt]
   (\mbox{by~(\ref{aux_label41})})\qquad& = &
   C \sum_{|\balpha  |=m-|\bbeta|+1} 
-  (\bh^{\balpha+\bbeta})^p \left\| \tilde\partial^{\balpha+\bbeta}\tilde u_i
+  (\bh^{\balpha})^p \left\| \tilde\partial^{\balpha+\bbeta}\tilde u_i
     \right\|^p_{L^p(\tilde E)}.
 \end{IEEEeqnarray*}
 To prove~(\ref{aux_label24}), by a straightforward manipulation we have
