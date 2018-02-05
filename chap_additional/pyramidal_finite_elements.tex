@@ -3,6 +3,19 @@
 $\hat{E}$ will be the reference pyramid  in Figure~\ref{reference_pyramid}.
 Anisotropic interpolation error estimates for pyramidal $\bcurl$--conforming
 and div--conforming finite elements of least order will we established.
+\begin{lemma}\label{auxlabel350}
+  The shape functions in Tables~\ref{shape_edge_table} and~\ref{shape_face_table}
+  are bounded.
+\end{lemma}
+\begin{proof}
+  Observe that the pyramid is contained in the region $\{\,x+z\leqslant 1,\,y+z\leqslant 1\,\}$
+  which yields
+  \begin{IEEEeqnarray*}{rClcrClcrCl}
+    \tfrac{x}{1-z}&\leqslant& 1\mbox{,} &\quad&
+    \tfrac{xy}{1-z}&\leqslant& y\mbox{,}&\quad&
+    \tfrac{xyz}{(1-z)^2}&\leqslant& z.
+  \end{IEEEeqnarray*}
+\end{proof}
 \subsection{Anisotropic Stability Estimates for $H(\bcurl)$--Conforming 
 Elements on Pyramids} % (fold)
 \label{sub:edge_elements}
@@ -220,7 +233,7 @@ and similarly
   \left|\iint_{\hat{f}_3} \hat{u}_3\,d\hat S - \iint_{\hat{f}_4} \hat{u}_3\,d\hat S\right| 
   & \leqslant & C\,\|\hat{u}_3\|_{H^{1}(\hat{E})}
 \end{IEEEeqnarray*}
-all of which leads to
+all of which, together with Lemma~\ref{auxlabel350}, leads to
 \begin{IEEEeqnarray*}{rCl}
   \|(\rku)_1\|_{L^{\infty}(\hat{E})} & \leqslant & C_{\hat{E}} 
   \left[ 

@@ -7,21 +7,21 @@ for all $\hat\bu\in W^{1,p}(\hat E)$ with first derivatives in $W^{1,1}(\hat E)$
   \|(\nabla\times\hat\bu)_2\|_{\scriptscriptstyle W^{1,1}(\hat E)} +  
   \|(\nabla\times\hat\bu)_3\|_{\scriptscriptstyle W^{1,1}(\hat E)}\\[4pt]
   &&\, +  \left\|\tfrac{\partial \hat u_1}{\partial\hat x_2}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)} +
-          \left\|\tfrac{\partial^2 \hat u_3}{\partial\hat x_2\partial\hat x_1}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)}.\\[12pt]
+          \left\|\tfrac{\partial^2 \hat u_3}{\partial\hat x_2\partial\hat x_1}\right\|_{\scriptscriptstyle L^{1}(\hat E)}.\\[12pt]
   \nonumber\|(\wku)_2\|_{L^\infty(\hat E)}&\lesssim&
 \|\hat u_2\|_{\scriptscriptstyle W^{1,p}(\hat E)} +
   \|(\nabla\times\hat\bu)_1\|_{\scriptscriptstyle W^{1,1}(\hat E)} +  
   \|(\nabla\times\hat\bu)_3\|_{\scriptscriptstyle W^{1,1}(\hat E)}\\[4pt]
   &&\, +  \left\|\tfrac{\partial \hat u_2}{\partial\hat x_1}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)} +
-          \left\|\tfrac{\partial^2 \hat u_3}{\partial\hat x_2\partial\hat x_1}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)}.\\[12pt]
+          \left\|\tfrac{\partial^2 \hat u_3}{\partial\hat x_2\partial\hat x_1}\right\|_{\scriptscriptstyle L^{1}(\hat E)}.\\[12pt]
   \nonumber\|(\wku)_3\|_{L^\infty(\hat E)}&\lesssim&
   \|\hat u_3\|_{\scriptscriptstyle W^{1,p}(\hat E)} +
   \|(\nabla\times\hat\bu)_2\|_{\scriptscriptstyle W^{1,1}(\hat E)} +  
   \|(\nabla\times\hat\bu)_1\|_{\scriptscriptstyle W^{1,1}(\hat E)}\\[5pt]
-  \IEEEeqnarraymulticol{3}{r}{\left\|\tfrac{\partial \hat u_3}{\partial\hat x_1}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)} +
+  \IEEEeqnarraymulticol{3}{r}{+\left\|\tfrac{\partial \hat u_3}{\partial\hat x_1}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)} +
         \left\|\tfrac{\partial \hat u_2}{\partial\hat x_1}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)} +
         \left\|\tfrac{\partial \hat u_1}{\partial\hat x_2}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)} +
-        \left\|\tfrac{\partial^2 \hat u_3}{\partial\hat x_2\partial\hat x_1}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)}.}
+        \left\|\tfrac{\partial^2 \hat u_3}{\partial\hat x_2\partial\hat x_1}\right\|_{\scriptscriptstyle L^{1}(\hat E)}.}
 \end{IEEEeqnarray}
 \end{theorem}
 \begin{proof}
@@ -264,7 +264,8 @@ For the third component let us denote $\xi(x,y,z) =
 %				\tfrac{{\s\partial}^2\hat u_3}{{\s\partial} \hat x_2{\s\partial} \hat x_1}\,d\hat\bx.
 %\end{IEEEeqnarray*}
 All together, for a $\hat\bu=(\hat u_1,\hat u_2,\hat u_3)'$, if we combine 
-what was obtained in~(\ref{first_a})--(\ref{third_c}), then it holds
+what was obtained in~(\ref{first_a})--(\ref{third_c}), and apply Lemma~\ref{auxlabel350}, 
+then it holds
 \begin{IEEEeqnarray*}{rCl}
   (\wku)_1 & = & 
     \int_{\hat\be_1}\hat u_1\,d\hat\alpha + 
