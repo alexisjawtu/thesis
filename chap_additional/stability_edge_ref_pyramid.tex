@@ -19,7 +19,8 @@ for all $\hat\bu\in W^{1,p}(\hat E)$ with first derivatives in $W^{1,1}(\hat E)$
   \|\hat u_3\|_{\scriptscriptstyle W^{1,p}(\hat E)} +
   \|(\nabla\times\hat\bu)_2\|_{\scriptscriptstyle W^{1,1}(\hat E)} +  
   \|(\nabla\times\hat\bu)_1\|_{\scriptscriptstyle W^{1,1}(\hat E)}\\[5pt]
-  \IEEEeqnarraymulticol{3}{r}{+\left\|\tfrac{\partial \hat u_3}{\partial\hat x_1}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)} +
+  \IEEEeqnarraymulticol{3}{r}{\label{auxlabel209}
+  +\left\|\tfrac{\partial \hat u_3}{\partial\hat x_1}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)} +
         \left\|\tfrac{\partial \hat u_2}{\partial\hat x_1}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)} +
         \left\|\tfrac{\partial \hat u_1}{\partial\hat x_2}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)} +
         \left\|\tfrac{\partial^2 \hat u_3}{\partial\hat x_2\partial\hat x_1}\right\|_{\scriptscriptstyle L^{1}(\hat E)}.}
@@ -315,6 +316,7 @@ We continue with the local interpolation error estimate.
 \begin{theorem}
   Let $E$ be any pyramid which is a non degenerate affine image 
   of the reference pyramid $\hat{E}$ with sizes $h_1, h_2$ and $h_3$
+  such that $h_3\geqslant Ch_1$ or $h_3\geqslant Ch_2$.
 \end{theorem}
 \begin{proof}
   Consider the matrix $M_{\tilde{E}}$ with coefficients $h_i\delta_{i,j}$, 
@@ -347,7 +349,67 @@ We continue with the local interpolation error estimate.
       |\tilde{E}|^{-1} h_2h_3 \|\tfrac{\partial^2\tilde{u}_3}{\partial\tilde x_1\partial\tilde x_2}\|_{L^1(\tilde E)}.
   \end{IEEEeqnarray*}
   Estimate for component number two yields the analogue and now we write
-  something similar to the third component.
+  something similar to the third component. From~\eqref{auxlabel209}
+  \begin{IEEEeqnarray*}{rCl}
+    \|(\tilde\bw_{\tilde{E}}\tilde{\bu})_3\|_{L^\infty(\tilde{E})}&\lesssim&
+    |\tilde{E}|^{-1/p}
+    \big\{ 
+      \|\tilde{u}_3\|_{\scriptscriptstyle L^p(\tilde{E})} + 
+      \sum_{i=1}^3 h_i \|\tfrac{\partial\tilde{u}_3}{\partial\tilde{x}_i}\|_{\scriptscriptstyle L^p(\tilde{E})}
+    \big\}\\[5pt]
+    &&\,+\,|\tilde{E}|^{-1}h_1
+    \big\{
+      \|(\nabla\times\tilde{u})_2\|_{\scriptscriptstyle L^1(\tilde{E})}+
+      \|\partial_{\tilde{x}_1}\tilde{u}_3\|_{\scriptscriptstyle L^1(\tilde{E})}\\[5pt]
+    &&\,+
+      \sum_{i=1}^3h_i
+      (
+        \|\partial_{\tilde{x}_i}(\nabla\times\tilde{u})_2\|_{\scriptscriptstyle L^1(\tilde{E})}+
+        \|\tfrac{\partial^2\tilde{u}_3}{\partial\tilde{x}_i\partial\tilde{x}_1}\|_{\scriptscriptstyle L^1(\tilde{E})}
+      )
+    \big\}\\[5pt]
+    &&\,+\,|\tilde{E}|^{-1}h_1
+    \big\{
+      \|(\nabla\times\tilde{u})_2\|_{\scriptscriptstyle L^1(\tilde{E})}+
+      \|\partial_{\tilde{x}_1}\tilde{u}_3\|_{\scriptscriptstyle L^1(\tilde{E})}\\[5pt]
+    &&\,+
+      \sum_{i=1}^3h_i
+      (
+        \|\partial_{\tilde{x}_i}(\nabla\times\tilde{u})_2\|_{\scriptscriptstyle L^1(\tilde{E})}+
+        \|\tfrac{\partial^2\tilde{u}_3}{\partial\tilde{x}_i\partial\tilde{x}_1}\|_{\scriptscriptstyle L^1(\tilde{E})}
+      )
+    \big\}
+    \\[5pt]
+    \IEEEeqnarraymulticol{3}{r}{\,+\,|\tilde{E}|^{-1}h_2
+        \big\{
+        \|(\nabla\times\tilde{\bu})_1\|_{\scriptscriptstyle L^1(\tilde{E})} + 
+                 \sum_{i=1}^3h_i(\|\partial_{\tilde{x}_i}(\nabla\times\tilde{\bu})_1\|_{\scriptscriptstyle L^1(\tilde{E})}
+        \big\}}\\[5pt]
+    &&  \,+\,|\tilde{E}|^{-1}\tfrac{h_1h_2}{h_3}
+    \big\{
+      \|\partial_{\tilde{x}_1}\tilde{u}_2\|_{\scriptscriptstyle L^1(\tilde{E})} + 
+      \|\partial_{\tilde{x}_2}\tilde{u}_1\|_{\scriptscriptstyle L^1(\tilde{E})}\\[5pt]
+    &&\,+ 
+\sum_{i=1}^3 h_i
+      (
+        \|\tfrac{\partial^2\tilde{u}_1}{\partial\tilde{x}_i\partial\tilde{x}_2}\|_{\scriptscriptstyle L^1(\tilde{E})}+
+        \|\tfrac{\partial^2\tilde{u}_2}{\partial\tilde{x}_i\partial\tilde{x}_1}\|_{\scriptscriptstyle L^1(\tilde{E})}
+      )
+    \big\}
+    \\[5pt]
+    &&\,+\,|\tilde{E}|^{-1}h_1h_2\|\tfrac{\partial^2\tilde{u}_3}{\partial\tilde{x}_1\partial\tilde{x}_2}\|_{\scriptscriptstyle L^1(\tilde{E})}
+  \end{IEEEeqnarray*}
+
+AGREGAR ACA: proceeding as in...
+we obtain:  establidad vectorial en $\tilde E$... y ver cómo quedaría
+el error de interpo local... ver los terminos.
+
+
+And now proceeding as in the proof of Theorem~\ref{aux_label27}, transforming from
+a physical pyramidal element $E$ to $\tilde{E}$ and adding the 
+estimate~\eqref{aux_label30} for the case with multi--indices of order two
+to use in the corresponding terms of the averaged Taylor polynomial approximation
+we obtain the result.
 \end{proof}
 
 
