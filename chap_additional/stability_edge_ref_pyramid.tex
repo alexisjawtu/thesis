@@ -6,6 +6,7 @@ for all $\hat\bu\in W^{1,p}(\hat E)$ with first derivatives in $W^{1,1}(\hat E)$
   \|\hat u_1\|_{\scriptscriptstyle W^{1,p}(\hat E)} +
   \|(\nabla\times\hat\bu)_2\|_{\scriptscriptstyle W^{1,1}(\hat E)} +  
   \|(\nabla\times\hat\bu)_3\|_{\scriptscriptstyle W^{1,1}(\hat E)}\\[4pt]
+  \label{auxlabel203}
   &&\, +  \left\|\tfrac{\partial \hat u_1}{\partial\hat x_2}\right\|_{\scriptscriptstyle W^{1,1}(\hat E)} +
           \left\|\tfrac{\partial^2 \hat u_3}{\partial\hat x_2\partial\hat x_1}\right\|_{\scriptscriptstyle L^{1}(\hat E)}.\\[12pt]
   \nonumber\|(\wku)_2\|_{L^\infty(\hat E)}&\lesssim&
@@ -313,8 +314,54 @@ then it holds
 We continue with the local interpolation error estimate.
 \begin{theorem}
   Let $E$ be any pyramid which is a non degenerate affine image 
-  of the reference pyramid $\hat{E}$. 
+  of the reference pyramid $\hat{E}$ with sizes $h_1, h_2$ and $h_3$
 \end{theorem}
+\begin{proof}
+  Consider the matrix $M_{\tilde{E}}$ with coefficients $h_i\delta_{i,j}$, 
+  $1\leqslant i,j\leqslant 3$ and take $\tilde{E}$ as the rescaled reference
+  pyramid, that is, $\tilde{E} = M_{\tilde{E}}\hat{E}$.
+  Let us start with a stability estimate in $\tilde{E}$. Given a field $\tilde{bu}$
+  in $\tilde{E}$, pulling $\tilde{\bu}$ back to $\hat{E}$, using~\eqref{auxlabel203}
+  and pushing forward to $\tilde{E}$ we get
+  \begin{IEEEeqnarray*}{rCl}
+    \|(\bw_{\tilde{E}}\tilde{\bu})_1\|_{\scriptscriptstyle L^\infty(\tilde{E})} &\lesssim&
+      |\tilde{E}|^{-1/p}
+      \big\{
+        \|\tilde u_1\|_{\scriptscriptstyle L^p(\tilde E)} + 
+          \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}\tilde{u}_1\|_{\scriptscriptstyle L^p(\tilde{E})}
+      \big\} \\[5pt]
+    \IEEEeqnarraymulticol{3}{r}{+\,
+      |\tilde{E}|^{\scriptscriptstyle -1} h_2
+      \big\{
+        \|(\nabla\times\tilde{\bu})_3\|_{\scriptscriptstyle L^1(\tilde{E})} + 
+        \sum_{i=1}^3h_i(\|\partial_{\tilde{x}_i}(\nabla\times\tilde{\bu})_3\|_{\scriptscriptstyle L^1(\tilde{E})} +
+                     \|\tfrac{\partial^2\tilde{u}_1}{\partial\tilde{x}_i\partial\tilde{x}_2}\|_{\scriptscriptstyle L^1(\tilde{E})})
+      \big\}} \\[5pt]
+    &&\,+\,
+      |\tilde{E}|^{-1} h_3
+      \big\{
+        \|(\nabla\times\tilde{\bu})_2\|_{\scriptscriptstyle L^1(\tilde{E})} + 
+             \sum_{i=1}^3h_i(\|\partial_{\tilde{x}_i}(\nabla\times\tilde{\bu})_2\|_{\scriptscriptstyle L^1(\tilde{E})}
+      \big\} \\[5pt]
+    &&\,+\,
+      |\tilde{E}|^{-1} h_2h_3 \|\tfrac{\partial^2\tilde{u}_3}{\partial\tilde x_1\partial\tilde x_2}\|_{L^1(\tilde E)}.
+  \end{IEEEeqnarray*}
+  Estimate for component number two yields the analogue and now we write
+  something similar to the third component.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
 %%==========================================================================
 %{\color{brown}
 %    \begin{IEEEeqnarray*}{rCl}
