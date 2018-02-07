@@ -1,5 +1,7 @@
 \begin{theorem} \label{aux_label53}
-Let $\hat E$ be the reference pyramid and let $p>2$. There is $C>0$ such that,
+Let $\hat E$ be the reference pyramid and let $p>2$. Let $\bw_{\hat E}(\cdot)$ denote
+the interpolation operator determined by the degrees of freedom in Definition~\ref{aux_label50}.
+There is $C>0$ such that,
 for all $\hat\bu\in W^{1,p}(\hat E)$ with first derivatives in $W^{1,1}(\hat E)$, there hold
 \begin{IEEEeqnarray}{rCl}
   \nonumber\|(\wku)_1\|_{L^\infty(\hat E)}&\lesssim&
@@ -313,10 +315,30 @@ then it holds
 \end{proof}
 \noindent{\color{BrickRed}\#\#\#\#\#\#\# seguir aca y con el de div} 
 We continue with the local interpolation error estimate.
-\begin{theorem}
-  Let $E$ be any pyramid which is a non degenerate affine image 
+\begin{theorem} \label{auxlabel211} Let $E$ be any pyramid which is a non degenerate affine image 
   of the reference pyramid $\hat{E}$ with sizes $h_1, h_2$ and $h_3$
   such that $h_3\geqslant Ch_1$ or $h_3\geqslant Ch_2$.
+  Let $k\in\mathbb{N}$ and $p>2$ and let $E$ be a prism whose triangular
+faces have greatest angle less than $c_0$.
+There exists $C > 0$ and three edges $\be_i$ of $E$ incident to a common vertex
+$\bx_E$ such that for all $\bu\in W^{m + 1,p}(E)^3$
+and $m\leqslant k-1$, %with $\bcurl \bu\in W^{m,p}(E)^3$
+\begin{IEEEeqnarray*}{rCl}\label{aux_label55}
+  \|\bu-\bw_E \bu\|_{L^p(E)} & \leqslant & C
+  \left\{
+    \sum_{|{\balpha}|=1}\bh^{\balpha} \|\partial^{\balpha} \bu\|_{L^p(E)} +\right.\\[4pt]
+  \yesnumber\label{auxlabel5}
+   &&\qquad\left. h_E\sum_{|{\balpha}|=1}\bh^{\balpha}\|\partial^{\balpha} 
+    (\curl \bu)_3 \|_{L^p(E)}
+  \right\}.\\
+  & &\max \{h_{i}\}^2 |\tilde{\bu}|_{2,p,\tilde{E}} \\[5pt]
+  & &\,+\, \max \{h_{1}, h_2\} \big( \|\partial_{\tilde{x}_1}\tilde{u}_2\|_{\scriptscriptstyle L^p(\tilde E)}
+   + \|\partial_{\tilde{x}_2}\tilde{u}_1\|_{\scriptscriptstyle L^p(\tilde E)}
+\end{IEEEeqnarray*} 
+$C$ depends only on $c_0$.
+$C$ can be chosen so that, if $M_E$ is the matrix made with
+$\xi_i$ as columns, then $\|M\|_\infty\leqslant C$ and $\|M^{-1}\|_\infty\leqslant C$ 
+and $\det M_E \geqslant C$
 \end{theorem}
 \begin{proof}
   Consider the matrix $M_{\tilde{E}}$ with coefficients $h_i\delta_{i,j}$, 
@@ -391,23 +413,19 @@ We continue with the local interpolation error estimate.
     \\[5pt]
     &&\,+\,|\tilde{E}|^{-1}h_1h_2\|\tfrac{\partial^2\tilde{u}_3}{\partial\tilde{x}_1\partial\tilde{x}_2}\|_{\scriptscriptstyle L^1(\tilde{E})}
   \end{IEEEeqnarray*}
-
-AGREGAR ACA: proceeding as in...
-we obtain:  vectorial stability estimate in $\tilde E$:
+Proceeding as in the proof of Theorem~\ref{aux_label27}
+we obtain the following vectorial stability estimate in $\tilde E$:
 \begin{IEEEeqnarray*}{rCl}
-  \| \tilde{\bw} \|
-  & \leqslant & |\tilde E|^{\tfrac{-1}{p}} \\
-  & &\,+\, |\tilde E|^{-1}\max \{h_{i}\} \\
-  & &\,+\, |\tilde E|^{-1}\max \{h_{i}\}^2 \\
-  & &\,+\, |\tilde E|^{-1}\max \{h_{1}, h_2\} \big( \| \| + \| \| \big)
+  \| \bw_{\tilde E}\tilde{\bu} \|_{\scriptscriptstyle L^p(\tilde E)}
+  & \leqslant & \|\tilde{\bu}\|_{\scriptscriptstyle L^p(\tilde E)}
+     + \sum_{i=1}^3 h_i\|\partial_{\tilde{x_i}}\tilde{\bu}\|_{\scriptscriptstyle L^p(\tilde E)} \\[5pt]  
+  & &\,+\, \max \{h_{i}\} \left( \|\nabla\times\tilde{\bu}\|_{\scriptscriptstyle L^p(\tilde E)} + 
+   \sum_{i=1}^3 h_i \|\partial_{\tilde{x}_i}\nabla\times\tilde{\bu}\|_{\scriptscriptstyle L^p(\tilde E)} \right) \\[5pt]
+  & &\,+\, \max \{h_{i}\}^2 |\tilde{\bu}|_{2,p,\tilde{E}} \\[5pt]
+  & &\,+\, \max \{h_{1}, h_2\} \big( \|\partial_{\tilde{x}_1}\tilde{u}_2\|_{\scriptscriptstyle L^p(\tilde E)}
+   + \|\partial_{\tilde{x}_2}\tilde{u}_1\|_{\scriptscriptstyle L^p(\tilde E)} \big)
 \end{IEEEeqnarray*}
-
-
- y ver cómo quedaría
-el error de interpo local... ver los terminos.
-
-
-And now proceeding as in the proof of Theorem~\ref{aux_label27}, transforming from
+And now proceeding as in the proof of Theorem~\ref{aux_label32}, transforming from
 a physical pyramidal element $E$ to $\tilde{E}$ and adding the 
 estimate~\eqref{aux_label30} for the case with multi--indices of order two
 to use in the corresponding terms of the averaged Taylor polynomial approximation
