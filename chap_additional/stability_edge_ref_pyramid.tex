@@ -349,7 +349,11 @@ We continue with the local interpolation error estimate.
       |\tilde{E}|^{-1} h_2h_3 \|\tfrac{\partial^2\tilde{u}_3}{\partial\tilde x_1\partial\tilde x_2}\|_{L^1(\tilde E)}.
   \end{IEEEeqnarray*}
   Estimate for component number two yields the analogue and now we write
-  something similar to the third component. From~\eqref{auxlabel209}
+  something similar to the third component. Note that in some cases we group terms
+  using $|\tilde E|^{-1}\|g\|_{\scriptscriptstyle L^1(\tilde E)} \leqslant 
+  |\tilde E|^{\frac{-1}{p}}\|g\|_{\scriptscriptstyle L^p(\tilde E)}$ for scalar 
+  functions
+  in $L^p$. From~\eqref{auxlabel209}
   \begin{IEEEeqnarray*}{rCl}
     \|(\tilde\bw_{\tilde{E}}\tilde{\bu})_3\|_{L^\infty(\tilde{E})}&\lesssim&
     |\tilde{E}|^{-1/p}
@@ -359,27 +363,15 @@ We continue with the local interpolation error estimate.
     \big\}\\[5pt]
     &&\,+\,|\tilde{E}|^{-1}h_1
     \big\{
-      \|(\nabla\times\tilde{u})_2\|_{\scriptscriptstyle L^1(\tilde{E})}+
-      \|\partial_{\tilde{x}_1}\tilde{u}_3\|_{\scriptscriptstyle L^1(\tilde{E})}\\[5pt]
+      \|(\nabla\times\tilde{\bu})_2\|_{\scriptscriptstyle L^1(\tilde{E})}+
+      \\[5pt]
     &&\,+
       \sum_{i=1}^3h_i
       (
-        \|\partial_{\tilde{x}_i}(\nabla\times\tilde{u})_2\|_{\scriptscriptstyle L^1(\tilde{E})}+
+        \|\partial_{\tilde{x}_i}(\nabla\times\tilde{\bu})_2\|_{\scriptscriptstyle L^1(\tilde{E})}+
         \|\tfrac{\partial^2\tilde{u}_3}{\partial\tilde{x}_i\partial\tilde{x}_1}\|_{\scriptscriptstyle L^1(\tilde{E})}
       )
     \big\}\\[5pt]
-    &&\,+\,|\tilde{E}|^{-1}h_1
-    \big\{
-      \|(\nabla\times\tilde{u})_2\|_{\scriptscriptstyle L^1(\tilde{E})}+
-      \|\partial_{\tilde{x}_1}\tilde{u}_3\|_{\scriptscriptstyle L^1(\tilde{E})}\\[5pt]
-    &&\,+
-      \sum_{i=1}^3h_i
-      (
-        \|\partial_{\tilde{x}_i}(\nabla\times\tilde{u})_2\|_{\scriptscriptstyle L^1(\tilde{E})}+
-        \|\tfrac{\partial^2\tilde{u}_3}{\partial\tilde{x}_i\partial\tilde{x}_1}\|_{\scriptscriptstyle L^1(\tilde{E})}
-      )
-    \big\}
-    \\[5pt]
     \IEEEeqnarraymulticol{3}{r}{\,+\,|\tilde{E}|^{-1}h_2
         \big\{
         \|(\nabla\times\tilde{\bu})_1\|_{\scriptscriptstyle L^1(\tilde{E})} + 
@@ -401,7 +393,17 @@ We continue with the local interpolation error estimate.
   \end{IEEEeqnarray*}
 
 AGREGAR ACA: proceeding as in...
-we obtain:  establidad vectorial en $\tilde E$... y ver cómo quedaría
+we obtain:  vectorial stability estimate in $\tilde E$:
+\begin{IEEEeqnarray*}{rCl}
+  \| \tilde{\bw} \|
+  & \leqslant & |\tilde E|^{\tfrac{-1}{p}} \\
+  & &\,+\, |\tilde E|^{-1}\max \{h_{i}\} \\
+  & &\,+\, |\tilde E|^{-1}\max \{h_{i}\}^2 \\
+  & &\,+\, |\tilde E|^{-1}\max \{h_{1}, h_2\} \big( \| \| + \| \| \big)
+\end{IEEEeqnarray*}
+
+
+ y ver cómo quedaría
 el error de interpo local... ver los terminos.
 
 
