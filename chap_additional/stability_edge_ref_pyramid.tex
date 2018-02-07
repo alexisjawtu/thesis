@@ -313,38 +313,35 @@ then it holds
   \tfrac{{\s\partial}^2 u_3}{{\s\partial} \hat x_1{\s\partial} \hat x_2}\,d\hat\bx.
 \end{IEEEeqnarray*}
 \end{proof}
-\noindent{\color{BrickRed}\#\#\#\#\#\#\# seguir aca y con el de div} 
 We continue with the local interpolation error estimate.
-\begin{theorem} \label{auxlabel211} Let $E$ be any pyramid which is a non degenerate affine image 
-  of the reference pyramid $\hat{E}$ with sizes $h_1, h_2$ and $h_3$
-  such that $h_3\geqslant Ch_1$ or $h_3\geqslant Ch_2$.
-  Let $k\in\mathbb{N}$ and $p>2$ and let $E$ be a prism whose triangular
-faces have greatest angle less than $c_0$.
-There exists $C > 0$ and three edges $\be_i$ of $E$ incident to a common vertex
-$\bx_E$ such that for all $\bu\in W^{m + 1,p}(E)^3$
-and $m\leqslant k-1$, %with $\bcurl \bu\in W^{m,p}(E)^3$
+\begin{theorem} \label{auxlabel211}
+  Let $E$ be any pyramid which is
+  a non degenerate affine image 
+  of the reference pyramid $\hat{E}$. We fix a positively oriented local system of 
+  coordinates $(\bxi_1, \bxi_2, \bxi_3)$
+  with origin in a vertex $\bx_E$ of the parallelogram basis, for which $(\bxi_1, \bxi_2)$
+  correspond to the two basis edges incident to $\bx_E$ and $\bxi_3$ is parallel to the 
+  edge joining $\bx_E$ with the top of the pyramid. Let $h_1, h_2, h_3$ be the corresponding 
+  edge lengths. With $\partial^{\balpha}$ we denote 
+  $\tfrac{\partial^{|\balpha|}}{\partial_{\bxi_1}^{\alpha_1}\partial_{\bxi_2}^{\alpha_2}\partial_{\bxi_3}^{\alpha_3}}$.
+  Suppose that
+  $h_3 \geqslant \min \{h_1, h_2\}$ and let  $p>2$.
+  For all $\bu\in W^{1,p}(E)^3$
 \begin{IEEEeqnarray*}{rCl}\label{aux_label55}
-  \|\bu-\bw_E \bu\|_{L^p(E)} & \leqslant & C
-  \left\{
-    \sum_{|{\balpha}|=1}\bh^{\balpha} \|\partial^{\balpha} \bu\|_{L^p(E)} +\right.\\[4pt]
+  \|\bu-\bw_E \bu\|_{L^p(E)} & \lesssim &
+    \sum_{|{\balpha}|=1}\bh^{\balpha} \|\partial^{\balpha} \bu\|_{L^p(E)} +\\[4pt]
   \yesnumber\label{auxlabel5}
-   &&\qquad\left. h_E\sum_{|{\balpha}|=1}\bh^{\balpha}\|\partial^{\balpha} 
-    (\curl \bu)_3 \|_{L^p(E)}
-  \right\}.\\
-  & &\max \{h_{i}\}^2 |\tilde{\bu}|_{2,p,\tilde{E}} \\[5pt]
-  & &\,+\, \max \{h_{1}, h_2\} \big( \|\partial_{\tilde{x}_1}\tilde{u}_2\|_{\scriptscriptstyle L^p(\tilde E)}
-   + \|\partial_{\tilde{x}_2}\tilde{u}_1\|_{\scriptscriptstyle L^p(\tilde E)}
+   &&\,+\,h_E\sum_{|{\balpha}|=1}\bh^{\balpha}\|\partial^{\balpha} \curl \bu\|_{L^p(E)}\\
+  & &\,+\,h_E^2 |\bu|_{2,p,E} \\[5pt]
+  & &\,+\,\max \{h_{1}, h_2\} \left( \|\partial_{\tilde{x}_1}\tilde{u}_2\|_{\scriptscriptstyle L^p(\tilde E)}
+   + \|\partial_{\tilde{x}_2}\tilde{u}_1\|_{\scriptscriptstyle L^p(\tilde E)}\right).
 \end{IEEEeqnarray*} 
-$C$ depends only on $c_0$.
-$C$ can be chosen so that, if $M_E$ is the matrix made with
-$\xi_i$ as columns, then $\|M\|_\infty\leqslant C$ and $\|M^{-1}\|_\infty\leqslant C$ 
-and $\det M_E \geqslant C$
 \end{theorem}
 \begin{proof}
   Consider the matrix $M_{\tilde{E}}$ with coefficients $h_i\delta_{i,j}$, 
   $1\leqslant i,j\leqslant 3$ and take $\tilde{E}$ as the rescaled reference
   pyramid, that is, $\tilde{E} = M_{\tilde{E}}\hat{E}$.
-  Let us start with a stability estimate in $\tilde{E}$. Given a field $\tilde{bu}$
+  Let us start with a stability estimate in $\tilde{E}$. Given a field $\tilde{\bu}$
   in $\tilde{E}$, pulling $\tilde{\bu}$ back to $\hat{E}$, using~\eqref{auxlabel203}
   and pushing forward to $\tilde{E}$ we get
   \begin{IEEEeqnarray*}{rCl}
@@ -411,7 +408,7 @@ and $\det M_E \geqslant C$
       )
     \big\}
     \\[5pt]
-    &&\,+\,|\tilde{E}|^{-1}h_1h_2\|\tfrac{\partial^2\tilde{u}_3}{\partial\tilde{x}_1\partial\tilde{x}_2}\|_{\scriptscriptstyle L^1(\tilde{E})}
+    &&\,+\,|\tilde{E}|^{-1}h_1h_2\|\tfrac{\partial^2\tilde{u}_3}{\partial\tilde{x}_1\partial\tilde{x}_2}\|_{\scriptscriptstyle L^1(\tilde{E})}.
   \end{IEEEeqnarray*}
 Proceeding as in the proof of Theorem~\ref{aux_label27}
 we obtain the following vectorial stability estimate in $\tilde E$:
