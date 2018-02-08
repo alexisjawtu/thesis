@@ -33,16 +33,16 @@ There is $C>0$ such that,
 for all $\hat\bu\in W^{1,p}(\hat E)$, there hold
 \begin{IEEEeqnarray*}{rCl}
   \|(\rku)_1\|_{\scriptscriptstyle{L^\infty(\hat{E})}}
-  &\lesssim& \|\hat u_1\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
-    \|\dv \hat\bu\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
-    \left\|\hat{u}_3\right\|_{\scriptscriptstyle{W^{1,p}}(\hat{E})}\\[12pt]
+  &\lesssim& \|\hat u_1\|_{\scriptscriptstyle{W^{1,1}(\hat{E})}} +
+    \|\dv \hat\bu\|_{\scriptscriptstyle{L^1}(\hat{E})} + 
+    \left\|\hat{u}_3\right\|_{\scriptscriptstyle{W^{1,1}}(\hat{E})}\\[12pt]
   \|(\rku)_2\|_{\scriptscriptstyle{L^\infty(\hat{E})}}
-  &\lesssim& \|\hat u_2\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
-    \|\dv \hat\bu\|_{\scriptscriptstyle{L^p}(\hat{E})} + 
-    \left\|\hat{u}_3\right\|_{\scriptscriptstyle{W^{1,p}}(\hat{E})}\\[12pt]
+  &\lesssim& \|\hat u_2\|_{\scriptscriptstyle{W^{1,1}(\hat{E})}} +
+    \|\dv \hat\bu\|_{\scriptscriptstyle{L^1}(\hat{E})} + 
+    \left\|\hat{u}_3\right\|_{\scriptscriptstyle{W^{1,1}}(\hat{E})}\\[12pt]
   \|(\rku)_3\|_{\scriptscriptstyle{L^\infty(\hat{E})}} & \lesssim & 
-    \|\hat u_3\|_{\scriptscriptstyle{W^{1,p}(\hat{E})}} +
-    \|\dv \hat\bu\|_{\scriptscriptstyle{L^p}(\hat{E})}.
+    \|\hat u_3\|_{\scriptscriptstyle{W^{1,1}(\hat{E})}} +
+    \|\dv \hat\bu\|_{\scriptscriptstyle{L^1}(\hat{E})}.
 \end{IEEEeqnarray*}
 \end{theorem}
 \begin{proof}
@@ -242,7 +242,7 @@ all of which, together with Lemma~\ref{auxlabel350}, leads to
   \|(\rku)_1\|_{L^{\infty}(\hat{E})} & \leqslant & C_{\hat{E}} 
   \left[ 
     \|\hat{u}_1\|_{H^{1}(\hat{E})} + 
-    \|\dv\hat{\bu}\|_{L^{2}(\hat{E})} + 
+    \|\dv\hat{\bu}\|_{L^{1}(\hat{E})} + 
     \|\hat{u}_3\|_{H^{1}(\hat{E})}
   \right].
 \end{IEEEeqnarray*}
@@ -251,7 +251,7 @@ Copying the argument for the second component
   \|(\rku)_2\|_{L^{\infty}(\hat{E})} & \leqslant & C_{\hat{E}} 
   \left[ 
     \|\hat{u}_2\|_{H^{1}(\hat{E})} + 
-    \|\dv\hat{\bu}\|_{L^{2}(\hat{E})} + 
+    \|\dv\hat{\bu}\|_{L^{1}(\hat{E})} + 
     \|\hat{u}_3\|_{H^{1}(\hat{E})}
   \right].
 \end{IEEEeqnarray*}
@@ -259,7 +259,7 @@ Finally from~(\ref{term_rk3}) we deduce
 \begin{IEEEeqnarray*}{rCl}
   \|(\rku)_3\|_{\scriptscriptstyle{L^\infty(\hat{E})}} & \leqslant & C_{\hat{E}}
     \left[\|\hat u_3\|_{\scriptscriptstyle{H^{1}(\hat{E})}} +
-    \|\dv \hat\bu\|_{\scriptscriptstyle{L^2}(\hat{E})}\right].
+    \|\dv \hat\bu\|_{\scriptscriptstyle{L^1}(\hat{E})}\right].
 \end{IEEEeqnarray*}
 The quantity $C_{\hat{E}}$ depends only on the supremum of the (fixed)
 basis shape functions of Table~\ref{shape_face_table} over the pyramid.
@@ -284,16 +284,14 @@ Let $E$ be any pyramid which is
   Let $p>1$. For all $\bu\in W^{1,p}(E)^3$
 
 \end{theorem}
+\begin{proof}
+  Using~\ref{pull1} again and repeating what was done in~\ref{auxlabel212}
+\end{proof}
+
 
 % subsection face_elements (end)
 
-%% ============================================================================
-%% TODO: ver si esto finalmente va
-%% \subsection{Local Interpolation Estimates for Pyramidal Finite Elements} % (fold)
-%% \label{sub:local_interpolation_estimates_for_pyramidal_elements}
-%% decir que permitimos pirámides elongadas perpendicularmente a la base
-%% $h_3\geqslant C\min\{h_1,h_2\}$
-%% Verificar si es esto o $h3 >= max (h1, h2)$\\
+%% TODO =======================================================================
 %% poner tres dibujos con casos $h1=h2<h3$; $h1<h2<h3$; $h2<h1<h3$
 % subsection local_interpolation_estimates_for_pyramidal_elements (end)
 %% ============================================================================
