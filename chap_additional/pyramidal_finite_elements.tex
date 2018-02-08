@@ -264,13 +264,8 @@ Finally from~(\ref{term_rk3}) we deduce
 The quantity $C_{\hat{E}}$ depends only on the supremum of the (fixed)
 basis shape functions of Table~\ref{shape_face_table} over the pyramid.
 \end{proof}
-{\color{red}
-SEGUIR ACA Y HACERLO un poco desarrollado, ojo que esta la norma de u3\\\\
+{\color {red}SEGUIR ACA completar el enunciado}\\\\
 The next result is the div--conforming analogue of Theorem~\ref{auxlabel211},
-whose proof is identical to that of Theorem~\ref{aux_label46}.
-Observe the important fact that in the following Theorem we no longer 
-require from the sizes $h_1, h_2, h_3$ of the pyramid to fulfill any
-condition.}
 \begin{theorem}
 Let $E$ be any pyramid which is
   a non degenerate affine image 
@@ -281,11 +276,40 @@ Let $E$ be any pyramid which is
   edge joining $\bx_E$ with the top of the pyramid. Let $h_1, h_2, h_3$ be the corresponding 
   edge lengths. With $\partial^{\balpha}$ we denote 
   $\tfrac{\partial^{|\balpha|}}{\partial_{\bxi_1}^{\alpha_1}\partial_{\bxi_2}^{\alpha_2}\partial_{\bxi_3}^{\alpha_3}}$.
-  Let $p>1$. For all $\bu\in W^{1,p}(E)^3$
-
+  For all $\bu\in W^{1,1}(E)^3$
 \end{theorem}
 \begin{proof}
-  Using~\ref{pull1} again and repeating what was done in~\ref{auxlabel212}
+  Using~\eqref{pull1} again, using~\eqref{derivadaPiola} and repeating what was
+  done in~\eqref{auxlabel212}
+  \begin{IEEEeqnarray*}{rCl}
+    \|(\br_{\tilde{E}}\tilde{\bu})_1\|_{\scriptscriptstyle L^\infty(\tilde E)} &\lesssim& 
+    \tfrac{1}{|\tilde E|} 
+    \big\{ 
+      \|\tilde{u}_1\|_{\scriptscriptstyle L^1(\tilde E)} + 
+      \sum_i h_i\|\partial_{\tilde{x}_i}\tilde{u}_1\|_{\scriptscriptstyle L^1(\tilde E)} + 
+      h_1\|\dv \tilde{\bu}\|_{\scriptscriptstyle L^1(\tilde E)} \\[5pt]
+    \IEEEeqnarraymulticol{3}{r}{\,+\, 
+      \|\tilde{u}_3\|_{\scriptscriptstyle L^1(\tilde E)} + 
+      h_1\|\partial_{\tilde{x}_1}\tilde{u}_3\|_{\scriptscriptstyle L^1(\tilde E)} +
+      h_2\|\partial_{\tilde{x}_2}\tilde{u}_3\|_{\scriptscriptstyle L^1(\tilde E)} + 
+      h_1\|\partial_{\tilde{x}_3}\tilde{u}_3\|_{\scriptscriptstyle L^1(\tilde E)} 
+     \big\}}
+  \end{IEEEeqnarray*}
+  The procedure for the second component is the same and the resulting estimate
+  is symmetrical. For component three, the same procedure (with fewer terms) yields
+  \begin{IEEEeqnarray*}{rCl}
+  \|(\br_{\tilde{E}}\tilde{\bu})_3\|_{\scriptscriptstyle L^\infty(\tilde E)} &\lesssim& 
+  |\tilde{E}|^{-1}\left(
+  \|\tilde{u}_3\|_{\scriptscriptstyle L^1(\tilde{E})}
+  +\sum_{i=1}^3h_i\|\partial_{\tilde{x}_i}\tilde{u}_3\|_{\scriptscriptstyle L^1(\tilde{E})}
+  +h_3\|\dv \tilde{\bu} \|_{\scriptscriptstyle L^1(\tilde{E})}\right).
+  \end{IEEEeqnarray*}
+  {\color{red}PARA SEGUIR}\\\\
+  applying .. and ... and ... we obtain the vectorial stability estimate in a physical pyramid:
+  \begin{IEEEeqnarray*}{rCl}
+    & \lesssim & 
+  \end{IEEEeqnarray*}
+  Now we continue as in ... and ... and the result follows.
 \end{proof}
 
 
