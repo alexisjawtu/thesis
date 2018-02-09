@@ -1,4 +1,5 @@
-\section{Stability Estimates for Pyramidal Finite Elements} % (fold)
+\section{Anisotropic Local interpolation Estimates 
+for Pyramidal Finite Elements} % (fold)
 \label{sec:pyramidal_finite_elements}
 $\hat{E}$ will be the reference pyramid  in Figure~\ref{reference_pyramid}.
 Anisotropic interpolation error estimates for pyramidal $\bcurl$--conforming
@@ -16,12 +17,12 @@ and div--conforming finite elements of least order will we established.
     \tfrac{xyz}{(1-z)^2}&\leqslant& z.
   \end{IEEEeqnarray*}
 \end{proof}
-\subsection{Anisotropic Stability Estimates for $H(\bcurl)$--Conforming 
+\subsection{Anisotropic Interpolation Estimates for $H(\bcurl)$--Conforming 
 Elements on Pyramids} % (fold)
 \label{sub:edge_elements}
 \input{./chap_additional/stability_edge_ref_pyramid}
-% subsection edge_elements (end)
-\subsection{Anisotropic Stability Estimates for $H(\text{div})$--Conforming 
+% subsection edge_elements (end)1
+\subsection{Anisotropic Interpolation Estimates for $H(\text{div})$--Conforming 
 Elements on Pyramids} % (fold)
 \label{sub:face_elements}
 Here we will work on the div--conforming analogue of
@@ -264,7 +265,6 @@ Finally from~(\ref{term_rk3}) we deduce
 The quantity $C_{\hat{E}}$ depends only on the supremum of the (fixed)
 basis shape functions of Table~\ref{shape_face_table} over the pyramid.
 \end{proof}
-{\color {red}SEGUIR ACA completar el enunciado}\\\\
 The next result is the div--conforming analogue of Theorem~\ref{auxlabel211},
 \begin{theorem}
 Let $E$ be any pyramid which is
@@ -281,8 +281,9 @@ Let $E$ be any pyramid which is
   \|\bu-\br_E \bu\|_{L^p(E)} \lesssim 
   \sum_{|{\balpha}|=1}\bh^{\balpha} \|\partial^{\balpha}\bu\|_{L^p(E)} +
   h_E\|\dv\bu\|_{L^p(E)}\\[4pt]
-  \,+\, diff de u3 \\[4pt].
-  \label{auxlabel214}
+  \label{auxlabel224}
+  \,+\,\max\{h_1,h_2\}\sum_{|{\balpha}|=1} 
+    \|\partial^{\balpha}u_3\|_{L^p(E)}.
 \end{IEEEeqnarray}
 \end{theorem}
 \begin{proof}
