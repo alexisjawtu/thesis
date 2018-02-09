@@ -17,6 +17,25 @@
 \end{figure}
 }
 
+\def\rescaledPyramidTikz
+{
+\begin{figure}[!h]
+  \centering
+    \begin{tikzpicture}[scale=.4]
+      \draw[->,color=orange] (0, 0, 0) -- (0, 0, 3);  
+      \draw[->] (0, 0, 0) -- (3,0);
+      \draw[->] (0, 0, 0) --  (0, 5, 0);
+      \draw (2, 0, 0) -- node[label={right:$_{_{h_1}}$}] { } (2, 0, 1);
+      \draw (0, 0, 1) -- (2, 0, 1); 
+      \draw[color=orange] (0,0,1) -- node[label={left:$_{_{h_1}}$}] { }  (0,3.5,0) ;
+      \draw[color=orange] (0,3.5,0) -- node[label={above:$_{_{h_2}}$}] { } (2,0,0);
+      \draw (0,3.5,0) -- (2,0,1);
+    \end{tikzpicture}
+  \caption{Rescaled Pyramid}
+  \label{rescaled_pyramid}    
+\end{figure}
+}
+
 \newcommand{\referenceTriangleTikz}[1]{
 \begin{tikzpicture}[scale={#1}]
   \draw (0,0,0) -- (1.2,0,0);

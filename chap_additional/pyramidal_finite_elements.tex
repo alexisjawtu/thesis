@@ -277,14 +277,23 @@ Let $E$ be any pyramid which is
   edge lengths. With $\partial^{\balpha}$ we denote 
   $\tfrac{\partial^{|\balpha|}}{\partial_{\bxi_1}^{\alpha_1}\partial_{\bxi_2}^{\alpha_2}\partial_{\bxi_3}^{\alpha_3}}$.
   For all $\bu\in W^{1,1}(E)^3$
+
+\begin{IEEEeqnarray}{C}\nonumber
+*******************
+  \|\bu-\br_E \bu\|_{L^p(E)} \leqslant C \left\{
+  \sum_{|{\balpha}|=m+1}h_E^{\balpha} \|\partial^{\balpha}\bu\|_{L^p(E)} +
+  h_E^{m+1}\|\partial^m(\text{div} \,\bu)\|_{L^p(E)} \right\}.\\[4pt]
+  \label{auxlabel214}
+\end{IEEEeqnarray}
+
 \end{theorem}
 \begin{proof}
-  Using~\eqref{pull1} again, using~\eqref{derivadaPiola} and repeating what was
-  done in~\eqref{auxlabel212}
+  Using~\eqref{pull1} again, using~\eqref{derivadaPiola} and repeating the steps 
+  for~\eqref{auxlabel212}
   \begin{IEEEeqnarray*}{rCl}
     \|(\br_{\tilde{E}}\tilde{\bu})_1\|_{\scriptscriptstyle L^\infty(\tilde E)} &\lesssim& 
     \tfrac{1}{|\tilde E|} 
-    \big\{ 
+    \big\{
       \|\tilde{u}_1\|_{\scriptscriptstyle L^1(\tilde E)} + 
       \sum_i h_i\|\partial_{\tilde{x}_i}\tilde{u}_1\|_{\scriptscriptstyle L^1(\tilde E)} + 
       h_1\|\dv \tilde{\bu}\|_{\scriptscriptstyle L^1(\tilde E)} \\[5pt]
@@ -304,11 +313,26 @@ Let $E$ be any pyramid which is
   +\sum_{i=1}^3h_i\|\partial_{\tilde{x}_i}\tilde{u}_3\|_{\scriptscriptstyle L^1(\tilde{E})}
   +h_3\|\dv \tilde{\bu} \|_{\scriptscriptstyle L^1(\tilde{E})}\right).
   \end{IEEEeqnarray*}
-  {\color{red}PARA SEGUIR}\\\\
-  applying .. and ... and ... we obtain the vectorial stability estimate in a physical pyramid:
+  applying \eqref{auxlabel213} and its analogue for the $L^\infty$ norm
+  we sum the component estimates to obtain the vectorial stability estimate in a physical pyramid:
   \begin{IEEEeqnarray*}{rCl}
-    & \lesssim & 
+    \|\br_{\tilde E}\tilde\bu\|_{\scriptscriptstyle L^p(\tilde E)}& \lesssim &\\[5pt]
+    \IEEEeqnarraymulticol{3}{r}{\|\tilde{\bu}\|_{\scriptscriptstyle L^p(\tilde E)} +
+          \sum_i h_i\|\partial_{\tilde{x}_i}\tilde{\bu}\|_{\scriptscriptstyle L^p(\tilde E)} +
+        h_{\tilde E}\|\dv \tilde\bu\|_{\scriptscriptstyle{L^p}(\tilde{E})} + 
+        \max\{h_1,h_2\} \|D\tilde{u}_3\|_{\scriptscriptstyle L^p(\tilde E)}}
   \end{IEEEeqnarray*}
+
+\eqref{aux_label30}
+\eqref{aux_label23}
+for the rescaled pyramid PONER NODE AT Y HACERLOS INDEP para hi.
+\rescaledPyramidTikz
+
+approximation property for these pyramidal finite elements
+(see Section 5 of~\cite{gh99})
+
+
+
   Now we continue as in ... and ... and the result follows.
 \end{proof}
 
