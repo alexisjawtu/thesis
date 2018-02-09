@@ -277,15 +277,13 @@ Let $E$ be any pyramid which is
   edge lengths. With $\partial^{\balpha}$ we denote 
   $\tfrac{\partial^{|\balpha|}}{\partial_{\bxi_1}^{\alpha_1}\partial_{\bxi_2}^{\alpha_2}\partial_{\bxi_3}^{\alpha_3}}$.
   For all $\bu\in W^{1,1}(E)^3$
-
 \begin{IEEEeqnarray}{C}\nonumber
-*******************
-  \|\bu-\br_E \bu\|_{L^p(E)} \leqslant C \left\{
-  \sum_{|{\balpha}|=m+1}h_E^{\balpha} \|\partial^{\balpha}\bu\|_{L^p(E)} +
-  h_E^{m+1}\|\partial^m(\text{div} \,\bu)\|_{L^p(E)} \right\}.\\[4pt]
+  \|\bu-\br_E \bu\|_{L^p(E)} \lesssim 
+  \sum_{|{\balpha}|=1}\bh^{\balpha} \|\partial^{\balpha}\bu\|_{L^p(E)} +
+  h_E\|\dv\bu\|_{L^p(E)}\\[4pt]
+  \,+\, diff de u3 \\[4pt].
   \label{auxlabel214}
 \end{IEEEeqnarray}
-
 \end{theorem}
 \begin{proof}
   Using~\eqref{pull1} again, using~\eqref{derivadaPiola} and repeating the steps 
@@ -320,20 +318,14 @@ Let $E$ be any pyramid which is
     \IEEEeqnarraymulticol{3}{r}{\|\tilde{\bu}\|_{\scriptscriptstyle L^p(\tilde E)} +
           \sum_i h_i\|\partial_{\tilde{x}_i}\tilde{\bu}\|_{\scriptscriptstyle L^p(\tilde E)} +
         h_{\tilde E}\|\dv \tilde\bu\|_{\scriptscriptstyle{L^p}(\tilde{E})} + 
-        \max\{h_1,h_2\} \|D\tilde{u}_3\|_{\scriptscriptstyle L^p(\tilde E)}}
+        \max\{h_1,h_2\} \|D\tilde{u}_3\|_{\scriptscriptstyle L^p(\tilde E)}}.
   \end{IEEEeqnarray*}
-
-\eqref{aux_label30}
-\eqref{aux_label23}
-for the rescaled pyramid PONER NODE AT Y HACERLOS INDEP para hi.
-\rescaledPyramidTikz
-
-approximation property for these pyramidal finite elements
-(see Section 5 of~\cite{gh99})
-
-
-
-  Now we continue as in ... and ... and the result follows.
+Now we apply~\eqref{aux_label23} and~\eqref{aux_label30}
+to the rescaled pyramid (Figure~\ref{rescaled_pyramid}), making use of the
+approximation property for these finite elements
+(see Section 5 of~\cite{gh99}), and 
+continue as in Theorem~\ref{aux_label46} or~\ref{aux_label32} and the result
+follows.
 \end{proof}
 
 

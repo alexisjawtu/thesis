@@ -314,6 +314,7 @@ then it holds
 \end{IEEEeqnarray*}
 \end{proof}
 We continue with the local interpolation error estimate.
+\rescaledPyramidTikz
 \begin{theorem} \label{auxlabel211}
   Let $E$ be any pyramid which is
   a non degenerate affine image 
@@ -340,7 +341,8 @@ We continue with the local interpolation error estimate.
 \begin{proof}
   Consider the matrix $M_{\tilde{E}}$ with coefficients $h_i\delta_{i,j}$, 
   $1\leqslant i,j\leqslant 3$ and take $\tilde{E}$ as the rescaled reference
-  pyramid, that is, $\tilde{E} = M_{\tilde{E}}\hat{E}$.
+  pyramid, that is, $\tilde{E} = M_{\tilde{E}}\hat{E}$. In 
+  Figure~\ref{rescaled_pyramid} we have illustrated the scaling.
   Let us start with a stability estimate in $\tilde{E}$. Given a field $\tilde{\bu}$
   in $\tilde{E}$, pulling $\tilde{\bu}$ back to $\hat{E}$, using~\eqref{auxlabel203}
   and pushing forward to $\tilde{E}$ we get
@@ -426,11 +428,14 @@ we obtain the following vectorial stability estimate in $\tilde E$:
   & &\,+\, \max \{h_{1}, h_2\} \big( \|\partial_{\tilde{x}_1}\tilde{u}_2\|_{\scriptscriptstyle L^p(\tilde E)}
    + \|\partial_{\tilde{x}_2}\tilde{u}_1\|_{\scriptscriptstyle L^p(\tilde E)} \big)
 \end{IEEEeqnarray*}
-And now proceeding as in the proof of Theorem~\ref{aux_label32}, transforming from
-a physical pyramidal element $E$ to $\tilde{E}$ and adding the 
-estimate~\eqref{aux_label30} for the case with multi--indices of order two
+And now we proceed as in the proof of Theorem~\ref{aux_label32}. First we 
+transform from
+a physical pyramidal element $E$ to $\tilde{E}$. In Section 5 of~\cite{gh99}
+the approximation property of the finite element is stated and then we add the 
+estimate~\eqref{aux_label30} for the rescaled pyramid $\tilde E$ in the case with 
+multi--indices of order two,
 to use in the corresponding terms of the averaged Taylor polynomial approximation
-we obtain the result.
+and the result follows.
 \end{proof}
 
 
