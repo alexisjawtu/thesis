@@ -6,31 +6,176 @@ constant $c > 0$ (written RVP($c$)) if $T$ has a vertex $\bx_T$ such that,
 if $M_T$ is the matrix made up of the unitary vectors in the directions
 of the edges sharing $\bx_T$ as columns, then $|\det M_T| > c$.
 
-If we mesh using only tetrahedra we will incur in using sequences of tetrahedra
+If we mesh using only tetrahedra we will incur in using subfamilies of tetrahedra
 wich do not fullfil uniformly the RVP($c$) for any positive constant $c$.
 
 {\color{Orange}\#\#\#\#\#\#\#\# seguir aca.}
 
-
 In other words, deficiency in using $\pazocal{F}_2$ class tetrahedra: we don't
 have $\textit{h}$ order with the asymptotic relation 
-$\textit{h}\sim N_{\Th}^{-\nicefrac13}$ preserved because we use strongly
+$\textit{h}\sim N_{\Th}^{-\nicefrac13}$ preserved because we strongly use 
 that
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)}& \leqslant & \sum_{1\leqslant i\leqslant 3} h_i \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)}
+  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & \sum_{1\leqslant i\leqslant 3} h_i \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}
   	+ h_T\|\dv \bu\|_{\sss L^2(T)}
 \end{IEEEeqnarray*}
 for the family $\pazocal{F}_1$ while, for the family $\pazocal{F}_2$, the sharp
 estimation is
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)}& \leqslant & h_T \sum_{1\leqslant i\leqslant 3}
-  \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)}.
+  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & h_T \sum_{1\leqslant i\leqslant 3}
+  \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}.
 \end{IEEEeqnarray*}
 In the latter case, a big derivative in the direction $\xi_i$ will not be 
 compensated with a small $h_i$, so we necessarily have to make the diameter
 $h_T$ small and refine the meshes in all the directions.
 
+A Finite and Virtual Element Method is introduced for the mixed approximation of a 
+simple model problem for the Laplace operator on a polyhedron. The method is fully analysed when the meshes are made up
+ of triangularly right prisms, pyramids and tetrahedra. The local discrete spaces coincide with the lowest order Raviart-Thomas 
+ spaces on tetrahedral and triangularly right prismatic elements, and extend them to pyramidal elements. The discrete scheme 
+is well posed and optimal error estimates are proved on meshes which allow for anisotropic elements. In particular, local 
+interpolation error estimates for the discrete element space are optimal and anisotropic on anisotropic right prisms, which can be
+ used to obtain optimal approximation error estimates when the solution has edge or vertex singularities by using suitably adapted meshes.   
+
+This paper is mainly motivated by the following observation regarding the approximation properties of the Raviart-Thomas space $RT(T)$ on a tetrahedron $T$. There exists a constant $C(\bar c)$ depending only on $\bar c$ such that if $T$ satisfies the {\it regular vertex property} with parameter $\bar c$ (RVP($\bar c$)) and $\bu\in H^1(T)^3$ then
+\begin{equation}\label{rvp}
+\|\bu-\Pi_0\bu\|_{L^2(T)}\le C(\bar c)\left(\sum_{i=1}^3h_i\|\partial_{x_i}\bu\|_{L^2(T)}+ h_T\|\mbox{div\,}\bu\|_{L^2(T)}\right),
+\end{equation}
+where $\Pi_0$ is the Raviart-Thomas interpolation operator of lowest order \cite{N, RT}, $h_T$ is the diameter of $T$ and $h_i$ is the diameter of $T$ in the $x_i$-direction. The result is also valid for greater order Raviart-Thomas interpolation~(\cite{AApDL2}. A less restrictive geometrical property is the {\it maximum angle condition} (MAC). We say that a tetrahedron $T$ satisfies MAC($\bar\alpha$) if the angles of the faces of $T$ and between faces are less than $\bar\alpha$. We know that there exists a constant $C(\bar\alpha)$ depending only on $\bar\alpha$ such that for all $T$ which satisfies MAC($\bar\alpha$) it holds
+\begin{equation}\label{mac}
+\|\bu-\Pi_0\bu\|_{L^2(T)}\le C(\bar\alpha)h_T|\bu|_{H^1(T)},
+\end{equation}
+for all $\bu\in H^1(T)^3$. Inequality \eqref{mac} is weaker than \eqref{rvp}, since there are elements satisfying MAC($\bar\alpha$) for a fixed $\bar\alpha$ with arbitrarily small RVP parameter $\bar c$, making to degenerate  the constant $C(\bar c)$ in \eqref{rvp} \cite{AApDL2}. Furthermore, inequality \eqref{rvp} can not be proved under the maximum angle condition as stated in \cite{AApDL2} by means of a counterexample.
+
+In several situations in mixed finite element approximations the use of meshes with narrow elements is needed. This is the case for instance when dealing with the Poisson equation 
+\begin{eqnarray}\label{ecuacion}
+-\Delta p &=& f\qquad \mbox{on }\Omega\\\nonumber p&=&0\qquad \mbox{in }\partial\Omega,
+\end{eqnarray}
+in a polyhedron $\Omega$ with concave edges, which, introducing the vectorial variable $\bu=-\nabla p$ can be written as
+\eqref{ecuacion} is
+\begin{equation}\label{mf} \left\{\begin{array}{rcl}
+\bu&=&-\nabla p\qquad \mbox{in }\Omega\\
+\dv\bu&=&f\qquad \mbox{in }\Omega\\
+p&=&0\qquad\mbox{on }\partial\Omega.\end{array}\right.
+\end{equation}
+In this case,  $\bu$ is in general not in $H^1$ due to vertex and edges singularities. In particular, close to concave edges, the solution is expected to be more regular in its direction than transversally to it, and consequently the mesh has to be accordingly refined in order to recover optimal order of convergence with respect to the number of degrees of freedom \cite{A, ALW, AN}. Those meshes contains elements arbitrarily elongated in the direction of concave edges (direction in which the solution is more regular). It is possibly to construct this kind of meshes with tetrahedral elements all satisfying MAC($\bar\alpha$) for $\bar\alpha<\pi$ fixed, but unfortunately those elements do not satisfy RVP with a parameter uniformly far from $0$. That is due to the presence of tetrahedra with bounded maximal angle but poor regular vertex constant, see Figure \ref{fig:tetraedros}. So, interpolation error estimate \eqref{rvp} can not be globally used to estimate the error approximation, but \eqref{mac} has to be taken, and consequently, the anisotropic properties of the meshes may give no profit.  
+
+\tetsTikz
 
 
-{\color{Orange}\#\#\#\#\#\#\#\# intro vems and Motivation}
+An idea to overcome this difficulty, for the case of $\Omega$ being a cylindrical polyhedral domain, was proposed in \cite{FNP}. In  this case, when $f$ is in $L^2(\Omega)$, the solution may exhibit only singularities along concave edges. Then the authors proposed a lowest order mixed Raviart--Thomas method on graded anisotropic meshes made up of triangular right prisms and they proved optimal error estimates by means of adequate anisotropic interpolation results. In this way, tetrahedra which do not satisfy an uniform regular vertex property are avoided. 
+
+Interestingly, also in \cite{FNP} a mixed Raviart--Thomas method on the tetrahedral anisotropic graded mesh which is obtained by splitting the prismatic elements into three tetrahedra. Of course, these kind of meshes contains the bad elements which are avoided with the prismatic ones. However, in order to obtain optimal approximation error estimates, the price payed is to require additional regularity on the right hand side, precisely, it has to belong to a weighted Sobolev space.
+
+
+In this paper we extend the result of \cite{FNP} in order to be able to deal with the mixed approximation of \eqref{ecuacion} with $f\in L^2(\Omega)$ in general polyhedral domains. Since such domains can not be always meshed by means of right prisms and we also would like to avoid to require more regularity to $f$ as mentioned in the previous paragraph, we propose a discretization based on hybrid meshes. As in \cite{FNP}, we obtain the estimate
+\begin{equation}\label{jl2: aim}
+\|\bu-\bu_h\|_{L^2(\Omega)} + \|p-p_h\|_{L^2(\Omega)} \le Ch\|f\|_{L^2(\Omega)}.
+\end{equation}
+with $\bu_h$ and $p_h$ being the approximations of the solutions $\bu$ and $p$ of \eqref{ecuacion}. To do that, firstly we introduce and analyze a new finite/virtual element space $V_h$ in $\mathbb R^3$ with the following conditions:  
+\begin{enumerate}
+\item \label{punto1} Conformity: The space $V_h$ must be $H(\mbox{div})$-conforming.
+\item \label{punto2} Optimal and anisotropic approximation properties: Optimal interpolation error estimates have to be valid even on families of meshes which do no satisfy the standard shape-regularity condition \cite{C}.
+\item \label{punto3} Domain generality: The space has to be well defined on conforming (without hanging nodes) polyhedral meshes without restricting the considered domains to few special polyhedra. 
+\end{enumerate}
+
+As suggested in \cite{BFM} for the 2d case, we present $V_h$ as a virtual element space on a conforming polyhedral mesh, which locally coincides with the original lowest order 3d Raviart-Thomas space on tetrahedra and right prisms, and naturally extends it to pyramidal elements. In particular, normal components of the discrete functions are constants on the faces of the elements, fitting well across different shape's elements. In this way requirement \ref{punto1} is verified. One advantage of this presentation, is that the definition of the local spaces is independent of the geometry of the element, see Section \ref{ds}. 
+
+The virtual element method (VEM) has been recently introduced \cite{BBCMMR} as a generalization of $H^1$-conforming finite elements to arbitrary element-geometry and as a generalization of Mimetic Finite Differences to arbitrary degree of accuracy and arbitrary continuity properties. An extension to the discretization of $H(\mbox{div})$-conforming vector fields and mixed finite element approximations has been proposed in \cite{BFM} in the two dimensional case. Furthermore, in \cite{BBMR} a mixed VEM has been analysed for the approximation of general linear elliptic problems with variable coefficients.  The virtual element space can contain non piecewise polynomial functions, and mainly, functions which are a priori unknown, in the sense that they can not be evaluated in any point. In the VEM approach, the space and the degrees of freedom are taken in such a way that the elementary stiffness matrix can be computed without actually computing these non-polynomial functions, but just using the degrees of freedom. In this respect, a key point in this approach is that, given an element $E$, if $\bu=\nabla q_2$ for a known (quadratic, in this paper) polynomial $q_2$, then for a field $\bv$ the quantity 
+\[
+\int_E\bu\cdot\bv
+\]
+can be computed if $\mbox{div\,}\bv$ and the outer normal component $\bv\cdot{\bf n}$ of $\bv$ are known polynomials (constants in our case) on $E$ and $\partial E$ respectively, since
+\begin{eqnarray*}
+  \int_E\bu\cdot\bv &=&\int_E\nabla 
+q_2\cdot\bv\\&=&-\int_E q_2 \dv\bv + \int_{\partial E}
+q_2\bv\cdot\bn.
+\end{eqnarray*}
+
+
+In order to satisfy condition \ref{punto2} and taking into account what we remarked at the beginning of this Section, we need to avoid the use of a kind of anisotropic tetrahedra. Following \cite{FNP} we allow for arbitrarily anisotropic (triangularly) right prisms for which optimal anisotropic local interpolation error are proved. But the use of only right prisms would restrict too much the domains which can be considered, and because of that we further allow for tetrahedral elements, and pyramids (of parallelogram basis) in order to glue right prisms and tetrahedra together. Our interpolation error estimates depend on the aspect ratio of the pyramids (and, for simplicity, also of tetrahedra), and so we are implicitly imposing that this kind of elements must be uniformly isotropic. However we do not lose generality, since meshes adapted to general singularities in polyhedra can be constructed, as we show at the end of the article, satisfying this requirement. Then conditions \ref{punto2} and \ref{punto3} are also satisfied.  
+
+Hybrid meshes including tetrahedral and prismatic (and even hexahedral) elements may be needed to satisfy the demands of a specific problem geometry (complex regions) or to reach efficient calculations. If these meshes are to avoid hanging nodes then they will in general contain pyramids, see for instance \cite{OS}. Several articles have introduced and analysed conforming finite elements on pyramids, some of them are \cite{BCD} for $H^1$-elements, \cite{GH, NP} for $H(\mbox{div})$- and $H({\bf curl})$-elements, the first one for lowest order and the second one for higher order. 
+In \cite{NP} it is proved that it is not possible to construct useful $H^1$-finite elements on pyramids using only polynomial functions. In the $H(\mbox{div})$ case, it is explained also in the same article that all the spaces constructed in the literature contain non--polynomial functions.
+
+
+For the sake of simplicity , we just consider the simplest problem of the mixed formulation \eqref{ecuacion}  with $f\in L^2(\Omega)$ and $\Omega$ a polyhedral domain. Its mixed variational formulation can be written as: to find $\bu\in V$ and $p\in Q$ such that
+\begin{eqnarray}\label{P}
+a(\bu,\bv) - b(\bv,p) & = & 0 \qquad \forall \bv\in V\\ \nonumber b(\bu,q) &
+= & (f,q)\qquad \forall q\in Q,  
+\end{eqnarray}
+with
+\[
+a(\bv,\bw)=\int_\Omega\bv\cdot\bw,\qquad b(\bv,q)=\int_\Omega
+q\,\mbox{div\,}\bv
+\]
+and
+\[
+V=H(\dv,\Omega), \qquad Q=L^2(\Omega).
+\]
+Of course, the problem for the $\mbox{div}(a\nabla)$ operator can be similarly treated. 
+
+% The proposed scheme gives optimal error estimates when the solution $p$ is in $H^2(\Omega)$. We do not deal in this paper with the more challenging case when $p$ is not so regular, which would require an extent development of too fine estimates involving weighted norms. However, we develop here all the numerical tools to deal with it in a forthcoming article.
+
+We remark that meshes with more general polyhedral-shaped elements can be considered. Indeed that is one of the VEM's main features. But we decided to restrict ourselves to few (but without loss of generality) shapes since our main objective is to allow for meshes with anisotropic elements, and with uniformly valid anisotropic estimates. This is fulfilled by allowing right prisms, since the local space for those elements becomes known \cite{N} and that allows to obtain stability and interpolation error estimates. One difficulty when other shapes are considered (like oblique prisms, for instance) is that the local VEM space is not preserved by Piola transformation (the vanishing ${\bf curl}$ property is not preserved), and so standard rescaling arguments are hard to use.  
+
+The outline of the paper is as follows. In Section \ref{ds} the discrete spaces for the discrete mixed formulation are defined. Then, in Section \ref{dp}, the variational discrete forms are stated. The discrete form, $a_h$, requires of projections on subspaces of the local discrete fields. Those projections become the identity in case of tetrahedral or prismatic elements, but for pyramids, they require some analysis which is performed in Section \ref{proj}. In Section \ref{liee} the interpolation on the virtual element spaces is considered and interpolation error estimates are proved under different shape assumptions. Also a discrete inf-sup property is proved, which is used in Section \ref{appr err} to give an abstract approximation error result. In Section \ref{jl2:section: ie}, approximation error estimates on general polyhedral domains when the solution has vertices and edges singularities are given using specially designed hybrid meshes which are constructed and analyzed in Section \ref{jl2:section: m}.
+
+We use the standard notation for Lebesgue and Sobolev spaces, norms and seminorms for functions and fields, and $H(\mbox{div\,},S)$ (resp. $H(\mbox{{\bf curl}}, S)$) denote the spaces of $L^2(S)^3$ fields with divergence (resp. ${\bf curl}$) in $L^2(S)$ (resp. $L^2(S)^3$). In general fields will be denoted by lower case bold face letters such as $\bu, \bv$, and ${\bf x}=(x_1, x_2, x_3)$ denotes the variable in $\mathbb R^3$. Given a field $\bv$, its components are $v_i$, $i=1,2,3$, that is $\bv=(v_1,v_2,v_3)$. The space of polynomials of degree less than or equal $k$ is denoted by $\mathcal P_k$. Given a mesh $\mathcal T$ of a domain $\Omega$, $\mathcal P_k(\mathcal T)$ denotes the space of functions on $\Omega$ whose restriction to each element of $\mathcal T$ is in $\mathcal P_k$. $P_0^S$ denotes the $L^2(S)$-projection on $\mathcal P_0$ and $P_0^{\mathcal T}$ denotes the $L^2(\Omega)$ projection on $\mathcal P_0(\mathcal T)$. We denote by $h_D$ the diameter of the set $D\subset \mathbb R^n$, $n=1,2,3$. The letters $c$ or $C$ denote constants which may depend on parameters which are specified in the text, and they may vary from one place to another. With $a\sim b$ we mean that $a\le C b$ and $b\le Ca$ hold.   
+
+We finish this introduction with a brief discussion and some definitions, following \cite{AN}, about the geometric singularities of the solutions $\bu$ and $p$ of \eqref{P} when the domain $\Omega$ is a general polyhedron.
+
+
+Let $S$ be a corner of $\Omega$. Let $C_S$ be the infinite polyhedral
+cone that coincides with $\Omega$ in a neighborhood of $S$. Define
+$G_S=C_S\cap \mathcal S^2(S)$, where $\mathcal S^2(S)$ is the unit
+sphere centered at $S$. Then, the vertex singular exponent related
+to $S$ is given by
+$\lambda_{v,S}=-\frac12+\sqrt{\lambda_{S,1}+\frac14}$, where
+$\lambda_{S,k}>0, k=1,\ldots$, are the eigenvalues, in increasing
+order, of the Laplace-Beltrami operator on $G_S$ with Dirichlet
+boundary conditions. Note that $\lambda_{v,S}>0$. We say that the
+vertex $S$ is singular if $\lambda_{v,S}<\frac12$.
+
+Now, let $A$ be an edge of $\Omega$. The edge singular exponent
+related to $A$ is $\lambda_{e,A}=\pi/\omega_{A}$, with
+$\omega_{A}$ being the angle between the two faces containing $A$.
+Note that $\lambda_{e,A}>\frac12$. We say that $A$ is singular
+if $\lambda_{e,A}<1$.
+
+If a vertex or edge is not singular, we say that it is regular.
+
+It follows that we can decompose the set $\mathcal C$ of the
+corners of $\Omega$ into two disjoint subsets $\mathcal C_s$ and
+$\mathcal C_r$ containing the singular and regular corners,
+respectively. A similar decomposition $\mathcal E=\mathcal
+E_s\cup\mathcal E_r$ is done for the set $\mathcal E$ of edges of
+$\Omega$.
+
+
+
+Assuming a decomposition of $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ in tetrahedral macroelements having at most a singular edge and a singular vertex, we have the following regularity result. First we introduce the space $V^{1,2}_{\beta,\delta}(\Lambda)$ for a macroelement $\Lambda$ as
+\[
+V^{1,2}_{\beta,\delta}(\Lambda) = \left\{v\in \mathcal D'(\Lambda): R^{\beta-1+|\alpha|}\theta^{\delta-1+|\alpha|}D^\alpha v\in L^2(\Lambda), \alpha\in \mathbb N_0^3, |\alpha|\le1\right\}
+\]
+where $R({\bf x})$ is the distance of ${\bf x}$ to the vertices of $\Lambda$, $r({\bf x})$ is the distance from ${\bf x}$ to the edges of $\Lambda$ and finally $\theta({\bf x})$ is the angular distance $\theta({\bf x})=\frac{r({\bf x})}{R({\bf x})}$.
+\begin{theorem}
+The solutions $\bu$ and $p$ of problem \eqref{P} satisfy
+\[
+p\in H^1(\Omega)
+\] 
+and for each $\ell$
+\[
+\bu=\bu_r + \bu_s
+\]
+with $\bu_r\in H^1(\Omega)$ and
+\[
+\bu_s\cdot \xi_i\in V^{1,2}_{\beta,\delta}(\Lambda_\ell), \quad i=1,2, \qquad \bu_s\cdot\xi_3\in V^{1,2}_{\beta,0}(\Lambda_\ell)
+\]
+where $\xi_i$, $i=1,2,3$, are the directions of three concurrent edges of $\Lambda_\ell$ with $\xi_3$ being the direction of the singular edge if it exists in $\Omega_\ell$, and $\beta,\delta\ge0$ satisfying $\beta>\frac12-\lambda_v^{(\ell)}$ and $\delta>1-\lambda_e^{(\ell)}$, $v$ and $e$ being the singular vertex and edge, respectively, if they exist.
+\end{theorem} 
+
+
+
+
 % section intro (end)

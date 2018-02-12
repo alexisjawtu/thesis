@@ -16,6 +16,25 @@
   \label{rescaled_tetra}    
 \end{figure}
 }
+
+\def\tetsTikz{
+\begin{figure}[!ht]
+  \centering
+    \begin{tikzpicture}[scale=.4]
+      \draw[->] (0, 0, 0) -- (3,0,0);
+      \node[below] at (2,0,0) {$_{_{h_2}}$};
+      \draw[->] (0, 0, 0) -- (0, 4, 0);
+      \draw (0, 0, 1) -- (2, 0, 0); 
+      \draw (2, 0, 0) -- (0, 3, 0);
+      \node[left] at (0,3,0) {$_{_{h_3}}$};
+      \draw (0, 0, 1) -- (0, 3, 0); 
+      \node[left] at (0,0,.85) {$_{_{h_1}}$};
+      \draw[->] (0,0,0) -- (0,0,2);
+    \end{tikzpicture}
+  \caption{Tetrahedra satisfying MAC($\frac\pi2$). The tetrahedron at the right satisfy RVP with a poor constant close to $0$.}
+  \label{fig:tetraedros}    
+\end{figure}
+}
 %node[label={right:$_{_{h_1}}$}] { } 
 \def\rescaledPyramidTikz
 {
