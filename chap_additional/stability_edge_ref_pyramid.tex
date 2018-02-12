@@ -335,11 +335,11 @@ We continue with the local interpolation error estimate.
 \begin{IEEEeqnarray*}{rCl}\label{aux_label55}
   \|\bu-\bw_E \bu\|_{L^p(E)} & \lesssim &
     \sum_{|{\balpha}|=1}\bh^{\balpha} \|\partial^{\balpha} \bu\|_{L^p(E)} +\\[4pt]
-  \yesnumber\label{auxlabel5}
-   &&\,+\,h_E\sum_{|{\balpha}|=1}\bh^{\balpha}\|\partial^{\balpha} \curl \bu\|_{L^p(E)}\\
+   &&\,+\,h_E\big\{\|\curl\bu\|_{\scriptscriptstyle L^p(E)} + 
+   \sum_{|{\balpha}|=1}\bh^{\balpha}\|\partial^{\balpha} \curl \bu\|_{\scriptscriptstyle L^p(E)}\big\}\\
   & &\,+\,h_E^2 |\bu|_{2,p,E} \\[5pt]
-  & &\,+\,\max \{h_{1}, h_2\} \left( \|\partial_{\tilde{x}_1}\tilde{u}_2\|_{\scriptscriptstyle L^p(\tilde E)}
-   + \|\partial_{\tilde{x}_2}\tilde{u}_1\|_{\scriptscriptstyle L^p(\tilde E)}\right).
+  & &\,+\,\max \{h_{1}, h_2\} \big\{ \|\partial_{\tilde{x}_1}\tilde{u}_2\|_{\scriptscriptstyle L^p(\tilde E)}
+   + \|\partial_{\tilde{x}_2}\tilde{u}_1\|_{\scriptscriptstyle L^p(\tilde E)}\big\}.
 \end{IEEEeqnarray*} 
 \end{theorem}
 \begin{proof}
