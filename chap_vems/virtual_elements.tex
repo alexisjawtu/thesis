@@ -49,6 +49,7 @@ give an abstract approximation error result.
 }
 
 \section{Definition and Construction}
+\label{auxlabel290}
 First we recall Problem~\ref{weakMixedContinuous} and add some notation for the 
 bilinear forms.
 Let  $V:=H(\Div, \Omega)$, $Q:=L^2(\Omega)$ and
@@ -61,9 +62,12 @@ find $\bu\in V$ and $p\in Q$ such that for every $\bv\in V$ and every $q\in Q$
   a(\bu,\bv) & + &b(\bv,p) & = & 0\\[5pt]                % Lipschitz--continuous boundary
 	       	   &   &b(\bu,q) & = & (-f,q).                     % consisting of planar faces and define 
 \end{IEEEeqnarray*}                                   % Let us consider the following continuous problem.\\[5pt]
-We start supposing we are given with a polihedral triangulation $\Th$ of $\Omega$ to define the 
-virtual spaces $V_h$ and $Q_h$ as discretizations of $V$ and $Q$ respectively. In Chapter~\ref{auxLabel100}
-we will construct a mesh using the three types of polihedra mentioned before.
+We start supposing we are given with a conforming polihedral triangulation $\Th$ of $\Omega$ to define the 
+virtual spaces $V_h$ and $Q_h$ as discretizations of $V$ and $Q$ respectively. For now 
+we will suppose the aspect ratios of tetrahedra and pyramids are bounded
+in terms of a constant independent of $\textit{h}$. However, in Chapter~\ref{auxLabel100}
+we will construct a mesh using the three types of polihedra mentioned before, and
+we will see that the last assumtion is not a restriction.
 We will assume a strictly decreasing parameter $\textit{h}$ tending to zero 
 to mitigate the abuse of notation present in expressions like 
 ``$\bu_{\textit{h}}$'' and ``$\Th$''.

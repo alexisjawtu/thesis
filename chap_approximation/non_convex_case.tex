@@ -338,6 +338,31 @@ This means the meshes resolve the macro--elements in a conforming way and
 refinement is done whithin the macro--elements of the 
 initial mesh.
 \begin{remark} 
+We remark that if a mesh satisfies conditions~(\ref{label_grading}
+for $\mu=\mu_0$ and $\nu=\nu_0$, then it satisfies the same for 
+$\mu>\mu_0$ and $\nu>\nu_0$. Thus, the mesh can be constructed for 
+$\mu_0=\nu_0=1-\gamma$ with $1>\gamma>\max\{1-\lambda_e,\frac12-\lambda_v\}$, 
+and it still verifies the former conditions. 
+The possibility to use $\mu_0=\nu_0$ for the construction of the mesh 
+allows us to validate the assumptions at the beginning of Section~\ref{auxlabel290}.  
+
+Therefore, we assume that the mesh $\Th$ on a macroelement $\Lambda_\ell$
+with a singular edge 
+$\be$ and a singular vertex $\bv$ 
+satisfies conditions~\eqref{label_grading} 
+for $\mu,\nu\geqslant 1-\gamma$. And in particular, those conditions hold
+for $\mu=1-\delta$ for some $\delta>1-\lambda_{\be}$ and for $\nu=1-\beta$ 
+for some $\beta>\frac12-\lambda_{\bv}$. 
+
+For the case of a tetrahedral macroelement with just a singular edge, which is 
+assumed to have a face $f$ perpendicular to the singular edge, 
+we assume that it is meshed as in the case in
+which the opposite vertex to the face $f$ is singular, satisfying 
+conditions~\eqref{label_grading} with $\mu=\nu=1-\delta$.
+This assumption does not affect the asymptotic relation between 
+$\textit{h}$ and the number of elements.
+
+
 We remark that if a mesh satisfies~(\ref{label_grading})
 for $\mu=\mu_0$ and $\nu=\nu_0$, then it satisfies the
 same for $\mu>\mu_0$ and $\nu>\nu_0$. Thus, the mesh can be overrefined by
