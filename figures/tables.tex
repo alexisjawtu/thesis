@@ -1,3 +1,98 @@
+\def\tableErrorsUniformCylinder{
+\begin{table}[!ht]
+    \centering
+    \caption{Octogonal $\omega = 3\pi/2$, $\gamma = 1$}
+    \label{table_errors_1}
+    \begin{IEEEeqnarraybox}[\IEEEeqnarraystrutmode\IEEEeqnarraystrutsizeadd{3pt}{1pt}]
+    {v / c / v / c / v / c / v / r / v / c / v / c / v}
+        \IEEEeqnarrayrulerow\\
+        & n && \text{Nel} && \boldsymbol{u} && p  
+            && \frac{\Delta_i \log(e_{\boldsymbol{u}})}{- \Delta_i \log(n)}
+            && \frac{\Delta_i \log(e_{p})}{- \Delta_i \log(n)} & 
+        \IEEEeqnarraystrutsizeadd{7pt}{7pt}\\\IEEEeqnarrayrulerow\\
+        & 6  &&1512      && 0.632043 &&0.205469  &&                  &&                & \\ \IEEEeqnarrayrulerow\\
+        & 10 &&7000      && 0.324654 &&0.123666  && 1.3041582077     && 0.993902349971 & \\ \IEEEeqnarrayrulerow\\
+        & 20 &&56000     && 0.243846 &&0.064251  && 0.4129326777     && 0.94465809513  & \\ \IEEEeqnarrayrulerow\\
+        & 30 &&189000    && 0.130700 &&0.042238  && 1.5380663968     && 1.03455757271  & \\ \IEEEeqnarrayrulerow\\
+        & 40 &&448000    && 0.108696 &&0.031693  && 0.6408102671     && 0.998409289236 & \\ \IEEEeqnarrayrulerow\\
+        & 50 &&875000    && 0.091443 &&0.025360  && 0.7745649227     && 0.999010302685 & \\ \IEEEeqnarrayrulerow\\
+        & 60 &&1512000   && 0.079951 &&0.021128  && 0.7366209607     && 1.00138435512  & \\ \IEEEeqnarrayrulerow
+    \end{IEEEeqnarraybox}
+\end{table}
+}
+
+\def\tableErrorsAnisoCylinder{
+    \begin{table}[!ht]
+    \centering
+    \caption{Octogonal $\omega = 3\pi/2$, $\gamma = 1.5$}
+    \label{table_errors_2}
+    \begin{IEEEeqnarraybox}[\IEEEeqnarraystrutmode\IEEEeqnarraystrutsizeadd{3pt}{1pt}]
+    {v / c / v / c / v / c / v / r / v / c / v / c / v}
+        \IEEEeqnarrayrulerow\\
+        & n && \text{Nel} && \boldsymbol{u} && p  
+            && \frac{\Delta_i \log(e_{\boldsymbol{u}})}{- \Delta_i \log(n)}
+            && \frac{\Delta_i \log(e_{p})}{- \Delta_i \log(n)} & 
+        \IEEEeqnarraystrutsizeadd{7pt}{7pt}\\\IEEEeqnarrayrulerow\\
+        & 6  &&   &&  &&     &&  &&  & \\ \IEEEeqnarrayrulerow\\
+        & 10 &&   &&  &&    &&  &&  & \\ \IEEEeqnarrayrulerow\\
+        & 20 &&   &&  &&   &&  &&  & \\ \IEEEeqnarrayrulerow\\
+        & 30 &&   &&  &&   &&  &&  & \\ \IEEEeqnarrayrulerow\\
+        & 40 &&   &&  &&  &&  &&  & \\ \IEEEeqnarrayrulerow\\
+        & 50 &&   &&  &&  &&  &&  & \\ \IEEEeqnarrayrulerow\\
+        & 60 &&   &&  &&  &&  &&  & \\ \IEEEeqnarrayrulerow
+    \end{IEEEeqnarraybox}
+\end{table}
+}
+
+%(log(0.870626584041516) - log(0.866643747013766))/
+%(log(60)-log(48)) = 0.0205480942527872
+
+%Uniforme
+
+%nn     u          p        Nel   
+% 6 0.632043   0.205469    1512
+%10 0.324654   0.123666    7000
+%20 0.243846   0.064251   56000
+%30 0.130700   0.042238  189000
+%40 0.108696   0.031693  448000 
+%50 0.091443   0.025360  875000 
+%60 0.079951   0.021128 1512000
+%
+%logaritmos:
+%   nn            u             p
+%6  -> 10  1.3041582077 6   0.993902349971
+%10 -> 20  0.4129326777 52  0.94465809513
+%20 -> 30  1.5380663968 2   1.03455757271
+%30 -> 40  0.6408102671 71  0.998409289236
+%40 -> 50  0.7745649227     0.999010302685
+%50 -> 60  0.7366209607 35  1.00138435512
+%
+%
+%Gamma = 1.5
+%
+%nn          u                 p              nn
+%6    0.612728631191887 0.206872796008702    1512
+%10   0.292898549721497 0.124441257916811    7000
+%20   0.218083938394525 0.064388585160060   56000
+%30   0.094069683304253 0.042391308867588  189000
+%40   0.074568571275959 0.031808637905069  448000
+%50   0.057800258295080 0.025453468142382  875000
+%60   0.047035601433131 0.021210116487177 1512000
+%70   0.040214794437822 0.018179235090025 2401000
+%80                                       3584000
+%
+%logaritmos:
+%                u             p
+%6  -> 10  1.44490763867    0.9949976823668273
+%10 -> 20  0.42551752854    0.9505880291321879
+%20 -> 30  2.07377698103    1.0308975995345602
+%30 -> 40  0.80754666264    0.9983433243001498
+%40 -> 50  1.14153367162    0.9988452604862217
+%50 -> 60  1.13035702302    1.0002862473055154
+%60 -> 70  1.01634221582    1.000308576087509
+%% //////////////////////////////////////////////////////
+
+
 \def\facesOfPrism{
 \begin{table}[!ht]
     \centering  
