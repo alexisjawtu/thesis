@@ -15,7 +15,7 @@ we could arrive at inequalities of the form~(\ref{aux_label39}) and~(\ref{aux_la
 for the interpolation operators determined by the 
 finite elements in Definitions~\ref{aux_label50} and~\ref{aux_label71}
 and the estimates in terms of weighted norms would follow exactly as the ones
-we will perform in short for $h_E|u|_{1,E}$.                        %%%  At the end of this proof we include weighted
+we will perform in short for $h_E|u|_{1,E}$.\\                        %%%  At the end of this proof we include weighted
 
 The following is the main interpolation error theorem.
 \begin{theorem}\label{interpolation_theorem} Let $\Omega$ and $f$ be the data and $(\bu,p)$ be the 
@@ -637,14 +637,14 @@ singular
  vertex or a prism. If $E$ is a prism, recall in this case we have
  $d(E,\be) = 0$ and $d(E,\bv) > 0$. So
 \begin{IEEEeqnarray*}{rCl}
-   \|\bu_s\|_{L^2(E)^3} &=&
-    \sum_{i=1}^2 \|R^\nu\theta^\mu R^{-\nu}\theta^{-\mu} u_{s,i}\|_{0,E}
-    + \|R^\nu\theta^{-1}R^{-\nu}\theta u_{s,3}\|_{0,E}\\[7pt]
-  &\leqslant&\|R^\nu\theta^\mu\|_{L^\infty(E)}
-  \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu} u_{s,i}\|_{0,E}\\[4pt]
+   \|\bu_s\|_{L^2(E)^3}^2 &=&
+    \sum_{i=1}^2 \|R^\nu\theta^\mu R^{-\nu}\theta^{-\mu} u_{s,i}\|^2_{0,E}
+    + \|R^\nu\theta^{-1}R^{-\nu}\theta u_{s,3}\|^2_{0,E}\\[7pt]
+  &\leqslant&\|R^\nu\theta^\mu\|^2_{L^\infty(E)}
+  \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu} u_{s,i}\|^2_{0,E}\\[4pt]
 \IEEEeqnarraymulticol{3}{r}{
-    +\,\|R^\nu\theta\|_{\infty,E}
-    \|R^{-\nu}\theta^{-1} u_{s,3}\|_{0,E}.
+    +\,\|R^\nu\theta\|^2_{\infty,E}
+    \|R^{-\nu}\theta^{-1} u_{s,3}\|^2_{0,E}.
 }
 \end{IEEEeqnarray*}
 Since $\theta < 1$ and $\mu \leqslant \nu < 1$, then
@@ -656,24 +656,28 @@ Since $\theta < 1$ and $\mu \leqslant \nu < 1$, then
 \end{IEEEeqnarray}
 Using this we get
 \begin{IEEEeqnarray*}{rCl}
-  \|\bu_s\|_{0,E}&\leqslant&\|r^\mu\|_{\infty,E}
+  \|\bu_s\|^2_{0,E}&\leqslant&\|r^\mu\|^2_{\infty,E}
   \left(
-    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{0,E}
-    + \|R^{-\nu}\theta^{-1}u_{s,3}\|_{0,E}
+    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}u_{s,i}\|^2_{0,E}
+    + \|R^{-\nu}\theta^{-1}u_{s,3}\|^2_{0,E}
   \right)\\[7pt]
-  &\leqslant&\max\{h_1,h_2\}^\mu
+  &\leqslant&\max\{h_1,h_2\}^{2\mu}
   \left(
-    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}u_{s,i}\|_{0,E}
-    + \|R^{-\nu}\theta^{-1}u_{s,3}\|_{0,E}
+    \sum_{i=1}^2 \|R^{-\nu}\theta^{-\mu}u_{s,i}\|^2_{0,E}
+    + \|R^{-\nu}\theta^{-1}u_{s,3}\|^2_{0,E}
   \right)\\[7pt]
-  &\lesssim&\textit{h}
-    \|\bu_{s}\|_{\pazocal{V}_{\beta,\delta}(E)}
+  &\lesssim&\textit{h}^2
+    \|\bu_{s}\|^2_{\pazocal{V}_{\beta,\delta}(E)}
 \end{IEEEeqnarray*}
 provided we take $\beta\sim 1-\nu$ and $\delta\sim 1-\mu$.
 \item For the first term in~\eqref{distancia_cero_arista},
-although, as we said, the tetrahedra touching the vertex remain regular, 
-we estimate with 
-the weighted norms anisotropically for the sake of completeness and generality.
+although, as we said, the tetrahedra touching the singular
+vertex, one for each subsequent mesh restricted to $\Lambda_\ell$,
+form a regular subfamily, 
+we estimate  the term with 
+the weighted norms 
+anisotropically for the sake of 
+completeness and generality.
 Recall $T_\ell$ also has an edge
 contained in the singular edge of $\Lambda_\ell$. %${\color{blue}\|\br_0\bu_s\|^2_{\scriptscriptstyle L^2(Tetra)^3}}$.
 We work for the first component of the local interpolate in the $L^1(T_\ell)$ norm
@@ -848,7 +852,7 @@ and the estimate for $h_3\|\partial_{\xi_3}u_{s,3}\|_{L^1(P)}$ should be
   &\lesssim& \textit{h} |P|^{\nicefrac12}\|u_{s,3}\|_{V_{\beta,0}(P)}.
 \end{IEEEeqnarray*}
 \end{enumerate}
-Collecting all the estimates in items $2$ and $3$ above, using~(\ref{normaL2L1})
+Collecting all the estimates in items $2.$ and $3.$ above, using~(\ref{normaL2L1})
 we bound the first and second term in~(\ref{distancia_cero_arista}), 
 belonging to the case with zero distance
 to the edge, in the $L^2$ norm.

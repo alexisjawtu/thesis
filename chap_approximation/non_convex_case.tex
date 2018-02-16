@@ -54,7 +54,7 @@ any element $E\subseteq\Lambda_\ell$ it holds
   h_{E,1}, h_{E,2} &\sim&
     \begin{cases}
       \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(E,\be)=0\\
-      \textit{h}\,d(E,\be)^{1-\mu}  & \text{ if\, }0<d(E,\be)\lesssim1\\
+      \textit{h}\,d(E,\be)^{1-\mu}  & \text{ if\, }0<d(E,\be) < 1\\
       \textit{h}          & \text{ if\, }d(E,\be)\sim1
     \end{cases}\\[5pt]
   h_{E,3}   &\sim&\textit{h}
@@ -68,7 +68,7 @@ any element $E\subseteq\Lambda_\ell$ it holds
   h_{E,1}, h_{E,2}, h_{E,3}   &\sim& 
     \begin{cases}
       \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(E,v)=0\\
-      \textit{h}\,d(E,\bv)^{1-\nu}  & \text{ if\, }0<d(E,v)\lesssim1\\
+      \textit{h}\,d(E,\bv)^{1-\nu}  & \text{ if\, }0<d(E,v)<1\\
       \textit{h}          & \text{ if\, }d(E,v)\sim1.
     \end{cases}
 \end{IEEEeqnarraybox*}
@@ -82,20 +82,21 @@ any element $E\subseteq\Lambda_\ell$ it holds
   h_{E,1}, h_{E,2} &\sim&
     \begin{cases}
       \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(E,\be)=0\\
-      \textit{h}\,d(E,\be)^{1-\mu}  & \text{ if\, }0<d(E,\be)\lesssim1\\
+      \textit{h}\,d(E,\be)^{1-\mu}  & \text{ if\, }0<d(E,\be)<1\\
       \textit{h}          & \text{ if\, }d(E,\be)\sim1
     \end{cases}\\[5pt]
   h_{E,3}   &\sim& 
     \begin{cases}
       \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(E,v)=0\\
-      \textit{h}\,d(E,\bv)^{1-\nu}  & \text{ if\, }0<d(E,v)\lesssim1\\
+      \textit{h}\,d(E,\bv)^{1-\nu}  & \text{ if\, }0<d(E,v)<1\\
       \textit{h}          & \text{ if\, }d(E,v)\sim1
     \end{cases}
 \end{IEEEeqnarraybox*}
 \end{equation}
 with $\mu\leqslant 1-\delta$ for $\delta>1-\lambda_{\be}$ and 
 $\nu\leqslant 1-\beta$ for $\beta>\frac12-\lambda_{\bv}$ for all cases, 
-respectively.
+respectively, and with $\mu\leqslant\nu<1$ in the presence of both
+singularities.
 %%==================================================================
 \subsubsection{Macro--element with singular edge and singular vertex}\label{caso4}
 Let $\Lambda$ be a tetrahedral macro--element with vertices $P_0, P_1, P_2$ and $P_3$.
