@@ -102,4 +102,11 @@ Note $C$ depends on the cardinal of the initial mesh.
 Now by Theorem~\ref{interpolation_theorem} and~(\ref{aux_label62}) we have, for 
 the vectorial variable, 
 $\|\bu-\bu_h\|_{L^2(\Omega)^3} \leqslant C\textit{h}\|f\|_{L^2(\Omega)}$.
+For the scalar variable estimate we may do
+\begin{IEEEeqnarray*}{rCl}
+  \|p-p_{\textit h}\|_{0,\Omega} &\leqslant& \|p - P_0 p\|_{0,\Omega} + \|P_0 p - p_{\textit h}\|_{0,\Omega}
+\end{IEEEeqnarray*}
+and then apply Theorem~\ref{interpolation_theorem} to the first term and 
+Theorem~\ref{aux_label47} to the second and reuse the error 
+estimate for the vectorial variable.
 \end{proof}
