@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\topmargin -2.5cm
+\textheight 25cm
+\def\bcurl{\textbf{curl}}
+\newcommand\dv{\mbox{div\,}}
+\date{}
+\begin{document}
+
+\title{Un m\'etodo mixto con mallas h\'ibridas para problemas el\'ipticos
+en dominios poliedrales}
+
+
+\maketitle
+\vspace{4cm}
+\section*{Resumen}
+En esta Tesis introducimos un M\'etodo combinado
+de Elementos Finitos y Virtuales en dimensi\'on tres 
+para
+la aproximaci\'on mixta 
+de un problema el\'iptico modelo para el operador
+de Laplace en un poliedro arbitrario.
+El m\'etodo es analizado por completo
+cuando las mallas constan de prismas rectos de base triangular, pir\'amdes y tetraedros. Los espacios locales
+discretizantes coinciden con los espacios de orden m\'inimo
+de Raviart-Thomas 
+sobre tetraedros y prismas, y constituyen una extensi\'on
+de estos a elementos piramidales. Probamos que el 
+esquema discreto es bien planteado y 
+probamos estimaciones \'optimas de error
+sobre mallas 
+que admiten elementos anis\'otropos. En particular, 
+ nuestras estimaciones de 
+error
+de 
+interpolaci\'on 
+local 
+para el espacio discreto son \'optimas y 
+anis\'otropas en prismas rectos anis\'otropos. La motivaci\'on
+para trabajar con elemento anis\'otropos es que en
+distintas situaciones en aproximaciones por elmentos finitos mixtos
+es necesario el uso de mallas con elementos elongados.
+Este es el caso, por ejemplo, con la ecuaci\'on de Poisson en un
+poliedro $\Omega$ con aristas c\'oncavas y v\'ertices entrantes,
+que en forma mixta puede escribirse como
+\begin{equation*}\label{mf} \left\{\begin{array}{rcl}
+\boldsymbol{u}&=&-\nabla p\qquad \mbox{in }\Omega\\
+\dv\boldsymbol{u}&=&f\qquad \mbox{in }\Omega\\
+p&=&0\qquad\mbox{on }\partial\Omega.\end{array}\right.
+\end{equation*}
+En esta caso la variable vectorial de la soluci\'on, $\boldsymbol{u}$,
+no est\'a en $H^1(\Omega)$ en el caso general debido a las singularidades 
+de aristas y v\'ertices. En particular, cerca de las aristas c\'oncavas,
+$\boldsymbol{u}$ es m\'as regular en la direcci\'on a lo largo de \'estas
+que transversalmente, y consecuentemente las mallas tienen que ser
+adecuadamente refinadas para recuperar el orden \'optimo de convergencia
+con respecto al n\'umero de grados de libertad. Tales mallas  contienen
+elementos arbitrariamente alargados en la direcci\'on de las aristas sigulares.
+
+Asimismo, proponemos un proceso de mallado
+para construir una familia de mallas que nos permite
+obtener estimaciones de error de aproximacion global
+\'optimas cuando la soluci\'on del problema modelo
+presenta singularidades de arista o v\'ertice
+puesto que las mallas resultan, por construcci\'on,
+adecuadamente gra\-duadas y adaptadas 
+a las singularidades, como mencionamos en el p\'arrafo anterior.
+
+Adem\'as en la presente Tesis 
+obtuvimos cotas de estabilidad y de error de interpolaci\'on
+local para Elementos Finitos prism\'aticos anis\'otropos de orden
+arbitrario, tanto para la clase de elementos
+conformes en $H(\bcurl)$ como para 
+la clase de elementos conformes en $H(\mbox{div})$, que 
+constituyen resultados adicionales que extienden algunos hechos te\'oricos
+que probamos para el problema principal de la tesis.'
+
+Tambi\'en presentamos 
+cotas de estabilidad y de error de interpolaci\'on
+local para Elementos Finitos piramidales anis\'otropos 
+de orden bajo, tanto para la clase de elementos
+conformes en $H(\bcurl)$ como para 
+la clase de elementos conformes en $H(\mbox{div})$. Este resultado
+est\'a incluido para mostrar una variante a nuestro m\'etodo principal,
+esto es, un m\'etodo solamente con elementos finitos. Con respecto a esta variante,
+como
+mostramos expl\'icitamente en la Tesis, las 
+funciones de forma, generadoras de 
+estos \'ultimos espacios de Elementos Finitos,
+son racionales y son singulares, aunque acotadas,
+en la pir\'amide de referencia. Esta es una raz\'on por la cual 
+consideramos mejor nuestra aproximaci\'on FE--VE combinada, porque estamos
+evitando la evaluaci\'on de funciones con dichas propiedades
+en implementaciones en computadoras.
+
+    
+\end{document}

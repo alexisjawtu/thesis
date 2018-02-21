@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\topmargin -2.5cm
+\textheight 25cm
+\def\bcurl{\textbf{curl}}
+\newcommand\dv{\mbox{div\,}}
+\date{}
+\begin{document}
+
+\title{A mixed method with hybrid meshes for elliptic problems
+in polihedral domains}
+
+\maketitle
+\vspace{4cm}
+\section*{Abstract}
+In this Thesis we introduce a combined Finite and Virtual Element Method in dimension three
+for the mixed approximation of a 
+model elliptic problem for the Laplace operator on an 
+arbitrary polyhedron. 
+The 
+method is fully analysed when the meshes are made up of triangularly
+right prisms, pyramids and tetrahedra. The local discrete 
+spaces coincide with the lowest order Raviart-Thomas 
+spaces on tetrahedra and prisms, and 
+extend them to pyramidal elements. The discrete scheme 
+is well posed and optimal error estimates are proved on meshes which 
+allow for anisotropic elements. In particular, local 
+interpolation error estimates for the discrete element space are 
+optimal and anisotropic on anisotropic right prisms.
+The motivation to work with anisotropic elements is that 
+in several situations in mixed finite element approximations the use of meshes 
+with narrow elements is needed. 
+This is the case for instance when dealing with the Poisson equation 
+in a polyhedron $\Omega$ with concave edges or vertices, which, in mixed form
+can be written as
+\begin{equation*}\label{mf} \left\{\begin{array}{rcl}
+\boldsymbol{u}&=&-\nabla p\qquad \mbox{in }\Omega\\
+\dv\boldsymbol{u}&=&f\qquad \mbox{in }\Omega\\
+p&=&0\qquad\mbox{on }\partial\Omega.\end{array}\right.
+\end{equation*}
+In this case the vectorial variable of the solution, $\boldsymbol{u}$, is in 
+general not in $H^1(\Omega)$ due to vertex and edges 
+singularities. In particular, close to concave edges, 
+$\boldsymbol{u}$ is expected to be more regular in its direction than transversally 
+to it, and consequently the mesh has to be accordingly refined in order to 
+recover optimal order of convergence with respect to the number of degrees of 
+freedom. Those meshes contain elements that are arbitrarily elongated
+in the direction of concave edges.
+
+Likewise, we propose a meshing process to construct a mesh that
+allows us to  obtain optimal global 
+approximation error estimates when the 
+solution has edge or vertex singularities as the mesh results, by construction,
+suitably graded and adapted to the singularities.
+
+Furthermore, in the present Thesis we obtained
+local anisotropic stability
+and interpolation error estimates for arbitrary order Prismatic
+Finite Elements in both
+the $\bcurl$--conforming and div--conforming classes of elements, which are 
+additional results that extend some theoretical facts we proved for
+the main problem of the Thesis.
+
+Moreover, we present local anisotropic stability
+and interpolation error estimates for lowest order Pyramidal
+Finite Elements constructed in the literature for both
+the $\bcurl$--conforming and div--conforming classes of elements. This result
+is included to show a variant to our main method, that is one 
+with only Finite Elements. Regarding this variant, as we show
+explicitly in the Thesis, the shape functions 
+spanning the pyramidal Finite Element spaces are rational functions and are 
+singular, yet bounded,
+in the reference pyramid. This is a reason why we considered to move
+to our combined FE--VE approach better, because we are avoiding the evaluation
+of functions with those properties in computer implementations. 
+    
+\end{document}
