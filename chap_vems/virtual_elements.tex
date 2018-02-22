@@ -1,8 +1,48 @@
 \begin{chapter}[Virtual Elements]{Virtual Elements}
+\section*{Introducci\'on al cap\'itulo}
+Los Elementos Virtuales son definidos en t\'erminos de un dado problema. 
+Es nestra intenci\'on
+proponer un esquema para un m\'etodo combinado 
+de elementos Finitos/Virtuales
+como una generalizaci\'on de los Elementos Finitos $H(\Div)$--conformes
+en mallas consistentes en
+poliedros de geometr\'ia arbitraria. En este
+Cap\'itulo presentamos un desarrollo de los espacios, las formas
+bilineales y las propiedades concernientes a los  
+elementos virtuales.
+Trabajamos con tetraedros, prismas triangulares y pir\'amides y,
+en presencia de estas \'ultimas,
+nuestro esquema FEM/VEM se ubica en
+el marco de los Elementos Finitos no--polinomiales.
+
+El m\'etodo de elementos virtuales (VEM) 
+fue introducido recientemente~\cite{MR2997471}
+como una generalizaci\'on de elementos $H^1$--conformes 
+para elementos de geometr\'ia arbitraria y como una
+generalizaci\'on de las Diferencias Finitas Mim\'eticas
+a grado arbitrario de precisi\'on. Una extensi\'on de 
+la discretizaci\'on de campos vectoriales $H(\Div)$--conformes
+y aproximaciones por elementos finitos mixtos
+fue propuesta en~\cite{bfm} en dimensi\'on 2. 
+Adem\'as, in~\cite{MR3507271} un VEM mixto
+fue analizado
+para la aproximaci\'on de 
+problemas lineales el\'ipticos con coeficientes variables.
+
+Un espacio de elementos virtuales puede contener funciones
+no \emph{polinomiales a trozos}
+y principalmente contiene funciones
+que son desconocidas y no pueden ser evaluadas en ning\'un punto.
+En el VEM los espacios y los grados de libertad son tomados de tal manera
+que la matriz de rigidez elemental puede ser computada
+sin conocer estas funciones no polinomiales, en nuestro caso gracias 
+al Teorema de la Divergencia.
+
+\section*{Introduction to the chapter}
 The Virtual Elements are customarly defined in terms of a given problem. Our
 intention 
-is to propose a hybrid Finite/Virtual Elements Method scheme
-as a generalization of $H(div)$--conforming Finite Elements
+is to propose a combined Finite/Virtual Elements Method scheme
+as a generalization of $H(\Div)$--conforming Finite Elements
 in meshes consisting of polyhedra of arbitrary kind. In this Chapter we develop
 the spaces, bilinear forms and properties concerning 
 virtual elements.
@@ -10,44 +50,47 @@ We deal with tetrahedra, triangular prisms and pyramids and, in the presence of
 the latter, our FEM/VEM scheme is put in the framework of 
 non--polynomial Finite Elements.
 
-{
-\color{red}
-
-The virtual element method (VEM) has been recently introduced \cite{MR2997471} as a 
-generalization of $H^1$-conforming finite elements to arbitrary element-geometry 
-and as a generalization of Mimetic Finite Differences to arbitrary degree of
-accuracy and arbitrary continuity properties. An extension to the 
-discretization of $H(\mbox{div})$-conforming vector fields and mixed finite element 
-approximations has been proposed in \cite{bfm} 
-in the two dimensional case. Furthermore, in \cite{MR3507271} a mixed VEM has been
+The virtual element method (VEM) has been recently introduced \cite{MR2997471} 
+as a generalization of $H^1$-conforming finite elements to arbitrary 
+element--geometry 
+and as a generalization of Mimetic Finite Differences to arbitrary degree 
+of
+accuracy and arbitrary continuity properties. An extension to 
+the discretization of $H(\Div)$--conforming vector fields and mixed finite 
+element 
+approximations has been proposed in~\cite{bfm} 
+in the two dimensional case. Furthermore, in \cite{MR3507271} a mixed VEM 
+has been
 analysed for the approximation of general linear elliptic problems with variable
-coefficients.  The virtual element space can contain non piecewise polynomial
-functions, and mainly, functions which are a priori unknown, in the sense that they
-can not be evaluated in any point. In the VEM approach, the space and the degrees
+coefficients.  
+The virtual element space can contain non piecewise polynomial
+functions and mainly functions which are a priori unknown, 
+in the sense that they
+can't be evaluated in any point. In the VEM approach, the space and the degrees
 of freedom are taken in such a way that the elementary stiffness matrix can be 
-computed without actually computing these non-polynomial functions, but just using 
+computed without actually computing these non--polynomial functions, but just using 
 the degrees of freedom. In this respect, a key
-point in this approach is that, given an element $E$, if $\bu=\nabla q_2$ for a known 
+point in this approach and particularly in our case is that, 
+given an element $E$, if $\bu=\nabla q_2$ for a known 
 polynomial $q_2$, then for a field $\bv$ the quantity 
 \[
-\int_E\bu\cdot\bv
+\int_E\bu\cdot\bv\,d\bx
 \]
-can be computed if $\mbox{div\,}\bv$ on $E$ and the outer normal component $\bv\cdot{\bf n}$ of $\bv$ on 
+can be computed if $\mbox{div\,}\bv$ on $E$ and the outer normal 
+component $\bv\cdot{\bf n}$ of $\bv$ on 
 $\partial E$ are known polynomials, by using the divergence Theorem.
-
-In Section \ref{ds} the discrete spaces for the discrete mixed formulation are defined. 
-Then, in Section \ref{dp}, the 
-variational discrete forms are stated. The discrete form, $a_h$, requires of projections 
-on subspaces of the local discrete 
-fields. Those projections become the identity in case of tetrahedral or prismatic elements, 
-but for pyramids, they require some analysis which is performed in Section \ref{proj}. 
-In Section \ref{liee} the interpolation on the virtual element spaces is considered and 
-interpolation error estimates are proved under different shape assumptions. Also a 
-discrete inf-sup property is proved, which is used in Section \ref{appr err} to 
-give an abstract approximation error result. 
-
-}
-
+%In Section~\ref{auxlabel290} the discrete spaces for the discrete mixed 
+%formulation are defined together with the 
+%variational discrete forms. The discrete form, $a_h$, requires of projections 
+%onto subspaces of the local discrete 
+%fields. Those projections become the identity in the case of tetrahedral or 
+%prismatic elements, 
+%but for pyramids, they require some additional analysis. 
+%In Section \ref{liee} the interpolation on the virtual element spaces is 
+%considered and 
+%interpolation error estimates are proved under different shape assumptions. Also a 
+%discrete $\inf--\sup$ property is proved, which is used in Section \ref{appr err} to 
+%give an abstract approximation error result. 
 \section{Definition and Construction}
 \label{auxlabel290}
 First we recall Problem~\ref{weakMixedContinuous} and add some notation for the 

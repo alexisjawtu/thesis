@@ -1,4 +1,56 @@
 \chapter{Some Vectorial Finite Elements}\label{aux_label43}
+\section*{Introducci\'on al cap\'itulo}
+Los elementos $H(\Div)$--conformes fueron definidos 
+para construir un operador de interpolaci\'on natural 
+para campos vectoriales con componentes normales continuas.
+An\'alogamente, los otros elementos considerados son 
+conformes en $H(\bcurl)$, que son usados para interpolar campos
+vectoriales con componentes tangenciales continuas. Estos son los casos
+de las soluciones de la ecuaci\'on de Stokes~\cite{giraultRaviart}, 
+de las ecuaciones de Maxwell arm\'onicas en el
+tiempo~\cite{monk}, y de la formulaci\'on mixta del 
+problema de Poisson~\cite{boffiBrezziFortin}.
+
+A pesar de poner la construcci\'on y explicitar
+algunas propiedades para ambas clases de elementos
+aqu\'i, dejamos las estimaciones
+que demostramos para el caso $H(\bcurl)$ para el 
+Cap\'itulo~\ref{auxlabel202}, pues no ser\'an usadas en la aplicaci\'on
+final (Cap\'itulo~\ref{auxLabel100}).
+
+Adoptaremos la convenci\'on de que
+los objetos como funciones, variables, vectores normales 
+en el Prisma de referencia
+$\hat{E}$ tendr\'an un sombrero como $\hat{\bu}, \hat{\bx}, \hat{\bn},\ldots$
+al mismo tiempo que el sombrero denotar\'a una transformaci\'on
+de \emph{pullback} correspondiente a una aplicaci\'on de
+$\hat{E}$ hacia un elemento f\'isico $E$.
+
+%As we are going to deal with vectorial Finite Elements and
+%vectorial Virtual Elements, we are going to need to use the following notational convention.
+%\begin{notation} If\hspace{5pt}$V$ denotes a functional space of vectorial
+%fields in $\mathbb{R}^n$, whether finite dimensional
+%or not, $(V)_i$ denotes the space of scalar functions in the $i-$th
+%coordinate projection
+%of $V$, for $1\leqslant i\leqslant n$.
+%\end{notation}
+Para los espacios de funciones polinomiales de tipo producto tensorial
+involucrados en la construcci\'on de los elementos 
+$H(\bcurl)$--conformes o $H(\Div)$--conformes 
+requeriremos de la siguiente notaci\'on.
+\begin{notacion}\label{auxlabel208}
+Polinomios definidos en un prisma:
+  \begin{IEEEeqnarray*}{rCl}
+    P_{k,l} 	&:=& P_k(\hat x_1,\hat x_2) 	 \otimes P_{l}(\hat x_3)\mbox{,} \\
+    Q_{k,l,m} 	&:=& P_k(\hat{x}_1) \otimes P_l(\hat{x}_2)\otimes P_m(\hat{x}_3).
+  \end{IEEEeqnarray*}
+Dada una cara $f$ de un elemento poliedral, en la cual tenemos variables 
+locales $(\xi_1,\xi_2)$, el espacio $Q_{k,l}$ ser\'a definido como
+  \begin{IEEEeqnarray*}{rCl}
+  	Q_{k,l} &=&	P_{k}(\xi_1) \otimes P_l(\xi_2).
+  \end{IEEEeqnarray*}
+\end{notacion}
+\section*{Introduction to the chapter}
 $H(\Div)$--conforming elements were
 defined to determine a natural interpolation operator for fields with continuous normal components.
 Similarly, the other elements considered are $H(\bcurl)$--conforming, which are used 
@@ -16,24 +68,24 @@ prism $\hat{E}$ will have a hat as in $\hat{\bu}, \hat{\bx}, \hat{\bn},\ldots$
 and then also the hat will denote a pullback transformation corresponding
 to a mapping from $\hat{E}$ onto  a physical element $E$.
 
-As we are going to deal with vectorial Finite Elements and
-vectorial Virtual Elements, we are going to need to use the following notational convention.
-\begin{notation} If\hspace{5pt}$V$ denotes a functional space of vectorial
-fields in $\mathbb{R}^n$, whether finite dimensional
-or not, $(V)_i$ denotes the space of scalar functions in the $i-$th
-coordinate projection
-of $V$, for $1\leqslant i\leqslant n$.
-\end{notation}
+%As we are going to deal with vectorial Finite Elements and
+%vectorial Virtual Elements, we are going to need to use the following notational convention.
+%\begin{notation} If\hspace{5pt}$V$ denotes a functional space of vectorial
+%fields in $\mathbb{R}^n$, whether finite dimensional
+%or not, $(V)_i$ denotes the space of scalar functions in the $i-$th
+%coordinate projection
+%of $V$, for $1\leqslant i\leqslant n$.
+%\end{notation}
 For tensor product polynomial spaces involved in the construction
 of $H(\bcurl)$ or $H(\Div)$ elements we will need the following notation.
 \begin{notation}\label{auxlabel200}
 For polynomials defined over polyhedra we add the following symbols:
   \begin{IEEEeqnarray*}{rCl}
-    P_{k,l} 		&=& P_{k}(\hat x_1,\hat x_2) 	 \otimes P_{l}(\hat x_3)\mbox{,} \\
-    Q_{k,l,m} 	&=& P_k(\hat{x}_1) \otimes P_l(\hat{x}_2)\otimes P_m(\hat{x}_3)\mbox{,}
+    P_{k,l} 		&:=& P_{k}(\hat x_1,\hat x_2) 	 \otimes P_{l}(\hat x_3)\mbox{,} \\
+    Q_{k,l,m} 	&:=& P_k(\hat{x}_1) \otimes P_l(\hat{x}_2)\otimes P_m(\hat{x}_3)\mbox{,}
   \end{IEEEeqnarray*}
   and for a given face $f$ on a polyhedron, in which we have local variables 
-  $(\xi_1,\xi_2)$, the symbol $Q_{k,l}$ will defined as the space 
+  $(\xi_1,\xi_2)$, the space $Q_{k,l}$ will be defined as
   \begin{IEEEeqnarray*}{rCl}
   	Q_{k,l} &=&	P_{k}(\xi_1) \otimes P_l(\xi_2).
   \end{IEEEeqnarray*}
