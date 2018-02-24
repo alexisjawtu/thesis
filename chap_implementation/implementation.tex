@@ -4,12 +4,9 @@
 En este cap\'itulo mostramos algunos ejemplos obtenidos 
 con programas que desarrollamos para esta tesis.
 
-En la Sección~\ref{auxlabel210} mostramos resultados num\'ericos
-cuando aplicamos nuestro m\'etodo a un dominio de tipo producto cartesiano
-con aristas singulares. 
-
 En la Sección~\ref{auxlabel211} mostramos ejemplos de mallado 
-obtenidos con la implementaci\'on de nuestro proceso propuesto. 
+obtenidos con la implementaci\'on de nuestro proceso propuesto 
+en la Subsecci\'on~\ref{meshes}. 
 En este caso usamos el dominio de Fichera como ejemplo can\'onico 
 de dominio singular en $\mathbb{R}^3$.
 
@@ -17,40 +14,34 @@ Esta primera versi\'ion del programa de mallado se puede ver en el siguiente
 repositorio \href{https://github.com/alexisjawtu/mesher}{github.com/alexisjawtu/mesher}.
 
 El programa que implementa la resoluci\'on num\'erica con nuestro esquema
-$FEM/VEM$ en estas mallas h\'ibridas se encuentra en desarrollo y ser\'a
-incluido en un trabajo futuro.
+$FEM/VEM$ en las mallas h\'ibridas se encuentra en desarrollo y ser\'a
+usado en experimentos num\'ericos en trabajos futuros.
 
-
-
-El algoritmo??
+En la Sección~\ref{auxlabel210} mostramos resultados num\'ericos
+cuando aplicamos nuestro m\'etodo a un dominio descompuesto en macro--elementos
+de un solo tipo, el macro--elemento prism\'atico con una arista singular y sin v\'ertices
+singulares.
 
 \section*{Introduction to the chapter}
 In this chapter we show some examples obtained with programs we 
-develope 
-In Section~\ref{auxlabel210}
+developed for the present thesis.
+
+In Section~\ref{auxlabel211} we show a meshing example made with the implementation
+of the procedure we proposed in Subsection~\ref{meshes}. In this case we used
+the Fichera domain as a canonical example of a singular domain in $\mathbb{R}^3$.
+
+This first version of the meshing program can be found in the following repository
+\href{https://github.com/alexisjawtu/mesher}{github.com/alexisjawtu/mesher}.
+
+The program that implements the numerical solution with our $FEM/VEM$ scheme
+over the hybrid meshes of Subsection~\ref{meshes} is being developed and will
+be used in numerical experiments of future works.
+
+In Section~\ref{auxlabel210} we show numerical results when we
+apply our method to a domain made exclusively of one kind of macro--elements,
+namely, the prismatic macro--element with a singular edge and no singular vertex.
 
 
-
-
-
-
-
-
-
-
-
-
-In Section~\ref{auxlabel211}
-\href{https://github.com/alexisjawtu/mesher}{github.com/alexisjawtu/mesher}
-
-
-\section{Numerical Experiments with Cartesian product anisotropic Meshes in Domains with Edge Singularities}
-\label{auxlabel210}
-\edgedomain
-SEGUIR ACA. poner mas de estas (figura del sectional view)
-\unifSection
-\tableErrorsUniformCylinder
-\tableErrorsAnisoCylinder
 \section{Examples Of The Meshing Procedure In Dimension $3$} % (fold)
 \label{auxlabel211}
 \tauZero
@@ -63,15 +54,27 @@ SEGUIR ACA. poner mas de estas (figura del sectional view)
 Conformity:
 \conform
 
-\begin{algorithm}
-	\begin{algorithmic}
-		\State vertices $\leftarrow$ load(verticesCoordinates)
-		\State elementVertices $\leftarrow$ load(elementsByVerticesIndices)
-		\State faces $\leftarrow$ load(facesCoordinates)
-		\State elementFaces $\leftarrow$ load(elementsByFacesIndices)
+\section{Numerical Experiments with Cartesian product anisotropic Meshes in Domains with Edge Singularities}
+\label{auxlabel210}
+\edgedomain
+SEGUIR ACA. poner mas de estas (figura del sectional view)
+\unifSection
+\tableErrorsUniformCylinder
+\tableErrorsAnisoCylinder
 
-		\ForAll{element}
-			\State v $\gets$ verticesOf(element,vertices)
-		\EndFor
-	\end{algorithmic}
-\end{algorithm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TODO
+%\begin{algorithm}
+%	\begin{algorithmic}
+%		\State vertices $\leftarrow$ load(verticesCoordinates)
+%		\State elementVertices $\leftarrow$ load(elementsByVerticesIndices)
+%		\State faces $\leftarrow$ load(facesCoordinates)
+%		\State elementFaces $\leftarrow$ load(elementsByFacesIndices)
+%
+%		\ForAll{element}
+%			\State v $\gets$ verticesOf(element,vertices)
+%		\EndFor
+%	\end{algorithmic}
+%\end{algorithm}
+%
