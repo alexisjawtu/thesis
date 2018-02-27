@@ -447,14 +447,15 @@ Given $q\in H^1(E)$, integrating by parts $\Delta\phi$ times $q$ gives
 -\int_Edq\,d\bx + 
 \int_{\partial E}gq\,dS.
 \]
-Let $\overline{q}$ denote the mean of $q$ over $E$. We have
+Let $\overline{q}$ denote the mean of $q$ over $E$. By the last expression,
+as $d$ is constant, we have
 \begin{IEEEeqnarray*}{rCcCl}
 \|\bv\|_{L^2(E)} & = & \|\nabla\phi\|_{L^2(E)}  & = &  
 \sup_{\stackrel{q\in H^1(E),\|\nabla q\|_{0,E}=1\,}{\overline{q}=0}}
 \int_{E}\nabla\phi\cdot\nabla q\,d\bx \\[5pt]
 \yesnumber\label{equi0}
 &&&=&\sup_{\stackrel{q\in H^1(E),\|\nabla q\|_{0,E}=1}{\overline{q}=0}}
--\int_E d\,q\,d\bx + \int_{\partial E}gq\,dS.\quad
+\int_{\partial E}gq\,dS.\quad
 \end{IEEEeqnarray*}
 As a consequence of the definition of $d$ and $g$ in~(\ref{ai}), we have 
 obtained an
@@ -480,15 +481,14 @@ and, on the other hand, it holds
 Now setting $\left|J(\hat{\bx})\right|_{f_i}|= |f_i|/|\hat f_i|\sim h_E^2$
 we have
 \[
-\int_{\partial E}gq\,dS - \int_Edq\,d\bx = \|\nabla \hat q\|_{0,E}
+\int_{\partial E}gq\,dS = \|\nabla \hat q\|_{0,E}
 \left(\int_{\partial \hat E}\frac{\hat g\,\hat q\,|J|}{\|\nabla\hat q\|_{0,\hat E}}\,d\hat S
--\int_{\hat E}\frac{d\,\hat q\,|\det M_E|}{\|\nabla\hat q\|_{0,\hat E}}\,d\hat\bx\right).
+\right).
 \]
 It follows that
 \begin{multline*}
 \|\bv\|_{L^2(E)}=\sup\Bigg\{\|\nabla \hat q\|_{L^2(\hat E)}
-\left(-\int_{\hat E}\frac{d|\det M_E|\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} + 
-\int_{\partial \hat E}\frac{g|J|\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} 
+\left(\int_{\partial \hat E}\frac{g|J|\hat q}{\|\nabla\hat q\|_{L^2(\hat E)}} 
 \right):\\ \quad q\in H^1(E),\,\|\nabla q\|_{L^2(E)}=1,\,\overline{q}=0\Bigg\},
 \end{multline*}
 and taking~\eqref{a1} into account we obtain
@@ -497,14 +497,14 @@ and taking~\eqref{a1} into account we obtain
 % \end{multline*}
 \begin{IEEEeqnarray*}{rCCl}
 \|\bv\|_{L^2(E)} & \leqslant & c_1^{\nicefrac12}h_E^{-\nicefrac12}\sup&\Bigg\{
--\int_{\hat E}d|\det M_E|\hat q\,d\hat\bx + \int_{\partial \hat E}g|J|\hat q\,d\hat S:\\ 
+\int_{\partial \hat E}g|J|\hat q\,d\hat S:\\ 
 \yesnumber\label{mult1}
 &&&\quad\quad\hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\overline{q}=0\Bigg\}\quad
 \end{IEEEeqnarray*}
 and 
 \begin{IEEEeqnarray*}{rCCl}
 \|\bv\|_{L^2(E)} & \geqslant & c_0^{\nicefrac12}h_E^{-\nicefrac12} \sup&\Bigg\{
--\int_{\hat E}d|\det M_E|\hat q \,d\hat\bx+ \int_{\partial \hat E}g|J|\hat q \,d\hat S:\\
+\int_{\partial \hat E}g|J|\hat q \,d\hat S:\\
 \yesnumber\label{mult2}
 &&&\,\hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1,\int_{\hat E} \hat q\,d\hat\bx=0\Bigg\}.\quad
 \end{IEEEeqnarray*}
@@ -531,7 +531,6 @@ and using~\eqref{equi0} for $\hat E$ instead of $E$ we have %(with constants in 
 \begin{IEEEeqnarray*}{rCl}
 \|\hat\bv\|_{L^2(\hat E)} & = & 
 \sup_{\stackrel{\hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1}{\int_{\hat E}\hat q\,=\,0}}
--\int_{\hat E}d\,|\det M_E|\hat q\,d\hat\bx +
 \int_{\partial \hat E}g|J|\hat q\,d\hat S.
 \end{IEEEeqnarray*}
 It follows from~\eqref{equiv1} that
@@ -540,7 +539,7 @@ It follows from~\eqref{equiv1} that
   \left(\frac1{h_{\hat E}}\sum_{i=1}^5 \hat a_i^2\right)^\frac12 & \sim &
   \sup_{\stackrel{\hat q\in H^1(\hat E),\|\nabla \hat q\|_{L^2(\hat E)}=1}
   {\int_{\hat E}\hat q\,=\,0}} 
-  -\int_{\hat E}d\,|\det M_E|\hat q\,d\hat\bx + \int_{\partial \hat E}g|J|\hat q\,d\hat S
+  \int_{\partial \hat E}g|J|\hat q\,d\hat S
   \mbox{,}
   \\
   &&

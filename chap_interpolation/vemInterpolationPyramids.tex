@@ -11,10 +11,10 @@ Definition~\ref{defi_of_ref_pyr}.
 \begin{lemma}\label{auxlabel6}
 If $E$ is a pyramidal element, $\bu$ is an element of $W^{1,p}(E)$ with 
 $1\leqslant p\leqslant 2$
-and $(I\bu)$ is its low order $H(\text{div})$ interpolant defined in Corollary~\ref{interpolant},
+and $I\bu$ is its low order $H(\text{div})$ interpolant defined in Corollary~\ref{interpolant},
 then
 \begin{equation}\label{estab2}
-\|(I\bu)\|_{L^p(E)}\leqslant C\left(\|\bu\|_{L^p(E)}+ h|\bu|_{W^{1,p}(E)}\right)
+\|I\bu\|_{L^p(E)}\leqslant C\left(\|\bu\|_{L^p(E)}+ h|\bu|_{W^{1,p}(E)}\right)
 \end{equation}
 with $h$ being the diameter of $E$ and the constant $C$ depending only on the shape regularity of $E$.
 \end{lemma}
@@ -24,7 +24,7 @@ $\{\bv_i\}_{i=1}^5$ the basis of $V_h(E)$ which is dual to the degrees of freedo
 \eqref{dofs}. 
 %We note that 
 %\begin{equation}\label{estab2:eq1}
-%(I\bu)=\sum_{i=1}^5 \left(\int_{f_i}\bu\cdot \bn\right)\bv_i
+%I\bu=\sum_{i=1}^5 \left(\int_{f_i}\bu\cdot \bn\right)\bv_i
 %\end{equation}
 We start with the estimate of the $L^2$-norm of any $\bv_i$. Pick 
 $1\leqslant i\leqslant 5$. We saw in the proof of 
@@ -47,14 +47,15 @@ g|_{f_j}& = &
 Fix a solution requiring that $\int_E\psi\,d\bx = 0$.
 Integration by parts gives
 \begin{eqnarray*}
-\|\nabla\psi\|_{L^2(E)}^2 &=& -\tfrac{1}{|E|}\int_E\psi\,d\bx + \iint_{\partial E}g\psi\,dS\\
+\|\nabla\psi\|_{L^2(E)}^2 &=& \iint_{\partial E}g\psi\,dS\\
 &\leqslant & 
-|E|^{-\nicefrac12}\|\psi\|_{L^2(E)} + \|g\|_{L^2(\partial E)}\|\psi\|_{L^2(\partial E)}.
+\|g\|_{L^2(\partial E)}\|\psi\|_{L^2(\partial E)}.
 \end{eqnarray*}
 Using Poincare's and traces inequalities we have, for a positive constant $C$
 depending only on the aspect ratio of $E$, 
 \begin{equation}\label{estab2:eq2}
-\|\nabla\psi\|_{L^2(E)}^2\leqslant  C\left(h_E|E|^{-\nicefrac12} + h_E^{\nicefrac12} \|g\|_{L^2(\partial E)}\right) \|\nabla\psi\|_{L^2(E)}.
+\|\nabla\psi\|_{L^2(E)}^2\leqslant  C
+\,h_E^{\nicefrac12} \|g\|_{L^2(\partial E)} \|\nabla\psi\|_{L^2(E)}.
 \end{equation}
 But, by~(\ref{auxlabel7}), it holds $\|g\|_{L^2(\partial E)}\leqslant Ch_E^{-1}$
 and so from \eqref{estab2:eq2} we obtain
@@ -63,15 +64,15 @@ and so from \eqref{estab2:eq2} we obtain
 \end{equation}
 Now, for $1\leqslant p\leqslant 2$, using H\"older's inequality we have
 \begin{eqnarray*}
-\|(I\bu)\|_{L^p(E)}
-&\leqslant& |E|^{{\nicefrac1p}-{\nicefrac12}}\|(I\bu)\|_{L^2(E)}\\
+\|I\bu\|_{L^p(E)}
+&\leqslant& |E|^{{\nicefrac1p}-{\nicefrac12}}\|I\bu\|_{L^2(E)}\\
 &\leqslant& |E|^{{\nicefrac1p}-{\nicefrac12}} \sum_{i=1}^5 
   \left|\iint_{f_i}\bu\cdot\bn\,dS\right|\|\bv_i\|_{L^2(E)}.
 \end{eqnarray*}
 By using \eqref{estab2:eq3} and traces inequalities %and taking into account the shape-regularity of $E$
 we obtain 
 \begin{IEEEeqnarray*}{rCl}
-\|(I\bu)\|_{L^p(E)} &\leqslant& C |E|^{{\nicefrac1p}-{\nicefrac12}} 
+\|I\bu\|_{L^p(E)} &\leqslant& C |E|^{{\nicefrac1p}-{\nicefrac12}} 
   h_E^{-{\nicefrac1p}}\left(\|\bu\|_{L^p(E)}+h_E\|\nabla\bu\|_{L^p(E)}\right)\cdot\\
 \IEEEeqnarraymulticol{3}{r}
 {|\partial E|^{1-{\nicefrac1p}} \|\bv_i\|_{L^2(E)}}\\
@@ -89,18 +90,18 @@ Let $E$ be a pyramid satisfying the shape-regularity property with constant $\si
 Then there exists a constant $C$ depending only on $\sigma$ such that 
 for all $\bu\in H^1(E)$
 \[
-\|\bu-(I\bu)\|_{L^2(E)}\leqslant C h_E|\bu|_{H^1(E)}.
+\|\bu-I\bu\|_{L^2(E)}\leqslant C h_E|\bu|_{H^1(E)}.
 \]
 \end{proposition}
 \begin{proof} Let $\Qbb\bu$ be the $L^2(E)$ projection of $\bu$ onto the 
 constant fields. Then we have
 \[
-\bu-(I\bu) = (\bu - \Qbb\bu) + I(\Qbb\bu-\bu)
+\bu-I\bu = (\bu - \Qbb\bu) + I(\Qbb\bu-\bu)
 \]
 and using the previous Lemma and a clasical estimate for the $L^2(E)$ projection
 error we have
 \begin{eqnarray*}
-  \|\bu-(I\bu)\|_{L^2(E)} &\leqslant& \|\bu - \Qbb\bu\|_{L^2(E)} + 
+  \|\bu-I\bu\|_{L^2(E)} &\leqslant& \|\bu - \Qbb\bu\|_{L^2(E)} + 
     \|I(\bu-\Qbb\bu)\|_{L^2(E)}\\ 
   &\leqslant& \|\bu - \Qbb\bu\|_{L^2(E)}\\
   &&\, + \, C \left(\|\bu-\Qbb\bu\|_{L^2(E)} + 
