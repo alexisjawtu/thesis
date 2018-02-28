@@ -340,21 +340,24 @@ and the angle between  planes ${\Pi}_1$ and ${\Pi}_2$ depends only on the macro-
   $\Th = \{E_{\textit{h},i}\,:\,1\leqslant i\leqslant N_{\textit{h}}\}$.
 \end{remark}
 This means the meshes resolve the macro--elements in a conforming way and
-refinement is done whithin the macro--elements of the 
+refinement is done within the macro--elements of the 
 initial mesh.
 \begin{remark} 
-We remark that if a mesh satisfies conditions~(\ref{label_grading}
+If a mesh satisfies conditions~(\ref{label_grading})
 for $\mu=\mu_0$ and $\nu=\nu_0$, then it satisfies the same for 
 $\mu>\mu_0$ and $\nu>\nu_0$. Thus, the mesh can be constructed for 
 $\mu_0=\nu_0=1-\gamma$ with $1>\gamma>\max\{1-\lambda_e,\frac12-\lambda_v\}$, 
 and it still verifies the former conditions. 
 The possibility to use $\mu_0=\nu_0$ for the construction of the mesh 
-allows us to validate the assumptions at the beginning of Section~\ref{auxlabel290}.  
+allows us to validate the assumptions at the beginning of Section~\ref{auxlabel290},
+which are that the tetrahedra and pyramids in $\Th$ don't have to be
+necessarily anisotropic.
 
-Therefore, we assume that the mesh $\Th$ on a macroelement $\Lambda_\ell$
+Therefore, we assume that the meshes $\{\Th\}_{\textit{h}}$ restricted to
+a macroelement $\Lambda_\ell$
 with a singular edge 
 $\be$ and a singular vertex $\bv$ 
-satisfies conditions~\eqref{label_grading} 
+satisfy conditions~\eqref{label_grading} 
 for $\mu,\nu\geqslant 1-\gamma$. And in particular, those conditions hold
 for $\mu=1-\delta$ for some $\delta>1-\lambda_{\be}$ and for $\nu=1-\beta$ 
 for some $\beta>\frac12-\lambda_{\bv}$. 
@@ -367,16 +370,6 @@ conditions~\eqref{label_grading} with $\mu=\nu=1-\delta$.
 This assumption does not affect the asymptotic relation between 
 $\textit{h}$ and the number of elements.
 
-
-We remark that if a mesh satisfies~(\ref{label_grading})
-for $\mu=\mu_0$ and $\nu=\nu_0$, then it satisfies the
-same for $\mu>\mu_0$ and $\nu>\nu_0$. Thus, the mesh can be overrefined by
-taking $\mu=\nu=\min\{1-\delta,1-\beta\}$, and it still
-verifies~(\ref{label_grading}) for
-$\min\{1-\delta,1-\beta\}\leqslant\mu\leqslant 1-\delta$ and
-$\min\{1-\delta,1-\beta\}\leqslant\nu\leqslant 1-\beta$. The possibility to use $\mu=\nu$
-for the construction of the mesh, allows to validate condition stating
-that tetrahedra and pyramids in $\Th$ are not necessarily anisotropic.
 \end{remark}
 \begin{remark}
 If the diameter $\delta(\Lambda)$ of a macro--element $\Lambda$ were greater than $1$, 
@@ -388,4 +381,10 @@ so we will assume $R_K(\bx)\leqslant 1$.
 \end{remark}
 \begin{remark}
   $\mu < 1 \Rightarrow \mu \leqslant \nu$.
+\end{remark}
+\begin{remark}
+The meshing procedure we propose fulfills 
+conditions~\eqref{label_grading3}--\eqref{label_grading},
+as can be seen using the ideas of \cite{apel99,apelNicaise,raugel} 
+and Section 8.4 of~\cite{grisvard}.
 \end{remark}
