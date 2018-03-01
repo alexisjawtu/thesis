@@ -43,149 +43,9 @@ Tesis presentada para optar al t\'\i tulo de Doctor de la Universidad de Buenos 
 
 \noindent Buenos Aires, 2018.
 \newpage
-\section*{Resumen}
-En esta Tesis introducimos un M\'etodo combinado
-de Elementos Finitos y Virtuales en dimensi\'on tres 
-para
-la aproximaci\'on mixta 
-de un problema el\'iptico modelo para el operador
-de Laplace en un poliedro arbitrario no necesariamente convexo.
-El m\'etodo es analizado por completo
-cuando las mallas constan de prismas rectos de base triangular, pir\'amdes y tetraedros. Los espacios locales
-discretizantes coinciden con los espacios de orden m\'inimo
-de Raviart-Thomas 
-sobre tetraedros y prismas, y constituyen una extensi\'on
-de estos a elementos piramidales. Probamos que el 
-esquema discreto es bien planteado y 
-probamos estimaciones \'optimas de error
-sobre mallas 
-que admiten elementos anis\'otropos. En particular, 
- nuestras estimaciones de 
-error
-de 
-interpolaci\'on 
-local 
-para el espacio discreto son \'optimas y 
-anis\'otropas en prismas rectos anis\'otropos. La motivaci\'on
-para trabajar con elemento anis\'otropos es que en
-distintas situaciones en aproximaciones por elmentos finitos mixtos
-es necesario el uso de mallas con elementos elongados.
-Este es el caso, por ejemplo, con la ecuaci\'on de Poisson en un
-poliedro $\Omega$ con aristas c\'oncavas y v\'ertices entrantes,
-que en forma mixta puede escribirse como
-\begin{equation*}\label{mf} \left\{\begin{array}{rcl}
-\boldsymbol{u}&=&-\nabla p\qquad \mbox{in }\Omega\\
-\dv\boldsymbol{u}&=&f\qquad \mbox{in }\Omega\\
-p&=&0\qquad\mbox{on }\partial\Omega.\end{array}\right.
-\end{equation*}
-En esta caso la variable vectorial de la soluci\'on, $\boldsymbol{u}$,
-no est\'a en $H^1(\Omega)$ en el caso general debido a las singularidades 
-de aristas y v\'ertices. En particular, cerca de las aristas c\'oncavas,
-$\boldsymbol{u}$ es m\'as regular en la direcci\'on a lo largo de \'estas
-que transversalmente, y consecuentemente las mallas tienen que ser
-adecuadamente refinadas para recuperar el orden \'optimo de convergencia
-con respecto al n\'umero de grados de libertad. Tales mallas  contienen
-elementos arbitrariamente alargados en la direcci\'on de las aristas sigulares.
-
-Asimismo, proponemos un proceso de mallado
-para construir una familia de mallas que nos permite
-obtener estimaciones de error de aproximacion global
-\'optimas cuando la soluci\'on del problema modelo
-presenta singularidades de arista o v\'ertice
-puesto que las mallas resultan, por construcci\'on,
-adecuadamente gra\-duadas y adaptadas 
-a las singularidades, como mencionamos en el p\'arrafo anterior.
-
-Adem\'as en la presente Tesis 
-obtuvimos cotas de estabilidad y de error de interpolaci\'on
-local para Elementos Finitos prism\'aticos anis\'otropos de orden
-arbitrario, tanto para la clase de elementos
-conformes en $H(\bcurl)$ como para 
-la clase de elementos conformes en $H(\mbox{div})$, que 
-constituyen resultados adicionales que extienden algunos hechos te\'oricos
-que probamos para el problema principal de la tesis.'
-
-Tambi\'en presentamos 
-cotas de estabilidad y de error de interpolaci\'on
-local para Elementos Finitos piramidales anis\'otropos 
-de orden bajo, tanto para la clase de elementos
-conformes en $H(\bcurl)$ como para 
-la clase de elementos conformes en $H(\mbox{div})$. Este resultado
-est\'a incluido para mostrar una variante a nuestro m\'etodo principal,
-esto es, un m\'etodo solamente con elementos finitos. Con respecto a esta variante,
-como
-mostramos expl\'icitamente en la Tesis, las 
-funciones de forma, generadoras de 
-estos \'ultimos espacios de Elementos Finitos,
-son racionales y son singulares, aunque acotadas,
-en la pir\'amide de referencia. Esta es una raz\'on por la cual 
-consideramos mejor nuestra aproximaci\'on FE--VE combinada, porque estamos
-evitando la evaluaci\'on de funciones con dichas propiedades
-en implementaciones en computadoras.
-
+\include{resumen}
 \newpage
-\section*{Abstract}
-In this Thesis we introduce a combined Finite and Virtual Element Method in dimension three
-for the mixed approximation of a 
-model elliptic problem for the Laplace operator on an 
-arbitrary, not necessarily convex, polyhedron. 
-The 
-method is fully analysed when the meshes are made up of triangularly
-right prisms, pyramids and tetrahedra. The local discrete 
-spaces coincide with the lowest order Raviart-Thomas 
-spaces on tetrahedra and prisms, and 
-extend them to pyramidal elements. The discrete scheme 
-is well posed and optimal error estimates are proved on meshes which 
-allow for anisotropic elements. In particular, the local 
-interpolation error estimates proved for the discrete element space are 
-optimal and anisotropic on anisotropic right prisms.
-The motivation to work with anisotropic elements is that 
-in several situations in mixed finite element approximations the use of meshes 
-with narrow elements is needed. 
-This is the case for instance when dealing with the Poisson equation 
-in a polyhedron $\Omega$ with concave edges or vertices, which, in mixed form
-can be written as
-\begin{equation*}\label{mf} \left\{\begin{array}{rcl}
-\boldsymbol{u}&=&-\nabla p\qquad \mbox{in }\Omega\\
-\dv\boldsymbol{u}&=&f\qquad \mbox{in }\Omega\\
-p&=&0\qquad\mbox{on }\partial\Omega.\end{array}\right.
-\end{equation*}
-In this case the vectorial variable of the solution, $\boldsymbol{u}$, is in 
-general not in $H^1(\Omega)$ due to vertex and edges 
-singularities. In particular, close to concave edges, 
-$\boldsymbol{u}$ is expected to be more regular in its direction than transversally 
-to it, and consequently the mesh has to be accordingly refined in order to 
-recover optimal order of convergence with respect to the number of degrees of 
-freedom. Those meshes contain elements that are arbitrarily elongated
-in the direction of concave edges.
-
-Likewise, we propose a meshing process to construct a mesh that
-allows us to  obtain optimal global 
-approximation error estimates when the 
-solution has edge or vertex singularities as the mesh results, by construction,
-suitably graded and adapted to the singularities.
-
-Furthermore, in the present Thesis we obtained
-local anisotropic stability
-and interpolation error estimates for arbitrary order Prismatic
-Finite Elements in both
-the $\bcurl$--conforming and div--conforming classes of elements, which are 
-additional results that extend some theoretical facts we proved for
-the main problem of the Thesis.
-
-Moreover, we present local anisotropic stability
-and interpolation error estimates for lowest order Pyramidal
-Finite Elements constructed in the literature for both
-the $\bcurl$--conforming and div--conforming classes of elements. This result
-is included to show a variant to our main method, that is one 
-with only Finite Elements. Regarding this variant, as we show
-explicitly in the Thesis, the shape functions 
-spanning the pyramidal Finite Element spaces are rational functions and are 
-singular, yet bounded,
-in the reference pyramid. This is a reason why we considered to move
-to our combined FE--VE approach better, because we are avoiding the evaluation
-of functions with those properties in computer implementations. 
-
+\include{abstract}
 %\frontmatter
 
 \tableofcontents{}
@@ -231,3 +91,10 @@ verifies~(\ref{label_grading}) for
 $\min\{1-\delta,1-\beta\}\leqslant\mu\leqslant 1-\delta$ and
 $\min\{1-\delta,1-\beta\}\leqslant\nu\leqslant 1-\beta$. 
 
+****************************************************************************
+
+
+The local discrete 
+spaces coincide with the lowest order Raviart-Thomas 
+spaces on tetrahedral and triangularly right prismatic elements, and 
+extend them to pyramidal elements.

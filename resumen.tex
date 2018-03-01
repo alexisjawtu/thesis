@@ -1,20 +1,3 @@
-\documentclass{article}
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\topmargin -2.5cm
-\textheight 25cm
-\def\bcurl{\textbf{curl}}
-\newcommand\dv{\mbox{div\,}}
-\date{}
-\begin{document}
-
-\title{Un m\'etodo mixto con mallas h\'ibridas para problemas el\'ipticos
-en dominios poliedrales}
-
-
-\maketitle
-\vspace{4cm}
 \section*{Resumen}
 En esta Tesis introducimos un M\'etodo combinado
 de Elementos Finitos y Virtuales en dimensi\'on tres 
@@ -39,7 +22,7 @@ interpolaci\'on
 local 
 para el espacio discreto son \'optimas y 
 anis\'otropas en prismas rectos anis\'otropos. La motivaci\'on
-para trabajar con elemento anis\'otropos es que en
+para trabajar con elementos anis\'otropos es que en
 distintas situaciones en aproximaciones por elmentos finitos mixtos
 es necesario el uso de mallas con elementos elongados.
 Este es el caso, por ejemplo, con la ecuaci\'on de Poisson en un
@@ -50,7 +33,7 @@ que en forma mixta puede escribirse como
 \dv\boldsymbol{u}&=&f\qquad \mbox{in }\Omega\\
 p&=&0\qquad\mbox{on }\partial\Omega.\end{array}\right.
 \end{equation*}
-En esta caso la variable vectorial de la soluci\'on, $\boldsymbol{u}$,
+En este caso la variable vectorial de la soluci\'on, $\boldsymbol{u}$,
 no est\'a en $H^1(\Omega)$ en el caso general debido a las singularidades 
 de aristas y v\'ertices. En particular, cerca de las aristas c\'oncavas,
 $\boldsymbol{u}$ es m\'as regular en la direcci\'on a lo largo de \'estas
@@ -75,7 +58,7 @@ arbitrario, tanto para la clase de elementos
 conformes en $H(\bcurl)$ como para 
 la clase de elementos conformes en $H(\mbox{div})$, que 
 constituyen resultados adicionales que extienden algunos hechos te\'oricos
-que probamos para el problema principal de la tesis.'
+que probamos para el problema principal de la tesis.
 
 Tambi\'en presentamos 
 cotas de estabilidad y de error de interpolaci\'on
@@ -89,11 +72,8 @@ como
 mostramos expl\'icitamente en la Tesis, las 
 funciones de forma, generadoras de 
 estos \'ultimos espacios de Elementos Finitos,
-son racionales y son singulares, aunque acotadas,
+son ra\-cio\-na\-les y son singulares, aunque acotadas,
 en la pir\'amide de referencia. Esta es una raz\'on por la cual 
-consideramos mejor nuestra aproximaci\'on FE--VE combinada, porque estamos
-evitando la evaluaci\'on de funciones con dichas propiedades
+consideramos que nuestra aproximaci\'on FE--VE combinada presenta una ventaja
+que es evitar la evaluaci\'on de funciones con dichas propiedades
 en implementaciones en computadoras.
-
-    
-\end{document}

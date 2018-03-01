@@ -1,20 +1,3 @@
-\documentclass{article}
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-
-\topmargin -2.5cm
-\textheight 25cm
-\def\bcurl{\textbf{curl}}
-\newcommand\dv{\mbox{div\,}}
-\date{}
-\begin{document}
-
-\title{A mixed method with hybrid meshes for elliptic problems
-in polihedral domains}
-
-\maketitle
-\vspace{4cm}
 \section*{Abstract}
 In this Thesis we introduce a combined Finite and Virtual Element Method in dimension three
 for the mixed approximation of a 
@@ -34,7 +17,7 @@ The motivation to work with anisotropic elements is that
 in several situations in mixed finite element approximations the use of meshes 
 with narrow elements is needed. 
 This is the case for instance when dealing with the Poisson equation 
-in a polyhedron $\Omega$ with concave edges or vertices, which, in mixed form
+in a polyhedron $\Omega$ with concave edges or vertices, which in mixed form
 can be written as
 \begin{equation*}\label{mf} \left\{\begin{array}{rcl}
 \boldsymbol{u}&=&-\nabla p\qquad \mbox{in }\Omega\\
@@ -73,8 +56,6 @@ with only Finite Elements. Regarding this variant, as we show
 explicitly in the Thesis, the shape functions 
 spanning the pyramidal Finite Element spaces are rational functions and are 
 singular, yet bounded,
-in the reference pyramid. This is a reason why we considered to move
-to our combined FE--VE approach better, because we are avoiding the evaluation
-of functions with those properties in computer implementations. 
-    
-\end{document}
+in the reference pyramid. This is a reason why we considered that
+our combined FE--VE approach presents the advantage of avoiding the evaluation
+of functions with those properties in computer implementations.
