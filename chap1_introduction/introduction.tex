@@ -5,47 +5,56 @@
 In several situations in mixed finite element approximations the use of meshes 
 with narrow elements is needed. This is the case for instance when dealing with
 the Poisson equation 
-in a polyhedron $\Omega$ with concave edges, which, introducing the 
+in a polyhedron $\Omega$ with concave edges and vertices, which, introducing the 
 vectorial variable $\bu=-\nabla p$ can 
-be written in mixed form as
-\begin{equation}\label{mf} \left\{\begin{array}{rcl}
-\bu&=&-\nabla p\qquad \mbox{in }\Omega\\
-\dv\bu&=&f\qquad \mbox{in }\Omega\\
-p&=&0\qquad\mbox{on }\partial\Omega.\end{array}\right.
+be written in mixed form as 
+\begin{equation}\label{mf} 
+\left\{\begin{IEEEeqnarraybox*}[][c]{,c/c/c/c/l,}
+	&&&&\\
+	\bu     & = & \nabla p   & \qquad & \mbox{in }\Omega\\
+	-\dv\bu & = &        f   & \qquad & \mbox{in }\Omega\qquad(f\in L^2(\Omega))\\
+	p       & = & 0          & \qquad & \mbox{on }\partial\Omega\\
+	&&&&%
+	\end{IEEEeqnarraybox*}\right.
 \end{equation}
-We consider the model elliptic problem of the mixed
-formulation \eqref{ecuacion}  with 
-$f\in L^2(\Omega)$ and $\Omega$ a polyhedral domain. Its mixed 
-variational formulation can be written as: to find $\bu\in V$ and $p\in Q$ 
+and whose mixed 
+variational formulation is to find $\bu\in H(\Div,\Omega)$ and $p\in L^2(\Omega)$ 
 such that
-\begin{eqnarray}\label{P}
-a(\bu,\bv) - b(\bv,p) & = & 0 \qquad \forall \bv\in V\\ \nonumber b(\bu,q) &
-= & (f,q)\qquad \forall q\in Q,  
-\end{eqnarray}
+\begin{equation}\label{P}
+	\begin{IEEEeqnarraybox*}[][c]{l/c/r/C/l}
+	\forall \bv\in H(\Div,\Omega)  & \qquad & a(\bu,\bv) + b(\bv,p)   & = & 0    \\
+	\forall q\in   L^2(\Omega)	   & \qquad &    		   b(\bu,q)   & = & (-f,q)
+	\end{IEEEeqnarraybox*}
+\end{equation}
 with
 \[
-a(\bv,\bw)=\int_\Omega\bv\cdot\bw,\qquad b(\bv,q)=\int_\Omega
-q\,\mbox{div\,}\bv
+a(\bv,\bw)=\int_\Omega\bv\cdot\bw\,d\bx,\qquad b(\bv,q)=\int_\Omega q\,\mbox{div\,}\bv\,d\bx.
 \]
-and
-\[
-V=H(\dv,\Omega), \qquad Q=L^2(\Omega).
-\]
-Of course, the problem for the $\mbox{div}(a\nabla)$ operator can be similarly treated.
-In this case,  $\bu$ is in general not in $H^1$ due to vertex and edges 
-singularities. In particular, close to concave edges, the solution is expected to be more regular in its direction than 
-transversally to it, and consequently the mesh has to be accordingly refined in order to recover optimal order of convergence 
-with respect to the number of degrees of freedom 
-\cite{alw, apelNicaise}. Those meshes contain elements arbitrarily 
-elongated in the direction of concave edges (direction in which the solution is more regular). 
+%Of course, the problem for the $\mbox{div}(a\nabla)$ operator can be similarly treated.
+With $\Omega$ being non--convex, $\bu$ is not in $H^1(\Omega)$ in the general case
+due to vertex and edges singularities. 
+In particular, close to concave edges, the solution is expected to be 
+more regular along the direction of that edge than 
+transversally to it, and that is why the mesh has to be accordingly graded and 
+refined in 
+order to recover the optimal order of convergence of the sequence of numerical
+solutions
+with respect to the number of degrees of freedom~\cite{alw, apelNicaise}. 
+Those meshes contain elements which are arbitrarily elongated in the direction 
+of the concave edges. If we tried to construct such a sequence of meshes using
+only tetrahedra we would incur in using subfamilies of them which do
+not fullfill certain conditions needed for the anisotropic analysis, and
+there is where our proposed method with elements of different geometries becomes
+meaningful. 
 
-To explain the main result of the present Thesis in motivated by the following
+To explain the latter further and the main result of the present Thesis we 
+put the following
 definitions and related previous results.
 
-We say that a tetrahedron $T$ satisfies the ``regular vertex property'' with a
+First, we say that a tetrahedron $T$ satisfies the ``regular vertex property'' with a
 constant $\bar{c} > 0$ (written $T\in \pazocal{RVP}(\bar c)$) if $T$ has
- a vertex $\bx_T$ such that,
-if $M_T$ is the matrix made up of the unitary vectors in the directions
+a vertex $\bx_T$ such that,
+if $M_T$ is the matrix made up with the unitary vectors in the directions
 of the edges sharing $\bx_T$ as columns, then $|\det M_T| > \bar{c}$.
 
 A less restrictive geometrical property is the following. 
