@@ -90,8 +90,8 @@ it holds
   \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & C h_T \sum_{1\leqslant i\leqslant 3}
   \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}
 \end{IEEEeqnarray*}
-($\xi_i$ are local coordinates at a vertex of $T$, but we don't necessarily have 
-a regular one).
+($\xi_i$ are local coordinates at a vertex of $T$, but we don't necessarily 
+have a regular one).
 
 Now, if we look at both inequalities, in the second case a \emph{big derivative} 
 in the 
@@ -102,11 +102,15 @@ $h_T$ smaller and refine the meshes in all the directions.
 It is possible to construct this
 kind of meshes with tetrahedral elements all satisfying MAC($\bar\alpha$) for 
 $\bar\alpha<\pi$ fixed, but unfortunately those 
-elements do not satisfy $\pazocal{RVP}$ with a parameter uniformly far from $0$. That is 
-due to the presence of tetrahedra with bounded 
-maximal angle but poor regular vertex constant, an example of which is 
+elements do not satisfy $\pazocal{RVP}$ condition for a uniform positive parameter
+$\bar{c}$
 
-see Figure \ref{fig:tetraedros}. So, interpolation error estimate \eqref{rvp} 
+That is 
+due to the existence of tetrahedra with bounded 
+maximal angle but poor regular vertex constant, an example of which is 
+depicted in Figure~\ref{fig:tetraedros}. 
+
+So, interpolation error estimate \eqref{rvp} 
 can not be globally used to estimate the error approximation, but \eqref{mac} has to be taken, and consequently, 
 the anisotropic properties of the meshes may give no profit.  
 
