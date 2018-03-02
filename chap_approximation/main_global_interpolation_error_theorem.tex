@@ -1,9 +1,11 @@
 \section{Main Global Interpolation Error Theorem}
-In the present section we perform the anisotropic approximation error estimates
-over the meshes we constructed in the previous section.
+In the present section we state the anisotropic interpolation error estimates
+over the meshes we constructed in the previous section. We leave the proof
+for the whole next Section since it has many parts.
 
-To estimate the error, we start with inequality~(\ref{aux_label48}) of
-Theorem~\ref{aux_label47} and work with each term in the right--hand side
+To estimate the approximation error of Section~\ref{auxlabel11}, 
+we take the inequalities of
+Theorem~\ref{aux_label47} and work with each term in the right--hand sides
 in the non--convex case.
 
 As in the meshing algorithm we proposed the pyramids turned out to be isotropic,
@@ -13,6 +15,10 @@ Nevertheless, starting with the anisotropic Finite Element stability estimates
 we proved in Theorem~\ref{aux_label53}  and in Theorem~\ref{aux_label54}   
 we could arrive at inequalities of the form~(\ref{aux_label39}) and~(\ref{aux_label55})
 for the interpolation operators determined by the 
+
+{\color{red}CORREGIR: ahora ya puse las local interp estimates,
+hay que cambiar esta frase, ya no va el \emph{we could} en condicional}
+
 finite elements in Definitions~\ref{aux_label50} and~\ref{aux_label71}
 and the estimates in terms of weighted norms would follow exactly as the ones
 we will perform in short for $h_E|u|_{1,E}$.\\                        %%%  At the end of this proof we include weighted
@@ -471,9 +477,9 @@ in the title of the subsection. Let us start with
   \|\bu_s - \br_0\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}+
   \sum_{d(E,\be) > 0}
   \|\bu_s - \br_0\bu_s\|^2_{\scriptscriptstyle L^2(E)^3}.\\
-\label{auxlabel350}
+\label{auxlabel360}
 \end{IEEEeqnarray}
-\paragraph{Terms in~\eqref{auxlabel350} such that $d(E,\be)>0$. }
+\paragraph{Terms in~\eqref{auxlabel360} such that $d(E,\be)>0$. }
 %% (y,z,x)
 \begin{figure}[!h]
   \centering
@@ -607,11 +613,11 @@ For the derivative with respect to $\xi_3$ in~\eqref{auxlabel9},
 \end{IEEEeqnarray*}
 The divergence term in~\eqref{auxlabel9} goes like in~(\ref{aux_label64}).
 \end{enumerate}
-\paragraph{Terms in~\eqref{auxlabel350} such that $d(E,\be_\ell)=0$.}
+\paragraph{Terms in~\eqref{auxlabel360} such that $d(E,\be_\ell)=0$.}
 In this case we have anisotropic prisms and tetrahedra from an isotropic 
 subfamily, one in each tetrahedral macro--element of the present type.
 
-From~\eqref{auxlabel350}, after triangle inequality, we write
+From~\eqref{auxlabel360}, after triangle inequality, we write
 \begin{IEEEeqnarray}{rCl} %
   \IEEEeqnarraymulticol{3}{L}{\nonumber
     \sum_{d(E,\be) = 0}
