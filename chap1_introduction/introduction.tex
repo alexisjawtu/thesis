@@ -51,48 +51,78 @@ To explain the latter further and the main result of the present Thesis we
 put the following
 definitions and related previous results.
 
-First, we say that a tetrahedron $T$ satisfies the ``regular vertex property'' with a
+First, we say that a tetrahedron $T$ satisfies the \emph{regular vertex property}
+with a
 constant $\bar{c} > 0$ (written $T\in \pazocal{RVP}(\bar c)$) if $T$ has
 a vertex $\bx_T$ such that,
 if $M_T$ is the matrix made up with the unitary vectors in the directions
 of the edges sharing $\bx_T$ as columns, then $|\det M_T| > \bar{c}$.
 
 A less restrictive geometrical property is the following. 
- We say that a tetrahedron $T$ satisfies the  {\it maximum angle condition} with paramenter $\bar\alpha$
+We say that a tetrahedron $T$ satisfies the  {\it maximum angle condition} 
+with paramenter $\bar\alpha$
 (writen $T\in\pazocal{MAC}(\bar\alpha$))  if the angles of the faces of 
-$T$ and between faces are 
+$T$ and between faces are
 less than $\bar\alpha$. 
+
+With these two notions in mind we can look at the following results from~\cite{aadl}.
+If $T$ is a tetrahedron in $\pazocal{RVP}(\bar c)$ and $\br_{\sss k,T}$ 
+is the Raviart-Thomas interpolation 
+operator (see~\cite{nedelec2, MR0483555}), then there is a positive $C(\bar c)$
+such that for all  
+$\bu\in H^1(T)^3$
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & C 
+    \left\{\sum_{1\leqslant i\leqslant 3} h_i \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}
+	  + h_T \|\dv\bu\|_{\sss L^2(T)}\right\}
+\end{IEEEeqnarray*}
+where we wrote 
+$\xi_i$ for the local coordinates with origin at the regular vertex and 
+$h_i$ for the lengths of the edges incident to it
+and $h_T$ for the diameter of $T$.
+
+On the other hand, if $T\in\pazocal{MAC}(\bar\alpha)$ then there exists
+a positive $C(\bar\alpha)$
+depending only on $\bar\alpha$ such that for all  
+$\bu\in H^1(T)^3$
+it holds
+\begin{IEEEeqnarray*}{rCl}
+  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & C h_T \sum_{1\leqslant i\leqslant 3}
+  \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}
+\end{IEEEeqnarray*}
+($\xi_i$ are local coordinates at a vertex of $T$, but we don't necessarily have 
+a regular one).
+
+Now, if we look at both inequalities, in the second case a \emph{big derivative} 
+in the 
+direction $\xi_i$ will not necessarily be 
+compensated with a small $h_i$, so we  have to make the diameter
+$h_T$ smaller and refine the meshes in all the directions. 
+
+It is possible to construct this
+kind of meshes with tetrahedral elements all satisfying MAC($\bar\alpha$) for 
+$\bar\alpha<\pi$ fixed, but unfortunately those 
+elements do not satisfy $\pazocal{RVP}$ with a parameter uniformly far from $0$. That is 
+due to the presence of tetrahedra with bounded 
+maximal angle but poor regular vertex constant, an example of which is 
+
+see Figure \ref{fig:tetraedros}. So, interpolation error estimate \eqref{rvp} 
+can not be globally used to estimate the error approximation, but \eqref{mac} has to be taken, and consequently, 
+the anisotropic properties of the meshes may give no profit.  
 
 If we mesh using only tetrahedra we will incur in using subfamilies of tetrahedra
 wich do not fullfil uniformly the $\pazocal{RVP}(\bar c)$ condition for any positive constant $\bar c$.
-
 Let $\textit{h}$ be a strictly decreasing parameter tending to zero, 
 and let $\{\Th\}_{\textit{h}}$
 In other words the deficiency in using $\pazocal{F}_2$ class tetrahedra
 is that we don't
 have $\textit{h}$ order with the asymptotic relation 
-$\textit{h}\sim N_{\Th}^{-\nicefrac13}$ preserved because we strongly use 
-that if $T\in \pazocal{RVP}(\bar c)$ and $\br_{\sss k,T}$ is the Raviart-Thomas interpolation 
-operator (\cite{nedelec2, MR0483555}), then there is a positive $C(\bar c)$
-\begin{IEEEeqnarray*}{rCl}
-  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & \sum_{1\leqslant i\leqslant 3} h_i \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}
-  	+ h_T\|\dv \bu\|_{\sss L^2(T)}
-\end{IEEEeqnarray*}
-for the family $\pazocal{F}_1$ (see~(\cite{aadl}) while, for the family $\pazocal{F}_2$, the sharp
-estimation is
- that we know that there exists a constant $C(\bar\alpha)$
- depending only on $\bar\alpha$ such that for all $T\in\pazocal{MAC}(\bar\alpha)$ 
- for all $\bu\in H^1(T)^3$
- it holds
-\begin{IEEEeqnarray*}{rCl}
-  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & h_T \sum_{1\leqslant i\leqslant 3}
-  \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}.
-\end{IEEEeqnarray*}
-In the latter case, a big derivative in the direction $\xi_i$ will not necessarily be 
-compensated with a small $h_i$, so we  have to make the diameter
-$h_T$ small and refine the meshes in all the directions.
+$\textit{h}\sim N_{\Th}^{-\nicefrac13}$ preserved because we strongly use
 
-Inequality \eqref{mac} is weaker than \eqref{rvp}, since there are elements 
+
+
+
+Inequality \eqref{mac} is strictly weaker than \eqref{rvp}, since there are elements 
 satisfying MAC($\bar\alpha$) for a fixed $\bar\alpha$ with arbitrarily 
 small $\pazocal{RVP}$ parameter $\bar c$, making the constant $C(\bar c)$ in \eqref{rvp} 
 to degenerate  
@@ -100,14 +130,6 @@ to degenerate
 as stated 
 in~\cite{aadl} by means of a counterexample, 
 inequality~\eqref{rvp} can't be proved under the maximum angle condition only. 
-
-It is possible to construct this
-kind of meshes with tetrahedral elements all satisfying MAC($\bar\alpha$) for $\bar\alpha<\pi$ fixed, but unfortunately those 
-elements do not satisfy $\pazocal{RVP}$ with a parameter uniformly far from $0$. That is 
-due to the presence of tetrahedra with bounded 
-maximal angle but poor regular vertex constant, see Figure \ref{fig:tetraedros}. So, interpolation error estimate \eqref{rvp} 
-can not be globally used to estimate the error approximation, but \eqref{mac} has to be taken, and consequently, 
-the anisotropic properties of the meshes may give no profit.  
 
 \tetsTikz
 
