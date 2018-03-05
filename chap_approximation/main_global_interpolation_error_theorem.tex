@@ -3,26 +3,24 @@ In the present section we state the anisotropic interpolation error estimates
 over the meshes we constructed in the previous section. We leave the proof
 for the whole next Section since it has many parts.
 
-To estimate the approximation error of Section~\ref{auxlabel11}, 
-we take the inequalities of
-Theorem~\ref{aux_label47} and work with each term in the right--hand sides
-in the non--convex case.
+Then, to estimate the approximation error of Theorem~\ref{auxlabel11}, 
+we will take the inequalities of
+Theorem~\ref{aux_label47} and use each term in the right--hand sides (cfr. Section~\ref{auxlabel400}).
 
 As in the meshing algorithm we proposed the pyramids turned out to be isotropic,
 we may use Proposition~\ref{propErrorInterpolacionPiramidesTetraedros} as the
-local interpolation estimate which.
+local interpolation estimate.
 Nevertheless, starting with the anisotropic Finite Element stability estimates
 we proved in Theorem~\ref{aux_label53}  and in Theorem~\ref{aux_label54}   
 we could arrive at inequalities of the form~(\ref{aux_label39}) and~(\ref{aux_label55})
 for the interpolation operators determined by the 
-
-{\color{red}CORREGIR: ahora ya puse las local interp estimates,
-hay que cambiar esta frase, ya no va el \emph{we could} en condicional}
-
 finite elements in Definitions~\ref{aux_label50} and~\ref{aux_label71}
 and the estimates in terms of weighted norms would follow exactly as the ones
-we will perform in short for $h_E|u|_{1,E}$.\\                        %%%  At the end of this proof we include weighted
+we will perform in short for $h_E|u|_{1,E}$.                       %%%  At the end of this proof we include weighted
 
+Additionally, as we will say in Chapter~\ref{auxlabel202}, making use
+of our estimates in Theorem~\ref{auxlabel211} and Theorem~\ref{auxlabel402}
+we may as well propose a full Finite Elements Method as an alternative.\\[4pt]
 The following is the main interpolation error theorem.
 \begin{theorem}\label{interpolation_theorem} Let $\Omega$ and $f$ be the data and $(\bu,p)$ be the 
 solution

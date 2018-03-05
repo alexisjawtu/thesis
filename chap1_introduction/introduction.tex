@@ -2,8 +2,14 @@
 \addcontentsline{toc}{chapter}{Introduction} \markboth{INTRODUCTION}{}
 \section*{Motivation of the Problems and Previous Results} % (fold)
 
+
+physical object is Anisotropic 
+
+Meshes are said to be anisotropic if... the definition is in 
+Chapter~\ref{auxlabel207}.
+
 In several situations in mixed finite element approximations the use of meshes 
-with narrow elements is needed. This is the case for instance when dealing with
+with anisotropic elements is needed. This is the case for instance when dealing with
 the Poisson equation 
 in a polyhedron $\Omega$ with concave edges and vertices, which, introducing the 
 vectorial variable $\bu=-\nabla p$ can 
@@ -17,7 +23,7 @@ be written in mixed form as
 	&&&&%
 	\end{IEEEeqnarraybox*}\right.
 \end{equation}
-and whose mixed 
+The standard mixed 
 variational formulation is to find $\bu\in H(\Div,\Omega)$ and $p\in L^2(\Omega)$ 
 such that
 \begin{equation}\label{P}
@@ -31,7 +37,7 @@ with
 a(\bv,\bw)=\int_\Omega\bv\cdot\bw\,d\bx,\qquad b(\bv,q)=\int_\Omega q\,\mbox{div\,}\bv\,d\bx.
 \]
 %Of course, the problem for the $\mbox{div}(a\nabla)$ operator can be similarly treated.
-With $\Omega$ being non--convex, $\bu$ is not in $H^1(\Omega)$ in the general case
+With $\Omega$ being non--convex, the solution $\bu$ of~\eqref{P} is not in $H^1(\Omega)$ in the general case
 due to vertex and edges singularities. 
 In particular, close to concave edges, the solution is expected to be 
 more regular along the direction of that edge than 
@@ -65,7 +71,7 @@ with paramenter $\bar\alpha$
 $T$ and between faces are
 less than $\bar\alpha$. 
 
-With these two notions in mind we can look at the following results from~\cite{aadl}.
+With these two notions in mind we need to start with the following results from~\cite{aadl}.
 If $T$ is a tetrahedron in $\pazocal{RVP}(\bar c)$ and $\br_{\sss k,T}$ 
 is the Raviart-Thomas interpolation 
 operator (see~\cite{nedelec2, MR0483555}), then there is a positive $C(\bar c)$
@@ -97,8 +103,11 @@ Now, if we look at both inequalities, in the second case a \emph{big derivative}
 in the 
 direction $\xi_i$ will not necessarily be 
 compensated with a small $h_i$, so we  have to make the diameter
-$h_T$ smaller and refine the meshes in all the directions. 
-SEGUIR ACA
+$h_T$ smaller and refine the meshes in all the directions, which is what we want
+to avoid.
+
+*****************************************
+
 
 It is possible to construct this
 kind of meshes with tetrahedral elements all satisfying MAC($\bar\alpha$) for 
