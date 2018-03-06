@@ -19,7 +19,7 @@ in a polyhedron $\Omega$ with concave edges and vertices, which, introducing the
 vectorial variable $\bu=-\nabla p$ can 
 be written in mixed form as 
 \begin{equation}\label{mf} 
-\left\{\begin{IEEEeqnarraybox*}[][c]{,c/c/c/c/l,}
+\left\{\begin{IEEEeqnarraybox*}[][c]{,r/c/c/c/l,}
 	&&&&\\
 	\bu     & = & \nabla p   & \qquad & \mbox{in }\Omega\\
 	-\dv\bu & = &        f   & \qquad & \mbox{in }\Omega\qquad(f\in L^2(\Omega))\\
@@ -161,52 +161,77 @@ which are avoided with the prismatic ones, and in order to obtain optimal
 approximation error estimates, the price payed is to require additional regularity 
 on the right hand side $f$, precisely, it has to belong to a weighted Sobolev space.
 
-*********************************************
-
-One of the results presented in this thesis is an extension 
-of the result in~\cite{MR1866274} in order to be able to deal with the
-mixed approximation of~\eqref{ecuacion} with $f\in L^2(\Omega)$ in general polyhedral domains. 
-Since such domains not always admit a partition by means of right prisms and since 
-we also would like to avoid to require more regularity to $f$ as mentioned in the previous paragraph, we propose a 
-discretization based on hybrid meshes that consists of prisms combined with tetrahedra, with 
-interelemental gaps filled with pyramids. As in~\cite{MR1866274}, we obtain the estimate
-\begin{equation}\label{jl2: aim}
- \|\bu-\bu_h\|_{L^2(\Omega)} + \|p-p_h\|_{L^2(\Omega)} \le Ch\|f\|_{L^2(\Omega)}.
+One of the results presented in this thesis extends
+the result in~\cite{MR1866274} since our method was seeked in order to be able 
+to deal with the mixed approximation of~\eqref{mf} for $f\in L^2(\Omega)$,
+and also for a general polyhedral domain $\Omega$. As such domains not always 
+admit a partition by means of right prisms and since 
+we also would like to avoid to require more regularity to $f$ as mentioned in 
+the previous paragraph, we propose a 
+discretization based on hybrid meshes that consists of prisms combined with 
+tetrahedra, with 
+interelemental gaps filled with pyramids. As in~\cite{MR1866274}, we obtain 
+the approximation error estimate
+\begin{equation}\label{auxlabel401}
+ \|\bu-\bu_{\textit h}\|_{L^2(\Omega)^3} + \|p-p_{\textit h}\|_{L^2(\Omega)} 
+ \leqslant C\,\textit{h}\|f\|_{L^2(\Omega)}.
 \end{equation}
-with $\bu_h$ and $p_h$ being the approximations of the solutions $\bu$ and $p$ of~\eqref{ecuacion}. 
-To do that, firstly we introduce and analyze a new combined Finite and Virtual 
-Element Method is introduced for the 
-mixed approximation of a 
-simple model problem for the Laplace operator on a polyhedron. The 
-method is fully analysed when the meshes are made up of triangularly
-right prisms, pyramids and tetrahedra. The discrete scheme 
-is well posed and optimal error estimates are proved on meshes which 
-allow for anisotropic elements. In particular, local 
-interpolation error estimates for the discrete element space are 
+with $\bu_{\textit h}$ and $p_{\textit h}$ being the approximations of the 
+solutions $\bu$ and $p$ of~\eqref{mf}. Firstly we introduced and analyzed a new 
+combined Finite and Virtual 
+Element Method on a polyhedron which is fully analysed when the meshes are made 
+up of the mentioned polyhedra. Local 
+interpolation error estimates for the discrete element spaces are 
 optimal and anisotropic on anisotropic right prisms, which can be
 used to obtain optimal approximation error estimates when the 
-solution has edge or vertex singularities by using suitably adapted meshes.   
+solution has edge or vertex singularities, as pointed out at the beginning of 
+this introduction. by using suitably graded and adapted meshes which 
+allow for anisotropic elements, and which only includes tetrahedra with a
+uniform positive regular vertex constant, precisely avoiding the use of tetrahedra
+with arbitrary small $\pazocal{RVP}$ constant.
 
 
-space $V_h$ in 
-$\mathbb R^3$ with the following conditions:  
+
+
+
++++++++++++++++++++++++++++++++++++++ini
+
+Not only we proved the result for an abstract family of meshes with the previous 
+properties, but also we show a general meshing procedure, and so we construct
+a family of anisotropic graded hybrid meshes which starts by isolating and 
+classifying the singularities (cfr. Theorem~\ref{thm_regularity}).
+
+The proposed meshes and the corresponding discrete spaces $V_{\textit h}$ 
+were obtained fulfilling
+the following conditions.
 \begin{enumerate}
-\item \label{punto1} Conformity: The space $V_h$ must be $H(\mbox{div})$-conforming.
-\item \label{punto2} Optimal and aniowenSaigaltropic approximation properties: Optimal interpolation error estimates have to be valid even on families of meshes which bergot no satisfy the standard shape-regularity conditio~\cite{ciarlet}.
-\item \label{punto3} Domain generality: The space has to be well defined on conforming (without hanging nodes) bergot meshes without restricting the considered domains to few special polyhedra. 
+\item \label{punto1} Conformity: 
+The space $V_{\textit h}$ is $H(\mbox{div})$-conforming.
+\item \label{punto2} Optimal and anisotropic approximation properties: 
+Optimal interpolation error estimates are valid even on this family of 
+meshes which do not satisfy the standard shape--regularity condition 
+(cfr. Definition~\ref{auxlabel403} and see~\cite{ciarlet}).
+\item \label{punto3} Domain generality: The space is well defined on 
+conforming meshes without restricting the 
+considered domains to few special polyhedra. 
 \end{enumerate}
-As suggested i~\cite{bfm} for the 2d case, we present $V_h$ as a virtual element space on a conforming 
-polyhedral mesh, which 
+As suggested in~\cite{bfm} for the 2d case, we present $V_{\textit h}$ as a 
+virtual element space which 
 locally coincides with the original lowest order 3d Raviart-Thomas space on
-tetrahedra and right prisms, and naturally extends it in the case of pyramidal elements. 
-In particular, normal components of the discrete functions are constants on the faces of the 
-elements, fitting well across different shape's elements. In this way requirement~\ref{punto1} is verified. 
-One advantage of this presentation, is that the definition of the local spaces is independent of the 
-geometry of the element, see Section \ref{discrete_spaces_in_chap_virtuals}. 
+tetrahedra and right prisms, and naturally extends it to pyramidal elements. 
+In particular, normal components of the discrete functions are constant on the 
+faces of the 
+elements, fitting well across different shape's elements. 
+In this way requirement~\ref{punto1} is verified. 
+One advantage of this presentation, is that the definition of the local spaces 
+is independent of the 
+geometry of the element, see Section~\ref{auxlabel290}. 
 
-In order to satisfy condition \ref{punto2} and taking into account what we 
-remarked at the beginning of this Section, we need to avoid the use of a kind of anisotropic 
-tetrahedra. Followin~\cite{MR1866274} we allow for arbitrarily anisotropic (triangularly) 
+In order to satisfy condition~\ref{punto2} and taking into account what we 
+remarked at the beginning of this Section, we need to avoid the use of a 
+kind of anisotropic 
+tetrahedra. Followin~\cite{MR1866274} we allow for arbitrarily anisotropic 
+(triangularly) 
 right prisms for which optimal anisotropic local interpolation error are proved. But the 
 use of only right prisms would restrict too much the domains which can be considered, 
 and because of that we further allow for tetrahedral elements, and pyramids of parallelogram basis
@@ -218,8 +243,13 @@ that this kind of elements must be uniformly isotropic.
 We do not 
 lose generality, we present an anisotropically graded meshing procedure
 for general polyhedra with singularities which satisfies this requirement.
+Then conditions~\ref{punto2} and~\ref{punto3} are also satisfied.  
 
-Then conditions \ref{punto2} and \ref{punto3} are also satisfied.  
+
+
++++++++++++++++++++++++++++++++++++++ini
+
+
 
 Meshes with more general polyhedral-shaped elements can be considered. 
 Indeed that is one of the VEM's main features. But we decided to restrict
@@ -227,15 +257,19 @@ ourselves to few
 shapes since our main objective is to allow for meshes with anisotropic elements, 
 and with uniformly valid anisotropic 
 estimates. This is fulfilled by allowing right prisms, since the local space for
-those elements becomes known \ref{chapter mio con prismatics} 
+those elements becomes known~\ref{chapter mio con prismatics} 
 and that allows to obtain stability and interpolation error estimates. One 
 difficulty when other shapes are considered (like
 oblique prisms, for instance) is that the local VEM space is not preserved by 
-\emph{push--forward} transformations based on affine mappings \ref{poner mi ref section coordinates...} 
+\emph{push--forward} transformations based on affine mappings
 (the vanishing ${\bf curl}$ 
-property is not preserved), and so standard rescaling arguments are hard to use.  
+property is not preserved), and so standard rescaling arguments are hard to use 
+(see~\ref{auxlabel290}). However, this is not a limitation on the polyhedra
+that we can treat with our procedure, since we can restrict ourselves
+to right prisms by duplicating the elements of the first mesh in the worst case,
+and so augmenting the number of elements by a constant factor.
 
-However, our method presents different number of degrees of freedom through the 
+Our method presents different number of degrees of freedom through the 
 mesh, as prisms, tetrahedra and pyramids have different number of faces, and also 
 allows for different planar geometry for the degrees of freedom, since we are dealing
 with triangular and rectangular faces at the same time. As a consequence, our 
@@ -243,33 +277,42 @@ method is in this matter a generalization of the classical Virtual Element Metho
 in which all the elements have the same arbitrary geometry, and each element yields
 the same number of degrees of freedom, all of the same type.
 
-As two additional results, in the present Thesis we obtained local anisotropic stability and
-interpolation error estimates for arbitrary order Prismatic Finite Elements in both
-the curl–conforming and div–conforming classes of elements, which are addi-
-tional results that extend some theoretical facts we proved for the main problem
-of the Thesis.
-
 Hybrid meshes including tetrahedral and prismatic (and even hexahedral) 
 elements may be needed to satisfy the demands of a specific problem geometry 
 (complex regions) or to reach efficient calculations. If these meshes are 
 to avoid hanging nodes then they will in general contain pyramids, see 
-for instanc~\cite{owenSaigal}. Several articles have introduced and analysed 
-conforming finite elements on pyramids, some of them ar~\cite{bergot} for $H^1$-elements, 
-\cite{gh99, Nigam-2012} for $H(\mbox{div})$- and $H({\bf curl})$-elements, the first one for 
+for instance~\cite{owenSaigal}. Several articles have introduced and analysed 
+conforming finite elements on pyramids, some of them ar~\cite{bergot} 
+for $H^1$--elements, 
+\cite{gh99, Nigam-2012} for $H(\mbox{div})$-- and $H({\bf curl})$--elements, 
+the first one for 
 lowest order and the second one for higher order. 
-I~\cite{Nigam-2012} it is proved that it is not possible to construct useful $H^1$-finite 
+In~\cite{Nigam-2012} it is proved that it is not possible to construct 
+useful $H^1$--finite 
 elements on pyramids using only polynomial functions. In the $H(\mbox{div})$ 
 case, it is explained also in the same article that all the spaces 
 constructed in the literature contain non--polynomial functions.
 
-In this Thesis we obtained and present also local anisotropic stability
+We finish this introduction mentioning other results obtained which we regard
+as additional results because they weren't used
+for the main problem
+of the Thesis and can be seen as extensions some theoretical results.
+
+We obtained local anisotropic 
+stability and
+interpolation error estimates for arbitrary order Prismatic Finite Elements in both
+the curl–conforming and div–conforming classes of elements. Our method uses only
+the least order case of this estimates, an we leave a \emph{hich order} version
+of the method for further research.
+
+Lastly, we obtained and present also local anisotropic stability
 and interpolation error estimates for the lowest order Pyramidal
 Finite Elements constructed in~\cite{gh99, Nigam-2012} for both
 the $\bcurl$--conforming and div--conforming classes of elements. As we show
 explicitly in Chapter~\ref{auxlabel202}, the shape functions 
 spanning these Finite Element spaces are not polynomial and are singular, yet bounded,
-in the reference pyramid. This is a reason why we considered to move
-to our combined FE--VE approach better, in this case from the implementation
-point of view. 
+in the reference pyramid. This is a reason why we considered that
+our combined FE--VE approach presents the advantage of avoiding the evaluation
+of functions with those properties in computer implementations.   
 
 % section intro (end)
