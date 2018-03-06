@@ -169,14 +169,16 @@ we also would like to avoid to require more regularity to $f$ as mentioned in
 the previous paragraph, we propose a 
 discretization based on hybrid meshes that consists of prisms combined with 
 tetrahedra, with 
-interelemental gaps filled with pyramids. As in~\cite{MR1866274}, we obtain 
+interelemental gaps filled with pyramids. We obtain 
 the approximation error estimate
 \begin{equation}\label{auxlabel401}
  \|\bu-\bu_{\textit h}\|_{L^2(\Omega)^3} + \|p-p_{\textit h}\|_{L^2(\Omega)} 
  \leqslant C\,\textit{h}\|f\|_{L^2(\Omega)}
 \end{equation}
 with $\bu_{\textit h}$ and $p_{\textit h}$ being the approximations of the 
-solutions $\bu$ and $p$ of~\eqref{mf}. Firstly we introduced and analyzed a new 
+solutions $\bu$ and $p$ of~\eqref{mf} by means of weighted Sobolev norms
+treating the singularities in a localized manner. 
+Firstly we introduced and analyzed a new 
 combined Finite and Virtual 
 Element Method on a polyhedron which is fully analysed when the meshes are made 
 up of the mentioned polyhedra. Local 
@@ -213,9 +215,10 @@ meshes which do not satisfy the standard shape--regularity condition
 conforming meshes without restricting the 
 considered domains to few special polyhedra. 
 \end{enumerate}
-As suggested in~\cite{bfm} for the 2d case, we present $V_{\textit h}$ as a 
+As suggested in~\cite{bfm} for the 2D case, we present $V_{\textit h}$ as a 
 virtual element space which 
-locally coincides with the original lowest order 3d Raviart-Thomas space on
+locally coincides with the original lowest order 3D Finite Element 
+Raviart-Thomas space on
 tetrahedra and right prisms, and naturally extends it to pyramidal elements. 
 In particular, normal components of the discrete functions are constant on the 
 faces of the 
@@ -231,12 +234,12 @@ With respect to point~\ref{punto2}, we present optimal anisotropic local stabili
 and  
 interpolation error estimates in several parts although not all of them
 are used in the application, in some cases because the functional spaces 
-they are used to are not involved in the  mixed model elliptic problem~\ref{P}
+they are used for are not involved in the  mixed model elliptic problem~\eqref{P}
 and in other cases because our meshing strategy requires not all the element
 types to present anisotropy.
 
 Meshes with more general polyhedral--shaped elements can be considered. 
-That is one of the Virtual Elements Method's main features Indeed. 
+That is one of the Virtual Elements Method's main features indeed. 
 But we decided to restrict
 ourselves to few 
 shapes since our main objective is to allow for meshes with anisotropic elements, 
@@ -269,16 +272,15 @@ Hybrid meshes that include tetrahedral and prismatic (and even hexahedral)
 elements may be needed to satisfy the demands of a specific problem geometry 
 (complex regions) or to reach efficient calculations. If these meshes are 
 to avoid hanging nodes then they will in general contain pyramids, see 
-for instance~\cite{owenSaigal}. In several articles there were 
-introduced and analysed 
-conforming finite elements on pyramids, some of them are~\cite{bergot} 
+for instance~\cite{owenSaigal}. Several articles contain introduction and analysis
+of conforming finite elements on pyramids; some of them are~\cite{bergot} 
 for $H^1$--elements and 
 \cite{gh99, Nigam-2012} for $H(\mbox{div})$-- and $H({\bf curl})$--elements, 
 the first one for 
 lowest order and the second one for higher order. 
 In~\cite{Nigam-2012} the authors prove that it is not possible to construct 
 useful $H^1$--finite 
-elements on pyramids using only polynomial functions. In the $H(\mbox{div})$ 
+elements on pyramids using  polynomial functions only. In the $H(\mbox{div})$ 
 case, it is explained also that all the spaces 
 constructed in the literature contain non--polynomial functions.
 
@@ -287,10 +289,10 @@ as additional results because they weren't used
 for the main problem
 of the Thesis and can be seen as extensions of some theoretical results.
 
-We obtained local anisotropic 
+We proved local anisotropic 
 stability and
 interpolation error estimates for arbitrary order Prismatic Finite Elements in both
-the curl–conforming and div–conforming classes of elements. Our method uses only
+the curl--conforming and div--conforming classes of elements. Our method uses only
 the least order case of this estimates, an we leave a \emph{high order} version
 of the method for further research.
 
