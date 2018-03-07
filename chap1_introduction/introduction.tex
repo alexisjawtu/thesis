@@ -15,7 +15,7 @@ meshes
 is needed. This is the case for instance when dealing with
 the Poisson equation 
 in a polyhedron $\Omega\subseteq\mathbb{R}^3$ with concave edges and vertices, which, introducing the 
-vectorial variable $\bu=-\nabla p$ can 
+vectorial variable $\bu=\nabla p$ can 
 be written in mixed form as 
 \begin{equation}\label{mf} 
 \left\{\begin{IEEEeqnarraybox*}[][c]{,r/c/c/c/l,}
@@ -50,8 +50,8 @@ refined in
 order to recover the optimal order of convergence of the sequence of numerical
 solutions
 with respect to the number of degrees of freedom (see~\cite{alw, apelNicaise}). 
-Those meshes contain elements which are arbitrarily elongated in the direction 
-of the concave edges. If we tried to construct such a sequence of meshes using
+Those meshes contain elements which are arbitrarily narrow in direction orthogonal
+to the concave edges. If we tried to construct such a sequence of meshes using
 only tetrahedra we would incur in using subfamilies of them which do
 not fullfill certain conditions needed for the anisotropic analysis, and
 there is where our proposed method with elements of different geometries becomes
@@ -69,7 +69,8 @@ if $M_T$ is the matrix made up with the unitary vectors in the directions
 of the edges sharing $\bx_T$ as columns, then $|\det M_T| > \bar{c}$.
 
 A less restrictive geometrical property is the following. 
-We say that a tetrahedron $T$ satisfies the  {\it maximum angle condition} 
+We say that a tetrahedron $T$ satisfies the  
+\emph{maximum angle condition} 
 with paramenter $\bar\alpha$
 (writen $T\in\pazocal{MAC}(\bar\alpha$))  if the angles of the faces of 
 $T$ and between faces are
@@ -132,7 +133,7 @@ in the
 direction $\xi_i$ would not necessarily be 
 compensated with a small $h_i$, so we would have to make the diameter
 $h_T$ smaller and refine the meshes in all the directions, which is what we want
-to avoid, and we would lose $\textit{h}$ order of convergence of the numerical error 
+to avoid, and we would lose $\pazocal{O}(\textit{h})$ order of convergence of the numerical error 
 with the asymptotic relation 
 $\textit{h}\sim N_{\Th}^{-\nicefrac13}$ (here $\Th$ is a mesh and $N_{\Th}$ is its
 cardinal; the concrete meaning of the meshing parameter $\textit{h}$, 
@@ -181,11 +182,11 @@ treating the singularities in a localized manner.
 Firstly we introduced and analyzed a new 
 combined Finite and Virtual 
 Element Method on a polyhedron which is fully analysed when the meshes are made 
-up of the mentioned polyhedra. Local 
+up of the mentioned elementary polyhedra. Local 
 interpolation error estimates for the discrete element spaces are 
 optimal and anisotropic on anisotropic right prisms, which can be
 used to obtain optimal approximation error estimates when the 
-solution has edge or vertex singularities, as pointed out at the beginning of 
+solution has edge singularities as well as vertex singularities, as pointed out at the beginning of 
 this introduction, by using suitably graded and adapted meshes which 
 allow for anisotropic elements, and which only includes tetrahedra with a
 uniform positive regular vertex constant, precisely avoiding the use of tetrahedra
@@ -244,9 +245,11 @@ But we decided to restrict
 ourselves to few 
 shapes since our main objective is to allow for meshes with anisotropic elements, 
 and with uniformly valid anisotropic 
-estimates. As we said, this was fulfilled by allowing elongated right prisms, 
-since the local space for
-those elements becomes known (cfr. Proposition~\ref{vem_equal_fem}). One 
+estimates. 
+%As we said, this was fulfilled by allowing elongated right prisms, 
+%since the local space for
+%those elements becomes known (cfr. Proposition~\ref{vem_equal_fem}). 
+One 
 difficulty when other shapes are considered (like
 oblique prisms, for instance) is that the local virtual element space is not 
 preserved by 

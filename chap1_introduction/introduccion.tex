@@ -1,205 +1,285 @@
 \chapter*{Introducci\'on}
 \addcontentsline{toc}{chapter}{Introducci\'on} \markboth{INTRODUCCION}{}
+Un objeto f\'isico se dice anis\'otropo si exhibe 
+propiedades f\'isicas vectoriales con magnitudes
+distintas cuando se las mide en direcciones distintas. En
+el caso de un m\'etodo num\'erico diremos que la familia
+de mallas usada es anis\'otropa si contiene sucesiones 
+de elementos tales que el orden de decrecimiento de
+sus tamaños a lo largo de una direcci\'on es superior
+al correspondiente a otras direcciones independientes.
+Formalizaremos e ilustraremos esto en el 
+Cap\'itulo~\ref{auxlabel207}.
 
-A combined Finite and Virtual Element Method is introduced for the 
-mixed approximation of a 
-simple model problem for the Laplace operator on a polyhedron. The 
-method is fully analysed when the meshes are made up of triangularly
-right prisms, pyramids and tetrahedra. The local discrete 
-spaces coincide with the lowest order Raviart-Thomas 
-spaces on tetrahedral and triangularly right prismatic elements, and 
-extend them to pyramidal elements. The discrete scheme 
-is well posed and optimal error estimates are proved on meshes which 
-allow for anisotropic elements. In particular, local 
-interpolation error estimates for the discrete element space are 
-optimal and anisotropic on anisotropic right prisms, which can be
-used to obtain optimal approximation error estimates when the 
-solution has edge or vertex singularities by using suitably adapted meshes.   
-
-The main result of the present Thesis in motivated by the following
-definitions and related previous results.
-
-We say that a tetrahedron $T$ satisfies the ``regular vertex property'' with a
-constant $\bar{c} > 0$ (written $T\in \pazocal{RVP}(\bar c)$) if $T$ has
- a vertex $\bx_T$ such that,
-if $M_T$ is the matrix made up of the unitary vectors in the directions
-of the edges sharing $\bx_T$ as columns, then $|\det M_T| > \bar{c}$.
-
-A less restrictive geometrical property is the following. 
- We say that a tetrahedron $T$ satisfies the  {\it maximum angle condition} with paramenter $\bar\alpha$
-(writen $T\in\pazocal{MAC}(\bar\alpha$))  if the angles of the faces of 
-$T$ and between faces are 
-less than $\bar\alpha$. 
-
-If we mesh using only tetrahedra we will incur in using subfamilies of tetrahedra
-wich do not fullfil uniformly the $\pazocal{RVP}(\bar c)$ condition for any positive constant $\bar c$.
-
-In other words, deficiency in using $\pazocal{F}_2$ class tetrahedra: we don't
-have $\textit{h}$ order with the asymptotic relation 
-$\textit{h}\sim N_{\Th}^{-\nicefrac13}$ preserved because we strongly use 
-that if $T\in \pazocal{RVP}(\bar c)$ and $\br_{\sss k,T}$ is the Raviart-Thomas interpolation 
-operator (\cite{nedelec2, MR0483555}), then there is a positive $C(\bar c)$
-\begin{IEEEeqnarray*}{rCl}
-  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & \sum_{1\leqslant i\leqslant 3} h_i \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}
-  	+ h_T\|\dv \bu\|_{\sss L^2(T)}
-\end{IEEEeqnarray*}
-for the family $\pazocal{F}_1$ (see~(\cite{aadl}) while, for the family $\pazocal{F}_2$, the sharp
-estimation is
- that we know that there exists a constant $C(\bar\alpha)$
- depending only on $\bar\alpha$ such that for all $T\in\pazocal{MAC}(\bar\alpha)$ 
- for all $\bu\in H^1(T)^3$
- it holds
-\begin{IEEEeqnarray*}{rCl}
-  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & h_T \sum_{1\leqslant i\leqslant 3}
-  \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}.
-\end{IEEEeqnarray*}
-In the latter case, a big derivative in the direction $\xi_i$ will not necessarily be 
-compensated with a small $h_i$, so we  have to make the diameter
-$h_T$ small and refine the meshes in all the directions.
-
-Inequality \eqref{mac} is weaker than \eqref{rvp}, since there are elements 
-satisfying MAC($\bar\alpha$) for a fixed $\bar\alpha$ with arbitrarily 
-small $\pazocal{RVP}$ parameter $\bar c$, making to degenerate  
-the constant $C(\bar c)$ in \eqref{rvp} (cfr.~\cite{aadl}). Furthermore,
-as stated 
-in~\cite{aadl} by means of a counterexample, 
-inequality~\eqref{rvp} can't be proved under the maximum angle condition only. 
-
-
-In several situations in mixed finite element approximations the use of meshes with narrow elements is needed. This is the case for instance when dealing with the Poisson equation 
-\begin{eqnarray}\label{ecuacion}
--\Delta p &=& f\qquad \mbox{on }\Omega\\\nonumber p&=&0\qquad \mbox{in }\partial\Omega,
-\end{eqnarray}
-in a polyhedron $\Omega$ with concave edges, which, introducing the vectorial variable $\bu=-\nabla p$ can be written as
-\begin{equation}\label{mf} \left\{\begin{array}{rcl}
-\bu&=&-\nabla p\qquad \mbox{in }\Omega\\
-\dv\bu&=&f\qquad \mbox{in }\Omega\\
-p&=&0\qquad\mbox{on }\partial\Omega.\end{array}\right.
+En varias situaciones en aproximaciones por elementos 
+finitos mixtos es necesario el uso de mallas anis\'otropas.
+Este es el caso, por ejemplo, cuando se trata con la 
+ecuaci\'on de Poisson en un poliedro 
+$\Omega\subseteq\mathbb{R}^3$ con aristas y v\'ertices
+c\'oncavos, la cual, introduciendo la variable vectorial
+$\bu=\nabla$ puede escribirse en forma mixta como
+\begin{equation}\label{mfSpanish} 
+\left\{\begin{IEEEeqnarraybox*}[][c]{,r/c/c/c/l,}
+	&&&&\\
+	\bu     & = & \nabla p   & \qquad & \mbox{in }\Omega\\
+	-\dv\bu & = &        f   & \qquad & \mbox{in }\Omega\qquad(f\in L^2(\Omega))\\
+	p       & = & 0          & \qquad & \mbox{on }\partial\Omega.\\
+	&&&&%
+	\end{IEEEeqnarraybox*}\right.
 \end{equation}
-In this case,  $\bu$ is in general not in $H^1$ due to vertex and edges 
-singularities. In particular, close to concave edges, the solution is expected to be more regular in its direction than 
-transversally to it, and consequently the mesh has to be accordingly refined in order to recover optimal order of convergence 
-with respect to the number of degrees of freedom 
-\cite{alw, apelNicaise}. Those meshes contain elements arbitrarily 
-elongated in the direction of concave edges (direction in which the solution is more regular). It is possibly to construct this
-kind of meshes with tetrahedral elements all satisfying MAC($\bar\alpha$) for $\bar\alpha<\pi$ fixed, but unfortunately those 
-elements do not satisfy $\pazocal{RVP}$ with a parameter uniformly far from $0$. That is 
-due to the presence of tetrahedra with bounded 
-maximal angle but poor regular vertex constant, see Figure \ref{fig:tetraedros}. So, interpolation error estimate \eqref{rvp} 
-can not be globally used to estimate the error approximation, but \eqref{mac} has to be taken, and consequently, 
-the anisotropic properties of the meshes may give no profit.  
+La formulaci\'on variacional mixta est\'andar es hallar
+$\bu\in H(\Div,\Omega)$ and $p\in L^2(\Omega)$ 
+tales que
+\begin{equation}\label{PSpanish}
+	\begin{IEEEeqnarraybox*}[][c]{l/c/r/C/l}
+	\forall \bv\in H(\Div,\Omega)  & \qquad & a(\bu,\bv) + b(\bv,p)   & = & 0    \\
+	\forall q\in   L^2(\Omega)	   & \qquad &    		   b(\bu,q)   & = & (-f,q)
+	\end{IEEEeqnarraybox*}
+\end{equation}
+en donde
+\[
+a(\bv,\bw)=\int_\Omega\bv\cdot\bw\,d\bx,\qquad b(\bv,q)=\int_\Omega q\,\mbox{div\,}\bv\,d\bx.
+\]
+Dado que $\Omega$ no es convexo, la solución $\bu$ 
+de~\ref{PSpanish} no pertenece a $H^1(\Omega)$ en
+el caso general por tener singularidades de arista y 
+v\'ertice. En particular, cerca de aristas c\'oncavas,
+se espera que la soluci\'on sea m\'as regular a lo largo
+de la direcci\'on de esa arista que transversalmente a ella
+(ver~\cite{apelNicaise}), y es por eso que las mallas
+tienen que ser adecuadamente graduadas y refinadas
+para recuperar el orden \'optimo de convergencia de 
+la sucesión de soluciones numéricas con respecto al 
+número de grados de libertad (ver~\cite{alw,apelNicaise}).
+Ese tipo de mallas contiene elementos que son tan
+estrechos como se quiera en direcci\'on ortogonal
+a las aristas c\'oncavas, con tal de tomarlos lo 
+suficientemente cerca de ellas. Si tom\'aramos 
+una sucesi\'on de mallas como esta hecha únicamente con
+tetraedros, incurriríamos en el uso de subfamilias de 
+estos que no verifican ciertas condiciones que son 
+necesarias para el an\'alisis anisótropo, y es aquí donde
+nuestro m\'etodo propuesto  con elementos de geometr\'ias
+diferentes cobra sentido.
+
+Para aclara lo \'ultimo y el principal resultado de esta
+Tesis ponemos las siguientes definiciones y resultados
+previos relacionados.
+
+Primero, $T$ satisface la \emph{propiedad del
+vértice regular}
+con una 
+constante $\bar{c} > 0$ (escrito $T\in \pazocal{RVP}(\bar c)$) si
+$T$ tiene un vértice $\bx_T$ tal que,
+tomando $M_T$ como la  matriz cuyas columnas
+son los vectores unitarios en las direcciones
+de las aristas que comparten a $\bx_T$, entonces
+$|\det M_T| > \bar{c}$.
+
+Una propiedad geométrica menos restrictiva  es
+la siguiente. 
+Diremos que un tetraedro $T$ satisface la
+\emph{propiedad del ángulo máximo}
+con par\'ametro $\bar\alpha$
+(escrito $T\in\pazocal{MAC}(\bar\alpha$))
+si los ángulos de las caras de $T$
+y entre caras son menores a $\bar\alpha$. 
+
+Con estas dos nociones en mente, citamos el siguiente
+resultado de~\cite{aadl}. Si $T$ es un tetraedro en 
+$\pazocal{RVP}(\bar c)$ y $\br_{\sss k,T}$ 
+es el interpolador de Raviart-Thomas
+(ver~\cite{nedelec2, MR0483555}), entonces existe una
+$C(\bar c)>0$ tal que para toda  
+$\bu\in H^1(T)^3$
+\begin{IEEEeqnarray}{rCl}\label{rvp}
+  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & C 
+    \left\{\sum_{1\leqslant i\leqslant 3} h_i \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}
+	  + h_T \|\dv\bu\|_{\sss L^2(T)}\right\}
+\end{IEEEeqnarray}
+donde escribimos
+$\xi_i$ para las coordenadas locales con origen
+en el vértice regular
+y $h_i$ para las longitudes
+de las aristas incidentes a \'el y 
+$h_T$ para el diámetro de $T$.
+
+Por otro lado, si $T\in\pazocal{MAC}(\bar\alpha)$ entonces
+existe una $C(\bar\alpha)>0$
+tal que 
+para toda $\bu\in H^1(T)^3$
+vale
+\begin{IEEEeqnarray}{rCl}\label{mac}
+  \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & C h_T \sum_{1\leqslant i\leqslant 3}
+  \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}
+\end{IEEEeqnarray}
+($\xi_i$ son coordenadas locales a partir de
+un vértice de $T$, pero
+no necesariamente tenemos uno regular).
+
+Observamos que la desigualdad~\eqref{mac} es estrictamente
+más débil que~\eqref{rvp}, dado que hay elementos
+que satisfacen la condición $\pazocal{MAC}(\bar\alpha)$
+para $\bar\alpha$ fijo, pero con parámetro $\pazocal{RVP}$
+arbitrariamente peque\~no, haciendo que se degenere la
+cantidad $C(\bar c)$ en~\eqref{rvp}. Ponemos un ejemplo
+en la Figura~\ref{fig:tetraedros}. Adem\'as, como est\'a
+dicho en~\cite{aadl} mediante un contraejemplo, 
+la desigualdad~\eqref{rvp} no puede ser probada bajo
+condici\'on de \'angulo m\'aximo solamente.
+
+Volviendo al segundo p\'arrafo, lo que dec\'iamos es que 
+es posible construir mallas graduadas anisótropas para
+problemas elípticos en dominios con singularidades que
+consistan solamente de tetraedros que satisfacen 
+condic\'on  $\pazocal{MAC}(\bar\alpha)$ para $\alpha<\pi$,
+pero estos elementos no satisfacen la condici\'on de $\pazocal{RVP}(\bar c)$
+para ningún parámetro uniforme positivo $\bar c$.
+En consecuencia, la estimaci\'on 
+del error de interpolaci\'on~\eqref{rvp} no puede ser 
+usada de manera global y en cambio~\eqref{mac} debe ser tomada,
+y por esto las propiedades de anisotrop\'ia de las mallas
+pueden no traer ninguna ventaja. En otras palabras,
+en la segunda desigualdad una \emph{derivada grande} en
+la dirección $\xi_i$ no estaría necesariamente compensada
+por un $h_i$ peque\~no, así que tendríamos que hacer
+peque\~no al diámetro $h_T$ y refinar las mallas en
+todas las direcciones, que es lo que queremos evitar, y
+perder\'iamos orden $\pazocal{O}(\textit{h})$ en la 
+convergencia del error numérico con la relación 
+asintótica $\textit{h}\sim N_{\Th}^{-\nicefrac13}$
+ (aquí $\Th$ es una malla y $N_{\Th}$ es su 
+cardinal; el significado concreto meaning 
+del parámetro de mallado $\textit{h}$, que no es
+el diámetro de sus elementos, como sí lo es en el caso
+de las mallas uniformes, se hará claro en 
+la Subsección~\ref{meshes} cuando propongamos nuestro proceso
+de mallado).
 
 \tetsTikz
 
-An idea to overcome this difficulty, just for the case of $\Omega$ being a cylindrical polyhedral domain, 
-was proposed in \cite{MR1866274}. In  this case, when $f$ is in $L^2(\Omega)$, 
-the solution may exhibit only singularities along concave edges.
-Then the authors proposed a lowest order mixed Raviart--Thomas method on graded 
-anisotropic meshes made up of triangular right prisms and they proved optimal error 
-estimates by means of adequate anisotropic interpolation results. 
-In this way, tetrahedra which do not satisfy an uniform regular vertex property are avoided. 
+Una idea para sobrellevar la mencionada dificultad, para
+el caso en que $\Omega$ es un dominio cil\'indrico 
+poliedral, fue propuesto en~\cite{MR1866274}. En este caso,
+cuando $f$ está en $L^2(\Omega)$, la solución puede
+exhibir solamente singularidades a lo largo de aristas
+cóncavas. Los autores proponen un m\'etodo mixto de 
+Raviart--Thomas en mallas graduadas de prismas triangulares
+y probaron estimaciones óptimas de error por medio de 
+resultados de interpolación con anisotropía y de este modo
+los tetraedros que no satisfacen una propiedad 
+$\pazocal{RVP}$ uniforme son evitados. Tambi\'en proponen
+un m\'etodo similar con mallas de tetraedros anisótropos
+ graduados obtenido subdividiendo cada prisma entre tres
+ tetraedros. Por supuesto, estas mallas contienen a los 
+tetraedros malosm, y para obtener estimaciones
+de error óptimas el precio pagado es el de requerir m\'as
+regularidad al dato $f$, más precisamente, debe pertenecer
+a un espacio de Sobolev con pesos.
 
-Also in \cite{MR1866274} a mixed Raviart--Thomas method on the tetrahedral 
-anisotropic graded mesh which is obtained by splitting the prismatic elements 
-into three tetrahedra. Of course, these kind of meshes contain the bad elements 
-which are avoided with the prismatic ones. However, in order to obtain optimal 
-approximation error estimates, the price payed is to require additional regularity 
-on the right hand side, precisely, it has to belong to a weighted Sobolev space.
-
-Input of using prisms combined with tetrahedra, with gaps filled with pyramids.
-
-One of the results presented in this thesis is an extension 
-of the result in~\cite{MR1866274} in order to be able to deal with the
-mixed approximation of \eqref{ecuacion} with $f\in L^2(\Omega)$ in general polyhedral domains. 
-Since such domains not always admit a partition by means of right prisms and since 
-we also would like to avoid to require more regularity to $f$ as mentioned in the previous paragraph, we propose a 
-discretization based on hybrid meshes. As in \cite{MR1866274}, we obtain the estimate
-\begin{equation}\label{jl2: aim}
- \|\bu-\bu_h\|_{L^2(\Omega)} + \|p-p_h\|_{L^2(\Omega)} \le Ch\|f\|_{L^2(\Omega)}.
+Uno de los resultados presentados en esta Tesis extiende
+los resultados de~\cite{MR1866274} puesto que nuestro
+m\'etodo fue buscado con el propósito de poder
+lidiar con la aproximación mixta de~\eqref{mfSpanish}
+para $f\in L^2(\Omega)$, y tambi\'en para un poliedro
+cualquiera $\Omega$. Como estos dominios no necesariamente
+admiten una partición en términos de prismas rectos y como
+también nosotros quisiéramos evitar pedir
+más regularidad al dato $f$, proponemos una discretización
+basada en mallas híbridas consistentes en prismas combinados
+con tetraedros, con brechas interelementales rellenadas
+con pirámides. Obtenemos la estimación del error de
+aproximación
+\begin{equation}\label{auxlabel410}
+ \|\bu-\bu_{\textit h}\|_{L^2(\Omega)^3} + \|p-p_{\textit h}\|_{L^2(\Omega)} 
+ \leqslant C\,\textit{h}\|f\|_{L^2(\Omega)}{\mbox{,}}
 \end{equation}
-with $\bu_h$ and $p_h$ being the approximations of the solutions $\bu$ and $p$ of \eqref{ecuacion}. 
-To do that, firstly we introduce and analyze a new finite/virtual element space $V_h$ in 
-$\mathbb R^3$ with the following conditions:  
+en donde $\bu_{\textit h}$ y $p_{\textit h}$ son las
+aproximaciones de las soluciones $\bu$ y $p$, por medio
+de estimaciones con normas de Sobolev con pesos 
+(para $\bu$) tratando las singularidades de manera 
+localizada. Primero introducimos y analizamos por completo
+un nuevo
+método combinado de Elementos Finitos y Virtuales
+en un poliedro cuando las mallas son construidas con
+los mencionados poliedros elementales. Las estimaciones
+de interpolación locales obtenidas 
+para los espacios discretos son
+óptimas y anisótropas en prismas anisótropos, lo que 
+nos permite obtener estimaciones óptimas de error de
+aproximación cuando la solución tiene tanto singularidades
+de aristas como de vértices, usando
+mallas graduadas adecuadamente que incluyen
+elementos anisótropos, y que solamente incluyen tetraedros
+con un parámetro de condición $\pazocal{RVP}$ uniforme positivo.
+
+No solamente probamos el resultado para una familia abstracta
+de tales mallas con las mencionadas propiedades,
+ sino que también mostramos un proceso general de mallado
+ que comienza aislando y clasificando las singularidades
+del dominio (cfr. Teorema~\ref{thm_regularity}), y
+con eso probamos la existencia de una familia de mallas
+como la requerimos mediante su construcción.
+
+Los espacios discretos $V_{\textit h}$ correspondientes
+a las mallas propuestas fueron obtenidos satisfaciendo
+las siguientes condiciones, adecuadas para una discretización
+en $\mathbb{R}^3$.
 \begin{enumerate}
-\item \label{punto1} Conformity: The space $V_h$ must be $H(\mbox{div})$-conforming.
-\item \label{punto2} Optimal and aniowenSaigaltropic approximation properties: Optimal interpolation error estimates have to be valid even on families of meshes which bergot no satisfy the standard shape-regularity condition \cite{ciarlet}.
-\item \label{punto3} Domain generality: The space has to be well defined on conforming (without hanging nodes) bergot meshes without restricting the considered domains to few special polyhedra. 
+	\item \label{auxlabel411} Conformidad.
+	\item \label{auxlabel412} Propiedades de aproximación anisótropas y óptimas.
+	\item \label{auxlabel413} Generalidad de dominio.
 \end{enumerate}
-As suggested in \cite{bfm} for the 2d case, we present $V_h$ as a virtual element space on a conforming 
-polyhedral mesh, which 
-locally coincides with the original lowest order 3d Raviart-Thomas space on
-tetrahedra and right prisms, and naturally extends it in the case of pyramidal elements. 
-In particular, normal components of the discrete functions are constants on the faces of the 
-elements, fitting well across different shape's elements. In this way requirement~\ref{punto1} is verified. 
-One advantage of this presentation, is that the definition of the local spaces is independent of the 
-geometry of the element, see Section \ref{discrete_spaces_in_chap_virtuals}. 
+Tal como es sugerido en~\cite{bfm} para el caso $2D$,
+presentamos $V_{\textit h}$ como un espacio de elementos 
+virtuales que coincide localmente con el espacio original
+$3D$ de Raviart--Thomas en tetraedros y prismas, y lo
+extiende de manera natural a elementos piramidales. 
+En particular, las componentes normales de las
+funciones discretas son constantes sobre las caras de
+los elementos, coincidiendo de manera conforme a través 
+de caras comunes a elementos de distinta geometría. De
+este modo el requerimiento~\ref{auxlabel411} fue satisfecho.
+Una ventaja de esta presentación es que la definición
+de los espacios locales es independiente de la geometría 
+del elemento, ver Sección~\ref{auxlabel290}. Como ya comentamos,
+el \'item~\ref{auxlabel413} es verificado mediante la 
+incorporación de pirámides de base paralelogramo.
+Con respecto al punto~\ref{auxlabel412}, presentamos
+estimaciones óptimas de estabilidad y de interpolación
+anisótropas en varias partes aunque no todas ellas
+son usadas en la aplicación final, en algunos casos
+porque los espacios funcionales para los cuales son usadas
+no se ven involucrados en el problema 
+modelo~\eqref{PSpanish} y en otros casos porque
+nuestro esquema de mallado funciona sin requerir
+que los elementos de todos los tipos presenten 
+anisotropía.
 
-In order to satisfy condition \ref{punto2} and taking into account what we 
-remarked at the beginning of this Section, we need to avoid the use of a kind of anisotropic 
-tetrahedra. Following \cite{MR1866274} we allow for arbitrarily anisotropic (triangularly) 
-right prisms for which optimal anisotropic local interpolation error are proved. But the 
-use of only right prisms would restrict too much the domains which can be considered, 
-and because of that we further allow for tetrahedral elements, and pyramids of parallelogram basis
-in order to glue right prisms and tetrahedra together. 
-Our interpolation error estimates depend on the aspect ratio of the pyramids 
-and, for simplicity, also of tetrahedra, and so we are implicitly imposing 
-that this kind of elements must be uniformly isotropic. However we do not 
-lose generality, since meshes adapted to general singularities in polyhedra can be constructed,
-as we show at the end of the article, satisfying this requirement. 
-Then conditions \ref{punto2} and \ref{punto3} are also satisfied.  
+También podrían ser consideradas mallas con elementos
+de geometría más general. De hecho esta es una 
+de las principales propiedades de los métodos
+de elementos virtuales. Nosotros decidimos
+restringirnos a unas pocas geometrías elementales
+pues nuestro principal objetivo fue admitir 
+mallas anisótropas, y con estimaciones anisótropas
+uniformemente válidas. Una dificultad que aparece
+cuando se consideran otras geometrías elementales 
+(como prismas oblícuos) es que los espacios virtuales
+locales no necesariamente se ve preservado 
+por transformaciones \emph{push--forward} basadas 
+en aplicaciones afines (nosotros 
+usamos una propiedad de $\bcurl$ nulo que no
+es invariante en esta situación), con
+la consecuencia de que los argumentos de
+reescalado estándar son difíciles de usar
+(ver~\ref{auxlabel290}). Sin embargo, esto no deviene
+en una limitación en los dominios poliedrales que
+podemos tratar con nuestro método, pues podemos
+restringirnos a usar prismas rectos duplicando, en el
+peor de los casos, el número de elementos de la
+primera malla, y así aumentando el número de elementos
+en una malla cualquiera posterior en un factor constante.
 
-Hybrid meshes including tetrahedral and prismatic (and even hexahedral) 
-elements may be needed to satisfy the demands of a specific problem geometry 
-(complex regions) or to reach efficient calculations. If these meshes are 
-to avoid hanging nodes then they will in general contain pyramids, see 
-for instance \cite{owenSaigal}. Several articles have introduced and analysed 
-conforming finite elements on pyramids, some of them are \cite{bergot} for $H^1$-elements, 
-\cite{gh99, Nigam-2012} for $H(\mbox{div})$- and $H({\bf curl})$-elements, the first one for 
-lowest order and the second one for higher order. 
-In \cite{Nigam-2012} it is proved that it is not possible to construct useful $H^1$-finite 
-elements on pyramids using only polynomial functions. In the $H(\mbox{div})$ 
-case, it is explained also in the same article that all the spaces 
-constructed in the literature contain non--polynomial functions.
-
-In this Thesis we obtained and present local anisotropic stability
-and interpolation error estimates for the lowest order Pyramidal
-Finite Elements constructed in~\cite{gh99, Nigam-2012} for both
-the $\bcurl$--conforming and div--conforming classes of elements. As we show
-explicitly in Chapter~\ref{auxlabel202}, the shape functions 
-spanning these Finite Element spaces are not polynomial and are singular, yet bounded,
-in the reference pyramid. This is a reason why we considered to move
-to our combined FE--VE approach better, in this case from the implementation
-point of view. 
-
-We consider the model elliptic problem of the mixed
-formulation \eqref{ecuacion}  with 
-$f\in L^2(\Omega)$ and $\Omega$ a polyhedral domain. Its mixed 
-variational formulation can be written as: to find $\bu\in V$ and $p\in Q$ 
-such that
-\begin{eqnarray}\label{P}
-a(\bu,\bv) - b(\bv,p) & = & 0 \qquad \forall \bv\in V\\ \nonumber b(\bu,q) &
-= & (f,q)\qquad \forall q\in Q,  
-\end{eqnarray}
-with
-\[
-a(\bv,\bw)=\int_\Omega\bv\cdot\bw,\qquad b(\bv,q)=\int_\Omega
-q\,\mbox{div\,}\bv
-\]
-and
-\[
-V=H(\dv,\Omega), \qquad Q=L^2(\Omega).
-\]
-Of course, the problem for the $\mbox{div}(a\nabla)$ operator can be similarly treated. 
-
-% The proposed scheme gives optimal error estimates when the solution $p$ is in $H^2(\Omega)$. We do not deal in this paper with the more challenging case when $p$ is not so regular, which would require an extent development of too fine estimates involving weighted norms. However, we develop here all the numerical tools to deal with it in a forthcoming article.
-
-Meshes with more general polyhedral-shaped elements can be considered. 
-Indeed that is one of the VEM's main features. But we decided to restrict ourselves to few (but without loss of generality) 
-shapes since our main objective is to allow for meshes with anisotropic elements, and with uniformly valid anisotropic 
-estimates. This is fulfilled by allowing right prisms, since the local space for those elements becomes known \cite{nedelec2} 
-and that allows to obtain stability and interpolation error estimates. One difficulty when other shapes are considered (like 
-oblique prisms, for instance) is that the local VEM space is not preserved by Piola transformation (the vanishing ${\bf curl}$ 
-property is not preserved), and so standard rescaling arguments are hard to use.  
-
-
+Nuestro método presenta SEGUIR ACA
 % section intro (end)
