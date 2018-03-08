@@ -281,5 +281,48 @@ peor de los casos, el número de elementos de la
 primera malla, y así aumentando el número de elementos
 en una malla cualquiera posterior en un factor constante.
 
-Nuestro método presenta SEGUIR ACA
+Nuestro método presenta distinta cantidad de grados
+de libertad a través de la malla, pues prismas, tetraedros
+y pirámides tienen distinta cantidad de caras, y también
+admite distintas geometrías para los grados de libertad pues
+estamos trabajando con caras triangulares y cuadriláteras
+al mismo tiempo. Como consecuencia de esto, nuestro método
+es en cierto sentido una generalización de los
+métodos de elementos virtuales clásicos, en los cuales todos
+los elementos tienen la misma geometría arbitraria, y de 
+cada elemento de toma el mismo número de grados de libertad, todos
+del mismo tipo (por ejemplo, evaluación en los mismos puntos en
+el borde de cada elemento).
+
+Las mallas híbridas que incluyen tetraedros y prismas (y hasta
+hexaedros) pueden ser necesarias para satisfaces las demandas
+de la geometría específica de un problema (regiones no triviales)
+o para alcanzar cálculos eficientes. Si se requiere que estas mallas
+eviten nodos colgantes entonces a menudo incluirán pirámides; ver
+por ejemplo~\cite{owenSaigal}. Varios art\'iculos contienen
+la construcción de elementos finitos conformes en pirámides,
+algunos de los cuales son~\cite{bergot} 
+para elementos $H^1$ y~\cite{gh99, Nigam-2012}
+para elementos $H(\mbox{div})$ y $H({\bf curl})$,
+el primero para orden bajo y el segundo para orden arbitrario.
+En~\cite{Nigam-2012} los autores prueban que no es posible
+construir elementos finitos $H^1$ útiles en pirámides
+usando solamente funciones polinomiales y muestran que, 
+en el caso $H(\mbox{div})$,
+todos los espacios construidos en la literatura contienen
+funciones no polinomiales.
+
+Queremos finalizar esta introducción mencionando otros
+resultados que obtuvimos, presentados como resultados
+adicionales porque no fueron usados para el problema principal 
+de la Tesis, y que pueden ser vistos como extensiones 
+de ciertos resultados teóricos.
+
+Probamos estimaciones locales anisótropas 
+de estabilidad y de error 
+de interpolación para elementos finitos prismáticos
+tanto para las clases de elementos 
+$\bcurl$--conformes como para las div--conformes.
+Nuestro método usa solo el caso de orden bajo de las 
+estimaciones en $H(\Div)$
 % section intro (end)
