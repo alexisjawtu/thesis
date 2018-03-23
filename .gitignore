@@ -5,6 +5,7 @@
 *.pdfsync
 *.toc
 *.jpeg
+*.jpg
 borrar.sh
 mwe.*
 *.bbl
