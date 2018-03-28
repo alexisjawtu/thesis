@@ -72,20 +72,20 @@ polynomial functions or rational functions (that is, quotients of polynomials).
 As we will see, the virtual elements also involve functions of these
 two kinds amongst others.
 For that reason we state some handy notations here.
-\begin{defi}
+\begin{defi} For an element $E\subseteq\mathbb{R}^3$
 \begin{IEEEeqnarray*}{rCl}
-          P_k & = & \{\,\mbox{polynomials of degree less than or equal to k}\,\}.\\[5pt]
-  \tilde{P}_k & = & \{\,\mbox{homogeneous polynomials of degree k}\,\}.\\[5pt]
+          P_k(E) & = & \{\,\mbox{polynomials of degree less than or equal to $k$ over E}\,\}.\\[5pt]
+  \tilde{P}_k(E) & = & \{\,\mbox{homogeneous polynomials of degree $k$ over E}\,\}.\\[5pt]
 \end{IEEEeqnarray*}
 In the case of a line segment $\be$ or a subdomain $f$ of a plane (typically
 an edge or a face of a polyhedron) we will write interchangeably
 \begin{IEEEeqnarray*}{rCcCl}
-	P_k (\be) & = & P_k(t) & = & \{\,\mbox{polynomials of maximum degree k in arc length on $\be$}\,\}\mbox{,}\\[5pt]
-	P_k (f) & = & P_k(t_1,t_2) & = & \{\,\mbox{polynomials of maximum degree k in ${\xi_1}$, ${\xi_2}$ on f}\,\}\mbox{,}
+	P_k (\be) & = & P_k(t) & = & \{\,\mbox{polynomials of degree less than or equal to $k$ over $\be$}\,\}\mbox{,}\\[5pt]
+	P_k (f) & = & P_k(t_1,t_2) & = & \{\,\mbox{polynomials of degree less than or equal to $k$ in ${\xi_1}$, ${\xi_2}$ on f}\,\}\mbox{,}
 \end{IEEEeqnarray*}
 where we have used an orthogonal coordinate system $(\xi_1,\xi_2)$ in the plane
 containing $f$ and the variable $\xi$ along the edge $\be$.
-Moreover, we will make the identifications
+Moreover, we will observe that
 \begin{IEEEeqnarray*}{rClCrCl}
 	P_k(\be)  & = & \{p|_{\be}\,:\,p\in P_k\} &\quad\mbox{ and }\quad&P_k(f)
 			& = & \{p|_f\,:\,p\in P_k\}.
@@ -94,20 +94,29 @@ Moreover, we will make the identifications
 \noindent The tensor product of polynomials. % (fold)
 \begin{defi} \label{tensor_product} Given two polynomials 
 \begin{IEEEeqnarray*}{rClcrCl}
-	p(x)&=&\sum_i a_ix^i&\quad\mbox{ and }\quad&q(y)&=&\sum_j b_jy^j
+  p(x)&=&\sum_i a_ix^i&\quad\mbox{ and }\quad&q(y)&=&\sum_j b_jy^j
 \end{IEEEeqnarray*}
 the tensor product of $p$ and $q$ is the following
 polynomial of \emph{separate variables}
 \begin{IEEEeqnarray}{rCl}
-	p\otimes q (x,y)&=&\sum_{i,j}a_ib_jx^iy^j.
+  p\otimes q (x,y)&=&\sum_{i,j}a_ib_jx^iy^j.
 \end{IEEEeqnarray}
-If $\mathbb{Q}_1$ and $\mathbb{Q}_2$ are two polynomial spaces
+Smilarly if
+\begin{IEEEeqnarray*}{rClcrCl}
+	p(x,y)&=&\sum_{i,j} a_{i,j}x^iy^j&\quad\mbox{ and }\quad&q(z)&=&\sum_k b_kz^k
+\end{IEEEeqnarray*}
+then
+\begin{IEEEeqnarray}{rCl}
+	p\otimes q (x,y,z)&=&\sum_{i,j,k}a_{i,j}b_kx^iy^jz^k.
+\end{IEEEeqnarray}
+If $\mathbb{Q}_1$ and $\mathbb{Q}_2$ are two spaces of polynomials as above, then
 \begin{IEEEeqnarray}{rCl}
 	\mathbb{Q}_1\otimes \mathbb{Q}_2 & = &\{p\otimes q\,|\,p\in\mathbb{Q}_1, q\in\mathbb{Q}_2\}.
 \end{IEEEeqnarray}
 \end{defi}
-\begin{remark}\label{tensor_prod_dim} An observation that we will use several times is that,
-from the definition, $\dim \pazocal{P}\otimes \pazocal{Q} = \dim \pazocal{P} \dim \pazocal{Q}$.
+\begin{remark}\label{tensor_prod_dim}
+An observation that we will use several times is that,
+from the definition, $\dim \mathbb{Q}_1\otimes \mathbb{Q}_2 = \dim \mathbb{Q}_1 \dim \mathbb{Q}_2$.
 \end{remark}
 % subsubsection tensor_product (end)
 % subsection polynomials (end)
@@ -127,13 +136,13 @@ with the usual modification when $p=\infty$.
 Let $\mathbb{Z}_{\geqslant 0}$ denote the set of nonnegative integers. A
 \emph{multi--index} $\balpha$ is an $n$--tuple of nonnegative integers:
 $\balpha = (\alpha_1,\ldots,\alpha_n)$, $\alpha_i\in\mathbb{Z}_{\geqslant 0}$,
-${\s1\leqslant i\leqslant n}$. With multi--indices we will establish the following
+${1\leqslant i\leqslant n}$. With multi--indices we will establish the following
 notations:
 \begin{IEEEeqnarray*}{rCl}
   |\balpha|&=&\sum_i\alpha_i\mbox{,}\\[5pt]
   \balpha&\leqslant&\boldsymbol{\beta}\mbox{\quad iff\quad} \alpha_i\leqslant\beta_i
   \mbox{,\quad}
-  {\s 1\leqslant i\leqslant n}\mbox{,}\\[5pt]
+  1\leqslant i\leqslant n\mbox{,}\\[5pt]
   \balpha+\boldsymbol{\beta}&=&(\alpha_1+\beta_1,\ldots,\alpha_n+\beta_n)\mbox{,}\\[5pt]
   \balpha-\boldsymbol{\beta}&=&(\max\{\alpha_1-\beta_1,0\},\ldots,\max\{\alpha_n-\beta_n,0\})\mbox{,}\\[5pt]
   \balpha!&=&\Pi_{i=1}^n \alpha_i!\mbox{,}\\[5pt]
@@ -181,12 +190,12 @@ then we will say $\phi\in W^{m,p}(\Omega)$. For $\phi\in W^{m,p}(\Omega)$ let
 In the previous notation we will skip the number $2$ for the special case $p=2$ and 
 write $\|\phi\|_{W^{m,2}(\Omega)}=\|\phi\|_{m,\Omega}$,
 $|\phi|_{W^{m,2}(\Omega)}=|\phi|_{m,\Omega}$.
-Sometimes we will write, in the vectorial case, $|\bu|^p = |u_1|^p + |u_2|^p + |u_3|^p$.\\
+Sometimes we will write, in the vectorial case for $\bu=(u_1,u_2,u_3)$, $|\bu|^p = |u_1|^p + |u_2|^p + |u_3|^p$.\\
 
 In the definitions of the following two functional spaces, the differential
 operators must be understood in the distributional sense.
 \begin{defi} As in page 26 of~\cite{giraultRaviart} we make the present definition. Let 
-$\Omega\subseteq\mathbb{R}^3$ be a lipschitz domain.
+$\Omega\subseteq\mathbb{R}^3$ be a Lipschitz domain.
   \begin{IEEEeqnarray*}{rCl}
     H(\Div, \Omega) & := & \{\bu\in L^2(\Omega)^3\,:\,\dv \bu \in L^2(\Omega)\}\mbox{,}\\[5pt]
     \|\bu\|_{H(\Div, \Omega)} & := & \left(\|\bu\|^2_{L^2(\Omega)^3}+
@@ -194,7 +203,7 @@ $\Omega\subseteq\mathbb{R}^3$ be a lipschitz domain.
   \end{IEEEeqnarray*}
 \end{defi}
 \begin{defi} As in page 32 of~\cite{giraultRaviart} we make the present definition. Let 
-$\Omega\subseteq\mathbb{R}^3$ be a lipschitz domain.
+$\Omega\subseteq\mathbb{R}^3$ be a Lipschitz domain.
   \begin{IEEEeqnarray*}{rCl}
     H(\bcurl,\Omega) & := & \{\bu\in L^2(\Omega)^3\,:\,\curl \bu \in L^2(\Omega)^3\}\mbox{,} \\[5pt]
     \|\bu\|_{H(\bcurl,\Omega)} & := & \left(\|\bu\|^2_{L^2(\Omega)^3}+
@@ -332,9 +341,9 @@ of $\bu_1$ and $\bu_2$, as defined in~(\ref{aux_label5}), coincide on $f$.
 % subsection functional_spaces_trace_spaces (end)
 
 \begin{defi}\label{defi_of_ref_prism}
-  Let $\hat T$ be the triangle $\{ 0 < x + y < 1 \}$. 
-  The reference prism is the interior of 
-  $\hat T\times\{ 0 < z < 1 \}$ (cfr. Figure~\ref{reference_prism}).
+  Let $\hat T$ be the triangle $\{ 0 < x_1 + x_2 < 1, x_1 > 0, x_2 > 0 \}$. 
+  The reference prism is 
+  $\hat T\times\{ 0 < x_3 < 1 \}$ (cfr. Figure~\ref{reference_prism}).
 \end{defi}
 \begin{defi}\label{defi_of_ref_pyr}
 The reference pyramid $\hat E$ is the polyhedron 

@@ -62,7 +62,8 @@ Finite Element of degree $k$  on a prism is defined by the following triple.
 %%=======================================================
 \end{defi}
 The following result can be found in page 66 of~\cite{nedelec2}.
-\begin{lemma} The Finite Element in Definition~\ref{defi_h_div_conforme} is
+\begin{lemma} The degrees of freedom of the 
+Finite Element in Definition~\ref{defi_h_div_conforme} are
   unisolvent in $\hat E$.
 \end{lemma}
 \begin{defi}\label{defi_face_element} Let $P_{\hat E}$ be as in~(\ref{prismaticSpace}).
@@ -83,14 +84,14 @@ Because of the degrees of freedom~(\ref{momentos1hdiv}) and~(\ref{momentos2hdiv}
 we had to restrict the condition $\hat\bu\in H(\Div, \hat E)$
 to the one of $\hat\bu\in W^{1,1}(\hat E)$ in order to define the 
 interpolation operator. The reason is that condition $\hat\bu\in H(\Div, \hat E)$
-does not suffice to have normal traces over the faces of a polyhedron.
+does not suffice to have normal traces over individual faces of a polyhedron.
 The proof of the following Lemma follows
 from Trace Theorems in Sobolev spaces as in~\cite{monk}.
 \begin{lemma}
   The operator of Definition~\ref{defi_face_element} is well defined and
   bounded.
 \end{lemma}
-\begin{proposition} On the Finite Element of Definition~\ref{defi_h_div_conforme}. 
+\begin{proposition} On the Finite Element of definition~\ref{defi_h_div_conforme}. 
 $\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
 which is, at the same time, equal to the number of its independent degrees of freedom.
 \end{proposition}
@@ -362,7 +363,7 @@ Because of the presence of degrees of freedom~(\ref{momentos1hcurl})
 we can't define the operator for an arbitrary field in $H(\bcurl, \hat E)$, 
 which is why we put the hypothesis $p>2$ (cfr.~\cite{monk}, page 134, 
 and~\cite{adams}, Theorem 5.4). The reason is that the condition $\hat\bu\in H(\bcurl, \hat E)$
-is not sufficient to have tangential traces along the edges of a polyhedron.
+is not sufficient to have tangential traces along individual edges of a polyhedron.
 \end{remark}
 \begin{remark} The interpolation operator
 can be written 

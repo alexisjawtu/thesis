@@ -27,7 +27,7 @@ find       $(\bu, p)  \in  H(\Div, \Omega) \times L^2(\Omega)$
     \int_{\Omega} fq\,d\bx.    
   \end{IEEEeqnarray*}
 \end{problem}
-In the case in which the polyhedron is not convex there will be ingoing
+In the case in which the polyhedron is not convex there will be re--entrant
 vertices and edges whose interior angles are obtuse. In the following
 we are going to recall how to formalize the singularities in a polyhedron
 and how to classify the regularity of the solution of Problem~\ref{mixedContinuous}.\\
@@ -60,11 +60,12 @@ at those vertices or approaching those edges.
 
 To talk about the regularity of a solution in these \emph{non--convex} domains
 we will make use of the following weighted Sobolev spaces.
-\begin{defi} \label{auxlabel300}Suppose $\Omega$ is a non--convex polihedron where $\Lambda \subseteq \Omega$ is
+\begin{defi} \label{auxlabel300}Suppose $\Omega$ is a non--convex polihedral domain
+where $\Lambda \subseteq \Omega$ is
 a subdomain such that 
 $\bar{\Lambda}$ contains at most one singular vertex $\bv$ or at most one singular
 edge $\be$ of $\Omega$.
-In case it contained both, the edge is incident to the vertex. Fix a local system
+In the case it contains both, the edge is incident to the vertex. Fix a local system
 of coordinates in $\Lambda$ with origin at $\bv$ (in case we had a singular
 edge and no singular vertex, the origin is at one end of the edge).
 $R(\bx)$ will be the distance from $\bx$ to $\bv$,
