@@ -72,7 +72,7 @@ is defined as the operator such that,
 for each $\hat\bu\in W^{1,1}(\hat E)$, $\rku$ is
 defined as the unique element in $P_{\hat E}$ satisfying
   \begin{IEEEeqnarray}{lClc}
-    \hat\rho_{\hat f,\hat\bq}\,(\hat{\bu} - \rku) & = & 0 &
+    \hat\rho_{\hat f,\hat q}\,(\hat{\bu} - \rku) & = & 0 &
     \quad\mbox{for $\hat\rho_{\hat f, \hat q}$ as in~(\ref{momentos1hdiv})
       and~(\ref{momentos2hdiv})}\\
     \hat\rho_{\hat\br}\,(\hat\bu - \rku) & = & 0 &
@@ -113,10 +113,15 @@ can be written
 %%   \,\,etc\,\,etc
 %% \end{IEEEeqnarray*}
 \begin{IEEEeqnarray}{rCl}\label{face_interp_explicit}  
-  \hat{\br}_k\hat{\bu} & = & \sum_{\hat f,\hat\bq} \hat\rho_{\hat f,\hat\bq}(\hat{\bu})\,\hat{\bv}_{\hat f,\hat\bq} +
-    \sum_{\hat r} \hat\rho_{\hat r} (\hat{\bu})\,\hat{\bv}_{\hat r}
+  \hat{\br}_k\hat{\bu} & = & \sum_{\hat f,\hat q} \hat\rho_{\hat f,\hat q}(\hat{\bu})\,\hat{\bv}_{\hat f,\hat q} +
+    \sum_{\hat \br} \hat\rho_{\hat \br} (\hat{\bu})\,\hat{\bv}_{\hat \br}
 \end{IEEEeqnarray}
-where we chose suitable dual bases to the bases of degrees of freedom.
+where, in the first sum, $\hat{f}$ are the faces of the reference  element
+and, in both sums, $\{\hat{q}\}$ and $\{\hat{\br}\}$ are fixed bases of the 
+test spaces defining the degrees of freedom~(\ref{momentos1hdiv})--(\ref{momentos4hdiv}),
+and finally $\{\hat\bv_{\hat f,\hat q}\}\cup\{\hat\bv_{\hat \br}\}$ is a basis of
+$P_{\hat E}$ which is dual to the basis of degrees of freedom 
+$\{\hat\rho_{\hat f,\hat q}\,|\,\hat f,\hat q\} \cup \{\hat\rho_{\hat\br}\,|\,\hat\br\}$.
 \end{remark}
 
 \subsection{$H(\bcurl)$--Conforming Element on Prisms} % (fold)
@@ -373,6 +378,13 @@ can be written
   \sum_{\hat f,\hat\bq} \hat\varphi_{\hat f,\hat\bq}(\hat{\bu})\,\hat{\bv}_{\hat f,\hat\bq} +
   \sum_{\hat\br}        \hat\varphi_{\hat\br}       (\hat{\bu})\,\hat{\bv}_{\hat\br}\mbox{,}
 \end{IEEEeqnarray}
-where we fixed bases of the tests spaces of polynomials defining the degrees of freedom
-and suitable bases of fields in $P_{\hat E}$ which are dual to the bases of degrees of freedom.
+where, in the first sum, $\hat\be$ are the edges of the reference element,
+in the second sum, $\hat f$ are the faces of the reference  element
+and, in all of the sums, $\{\hat p\}$, $\{\hat\bq\}$ and $\{\hat{\br}\}$ are fixed bases of the 
+test spaces defining the degrees of freedom~(\ref{momentos1hcurl})--(\ref{momentos6hcurl}),
+and finally $\{\hat\bv_{\hat\be,\hat p}\}\cup\{\hat\bv_{\hat f,\hat\bq}\}\cup\{\hat\bv_{\hat \br}\}$ is a basis of
+$P_{\hat E}$ which is dual to the basis of degrees of freedom 
+$\{\hat\varphi_{\hat\be,\hat p}\,|\,\hat\be, \hat p\} \cup 
+ \{\hat\varphi_{\hat f,\hat\bq}\,|\,\hat f, \hat\bq\} \cup 
+ \{\hat\varphi_{\hat\br}\,|\,\hat\br\}$.
 \end{remark}
