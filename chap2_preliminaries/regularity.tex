@@ -32,26 +32,27 @@ vertices and edges whose interior angles are obtuse. In the following
 we are going to recall how to formalize the singularities in a polyhedron
 and how to classify the regularity of the solution of Problem~\ref{mixedContinuous}.\\
 
-Recall the description in page 522 of~\cite{apelNicaise} for the following 
-definition. 
+Recall the descriptions in pages 1119 of~\cite{alw} and 522 of~\cite{apelNicaise} for the following 
+definitions. 
 \begin{defi}
 Suppose that a vertex
-$\bv\in\partial\Omega$ is the origin of our Cartesian system of coordinates. Let $C_{\bv}$ be the infinite
+$S\in\partial\Omega$ is the origin of our Cartesian system of coordinates. Let $C_{S}$ be the infinite
 polyhedral cone of $\mathbb{R}^3$ which coincides with $\Omega$ in a neighbourhood of 
-$\bv$. Set $G_{\bv} = C_{\bv}\cap S^2(\bv)$, the intersection of $C_{\bv}$ with
-the unit sphere centered at $\bv$. The vertex singular exponent related to $\bv$
-is defined by $\lambda_{\bv} := -\nicefrac12 + \sqrt{\lambda_{\bv,1} + \nicefrac14}$
+$S$. Set $G_{S} = C_{S}\cap S^2(S)$, the intersection of $C_{S}$ with
+the unit sphere centered at $S$. The vertex singular exponent related to $S$
+is defined by $\lambda_{\bv,S} := -\nicefrac12 + \sqrt{\lambda_{\bv,1} + \nicefrac14}$
 where 
 $\lambda_{\bv,n} > 0$, $n\in\mathbb{N}$, are the eigenvalues, in increasing order, of a positive
 Laplace--Beltrami operator $\Delta'$ on $G_{\bv}$ with Dirichlet boundary
-conditions. For any edge of $\partial\Omega$ the edge
+conditions. For any edge $A_{S,j}$, $1\leqslant j\leqslant J_S$
+of $\partial\Omega$ incident to a vertex $S$, the edge
 singular exponent is 
-$\pi/\omega_{\be}$ where $\omega_{\be}$ is the interior angle between
-the faces sharing  $\be$.
+$\lambda_{\be,S,j} := \pi/\omega_{S,j}$ where $\omega_{S,j}$ is the interior angle between
+the faces sharing  $A_{S,j}$.
 We say that
   \begin{enumerate}
-    \item $\be$ is singular if $\lambda_{\be} < 1.$ 
-    \item $\bv$ is singular if $\lambda_{\bv} < \dfrac12$.
+    \item $A_{S,j}$ is singular if $\lambda_{\be,S,j} < 1.$ 
+    \item $S$ is singular if $\lambda_{\bv,S} < \dfrac12$.
   \end{enumerate}
 \end{defi}
 The reason why we call \textsl{singular} an edge or a vertex is that
@@ -63,13 +64,13 @@ we will make use of the following weighted Sobolev spaces.
 \begin{defi} \label{auxlabel300}Suppose $\Omega$ is a non--convex polihedral domain
 where $\Lambda \subseteq \Omega$ is
 a subdomain such that 
-$\bar{\Lambda}$ contains at most one singular vertex $\bv$ or at most one singular
-edge $\be$ of $\Omega$.
+$\bar{\Lambda}$ contains at most one singular vertex $S$ or at most one singular
+edge $A_{S,j}$ of $\Omega$.
 In the case it contains both, the edge is incident to the vertex. Fix a local system
-of coordinates in $\Lambda$ with origin at $\bv$ (in case we had a singular
+of coordinates in $\Lambda$ with origin at $S$ (in case we had a singular
 edge and no singular vertex, the origin is at one end of the edge).
-$R(\bx)$ will be the distance from $\bx$ to $\bv$,
-$r(\bx)$ will be the distance from $\bx$ to $\be$ and $\theta(\bx)$ will be
+$R(\bx)$ will be the distance from $\bx$ to $S$,
+$r(\bx)$ will be the \emph{radial} distance from $\bx$ to $A_{S,j}$ and $\theta(\bx)$ will be
 the \textsl{angular distance} $\theta(\bx)=\frac{r(\bx)}{R(\bx)}$. Given two 
 positive parameters $\beta$ and $\delta$ we define the norm
 \begin{IEEEeqnarray}{rCl}\label{weighted_norm}
@@ -104,11 +105,19 @@ and, consistently,
 Let $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ be 
 a decomposition of $\Omega$ in
 {\bf prismatic} or {\bf tetrahedral} macro--elements having, each one of them,
-at most a singular edge $\lambda_{\be}^{(\ell)}$ and a singular vertex
-$\lambda_{\bv}^{(\ell)}$. This corresponds to the fact
+at most a singular edge  %${\be}_{\ell}$ 
+and a singular vertex. %${\bv}_{\ell}$. 
+This corresponds to the fact
 that the sequence of meshes we will introduce 
 at the end of this thesis has a first coarse term consisting only of prisms
 and tetrahedra.
+For any $\ell = 1,\dots,L$, we set $\lambda_{\bv}^{(\ell)} = \lambda_{\bv,S}$
+if $\Lambda_\ell$ contains a singular vertex $S$ of $\Omega$,
+otherwise we take
+$\lambda_{\bv}^{(\ell)} = \infty$, and
+$\lambda_{\be}^{(\ell)} = \lambda_{\be,S,j}$ if $\Lambda_{\ell}$
+contains one singular edge $A_{S,j}$ of $\Omega$, otherwise
+we take $\lambda_{\be}^{(\ell)} = \infty$.
 We have the following regularity result, for which we refer again
 to~\cite{apelNicaise}.
 \begin{theorem}\label{thm_regularity}

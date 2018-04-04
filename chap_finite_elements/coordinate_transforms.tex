@@ -7,7 +7,7 @@ Section 3.9 of~\cite{monk}.
 
 We want the same setting to build Finite Elements on 
 arbitrary contiguous prisms
-belonging to a fixed mesh, all of which being an affine 
+belonging to a fixed mesh, all of them being an affine 
 image of the reference prism.
 In order to do so we transform the set $\hat{E}$ and show how to
 pull--back and forward the scalars and fields in the 
@@ -25,7 +25,7 @@ F_E(\hat{\bx})$, where
 \end{IEEEeqnarray}
 for an invertible matrix $M_E$,
 that transforms
-$\hat{E}$ in an element $E$ of the mesh.
+$\hat{E}$ onto an element $E$ of the mesh.
 
 A scalar function $\hat{p} \in H^1(\hat{E})$ is transformed into a 
 scalar function $p$ on $E$ with
@@ -369,7 +369,15 @@ we define degrees of freedom of $\bu$ on $E$ as
 Provided $\det M_E > 0$, the degrees of freedom~(\ref{momentos1hcurlPhys})--(\ref{momentos3hcurlPhys})
 are identical to the referential degrees of freedom~(\ref{momentos1hcurl})--(\ref{momentos6hcurl}).
 \end{lemma}
-\begin{proof}
+\begin{remark}
+  For this Lemma we don't need the matrix $M_E$ to be as in Lemma~\ref{aux_label7}, so
+  it is more general. If the matrix $M_E$ is not block diagonal as we stated before, the local
+  space in a physical prism element does not necessarily have the same structure as in the 
+  reference prism. This is not a restriccion, since in our main Theorem and in our 
+  applications we needed only right prisms.
+
+\end{remark}
+\begin{proof}[Proof of Lemma~\ref{aux_label14}]
   For the degrees of freedom over the edges take a parameterization
   $\hat{\boldsymbol{\alpha}}(t):I=[0,1]\to \hat\be$ such that
   \[
@@ -461,7 +469,7 @@ let $P_{\hat E}$ be the space in~(\ref{prismaticSpace}).
 Provided the matrix $M_E$ is block--diagonal as in Lemma~\ref{aux_label7},
 then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfDiv}).
 \end{lemma}
-\begin{proof} The proof uses the same straightforward approach as the proof of 
+\begin{proof} The property follows with the same direct approach as 
 Lemma~\ref{aux_label7} and in a much simpler case.
 \end{proof}
 \begin{lemma} \label{aux_label12}
@@ -506,11 +514,14 @@ On the other hand,
     \int_{\hat E}\hat\bv\cdot\hat\br\,d\hat\bx.
   \end{IEEEeqnarray}
 \end{proof}
-\begin{lemma}
-  If $\bu\in P_{E}$ is such that all the
+\begin{lemma}\label{auxlabel414}
+For a right prism $E$ let $P_E$ be the image of the space 
+$P_{\hat E}$ of~\eqref{prismaticSpace} under transformation~\eqref{transfDiv}
+for block diagonal matrix $M_E$ as in Lemma~\ref{aux_label7}.
+If $\bu\in P_{E}$ is such that all the
   degrees of freedom~(\ref{momentos1hdivPhys}) or~(\ref{momentos2hdivPhys}) vanish
   on the respective face $f$, then the normal component of $\bu$ 
-  vanishes identically on $f$.
+  vanishes identically on that face $f$.
 \end{lemma}
 \begin{proof}
   This fact is stated in the proof of Theorem 4, page 66 of~\cite{nedelec2} 
@@ -518,7 +529,7 @@ On the other hand,
   the faces of $\hat E$ and back to the faces of $E$ using Lemma~\ref{aux_label12}
   we get the result.
 \end{proof}
-\begin{lemma}
+\begin{lemma}Let $P_E$ be the space of Lemma~\ref{auxlabel414}.
   If $\bu\in P_{E}$ is such that all the
   degrees of freedom~(\ref{momentos1hdivPhys})--(\ref{momentos3hdivPhys}) vanish, 
   then $\bu$ vanishes identically on $E$.
