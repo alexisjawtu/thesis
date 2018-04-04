@@ -331,18 +331,22 @@ then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfHcurl}).
   The invariance of the third component of elements in $P_{\hat E}$ is
   an immediate consequence of the affine nature of the coordinate change.
 \end{proof}
-%=======================================================================
-%\begin{remark} this is not a restriccion...
-%  \begin{figure}
-%    \centering
-%    *** ***
-%    \caption{hybrid mesh}\label{obliquePrism}
-%  \end{figure}
-%  dibujo prisma oblicuo subdividido: tetra + prism + pyramid. Figure~\ref{obliquePrism}
-%\end{remark}
-%=======================================================================
+Now we are stating definitions and properties for the finite
+element space in the case in which the prisms are not necessarily right, that
+is, the matrix of the affine transformation from the reference element
+needs no longer to be as in Lemma~\ref{aux_label7}. We are calling these prisms \emph{oblique}.
+\begin{defi}\label{auxlabel415}
+Let an oblique prism 
+$E = F_E(\hat{E})$ be given as the affine image under
+transformation~\eqref{aux_label8} from $\hat{E}$. Recall the reference space
+$P_{\hat E}$ from~\eqref{spaceFEprismHcurl}. The local $H(\bcurl)$ finite element space is
+defined as
+\begin{IEEEeqnarray*}{rCl}
+  P_E& = &\{M_E^{-t}\hat{\bu}\circ F_E^{-1}\,|\, \hat\bu\in P_{\hat E} \}.
+\end{IEEEeqnarray*}
+\end{defi}
 \begin{lemma}\label{aux_label14}
-Let a physical prism $E = F_E(\hat{E})$ for $F_E$ as in~(\ref{aux_label8}).
+Let a physical oblique prism $E = F_E(\hat{E})$ for $F_E$ as in~(\ref{aux_label8}).
 Given $\hat\bu$ defined in $\hat{E}$ let $\bu$ in $E$ be determined by~(\ref{transfHcurl}), and
 let $\hat\btau$, $\btau$, $\hat\bn$ and $\bn$ be tangents and normals to edges and
 faces satisfying $F_E(\hat\be) = \be$ and $F_E(\hat{f}) = f$
@@ -462,7 +466,7 @@ That is, the interpolator commutes with the coordinate change~(\ref{transfHcurl}
   The space $P_{\hat E}$ was proven to be invariant under~(\ref{transfCurl}), so
   $\wku = (\bw_E\bu){\,\hat{}}$\,.
 \end{proof}
-In the following paragraph we make all the present exposition 
+In the following paragraph we make all the previous exposition 
 for the divergence finite elements.  
 \begin{lemma}\label{aux_label13} Let $\hat E$ be the reference prism~(\ref{defi_of_ref_prism}) and
 let $P_{\hat E}$ be the space in~(\ref{prismaticSpace}).
@@ -472,8 +476,18 @@ then $P_{\hat{E}}$ is invariant by transformation~(\ref{transfDiv}).
 \begin{proof} The property follows with the same direct approach as 
 Lemma~\ref{aux_label7} and in a much simpler case.
 \end{proof}
+\begin{defi}\label{auxlabel416}
+Let an oblique prism 
+$E = F_E(\hat{E})$ be given as the affine image under
+transformation~\eqref{aux_label8} from $\hat{E}$. Recall the reference space
+$P_{\hat E}$ from~\eqref{prismaticSpace}. The local $H(\Div)$ finite element space is
+defined as
+\begin{IEEEeqnarray*}{rCl}
+  P_E& = &\left\{{\det M_E^{-1}} M_E\hat\bu \circ F_E^{-1} \,|\, \hat\bu\in P_{\hat E} \right\}.
+\end{IEEEeqnarray*}
+\end{defi}
 \begin{lemma} \label{aux_label12}
-Let a physical prism $E = F_E(\hat{E})$ for $F_E$ as in~(\ref{aux_label8}).
+Let an oblique prism $E = F_E(\hat{E})$ for $F_E$ as in~(\ref{aux_label8}).
 Given $\hat\bu\in W^{1,1}(\hat E)$ let $\bu$ in $E$ be determined by~(\ref{transfDiv}), and
 let $\hat\bn$ and $\bn$ be normals to faces satisfying $F_E(\hat{f}) = f$
 in $\hat E$ and $E$, and 
