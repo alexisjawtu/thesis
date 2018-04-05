@@ -30,8 +30,7 @@ find       $(\bu, p)  \in  H(\Div, \Omega) \times L^2(\Omega)$
 In the case in which the polyhedron is not convex there will be re--entrant
 vertices and edges whose interior angles are obtuse. In the following
 we are going to recall how to formalize the singularities in a polyhedron
-and how to classify the regularity of the solution of Problem~\ref{mixedContinuous}.\\
-
+and how to classify the regularity of the solution of Problem~\ref{mixedContinuous}.\\[5pt]
 Recall the descriptions in pages 1119 of~\cite{alw} and 522 of~\cite{apelNicaise} for the following 
 definitions. 
 \begin{defi}
@@ -57,16 +56,13 @@ We say that
 \end{defi}
 The reason why we call \textsl{singular} an edge or a vertex is that
 the solutions of elliptic problems in non--convex domains have singularities
-at those vertices or approaching those edges.\\[5pt]
+at those vertices or approaching those edges.
+\begin{defi}
 Let $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ be 
 a decomposition of $\Omega$ in
 {\bf prismatic} or {\bf tetrahedral} macro--elements having, each one of them,
 at most a singular edge  %${\be}_{\ell}$ 
 and a singular vertex. %${\bv}_{\ell}$. 
-This corresponds to the fact
-that the sequence of meshes we will introduce 
-at the end of this thesis has a first coarse term consisting only of prisms
-and tetrahedra.
 For any $\ell = 1,\dots,L$, we set $\lambda_{\bv}^{(\ell)} = \lambda_{\bv,S}$
 if $\Lambda_\ell$ contains a singular vertex $S$ of $\Omega$,
 otherwise we take
@@ -81,11 +77,22 @@ at the origin, and the singular edge, if existing, is contained in the $\xi_3^{(
 (we will drop the $\ell$'s when they are not needed). In the case $\Lambda_\ell$ contains both
 singularities, the edge whithin $\xi_3^{(\ell)}$ is incident to the vertex; 
 in case we had a singular edge and no singular vertex, the origin is at one end of the edge.\\[5pt]
-We also define *********** SEGUIR ACA CON pag. 1119 de ALW\\[5pt]
-
-$R(\bxi)$ as the distance from $\bxi$ to $S$,
-$r(\bx)$ will be the \emph{radial} distance from $\bx$ to $A_{S,j}$ and $\theta(\bx)$ will be
-the \textsl{angular distance} $\theta(\bx)=\frac{r(\bx)}{R(\bx)}$.
+Let
+\begin{IEEEeqnarray*}{rCl}  
+R^{(\ell)}(\bxi) &=& \left((\xi_1^{(\ell)})^{2}+
+                  (\xi_2^{(\ell)})^{2}+
+                  (\xi_3^{(\ell)})^{2}\right)^{\nicefrac12} \\[4pt]
+r^{(\ell)}(\bxi) &=& \left((\xi_1^{(\ell)})^{2}+
+                  (\xi_2^{(\ell)})^{2}\right)^{\nicefrac12} \\[4pt]
+\theta^{(\ell)}(\bxi)&=&\frac{r(\bxi)}{R(\bxi)}.
+\end{IEEEeqnarray*}
+be the distance to the origin, the \emph{radial} distance to the $\xi_3^{(\ell)}$--axis and
+the \textsl{angular distance} from the $\xi_3^{(\ell)}$--axis, respectively.
+\end{defi}
+The macro--element decomposition corresponds to the fact
+that the sequence of meshes we will introduce 
+at the end of this thesis has a first coarse term consisting only of prisms
+and tetrahedra.\\[5pt]
 To talk about the regularity of a solution in these \emph{non--convex} domains
 we will make use of the following weighted Sobolev spaces.
 \begin{defi} \label{auxlabel300}Suppose $\Omega$ is a non--convex polihedral domain
