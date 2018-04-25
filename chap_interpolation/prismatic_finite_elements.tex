@@ -3,17 +3,27 @@
 \subsection{An\-iso\-tropic Stability Estimates for $H(\Div)$--Conforming Finite Elements
 on Prisms} % (fold)
 In the present subsection $\hat\bu$ will be an element
-of $W^{1,1}(\hat E)$ in which elements have well defined
+of $W^{1,1}(\hat E)$, a space in which the elements have well defined
 normal traces over the faces of $\hat{E}$, another possibility
 being, as mentioned in~\cite{monk}, Lemma $5.15$, page $120$, to assume
 there is
 a positive $\delta$ such that $\hat\bu$ belongs to
-$H^{1/2+\delta}(\hat{E})^3$.
+$H^{1/2+\delta}(\hat{E})^3$, but the latter does not suffice
+to obtain our results.
 For the whole subsection, $\hat\br_{\hat E}$ will be the $k$--th order face 
 interpolation operator on the reference
 Prism determined by the element of
 Definition~\ref{defi_h_div_conforme}.
-\label{stability_of_rt_element_in_hat_k}
+
+In~\cite{MR1866274} there also are local anisotropic estimates for prismatic
+elements conforming in $H(\Div)$, which were done with a different
+technique, and which are only for the least order case.
+Here we prove local anisotropic  estimates for arbitrary order
+interpolation.
+
+Recall that $\hat u_i$ and $(\rku)_i$ denote the components of
+$\hat\bu$ and $\rku$ respectively.
+
 \begin{lemma}\label{lemmaRT3zero}
 $(\rku)_3$ is linearly and univocally determined by $\hat{u}_3$.
 \end{lemma}
@@ -30,8 +40,11 @@ $(\rku)_3$ is determined by the following linear equations.
 \end{IEEEeqnarray}
 We have $\nicefrac{k(k+1)^2}{2}$ independent equations, which is the 
 number of independent coefficients in $(\rku)_3$.
-Now set $\hat u_3 = 0$, which makes the right hand side of all the equations in~(\ref{rku_3_1})
-and~(\ref{rku_3_2}) equal to zero.
+Now set $\hat u_3 = 0$, which makes the right hand side of all the 
+equations in~(\ref{rku_3_1})
+and~(\ref{rku_3_2}) equal to zero. We will prove that the present
+square homogeneous linear system has a unique trivial solution, and the 
+Lemma will follow.
 Take $\hat f$ to be either $\hat{f}_3$ or $\hat{f}_4$. Put 
 $\hat q = (\rku)_3|_{\hat{f}}$ in~(\ref{rku_3_1}) recalling~(\ref{prismaticSpace}).
 It yields
@@ -43,8 +56,10 @@ $(\rku)_3 \xyz = \hat{x}_3(\hat{x}_3-1)\,\hat{q}_3\xyz$
 and the Lemma will follow once we apply the degrees of freedom~(\ref{rku_3_2})
 with the test polynomial $\hat\br$ set equal to $(0,0,\hat{q}_3)'$. 
 \end{proof}
-\begin{lemma}\label{lemma_u1_u2} If $\hat\bu\xyz = (0,0, \hat{u}_3\xyz)'$,
-then $\rku\xyz = (0,0,\hat{\xi}_3\xyz)'$ for some $\hat{\xi}_3\in
+\begin{lemma}\label{lemma_u1_u2} Take an element
+$\hat\bu$ of the form
+$\hat\bu\xyz = (0,0, \hat{u}_3\xyz)'$. 
+Then $\rku\xyz = (0,0,\hat{\xi}_3\xyz)'$ for some $\hat{\xi}_3\in
 P_{k-1}(\hat{f}_3)\otimes P_k(\hat{x}_3)$.
 \end{lemma}
 \begin{proof}

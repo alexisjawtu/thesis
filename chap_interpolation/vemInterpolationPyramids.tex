@@ -1,4 +1,4 @@
-\section{Local Interpolation Estimates for Pyramidal Virtual Elements}
+\section{Local Interpolation Estimates for Virtual Elements on Pyramids}
 In the present Section we develop some of the needed results to work
 with pyramids following a virtual element framework. In Section~\ref{label999} we 
 put the definition of a version of conforming pyramidal finite elements and 
@@ -76,15 +76,12 @@ we obtain
   h_E^{-{\nicefrac1p}}\left(\|\bu\|_{L^p(E)}+h_E\|\nabla\bu\|_{L^p(E)}\right)\cdot\\
 \IEEEeqnarraymulticol{3}{r}
 {|\partial E|^{1-{\nicefrac1p}} \|\bv_i\|_{L^2(E)}}\\
-& \leqslant & C \left(\|\bu\|_{L^p(E)} + h_E\|\nabla\bu\|_{L^p(E)}\right).
+& \leqslant & C \left(\|\bu\|_{L^p(E)} + h_E\|\nabla\bu\|_{L^p(E)}\right)
 \end{IEEEeqnarray*}
+as we wanted.
 %%&\leqslant& C h_E^{3\left({\nicefrac1p}-{\nicefrac12}\right)}\,h_E^{-{\nicefrac1p}}\,%  h_E^{2\left(1-{\nicefrac1p}\right)}\,h_E^{-{\nicefrac12}}%    \left(\|\bu\|_{L^p(E)} + h_E\|\nabla\bu\|_{L^p(E)}\right)\\
-
-
 %\sum_{i=1}^5 \left|\int_{f_i}\bu\cdot\bn\right|\|\bv_i\|_{L^2(E)}\\&\leqslant& \sum_{i=1}^5 |f_i|^{\nicefrac12}\|\bu\|_{L^2(f_i)}\|\bv_i\|_{L^2(E)}\\ &\le& C|f_i|^\frac12\left(h_e^{-\frac12}\|\bu\|_{L^2(E)}+h_E^\frac12\|\nabla\bu\|_{L^2(E)}\right)\|\bv_i\|_{L^2(E)}\\ &\le& C\left(\|\bu\|_{L^2(E)}+h_E\|\nabla\bu\|_{L^2(E)}\right)
-
 \end{proof}
-
 \begin{proposition}\label{propErrorInterpolacionPiramidesTetraedros}
 Let $E$ be a pyramid satisfying the shape-regularity property with constant $\sigma$.
 Then there exists a constant $C$ depending only on $\sigma$ such that 
@@ -125,7 +122,7 @@ There is a field $\bw_{\bu}\in W(E)$ such that
 Take $\bw_{\bu}$
 as the $L^2(E)$ projection of $\bu$ onto the space of constants fields.
 \end{proof}
-\begin{remark}
-  We could replicate the results obtained for prisms at low order. We are not
-  applying pyramidal finite element interpolation, though.
-\end{remark}
+%\begin{remark}
+%  We could replicate the results obtained for prisms at low order. We are not
+%  applying pyramidal finite element interpolation, though.
+%\end{remark}

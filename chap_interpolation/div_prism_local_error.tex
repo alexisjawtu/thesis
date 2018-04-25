@@ -3,9 +3,11 @@ of~\eqref{aux_label23},
 from Remark~\ref{auxlabel4} we derive the following Theorem.
 \begin{theorem}\label{aux_label46}
 Let $k\in\mathbb{N}_0$ and $p \geqslant 1$.
-Let $E$ be a prism whose triangular
-faces have greatest angle less than $c_0$.
-There exists $C > 0$ and three edges $\be_i$ of $E$ incident to a common vertex
+Let $E$ be an oblique prism.
+There exists $C > 0$, which depends on the
+greatest angle of the triangular faces and the angles on
+the cuadrilateral faces, and three edges $\be_i$ of $E$ incident
+to a common vertex
 $\bx_E$ such that for all $\bu\in W^{m + 1,p}(E)^3$
 and $m\leqslant k$,
 \begin{IEEEeqnarray}{C}\nonumber
@@ -16,3 +18,65 @@ and $m\leqslant k$,
   \label{aux_label39}
 \end{IEEEeqnarray}
 \end{theorem}
+\begin{figure}[!ht]
+	\centering
+	\begin{tikzpicture}[scale = 0.5]
+		\draw[->] (0, 0, 0) -- (0, 0, 3);	
+		\draw[->] (0, 0, 0) -- (3, 0, 0);
+		\draw[->] (0, 0, 0) -- (0, 3, 0);
+		\node (x1) at (2,0,0) [below] {$_{_1}$};
+		\node (x2) at (0,2,0) [left] {$_{_1}$};
+		\node (x3) at (0,0,2) [left] {$_{_1}$};
+		\draw (0, 0, 2) -- (2, 0, 0);
+		\draw (0, 2, 2) -- (2, 2, 0);
+		\draw (2, 0, 0) -- (2, 2, 0);
+		\draw (0, 0, 2) -- (0, 2, 2);
+		\draw (0,2,2) -- (0,2,0) ;
+		\draw (0,2,0) -- (2,2,0);
+
+		\draw[xshift = 6cm, ->] (0, 0) -- (0, 0, 3);	
+		\draw[xshift = 6cm, ->] (0, 0) -- (3,0);
+		\draw[xshift = 6cm, ->] (0, 0) --  (0, 5, 0);
+		\draw[xshift = 6cm] (0, 0, 1) -- (2, 0, 0); 
+		\draw[xshift = 6cm] (0, 3.5, 1) -- (2, 3.5, 0); 
+		\draw[xshift = 6cm] (2, 0, 0) -- node[label={right:$_{_{h_3}}$}] { } (2, 3.5, 0);
+		\draw[xshift = 6cm] (0, 0, 1) -- (0, 3.5, 1); 
+		\draw[xshift = 6cm] (0,3.5,1) -- node[label={left:$_{_{h_1}}$}] { }  (0,3.5,0) ;
+		\draw[xshift = 6cm] (0,3.5,0) -- node[label={above:$_{_{h_2}}$}] { } (2,3.5,0);
+
+		%va con transformacion afin
+		\draw[xshift = 11.5cm] (0, 0, 0) -- (0, 0, 1)
+			node (h1) [left, align=center, midway] {$_{_{h_1}}$} ;	
+		\draw[xshift = 11.5cm] (0, 0, 0) -- (2, 0, 0);
+		\draw[xshift = 11.5cm] (0, 0, 1) -- (2, 0, 0);
+		\draw[xshift = 11.5cm] (0, 0, 0) -- ($1.5652*(2,1,0)$);
+		\draw[xshift = 11.5cm] ($1.5652*(2,1,0) + (0,0,1)$)--($1.5652*(2,1,0)$);
+		\draw[xshift = 11.5cm] ($1.5652*(2,1,0)$) -- ($1.5652*(2,1,0) + (2,0,0)$)
+			node (h2) [above, align=center, midway] {$_{_{h_2}}$};
+		\draw[xshift = 11.5cm] (0,0,1) -- ($1.5652*(2,1,0) + (0,0,1)$);
+		\draw[xshift = 11.5cm] (2,0,0) -- ($1.5652*(2,1,0) + (2,0,0)$)
+			node (h3) [below right, align=center, midway] {$_{_{h_3}}$};
+		\draw[xshift = 11.5cm] ($1.5652*(2,1,0) + (0,0,1)$) -- 
+		($1.5652*(2,1,0) + (2,0,0)$);		
+
+		\draw[xshift = .5cm]   (0,-2.8,0) node (KRef) 		{$\hat E$};
+		\draw[xshift = .5cm]   (1.5,-2.8,0) node (KRefFict) 	{};
+		\draw[xshift = 5cm]   (0,-2.8,0) node (KRefFict2) 	{};
+
+		\draw[xshift = 6.5cm] (0,-2.8,0) node (KTilde) 	{$\tilde E$};
+		\draw[xshift = 8cm] (0,-2.8,0) node (KTildeFict) 	{};
+		\draw[xshift = 11cm] (0,-2.8,0) node (KTildeFict2)	{};
+		
+		\draw[xshift = 12.5cm] (0,-2.8,0) node (KPhysical) 	{$E$};
+		
+		\draw[->] (KRefFict) -- (KRefFict2);
+		\draw[->] (KTildeFict) -- (KTildeFict2);
+	\end{tikzpicture}
+	\caption{Affine transformations of the reference prism.}
+	\label{auxlabel417}
+\end{figure}
+%\vspace{0.5cm}
+%\begin{IEEEeqnarray*}{LLLLL}
+%	\hat{K}\hspace{1cm} & \longrightarrow \hspace{1cm} & \tilde{K} \hspace{1cm} 
+%	& \longrightarrow \hspace{1cm} & K \hspace{1cm}
+%\end{IEEEeqnarray*}	
