@@ -11,6 +11,30 @@ y escribimos y demostramos nuestro teorema de error global de
 interpolaci\'on en estas mallas, el cual es probado usando los espacios
 de Sobolev con pesos presentados en el Cap\'itulo~\ref{auxlabel207},
 y con este probamos nuestro teorema de error de aproximaci\'on.
+
+Ahora recordamos brevemente la comparaci\'on hecha en
+la Introducci\'on entre nuestro m\'etodo y 
+aquellos presentados en~\cite{MR1866274}. En ese art\'iculo
+los autores proponen un m\'etodo con elementos 
+prism\'aticos anis\'otropos solamente para
+dominios cil\'indricos y aqu\'i proponemos un m\'etodo
+que admite dominios polihedrales arbitrarios en
+dimensi\'on 3 mediante una combinaci\'on
+de elementos de geometr\'ias diferentes (prismas,
+pir\'amides y tetraedros).
+
+Adem\'as los autores en~\cite{MR1866274} incluyen
+un resultado que usa mallas de tetraedros subdividiendo
+cada prisma en tres, que requieren del uso de
+tetraedros que no verifican una condici\'on 
+$\pazocal{RVP}$ uniforme (cfr. Figure~\ref{fig:tetraedros})
+con la consecuencia de requerir regularidad
+adicional al dato $f$ del problema. En nuestro m\'etodo,
+la construcci\'on de una malla
+h\'ibrida evita el uso de los mencionados tetraedros
+y por esto recuperamos el orden \'optimo de convergencia
+del error de aproximaci\'on con dato $f$ en $L^2$.
+
 \section*{Introduction to the chapter}
 In the present chapter we prove
 discrete well posedness of a model elliptic problem
@@ -23,6 +47,31 @@ and state first our main
 global interpolation result in those meshes, which is proved using the 
 weighted Sobolev spaces presented in Chapter~\ref{auxlabel207},
 and whith this theorem we prove our approximation error theorem.
+
+Now we recall briefly the comparison, that was made in the
+Introduction of this thesis, between our method and the
+ones presented in~\cite{MR1866274}. There the authors propose
+a method with anisotropic prismatic elements only for cartesian
+product type (cylindrical) domains in $\mathbb{R}^3$ and 
+here we propose
+a method that allows for arbitrary polihedral domains $\mathbb{R}^3$ by
+means of a combination of elements of three different geometries: prisms, pyramids
+and tetrahedra.
+
+Furthermore the authors in~\cite{MR1866274} include a result 
+using tetrahedral meshes
+by splitting each prism into three tetrahedra, which require
+the use of tetrahedra
+that don't fulfill a uniform $\pazocal{RVP}$ property 
+(cfr. Figure~\ref{fig:tetraedros})
+and the price paid is that they require more regularity 
+to the datum $f$ of 
+the problem.
+In our method, the construction of a hybrid mesh avoids 
+the use of the mentioned
+tetrahedra and therefore we recover the optimal order of convergence for 
+the approximation error with datum $f$ in $L^2$.
+
 \input{./chap_approximation/discrete_well_posedness}
 \input{./chap_approximation/convex_case}
 \input{./chap_approximation/non_convex_case}
