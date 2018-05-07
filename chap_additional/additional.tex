@@ -1,9 +1,43 @@
 \chapter{Further Results on Finite Elements}
 \label{auxlabel202}
 \section*{Introducci\'on al cap\'itulo}
+
 Probamos aqu\'i estimaciones anis\'otropas de error de interpolaci\'on local
 para el operador $\bcurl$--conforme de orden arbitrario sobre elementos
-prism\'aticos.
+prism\'aticos. 
+Con t\'ecnicas similares a las del Cap\'itulo~\ref{auxlabel421}
+podemos realizar el mismo 
+an\'alisis para estos elementos $H(\bcurl)$--conformes en prismas
+que el que fue hecho para los elementos $H(\Div)$--conformes.
+
+Con respecto a las aplicaciones, 
+teniendo en cuenta nuestros resultados para el espacio $H(\Div)$ 
+del Cap\'itulo~\cite{auxlabel421} m\'as los que presentaremos
+ahora para el espacio $H(\bcurl)$, se podr\'ia intentar realizar
+un an\'alisis para las ecuaciones de Maxwell arm\'onicas en tiempo
+como el que se encuentra en~\cite{buffaCostabelDauge}, pero
+ahora usando mallas que contengan prismas alargados 
+--en~\cite{buffaCostabelDauge} los autores consideran
+mallas exclusivamente de tetraedros--, y tambi\'en 
+para el problema arm\'onico en tiempo en una cavidad,
+para el problema del resonador de cavidad, para el problemma
+de la dispersi\'on de un objeto acotado y para el problema
+de la dispersi\'on de un objeto enterrado, todos los cuales
+son algunos de los principales problemas de contorno
+para las ecuaciones de Maxwell
+(ver la Secci\'on 1.4 de~\cite{monk}), 
+y con la misma consideraci\'on
+reci\'en hecha acerca de las mallas.
+
+En~\cite{MR1860445} se encuentran estimaciones anis\'otropas
+para el caso de grado m\'as bajo de edge--elements en prismas
+(y para tetraedros resultantes de la subdivisi\'on de cada prisma),
+aplicados al mallado de dominios cil\'indricos.
+Nuevamente, algunas de las estimaciones halladas 
+en este cap\'itulo extienden a las anteriores a grado arbitrario,
+y adem\'as podr\'iamos intentar aplicarlas a dominios poliedrales 
+generales, como hicimos con nuestras estimaciones $H(\Div)$.
+
 Recordar la Notaci\'on~\ref{auxlabel200} para los espacios polinomiales. 
 Tambi\'en nos sujetaremos a la notaci\'on e indexaci\'on de la  
 Tabla~\ref{prismNotationTableEdges}.
@@ -21,8 +55,36 @@ A continuaci\'on probamos estimaciones anis\'otropas de error de interpolaci\'on
 local para los correspondientes operadores de orden m\'as bajo.
 
 \section*{Introduction to the chapter}
+
 We prove anisotropic local interpolation error estimates for the
 $\bcurl$--conforming operator of arbitrary order over a prismatic element.
+With techniques similar to those of Chapter~\ref{auxlabel421} we can
+perform the same analysis for these $H(\bcurl)$--conforming elements
+as the one performed for the $H(\Div)$ elements.
+
+With respect to the applications,
+taking into account our results 
+from Chapter~\ref{auxlabel421}
+for the $H(\Div)$ space together with the ones we are presenting now
+for $H(\bcurl)$, we could try an analysis for the
+time--harmonic Maxwell's equations analogue to the one found
+in~\cite{buffaCostabelDauge}, but now using meshes including
+elongated prisms --in~\cite{buffaCostabelDauge} the authors consider
+meshes of tetrahedra--, and also for the time--harmonic cavity problem,
+for the cavity resonator problem, for the problem of the scattering from a 
+bounded object, and for the problem of the scattering from a
+buried object, all of which are some of the principal boundary value
+problems for the Maxwell's equations (see Section 1.4 of~\cite{monk}),
+and with the same consideration as above concerning the meshes.
+
+In~\cite{MR1860445} there are anisotropic estimates for 
+the least order case of the edge--elements on prisms
+(and for the tetrahedra resulting from dividing each prism into three),
+applied to cylindrical domains.
+Again, some of the estimates found in this chapter extend those estimates
+to abitrary degree, and moreover we could try to apply them
+to general polihedral domains, as we did we our $H(\Div)$ estimates.
+
 Please recall 
 the notation for the polynomial spaces given in Notation~\ref{auxlabel200}. We 
 will alse stick to the notation and indices of 
