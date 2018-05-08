@@ -1,5 +1,6 @@
 \section{Local Interpolation Estimates for $H(\bcurl)$ Conforming Prismatic Elements}
-\begin{theorem} \label{aux_label32} Let $k\in\mathbb{N}$ and $p>2$ and let $E$ be a prism whose triangular
+\begin{theorem} \label{aux_label32} Let $k\in\mathbb{N}$ and $p>2$ and let $E$ 
+be a prism whose triangular
 faces have greatest angle less than $c_0$.
 There exists $C > 0$ and three edges $\be_i$ of $E$ incident to a common vertex
 $\bx_E$ such that for all $\bu\in W^{m + 1,p}(E)^3$
@@ -15,8 +16,8 @@ and $m\leqslant k-1$, %with $\bcurl \bu\in W^{m,p}(E)^3$
 \end{IEEEeqnarray*} 
 $C$ depends only on $c_0$.
 $C$ can be chosen so that, if $M_E$ is the matrix made with
-$\xi_i$ as columns, then $\|M\|_\infty\leqslant C$ and $\|M^{-1}\|_\infty\leqslant C$ 
-and $\det M_E \geqslant C$
+$\xi_i$ as columns, then $\|M\|_\infty\leqslant C$ and 
+$\|M^{-1}\|_\infty\leqslant C$.
 \end{theorem}
 Notice the an\-iso\-tropic character of the inequality in~\eqref{auxlabel5}. Notice only the component
 of the $\curl$ corresponding to the direction that is orthogonal to the 
@@ -25,9 +26,12 @@ triangular faces.
 \begin{proof}[Proof of Theorem~\ref{aux_label32}] %%% TODO: {\color{BrickRed}\#\#\#\#\#\#\#\# Ariel, por favor mirar si es correcta la manera en que lo digo.}\\\\
 Since $W^{m+1,p}(E)\hookrightarrow W^{1,p}(E)$ and $p$ is greater than $2$,
 the edge interpolator $\bw_E$ is well--defined via Corollary~\ref{aux_label26}.
-Consider the prism $\tilde E$ as in~(\ref{tilde_prism}). There is an affine map
-$\tilde \bx \mapsto \bx = M_E\,\tilde\bx+\bx_E = F_E\,\tilde\bx$ from $\tilde E$ onto $E$, such that 
-$\|M_E\|$, $\|M_E\|^{-1}\leqslant C$. The matrix $M_E$ is made up of vectors 
+Consider the prism $\tilde E$ as in~(\ref{tilde_prism}). By the argument in the 
+proof of Theorem 2.2 in~\cite{aadl}, there is an affine map
+$\tilde \bx \mapsto \bx = M_E\,\tilde\bx+\bx_E = F_E\,\tilde\bx$ from $\tilde E$ 
+onto $E$, such that 
+$\|M_E\|$, $\|M_E\|^{-1}\leqslant C(c_0)$. Notice that this is the only place 
+where the dependence on $c_0$ is found. The matrix $M_E$ is made up of vectors 
 $\xi_i$, $i = 1$, $2$, $3$ as its columns. First we take $\bq := \Qbb_{m,E}\,\bu$ and
 do%where $\xi_i$ are the unitary vectors in the directions of three edges $\ell_i$  of E of lengths $h_i$ sharing the vertex $\bx_E$.
 \begin{IEEEeqnarray*}{rCl}

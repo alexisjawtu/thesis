@@ -1,13 +1,19 @@
-\def\unifSection{
-  \begin{figure}[!ht]
-    \centering
-    \subfloat
+
+\def\edgedomain{
+\begin{figure}[!ht]
+  \centering
+    \subfloat[Domain $\Omega$.]
     {
-      \includegraphics[width=.4\textwidth]{./figures/cylinderUnif.png}
+      \label{auxlabel204}
+      \includegraphics[width=.5\textwidth]{./figures/prismMesh.png}
     }
-    \caption{Sectional view of a uniform mesh. Prismatic macro--elements.}
-    \label{auxlabel212}
-  \end{figure}
+    \subfloat[\mbox{Sectional view of $\Omega$.}]
+    {
+      \label{auxlabel212}
+      \includegraphics[width=.37\textwidth]{./figures/cylinderUnif.png}
+    }
+    \caption{Cylindrical domain.}
+\end{figure}
 }
 
 \def\gradSection{
@@ -179,14 +185,6 @@
 \end{figure}
 }
 
-\def\edgedomain{
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=.5\textwidth]{./figures/prismMesh.png}
-  \caption{Cylindrical domain.}
-  \label{auxlabel204}
-\end{figure}
-}
 
 \def\rescaledTetraTikz{
 \begin{figure}[!ht]
