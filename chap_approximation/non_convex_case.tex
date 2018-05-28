@@ -39,62 +39,66 @@ Here we recall it.
 Let $\Omega=\cup_{\ell=1}^N \Lambda_\ell$ be 
 a decomposition in
 macro--elements having, each one of them,
-at most a singular edge $\lambda_{\be}^{(\ell)}$ and a singular vertex
-$\lambda_{\bv}^{(\ell)}$. 
+at most a singular 
+vertex
+$S^{(\ell)}$
+and a 
+singular 
+edge $A_S^{(\ell)}$ 
 
 Please recall also the notation for the distance  $R(\bx)$ to the singular vertex 
-and the angular distance $\theta(\bx)$ to the singular edge in Definition~\ref{auxlabel300}.
+and the angular distance $\theta(\bx)$ to the singular edge in Definition~\ref{auxlabel423}.
 
 We will show that, in each prismatic or tetrahedral macro--element, our meshes
 fulfill the following grading. Given a macro--element $\Lambda_\ell$ with
-just a singular edge $\be$, for
+just a singular edge $A$, for
 any element $E\subseteq\Lambda_\ell$ it holds
 \begin{equation}\label{label_grading3}
 \begin{IEEEeqnarraybox*}{lCl}
   h_{E,1}, h_{E,2} &\sim&
     \begin{cases}
-      \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(E,\be)=0\\
-      \textit{h}\,d(E,\be)^{1-\mu}  & \text{ if\, }0<d(E,\be) < 1\\
-      \textit{h}          & \text{ if\, }d(E,\be)\sim1
+      \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(E,A)=0\\
+      \textit{h}\,d(E,A)^{1-\mu}  & \text{ if\, }0<d(E,A) < 1\\
+      \textit{h}          & \text{ if\, }d(E,A)\sim1
     \end{cases}\\[5pt]
   h_{E,3}   &\sim&\textit{h}
 \end{IEEEeqnarraybox*}
 \end{equation}
 Given a macro--element $\Lambda_\ell$ with
-just a singular vertex $\bv$, for
+just a singular vertex $S$, for
 any element $E\subseteq\Lambda_\ell$ it holds
 \begin{equation}\label{label_grading2}
 \begin{IEEEeqnarraybox*}{lCl}
   h_{E,1}, h_{E,2}, h_{E,3}   &\sim& 
     \begin{cases}
-      \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(E,v)=0\\
-      \textit{h}\,d(E,\bv)^{1-\nu}  & \text{ if\, }0<d(E,v)<1\\
-      \textit{h}          & \text{ if\, }d(E,v)\sim1.
+      \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(E,S)=0\\
+      \textit{h}\,d(E,S)^{1-\nu}  & \text{ if\, }0<d(E,S)<1\\
+      \textit{h}          & \text{ if\, }d(E,S)\sim1.
     \end{cases}
 \end{IEEEeqnarraybox*}
 \end{equation}
 Given a macro--element $\Lambda_\ell$ with
-a singular edge $\be$ and a singular vertex $\bv$ at an
-endpoint of $\be$, for
+a singular edge $A_S$ and a singular vertex $S$ at an
+endpoint of $A_S$, for
 any element $E\subseteq\Lambda_\ell$ it holds
 \begin{equation}\label{label_grading}
 \begin{IEEEeqnarraybox*}{lCl}
   h_{E,1}, h_{E,2} &\sim&
     \begin{cases}
-      \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(E,\be)=0\\
-      \textit{h}\,d(E,\be)^{1-\mu}  & \text{ if\, }0<d(E,\be)<1\\
-      \textit{h}          & \text{ if\, }d(E,\be)\sim1
+      \textit{h}^{\frac{1}{\mu}}  & \text{ if\, }d(E,A_S)=0\\
+      \textit{h}\,d(E,A_S)^{1-\mu}  & \text{ if\, }0<d(E,A_S)<1\\
+      \textit{h}          & \text{ if\, }d(E,A_S)\sim1
     \end{cases}\\[5pt]
   h_{E,3}   &\sim& 
     \begin{cases}
-      \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(E,v)=0\\
-      \textit{h}\,d(E,\bv)^{1-\nu}  & \text{ if\, }0<d(E,v)<1\\
-      \textit{h}          & \text{ if\, }d(E,v)\sim1
+      \textit{h}^{\frac{1}{\nu}}  & \text{ if\, }d(E,S)=0\\
+      \textit{h}\,d(E,S)^{1-\nu}  & \text{ if\, }0<d(E,S)<1\\
+      \textit{h}          & \text{ if\, }d(E,S)\sim1
     \end{cases}
 \end{IEEEeqnarraybox*}
 \end{equation}
-with $\mu\leqslant 1-\delta$ for $\delta>1-\lambda_{\be}$ and 
-$\nu\leqslant 1-\beta$ for $\beta>\frac12-\lambda_{\bv}$ for all cases, 
+with $\mu\leqslant 1-\delta$ for $\delta>1-\lambda_{\be,S}$ and 
+$\nu\leqslant 1-\beta$ for $\beta>\frac12-\lambda_{\bv,S}$ for all cases, 
 respectively, and with $\mu\leqslant\nu<1$ in the presence of both
 singularities.
 %%==================================================================
@@ -346,7 +350,7 @@ initial mesh.
 If a mesh satisfies conditions~(\ref{label_grading})
 for $\mu=\mu_0$ and $\nu=\nu_0$, then it satisfies the same for 
 $\mu>\mu_0$ and $\nu>\nu_0$. Thus, the mesh can be constructed for 
-$\mu_0=\nu_0=1-\gamma$ with $1>\gamma>\max\{1-\lambda_e,\frac12-\lambda_v\}$, 
+$\mu_0=\nu_0=1-\gamma$ with $1>\gamma>\max\{1-\lambda_{\be,S},\frac12-\lambda_{\bv,S}\}$, 
 and it still verifies the former conditions. 
 The possibility to use $\mu_0=\nu_0$ for the construction of the mesh 
 allows us to validate the assumptions at the beginning of Section~\ref{auxlabel290},
@@ -356,11 +360,11 @@ necessarily anisotropic.
 Therefore, we assume that the meshes $\{\Th\}_{\textit{h}}$ restricted to
 a macroelement $\Lambda_\ell$
 with a singular edge 
-$\be$ and a singular vertex $\bv$ 
+$A_S$ and a singular vertex $S$ 
 satisfy conditions~\eqref{label_grading} 
 for $\mu,\nu\geqslant 1-\gamma$. And in particular, those conditions hold
 for $\mu=1-\delta$ for some $\delta>1-\lambda_{\be}$ and for $\nu=1-\beta$ 
-for some $\beta>\frac12-\lambda_{\bv}$. 
+for some $\beta>\frac12-\lambda_{\bv,S}$. 
 
 For the case of a tetrahedral macroelement with just a singular edge, which is 
 assumed to have a face $f$ perpendicular to the singular edge, 
