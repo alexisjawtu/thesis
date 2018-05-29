@@ -92,7 +92,7 @@ es el interpolador de Raviart-Thomas
 (ver~\cite{nedelec2, MR0483555}), entonces existe una
 $C(\bar c)>0$ tal que para toda  
 $\bu\in H^1(T)^3$
-\begin{IEEEeqnarray}{rCl}\label{rvp}
+\begin{IEEEeqnarray}{rCl}\label{rvpspanish}
   \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & C 
     \left\{\sum_{1\leqslant i\leqslant 3} h_i \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}
 	  + h_T \|\dv\bu\|_{\sss L^2(T)}\right\}
@@ -109,7 +109,7 @@ existe una $C(\bar\alpha)>0$
 tal que 
 para toda $\bu\in H^1(T)^3$
 vale
-\begin{IEEEeqnarray}{rCl}\label{mac}
+\begin{IEEEeqnarray}{rCl}\label{macspanish}
   \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & C h_T \sum_{1\leqslant i\leqslant 3}
   \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}
 \end{IEEEeqnarray}
@@ -117,15 +117,15 @@ vale
 un vértice de $T$, pero
 no necesariamente tenemos uno regular).
 
-Observamos que la desigualdad~\eqref{mac} es estrictamente
-más débil que~\eqref{rvp}, dado que hay elementos
+Observamos que la desigualdad~\eqref{macspanish} es estrictamente
+más débil que~\eqref{rvpspanish}, dado que hay elementos
 que satisfacen la condición $\pazocal{MAC}(\bar\alpha)$
 para $\bar\alpha$ fijo, pero con parámetro $\pazocal{RVP}$
 arbitrariamente peque\~no, haciendo que se degenere la
-cantidad $C(\bar c)$ en~\eqref{rvp}. Ponemos un ejemplo
-en la Figura~\ref{fig:tetraedros}. Adem\'as, como est\'a
+cantidad $C(\bar c)$ en~\eqref{rvpspanish}. Ponemos un ejemplo
+en la Figura~\ref{tetraedrosSpanish}. Adem\'as, como est\'a
 dicho en~\cite{aadl} mediante un contraejemplo, 
-la desigualdad~\eqref{rvp} no puede ser probada bajo
+la desigualdad~\eqref{rvpspanish} no puede ser probada bajo
 condici\'on de \'angulo m\'aximo solamente.
 
 Volviendo al segundo p\'arrafo, lo que dec\'iamos es que 
@@ -136,8 +136,8 @@ condic\'on  $\pazocal{MAC}(\bar\alpha)$ para $\alpha<\pi$,
 pero estos elementos no satisfacen la condici\'on de $\pazocal{RVP}(\bar c)$
 para ningún parámetro uniforme positivo $\bar c$.
 En consecuencia, la estimaci\'on 
-del error de interpolaci\'on~\eqref{rvp} no puede ser 
-usada de manera global y en cambio~\eqref{mac} debe ser tomada,
+del error de interpolaci\'on~\eqref{rvpspanish} no puede ser 
+usada de manera global y en cambio~\eqref{macspanish} debe ser tomada,
 y por esto las propiedades de anisotrop\'ia de las mallas
 pueden no traer ninguna ventaja. En otras palabras,
 en la segunda desigualdad una \emph{derivada grande} en
@@ -156,7 +156,7 @@ de las mallas uniformes, se hará claro en
 la Subsección~\ref{meshes} cuando propongamos nuestro proceso
 de mallado).
 
-\tetsTikz
+\tetsTikzSpanish
 
 Una idea para sobrellevar la mencionada dificultad, para
 el caso en que $\Omega$ es un dominio cil\'indrico 
