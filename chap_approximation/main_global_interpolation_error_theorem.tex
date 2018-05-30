@@ -7,22 +7,21 @@ Then, to estimate the approximation error of Theorem~\ref{auxlabel11},
 we will take the inequalities of
 Theorem~\ref{aux_label47} and use each term in the right--hand sides (cfr. Section~\ref{auxlabel400}).
 
-As in the meshing algorithm we proposed the pyramids turned out to be isotropic,
-we may use Proposition~\ref{propErrorInterpolacionPiramidesTetraedros} as the
+As in the meshing algorithm we proposed, the pyramids turned out to be isotropic,
+we will use Proposition~\ref{propErrorInterpolacionPiramidesTetraedros} as the
 local interpolation estimate.
-Nevertheless, starting with the anisotropic Finite Element stability estimates
-we proved in Theorem~\ref{aux_label53}  and in Theorem~\ref{aux_label54}   
-{\color{red} REESCRIBIR ESTO, ya no es "could" porque realmente las puse,
-a continuacion de las estabilidades. De paso, se arreglaria la duplicacion de aux label55}
-we could arrive at inequalities of the form~(\ref{aux_label39}) and~(\ref{aux_label55})
+Nevertheless, as we will show later, 
+we proved 
+anisotropic pyramidal finite element stability estimates
+in Theorems~\ref{aux_label53}  and~\ref{aux_label54}, and with them
+we obtained the results in Theorems~\ref{auxlabel402} and~\ref{auxlabel211}
 for the interpolation operators determined by the 
-finite elements in Definitions~\ref{aux_label50} and~\ref{aux_label71}
-and the estimates in terms of weighted norms would follow exactly as the ones
-we will perform in short for $h_E|u|_{1,E}$.                       %%%  At the end of this proof we include weighted
-
-Additionally, as we will say in Chapter~\ref{auxlabel202}, making use
-of our estimates in Theorem~\ref{auxlabel211} and Theorem~\ref{auxlabel402}
-we may as well propose a full Finite Elements Method as an alternative.\\[4pt]
+pyramidal finite elements in Definitions~\ref{aux_label50} and~\ref{aux_label71}.
+So, we could use those anisotropic estimates from Chapter~\ref{auxlabel202},
+and try to make the estimates in terms of weighted norms 
+exactly as were made for the anisotropic prisms in the method we present here.
+These observations are made to point out that we may as well 
+propose a full Finite Elements Method as an alternative.\\[6pt]
 The following is the main interpolation error theorem.
 \begin{theorem}\label{interpolation_theorem} Let $\Omega$ and $f$ be the data and $(\bu,p)$ be the 
 solution
