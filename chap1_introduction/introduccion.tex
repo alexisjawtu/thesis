@@ -40,8 +40,8 @@ en donde
 \[
 a(\bv,\bw)=\int_\Omega\bv\cdot\bw\,d\bx,\qquad b(\bv,q)=\int_\Omega q\,\mbox{div\,}\bv\,d\bx.
 \]
-Dado que $\Omega$ no es convexo, la solución $\bu$ 
-de~\ref{PSpanish} no pertenece a $H^1(\Omega)$ en
+Dado que $\Omega$ no es convexo, la soluci\'on $\bu$ 
+de~\eqref{PSpanish} no pertenece a $H^1(\Omega)$ en
 el caso general por tener singularidades de arista y 
 v\'ertice. En particular, cerca de aristas c\'oncavas,
 se espera que la soluci\'on sea m\'as regular a lo largo
@@ -49,40 +49,40 @@ de la direcci\'on de esa arista que transversalmente a ella
 (ver~\cite{apelNicaise}), y es por eso que las mallas
 tienen que ser adecuadamente graduadas y refinadas
 para recuperar el orden \'optimo de convergencia de 
-la sucesión de soluciones numéricas con respecto al 
-número de grados de libertad (ver~\cite{alw,apelNicaise}).
+la sucesi\'on de soluciones num\'ericas con respecto al 
+n\'umero de grados de libertad (ver~\cite{alw,apelNicaise}).
 Ese tipo de mallas contiene elementos que son tan
 estrechos como se quiera en direcci\'on ortogonal
 a las aristas c\'oncavas, con tal de tomarlos lo 
 suficientemente cerca de ellas. Si tom\'aramos 
-una sucesi\'on de mallas como esta hecha únicamente con
-tetraedros, incurriríamos en el uso de subfamilias de 
+una sucesi\'on de mallas como esta hecha \'unicamente con
+tetraedros, incurrir\'iamos en el uso de subfamilias de 
 estos que no verifican ciertas condiciones que son 
-necesarias para el an\'alisis anisótropo, y es aquí donde
+necesarias para el an\'alisis anis\'otropo, y es aqu\'i donde
 nuestro m\'etodo propuesto  con elementos de geometr\'ias
 diferentes cobra sentido.
 
-Para aclara lo \'ultimo y el principal resultado de esta
+Para aclarar lo \'ultimo y el principal resultado de esta
 Tesis (cfr.~\cite{alexisAriel}) ponemos las siguientes definiciones y resultados
 previos relacionados.
 
 Primero, $T$ satisface la \emph{propiedad del
-vértice regular}
+v\'ertice regular}
 con una 
 constante $\bar{c} > 0$ (escrito $T\in \pazocal{RVP}(\bar c)$) si
-$T$ tiene un vértice $\bx_T$ tal que,
+$T$ tiene un v\'ertice $\bx_T$ tal que,
 tomando $M_T$ como la  matriz cuyas columnas
 son los vectores unitarios en las direcciones
 de las aristas que comparten a $\bx_T$, entonces
 $|\det M_T| > \bar{c}$.
 
-Una propiedad geométrica menos restrictiva  es
+Una propiedad geom\'etrica menos restrictiva  es
 la siguiente. 
 Diremos que un tetraedro $T$ satisface la
-\emph{propiedad del ángulo máximo}
+\emph{propiedad del \'angulo m\'aximo}
 con par\'ametro $\bar\alpha$
 (escrito $T\in\pazocal{MAC}(\bar\alpha$))
-si los ángulos de las caras de $T$
+si los \'angulos de las caras de $T$
 y entre caras son menores a $\bar\alpha$. 
 
 Con estas dos nociones en mente, citamos el siguiente
@@ -99,10 +99,10 @@ $\bu\in H^1(T)^3$
 \end{IEEEeqnarray}
 donde escribimos
 $\xi_i$ para las coordenadas locales con origen
-en el vértice regular
+en el v\'ertice regular
 y $h_i$ para las longitudes
 de las aristas incidentes a \'el y 
-$h_T$ para el diámetro de $T$.
+$h_T$ para el di\'ametro de $T$.
 
 Por otro lado, si $T\in\pazocal{MAC}(\bar\alpha)$ entonces
 existe una $C(\bar\alpha)>0$
@@ -114,13 +114,13 @@ vale
   \|{\s\partial_{\xi_i}}\bu\|_{\sss L^2(T)^3}
 \end{IEEEeqnarray}
 ($\xi_i$ son coordenadas locales a partir de
-un vértice de $T$, pero
+un v\'ertice de $T$, pero
 no necesariamente tenemos uno regular).
 
 Observamos que la desigualdad~\eqref{macspanish} es estrictamente
-más débil que~\eqref{rvpspanish}, dado que hay elementos
-que satisfacen la condición $\pazocal{MAC}(\bar\alpha)$
-para $\bar\alpha$ fijo, pero con parámetro $\pazocal{RVP}$
+m\'as d\'ebil que~\eqref{rvpspanish}, dado que hay elementos
+que satisfacen la condici\'on $\pazocal{MAC}(\bar\alpha)$
+para $\bar\alpha$ fijo, pero con par\'ametro $\pazocal{RVP}$
 arbitrariamente peque\~no, haciendo que se degenere la
 cantidad $C(\bar c)$ en~\eqref{rvpspanish}. Ponemos un ejemplo
 en la Figura~\ref{tetraedrosSpanish}. Adem\'as, como est\'a
@@ -129,31 +129,31 @@ la desigualdad~\eqref{rvpspanish} no puede ser probada bajo
 condici\'on de \'angulo m\'aximo solamente.
 
 Volviendo al segundo p\'arrafo, lo que dec\'iamos es que 
-es posible construir mallas graduadas anisótropas para
-problemas elípticos en dominios con singularidades que
+es posible construir mallas graduadas anis\'otropas para
+problemas el\'ipticos en dominios con singularidades que
 consistan solamente de tetraedros que satisfacen 
 condic\'on  $\pazocal{MAC}(\bar\alpha)$ para $\alpha<\pi$,
 pero estos elementos no satisfacen la condici\'on de $\pazocal{RVP}(\bar c)$
-para ningún parámetro uniforme positivo $\bar c$.
+para ning\'un par\'ametro uniforme positivo $\bar c$.
 En consecuencia, la estimaci\'on 
 del error de interpolaci\'on~\eqref{rvpspanish} no puede ser 
 usada de manera global y en cambio~\eqref{macspanish} debe ser tomada,
 y por esto las propiedades de anisotrop\'ia de las mallas
 pueden no traer ninguna ventaja. En otras palabras,
 en la segunda desigualdad una \emph{derivada grande} en
-la dirección $\xi_i$ no estaría necesariamente compensada
-por un $h_i$ peque\~no, así que tendríamos que hacer
-peque\~no al diámetro $h_T$ y refinar las mallas en
+la direcci\'on $\xi_i$ no estar\'ia necesariamente compensada
+por un $h_i$ peque\~no, as\'i que tendr\'iamos que hacer
+peque\~no al di\'ametro $h_T$ y refinar las mallas en
 todas las direcciones, que es lo que queremos evitar, y
 perder\'iamos orden $\pazocal{O}(\textit{h})$ en la 
-convergencia del error numérico con la relación 
-asintótica $\textit{h}\sim N_{\Th}^{-\nicefrac13}$
- (aquí $\Th$ es una malla y $N_{\Th}$ es su 
+convergencia del error num\'erico con la relaci\'on 
+asint\'otica $\textit{h}\sim N_{\Th}^{-\nicefrac13}$
+ (aqu\'i $\Th$ es una malla y $N_{\Th}$ es su 
 cardinal; el significado concreto meaning 
-del parámetro de mallado $\textit{h}$, que no es
-el diámetro de sus elementos, como sí lo es en el caso
-de las mallas uniformes, se hará claro en 
-la Subsección~\ref{meshes} cuando propongamos nuestro proceso
+del par\'ametro de mallado $\textit{h}$, que no es
+el di\'ametro de sus elementos, como s\'i lo es en el caso
+de las mallas uniformes, se har\'a claro en 
+la Subsecci\'on~\ref{meshes} cuando propongamos nuestro proceso
 de mallado).
 
 \tetsTikzSpanish
@@ -161,35 +161,35 @@ de mallado).
 Una idea para sobrellevar la mencionada dificultad, para
 el caso en que $\Omega$ es un dominio cil\'indrico 
 poliedral, fue propuesta en~\cite{MR1866274}. En este caso,
-cuando $f$ está en $L^2(\Omega)$, la solución puede
+cuando $f$ est\'a en $L^2(\Omega)$, la soluci\'on puede
 exhibir solamente singularidades a lo largo de aristas
-cóncavas. Los autores proponen un m\'etodo mixto de 
+c\'oncavas. Los autores proponen un m\'etodo mixto de 
 Raviart--Thomas en mallas graduadas de prismas triangulares
-y probaron estimaciones óptimas de error por medio de 
-resultados de interpolación con anisotropía y de este modo
+y probaron estimaciones \'optimas de error por medio de 
+resultados de interpolaci\'on con anisotrop\'ia y de este modo
 los tetraedros que no satisfacen una propiedad 
 $\pazocal{RVP}$ uniforme son evitados. Tambi\'en proponen
-un m\'etodo similar con mallas de tetraedros anisótropos
+un m\'etodo similar con mallas de tetraedros anis\'otropos
  graduados obtenido subdividiendo cada prisma entre tres
  tetraedros. Por supuesto, estas mallas contienen a los 
 tetraedros malosm, y para obtener estimaciones
-de error óptimas el precio pagado es el de requerir m\'as
-regularidad al dato $f$, más precisamente, debe pertenecer
+de error \'optimas el precio pagado es el de requerir m\'as
+regularidad al dato $f$, m\'as precisamente, debe pertenecer
 a un espacio de Sobolev con pesos.
 
 Uno de los resultados presentados en esta Tesis extiende
 los resultados de~\cite{MR1866274} puesto que nuestro
-m\'etodo fue buscado con el propósito de poder
-lidiar con la aproximación mixta de~\eqref{mfSpanish}
+m\'etodo fue buscado con el prop\'osito de poder
+lidiar con la aproximaci\'on mixta de~\eqref{mfSpanish}
 para $f\in L^2(\Omega)$, y tambi\'en para un poliedro
 cualquiera $\Omega$. Como estos dominios no necesariamente
-admiten una partición en términos de prismas rectos y como
-también nosotros quisiéramos evitar pedir
-más regularidad al dato $f$, proponemos una discretización
-basada en mallas híbridas consistentes en prismas combinados
+admiten una partici\'on en t\'erminos de prismas rectos y como
+tambi\'en nosotros quisi\'eramos evitar pedir
+m\'as regularidad al dato $f$, proponemos una discretizaci\'on
+basada en mallas h\'ibridas consistentes en prismas combinados
 con tetraedros, con brechas interelementales rellenadas
-con pirámides. Obtenemos la estimación del error de
-aproximación
+con pir\'amides. Obtenemos la estimaci\'on del error de
+aproximaci\'on
 \begin{equation}\label{auxlabel410}
  \|\bu-\bu_{\textit h}\|_{L^2(\Omega)^3} + \|p-p_{\textit h}\|_{L^2(\Omega)} 
  \leqslant C\,\textit{h}\|f\|_{L^2(\Omega)}{\mbox{,}}
@@ -200,34 +200,34 @@ de estimaciones con normas de Sobolev con pesos
 (para $\bu$) tratando las singularidades de manera 
 localizada. Primero introducimos y analizamos por completo
 un nuevo
-método combinado de Elementos Finitos y Virtuales
+m\'etodo combinado de Elementos Finitos y Virtuales
 en un poliedro cuando las mallas son construidas con
 los mencionados poliedros elementales. Las estimaciones
-de interpolación locales obtenidas 
+de interpolaci\'on locales obtenidas 
 para los espacios discretos son
-óptimas y anisótropas en prismas anisótropos, lo que 
-nos permite obtener estimaciones óptimas de error de
-aproximación cuando la solución tiene tanto singularidades
-de aristas como de vértices, usando
+\'optimas y anis\'otropas en prismas anis\'otropos, lo que 
+nos permite obtener estimaciones \'optimas de error de
+aproximaci\'on cuando la soluci\'on tiene tanto singularidades
+de aristas como de v\'ertices, usando
 mallas graduadas adecuadamente que incluyen
-elementos anisótropos, y que solamente incluyen tetraedros
-con un parámetro de condición $\pazocal{RVP}$ uniforme positivo.
+elementos anis\'otropos, y que solamente incluyen tetraedros
+con un par\'ametro de condici\'on $\pazocal{RVP}$ uniforme positivo.
 
 No solamente probamos el resultado para una familia abstracta
 de tales mallas con las mencionadas propiedades,
- sino que también mostramos un proceso general de mallado
+ sino que tambi\'en mostramos un proceso general de mallado
  que comienza aislando y clasificando las singularidades
 del dominio (cfr. Teorema~\ref{thm_regularity}), y
 con eso probamos la existencia de una familia de mallas
-como la requerimos mediante su construcción.
+como la requerimos, mediante su construcci\'on.
 
 Los espacios discretos $V_{\textit h}$ correspondientes
 a las mallas propuestas fueron obtenidos satisfaciendo
-las siguientes condiciones, adecuadas para una discretización
+las siguientes condiciones, adecuadas para una discretizaci\'on
 en $\mathbb{R}^3$.
 \begin{enumerate}
 	\item \label{auxlabel411} Conformidad.
-	\item \label{auxlabel412} Propiedades de aproximación anisótropas y óptimas.
+	\item \label{auxlabel412} Propiedades de aproximaci\'on anis\'otropas y \'optimas.
 	\item \label{auxlabel413} Generalidad de dominio.
 \end{enumerate}
 Tal como es sugerido en~\cite{bfm} para el caso $2D$,
@@ -237,106 +237,106 @@ $3D$ de Raviart--Thomas en tetraedros y prismas, y lo
 extiende de manera natural a elementos piramidales. 
 En particular, las componentes normales de las
 funciones discretas son constantes sobre las caras de
-los elementos, coincidiendo de manera conforme a través 
-de caras comunes a elementos de distinta geometría. De
+los elementos, coincidiendo de manera conforme a trav\'es 
+de caras comunes a elementos de distinta geometr\'ia. De
 este modo el requerimiento~\ref{auxlabel411} fue satisfecho.
-Una ventaja de esta presentación es que la definición
-de los espacios locales es independiente de la geometría 
-del elemento, ver Sección~\ref{auxlabel290}. Como ya comentamos,
+Una ventaja de esta presentaci\'on es que la definici\'on
+de los espacios locales es independiente de la geometr\'ia 
+del elemento, ver Secci\'on~\ref{auxlabel290}. Como ya comentamos,
 el \'item~\ref{auxlabel413} es verificado mediante la 
-incorporación de pirámides de base paralelogramo.
+incorporaci\'on de pir\'amides de base paralelogramo.
 Con respecto al punto~\ref{auxlabel412}, presentamos
-estimaciones óptimas de estabilidad y de interpolación
-anisótropas en varias partes aunque no todas ellas
-son usadas en la aplicación final, en algunos casos
+estimaciones \'optimas de estabilidad y de interpolaci\'on
+anis\'otropas en varias partes aunque no todas ellas
+son usadas en la aplicaci\'on final, en algunos casos
 porque los espacios funcionales para los cuales son usadas
 no se ven involucrados en el problema 
 modelo~\eqref{PSpanish} y en otros casos porque
 nuestro esquema de mallado funciona sin requerir
 que los elementos de todos los tipos presenten 
-anisotropía.
+anisotrop\'ia.
 
-También podrían ser consideradas mallas con elementos
-de geometría más general. De hecho esta es una 
-de las principales propiedades de los métodos
+Tambi\'en podr\'ian ser consideradas mallas con elementos
+de geometr\'ia m\'as general. De hecho esta es una 
+de las principales propiedades de los m\'etodos
 de elementos virtuales. Nosotros decidimos
-restringirnos a unas pocas geometrías elementales
+restringirnos a unas pocas geometr\'ias elementales
 pues nuestro principal objetivo fue admitir 
-mallas anisótropas, y con estimaciones anisótropas
-uniformemente válidas. Una dificultad que aparece
-cuando se consideran otras geometrías elementales 
-(como prismas oblícuos) es que los espacios virtuales
+mallas anis\'otropas, y con estimaciones anis\'otropas
+uniformemente v\'alidas. Una dificultad que aparece
+cuando se consideran otras geometr\'ias elementales 
+(como prismas obl\'icuos) es que los espacios virtuales
 locales no necesariamente se ve preservado 
 por transformaciones \emph{push--forward} basadas 
 en aplicaciones afines (nosotros 
 usamos una propiedad de $\bcurl$ nulo que no
-es invariante en esta situación), con
+es invariante en esta situaci\'on), con
 la consecuencia de que los argumentos de
-reescalado estándar son difíciles de usar
-(ver~\ref{auxlabel290}). Sin embargo, esto no deviene
-en una limitación en los dominios poliedrales que
-podemos tratar con nuestro método, pues podemos
+reescalado est\'andar son dif\'iciles de usar
+(ver Secci\'on~\ref{auxlabel290}). Sin embargo, esto no deviene
+en una limitaci\'on en los dominios poliedrales que
+podemos tratar con nuestro m\'etodo, pues podemos
 restringirnos a usar prismas rectos duplicando, en el
-peor de los casos, el número de elementos de la
-primera malla, y así aumentando el número de elementos
+peor de los casos, el n\'umero de elementos de la
+primera malla, y as\'i aumentando el n\'umero de elementos
 en una malla cualquiera posterior en un factor constante.
 
-Nuestro método presenta distinta cantidad de grados
-de libertad a través de la malla, pues prismas, tetraedros
-y pirámides tienen distinta cantidad de caras, y también
-admite distintas geometrías para los grados de libertad pues
-estamos trabajando con caras triangulares y cuadriláteras
-al mismo tiempo. Como consecuencia de esto, nuestro método
-es en cierto sentido una generalización de los
-métodos de elementos virtuales clásicos, en los cuales todos
-los elementos tienen la misma geometría arbitraria, y de 
-cada elemento de toma el mismo número de grados de libertad, todos
-del mismo tipo (por ejemplo, evaluación en los mismos puntos en
+Nuestro m\'etodo presenta distinta cantidad de grados
+de libertad a trav\'es de la malla, pues prismas, tetraedros
+y pir\'amides tienen distinta cantidad de caras, y tambi\'en
+admite distintas geometr\'ias para los grados de libertad pues
+estamos trabajando con caras triangulares y cuadril\'ateras
+al mismo tiempo. Como consecuencia de esto, nuestro m\'etodo
+es en cierto sentido una generalizaci\'on de los
+m\'etodos de elementos virtuales cl\'asicos, en los cuales todos
+los elementos tienen la misma geometr\'ia arbitraria, y de 
+cada elemento de toma el mismo n\'umero de grados de libertad, todos
+del mismo tipo (por ejemplo, evaluaci\'on en los mismos puntos en
 el borde de cada elemento).
 
-Las mallas híbridas que incluyen tetraedros y prismas (y hasta
+Las mallas h\'ibridas que incluyen tetraedros y prismas (y hasta
 hexaedros) pueden ser necesarias para satisfaces las demandas
-de la geometría específica de un problema (regiones no triviales)
-o para alcanzar cálculos eficientes. Si se requiere que estas mallas
-eviten nodos colgantes entonces a menudo incluirán pirámides; ver
+de la geometr\'ia espec\'ifica de un problema (regiones no triviales)
+o para alcanzar c\'alculos eficientes. Si se requiere que estas mallas
+eviten nodos colgantes entonces a menudo incluir\'an pir\'amides; ver
 por ejemplo~\cite{owenSaigal}. Varios art\'iculos contienen
-la construcción de elementos finitos conformes en pirámides,
+la construcci\'on de elementos finitos conformes en pir\'amides,
 algunos de los cuales son~\cite{bergot} 
 para elementos $H^1$ y~\cite{gh99, Nigam-2012}
 para elementos $H(\mbox{div})$ y $H({\bf curl})$,
 el primero para orden bajo y el segundo para orden arbitrario.
 En~\cite{Nigam-2012} los autores prueban que no es posible
-construir elementos finitos $H^1$ útiles en pirámides
+construir elementos finitos $H^1$ \'utiles en pir\'amides
 usando solamente funciones polinomiales y muestran que, 
 en el caso $H(\mbox{div})$,
 todos los espacios construidos en la literatura contienen
 funciones no polinomiales.
 
-Queremos finalizar esta introducción mencionando otros
+Queremos finalizar esta introducci\'on mencionando otros
 resultados que obtuvimos, presentados como resultados
 adicionales porque no fueron usados para el problema principal 
 de la Tesis, y que pueden ser vistos como extensiones 
-de ciertos resultados teóricos.
+de ciertos resultados te\'oricos.
 
-Probamos estimaciones locales anisótropas 
+Probamos estimaciones locales anis\'otropas 
 de estabilidad y de error 
-de interpolación para elementos finitos prismáticos
+de interpolaci\'on para elementos finitos prism\'aticos
 tanto para las clases de elementos 
 $\bcurl$--conformes como para las div--conformes.
-Nuestro método usa solo el caso de orden bajo de las 
-estimaciones en $H(\Div)$ y dejamos una versión 
-de orden alto del método para investigaciones futuras.
+Nuestro m\'etodo usa solo el caso de orden bajo de las 
+estimaciones en $H(\Div)$ y dejamos una versi\'on 
+de orden alto del m\'etodo para investigaciones futuras.
 
-Finalmente, obtuvimos y presentamos estimaciones locales anisótropas 
+Finalmente, obtuvimos y presentamos estimaciones locales anis\'otropas 
 de estabilidad y de error 
-de interpolación para los elementos finitos piramidales
+de interpolaci\'on para los elementos finitos piramidales
 introducidos en~\cite{gh99, Nigam-2012} 
 tanto para las clases de elementos 
 $\bcurl$--conformes como para las div--conformes.
-Como mostramos en el Capítulo~\ref{auxlabel202}, las funciones
+Como mostramos en el Cap\'itulo~\ref{auxlabel202}, las funciones
 de forma que generan estos espacios son racionales y singulares,
-aunque acotadas, en la pirámide de referencia. Por esta 
-razón consideramos que nuestro método combinado FE--VE
+aunque acotadas, en la pir\'amide de referencia. Por esta 
+raz\'on consideramos que nuestro m\'etodo combinado FE--VE
 presenta una ventaja, la de evitar las evaluaciones de 
 funciones con esas propiedades en implementaciones en
 computadoras.

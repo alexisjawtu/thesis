@@ -96,7 +96,7 @@ $\dim(P_{\hat{E}}) = k^2\,(k+2) + k\,(k+1)^2/2$
 which is, at the same time, equal to the number of its independent degrees of freedom.
 \end{proposition}
 \begin{proof}
-  From~(\ref{tensor_prod_dim}) and~(\ref{dk}) it is really straightforward to do
+  From Remark~\ref{tensor_prod_dim} and~(\ref{dk}) it is really straightforward to do
   \begin{IEEEeqnarray*}{rCl}
     \dim (P_{k-1}^2(\hat x_1,\hat x_2) \oplus \widetilde{P}_{k-1}(\hat x_1,\hat x_2))
     \otimes P_{k-1}(\hat x_3) + \dim P_{k-1,k} & = &\\[5pt]
@@ -278,7 +278,7 @@ An illustrative example.
 \end{example}
 The following can be proved exactly as in~\cite{monk}, Lemma 5.38.
 \begin{remark}
-Given $p>2$, the degrees of freedom~(\ref{momentos1hcurl}),~(\ref{momentos2hcurl}),~(\ref{momentos3hcurl}),~(\ref{momentos4hcurl}),~(\ref{momentos5hcurl}) and~(\ref{momentos6hcurl}) 
+Given $p>2$, the degrees of freedom~(\ref{momentos1hcurl})--(\ref{momentos6hcurl}) 
 are well defined and bounded as linear functionals from
 $W^{1,p}(\hat{E})$ to $\mathbb{R}$.
 \end{remark}
@@ -337,10 +337,11 @@ and finally
 \end{IEEEeqnarray*}
 Immediately we arrive at $\dim P_{\hat E} = 3\frac{k(k+1)(k+2)}{2}$.
 \end{remark}
-The following result can be found in~\cite[page 75]{nedelec2} only for the reference
-element.
+The following result, only for the reference
+element, can be found in~\cite[page 75]{nedelec2}.
 \begin{lemma}
-  The Finite Element in Definition~\ref{edgeelement} is unisolvent in $\hat E$.
+  The degrees of freedom of the finite element in Definition~\ref{edgeelement} 
+  are unisolvent in $\hat E$.
 \end{lemma}
 Later we will establish the unisolvence of a general finite element of
 this family on an arbitrary physical prism. The most important consequence of
