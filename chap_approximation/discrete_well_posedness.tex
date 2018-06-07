@@ -56,8 +56,9 @@ in every $E\in\Th$, $\bw_h^*|_E := I(\bw^*|_E)$, as defined in
 Corollary~\ref{interpolant}. As a consequence of Proposition~\ref{vem_equal_fem}
 and because we are considering the exact same degrees of freedom, this
 interpolation operator coincides, in the lowest order case, with the
-$H(\Div)$--conforming operators in Definitions~\ref{sub:definition_of_the_h_div_element_on_prisms}
-and~\ref{defi_face_element_tetra}. 
+$H(\Div)$--conforming operators determined by the finite elements
+in Definitions~\ref{defi_h_div_conforme}
+and~\ref{defi_face_element_tetra} for prisms and tetraedra. 
 
 For prismatic elements we use the estimate in Remark~\ref{auxlabel4} which, together
 with the anisotropic rescalings  used in Theorem~\ref{aux_label46}, applies 
@@ -70,7 +71,7 @@ all these together and~(\ref{bound_w}) for all cases we get
   C(1+\textit{h})\|\bw^*\|_{H^1(\Omega)}
   \leqslant\frac{C(1+\textit{h})}{\beta^*}\|q^*\|_{Q}.
 \]
-Besides, since $q^*\in Q_h$, by~(\ref{p0_projection}) we have
+Besides, since $q^*\in Q_h$, by Lemma~\ref{p0_projection} we have
 \[
   \dv I\bw^*=P_0\,\dv\bw^*=P_0\,q^*=q^*.
 \]
@@ -102,16 +103,16 @@ and
 \end{IEEEeqnarray*}
 as we wanted.
 \end{proof}
-\begin{theorem} Problem~(\ref{mixedDiscrete}) has a unique solution.
+\begin{theorem} Problem~\ref{mixedDiscrete} has a unique solution.
 \end{theorem}
 \begin{proof}
   Theorem 5.2 of~\cite{ricardoMixed} states that 
-  Problem~(\ref{mixedDiscrete}) has a unique solution
+  Problem~\ref{mixedDiscrete} has a unique solution
   provided~(\ref{discrete_inf_sup_b})  holds and 
   that there exists some $\alpha>0$ such that for all $\bu\in\Kb_{\Th}$
 \begin{IEEEeqnarray*}{rCl}\label{discrete_inf_sup_a} 
   \sup_{0\ne\bv\in \Kb_{\Th}}
-  \frac{a_{\textit{h}}(\bu,\bv)}{\|\bv\|_{V_h}} &\geqslant& \alpha\|\bu\|_{V_h}
+  \frac{a_{\textit{h}}(\bu,\bv)}{\|\bv\|_{V_h}} &\geqslant& \alpha\|\bu\|_{V_h}\mbox{,}
 \end{IEEEeqnarray*}
   but this is implied by the coercivity of $a_{\textit{h}}$
 since
@@ -151,7 +152,7 @@ analysis similar to the one based on virtual elements using the finite elements
 on pyramids 
 treated in Theorems~\ref{aux_label53} and~\ref{aux_label54}. 
 \begin{theorem}\label{aux_label47} The solution $(\bu_{\textit{h}},p_{\textit{h}})$
-of~(\ref{mixedDiscrete}) satisfies,
+of Problem~\ref{mixedDiscrete} satisfies,
 for every approximation $\bw$ of $\bu$ in
 $W(\Th)$,
 \begin{IEEEeqnarray}{rCl}
