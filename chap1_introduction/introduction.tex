@@ -2,7 +2,8 @@
 \addcontentsline{toc}{chapter}{Introduction} \markboth{INTRODUCTION}{}
 
 A physical object is anisotropic if it exhibits vectorial physical
-properties with different magnitudes when measured in different directions. In the case of
+properties with different magnitudes when measured in different 
+directions (cfr.~\cite{jamet}). In the case of
 a numerical method we say that the family of meshes used is anisotropic if it 
 contains sequences of elements such that the decrease order of their sizes along
 one coordinate direction is higher than along other independent directions. 
@@ -81,7 +82,7 @@ With these two notions in mind we need to start with the following result
 from~\cite{aadl}.
 If $T$ is a tetrahedron in $\pazocal{RVP}(\bar c)$ and $\br_{\sss k,T}$ 
 is the Raviart-Thomas interpolation 
-operator (see~\cite{nedelec2, MR0483555}), then there is a positive $C(\bar c)$
+operator (see~\cite{nedelec2,MR0483555,thomas}), then there is a positive $C(\bar c)$
 such that for all  
 $\bu\in H^1(T)^3$
 \begin{IEEEeqnarray}{rCl}\label{rvp}
@@ -212,7 +213,7 @@ The space $V_{\textit h}$ is $H(\mbox{div})$-conforming.
 \item \label{punto2} Optimal and anisotropic approximation properties: 
 Optimal interpolation error estimates are valid even on this family of 
 meshes which do not satisfy the standard shape--regularity condition 
-(cfr. Definition~\ref{auxlabel403} and see~\cite{ciarlet}).
+(cfr. Definition~\ref{auxlabel403} and see~\cite{brennerscott,ciarlet}).
 \item \label{punto3} Domain generality: The space is well defined on 
 conforming meshes without restricting the 
 considered domains to few special polyhedra. 
@@ -228,7 +229,11 @@ elements, fitting well across different shape's elements.
 In this way requirement~\ref{punto1} is verified. 
 One advantage of this presentation, is that the definition of the local spaces 
 is independent of the 
-geometry of the element, see Section~\ref{auxlabel290}. 
+geometry of the element, see Section~\ref{auxlabel290}.
+Also, in~\cite{MR3660301}, an analogous
+space, but of arbitrary order, was introduced to discretize an acoustic flow 
+free vibration problem in a
+bounded rigid cavity in $\mathbb{R}^2$.
 As we already commented, item~\ref{punto3} in the previous list is fulfilled
 by incorporating the pyramids of parallelogram basis to a grid with triangular
 right prisms and tetrahedra.
