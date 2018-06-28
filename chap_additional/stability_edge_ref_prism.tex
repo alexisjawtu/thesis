@@ -249,15 +249,22 @@ combine this last property with~(\ref{rot_3_es_0}) we prove that $\hat{\xi}_2$
 does not depend on $\hat{x}_2$.
 \end{proof}
 \begin{lemma}\label{pi00u3} 
-If $\hat{\bu}\xyz=(0,0, \hat{u}_3\xyz)^t$, then
-$\wku\xyz = (0,0,\hat\xi_3\xyz)^t$ for some
+If $\hat\bu$ is of the form 
+\[
+  \hat{\bu}\xyz=(0,0,\hat{u}_3\xyz)^t\mbox{,}
+\]
+then $\wku$ is of the form
+\[
+  \wku\xyz = (0,0,\hat\xi_3\xyz)^t
+\]
+for some
 $\hat\xi_3 \in {P}_k(\hat{f}_3)\otimes
 {P}_{k-1}(\hat{x}_3)$.
 \end{lemma}
 \begin{proof} We will work again with
 expression~(\ref{expr_wku}).
 %but we will write with less details than in the previous two Lemmas
-By expression~(\ref{expre_h}) for $(\curl\wku)_3$
+By expression~(\ref{expre_h}) %for $(\curl\wku)_3$
 and the commutativity in equation~(\ref{curl_commutativity}),
 if we apply degrees of freedom~(\ref{momentos1hdiv})
 to $\curl\hat\bu$ we obtain that
@@ -491,9 +498,11 @@ $\hat\br = (\hat r_1, \hat r_2, \hat r_3)'$ belonging to the space
 P_{k-1}(\hat{x}_3)
 \]
 (cfr. degree of freedom~(\ref{momentos6hcurl}))
-and let $\hat\varphi_2$ be defined in such a way that
-$\varphi_2\xyz = \int_{1-\hat{x}_2}^{\hat{x}_1} 
-\hat{r}_2(\hat{t},\hat{x}_2,\hat{x}_3)\,d\hat{t}$.
+and let $\hat\varphi_2$ be defined by
+\[
+\varphi_2\xyz = \int_{1-\hat{x}_2}^{\hat{x}_1} 
+\hat{r}_2(\hat{t},\hat{x}_2,\hat{x}_3)\,d\hat{t}.
+\]
 %, para el cual
 %vale 
 %$\partial_x\varphi_2 = \hat{r}_2 $
