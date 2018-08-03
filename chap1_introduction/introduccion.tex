@@ -18,7 +18,7 @@ Este es el caso, por ejemplo, cuando se trata con la
 ecuaci\'on de Poisson en un poliedro 
 $\Omega\subseteq\mathbb{R}^3$ con aristas y v\'ertices
 c\'oncavos, la cual, introduciendo la variable vectorial
-$\bu=\nabla$ puede escribirse en forma mixta como
+$\bu=\nabla p$ puede escribirse en forma mixta como
 \begin{equation}\label{mfSpanish} 
 \left\{\begin{IEEEeqnarraybox*}[][c]{,r/c/c/c/l,}
 	&&&&\\
@@ -91,7 +91,7 @@ resultado de~\cite{aadl}. Si $T$ es un tetraedro en
 $\pazocal{RVP}(\bar c)$ y $\br_{\sss k,T}$ 
 es el interpolador de Raviart-Thomas
 (ver~\cite{nedelec2, MR0483555}), entonces existe una
-$C(\bar c)>0$ tal que para toda  
+$C>0$ que depende solamente de $\bar{c}$ tal que para toda  
 $\bu\in H^1(T)^3$
 \begin{IEEEeqnarray}{rCl}\label{rvpspanish}
   \|\bu-\br_{\sss k,T}\bu\|_{\sss L^2(T)^3}& \leqslant & C 
@@ -106,7 +106,7 @@ de las aristas incidentes a \'el y
 $h_T$ para el di\'ametro de $T$.
 
 Por otro lado, si $T\in\pazocal{MAC}(\bar\alpha)$ entonces
-existe una $C(\bar\alpha)>0$
+existe una $C>0$ que depende solamente de $\bar\alpha$
 tal que 
 para toda $\bu\in H^1(T)^3$
 vale

@@ -23,24 +23,26 @@ local
 para el espacio discreto son \'optimas y 
 anis\'otropas en prismas rectos anis\'otropos. La motivaci\'on
 para trabajar con elementos anis\'otropos es que en
-distintas situaciones en aproximaciones por elmentos finitos mixtos
+distintas situaciones en aproximaciones por elementos finitos mixtos
 es necesario el uso de mallas con elementos elongados.
 Este es el caso, por ejemplo, con la ecuaci\'on de Poisson en un
 poliedro $\Omega$ con aristas c\'oncavas y v\'ertices entrantes,
 que en forma mixta puede escribirse como
-\begin{equation*}\label{auxlabel425} \left\{\begin{array}{rcl}
-\boldsymbol{u}&=&-\nabla p\qquad \mbox{in }\Omega\\
-\dv\boldsymbol{u}&=&f\qquad \mbox{in }\Omega\\
-p&=&0\qquad\mbox{on }\partial\Omega.\end{array}\right.
+\begin{equation*}\label{auxlabel425} 
+\left\{\begin{array}{rcll}
+	\boldsymbol{u}&=&-\nabla p& \mbox{en }\Omega\\
+	\dv\boldsymbol{u}&=&f& \mbox{en }\Omega\\
+	p&=&0&\mbox{en }\partial\Omega.\end{array}
+\right.
 \end{equation*}
 En este caso la variable vectorial de la soluci\'on, $\boldsymbol{u}$,
-no est\'a en $H^1(\Omega)$ en el caso general debido a las singularidades 
+no est\'a en $H^1(\Omega)$ en el caso ge\-ne\-ral debido a las singularidades 
 de aristas y v\'ertices. En particular, cerca de las aristas c\'oncavas,
 $\boldsymbol{u}$ es m\'as regular en la direcci\'on a lo largo de \'estas
 que transversalmente, y consecuentemente las mallas tienen que ser
 adecuadamente refinadas para recuperar el orden \'optimo de convergencia
 con respecto al n\'umero de grados de libertad. Tales mallas  contienen
-elementos arbitrariamente alargados en la direcci\'on de las aristas sigulares.
+elementos arbitrariamente alargados en la direcci\'on de las aristas singulares.
 
 Asimismo, proponemos un proceso de mallado
 para construir una familia de mallas que nos permite
