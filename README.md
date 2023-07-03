@@ -1,3 +1,3 @@
-# tesis
+# thesis
 ## phd thesis source
 
